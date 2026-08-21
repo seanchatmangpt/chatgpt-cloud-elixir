@@ -3,6 +3,14 @@ defmodule AshEtsSmokeTest do
 
   alias AshEtsSmoke.Ticket
 
+  setup do
+    Ticket
+    |> Ash.read!()
+    |> Enum.each(&Ash.destroy!/1)
+
+    :ok
+  end
+
   test "real Ash create/read/update/destroy path executes through ETS" do
     created =
       Ticket
