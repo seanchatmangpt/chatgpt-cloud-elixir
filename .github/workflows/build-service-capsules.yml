@@ -1,0 +1,57 @@
+name: Build Service Capsules
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-service-capsules-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: postgres17
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Manufacture PostgreSQL service capsule
+        shell: bash
+        run: |
+          set -euo pipefail
+          export GITHUB_SHA="${{ github.event.pull_request.head.sha || github.sha }}"
+          chmod +x scripts/*.sh
+          scripts/build-postgres-capsule.sh postgres17
+
+      - name: Verify fresh extracted consumer
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$(ls dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz)"
+          expected="$(awk '{print $1}' "$archive.sha256")"
+          actual="$(sha256sum "$archive" | awk '{print $1}')"
+          test "$expected" = "$actual"
+          rm -rf consumer
+          mkdir consumer
+          tar -xzf "$archive" -C consumer
+          CAPSULE_ARCHIVE_DIGEST="$actual" CAPSULE_NETWORK_MODE=loopback_only \
+            bash consumer/scripts/verify-postgres-capsule.sh
+          cp consumer/receipt.json dist/postgres17-consumer-receipt.json
+
+      - name: Upload PostgreSQL service capsule
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64
+          path: |
+            dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz
+            dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz.sha256
+            dist/postgres17-consumer-receipt.json
+          if-no-files-found: error
+          retention-days: 14
