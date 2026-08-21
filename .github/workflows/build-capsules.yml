@@ -2,9 +2,7 @@ name: Build Capsules
 
 on:
   push:
-    branches:
-      - main
-      - feat/**
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -13,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: build-capsules-${{ github.event.pull_request.number || github.ref }}
+  group: build-capsules-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
