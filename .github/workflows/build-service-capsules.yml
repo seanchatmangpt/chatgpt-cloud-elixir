@@ -31,21 +31,33 @@ jobs:
           scripts/build-postgres-capsule.sh postgres17
 
       - name: Verify fresh extracted consumer
+        id: consumer
         shell: bash
         run: |
-          set -euo pipefail
+          set -uo pipefail
           archive="$(ls dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz)"
           expected="$(awk '{print $1}' "$archive.sha256")"
           actual="$(sha256sum "$archive" | awk '{print $1}')"
-          test "$expected" = "$actual"
+          test "$expected" = "$actual" || exit $?
           rm -rf consumer
           mkdir consumer
-          tar -xzf "$archive" -C consumer
+          tar -xzf "$archive" -C consumer || exit $?
+          set +e
           CAPSULE_ARCHIVE_DIGEST="$actual" CAPSULE_NETWORK_MODE=loopback_only \
             bash consumer/scripts/verify-postgres-capsule.sh
-          cp consumer/receipt.json dist/postgres17-consumer-receipt.json
+          status=$?
+          set -e
+          if [[ -f consumer/receipt.json ]]; then
+            cp consumer/receipt.json dist/postgres17-consumer-receipt.json
+          fi
+          if [[ -f consumer/verification.log ]]; then
+            cp consumer/verification.log dist/postgres17-verification.log
+          fi
+          printf '%s\n' "$status" > dist/postgres17-consumer-exit-code.txt
+          exit "$status"
 
-      - name: Upload PostgreSQL service capsule
+      - name: Upload PostgreSQL service diagnostics
+        if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64
@@ -53,5 +65,7 @@ jobs:
             dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz
             dist/chatgpt-cloud-elixir-postgres17-pg17.11-linux-x86_64.tar.gz.sha256
             dist/postgres17-consumer-receipt.json
-          if-no-files-found: error
+            dist/postgres17-verification.log
+            dist/postgres17-consumer-exit-code.txt
+          if-no-files-found: warn
           retention-days: 14
