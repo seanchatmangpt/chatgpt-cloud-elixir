@@ -10,7 +10,7 @@ defmodule AshEtsSmoke.Ticket do
   end
 
   identities do
-    identity :unique_name, [:name]
+    identity :unique_name, [:name], pre_check_with: AshEtsSmoke.Domain
   end
 
   validations do
@@ -23,7 +23,7 @@ defmodule AshEtsSmoke.Ticket do
 end
 
 defmodule AshEtsSmoke.Domain do
-  use Ash.Domain
+  use Ash.Domain, validate_config_inclusion?: false
 
   resources do
     resource AshEtsSmoke.Ticket
