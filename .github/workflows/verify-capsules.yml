@@ -1,0 +1,55 @@
+name: Verify Capsules
+
+on:
+  workflow_run:
+    workflows: ["Build Capsules"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Build Capsules workflow run ID"
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  replay:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [beam-core, ash-core, ash-postgres, ash-phoenix, ash-full]
+    steps:
+      - name: Select source run
+        id: run
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "id=${{ inputs.run_id }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "id=${{ github.event.workflow_run.id }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download manufactured artifact
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          name: chatgpt-cloud-elixir-${{ matrix.variant }}-otp29-elixir1.20.2-linux-x86_64
+          run-id: ${{ steps.run.outputs.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: transported
+
+      - name: Replay transported capsule
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$(ls transported/chatgpt-cloud-elixir-${{ matrix.variant }}-*.tar.gz)"
+          expected="$(awk '{print $1}' "$archive.sha256")"
+          actual="$(sha256sum "$archive" | awk '{print $1}')"
+          test "$expected" = "$actual"
+          mkdir consumer
+          tar -xzf "$archive" -C consumer
+          CAPSULE_ARCHIVE_DIGEST="$actual" bash consumer/scripts/run-offline.sh

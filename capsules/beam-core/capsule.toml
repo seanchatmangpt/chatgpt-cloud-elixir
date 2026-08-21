@@ -1,0 +1,8 @@
+schema_version = 1
+name = "beam-core"
+description = "Portable OTP, Elixir, Mix, Hex and Rebar runtime with a plain Mix acceptance project."
+fixture = "mix_smoke"
+packages = []
+required_modules = []
+requires_services = []
+acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]

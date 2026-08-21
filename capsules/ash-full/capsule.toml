@@ -1,0 +1,8 @@
+schema_version = 1
+name = "ash-full"
+description = "Maximal admitted compatible Ash ecosystem closure. External services remain separately admitted."
+fixture = "ash_ets_smoke"
+packages = ["ash", "spark", "reactor", "igniter", "ash_postgres", "ash_phoenix", "ash_json_api", "ash_authentication", "ash_oban", "ash_state_machine", "ash_archival", "ash_money", "ash_cloak", "ash_graphql", "ash_ai"]
+required_modules = ["Ash", "Spark", "Reactor", "Igniter", "AshPostgres", "AshPhoenix", "AshJsonApi", "AshAuthentication", "AshOban", "AshStateMachine", "AshArchival", "AshMoney", "AshCloak", "AshGraphql", "AshAi"]
+requires_services = ["postgresql_for_service_level_tests"]
+acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]

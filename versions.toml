@@ -1,0 +1,31 @@
+schema_version = 1
+
+[runtime]
+otp = "29.0"
+elixir = "1.20.2"
+
+[packages]
+ash = "3.32.0"
+spark = "2.7.2"
+reactor = "1.0.6"
+igniter = "0.8.3"
+ash_postgres = "2.12.0"
+ash_phoenix = "2.3.24"
+ash_json_api = "1.7.1"
+ash_authentication = "5.0.0-rc.12"
+ash_oban = "0.8.13"
+ash_state_machine = "0.2.13"
+ash_archival = "2.0.3"
+ash_money = "0.2.6"
+ash_cloak = "0.3.1"
+ash_graphql = "1.10.1"
+ash_ai = "0.8.2"
+
+[platforms.linux_x86_64]
+os = "linux"
+arch = "x86_64"
+status = "admitted"
+
+[standing]
+default = "UNKNOWN"
+allowed = ["UNKNOWN", "PARTIAL_ALIVE", "ALIVE", "BLOCKED", "BUILD_BROKEN", "UNSUPPORTED"]
