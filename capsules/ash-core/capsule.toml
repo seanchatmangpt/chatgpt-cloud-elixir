@@ -1,0 +1,8 @@
+schema_version = 1
+name = "ash-core"
+description = "Core Ash execution closure with Spark, Reactor and Igniter, validated against Ash.DataLayer.Ets."
+fixture = "ash_ets_smoke"
+packages = ["ash", "spark", "reactor", "igniter"]
+required_modules = ["Ash", "Spark", "Reactor", "Igniter"]
+requires_services = []
+acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]

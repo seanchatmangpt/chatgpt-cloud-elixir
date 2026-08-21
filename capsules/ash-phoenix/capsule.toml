@@ -1,0 +1,8 @@
+schema_version = 1
+name = "ash-phoenix"
+description = "Phoenix/Ash integration dependency closure with ordinary Mix acceptance."
+fixture = "ash_ets_smoke"
+packages = ["ash", "spark", "reactor", "igniter", "ash_phoenix"]
+required_modules = ["Ash", "AshPhoenix"]
+requires_services = []
+acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]

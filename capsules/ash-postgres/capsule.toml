@@ -1,0 +1,8 @@
+schema_version = 1
+name = "ash-postgres"
+description = "AshPostgres dependency/build closure. PostgreSQL service execution is separately admitted."
+fixture = "ash_ets_smoke"
+packages = ["ash", "spark", "reactor", "igniter", "ash_postgres"]
+required_modules = ["Ash", "AshPostgres"]
+requires_services = ["postgresql"]
+acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]
