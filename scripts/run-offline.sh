@@ -2,10 +2,15 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+# Some restricted containers have no configured UTF-8 locale. Force BEAM filename
+# handling to Unicode so capsule replay is stable and does not emit latin1 warnings.
+export ELIXIR_ERL_OPTIONS="${ELIXIR_ERL_OPTIONS:-+fnu}"
+
 if command -v unshare >/dev/null 2>&1 && unshare -n true >/dev/null 2>&1; then
   exec unshare -n env \
     CAPSULE_NETWORK_MODE=namespace_offline \
     HEX_OFFLINE=1 \
+    ELIXIR_ERL_OPTIONS="$ELIXIR_ERL_OPTIONS" \
     bash "$ROOT/scripts/verify-capsule.sh"
 fi
 
