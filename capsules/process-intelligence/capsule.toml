@@ -31,8 +31,8 @@ consumer_acceptance = [
 
 [subjects.ex4pm]
 repository = "https://github.com/seanchatmangpt/ex4pm.git"
-sha = "f4f8776e66af6f0704407827635a446a5df7595b"
-tree_sha = "3de6002793cdd38e205a710dcb274bfb1dd704c9"
+sha = "498cce61e6541f273439b460244764c7aec408dc"
+tree_sha = "5185abb8b678f52441d5fbeabf8f79994d067f57"
 build_acceptance = ["mix verify"]
 consumer_acceptance = ["mix verify"]
 
