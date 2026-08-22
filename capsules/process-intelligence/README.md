@@ -2,6 +2,15 @@
 
 This capsule makes the AshR2RML/ex4pm process-intelligence qualification loop executable in a restricted ChatGPT Linux container without direct Hex or GitHub network access.
 
+## Bound runtime
+
+The capsule deliberately uses the target-native runtime declared by `ash_r2rml/.tool-versions`:
+
+- Erlang/OTP `27.2.4`;
+- Elixir `1.18.4`.
+
+This is a distinct lawful capsule variant. Existing ChatGPT cloud capsules continue to use OTP 29 / Elixir 1.20.2. A real attempted qualification on OTP 29 / Elixir 1.20.2 reached AshR2RML compilation and was falsified by Elixir 1.20 compiler warnings under the repository's required `--warnings-as-errors` gate. That compatibility world remains a separate target; this capsule does not suppress those warnings or weaken the target acceptance contract.
+
 ## Bound subjects
 
 The source identities are reviewable in `capsule.toml` and are verified during manufacture before either project is built:
@@ -36,4 +45,4 @@ The bridge produces `harness/process-lab-receipt.json`, and the outer consumer v
 scripts/build-process-intelligence.sh
 ```
 
-The standard `Build Capsules` and `Verify Capsules` workflows include this variant.
+The standard `Build Capsules` and `Verify Capsules` workflows include this variant and select its declared runtime independently from the other capsule variants.
