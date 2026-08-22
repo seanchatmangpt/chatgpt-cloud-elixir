@@ -22,7 +22,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [beam-core, ash-core, ash-postgres, ash-phoenix, ash-full, process-intelligence]
+        include:
+          - variant: beam-core
+            artifact_name: chatgpt-cloud-elixir-beam-core-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-core
+            artifact_name: chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-postgres
+            artifact_name: chatgpt-cloud-elixir-ash-postgres-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-phoenix
+            artifact_name: chatgpt-cloud-elixir-ash-phoenix-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-full
+            artifact_name: chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.2-linux-x86_64
+          - variant: process-intelligence
+            artifact_name: chatgpt-cloud-elixir-process-intelligence-otp27-elixir1.18.4-linux-x86_64
     steps:
       - name: Select source run
         id: run
@@ -37,7 +49,7 @@ jobs:
       - name: Download manufactured artifact
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
-          name: chatgpt-cloud-elixir-${{ matrix.variant }}-otp29-elixir1.20.2-linux-x86_64
+          name: ${{ matrix.artifact_name }}
           run-id: ${{ steps.run.outputs.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: transported
