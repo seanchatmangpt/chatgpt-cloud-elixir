@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [beam-core, ash-core, ash-postgres, ash-phoenix, ash-full]
+        variant: [beam-core, ash-core, ash-postgres, ash-phoenix, ash-full, process-intelligence]
     steps:
       - name: Select source run
         id: run
