@@ -13,7 +13,21 @@ for cmd in git python3 tar gzip sha256sum erl elixir mix; do
   command -v "$cmd" >/dev/null || { echo "BLOCKED: required build command '$cmd' is missing" >&2; exit 69; }
 done
 
-CAPSULE_OUTPUT_DIR="$BASE_OUT" CAPSULE_BUILD_ROOT="$BASE_BUILD" \
+PROCESS_OTP="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["otp"])' "$CFG")"
+PROCESS_ELIXIR="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["elixir"])' "$CFG")"
+ACTUAL_OTP="$(erl -noshell -eval 'io:format("~s", [erlang:system_info(otp_release)]), halt().')"
+ACTUAL_ELIXIR="$(elixir -e 'IO.write(System.version())')"
+[[ "${ACTUAL_OTP%%.*}" == "${PROCESS_OTP%%.*}" ]] || {
+  echo "BUILD_BROKEN: process-intelligence OTP expected $PROCESS_OTP observed $ACTUAL_OTP" >&2; exit 65;
+}
+[[ "$ACTUAL_ELIXIR" == "$PROCESS_ELIXIR" ]] || {
+  echo "BUILD_BROKEN: process-intelligence Elixir expected $PROCESS_ELIXIR observed $ACTUAL_ELIXIR" >&2; exit 65;
+}
+
+CAPSULE_OTP_OVERRIDE="$PROCESS_OTP" \
+CAPSULE_ELIXIR_OVERRIDE="$PROCESS_ELIXIR" \
+CAPSULE_OUTPUT_DIR="$BASE_OUT" \
+CAPSULE_BUILD_ROOT="$BASE_BUILD" \
   bash "$ROOT/scripts/build-capsule.sh" beam-core >/dev/null
 BASE_ARCHIVE="$(ls "$BASE_OUT"/chatgpt-cloud-elixir-beam-core-*.tar.gz)"
 STAGE="$WORK/stage"
