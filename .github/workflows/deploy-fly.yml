@@ -1,0 +1,60 @@
+name: Deploy Process Intelligence to Fly
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_name:
+        description: Fly application name
+        required: false
+        default: chatgpt-cloud-process-intelligence
+  push:
+    branches: [main]
+    paths:
+      - "control-plane/**"
+      - ".github/workflows/deploy-fly.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fly-process-intelligence-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || vars.FLY_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      CONFIGURED_APP: ${{ vars.FLY_APP_NAME }}
+      INPUT_APP: ${{ inputs.app_name }}
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install pinned flyctl
+        run: |
+          curl -L https://fly.io/install.sh | sh -s 0.4.76
+          echo "$HOME/.fly/bin" >> "$GITHUB_PATH"
+
+      - name: Verify deployment authority
+        run: |
+          test -n "$FLY_API_TOKEN" || {
+            echo "BLOCKED: FLY_API_TOKEN secret is not configured" >&2
+            exit 69
+          }
+
+      - name: Deploy exact GitHub subject
+        working-directory: control-plane
+        run: |
+          APP="${INPUT_APP:-}"
+          if [[ -z "$APP" ]]; then APP="${CONFIGURED_APP:-chatgpt-cloud-process-intelligence}"; fi
+          flyctl deploy --remote-only --app "$APP"
+
+      - name: Verify deployed health
+        run: |
+          APP="${INPUT_APP:-}"
+          if [[ -z "$APP" ]]; then APP="${CONFIGURED_APP:-chatgpt-cloud-process-intelligence}"; fi
+          curl --fail --silent --show-error --retry 8 --retry-all-errors \
+            "https://${APP}.fly.dev/healthz" | python3 -m json.tool
