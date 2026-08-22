@@ -1,0 +1,35 @@
+app = "chatgpt-cloud-process-intelligence"
+primary_region = "lax"
+kill_signal = "SIGTERM"
+kill_timeout = "30s"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  release_command = "/app/bin/chatgpt_cloud_control_plane eval 'ChatGPTCloud.Release.migrate()'"
+  strategy = "rolling"
+
+[env]
+  PHX_HOST = "chatgpt-cloud-process-intelligence.fly.dev"
+  PORT = "4000"
+  POOL_SIZE = "10"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "20s"
+    method = "GET"
+    path = "/healthz"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "1gb"
