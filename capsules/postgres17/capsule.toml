@@ -1,0 +1,11 @@
+schema_version = 1
+kind = "service"
+name = "postgres17"
+description = "Portable PostgreSQL 17 service runtime for restricted ChatGPT cloud containers."
+version_key = "postgresql_17"
+source_url_template = "https://ftp.postgresql.org/pub/source/v{version}/postgresql-{version}.tar.bz2"
+source_sha256 = "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
+configure = ["--without-readline", "--without-zlib", "--without-icu"]
+listen = "127.0.0.1"
+default_port = 55432
+acceptance = ["postgres --version", "initdb", "pg_ctl start", "SELECT version()", "CREATE/INSERT/SELECT/UPDATE/DELETE", "pg_ctl stop"]
