@@ -42,6 +42,26 @@ if config_env() == :prod do
     System.get_env("ADMIN_PASSWORD") ||
       raise "ADMIN_PASSWORD is required"
 
+  cloak_key =
+    System.get_env("CLOAK_KEY_BASE64") ||
+      raise "CLOAK_KEY_BASE64 is required"
+
+  decoded_cloak_key =
+    case Base.decode64(cloak_key) do
+      {:ok, key} when byte_size(key) == 32 -> key
+      _ -> raise "CLOAK_KEY_BASE64 must decode to exactly 32 bytes"
+    end
+
+  config :chatgpt_cloud_control_plane, ChatGPTCloud.Vault,
+    ciphers: [
+      default: {
+        Cloak.Ciphers.AES.GCM,
+        tag: "AES.GCM.V1",
+        key: decoded_cloak_key,
+        iv_length: 12
+      }
+    ]
+
   host = System.get_env("PHX_HOST", "chatgpt-cloud-process-intelligence.fly.dev")
 
   config :chatgpt_cloud_control_plane,

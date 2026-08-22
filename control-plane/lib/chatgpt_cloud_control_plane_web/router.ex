@@ -33,6 +33,24 @@ defmodule ChatGPTCloudWeb.Router do
     post "/v1/ocel/batches", IngestController, :create
   end
 
+  scope "/api" do
+    pipe_through :api
+    forward "/json", ChatGPTCloudWeb.JsonApiRouter
+  end
+
+  scope "/graphql" do
+    pipe_through :api
+    forward "/", Absinthe.Plug, schema: ChatGPTCloudWeb.GraphqlSchema
+  end
+
+  scope "/mcp" do
+    pipe_through :api
+
+    forward "/", AshAi.Mcp.Router,
+      tools: [:list_qualifications, :list_cost_observations],
+      otp_app: :chatgpt_cloud_control_plane
+  end
+
   scope "/", ChatGPTCloudWeb do
     pipe_through :public
     get "/healthz", HealthController, :show

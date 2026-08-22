@@ -6,6 +6,7 @@ defmodule ChatGPTCloud.Application do
   def start(_type, _args) do
     children = [
       ChatGPTCloud.Repo,
+      ChatGPTCloud.Vault,
       {Phoenix.PubSub, name: ChatGPTCloud.PubSub},
       ChatGPTCloudWeb.Endpoint
     ]

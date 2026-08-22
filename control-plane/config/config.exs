@@ -10,6 +10,16 @@ config :chatgpt_cloud_control_plane, ChatGPTCloud.Repo,
   migration_primary_key: [name: :id, type: :uuid],
   migration_foreign_key: [column: :id, type: :uuid]
 
+config :chatgpt_cloud_control_plane, ChatGPTCloud.Vault,
+  ciphers: [
+    default: {
+      Cloak.Ciphers.AES.GCM,
+      tag: "AES.GCM.V1",
+      key: :crypto.hash(:sha256, "chatgpt-cloud-control-plane-development-vault"),
+      iv_length: 12
+    }
+  ]
+
 config :chatgpt_cloud_control_plane, ChatGPTCloudWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,

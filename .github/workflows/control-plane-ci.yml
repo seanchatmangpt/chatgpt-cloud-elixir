@@ -73,7 +73,12 @@ jobs:
           mix ecto.create --quiet
           mix ecto.migrate
 
-      - name: Test ingestion, Ash resources, API and LiveView
+      - name: Verify compiled Ash ecosystem closure
+        run: |
+          mkdir -p tmp
+          mix chatgpt_cloud.ecosystem.verify | tee tmp/ash-ecosystem-receipt.json
+
+      - name: Test ingestion, Ash resources, APIs and LiveView
         run: mix test
 
       - name: Verify generic OCEL producer
@@ -93,6 +98,12 @@ jobs:
       - name: Build production assets and release
         env:
           MIX_ENV: prod
+          DATABASE_URL: ecto://postgres:postgres@localhost:5432/chatgpt_cloud_control_plane_test
+          SECRET_KEY_BASE: 6q6tmJgRZ1m3n5P7v9X2a4c6e8g0i2k4m6o8q0s2u4w6y8A0C2E4G6I8K0M2O4Q6
+          OCEL_INGEST_TOKEN: release-test-token
+          ADMIN_USERNAME: release
+          ADMIN_PASSWORD: release-test-password
+          CLOAK_KEY_BASE64: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
         run: |
           mix assets.deploy
           mix release
@@ -101,10 +112,12 @@ jobs:
         working-directory: control-plane
         run: docker build --pull --tag chatgpt-cloud-control-plane:${GITHUB_SHA} .
 
-      - name: Upload resolved lockfile
+      - name: Upload exact dependency and ecosystem receipts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: chatgpt-cloud-control-plane-lock-${{ github.event.pull_request.head.sha || github.sha }}
-          path: control-plane/mix.lock
+          name: chatgpt-cloud-control-plane-closure-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            control-plane/mix.lock
+            control-plane/tmp/ash-ecosystem-receipt.json
           if-no-files-found: error
-          retention-days: 2
+          retention-days: 14
