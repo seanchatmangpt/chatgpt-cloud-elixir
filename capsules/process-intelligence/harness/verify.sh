@@ -29,3 +29,24 @@ printf '%s\n' "$EX4PM_JSON" > "$OUT/ex4pm.json"
   cd "$ROOT/subjects/ex4pm"
   MIX_ENV=test mix run "$ROOT/harness/compare.exs" "$ROOT" "$OUT/ash.json" "$OUT/ex4pm.json"
 )
+
+# The transported capsule must carry its own zero-dependency observation producer.
+# Network transport is intentionally optional: offline replay proves deterministic
+# envelope manufacture, while a configured OCEL_INGEST_URL/TOKEN can relay live.
+python3 "$ROOT/harness/emit-ocel.py" \
+  --activity process_intelligence.capsule.verified \
+  --standing ALIVE \
+  --authority-domain OBSERVE \
+  --agent-id chatgpt-cloud:offline-consumer \
+  --run-id process-lab \
+  --sequence 1 \
+  --payload-json '{"transport":"offline_replay"}' \
+  > "$OUT/ocel-envelope.json"
+python3 - "$OUT/ocel-envelope.json" <<'PY'
+import json, sys
+value = json.load(open(sys.argv[1]))
+assert value["schema"] == "chatgpt-cloud-ocel/1"
+assert value["producer"]["agent_id"] == "chatgpt-cloud:offline-consumer"
+assert value["events"][0]["activity"] == "process_intelligence.capsule.verified"
+assert value["events"][0]["standing"] == "ALIVE"
+PY
