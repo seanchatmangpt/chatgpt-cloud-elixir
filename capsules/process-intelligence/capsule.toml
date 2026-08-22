@@ -12,6 +12,10 @@ acceptance = [
   "bridge: bash harness/verify.sh"
 ]
 
+[runtime]
+otp = "27.2.4"
+elixir = "1.18.4"
+
 [subjects.ash_r2rml]
 repository = "https://github.com/seanchatmangpt/ash_r2rml.git"
 sha = "a3445b7b252514880cd0f3c9843c0353b0385af1"
