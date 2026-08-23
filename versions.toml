@@ -1,5 +1,9 @@
 schema_version = 1
 
+[release]
+version = "26.8.23"
+date = "2026-08-23"
+
 [runtime]
 otp = "29.0"
 elixir = "1.20.2"
