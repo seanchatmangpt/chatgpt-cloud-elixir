@@ -18,8 +18,8 @@ elixir = "1.18.4"
 
 [subjects.ash_r2rml]
 repository = "https://github.com/seanchatmangpt/ash_r2rml.git"
-sha = "a3445b7b252514880cd0f3c9843c0353b0385af1"
-tree_sha = "d76b113d16aeecd47d246cac5e18619a8bd4be88"
+sha = "ff1405ca59083a45321c05363673230dcf36c548"
+tree_sha = "5bb8058d037f2e9689772144f769ac5ca80507ff"
 build_acceptance = [
   "MIX_ENV=test mix compile --warnings-as-errors",
   "MIX_ENV=test mix test test/fortune5/"
@@ -31,8 +31,8 @@ consumer_acceptance = [
 
 [subjects.ex4pm]
 repository = "https://github.com/seanchatmangpt/ex4pm.git"
-sha = "498cce61e6541f273439b460244764c7aec408dc"
-tree_sha = "5185abb8b678f52441d5fbeabf8f79994d067f57"
+sha = "542cef83cb8ce5aec6984c84c3234ca0f5ce2b2e"
+tree_sha = "3ddcb90d49278444143f8af6be16d09603da9527"
 build_acceptance = ["MIX_ENV=test mix verify"]
 consumer_acceptance = ["MIX_ENV=test mix verify"]
 
