@@ -6,6 +6,7 @@ source "$ROOT/activate"
 LOG="$ROOT/verification.log"
 NETWORK_MODE="${CAPSULE_NETWORK_MODE:-hex_offline}"
 ARCHIVE_DIGEST="${CAPSULE_ARCHIVE_DIGEST:-external-not-supplied}"
+VERSIONS="$ROOT/source/versions.toml"
 
 set +e
 (
@@ -27,12 +28,18 @@ fi
 MANIFEST_SHA="$(sha256sum "$ROOT/manifest.json" | awk '{print $1}')"
 SOURCE_SHA="$(sed -n 's/.*"source_sha": "\([^"]*\)".*/\1/p' "$ROOT/manifest.json" | head -1)"
 CAPSULE_NAME="$(sed -n 's/.*"capsule_name": "\([^"]*\)".*/\1/p' "$ROOT/manifest.json" | head -1)"
+RELEASE_VERSION="$(python3 - "$VERSIONS" <<'PY'
+import sys, tomllib
+print(tomllib.load(open(sys.argv[1], "rb"))["release"]["version"])
+PY
+)"
 VERIFIED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 cat > "$ROOT/receipt.json" <<EOF
 {
   "schema_version": 1,
   "phase": "consumer_replay",
   "source_sha": "$SOURCE_SHA",
+  "release_version": "$RELEASE_VERSION",
   "capsule_name": "$CAPSULE_NAME",
   "capsule_archive_sha256": "$ARCHIVE_DIGEST",
   "manifest_sha256": "$MANIFEST_SHA",
