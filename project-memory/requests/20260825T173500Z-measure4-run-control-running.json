@@ -1,0 +1,29 @@
+{
+  "request_id": "20260825T173500Z-measure4-run-control-running",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/measure/current",
+      "title": "DfCM MEASURE run control",
+      "body": "MEASURE run 4 admitted Project #2 snapshot and canonical DfCM memories before repository manufacture. Live R61 evidence supersedes older R46/R48 assumptions: independently executed consumer breadth and ALIVE-to-dependency-relief conversion are the weakest multipliers. Candidate subjects: ggen-marketplace, ggen, chatgpt-cloud-elixir, ex4pm, gymact. Standing RUNNING; no consequential actuation.",
+      "metadata": {
+        "schema": "chatgpt-project-memory/v1",
+        "kind": "dfcm.run-control",
+        "cell": "MEASURE",
+        "standing": "RUNNING",
+        "utc_start": "2026-08-25T17:28:34Z",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count": 368,
+        "transport_head": "657b4281cd78dcb8ccbb140dc747c34109323ec1",
+        "consumed_memory_keys": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/portfolio/latest"],
+        "candidate_repositories": ["seanchatmangpt/ggen-marketplace", "seanchatmangpt/ggen", "seanchatmangpt/chatgpt-cloud-elixir", "seanchatmangpt/ex4pm", "seanchatmangpt/gymact"],
+        "initial_frontier_size": 8,
+        "initial_weakest_multiplier": "independent_consumer_breadth_and_alive_to_dependency_relief_conversion",
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "actuation_performed": false
+      }
+    }
+  }
+}
