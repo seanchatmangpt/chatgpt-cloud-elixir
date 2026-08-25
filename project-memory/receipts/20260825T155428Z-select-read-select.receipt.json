@@ -1,0 +1,182 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T15:56:51Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/select/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T155428Z-select-read-select"
+  },
+  "request_id": "20260825T155428Z-select-read-select",
+  "request_path": "project-memory/requests/20260825T155428Z-select-read-select.json",
+  "result": {
+    "body": "Selected Pareto portfolio: R57 consumer-adapter-capital primitive on exact marketplace base d1ed42b25421b659821b75287fee45ee94b19489; preserve divergent R54 #265 and R51 propagation #263 as non-dominated options requiring exact-current reconstitution. Manufactured 60 meaningful commits on PR #274 exact head c5a973bf14e582c005bd4ce0cc39828c194f4249: 50 public-semantic SPARQL courts 751-800, bounded execution runner, manufacture receipt, exact-head workflow, Diataxis tutorial/how-to/reference/explanation, structural contract, and two generalized inherited R56 verifier-family repairs. Grounded consumers remain ggen, chatgpt-cloud-elixir, ex4pm, GymAct; full adapter readiness remains 2/10, shortfall 8. Exact-head R57, R56 replication, R56 combinatorial, R55, R50, R53, R47, R51, R45 and Vacuity rails are ALIVE; broad CI remains non-terminal at this observation. Y_qualified_observed=0; Y_structural_lower_bound=0.033 (2 explicit adapter-gap consumer actions/60 commits); Y_future=UNKNOWN. M>=1 because Project frontier memory redirected capital from stale parallel verifier branches to the missing adapter-selection substrate. 1000X=NOT_ADMITTED. IMPLEMENT handoff: qualify/merge exact PR #274 when broad admission is terminal or independently proven non-blocking; then manufacture exact-current target-local adapters for ex4pm and GymAct, return independent receipts, reconstitute R54 independence measurement on current default, and only promote fanout/composition after returned receipts.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+    "metadata": {
+      "M": ">=1",
+      "M_lower_bound": 1,
+      "Y": "UNKNOWN",
+      "Y_basis": "one downstream exact R55 subject qualified through the reusable court / five new semantic investments",
+      "Y_future": "UNKNOWN",
+      "Y_observed": 0.2,
+      "Y_qualified_observed": 0,
+      "Y_structural_lower_bound": 0.033,
+      "authority": "SELECT",
+      "base_sha": "d1ed42b25421b659821b75287fee45ee94b19489",
+      "baseline": 50,
+      "bootstrap_candidate": "1df94088d7d8b5fc256be94befe00936befade1f",
+      "bootstrap_merge": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+      "bootstrap_pr": 271,
+      "branch_commits": 56,
+      "broad_ci_run": 32860889422,
+      "bus_head_before_request": "f065bee325fb93c0fc4252e0386385a8e9c27c45",
+      "candidate_sha": "c5a973bf14e582c005bd4ce0cc39828c194f4249",
+      "cell": "SELECT_DEVELOP",
+      "consumer_final_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+      "consumer_previous_head": "729a69eb4d4b03fe21887a0ba8093e74342799eb",
+      "consumer_ready": 2,
+      "consumer_shortfall": 8,
+      "consumer_target": 10,
+      "consumers_admitted": 3,
+      "consumers_developed": [
+        "seanchatmangpt/ggen"
+      ],
+      "consumers_grounded": 4,
+      "consumers_independently_ready": 1,
+      "consumers_observed": 4,
+      "consumers_preserved": [
+        "seanchatmangpt/chatgpt-cloud-elixir"
+      ],
+      "consumers_unlocked": [
+        "distinct-repository replication consumers",
+        "cross-repo qualification reuse consumers"
+      ],
+      "created_at": "2026-08-25T09:28:23Z",
+      "defects_repaired": [
+        "new pull_request court bootstrap dead-zone",
+        "non-deterministic evidence-return SELECT",
+        "causal propagation template context ABI mismatch"
+      ],
+      "errc": {
+        "create": [
+          "two-mode bootstrap/subject owning-court topology"
+        ],
+        "eliminate": [
+          "qualification bootstrap dead-zone",
+          "non-deterministic generation order",
+          "wrong template context symbol"
+        ],
+        "raise": [
+          "exact-head court coverage",
+          "real-ggen deterministic qualification",
+          "failure transparency"
+        ],
+        "reduce": [
+          "candidate-to-qualified latency",
+          "qualification ambiguity"
+        ]
+      },
+      "exact_head_rails": {
+        "broad_ci": "IN_PROGRESS",
+        "r56_combinatorial": "ALIVE",
+        "r56_replication": "ALIVE",
+        "r57": "ALIVE",
+        "vacuity": "ALIVE"
+      },
+      "falsifier": "R52 exact-head qualification pending",
+      "falsifiers": [
+        "exact-50 sensor-count assumption is invalid for cumulative sensor families",
+        "executable workflow without timeout-minutes is refused by repository CI law"
+      ],
+      "full_replication_ready": 2,
+      "head_after": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "head_before": "61f4b9932d34c857081ce7759eca8c89f0845e3c",
+      "head_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "implement_handoff": [
+        "start from marketplace default e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "raise independently-ready consumers from 1 toward 10 using admitted R51/R52/R55 substrate",
+        "manufacture target-local adapters plus returned evidence receipts for admitted-not-ready consumers before inventing new candidates",
+        "preserve R54 causal-yield measurement as an orthogonal court",
+        "measure downstream qualified actions before promoting 1000X"
+      ],
+      "key": "dfcm/select/latest",
+      "kind": "dfcm.select",
+      "marketplace_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "marketplace_base_initial": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+      "marketplace_default": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+      "marketplace_main": "d1ed42b25421b659821b75287fee45ee94b19489",
+      "meaningful_commits": 60,
+      "merge_sha": "d1ed42b25421b659821b75287fee45ee94b19489",
+      "new_semantic_commits": 2,
+      "owning_court_run": 32860889375,
+      "pr": 274,
+      "pre_bus_head": "a49aebb8461aa499f5b2e7f4320019de09712325",
+      "preserved_alternatives": [
+        "ggen-marketplace#265 R54 independence measurement",
+        "ggen-marketplace#263 R51 transitive propagation"
+      ],
+      "producer_head": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "project_id": "PVT_kwHOCCCFfc4BhZKe",
+      "project_item_count_pre": 368,
+      "qualification": "OWNING_COURT_ALIVE_BROAD_CI_PENDING",
+      "r55_candidate": "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf",
+      "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+      "r55_pr": 270,
+      "readiness_count": 2,
+      "readiness_shortfall": 8,
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "reusable_primitive": "ggen-marketplace epistemic-sensor-factory-pack R48 consumer_court",
+      "reusable_primitives": [
+        "default-owned two-mode R55 owning court",
+        "epistemic-sensor-factory-pack R55 fanout courts"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "selected_head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+      "selected_portfolio": [
+        "R55 independent consumer fanout",
+        "default-owned R55 owning-court bootstrap"
+      ],
+      "selected_pr": 272,
+      "selected_preexisting_commits": 65,
+      "selected_repo": "seanchatmangpt/ggen",
+      "semantic_commits_contained": 54,
+      "semantic_query_commits": 50,
+      "shortfall": 49,
+      "snapshot_item_count": 366,
+      "snapshot_project_id": "PVT_kwHOCCCFfc4BhZKe",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "develop",
+        "dfcm",
+        "innovation-capital",
+        "r57",
+        "select"
+      ],
+      "thousand_x": "NOT_ADMITTED",
+      "total_pr_commits": 55,
+      "updated_at": "2026-08-25T15:50:09Z",
+      "vacuity_run": 32860889543,
+      "weakest_multiplier": "independently qualified consumer breadth"
+    },
+    "title": "DfCM SELECT latest"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
