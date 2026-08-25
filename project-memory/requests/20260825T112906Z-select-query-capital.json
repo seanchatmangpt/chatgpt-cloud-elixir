@@ -1,0 +1,1 @@
+{"request_id":"select-20260825T112906Z-capital-query","operation":"memory.query","project":{"owner":"seanchatmangpt","number":2},"payload":{"text":"capital","limit":100,"include_archived":false}}
