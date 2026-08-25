@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T172800Z-select-run-control-running",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/select/current",
+      "title": "DfCM SELECT+DEVELOP run control",
+      "kind": "dfcm.run-control.select",
+      "cell": "SELECT_DEVELOP",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "select", "develop", "run-control", "innovation-capital"],
+      "body": "SELECT+DEVELOP allocation run. Project snapshot PVT_kwHOCCCFfc4BhZKe with 368 items. Memory consumed: dfcm/frontier/current, dfcm/ledger/current, dfcm/explore/latest, dfcm/select/latest, dfcm/portfolio/latest plus consumer-capital query. Fresh frontier revalidation: marketplace main 36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1 contains R61 receipt assimilation. Initial candidate portfolio preserves R54 independence measurement while prioritizing independent executed consumers and ALIVE-to-dependency-relief measurement. Initial Y=UNKNOWN, M>=1, weakest multiplier=independently executed consumer breadth beyond ggen.",
+      "metadata": {
+        "started_at": "2026-08-25T17:28:00Z",
+        "snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+        "snapshot_items": 368,
+        "bus_head": "384464dd8d474cc712e3c61dd72de0d869a85ba7",
+        "memory_keys_consumed": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/portfolio/latest"],
+        "candidate_portfolio": ["independent-executed-consumer-expansion", "R54-independence-measurement", "receipt-to-dependency-relief-causal-measurement"],
+        "Y_initial": "UNKNOWN",
+        "M_initial": ">=1",
+        "weakest_multiplier_initial": "independently executed consumer breadth beyond ggen",
+        "marketplace_main_observed": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1"
+      }
+    }
+  }
+}
