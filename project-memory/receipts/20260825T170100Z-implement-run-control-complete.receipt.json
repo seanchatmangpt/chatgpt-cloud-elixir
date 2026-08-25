@@ -1,0 +1,120 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T17:00:31Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "key": "dfcm/run-control/implement/current",
+      "value": {
+        "M": "UNKNOWN",
+        "R_alive_consumer_fanout": 1,
+        "R_complete_plan_fanout": 4,
+        "R_qualification": 50,
+        "cell": "IMPLEMENT_QUALIFY",
+        "consumer_shortfall_to_10": 9,
+        "marketplace_main": "aba29c44cab7577818f392878974c405f6a0a5ff",
+        "meaningful_commits": 54,
+        "merge_count": 1,
+        "project_post": "ALIVE_WITH_STALE_BODY_MISMATCH",
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+        "qualified_subject": "f29068caee39ad16ac7534c789d6f186e5c65cd6",
+        "raw_commits": 57,
+        "receipt_ids": [
+          "20260825T165800Z-implement-post",
+          "20260825T165900Z-implement-ledger",
+          "20260825T170000Z-implement-frontier"
+        ],
+        "standing": "PARTIAL_ALIVE",
+        "weakest_multiplier": "independently_ALIVE_consumer_fanout"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T170100Z-implement-run-control-complete"
+  },
+  "request_id": "20260825T170100Z-implement-run-control-complete",
+  "request_path": "project-memory/requests/20260825T170100Z-implement-run-control-complete.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "IMPLEMENT+QUALIFY produced 54 new meaningful semantic commits against the R55 lineage and qualified exact R56 head 203fc7fe67ce6756ced1f68ba52bc883304cfc64. All applicable hosted exact-head rails are green. PR #272 is mergeable, but ready-for-review transition was refused by connector policy and GitHub correctly refused merge while draft. Project PRE snapshot/read-frontier are ALIVE; additional PRE memory operations were connector-refused. POST implement/ledger/frontier requests submitted; receipts pending at submission time.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_mhw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg364QE",
+      "metadata": {
+        "M": "PARTIAL",
+        "M_lower_bound": 1,
+        "R": 2,
+        "R_artifact": 50,
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "attempted_upper_bound": "100+",
+        "baseline": 50,
+        "bus_head": "64424c79f6e368338cce79cda64e8d0df488ae4e",
+        "cell": "IMPLEMENT_QUALIFY",
+        "consumer_shortfall": 8,
+        "created_at": "2026-08-25T09:59:55Z",
+        "exact_head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "full_replication_ready": 2,
+        "grounded_consumers": 4,
+        "key": "dfcm/run-control/implement/current",
+        "kind": "dfcm.run-control",
+        "known_consumers": 3,
+        "meaningful_commits": 51,
+        "merge_edge": "REFUSED[DRAFT_STATE_TRANSITION_UNAVAILABLE]",
+        "merges": 0,
+        "pr": 272,
+        "project_item_count_pre": 365,
+        "project_post": "ALIVE:20260825T102620Z-implement-post",
+        "project_post_requests": [
+          "20260825T145400Z-implement-post",
+          "20260825T145410Z-implement-ledger",
+          "20260825T145420Z-implement-frontier"
+        ],
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+        "project_pre_receipts": [
+          "20260825T143605Z-implement-snapshot",
+          "20260825T143620Z-implement-read-frontier"
+        ],
+        "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+        "qualified_consumers": 2,
+        "qualified_consumers_alive": 1,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "repository_head": "b4693431358b63e9ae09b2e78fdaa11b3931a1fa",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_capability": "replication-epistemic-observability-pack/R46",
+        "semantic_commits": 54,
+        "standing": "PARTIAL_ALIVE",
+        "start_utc": "2026-08-25T09:40:37Z",
+        "tags": [
+          "dfcm",
+          "implement",
+          "r56",
+          "run-control"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "updated_at": "2026-08-25T17:00:40Z",
+        "utc_end": "2026-08-25T14:54:30Z",
+        "utc_start": "2026-08-25T14:36:05Z",
+        "weakest_multiplier": "qualified writable consumer breadth",
+        "weakest_multiplier_after": "independent qualified consumer breadth"
+      },
+      "title": "IMPLEMENT QUALIFY current run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
