@@ -1,0 +1,107 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:26:24Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "SELECT/DEVELOP allocated toward the current weakest multiplier: independent consumer replication of frontier-derivative capital, plus exact-head repair of live manufacturing blockers that suppress reuse. Project #2 snapshot observed 351 items. Memory query matched 7 DfCM records; current frontier reports ggen-marketplace/main=8c05c4252264fb0cfd60585657d9776ff2c9de29 and weakest multiplier R=1. Initial Pareto portfolio preserves consumer-fanout measurement, cross-repo qualification reuse, and chatgpt-cloud-elixir manufacturing repair as compatible options.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run-control/select/current",
+        "kind": "dfcm.run-control.select",
+        "metadata": {
+          "M_initial": null,
+          "Y_initial": null,
+          "bus_head": "e1224c02cc47cbd52ac08eb914e5397999e95602",
+          "candidate_portfolio": [
+            "frontier-derivative independent consumer replication",
+            "cross-repo qualification reuse",
+            "chatgpt-cloud-elixir manufacturing blocker repair"
+          ],
+          "memory_keys_consumed": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/explore/latest",
+            "dfcm/select/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 351,
+          "utc_start": "2026-08-25T09:23:50Z",
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "select",
+          "develop",
+          "running"
+        ],
+        "title": "DfCM SELECT DEVELOP run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T092610Z-select-run-control-start"
+  },
+  "request_id": "20260825T092610Z-select-run-control-start",
+  "request_path": "project-memory/requests/20260825T092610Z-select-run-control-start.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "SELECT/DEVELOP allocated toward the current weakest multiplier: independent consumer replication of frontier-derivative capital, plus exact-head repair of live manufacturing blockers that suppress reuse. Project #2 snapshot observed 351 items. Memory query matched 7 DfCM records; current frontier reports ggen-marketplace/main=8c05c4252264fb0cfd60585657d9776ff2c9de29 and weakest multiplier R=1. Initial Pareto portfolio preserves consumer-fanout measurement, cross-repo qualification reuse, and chatgpt-cloud-elixir manufacturing repair as compatible options.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lng",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36nMk",
+      "metadata": {
+        "M_initial": null,
+        "Y_initial": null,
+        "bus_head": "e1224c02cc47cbd52ac08eb914e5397999e95602",
+        "candidate_portfolio": [
+          "frontier-derivative independent consumer replication",
+          "cross-repo qualification reuse",
+          "chatgpt-cloud-elixir manufacturing blocker repair"
+        ],
+        "cell": "SELECT_DEVELOP",
+        "created_at": "2026-08-25T09:26:32Z",
+        "key": "dfcm/run-control/select/current",
+        "kind": "dfcm.run-control.select",
+        "memory_keys_consumed": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/explore/latest",
+          "dfcm/select/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 351,
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "RUNNING",
+        "tags": [
+          "develop",
+          "dfcm",
+          "running",
+          "select"
+        ],
+        "updated_at": "2026-08-25T09:26:32Z",
+        "utc_start": "2026-08-25T09:23:50Z",
+        "weakest_multiplier": "R_consumer_replication"
+      },
+      "title": "DfCM SELECT DEVELOP run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
