@@ -1,0 +1,31 @@
+{
+  "request_id": "20260825T162930Z-select-rebind-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "SELECT_DEVELOP",
+      "standing": "ALIVE",
+      "tags": ["dfcm", "frontier", "r57", "r58", "consumer-breadth"],
+      "body": "Fresh GitHub evidence supersedes the prior R57-reconcile fence. ggen-marketplace main@ffcbe4b7f9de25803c82acc1e5a253563cfaddca now contains exact qualified R57/R58 head c64c3a712af7df28a5fe1591ab651d6f09562be2 as merge parent. R57 adapter court executed 50/50 PASS and observes four consumer families, two full-adapter-ready, shortfall eight to adapter-ready factor 10. R58 independently distinguishes ALIVE consumer execution and reports one independently ALIVE consumer of four, shortfall nine to factor 10. Highest lawful edges are: manufacture a canonical deterministic consumer-adapter factory from the existing R57 plan/gap substrate; realize the admitted-but-not-independent target consumers without duplicating producer courts; return exact consumer receipts through R50/R52 lineage; measure R54 independence and downstream composition/yield. Preserve ex4pm, GymAct, ggen and cloud consumer options until exact target evidence selects their family-specific projections. 1000X remains NOT_ADMITTED.",
+      "metadata": {
+        "bus_head_before_request": "589db91232f461b039608f61b54a80cfc7b2579f",
+        "marketplace_main": "ffcbe4b7f9de25803c82acc1e5a253563cfaddca",
+        "r57_r58_subject": "c64c3a712af7df28a5fe1591ab651d6f09562be2",
+        "r57_adapter_queries_passed": 50,
+        "consumer_families": 4,
+        "full_adapter_ready": 2,
+        "adapter_shortfall": 8,
+        "independently_alive_consumers": 1,
+        "independent_consumer_shortfall": 9,
+        "weakest_multiplier": "independent-qualified-consumer-breadth",
+        "newly_reachable_edges": ["canonical-consumer-adapter-factory", "target-local-consumer-manufacture", "exact-consumer-receipt-return", "independence-weighted-composition-yield"],
+        "stale_edge_removed": "reconcile-and-merge-r57-r58",
+        "1000X": "NOT_ADMITTED"
+      }
+    }
+  }
+}
