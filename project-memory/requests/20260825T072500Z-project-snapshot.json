@@ -1,0 +1,11 @@
+{
+  "request_id": "20260825T072500Z-project-snapshot",
+  "operation": "project.snapshot",
+  "project": {
+    "owner": "seanchatmangpt",
+    "number": 2
+  },
+  "payload": {
+    "max_items": 100
+  }
+}
