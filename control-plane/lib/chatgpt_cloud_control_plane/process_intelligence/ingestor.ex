@@ -40,7 +40,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
       {:ok,
        %{
          agent: %{
-           id: Ecto.UUID.generate(),
+           id: Ecto.UUID.bingenerate(),
            agent_key: agent_key,
            first_seen_at: now,
            last_seen_at: now,
@@ -49,7 +49,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
            updated_at: now
          },
          run: %{
-           id: Ecto.UUID.generate(),
+           id: Ecto.UUID.bingenerate(),
            run_key: run_key,
            agent_key: agent_key,
            status: Map.get(producer, "status", "running"),
@@ -251,7 +251,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
       {:ok,
        %{
-         id: Ecto.UUID.generate(),
+         id: Ecto.UUID.bingenerate(),
          event_key: event_key,
          agent_key: agent_key,
          run_key: run_key,
@@ -302,7 +302,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
         %{"id" => id, "type" => type} = object when is_binary(id) and is_binary(type) ->
           [
             %{
-              id: Ecto.UUID.generate(),
+              id: Ecto.UUID.bingenerate(),
               object_key: id,
               object_type: type,
               label: object["label"],
@@ -330,7 +330,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
       for event <- events,
           object <- event.objects do
         %{
-          id: Ecto.UUID.generate(),
+          id: Ecto.UUID.bingenerate(),
           object_key: object.object_key,
           object_type: object.object_type,
           label: object.label,
@@ -352,7 +352,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
     for event <- events,
         object <- event.objects do
       %{
-        id: Ecto.UUID.generate(),
+        id: Ecto.UUID.bingenerate(),
         event_key: event.event_key,
         object_key: object.object_key,
         qualifier: object.qualifier,
@@ -371,7 +371,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
         when is_binary(source) and is_binary(target) ->
           [
             %{
-              id: Ecto.UUID.generate(),
+              id: Ecto.UUID.bingenerate(),
               source_object_key: source,
               target_object_key: target,
               qualifier: Map.get(row, "qualifier", "relatesTo"),
@@ -400,7 +400,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
          [
            %{
-             id: Ecto.UUID.generate(),
+             id: Ecto.UUID.bingenerate(),
              receipt_key: Map.get(receipt, "id") || digest_value,
              run_key: run_key,
              standing: Map.get(receipt, "standing", "UNKNOWN"),
@@ -432,7 +432,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
          [
            %{
-             id: Ecto.UUID.generate(),
+             id: Ecto.UUID.bingenerate(),
              result_key: key,
              run_key: run_key,
              model_key: row["model_key"],
@@ -462,7 +462,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
          [
            %{
-             id: Ecto.UUID.generate(),
+             id: Ecto.UUID.bingenerate(),
              refusal_key: Map.get(row, "id") || digest(payload),
              run_key: run_key,
              refusal_type: type,
@@ -492,7 +492,7 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
               is_binary(model_digest) ->
          [
            %{
-             id: Ecto.UUID.generate(),
+             id: Ecto.UUID.bingenerate(),
              variant_key: id,
              name: name,
              model_type: model_type,
