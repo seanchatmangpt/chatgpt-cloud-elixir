@@ -1,0 +1,99 @@
+@prefix cc: <https://chatman.ai/chatgpt-cloud/capability#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cc:CapabilitySource a prov:Entity .
+cc:ManufacturingCapsule a prov:Entity .
+cc:CONSTRUCT_VERIFY a odrl:Permission ; skos:prefLabel "CONSTRUCT_VERIFY" .
+
+cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
+  dcterms:title "ChatGPT Cloud Autonomic Manufacturing Capsule" ;
+  dcterms:identifier "autonomic-manufacturing" ;
+  cc:releaseVersion "26.8.25" ;
+  cc:authorityCeiling cc:CONSTRUCT_VERIFY ;
+  cc:requiresExternalExecution true ;
+  cc:includesSource cc:Ggen, cc:GgenMarketplace, cc:GgenCreate, cc:GgenLegacy, cc:GgenSpecKit, cc:SwarmSH, cc:SwarmSHV2 .
+
+cc:Ggen a cc:CapabilitySource ;
+  skos:prefLabel "ggen" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen> ;
+  cc:repository "seanchatmangpt/ggen" ;
+  cc:commitSha "f4e1bce1efdcdc4f6c2531be9f66070950f7ec93" ;
+  cc:role "deterministic semantic manufacturing engine" ;
+  cc:capitalClass "manufacturing-runtime" ;
+  cc:executionMode "compiled-binary" ;
+  cc:requiredStanding "exact-source-build-and-replay" .
+
+cc:GgenMarketplace a cc:CapabilitySource ;
+  skos:prefLabel "ggen-marketplace" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-marketplace> ;
+  cc:repository "seanchatmangpt/ggen-marketplace" ;
+  cc:commitSha "5710efa0fec47242f5709790803f0129f3b29999" ;
+  cc:role "accumulated executable manufacturing knowledge" ;
+  cc:capitalClass "manufacturing-capital" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" .
+
+cc:GgenCreate a cc:CapabilitySource ;
+  skos:prefLabel "ggen-create" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-create> ;
+  cc:repository "seanchatmangpt/ggen-create" ;
+  cc:commitSha "eaa463af138d7aff88db813f0f65307bf5c9b5ba" ;
+  cc:role "working-example to reusable manufacturing-function capitalizer" ;
+  cc:capitalClass "capitalization-runtime" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" .
+
+cc:GgenLegacy a cc:CapabilitySource ;
+  skos:prefLabel "ggen-legacy" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-legacy> ;
+  cc:repository "seanchatmangpt/ggen-legacy" ;
+  cc:commitSha "93d2ecd18147acaff659bf1d9cc2d4313628305b" ;
+  cc:role "legacy contract reconstruction and repository reconstitution" ;
+  cc:capitalClass "acquisition-runtime" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" .
+
+cc:GgenSpecKit a cc:CapabilitySource ;
+  skos:prefLabel "ggen-spec-kit" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-spec-kit> ;
+  cc:repository "seanchatmangpt/ggen-spec-kit" ;
+  cc:commitSha "10d75676a4a12034bd9c650633a86962907d5eeb" ;
+  cc:role "RDF-first specification and intent admission surface" ;
+  cc:capitalClass "semantic-intake" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" .
+
+cc:SwarmSH a cc:CapabilitySource ;
+  skos:prefLabel "swarmsh" ;
+  dcterms:source <https://github.com/seanchatmangpt/swarmsh> ;
+  cc:repository "seanchatmangpt/swarmsh" ;
+  cc:commitSha "745008438b9493d31e8af3735ad6116ac01c150f" ;
+  cc:role "working Unix process, worktree, claim, PID, and telemetry execution ancestry" ;
+  cc:capitalClass "execution-runtime" ;
+  cc:executionMode "shell-source" ;
+  cc:requiredStanding "exact-source-shell-qualification" .
+
+cc:SwarmSHV2 a cc:CapabilitySource ;
+  skos:prefLabel "swarmsh-v2" ;
+  dcterms:source <https://github.com/seanchatmangpt/swarmsh-v2> ;
+  cc:repository "seanchatmangpt/swarmsh-v2" ;
+  cc:commitSha "02e5eaae14bd03a832c0f031acc56c6d4db3845e" ;
+  cc:role "typed coordination, worktree, and shell-export architecture ancestry" ;
+  cc:capitalClass "execution-kernel-source" ;
+  cc:executionMode "typed-source" ;
+  cc:requiredStanding "source-bound-not-runtime-promoted" .
+
+cc:releaseVersion a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:authorityCeiling a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:requiresExternalExecution a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:includesSource a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:repository a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:commitSha a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:role a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:capitalClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:executionMode a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:requiredStanding a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
