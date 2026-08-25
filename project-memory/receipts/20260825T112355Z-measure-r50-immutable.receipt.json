@@ -1,0 +1,96 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T11:24:25Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "authority": "OBSERVE|VERIFY",
+        "body": "Durable law: independent consumer qualification is not complete portfolio capital until exact consumer receipts return to a producer-observable graph. Return and assimilation must preserve consumer identity, producer-court identity, provenance, replay/evidence-root quality, and standing without transferring consumer execution authority. R50 makes this law executable with PROV-O/DQV/DCAT/DCTERMS/ODRL semantics, ggen projection, and sensors 350-399. Exact qualified head 008dd897b95bec935fc8c982a95061cee68e72cb merged as 9fe8fe237601a08817cbc14f05e8dd93186e3711. Verification defect learned: pull-request checkout defaults to a synthetic merge subject unless immutable PR head is explicitly selected; exact-subject courts must checkout the intended head before asserting identity.",
+        "cell": "MEASURE",
+        "head_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "key": "dfcm/run/measure/20260825T112355Z/9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "consumer_factor_shortfall": 9,
+          "meaningful_commits": 63,
+          "observed_consumer_factor": 1,
+          "owning_run": 32841749107,
+          "qualified_head": "008dd897b95bec935fc8c982a95061cee68e72cb",
+          "sensor_count": 50,
+          "thousand_x": "NOT_ADMITTED",
+          "vacuity_run": 32841749050
+        },
+        "provenance": "PR#261 + workflow 32841749107 + merge 9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "ref": "main",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r50",
+          "consumer-evidence-return",
+          "exact-subject",
+          "project-memory"
+        ],
+        "title": "MEASURE R50 durable learning — consumer evidence return"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T112355Z-measure-r50-immutable"
+  },
+  "request_id": "20260825T112355Z-measure-r50-immutable",
+  "request_path": "project-memory/requests/20260825T112355Z-measure-r50-immutable.json",
+  "result": {
+    "body": "Durable law: independent consumer qualification is not complete portfolio capital until exact consumer receipts return to a producer-observable graph. Return and assimilation must preserve consumer identity, producer-court identity, provenance, replay/evidence-root quality, and standing without transferring consumer execution authority. R50 makes this law executable with PROV-O/DQV/DCAT/DCTERMS/ODRL semantics, ggen projection, and sensors 350-399. Exact qualified head 008dd897b95bec935fc8c982a95061cee68e72cb merged as 9fe8fe237601a08817cbc14f05e8dd93186e3711. Verification defect learned: pull-request checkout defaults to a synthetic merge subject unless immutable PR head is explicitly selected; exact-subject courts must checkout the intended head before asserting identity.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_oMw",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg37kdM",
+    "metadata": {
+      "authority": "OBSERVE|VERIFY",
+      "cell": "MEASURE",
+      "consumer_factor_shortfall": 9,
+      "created_at": "2026-08-25T11:24:28Z",
+      "head_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+      "key": "dfcm/run/measure/20260825T112355Z/9fe8fe237601a08817cbc14f05e8dd93186e3711",
+      "kind": "dfcm.run-learning",
+      "meaningful_commits": 63,
+      "observed_consumer_factor": 1,
+      "owning_run": 32841749107,
+      "provenance": "PR#261 + workflow 32841749107 + merge 9fe8fe237601a08817cbc14f05e8dd93186e3711",
+      "qualified_head": "008dd897b95bec935fc8c982a95061cee68e72cb",
+      "ref": "main",
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "sensor_count": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "consumer-evidence-return",
+        "dfcm",
+        "exact-subject",
+        "measure",
+        "project-memory",
+        "r50"
+      ],
+      "thousand_x": "NOT_ADMITTED",
+      "updated_at": "2026-08-25T11:24:28Z",
+      "vacuity_run": 32841749050
+    },
+    "title": "MEASURE R50 durable learning — consumer evidence return"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
