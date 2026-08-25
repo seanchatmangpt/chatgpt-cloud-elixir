@@ -1,0 +1,98 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:08:08Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable novel learning only: Project memory was writable and materially useful, but one prior R43 record carried stale PR identity; live GitHub correction changed action selection. R44 demonstrated merge->new defect->canonical repair->new composition qualification within one recurrence. Exact R44 #246 2db35c65... merged 9e7586be...; canonical R43 repair/falsifier exact #248 8c7a998b... merged 8b971799... after concurrent equivalent #247, proving the need to deduplicate concurrent semantic lineages by exact resulting tree/capability; composition #249 eb79231b... executed all 50 R44 courts and merged 8c05c425.... 54 unique meaningful semantic commits observed; 50 floor exceeded. Persistent memory generated/avoided at least four actionable edges from three consumed records, bounded M>=1.33. Weakest multiplier shifted to R=1 independent consumer replication. C>=5 after the primary R44 merge. Naive proxy multiplication exceeds 1000 but causal H6 remains unsupported until factors are independently counterfactualized and R>1 is executed. Next cycle should measure actual consumer fanout/reproduction rather than add more factory-local semantic breadth first.",
+        "cell": "PORTFOLIO",
+        "key": "dfcm/run/portfolio/20260825T090730Z/8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "kind": "dfcm.run.portfolio",
+        "metadata": {
+          "C_observed_lower_bound": 5.0,
+          "M_observed_lower_bound": 1.33,
+          "R_observed": 1.0,
+          "branching_factor_lower_bound": 5,
+          "durable_learning": [
+            "rebind Project memory to live GitHub exact identity",
+            "deduplicate concurrent equivalent repair lineages by resulting tree/capability",
+            "individual court qualification is weaker than composed execution qualification",
+            "R44 merge generated canonical R43 repair and composition demand in-run"
+          ],
+          "final_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "generation_depth": 3,
+          "meaningful_semantic_commits": 54,
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "portfolio",
+          "run",
+          "r44",
+          "autocatalytic",
+          "durable-learning"
+        ],
+        "title": "DfCM PORTFOLIO R44 autocatalytic run 2026-08-25"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T090745Z-portfolio-immutable-run"
+  },
+  "request_id": "20260825T090745Z-portfolio-immutable-run",
+  "request_path": "project-memory/requests/20260825T090745Z-portfolio-immutable-run.json",
+  "result": {
+    "body": "Durable novel learning only: Project memory was writable and materially useful, but one prior R43 record carried stale PR identity; live GitHub correction changed action selection. R44 demonstrated merge->new defect->canonical repair->new composition qualification within one recurrence. Exact R44 #246 2db35c65... merged 9e7586be...; canonical R43 repair/falsifier exact #248 8c7a998b... merged 8b971799... after concurrent equivalent #247, proving the need to deduplicate concurrent semantic lineages by exact resulting tree/capability; composition #249 eb79231b... executed all 50 R44 courts and merged 8c05c425.... 54 unique meaningful semantic commits observed; 50 floor exceeded. Persistent memory generated/avoided at least four actionable edges from three consumed records, bounded M>=1.33. Weakest multiplier shifted to R=1 independent consumer replication. C>=5 after the primary R44 merge. Naive proxy multiplication exceeds 1000 but causal H6 remains unsupported until factors are independently counterfactualized and R>1 is executed. Next cycle should measure actual consumer fanout/reproduction rather than add more factory-local semantic breadth first.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_lKA",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36c-U",
+    "metadata": {
+      "C_observed_lower_bound": 5.0,
+      "M_observed_lower_bound": 1.33,
+      "R_observed": 1.0,
+      "branching_factor_lower_bound": 5,
+      "cell": "PORTFOLIO",
+      "created_at": "2026-08-25T09:08:12Z",
+      "durable_learning": [
+        "rebind Project memory to live GitHub exact identity",
+        "deduplicate concurrent equivalent repair lineages by resulting tree/capability",
+        "individual court qualification is weaker than composed execution qualification",
+        "R44 merge generated canonical R43 repair and composition demand in-run"
+      ],
+      "final_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "generation_depth": 3,
+      "key": "dfcm/run/portfolio/20260825T090730Z/8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "kind": "dfcm.run.portfolio",
+      "meaningful_semantic_commits": 54,
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "autocatalytic",
+        "dfcm",
+        "durable-learning",
+        "portfolio",
+        "r44",
+        "run"
+      ],
+      "updated_at": "2026-08-25T09:08:12Z",
+      "weakest_multiplier": "R_consumer_replication"
+    },
+    "title": "DfCM PORTFOLIO R44 autocatalytic run 2026-08-25"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
