@@ -1,0 +1,31 @@
+{
+  "request_id": "20260825T230315Z-portfolio-mid-ledger-r70",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM capital ledger",
+      "kind": "dfcm.ledger",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "ledger", "portfolio", "r70"],
+      "body": "Durable R70 edge: admitted Project snapshot/query/run-control memory + R67 independence + R69 control-plane causality -> R70 causal independent capital-yield factory -> PR #295 exact head d6431b2a91b88d5196e9b90b58b043d68b726d9f -> 50 executable courts + deterministic report projection -> hosted exact-head qualification pending. The factory explicitly refuses raw activity as H6 evidence and records 1000X admission separately from H6 proxy.",
+      "metadata": {
+        "bus_head_before_request": "01222e4fa7757aaee04f850b73f83f4755eaff38",
+        "edges": [
+          "Project memory -> remembered weakest multiplier",
+          "R67 independence -> R70 independent yield",
+          "R69 request-workflow-receipt causality -> R70 causal yield",
+          "R70 50-court family -> deterministic ggen capital report",
+          "R70 generation -> PR295 exact-head qualification"
+        ],
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "pr": 295,
+        "head_sha": "d6431b2a91b88d5196e9b90b58b043d68b726d9f",
+        "meaningful_commits": 58,
+        "generated_outputs_hand_edited": 0,
+        "consequential_do": false
+      }
+    }
+  }
+}
