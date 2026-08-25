@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T161603Z-select-post-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "R58 ex4pm GymAct consumer receipt return independence downstream composition next consumer family dependency unlock", "include_archived": false, "limit": 50}
+}
