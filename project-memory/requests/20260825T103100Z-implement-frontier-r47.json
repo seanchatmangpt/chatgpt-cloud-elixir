@@ -1,0 +1,29 @@
+{
+  "request_id": "20260825T103100Z-implement-frontier-r47",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "replication", "r47"],
+      "body": "R47 materially advances the reachable frontier: the R46 cross-repository compiler now has a 50-court fail-closed qualification layer and an upstream-corrected real-ggen template path, merged at marketplace main b942ff54f7d00e376dd2f28beb930390f4feb97b. Immediate frontier is no longer producer qualification. It is independent external consumer realization: (1) re-resolve and execute the compiled ggen target, (2) re-resolve and execute the compiled chatgpt-cloud-elixir target, (3) bind independent consumer receipts/evidence roots, (4) expand exact repository census beyond three grounded targets, (5) measure consumer replication R separately from 50x qualification reuse, (6) use Project memory causally in the next run so M becomes observed rather than UNKNOWN, then (7) retry 1000X admission. Weakest multiplier is external consumer realization; Project PRE leverage was unavailable this run.",
+      "metadata": {
+        "current_marketplace_main": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+        "known_consumers": 3,
+        "alive_consumers": 1,
+        "partial_consumers": 2,
+        "R_qualification": 50,
+        "R_consumer_alive": 1,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "new_frontier_edges": 7,
+        "weakest_multiplier": "external consumer realization",
+        "bus_head": "1a8ea20f5a8f4ccfeef401bab71bfddcdd43284e"
+      }
+    }
+  }
+}
