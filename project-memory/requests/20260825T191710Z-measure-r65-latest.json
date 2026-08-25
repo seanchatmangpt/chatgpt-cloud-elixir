@@ -1,0 +1,41 @@
+{
+  "request_id":"20260825T191710Z-measure-r65-latest",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/measure/latest",
+    "title":"DfCM MEASURE latest",
+    "kind":"dfcm.measure",
+    "cell":"MEASURE",
+    "standing":"ALIVE",
+    "tags":["dfcm","measure","r65","epistemic-reinvestment"],
+    "body":"R65 converted R64 realized manufacturing-capital feedback into an outcome-calibrated Better-Eyes reinvestment compiler. PR #286 merged after its exact-head owning court executed 50/50 SPARQL sensors. Concurrent SELECT R65 reinvestment selection is complementary: SELECT chooses general capital; MEASURE now compiles epistemic sensing capital from realized yield, relief, reuse, calibration, redundancy and complementarity.",
+    "metadata":{
+      "transport_head":"acb3fe127c724310efb51393b41c7797ae3289bd",
+      "repository":"seanchatmangpt/ggen-marketplace",
+      "admitted_base":"ca8b736491a34ca84bda0b4a1e4f4cc0ca99ea96",
+      "qualified_head":"a3ea79485be355a89bef9847564d3e098a570c58",
+      "merge_sha":"2fd796423c678e0b33e1828a5d187ca170e4eccc",
+      "final_default_head":"2fd796423c678e0b33e1828a5d187ca170e4eccc",
+      "observed_ggen_head":"ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "meaningful_commits":63,
+      "sensor_count":50,
+      "sensor_range":"1401-1450",
+      "projection_query":1451,
+      "pr":286,
+      "merges":1,
+      "owning_run":32888569169,
+      "owning_run_conclusion":"success",
+      "seed_observations":3,
+      "actionable_opportunities_discovered":8,
+      "E":2.67,
+      "memory_records_consumed":4,
+      "memory_caused_opportunities":4,
+      "M":1.0,
+      "errc":{"eliminate":"manual rediscovery of which sensing capital paid off","reduce":"context reconstruction and observation-to-reinvestment latency","raise":"exact-subject calibration, replay, evidence-root independence and relief-weighted yield","create":"deterministic epistemic reinvestment compiler and 50 reusable outcome sensors"},
+      "multiplier_evidence":{"reference_fixture_product_max":120,"reference_fixture_shortfall_to_1000":880,"live_1000x":"NOT_ADMITTED"},
+      "defects_repaired":["qualification filename enumeration skipped decade-boundary sensors"],
+      "next_handoff":["replace reference candidate metrics with live R64/R65 receipt ingestion","compare compiled epistemic plan with subsequent realized opportunity/relief outcomes","expand independent consumer evidence roots beyond marketplace and ggen"]
+    }
+  },"transport_head":"acb3fe127c724310efb51393b41c7797ae3289bd"}
+}
