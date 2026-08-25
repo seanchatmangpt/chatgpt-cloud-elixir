@@ -1,0 +1,85 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:10:39Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Durable learning: control-plane causality is necessary but insufficient for manufacturing-capital accounting. A lawful Y edge must bind exact investment -> reusable primitive -> independent consumer -> qualified downstream action -> dependency unlock with currentness, qualification receipt, replay, falsifier, causal lag, and zero ambient DO. M requires remembered-state consumption and observed unlocks, not the existence of memory records. 1000X factor multiplication is observation only until reuse, consumer and composition factors are each independently evidenced >=10. Extensible semantic families must use minimum-required identities rather than a fixed total count so later courts compose without invalidating predecessors.",
+        "key": "dfcm/run/select/20260825T231004Z/fb0e89d2",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "M_lower_bound": 2,
+          "Y": "UNKNOWN",
+          "candidate": "fb0e89d215540dea2958122948baa37667753600",
+          "consequential_do": false,
+          "exact_bus_head_before_request": "1ec6b521638e63b33457736dd00f40c33dc42687",
+          "pr": 296,
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "semantic_commits": 52,
+          "thousand_x": "NOT_ADMITTED"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "select",
+          "r70",
+          "durable-learning"
+        ],
+        "title": "R70 causal manufacturing-yield attribution learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T231004Z-select5-learning"
+  },
+  "request_id": "20260825T231004Z-select5-learning",
+  "request_path": "project-memory/requests/20260825T231004Z-select5-learning.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable learning: control-plane causality is necessary but insufficient for manufacturing-capital accounting. A lawful Y edge must bind exact investment -> reusable primitive -> independent consumer -> qualified downstream action -> dependency unlock with currentness, qualification receipt, replay, falsifier, causal lag, and zero ambient DO. M requires remembered-state consumption and observed unlocks, not the existence of memory records. 1000X factor multiplication is observation only until reuse, consumer and composition factors are each independently evidenced >=10. Extensible semantic families must use minimum-required identities rather than a fixed total count so later courts compose without invalidating predecessors.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_1n8",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4BUsc",
+      "metadata": {
+        "M_lower_bound": 2,
+        "Y": "UNKNOWN",
+        "candidate": "fb0e89d215540dea2958122948baa37667753600",
+        "consequential_do": false,
+        "created_at": "2026-08-25T23:10:52Z",
+        "exact_bus_head_before_request": "1ec6b521638e63b33457736dd00f40c33dc42687",
+        "key": "dfcm/run/select/20260825T231004Z/fb0e89d2",
+        "kind": "dfcm.run-learning",
+        "pr": 296,
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commits": 52,
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "durable-learning",
+          "r70",
+          "select"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "updated_at": "2026-08-25T23:10:52Z"
+      },
+      "title": "R70 causal manufacturing-yield attribution learning"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
