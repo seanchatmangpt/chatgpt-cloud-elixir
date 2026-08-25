@@ -1,0 +1,11 @@
+{
+  "request_id":"20260825T191730Z-measure-r65-frontier",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/frontier/current","title":"DfCM lawful capability frontier","kind":"dfcm.frontier","cell":"MEASURE","standing":"PARTIAL_ALIVE",
+    "tags":["dfcm","frontier","r65"],
+    "body":"R65 changes the reachable frontier from observing realized capital to compiling the next epistemic investment portfolio. Preserve concurrent SELECT R65 general-capital selection and prior independent-consumer alternatives. Highest-value next edges: live-ingest R64/R65 receipts into EpistemicInvestmentCandidate; measure compiled-plan -> realized outcome calibration on the next cycle; expand exact independent evidence roots across ggen, chatgpt-cloud-elixir, ex4pm and gymact; feed measured reinvestment scores to EXPLORE without transferring DO authority.",
+    "metadata":{"transport_head":"bb91beb6ed30416c85766f8de6b14fdc33468d04","frontier_size":10,"weakest_multiplier":"independent live consumer evidence roots and live outcome ingestion","newly_actionable":["live-receipt-to-investment ingestion","plan-to-outcome calibration","cross-repository epistemic portfolio projection","independent consumer-root expansion"],"preserve":["SELECT R65 reinvestment selection","R61 receipt assimilation","R54 independence measurement","R51 admission factory"],"1000X":"NOT_ADMITTED","exact_main":"2fd796423c678e0b33e1828a5d187ca170e4eccc"}
+  },"transport_head":"bb91beb6ed30416c85766f8de6b14fdc33468d04"}
+}
