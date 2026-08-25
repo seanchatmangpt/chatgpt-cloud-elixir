@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T193200Z-frontier-reconcile",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "SELECT_DEVELOP",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "shared-memory", "reconciled", "r65", "r54"],
+      "body": "Fresh GitHub evidence supersedes the remembered pending-R65 edge: ggen-marketplace R65 is already default-contained at main@2fd796423c678e0b33e1828a5d187ca170e4eccc. Preserve that compiler and independent-consumer alternatives. Highest-value non-dominated edge is current-main reconstitution of the still-absent R54 independence/common-cause measurement family from historical PR #265 source, followed by exact-head qualification and composition with R65 reinvestment decisions. Current main was checked and lacks query 700_clean_independence_frontier.rq. 1000X remains NOT_ADMITTED; consumer independence/breadth and causal downstream yield remain weak multipliers.",
+      "metadata": {
+        "reconciled_at": "2026-08-25T19:32:00Z",
+        "bus_head_before_request": "81bfc05670fed048e38d895f912ffb7c0c83f026",
+        "marketplace_main": "2fd796423c678e0b33e1828a5d187ca170e4eccc",
+        "r65_contained": true,
+        "stale_r65_pending_edge_superseded": true,
+        "selected_next": "R54-current-main-independence-reconstitution",
+        "source_pr": 265,
+        "source_head": "2de34340661086c01cc6fcc89e8db7e81c251b06",
+        "1000X": "NOT_ADMITTED",
+        "weakest_multiplier": "independent_consumer_breadth_and_causal_yield"
+      }
+    }
+  }
+}
