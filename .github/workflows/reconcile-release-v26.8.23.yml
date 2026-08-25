@@ -1,0 +1,39 @@
+name: Reconcile release v26.8.23
+
+on:
+  push:
+    branches:
+      - release/v26.8.23
+    paths:
+      - .github/workflows/reconcile-release-v26.8.23.yml
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: release/v26.8.23
+          fetch-depth: 0
+      - name: Merge exact current main into release
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "chatgpt-release-reconciler[bot]"
+          git config user.email "chatgpt-release-reconciler[bot]@users.noreply.github.com"
+          git fetch origin main
+          main_sha="$(git rev-parse origin/main)"
+          before="$(git rev-parse HEAD)"
+          echo "release_before=$before"
+          echo "main=$main_sha"
+          git merge --no-ff -X ours "$main_sha" -m "chore: reconcile v26.8.23 with current main"
+          after="$(git rev-parse HEAD)"
+          test "$after" != "$before"
+          git merge-base --is-ancestor "$main_sha" "$after"
+          git merge-base --is-ancestor "$before" "$after"
+          git push origin "HEAD:release/v26.8.23"
+          echo "release_after=$after"
