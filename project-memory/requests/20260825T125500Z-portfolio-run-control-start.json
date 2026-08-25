@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T125500Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {"key":"dfcm/run-control/portfolio/current","title":"DfCM PORTFOLIO run control","kind":"dfcm.run-control","cell":"PORTFOLIO","standing":"RUNNING","tags":["dfcm","portfolio","run-control"],"body":"UTC start 2026-08-25T12:55:00Z. Exact bus head before requests db259509f98955e652181e96cb66bbf242a14021. Consume frontier, ledger, measure, explore, select, implement, portfolio and recent falsifier/factory/consumer/multiplier memory. Seed: maximize lawful merge/manufacturing recurrence; marketplace-first; weakest multiplier to be revalidated against live evidence.","metadata":{"bus_head":"db259509f98955e652181e96cb66bbf242a14021","E":"UNKNOWN","E2":"UNKNOWN","Y":"UNKNOWN","R":"UNKNOWN","C":"UNKNOWN","M":"UNKNOWN"}}}}
+}
