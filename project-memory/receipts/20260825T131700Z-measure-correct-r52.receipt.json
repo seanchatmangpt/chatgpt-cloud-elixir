@@ -1,0 +1,163 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T13:15:29Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Pre-manufacture revalidation corrected stale R52 state. ggen PR #670 is OPEN, mergeable, exact live head=e7bc695976bba37d1abf73a266da1b2267ca2a1d against main@3604bd0bb0834477fca02453ad787009bffb06dd. Exact-head R48 Independent Consumer Court, general CI, and MEASURE R52 Epistemic Consumer Receipt are all terminal SUCCESS. Prior remembered head b0833991198f12f0f0eddc9cb8f6d9927123d231 and REQUALIFYING status are superseded. Marketplace main remains 0f3349afe3fe12a26932974b8e6a47399b1e94ab. Remaining weakest multiplier is consumer fanout plus machine-readable receipt assimilation back to producer.",
+        "cell": "MEASURE",
+        "key": "dfcm/measure/latest",
+        "kind": "dfcm.measure",
+        "metadata": {
+          "base": "3604bd0bb0834477fca02453ad787009bffb06dd",
+          "bus_head_before_request": "f266da3e1ae9f125e3829dfd0a5f63b7f3091c7d",
+          "corrected_at": "2026-08-25T13:17:00Z",
+          "general_ci": "SUCCESS",
+          "head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+          "marketplace_main": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+          "pr": 670,
+          "prior_stale_head": "b0833991198f12f0f0eddc9cb8f6d9927123d231",
+          "r48_court": "SUCCESS",
+          "r52_court": "SUCCESS",
+          "repo": "seanchatmangpt/ggen",
+          "thousand_x": "NOT_ADMITTED",
+          "weakest_multiplier": "consumer_fanout_and_receipt_assimilation"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r52",
+          "consumer-replication",
+          "corrected-live-evidence"
+        ],
+        "title": "MEASURE latest"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T131700Z-measure-correct-r52"
+  },
+  "request_id": "20260825T131700Z-measure-correct-r52",
+  "request_path": "project-memory/requests/20260825T131700Z-measure-correct-r52.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Pre-manufacture revalidation corrected stale R52 state. ggen PR #670 is OPEN, mergeable, exact live head=e7bc695976bba37d1abf73a266da1b2267ca2a1d against main@3604bd0bb0834477fca02453ad787009bffb06dd. Exact-head R48 Independent Consumer Court, general CI, and MEASURE R52 Epistemic Consumer Receipt are all terminal SUCCESS. Prior remembered head b0833991198f12f0f0eddc9cb8f6d9927123d231 and REQUALIFYING status are superseded. Marketplace main remains 0f3349afe3fe12a26932974b8e6a47399b1e94ab. Remaining weakest multiplier is consumer fanout plus machine-readable receipt assimilation back to producer.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_jyY",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CJE",
+      "metadata": {
+        "E": 3.0,
+        "E_observed": 4.0,
+        "E_work": 3.33,
+        "M": 2.0,
+        "M_observed": 4.0,
+        "M_work": 1.2,
+        "actuation_performed": false,
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "base": "3604bd0bb0834477fca02453ad787009bffb06dd",
+        "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+        "bus_head_before_request": "f266da3e1ae9f125e3829dfd0a5f63b7f3091c7d",
+        "cell": "MEASURE",
+        "commit_count": 65,
+        "construction_base": "cc96804052f9d94e60c0bddbd45c1ef4fe72031d",
+        "consumer_factor_shortfall": 9,
+        "contradicted_prior_r43_pr": 246,
+        "corrected_at": "2026-08-25T13:17:00Z",
+        "correction_source": "live GitHub PR #244/#246 and main branch evidence",
+        "created_at": "2026-08-25T08:18:30Z",
+        "current_main": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "defect": "missing_sccache_runner",
+        "defects_repaired": [
+          "synthetic_merge_checkout_exact-head mismatch"
+        ],
+        "desired_consumer_factor": 10,
+        "errc": {
+          "create": "consumer receipt-return ontology, producer assimilation graph, 50-query return court, deterministic ggen return protocol",
+          "eliminate": "manual interpretation of trapped consumer receipts and stale scalar replication truth",
+          "raise": "exact-head provenance, replay precision, evidence-root independence, cross-repository return coverage",
+          "reduce": "evidence-to-standing latency and repeated consumer-state reconstruction"
+        },
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "general_ci": "SUCCESS",
+        "head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+        "head_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "key": "dfcm/measure/latest",
+        "kind": "dfcm.measure",
+        "live_r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+        "live_r44_pr": 246,
+        "marketplace_main": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "meaningful_commits": 63,
+        "meaningful_repo_commits": 6,
+        "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+        "merge_count": 2,
+        "merge_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "multiplier_standing": "UNKNOWN_NOT_ADMITTED",
+        "new_sensors": 50,
+        "next_handoff": [
+          "execute canonical court on exact current chatgpt-cloud-elixir consumer subject",
+          "return machine-readable cloud receipt as independent evidence",
+          "expand independently ALIVE consumers toward observed factor 10",
+          "measure dependency-relief conversion from returned evidence"
+        ],
+        "observed_independent_alive_consumers": 1,
+        "owning_run": 32841749107,
+        "pr": 670,
+        "pr_count": 2,
+        "primary_merge_sha": "ce479a76e3b60c34414c89cb17746e3bcb30b13c",
+        "prior_stale_head": "b0833991198f12f0f0eddc9cb8f6d9927123d231",
+        "producer_head": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "project_transport_commits": 7,
+        "qualified_head": "008dd897b95bec935fc8c982a95061cee68e72cb",
+        "r43_merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "r43_pr": 244,
+        "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r45_head": "2fe19ebc665572c76fa9839ef95ec0b507a2ead0",
+        "r45_merge": "171120927d93eeacaf67c843b1fca64665ffd8db",
+        "r45b_head": "6dc67c421c7b2e8498df581a46ecc9e30202cab3",
+        "r48_court": "SUCCESS",
+        "r52_court": "SUCCESS",
+        "ref": "main",
+        "reference_multiplier": 160,
+        "reference_shortfall": 840,
+        "repair": "RUSTC_WRAPPER empty in exact consumer court",
+        "repo": "seanchatmangpt/ggen",
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "sensor_count": 50,
+        "sensor_range": "350-399",
+        "sensors": 50,
+        "standing": "PARTIAL_ALIVE",
+        "start_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "tags": [
+          "consumer-replication",
+          "corrected-live-evidence",
+          "dfcm",
+          "measure",
+          "r52"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "updated_at": "2026-08-25T13:15:37Z",
+        "vacuity_run": 32841749050,
+        "weakest_multiplier": "consumer_fanout_and_receipt_assimilation"
+      },
+      "title": "MEASURE latest"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
