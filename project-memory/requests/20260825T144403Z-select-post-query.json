@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T144403Z-select-post-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "consumer", "limit": 50, "include_archived": true}
+}
