@@ -1,0 +1,30 @@
+{
+  "request_id": "20260825T155700Z-select-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/select/current",
+      "title": "DfCM SELECT+DEVELOP current run control",
+      "kind": "dfcm.run-control",
+      "cell": "SELECT_DEVELOP",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "select", "develop", "innovation-capital", "run-control"],
+      "body": "PRE-actuated before repository manufacture. Project snapshot ALIVE. Candidate portfolio is remembered R57 adapter-capital qualification/containment plus downstream ex4pm/GymAct target-local consumer adapters and preserved R54 independence/causal-yield reconstitution. Fresh GitHub evidence must revalidate every exact subject before selection. No consumer standing is inherited from producer admission.",
+      "metadata": {
+        "started_at_utc": "2026-08-25T15:54:24Z",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 368,
+        "bus_head_before_request": "596205fa5e213a0fc1b4909a90a4db17dd422384",
+        "memory_keys_consumed": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/portfolio/latest"],
+        "candidate_portfolio": ["ggen-marketplace#274 R57 adapter-capital selector", "ex4pm target-local consumer adapter", "gymact target-local consumer adapter", "R54 independence/causal-yield reconstitution"],
+        "Y_initial": "UNKNOWN",
+        "M_initial": "UNKNOWN_PRE_REVALIDATION",
+        "weakest_multiplier_initial": "independently qualified consumer breadth",
+        "consumer_ready_remembered": 2,
+        "consumer_target": 10,
+        "1000X": "NOT_ADMITTED"
+      }
+    }
+  }
+}
