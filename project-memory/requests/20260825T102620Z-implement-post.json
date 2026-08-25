@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T102620Z-implement-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "dfcm/implement/latest",
+    "value": {
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+      "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+      "meaningful_commits": 52,
+      "qualification_artifacts": 50,
+      "known_consumers": ["seanchatmangpt/ggen-marketplace", "seanchatmangpt/ggen", "seanchatmangpt/chatgpt-cloud-elixir"],
+      "qualified_consumers_alive": ["seanchatmangpt/ggen-marketplace"],
+      "partial_consumers": ["seanchatmangpt/ggen", "seanchatmangpt/chatgpt-cloud-elixir"],
+      "R_qualification": 50,
+      "R_consumer_alive": 1,
+      "M": "UNKNOWN_PROJECT_PRE_REFUSED",
+      "upstream_repairs": ["replication-plan template context rows->results", "permanent admitted-context regression guard"],
+      "merge_sha": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+      "bus_head": "7cdcffb1ef8a51af7f96a4834c70666e6f662c3d",
+      "weakest_multiplier": "external consumer realization + Project memory transport"
+    }
+  }
+}
