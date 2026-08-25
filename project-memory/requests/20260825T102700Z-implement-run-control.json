@@ -1,0 +1,25 @@
+{
+  "request_id": "20260825T102700Z-implement-run-control",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "dfcm/run-control/implement/current",
+    "value": {
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "utc_end": "2026-08-25T10:27:00Z",
+      "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+      "project_post": "ALIVE:20260825T102620Z-implement-post",
+      "bus_head": "9a01d929b8905642ae8355d6007a4e9a99878323",
+      "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+      "meaningful_commits": 52,
+      "merges": 1,
+      "known_consumers": 3,
+      "qualified_consumers_alive": 1,
+      "R_qualification": 50,
+      "R_consumer_alive": 1,
+      "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+      "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable"
+    }
+  }
+}
