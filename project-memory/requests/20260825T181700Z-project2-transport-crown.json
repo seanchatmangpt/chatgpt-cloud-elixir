@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T181700Z-project2-transport-crown",
+  "operation": "memory.upsert",
+  "project": {
+    "owner": "seanchatmangpt",
+    "number": 2
+  },
+  "payload": {
+    "record": {
+      "key": "dfcm/system/project2-transport/current",
+      "title": "Project #2 transport invariant",
+      "kind": "dfcm.system.transport",
+      "cell": "SYSTEM",
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "project2",
+        "shared-memory",
+        "transport-gate",
+        "alive"
+      ],
+      "body": "ALIVE for the scoped Project #2 transport invariant. Exact source base main@5cc7eafb8700eb03827992798d5babcf9f79a5cf; purpose branch finish/project2-memory-invariant-20260825. The unit transport/proxy court passed on request head 67b59d3465f56c4617ff264832219bf9d06de7d0, then exact request 20260825T181500Z-project2-transport-qualification traversed the new gate and bounded proxy using PROJECTS_TOKEN, created this Project memory record, and returned committed operation receipt sha256:97c05f003d16058a268a102b54929219d61c24f498b64991541d0be9ea06f70b with standing ALIVE. Receipt commit is 253a2539fdaac22ecee290672693ed6a04eacfbe. Scope: malformed transport refusal, canonical/raw digest binding, exact-success replay suppression, and global Project #2 workflow serialization. This standing does not transfer to unrelated control-plane tests or consumer runtimes.",
+      "metadata": {
+        "base_sha": "5cc7eafb8700eb03827992798d5babcf9f79a5cf",
+        "branch": "finish/project2-memory-invariant-20260825",
+        "qualification_request_head": "67b59d3465f56c4617ff264832219bf9d06de7d0",
+        "qualification_receipt_commit": "253a2539fdaac22ecee290672693ed6a04eacfbe",
+        "qualification_request_sha256": "sha256:97c05f003d16058a268a102b54929219d61c24f498b64991541d0be9ea06f70b",
+        "gate_schema": "chatgpt-project-memory-gate/v2",
+        "standing_scope": "project2-transport-invariant"
+      }
+    }
+  }
+}
