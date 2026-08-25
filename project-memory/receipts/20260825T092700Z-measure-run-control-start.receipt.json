@@ -1,0 +1,16 @@
+{
+  "error": {
+    "message": "Extra data: line 1 column 1195 (char 1194)",
+    "type": "JSONDecodeError"
+  },
+  "observed_at": "2026-08-25T09:27:36Z",
+  "operation": null,
+  "reason": "UNHANDLED_PROXY_FAILURE",
+  "request_digest_basis": {},
+  "request_id": null,
+  "request_path": "project-memory/requests/20260825T092700Z-measure-run-control-start.json",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "BUILD_BROKEN",
+  "token_source": "PROJECTS_TOKEN secret"
+}
