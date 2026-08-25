@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T085000Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control.portfolio",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "autocatalytic"],
+      "body": "PORTFOLIO recurrence started from exact project-memory-bus head 8d7521e5ba7d53096c61d21a434de3f2705a938e. Starting Project snapshot: PVT_kwHOCCCFfc4BhZKe / @seanchatmangpt's post-agi project / 347 items. Canonical DfCM namespace currently contains only dfcm/measure/latest, dfcm/ledger/current, and immutable R43 MEASURE learning; frontier/explore/select/implement/portfolio keys are absent and therefore become explicit bootstrap/control-plane opportunities. Memory-derived primary seed: execute R43 replication-epistemic observability against the live portfolio, then recurse through merge unlocks, consumer fanout, qualification gaps, and marketplace factory composition.",
+      "metadata": {
+        "utc_start": "2026-08-25T08:48:43Z",
+        "bus_head": "8d7521e5ba7d53096c61d21a434de3f2705a938e",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count": 347,
+        "memory_keys_consumed": ["dfcm/ledger/current", "dfcm/measure/latest", "dfcm/run/measure/20260825T081733Z/aaad22568fdb4fee537ce663d4b640585bd5c194"],
+        "memory_keys_absent": ["dfcm/frontier/current", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "initial_frontier_size": 8,
+        "E_observed": 4.0,
+        "E2_observed": null,
+        "Y_observed": null,
+        "R_observed": null,
+        "C_observed": null,
+        "M_observed": 4.0,
+        "weakest_multiplier": "R_or_E2_unknown",
+        "seed_opportunities": ["execute R43 sensors over live repository/replication subjects", "bootstrap absent canonical frontier records from exact live evidence", "find merge-ready/near-ready portfolio edges", "extract reusable factories from repeated qualification/repair topology"]
+      }
+    }
+  }
+}
