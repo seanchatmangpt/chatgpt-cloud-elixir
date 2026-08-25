@@ -1,0 +1,12 @@
+{
+  "request_id":"20260825T190300Z-measure-r4-query",
+  "operation":"memory.query",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "text":"ggen-marketplace ggen sensor ontology pack falsifier dependency standing consumer replication phase-change",
+    "limit":50,
+    "include_archived":false,
+    "max_scan":5000,
+    "transport_head":"854ecf8eb68b4d4d39e381d71e80734a0534fc39"
+  }
+}
