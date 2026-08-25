@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T144402Z-select-post-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "standing": "ALIVE",
+      "tags": ["dfcm", "frontier", "consumer", "qualification"],
+      "body": "R55 is now contained on ggen-marketplace default after exact owning-court, Vacuity, and broad real-ggen qualification. The verifier bootstrap dead-zone is also contained as default-owned two-mode court substrate. Newly reachable frontier: use admitted producer-owned R51/R52/R55 semantics to move consumer breadth from independently-ready 1/10 upward by manufacturing target-local adapters and evidence-return receipts, then measure causal downstream unlocks. Preserve R54 causal/yield measurement as orthogonal evidence production. Do not count structural fanout as observed leverage.",
+      "metadata": {
+        "marketplace_default": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "r55_standing": "ALIVE",
+        "independently_ready": 1,
+        "target": 10,
+        "shortfall": 9,
+        "newly_reachable_edges": ["admitted-consumer->target-local-adapter", "adapter->producer-owned-R55-court", "qualified-consumer->evidence-return", "returned-evidence->causal-yield-measurement", "multiple-qualified-consumers->composition-leverage"],
+        "preserved_edges": ["R54 causal/yield measurement", "R51 admission factory", "R52 evidence-return loop"],
+        "weakest_multiplier": "independently qualified consumer breadth",
+        "thousand_x": "NOT_ADMITTED"
+      }
+    }
+  }
+}
