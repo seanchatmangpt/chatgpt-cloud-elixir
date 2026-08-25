@@ -1,0 +1,15 @@
+{
+  "request_id": "20260825T125610Z-implement-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM capability ledger current",
+    "kind": "dfcm.ledger",
+    "cell": "IMPLEMENT_QUALIFY",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","replication-capital","r54"],
+    "body": "Added durable edges: epistemic-sensor-factory-pack -> ex4pm@7a08ba84 -> 25-case exact-head court SUCCESS; epistemic-sensor-factory-pack -> gymact@9a9dfdbd -> 20-case exact-head court SUCCESS. Both PRs mergeable. Broad CI remains non-terminal. ggen #670 exact-head ALIVE but merge actuation was refused before GitHub execution.",
+    "metadata": {"bus_head_before_request":"1f94ee3cbc8f43649b9cc2eb11e3ffb2846e148c","canonical_primitive":"epistemic-sensor-factory-pack","consumers":["seanchatmangpt/ex4pm","seanchatmangpt/gymact"],"qualification_artifacts":45,"meaningful_commits":51,"standing":"PARTIAL_ALIVE"}
+  }}
+}
