@@ -100,6 +100,22 @@ class Policy:
         self.max_output_bytes = int(raw.get("max_output_bytes", 100_000))
         self.repo = str(raw.get("repo", "seanchatmangpt/chatgpt-cloud-elixir"))
         self.branch = str(raw.get("branch", "local-control-bus"))
+        # Operations that must be explicitly approved locally (see ApprovalStore)
+        # before LocalExecutor ever runs them, regardless of what the static
+        # policy checks above admit. Defaults to every operation except the
+        # read-only system.snapshot. This field is policy-tightening only: it
+        # can require approval for more operations than the default, never
+        # fewer than "every mutating/actuating operation".
+        configured = raw.get("require_approval_for")
+        if configured is None:
+            self.require_approval_for = set(DEFAULT_OPERATIONS) - {"system.snapshot"}
+        else:
+            self.require_approval_for = set(configured) | (
+                set(DEFAULT_OPERATIONS) - {"system.snapshot"}
+            )
+
+    def requires_approval(self, operation: str) -> bool:
+        return operation in self.require_approval_for
 
     @classmethod
     def load(cls, path: Path) -> "Policy":
@@ -394,6 +410,81 @@ class ReplayLedger:
         os.replace(temp, self.path)
 
 
+class ApprovalStore:
+    """Local-only human-approval gate.
+
+    Deliberately lives under `state_dir`, never under the git checkout the
+    agent syncs (`ensure_checkout`/`sync_checkout` only ever touch
+    `checkout`). Nothing pushed to the transport branch can create, or even
+    see, a file here -- `sync_checkout`'s `git reset --hard` never runs
+    against this directory. A request is admitted for execution only if a
+    human ran `approve <request_id>` on *this* machine, after `sync_checkout`
+    already pulled the request text for them to read.
+    """
+
+    def __init__(self, path: Path):
+        self.dir = path
+        self.dir.mkdir(parents=True, exist_ok=True)
+
+    def _marker(self, request_id: str, verdict: str) -> Path:
+        safe = request_id.replace("/", "_")
+        return self.dir / f"{safe}.{verdict}"
+
+    def status(self, request_id: str) -> str:
+        if self._marker(request_id, "approved").exists():
+            return "approved"
+        if self._marker(request_id, "denied").exists():
+            return "denied"
+        return "pending"
+
+    def approve(self, request_id: str) -> None:
+        denied = self._marker(request_id, "denied")
+        if denied.exists():
+            denied.unlink()
+        self._marker(request_id, "approved").write_text(utc_now() + "\n", encoding="utf-8")
+
+    def deny(self, request_id: str) -> None:
+        approved = self._marker(request_id, "approved")
+        if approved.exists():
+            approved.unlink()
+        self._marker(request_id, "denied").write_text(utc_now() + "\n", encoding="utf-8")
+
+    def mark_notified(self, request_id: str) -> bool:
+        """Returns True the first time this is called for a request_id (so the
+        caller can fire exactly one local notification per pending request
+        instead of one every poll cycle)."""
+        marker = self._marker(request_id, "notified")
+        if marker.exists():
+            return False
+        marker.write_text(utc_now() + "\n", encoding="utf-8")
+        return True
+
+
+def notify_pending_locally(request_id: str, operation: str) -> None:
+    """Best-effort local OS notification. Never raises -- a notification
+    failure must not block the approval workflow itself."""
+    if platform.system() != "Darwin":
+        return
+    try:
+        message = f"{operation} ({request_id}) is waiting for local approval"
+        script = (
+            "display notification "
+            + json.dumps(message)
+            + " with title "
+            + json.dumps("ChatGPT local control: approval needed")
+        )
+        subprocess.run(
+            ["/usr/bin/osascript", "-e", script],
+            check=False,
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+    except Exception:
+        pass
+
+
 def make_receipt(
     request: Mapping[str, Any],
     policy: Policy,
@@ -515,7 +606,9 @@ def commit_receipt(checkout: Path, receipt_path: Path, request_id: str) -> None:
         git("pull", "--rebase", "origin", branch, cwd=checkout)
 
 
-def process_pending(checkout: Path, policy: Policy, ledger: ReplayLedger) -> int:
+def process_pending(
+    checkout: Path, policy: Policy, ledger: ReplayLedger, approvals: ApprovalStore
+) -> int:
     requests_dir = checkout / "local-control" / "requests"
     receipts_dir = checkout / "local-control" / "receipts"
     receipts_dir.mkdir(parents=True, exist_ok=True)
@@ -525,6 +618,40 @@ def process_pending(checkout: Path, policy: Policy, ledger: ReplayLedger) -> int
         receipt_path = receipts_dir / f"{request_id}.receipt.json"
         if receipt_path.exists():
             continue
+
+        try:
+            raw = json.loads(request_path.read_text(encoding="utf-8"))
+        except Exception:
+            raw = None
+        operation = str((raw or {}).get("operation", ""))
+
+        if raw is not None and policy.requires_approval(operation):
+            status = approvals.status(request_id)
+            if status == "pending":
+                if approvals.mark_notified(request_id):
+                    notify_pending_locally(request_id, operation)
+                # Not terminal: no receipt is written, so this request is
+                # re-checked (not re-executed) on every subsequent poll until
+                # a human approves or denies it locally.
+                continue
+            if status == "denied":
+                raw["_request_sha256"] = sha256_json(raw)
+                raw["_started_at"] = utc_now()
+                receipt = make_receipt(
+                    raw,
+                    policy,
+                    standing="REFUSED",
+                    reason="LOCAL_APPROVAL_DENIED",
+                    error=f"request {request_id} was explicitly denied locally",
+                )
+                receipt_path.write_text(
+                    json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+                )
+                commit_receipt(checkout, receipt_path, request_id)
+                count += 1
+                continue
+            # status == "approved": fall through to normal execution below.
+
         try:
             receipt = run_request(request_path, policy, ledger)
         except Refused as exc:
@@ -552,11 +679,12 @@ def serve(args: argparse.Namespace) -> int:
     checkout = expand_path(args.checkout)
     state_dir = expand_path(args.state_dir)
     ledger = ReplayLedger(state_dir / "executed.json")
+    approvals = ApprovalStore(state_dir / "approvals")
     ensure_checkout(checkout, policy)
     while True:
         try:
             sync_checkout(checkout, policy)
-            process_pending(checkout, policy, ledger)
+            process_pending(checkout, policy, ledger, approvals)
         except KeyboardInterrupt:
             return 0
         except Exception as exc:
@@ -564,6 +692,79 @@ def serve(args: argparse.Namespace) -> int:
         if args.once:
             return 0
         time.sleep(args.poll_seconds)
+
+
+def _pending_requests(checkout: Path, policy: Policy, approvals: ApprovalStore) -> list[Dict[str, Any]]:
+    requests_dir = checkout / "local-control" / "requests"
+    receipts_dir = checkout / "local-control" / "receipts"
+    out = []
+    for request_path in sorted(requests_dir.glob("*.json")):
+        request_id = request_path.stem
+        if (receipts_dir / f"{request_id}.receipt.json").exists():
+            continue
+        try:
+            raw = json.loads(request_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        operation = str(raw.get("operation", ""))
+        if not policy.requires_approval(operation):
+            continue
+        if approvals.status(request_id) != "pending":
+            continue
+        out.append(raw)
+    return out
+
+
+def list_pending(args: argparse.Namespace) -> int:
+    policy = Policy.load(Path(args.policy))
+    checkout = expand_path(args.checkout)
+    state_dir = expand_path(args.state_dir)
+    approvals = ApprovalStore(state_dir / "approvals")
+    if not (checkout / ".git").exists():
+        ensure_checkout(checkout, policy)
+    sync_checkout(checkout, policy)
+    pending = _pending_requests(checkout, policy, approvals)
+    print(json.dumps(pending, indent=2, sort_keys=True))
+    return 0
+
+
+def _find_request(checkout: Path, request_id: str) -> Optional[Dict[str, Any]]:
+    path = checkout / "local-control" / "requests" / f"{request_id}.json"
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def approve(args: argparse.Namespace) -> int:
+    policy = Policy.load(Path(args.policy))
+    checkout = expand_path(args.checkout)
+    state_dir = expand_path(args.state_dir)
+    if not (checkout / ".git").exists():
+        ensure_checkout(checkout, policy)
+    sync_checkout(checkout, policy)
+    request = _find_request(checkout, args.request_id)
+    if request is None:
+        print(f"REFUSED[REQUEST_NOT_FOUND]: no request {args.request_id!r} on {policy.branch}", file=sys.stderr)
+        return 1
+    print("About to approve this request for LOCAL EXECUTION:")
+    print(json.dumps(request, indent=2, sort_keys=True))
+    if not args.yes:
+        answer = input(f"Approve {args.request_id!r} ({request.get('operation')})? [y/N] ")
+        if answer.strip().lower() not in {"y", "yes"}:
+            print("Not approved.")
+            return 1
+    approvals = ApprovalStore(state_dir / "approvals")
+    approvals.approve(args.request_id)
+    print(f"Approved {args.request_id!r}. It will execute on the next poll cycle.")
+    return 0
+
+
+def deny(args: argparse.Namespace) -> int:
+    state_dir = expand_path(args.state_dir)
+    approvals = ApprovalStore(state_dir / "approvals")
+    approvals.deny(args.request_id)
+    print(f"Denied {args.request_id!r}. It will be refused (LOCAL_APPROVAL_DENIED) on the next poll cycle.")
+    return 0
 
 
 def validate(args: argparse.Namespace) -> int:
@@ -602,6 +803,31 @@ def main() -> int:
     p_validate = sub.add_parser("validate-policy")
     p_validate.add_argument("--policy", required=True)
     p_validate.set_defaults(func=validate)
+
+    p_list_pending = sub.add_parser(
+        "list-pending", help="Show requests awaiting local approval"
+    )
+    p_list_pending.add_argument("--policy", required=True)
+    p_list_pending.add_argument("--checkout", default="~/.local/share/chatgpt-local-control/repo")
+    p_list_pending.add_argument("--state-dir", default="~/.local/state/chatgpt-local-control")
+    p_list_pending.set_defaults(func=list_pending)
+
+    p_approve = sub.add_parser(
+        "approve", help="Approve one pending request for local execution"
+    )
+    p_approve.add_argument("request_id")
+    p_approve.add_argument("--policy", required=True)
+    p_approve.add_argument("--checkout", default="~/.local/share/chatgpt-local-control/repo")
+    p_approve.add_argument("--state-dir", default="~/.local/state/chatgpt-local-control")
+    p_approve.add_argument(
+        "--yes", action="store_true", help="Skip the interactive confirmation prompt"
+    )
+    p_approve.set_defaults(func=approve)
+
+    p_deny = sub.add_parser("deny", help="Deny one pending request")
+    p_deny.add_argument("request_id")
+    p_deny.add_argument("--state-dir", default="~/.local/state/chatgpt-local-control")
+    p_deny.set_defaults(func=deny)
 
     args = parser.parse_args()
     return args.func(args)

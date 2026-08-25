@@ -1,6 +1,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 
@@ -134,6 +135,130 @@ class LocalControlTests(unittest.TestCase):
         with self.assertRaises(mod.Refused) as ctx:
             mod.run_request(request_path, self.policy, ledger)
         self.assertEqual(ctx.exception.reason, "REQUEST_ID_PATH_MISMATCH")
+
+
+def _git(*args, cwd):
+    return subprocess.run(
+        ["git", *args], cwd=str(cwd), check=True, capture_output=True, text=True
+    )
+
+
+class ApprovalGateTests(unittest.TestCase):
+    """Real, local git remote + real git checkout -- no mocking of the git
+    transport or the executor. `commit_receipt` performs a genuine
+    `git push origin HEAD:<branch>` against a real bare repo on disk, exactly
+    as it would against a real GitHub remote, just without the network hop."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name)
+
+        self.origin = root / "origin.git"
+        self.origin.mkdir()
+        _git("init", "--bare", "--initial-branch=local-control-bus", cwd=self.origin)
+
+        seed = root / "seed"
+        seed.mkdir()
+        _git("init", "--initial-branch=local-control-bus", cwd=seed)
+        _git("config", "user.email", "test@example.com", cwd=seed)
+        _git("config", "user.name", "Test", cwd=seed)
+        (seed / "local-control" / "requests").mkdir(parents=True)
+        (seed / "local-control" / "receipts").mkdir(parents=True)
+        (seed / "local-control" / "requests" / ".gitkeep").write_text("")
+        (seed / "local-control" / "receipts" / ".gitkeep").write_text("")
+        _git("add", "-A", cwd=seed)
+        _git("commit", "-m", "seed", cwd=seed)
+        _git("push", str(self.origin), "local-control-bus", cwd=seed)
+
+        self.checkout = root / "checkout"
+        _git("clone", str(self.origin), str(self.checkout), cwd=root)
+        _git("config", "user.email", "test@example.com", cwd=self.checkout)
+        _git("config", "user.name", "Test", cwd=self.checkout)
+
+        self.state_dir = root / "state"
+        self.policy = mod.Policy(
+            {
+                "machine_id": "test-machine",
+                "repo": "example/example",
+                "branch": "local-control-bus",
+                "allowed_operations": ["system.snapshot", "filesystem.list"],
+                "read_roots": [str(root)],
+            }
+        )
+        self.ledger = mod.ReplayLedger(self.state_dir / "executed.json")
+        self.approvals = mod.ApprovalStore(self.state_dir / "approvals")
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _write_request(self, request_id, operation="filesystem.list", payload=None):
+        path = self.checkout / "local-control" / "requests" / f"{request_id}.json"
+        path.write_text(
+            json.dumps(
+                {
+                    "request_id": request_id,
+                    "operation": operation,
+                    "machine": {"id": "test-machine"},
+                    "payload": payload if payload is not None else {"path": str(self.checkout)},
+                }
+            ),
+            encoding="utf-8",
+        )
+        _git("add", "-A", cwd=self.checkout)
+        _git("commit", "-m", f"request {request_id}", cwd=self.checkout)
+        _git("push", "origin", "local-control-bus", cwd=self.checkout)
+
+    def test_unapproved_request_produces_no_receipt_and_does_not_execute(self):
+        self._write_request("r-pending")
+        count = mod.process_pending(self.checkout, self.policy, self.ledger, self.approvals)
+        self.assertEqual(count, 0)
+        receipt_path = self.checkout / "local-control" / "receipts" / "r-pending.receipt.json"
+        self.assertFalse(receipt_path.exists())
+        self.assertFalse(self.ledger.seen("r-pending"))
+        self.assertEqual(self.approvals.status("r-pending"), "pending")
+
+    def test_approved_request_executes_and_produces_alive_receipt(self):
+        self._write_request("r-approved")
+        self.approvals.approve("r-approved")
+        count = mod.process_pending(self.checkout, self.policy, self.ledger, self.approvals)
+        self.assertEqual(count, 1)
+        receipt_path = self.checkout / "local-control" / "receipts" / "r-approved.receipt.json"
+        self.assertTrue(receipt_path.exists())
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        self.assertEqual(receipt["standing"], "ALIVE")
+        self.assertTrue(self.ledger.seen("r-approved"))
+
+    def test_denied_request_is_refused_with_local_approval_denied(self):
+        self._write_request("r-denied")
+        self.approvals.deny("r-denied")
+        count = mod.process_pending(self.checkout, self.policy, self.ledger, self.approvals)
+        self.assertEqual(count, 1)
+        receipt_path = self.checkout / "local-control" / "receipts" / "r-denied.receipt.json"
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        self.assertEqual(receipt["standing"], "REFUSED")
+        self.assertEqual(receipt["reason"], "LOCAL_APPROVAL_DENIED")
+
+    def test_approval_marker_inside_synced_checkout_is_ignored(self):
+        # An attempt to smuggle approval through the git transport itself: drop
+        # a same-named marker inside the synced checkout rather than under
+        # state_dir. process_pending must never look there.
+        self._write_request("r-smuggled")
+        fake_dir = self.checkout / "local-control" / "requests"
+        (fake_dir / "r-smuggled.approved").write_text("forged", encoding="utf-8")
+        count = mod.process_pending(self.checkout, self.policy, self.ledger, self.approvals)
+        self.assertEqual(count, 0)
+        receipt_path = self.checkout / "local-control" / "receipts" / "r-smuggled.receipt.json"
+        self.assertFalse(receipt_path.exists())
+        self.assertEqual(self.approvals.status("r-smuggled"), "pending")
+
+    def test_system_snapshot_never_requires_approval(self):
+        self.assertFalse(self.policy.requires_approval("system.snapshot"))
+
+    def test_process_run_requires_approval_by_default_even_if_not_configured(self):
+        # require_approval_for was not set in this policy at all; the floor
+        # (every mutating/actuating operation) still applies.
+        self.assertTrue(self.policy.requires_approval("process.run"))
+        self.assertTrue(self.policy.requires_approval("filesystem.delete"))
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@
     "completed_at": {"type": "string"},
     "standing": {
       "type": "string",
-      "enum": ["ALIVE", "REFUSED", "BUILD_BROKEN", "UNKNOWN"]
+      "enum": ["ALIVE", "REFUSED", "BUILD_BROKEN", "UNKNOWN", "PENDING_APPROVAL"]
     },
     "reason": {"type": ["string", "null"]},
     "error": {"type": ["string", "null"]},

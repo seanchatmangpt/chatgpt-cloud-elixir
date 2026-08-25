@@ -15,9 +15,27 @@ A remote request has **no ambient authority**. It must be admitted by all of:
 5. local replay ledger;
 6. operation allowlist;
 7. operation-specific path/executable/app/destructive policy;
-8. local platform/runtime availability.
+8. local platform/runtime availability;
+9. **explicit local human approval**, recorded in `ApprovalStore`
+   (`~/.local/state/chatgpt-local-control/approvals/`) via the `approve`
+   subcommand, for every operation in `Policy.require_approval_for` (every
+   operation except `system.snapshot`, by default and by floor — policy may
+   require approval for *more* operations, never fewer).
 
-Do not add request fields that mutate policy, inject arbitrary environment variables, transport secrets, or bypass replay/expiry/machine scope.
+Requirement 9 is deliberately unbypassable from the git transport: the
+approval store lives under `state_dir`, never under the synced `checkout`
+directory (`ensure_checkout`/`sync_checkout` only ever touch `checkout`, and
+`sync_checkout`'s `git reset --hard` never runs against `state_dir`), so no
+commit landed on `local-control-bus` — by ChatGPT, by Claude, or by anyone
+else with push access to that branch — can create, forge, or otherwise
+satisfy its own approval. Only a human running `approve <request_id>` on the
+enrolled machine itself, after reading the pulled request text the CLI
+prints, can do that. A request awaiting approval is not executed and no
+receipt is written for it (so it is re-checked, not re-executed, on every
+poll) until a human approves or denies it locally; a denied request is
+refused with reason `LOCAL_APPROVAL_DENIED`.
+
+Do not add request fields that mutate policy, inject arbitrary environment variables, transport secrets, or bypass replay/expiry/machine scope/approval.
 
 ## Execution law
 
@@ -50,7 +68,13 @@ At minimum qualify:
 - executable allowlist;
 - argv execution with no shell interpretation;
 - replay refusal;
-- receipt production.
+- receipt production;
+- unapproved requests do not execute and produce no receipt (re-checked, not re-executed);
+- approved requests execute exactly as before approval was introduced;
+- denied requests refuse with `LOCAL_APPROVAL_DENIED` and produce a receipt;
+- an `.approved` marker placed inside the *synced git checkout* (an attempted
+  remote self-approval) is ignored, because the approval store is read only
+  from `state_dir`, never from `checkout`.
 
 macOS UI operations require execution on an enrolled macOS host for `ALIVE`; Linux CI can only prove their refusal/platform branches and source-level contract.
 
