@@ -1,0 +1,77 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:26:08Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/measure/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T092303Z-measure-read-latest"
+  },
+  "request_id": "20260825T092303Z-measure-read-latest",
+  "request_path": "project-memory/requests/20260825T092303Z-measure-read-latest.json",
+  "result": {
+    "body": "Live GitHub evidence corrected stale PR identity in the prior Project record. R43 realized replication observability is PR #244, qualified head 4baf32dd33112236c301906bea2df631e6c188cd, merged to ggen-marketplace/main as aaad22568fdb4fee537ce663d4b640585bd5c194. PR #246 is currently a distinct open R44 IMPLEMENT subject at 7741dca8a70cbf7b849f8292c1651af0d7f22444. The prior memory's semantic R43 capability description remains valid; only PR/head identity was contradicted and corrected. Immediate handoff remains: execute/qualify the live R44 frontier-derivative replication capital and feed exact results into portfolio recurrence.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_jyY",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CJE",
+    "metadata": {
+      "E": 4.0,
+      "E_observed": 4.0,
+      "M": 4.0,
+      "M_observed": 4.0,
+      "actuation_performed": false,
+      "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+      "cell": "MEASURE",
+      "contradicted_prior_r43_pr": 246,
+      "correction_source": "live GitHub PR #244/#246 and main branch evidence",
+      "created_at": "2026-08-25T08:18:30Z",
+      "current_main": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "key": "dfcm/measure/latest",
+      "kind": "dfcm.measure",
+      "live_r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+      "live_r44_pr": 246,
+      "meaningful_commits": 66,
+      "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+      "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "owning_run": 32825762824,
+      "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+      "r43_merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "r43_pr": 244,
+      "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "sensors": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "alive",
+        "corrected",
+        "dfcm",
+        "epistemic",
+        "measure",
+        "observability",
+        "r43",
+        "replication"
+      ],
+      "updated_at": "2026-08-25T08:52:41Z",
+      "vacuity_run": 32825762894
+    },
+    "title": "DfCM MEASURE R43 latest — corrected live identity"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
