@@ -1,0 +1,26 @@
+{
+  "request_id":"20260825T191720Z-measure-r65-ledger",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/ledger/current","title":"DfCM durable innovation-capital ledger","kind":"dfcm.ledger","cell":"MEASURE","standing":"ALIVE",
+    "tags":["dfcm","ledger","r65","preserve-prior"],
+    "body":"Preserve prior ledger content DI_lAHOCCCFfc4BhZKezgK_j0E and all still-lawful alternatives. Append R64 realized feedback -> R65 epistemic reinvestment compiler -> 50 sensor courts -> exact-head qualification -> PR #286 -> merge 2fd7964 -> newly actionable live-ingestion/calibration/consumer-root edges. Concurrent SELECT R65 general-capital reinvestment remains a complementary branch of the capital graph, not refuted or erased.",
+    "metadata":{
+      "transport_head":"07b6683d352be8ceecf53a4ec0c7395d68116594",
+      "previous_content_id":"DI_lAHOCCCFfc4BhZKezgK_j0E",
+      "preserve_prior":true,
+      "edges_added":[
+        ["R64-realized-feedback","prov:generated","R65-epistemic-reinvestment-candidate"],
+        ["R65-epistemic-reinvestment-candidate","prov:generated","sensor-family-1401-1450"],
+        ["sensor-family-1401-1450","prov:generated","deterministic-reinvestment-plan"],
+        ["a3ea79485be355a89bef9847564d3e098a570c58","qualified_by","workflow:32888569169"],
+        ["a3ea79485be355a89bef9847564d3e098a570c58","merged_as","2fd796423c678e0b33e1828a5d187ca170e4eccc"],
+        ["2fd796423c678e0b33e1828a5d187ca170e4eccc","unlocks","live-R64-receipt-ingestion"],
+        ["2fd796423c678e0b33e1828a5d187ca170e4eccc","unlocks","plan-vs-realized-calibration"],
+        ["2fd796423c678e0b33e1828a5d187ca170e4eccc","unlocks","independent-consumer-root-expansion"]
+      ],
+      "edge_count_added":8,"consequential_do":false
+    }
+  },"transport_head":"07b6683d352be8ceecf53a4ec0c7395d68116594"}
+}
