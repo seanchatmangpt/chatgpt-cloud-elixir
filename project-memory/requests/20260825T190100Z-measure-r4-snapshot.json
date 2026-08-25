@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T190100Z-measure-r4-snapshot",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}
