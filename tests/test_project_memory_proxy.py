@@ -25,6 +25,52 @@ class MemoryEncodingTests(unittest.TestCase):
         self.assertEqual("plain", body)
 
 
+class FlattenFieldValuesTests(unittest.TestCase):
+    def test_flattens_all_field_types(self):
+        field_values = {
+            "nodes": [
+                {"text": "hello", "field": {"name": "Notes"}},
+                {"number": 3, "field": {"name": "Points"}},
+                {"date": "2026-08-25", "field": {"name": "Due"}},
+                {"name": "Todo", "field": {"name": "Status"}},
+                {"title": "Sprint 4", "startDate": "2026-08-01", "duration": 14, "field": {"name": "Iteration"}},
+            ]
+        }
+        result = proxy.flatten_field_values(field_values)
+        self.assertEqual(
+            {
+                "Notes": "hello",
+                "Points": 3,
+                "Due": "2026-08-25",
+                "Status": "Todo",
+                "Iteration": {"title": "Sprint 4", "start_date": "2026-08-01", "duration": 14},
+            },
+            result,
+        )
+
+    def test_skips_nodes_without_field_name(self):
+        result = proxy.flatten_field_values({"nodes": [{"text": "x", "field": {}}, None]})
+        self.assertEqual({}, result)
+
+    def test_none_and_empty_input(self):
+        self.assertEqual({}, proxy.flatten_field_values(None))
+        self.assertEqual({}, proxy.flatten_field_values({}))
+        self.assertEqual({}, proxy.flatten_field_values({"nodes": []}))
+
+
+class ProjectItemsAllowedOperationTests(unittest.TestCase):
+    def test_project_items_is_allowed(self):
+        self.assertIn("project.items", proxy.ALLOWED_OPERATIONS)
+
+    def test_project_items_request_validates(self):
+        request = {
+            "request_id": "x",
+            "operation": "project.items",
+            "project": {"owner": "seanchatmangpt", "number": 2},
+        }
+        self.assertEqual(("x", "project.items"), proxy.validate_request(request, "seanchatmangpt", 2))
+
+
 class ValidationTests(unittest.TestCase):
     def test_accepts_scoped_request(self):
         request = {

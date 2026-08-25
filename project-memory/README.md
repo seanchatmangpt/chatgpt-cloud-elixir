@@ -80,6 +80,16 @@ Secrets are never written into receipts or logs. Receipts record only the token 
 The bounded protocol is:
 
 - `project.snapshot` — inspect the configured project and its items.
+- `project.items` — read-only, full-fidelity read of every item on the project (not just
+  memory-marked ones): title, body, url, state, labels, assignees, and every custom
+  ProjectV2 field value (text/number/date/single-select/iteration), decoded into a flat
+  `{field_name: value}` map per item. Payload: `{"types": ["ISSUE", "PULL_REQUEST",
+  "DRAFT_ISSUE"], "include_archived": false, "max_items": 500}` (all keys optional; `types`
+  defaults to all three, filtered client-side after fetch since the GraphQL `items()`
+  connection has no server-side type/archived filter beyond pagination). Result:
+  `{"items": [{"item_id", "is_archived", "type", "content": {"id", "title", "body", "url",
+  "number", "repository", "state", "labels": [{"name","color"}], "assignees": ["login"]},
+  "field_values": {"<Field Name>": <value>}}], "item_count", "truncated"}`.
 - `memory.create` — create a new memory record as a Project draft issue; duplicate keys are refused.
 - `memory.read` — fetch one memory record by stable key.
 - `memory.update` — update an existing memory record by key.
