@@ -1,0 +1,84 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:42:36Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: once causal manufacturing Y/M and consumer independence are separately observable, the next production-function primitive is not another sensor family but a selector that composes both into a deterministic consumer-manufacturing portfolio. Raw repository count is not fanout capital; evidence-root orthogonality, exact-subject qualification, replay/falsifiers, cost, reversibility and downstream causal value must jointly determine the next consumer. Concurrent default movement is topology, not failure: freeze construction base for provenance, require exact-head candidate courts, preserve concurrent non-conflicting main capital, and merge only after mergeability plus independent exact-head qualification. Project transport races must fail with typed 409 and be retried from a freshly resolved head; never force over a receipt commit.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260825T234140Z/33dae58b",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "bus_head": "6a185cf7730fcef7c6e32e772df64018eea62af3",
+          "consequential_do": false,
+          "marketplace_merge": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+          "novel_laws": [
+            "independence+xY->consumer-capital-selector",
+            "concurrent-main-movement-is-topology",
+            "project-receipt-race->fresh-head-retry"
+          ],
+          "r71_candidate": "231826736a1aa5ebb9eea0c93f0ffaaced5241f2"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "learning",
+          "r71",
+          "orthogonality"
+        ],
+        "title": "R71 orthogonal consumer capital learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T234140Z-select4-learning"
+  },
+  "request_id": "20260825T234140Z-select4-learning",
+  "request_path": "project-memory/requests/20260825T234140Z-select4-learning.json",
+  "result": {
+    "body": "Durable learning: once causal manufacturing Y/M and consumer independence are separately observable, the next production-function primitive is not another sensor family but a selector that composes both into a deterministic consumer-manufacturing portfolio. Raw repository count is not fanout capital; evidence-root orthogonality, exact-subject qualification, replay/falsifiers, cost, reversibility and downstream causal value must jointly determine the next consumer. Concurrent default movement is topology, not failure: freeze construction base for provenance, require exact-head candidate courts, preserve concurrent non-conflicting main capital, and merge only after mergeability plus independent exact-head qualification. Project transport races must fail with typed 409 and be retried from a freshly resolved head; never force over a receipt commit.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_14s",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Befg",
+    "metadata": {
+      "bus_head": "6a185cf7730fcef7c6e32e772df64018eea62af3",
+      "cell": "SELECT_DEVELOP",
+      "consequential_do": false,
+      "created_at": "2026-08-25T23:42:42Z",
+      "key": "dfcm/run/select/20260825T234140Z/33dae58b",
+      "kind": "dfcm.run-learning",
+      "marketplace_merge": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+      "novel_laws": [
+        "independence+xY->consumer-capital-selector",
+        "concurrent-main-movement-is-topology",
+        "project-receipt-race->fresh-head-retry"
+      ],
+      "r71_candidate": "231826736a1aa5ebb9eea0c93f0ffaaced5241f2",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "learning",
+        "orthogonality",
+        "r71"
+      ],
+      "updated_at": "2026-08-25T23:42:42Z"
+    },
+    "title": "R71 orthogonal consumer capital learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
