@@ -1,0 +1,431 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T21:26:25Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/ledger/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T212610Z-select-read-ledger"
+  },
+  "request_id": "20260825T212610Z-select-read-ledger",
+  "request_path": "project-memory/requests/20260825T212610Z-select-read-ledger.json",
+  "result": {
+    "body": "Preserve prior ledger content DI_lAHOCCCFfc4BhZKezgK_j0E and all still-lawful alternatives. Append R64 realized feedback -> R65 epistemic reinvestment compiler -> 50 sensor courts -> exact-head qualification -> PR #286 -> merge 2fd7964 -> newly actionable live-ingestion/calibration/consumer-root edges. Concurrent SELECT R65 general-capital reinvestment remains a complementary branch of the capital graph, not refuted or erased.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CtY",
+    "metadata": {
+      "1000X": "NOT_ADMITTED",
+      "C_observed_lower_bound": 5.0,
+      "E": 4.0,
+      "HANDWRITTEN_IRREDUCIBLE_REASON": null,
+      "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+      "R_consumer_alive": 1,
+      "R_consumer_observed_lower_bound": 2,
+      "R_qualification": 50,
+      "alive_consumers": 1,
+      "authority": "SELECT",
+      "base_sha": "d1ed42b25421b659821b75287fee45ee94b19489",
+      "bootstrap_from_empty_namespace": true,
+      "bootstrap_merge": "edccb9870e0dcb5ee147944640fb332994123ef9",
+      "branching_factor_lower_bound": 2,
+      "bus_head": "4b62855a211c7dfa51133d4d135d47783d5dd4ef",
+      "bus_head_before_request": "6fd80bed3372af0d922dc82b08698e751ccae655",
+      "candidate_sha": "c5a973bf14e582c005bd4ce0cc39828c194f4249",
+      "canonical_primitive": "epistemic-sensor-factory-pack",
+      "capability": "R55 independent consumer fanout",
+      "cell": "MEASURE",
+      "concurrent_merge": {
+        "head": "d0545b5ec392aad466969433a915e23359d26e98",
+        "merge": "7d158ef97c6f41a67933f501397e29729abef071",
+        "pr": 247
+      },
+      "concurrent_repair_head": "d0545b5ec392aad466969433a915e23359d26e98",
+      "concurrent_repair_merge": "7d158ef97c6f41a67933f501397e29729abef071",
+      "concurrent_repair_pr": 247,
+      "consequential_do": false,
+      "consumer_candidates": 4,
+      "consumer_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+      "consumer_shortfall": 8,
+      "consumers": [
+        "seanchatmangpt/ex4pm",
+        "seanchatmangpt/gymact"
+      ],
+      "containment": "768ff64290ed30d1f38b2b4f5238e779c7da3868 is merge parent of 15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+      "containment_proofs": 2,
+      "created_at": "2026-08-25T08:19:33Z",
+      "current_main": "8b97179940c5d748f994c10bfc64261743b6fde1",
+      "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "defect_classes": [
+        "SELECT generation lacks ORDER BY",
+        "legacy rows template context"
+      ],
+      "diagnostic_edges_from_r57": 4,
+      "direct_meaningful_commits": 57,
+      "duplicate_semantic_capital_counted_twice": false,
+      "durable_falsifiers": [
+        "exact-head invalidation after child merge",
+        "real-ggen shard0 R56/R57 compatibility",
+        "R56 50-court changed-subject failure"
+      ],
+      "durable_unlock_edges": [
+        "consumer fanout",
+        "postmerge realization",
+        "cross-repo qualification reuse",
+        "R45+ control/measurement",
+        "stale-capital reconciliation"
+      ],
+      "edge_count_added": 8,
+      "edges": [
+        {
+          "from": "chatman#148@768ff64290ed30d1f38b2b4f5238e779c7da3868",
+          "relation": "merged_as",
+          "to": "15c63419a3a2a4f883ba304a442e7cd19687fc3b"
+        },
+        {
+          "from": "15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+          "relation": "changed_parent",
+          "to": "chatman#145@15c63419a3a2a4f883ba304a442e7cd19687fc3b"
+        },
+        {
+          "from": "chatman#145@15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+          "relation": "merged_as",
+          "to": "ac6d52ed027e32d854ab9e119a39977542262c51"
+        },
+        {
+          "from": "ac6d52ed027e32d854ab9e119a39977542262c51",
+          "relation": "changed_parent",
+          "to": "chatman#142@ac6d52ed027e32d854ab9e119a39977542262c51"
+        },
+        {
+          "from": "ggen-marketplace#275@302fe0be67a89c58665e14f059524f0b0615e6ba",
+          "relation": "repair_requires",
+          "to": "current-main@8bd29043a2818a5fb6a4de65cc403eff8e495b58"
+        }
+      ],
+      "edges_added": [
+        [
+          "R64-realized-feedback",
+          "prov:generated",
+          "R65-epistemic-reinvestment-candidate"
+        ],
+        [
+          "R65-epistemic-reinvestment-candidate",
+          "prov:generated",
+          "sensor-family-1401-1450"
+        ],
+        [
+          "sensor-family-1401-1450",
+          "prov:generated",
+          "deterministic-reinvestment-plan"
+        ],
+        [
+          "a3ea79485be355a89bef9847564d3e098a570c58",
+          "qualified_by",
+          "workflow:32888569169"
+        ],
+        [
+          "a3ea79485be355a89bef9847564d3e098a570c58",
+          "merged_as",
+          "2fd796423c678e0b33e1828a5d187ca170e4eccc"
+        ],
+        [
+          "2fd796423c678e0b33e1828a5d187ca170e4eccc",
+          "unlocks",
+          "live-R64-receipt-ingestion"
+        ],
+        [
+          "2fd796423c678e0b33e1828a5d187ca170e4eccc",
+          "unlocks",
+          "plan-vs-realized-calibration"
+        ],
+        [
+          "2fd796423c678e0b33e1828a5d187ca170e4eccc",
+          "unlocks",
+          "independent-consumer-root-expansion"
+        ]
+      ],
+      "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+      "factory_for_factories": "generation-contract-preflight",
+      "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+      "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+      "fresh_correction_at": "2026-08-25T13:29:00Z",
+      "full_replication_ready": 2,
+      "generated_outputs_hand_edited": 0,
+      "generation_depth": 3,
+      "ggen_head": "b0833991198f12f0f0eddc9cb8f6d9927123d231",
+      "ggen_merge_sha": "a9967f98df05f7a1f0c54376b2a35508bacb935d",
+      "ggen_pr": 670,
+      "ggen_pr_state": "MERGED",
+      "ggen_qualified_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+      "head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+      "head_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "key": "dfcm/ledger/current",
+      "kind": "dfcm.ledger",
+      "known_consumers": 3,
+      "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "marketplace_head": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "meaningful_commits": 51,
+      "meaningful_commits_authored": 54,
+      "memory_avoided_rediscovery_edges": 1,
+      "memory_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+      "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+      "merge": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+      "merge_count": 2,
+      "merge_count_this_run": 1,
+      "merge_edge": "REFUSED[DRAFT_STATE_TRANSITION_UNAVAILABLE]",
+      "merge_pr": 270,
+      "merge_sha": "3d579af785c3665fdc47aa872892c804284c46ff",
+      "new_actionable_edges_from_merge": 1,
+      "new_adjacency_count": 5,
+      "new_edges": [
+        "ex4pm-receipt->R61-assimilation",
+        "gymact-receipt->R61-assimilation",
+        "multi-consumer-receipts->independence-measurement",
+        "ALIVE-receipts->dependency-relief-measurement"
+      ],
+      "new_merges": [
+        "ex4pm@e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+        "gymact@f3457bdb8a7878946783d34f402b95774eaf8c4b"
+      ],
+      "new_rule": "deduplicate concurrent equivalent repair lineages by exact resulting capability/tree",
+      "new_semantic_commits_authored_by_portfolio": 50,
+      "new_support_commits_authored_by_portfolio": 3,
+      "new_unlock_edges": 5,
+      "next": [
+        "execute corpus preflight",
+        "repair all newly enumerated contracts",
+        "merge PR #267 when exact-green"
+      ],
+      "next_edges": 3,
+      "next_lawful_consumer": "seanchatmangpt/ex4pm#32@7a08ba84b46f38f9ed3e3e371fead1953c70bf9e",
+      "next_repair": "ggen-marketplace#264 real-ggen shard0",
+      "observed_at": "2026-08-25T14:03:30Z",
+      "observed_consumer_multiplier": 1,
+      "partial_consumers": 2,
+      "portfolio_authored_ci_commits": 1,
+      "portfolio_authored_semantic_commits": 2,
+      "portfolio_merges": [
+        {
+          "containment": "EXACT",
+          "head": "2db35c65e30511b688f379228e9b90474e56864e",
+          "merge": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+          "pr": 246
+        },
+        {
+          "containment": "EXACT",
+          "head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+          "merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+          "net_tree_delta": 0,
+          "pr": 248
+        },
+        {
+          "containment": "EXACT",
+          "head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+          "merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "pr": 249
+        }
+      ],
+      "portfolio_repair_head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+      "portfolio_repair_merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+      "portfolio_repair_pr": 248,
+      "postmerge_repair_merge": "b116088d8b6c6daf6595c3e9b30eb6bb58572f4b",
+      "pr": 283,
+      "pr_merges": [
+        250,
+        251
+      ],
+      "pre_snapshot_items": 365,
+      "preserve": [
+        "R54#265",
+        "R51#263"
+      ],
+      "preserve_prior": true,
+      "preserved": [
+        "R61 receipt assimilation",
+        "R54 independence measurement",
+        "cloud independent consumer evidence"
+      ],
+      "preserved_option_value": [
+        "R54 causal/yield measurement",
+        "admitted consumer adapter/evidence-return candidates"
+      ],
+      "preserves_prior_consumer_edges": true,
+      "previous_content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+      "previous_ledger_read_receipt": "20260825T170330Z-measure-r4-read-ledger",
+      "previous_valid_lineage": "R45/R45B retained",
+      "producer": "epistemic-sensor-factory-pack",
+      "producer_base": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+      "producer_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+      "project_pre": "PARTIAL_ALIVE[SNAPSHOT_ONLY;READ_WRITE_REFUSED]",
+      "qualification_artifacts": 45,
+      "qualification_run": 32843730780,
+      "qualification_runs": [
+        32860889375,
+        32860889543,
+        32860889422
+      ],
+      "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+      "r44_head": "2db35c65e30511b688f379228e9b90474e56864e",
+      "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "r44_pr": 246,
+      "r46_qualified_head": "32f0af7d7b36b336c029b4d3a81e61a0d905a32c",
+      "r47_courts": 50,
+      "r50_edges": [
+        {
+          "from": "memory:dfcm/portfolio/latest",
+          "relation": "prov:wasDerivedFrom",
+          "to": "observation:stale-R-observed-1"
+        },
+        {
+          "from": "observation:ggen-r48-merged",
+          "relation": "prov:generated",
+          "to": "sensor-family:consumer-evidence-return"
+        },
+        {
+          "from": "sensor-family:consumer-evidence-return",
+          "relation": "prov:generated",
+          "to": "opportunity:missing-consumer-receipt-return"
+        },
+        {
+          "from": "opportunity:missing-consumer-receipt-return",
+          "relation": "prov:wasAssociatedWith",
+          "to": "subject:chatgpt-cloud-elixir-current"
+        },
+        {
+          "from": "subject:ggen@a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+          "relation": "prov:generated",
+          "to": "receipt:ggen-r48-independent-consumer"
+        },
+        {
+          "from": "receipt:ggen-r48-independent-consumer",
+          "relation": "prov:generated",
+          "to": "standing:ALIVE"
+        },
+        {
+          "from": "subject:chatgpt-cloud-elixir@327d6013252ca9f6df3dba712f3ff0d493adbc83",
+          "relation": "prov:generated",
+          "to": "standing:PARTIAL_ALIVE"
+        },
+        {
+          "from": "observation:synthetic-merge-checkout",
+          "relation": "prov:generated",
+          "to": "repair:immutable-pr-head-checkout"
+        },
+        {
+          "from": "repair:immutable-pr-head-checkout",
+          "relation": "prov:generated",
+          "to": "receipt:workflow-run-32841749107-success"
+        },
+        {
+          "from": "receipt:workflow-run-32841749107-success",
+          "relation": "prov:generated",
+          "to": "standing:R50-ALIVE"
+        },
+        {
+          "from": "standing:R50-ALIVE",
+          "relation": "prov:generated",
+          "to": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711"
+        },
+        {
+          "from": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711",
+          "relation": "prov:generated",
+          "to": "unlock:independent-cloud-consumer-return"
+        }
+      ],
+      "r50_ledger_append_at": "2026-08-25T11:22:35Z",
+      "r50_preserves_prior_edges": true,
+      "r53_merge": "1716756badb9f193ffed97e38cefdc1d152add80",
+      "r53_qualified_head": "b4012a45ccc4f8ce9e3cc03f9d14b337822eb7c9",
+      "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+      "r56_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+      "r56_merge": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+      "r61_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+      "r62_head": "ca5a2f2334e64218ceee2c92cb7c98c7bd6d750f",
+      "r62_merge": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+      "r64_edge": {
+        "base": "3d579af785c3665fdc47aa872892c804284c46ff",
+        "containment": "ALIVE",
+        "merge_sha": "ca8b736491a34ca84bda0b4a1e4f4cc0ca99ea96",
+        "pr": 284,
+        "qualified_head": "9b2df357aa56148e8f2cbe1d4222cc2c94758a6e",
+        "semantic_commits": 50,
+        "support_commits": 7,
+        "unlocks": [
+          "R65 reinvestment selection",
+          "R63-vs-R64 calibration",
+          "cross-repo realization return"
+        ]
+      },
+      "r65_edge": {
+        "head": "6e7dfa79b115a14cb2db9b231edf4b57a21e4012",
+        "parent_merge": "ca8b736491a34ca84bda0b4a1e4f4cc0ca99ea96",
+        "pr": 285,
+        "semantic_commits": 50,
+        "standing": "REQUALIFYING",
+        "support_commits": 7,
+        "unlocks": [
+          "target-bound consumer construction",
+          "allocation calibration",
+          "memory multiplier calibration",
+          "cross-repo realization return"
+        ]
+      },
+      "readiness_count": 2,
+      "repair": "r55-template-results-context",
+      "repair_commits": [
+        "21e7542445bf4bb4f801d2e9697bcaac0ee1be6f",
+        "c7731659694a111bdffe3f958a40a86c1e430f44"
+      ],
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "selected_pr": 250,
+      "semantic_commits": 54,
+      "semantic_commits_direct": 9,
+      "semantic_sensors": 50,
+      "sensor_count": 50,
+      "sensors_added": 50,
+      "stale_statement_reclassified": "ggen #670 merge actuation refused -> historical only",
+      "standing": "ALIVE",
+      "structural_multiplier_standing": "INFERRED_STRUCTURAL_NOT_OBSERVED",
+      "structural_variants": 3375,
+      "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "tags": [
+        "dfcm",
+        "ledger",
+        "preserve-prior",
+        "r65"
+      ],
+      "transport_head": "07b6683d352be8ceecf53a4ec0c7395d68116594",
+      "unique_meaningful_semantic_commits_observed": 54,
+      "unique_semantic_repairs": 2,
+      "unlock": "R56 pair/triple combinatorial consumer portfolio",
+      "unlock_edges": 5,
+      "unlocked_head": "11c4272f0094bed2d438398a3b76d10c3c8c2c5f",
+      "unlocked_pr": 273,
+      "updated_at": "2026-08-25T19:18:29Z",
+      "upstream_falsifier": "TEMPLATE_VARIABLE_MISSING rows",
+      "upstream_repair": "rows->results + permanent guard",
+      "weakest_multiplier": "causally-qualified consumer fanout"
+    },
+    "title": "DfCM durable innovation-capital ledger"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
