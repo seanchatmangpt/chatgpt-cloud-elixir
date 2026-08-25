@@ -1,0 +1,32 @@
+{
+  "request_id": "20260825T143700Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "autocatalytic"],
+      "body": "PORTFOLIO recurrence started at 2026-08-25T14:37:00Z. Project snapshot: PVT_kwHOCCCFfc4BhZKe, 365 items. Consume canonical dfcm frontier/ledger/measure/explore/select/implement/portfolio state and revalidate against live GitHub. Primary seed: live consumer-replication/transitive-propagation frontier; target semantic production floor=50 when lawfully reachable; zero ambient DO.",
+      "metadata": {
+        "started_at": "2026-08-25T14:37:00Z",
+        "bus_head": "c7b0299f881034fd848ee6baffe4b1383d00ab72",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_items": 365,
+        "memory_keys_consumed": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "initial_frontier_size": 1,
+        "E": 1,
+        "E2": 1,
+        "Y": 1,
+        "R": 1,
+        "C": 0,
+        "M": 1,
+        "weakest_multiplier": "R_consumer_replication",
+        "seed_opportunities": ["ggen-marketplace live R51/R52 consumer propagation", "independent ggen consumer qualification", "independent chatgpt-cloud-elixir consumer qualification"]
+      }
+    }
+  }
+}
