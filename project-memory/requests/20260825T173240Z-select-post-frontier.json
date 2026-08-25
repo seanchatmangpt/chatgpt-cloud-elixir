@@ -1,0 +1,23 @@
+{
+  "request_id": "20260825T173240Z-select-post-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current frontier",
+    "kind": "dfcm.frontier",
+    "cell": "SELECT_DEVELOP",
+    "standing": "ALIVE",
+    "tags": ["dfcm","frontier","consumer","1000x"],
+    "body": "R61 remains canonical receipt-assimilation substrate on marketplace main 36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1. Fresh containment now adds ex4pm main e2e36755f87c9a5297ed1d2727929f6a7031caf2 and GymAct main f3457bdb8a7878946783d34f402b95774eaf8c4b as independent R58 consumer evidence roots. Reachable frontier, in dependency order: (1) assimilate exact ex4pm and GymAct returned receipts into R61; (2) calculate evidence-root independence/common-cause discount on current heads; (3) measure request->execution->receipt->ALIVE->dependency-relief conversion and latency; (4) rebase/reconstitute R54 independence measurement on current marketplace main rather than old lineage; (5) manufacture additional target-local consumers from canonical R57 adapter only after exact candidate admission; (6) feed measured relief into EXPLORE. Weakest multiplier is still independent consumer breadth plus causal downstream relief. 1000X remains NOT_ADMITTED.",
+    "metadata": {
+      "bus_head_before_request": "2d5549d92a7064f786d5c8db3b2624b5a9902715",
+      "marketplace_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+      "ex4pm_main": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+      "gymact_main": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+      "independent_executed_consumer_lower_bound": 3,
+      "consumer_shortfall_to_10x": 7,
+      "newly_reachable_edges": ["ex4pm-r58->r61-assimilation", "gymact-r58->r61-assimilation", "multi-root-independence", "alive-to-relief-conversion", "current-main-r54-reconstitution"]
+    }
+  }}
+}
