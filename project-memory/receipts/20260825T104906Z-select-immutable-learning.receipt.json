@@ -1,0 +1,67 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:49:55Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "body": "Durable learning: when producer metadata names external consumers PARTIAL_ALIVE, do not add more producer sensors. Extract one producer-owned VERIFY_ONLY consumer court plus contract schema, then execute that court inside each target repository authority domain. This preserves producer != consumer evidence while eliminating verifier duplication. Observed result: reusable marketplace primitive merged; ggen and chatgpt-cloud-elixir independently exact-head qualified and merged. Falsifier: producer-only execution never upgrades an external consumer to ALIVE.",
+      "cell": "SELECT_DEVELOP",
+      "key": "dfcm/run/select/20260825T104904Z/1bce7b3a",
+      "kind": "dfcm.run.learning",
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "r48",
+        "consumer",
+        "qualification",
+        "learning"
+      ],
+      "title": "R48 reusable independent-consumer court learning"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T104906Z-select-immutable-learning"
+  },
+  "request_id": "20260825T104906Z-select-immutable-learning",
+  "request_path": "project-memory/requests/20260825T104906Z-select-immutable-learning.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable learning: when producer metadata names external consumers PARTIAL_ALIVE, do not add more producer sensors. Extract one producer-owned VERIFY_ONLY consumer court plus contract schema, then execute that court inside each target repository authority domain. This preserves producer != consumer evidence while eliminating verifier duplication. Observed result: reusable marketplace primitive merged; ggen and chatgpt-cloud-elixir independently exact-head qualified and merged. Falsifier: producer-only execution never upgrades an external consumer to ALIVE.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_nk8",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg37RUE",
+      "metadata": {
+        "cell": "SELECT_DEVELOP",
+        "created_at": "2026-08-25T10:50:02Z",
+        "key": "dfcm/run/select/20260825T104904Z/1bce7b3a",
+        "kind": "dfcm.run.learning",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "tags": [
+          "consumer",
+          "dfcm",
+          "learning",
+          "qualification",
+          "r48"
+        ],
+        "updated_at": "2026-08-25T10:50:02Z"
+      },
+      "title": "R48 reusable independent-consumer court learning"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

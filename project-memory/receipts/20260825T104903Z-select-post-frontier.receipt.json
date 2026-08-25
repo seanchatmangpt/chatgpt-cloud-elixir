@@ -1,0 +1,127 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:49:35Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "body": "Frontier changed: canonical reusable independent-consumer court is contained in ggen-marketplace main 1bce7b3aa9cc74675126a6f2b9778a2331226824; ggen consumer contained in main f1c8e849f0b8045cc453e7d04a609e868d990637; cloud consumer contained in main 2117c4a06b715ef1a852654de0d210859a09d4ee. Weakest multiplier moved from existence of an independently ALIVE external consumer to breadth of consumer replication and downstream composition. Newly actionable concurrent edge: TensorFlow consumer master f8190fd2a8904b17ed0827d03033802ee5ba5556, currently reported write-authority constrained. Next: enumerate all compatible writable repositories, reproduce target-local receipts with shared court, and measure downstream manufacturing actions caused by each admitted consumer.",
+      "cell": "SELECT_DEVELOP",
+      "key": "dfcm/frontier/current",
+      "kind": "dfcm.frontier",
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "frontier",
+        "r48",
+        "consumer"
+      ],
+      "title": "DfCM current frontier"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T104903Z-select-post-frontier"
+  },
+  "request_id": "20260825T104903Z-select-post-frontier",
+  "request_path": "project-memory/requests/20260825T104903Z-select-post-frontier.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Frontier changed: canonical reusable independent-consumer court is contained in ggen-marketplace main 1bce7b3aa9cc74675126a6f2b9778a2331226824; ggen consumer contained in main f1c8e849f0b8045cc453e7d04a609e868d990637; cloud consumer contained in main 2117c4a06b715ef1a852654de0d210859a09d4ee. Weakest multiplier moved from existence of an independently ALIVE external consumer to breadth of consumer replication and downstream composition. Newly actionable concurrent edge: TensorFlow consumer master f8190fd2a8904b17ed0827d03033802ee5ba5556, currently reported write-authority constrained. Next: enumerate all compatible writable repositories, reproduce target-local receipts with shared court, and measure downstream manufacturing actions caused by each admitted consumer.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+      "metadata": {
+        "E_observed": 4.0,
+        "E_work": 4.0,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "M_observed": 4.0,
+        "M_work": 2.0,
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "alive_consumers": 1,
+        "authority": "SELECT",
+        "branching_factor_lower_bound": 5,
+        "bus_head": "1a8ea20f5a8f4ccfeef401bab71bfddcdd43284e",
+        "bus_head_before_request": "0a88c285df7d9cb2d4721ae1e16d941e81089b7b",
+        "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+        "cell": "SELECT_DEVELOP",
+        "compiler_standing": "ALIVE",
+        "composition_head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+        "composition_merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "composition_pr": 249,
+        "consumer_rollout_standing": "PARTIAL_ALIVE",
+        "containment": "EXACT",
+        "created_at": "2026-08-25T08:52:58Z",
+        "current_marketplace_main": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+        "frontier_size": 9,
+        "generation_depth": 3,
+        "head_sha": "2527bdd554b65d5caa527cb7d7f1fb6aa45730d4",
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "known_consumers": 3,
+        "main_after": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "main_before": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "new_frontier_edges": 7,
+        "new_opportunities_from_merge": 5,
+        "new_repairs": 2,
+        "new_unlock_classes": [
+          "R45+ derivative measurement/control",
+          "producer #245 changed integration standing",
+          "consumer adoption of frontier-derivative-pack",
+          "postmerge replication realization measurement",
+          "cross-repo qualification reuse"
+        ],
+        "next_edges": [
+          "exact-head requalification",
+          "merge if ALIVE",
+          "distinct-repository consumer adoption",
+          "cross-repo reproduction receipt",
+          "predicted-vs-realized derivative calibration",
+          "chatgpt-cloud-elixir manufacturing repair"
+        ],
+        "next_measure_seed_count": 5,
+        "partial_consumers": 2,
+        "r43_pr": 244,
+        "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+        "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+        "r44_pr": 246,
+        "r44_qualified_head": "2db35c65e30511b688f379228e9b90474e56864e",
+        "r44_semantic_commit_floor": 50,
+        "r45_candidate": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "r45_pr": 250,
+        "r45_standing": "REQUALIFYING",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "standing_reason": "R44 closure complete; broad portfolio frontier remains and no R45 exact subject yet exists",
+        "tags": [
+          "consumer",
+          "dfcm",
+          "frontier",
+          "r48"
+        ],
+        "updated_at": "2026-08-25T10:49:44Z",
+        "weakest_multiplier": "external consumer realization"
+      },
+      "title": "DfCM current frontier"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
