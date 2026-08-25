@@ -18,8 +18,8 @@ elixir = "1.18.4"
 
 [subjects.ash_r2rml]
 repository = "https://github.com/seanchatmangpt/ash_r2rml.git"
-sha = "a14b08db7960cf137d125a7ba7a2db7c4b829413"
-tree_sha = "65f7e5b66cac4f09ec0e27bb60841c7f7f945f0d"
+sha = "7ce5ff63da03fcc3bb661890f51b0c9494147140"
+tree_sha = "c576f44096b5af0e0ef89094a520de8e99c71819"
 build_acceptance = [
   "MIX_ENV=test mix compile --warnings-as-errors",
   "MIX_ENV=test mix test test/fortune5/"
