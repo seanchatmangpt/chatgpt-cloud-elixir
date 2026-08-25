@@ -1,0 +1,38 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T22:40:48Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "max_scan": 1000,
+      "text": "R68 run closure Project proxy OCEL cross-cell queue head churn failure opportunity newly actionable"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T2245Z-measure-post-query-r68"
+  },
+  "request_id": "20260825T2245Z-measure-post-query-r68",
+  "request_path": "project-memory/requests/20260825T2245Z-measure-post-query-r68.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 29,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
