@@ -1,0 +1,38 @@
+{
+  "request_id": "20260825T173340Z-select-run-control-complete",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run-control/select/current",
+    "title": "DfCM SELECT+DEVELOP run control",
+    "kind": "dfcm.run-control.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "COMPLETE",
+    "tags": ["dfcm","select","develop","run-control","innovation-capital"],
+    "body": "SELECT+DEVELOP completed repository allocation and Project post-actuation. Snapshot PVT_kwHOCCCFfc4BhZKe / 368 items. Exact current marketplace R61 substrate 36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1. Merged exact-head ALIVE ex4pm R58 consumer PR33 to e2e36755f87c9a5297ed1d2727929f6a7031caf2. Merged scoped-ALIVE GymAct R58 consumer PR125 to f3457bdb8a7878946783d34f402b95774eaf8c4b; broad GymAct CI remains BUILD_BROKEN on unrelated legacy/runtime tests and is preserved as separate debt. Total existing semantic capital converted into default containment=55; direct new semantic commits authored by this cell=0; support/workflow commits contained=2; merges=2. Y_future=UNKNOWN; containment conversion=2 independent consumers / 55 semantic commits. M>=2 because remembered R61 frontier directly selected two qualified consumer branches and exposed multi-receipt assimilation plus causal-relief edges. Consumer ALIVE lower bound now >=3 (ggen, ex4pm, GymAct); shortfall to 10x fanout=7. 1000X NOT_ADMITTED. Next handoff: assimilate ex4pm/GymAct exact receipts via R61, measure independence/common-cause discount and ALIVE-to-relief conversion/latency, then reconstitute R54 on current marketplace main.",
+    "metadata": {
+      "ended_at": "2026-08-25T17:33:40Z",
+      "bus_head_before_request": "e822d3140a42caf79429eafa565ccfa8f2198934",
+      "snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+      "snapshot_items": 368,
+      "marketplace_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+      "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+      "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+      "meaningful_semantic_commits_newly_contained": 55,
+      "direct_new_semantic_commits_authored": 0,
+      "support_commits_contained": 2,
+      "merge_count": 2,
+      "attempted_upper_bound": "100+ searched via current R54/R61 and multi-consumer frontier; dependency-closed immediate containable capital was 55 semantic commits across two consumers",
+      "new_authorship_baseline_shortfall": 50,
+      "baseline_shortfall_reason": "current multiplier frontier already had dependency-closed consumer work manufactured and exact-head qualified; duplicating 50 new courts would violate marketplace-first and ERRC. Highest-yield action was containment plus exposure of receipt-assimilation dependencies.",
+      "Y": "UNKNOWN_FUTURE; containment_conversion=0.03636 consumers/semantic-commit",
+      "M": ">=2",
+      "weakest_multiplier_after": "independent consumer breadth plus empirical ALIVE-to-dependency-relief conversion",
+      "independent_executed_consumer_lower_bound": 3,
+      "consumer_shortfall_to_10x": 7,
+      "1000X": "NOT_ADMITTED",
+      "project_pre_requests": ["20260825T172500Z-select-snapshot","20260825T172600Z-select-read-frontier","20260825T172610Z-select-read-ledger","20260825T172620Z-select-read-explore","20260825T172630Z-select-read-select","20260825T172640Z-select-read-portfolio","20260825T172710Z-select-query-capital","20260825T172800Z-select-run-control-running"],
+      "project_post_requests": ["20260825T173200Z-select-post-select","20260825T173220Z-select-post-ledger","20260825T173240Z-select-post-frontier","20260825T173300Z-select-post-query","20260825T173320Z-select-durable-learning","20260825T173340Z-select-run-control-complete"]
+    }
+  }}
+}
