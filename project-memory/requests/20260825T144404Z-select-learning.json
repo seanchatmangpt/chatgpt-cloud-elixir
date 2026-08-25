@@ -1,0 +1,24 @@
+{
+  "request_id": "20260825T144404Z-select-learning",
+  "operation": "memory.create",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run/select/20260825T144404Z/e6810f8e",
+      "title": "R55 qualification topology learning",
+      "kind": "dfcm.run-learning",
+      "cell": "SELECT_DEVELOP",
+      "standing": "ALIVE",
+      "tags": ["dfcm", "learning", "qualification", "ggen", "consumer-fanout"],
+      "body": "Durable learning: a new pull_request verifier cannot provide its own first trustworthy subject court unless its qualification topology is already default-owned. Admit two distinct modes instead of weakening the subject test: BOOTSTRAP mode validates exact-head verifier topology while explicitly refusing to claim subject standing; SUBJECT mode preserves the complete subject CTQ. After topology admission, broad real-ggen qualification remains an independent falsifier and can discover production defects invisible to the semantic owning court. R55 proved this twice: strict-mode generation required ORDER BY on the evidence-return SELECT, then ggen's template ABI required result iteration via `results`, not `rows`. General rule: bootstrap verifier topology -> subject court -> real generator/runtime court -> merge only after all exact-subject rails converge.",
+      "metadata": {
+        "marketplace_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "bootstrap_merge": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+        "r55_candidate": "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf",
+        "repairs": ["bootstrap-vs-subject verifier mode separation", "ORDER BY deterministic generation", "ggen template results-context ABI"],
+        "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY",
+        "consequential_do": false
+      }
+    }
+  }
+}
