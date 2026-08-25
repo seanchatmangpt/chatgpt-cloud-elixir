@@ -1,0 +1,32 @@
+{
+  "request_id": "20260825T103025Z-implement-ledger-r47",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM capability ledger",
+      "kind": "dfcm.ledger",
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "ledger", "replication-capital", "r46", "r47"],
+      "body": "Append-only logical ledger. Preserve all valid R45/R45B/R46 edges. R46 adds stale-current-head observation -> exact-currentness revalidation -> replication-currentness opportunity; weakest-multiplier memory -> consumer replication compiler -> target-plan capability; marketplace + ggen + cloud exact subjects -> grounded fixture -> independent target subjects; owning failure -> dependency-free court repair -> qualified compiler -> PR254 merge and regression closure. R47 adds R46 compiler -> 50 executable consumer-propagation courts -> exact-current tree composition -> exact-head R47 SUCCESS; broad CI shard-3 TEMPLATE_VARIABLE_MISSING(rows) -> classify canonical manufacturing defect -> replication-plan template rows->results -> permanent context regression guard -> all four real-ggen shards SUCCESS -> Vacuity SUCCESS -> CI aggregate SUCCESS -> PR257 merge b942ff54f7d00e376dd2f28beb930390f4feb97b -> exact containment. Qualified producer consumer=marketplace ALIVE; ggen/cloud remain PARTIAL_ALIVE. Newly unlocked edges: independently realize ggen consumer, independently realize cloud consumer at freshly resolved heads, produce per-consumer receipts/falsifiers, expand repository census beyond three grounded targets, calibrate consumer R versus 50x qualification reuse, and feed independent realization back into Project memory. PRE memory admission for this run was refused, so no M causal credit is claimed.",
+      "metadata": {
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "merge_sha": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "meaningful_commits": 52,
+        "r47_courts": 50,
+        "known_consumers": 3,
+        "alive_consumers": 1,
+        "partial_consumers": 2,
+        "R_qualification": 50,
+        "R_consumer_alive": 1,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "upstream_falsifier": "TEMPLATE_VARIABLE_MISSING rows",
+        "upstream_repair": "rows->results + permanent guard",
+        "new_unlock_edges": 5,
+        "bus_head": "01960bdaf7e3098fb69c8a29aeed7e422e39ebc6"
+      }
+    }
+  }
+}
