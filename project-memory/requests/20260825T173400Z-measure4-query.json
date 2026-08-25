@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T173400Z-measure4-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "consumer receipt assimilation ggen-marketplace ggen chatgpt-cloud-elixir ex4pm gymact ontology pack falsifier dependency relief stale standing phase change", "limit": 20, "max_scan": 400, "include_archived": false}
+}
