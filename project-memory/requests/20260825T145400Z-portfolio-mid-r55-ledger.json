@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T145400Z-portfolio-mid-r55-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM manufacturing ledger",
+      "kind": "dfcm.ledger",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "ledger", "r55", "r56", "autocatalytic"],
+      "body": "R55 PR #270 exact head 0e9ac9f0 merged to default as e6810f8e after owning R55, Vacuity and broad real-ggen CI reached SUCCESS. Two branch regressions were exposed and repaired canonically before merge: evidence-return query deterministic ORDER BY and causal-propagation template rows->results context. Merge unlocked R56 combinatorial consumer-portfolio manufacture: 50 new semantic SPARQL sensors plus court/workflow/receipt on branch measure/r56-combinatorial-consumer-portfolio-20260825, PR #273.",
+      "metadata": {
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "merge_pr": 270,
+        "qualified_head": "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf",
+        "merge_sha": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "capability": "R55 independent consumer fanout",
+        "unlocked_pr": 273,
+        "unlocked_head": "11c4272f0094bed2d438398a3b76d10c3c8c2c5f",
+        "new_semantic_commits_authored_by_portfolio": 50,
+        "new_support_commits_authored_by_portfolio": 3,
+        "unlock": "R56 pair/triple combinatorial consumer portfolio"
+      }
+    }
+  }
+}
