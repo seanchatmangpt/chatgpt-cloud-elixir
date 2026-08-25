@@ -1,0 +1,20 @@
+{
+  "request_id": "20260825T173220Z-select-post-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM durable capital ledger",
+    "kind": "dfcm.ledger",
+    "cell": "SELECT_DEVELOP",
+    "standing": "ALIVE",
+    "tags": ["dfcm","ledger","consumer","provenance"],
+    "body": "Preserve prior R61 receipt-assimilation and R54 independence option value. Add durable edges: Project frontier -> independent-consumer selection; ex4pm R58 exact head 40e62701976a0c4555ffc00530b71c6acae515f2 -> seven successful exact-head rails -> PR33 ready -> merge e2e36755f87c9a5297ed1d2727929f6a7031caf2 -> ex4pm main containment; GymAct R58 exact head b072261ee48a792445394115df5a1d8600baf886 -> dedicated R58 court success + world execution crown success -> isolated broad-CI unrelated debt -> PR125 ready -> merge f3457bdb8a7878946783d34f402b95774eaf8c4b -> GymAct main containment. New dependency edges: both merge receipts -> R61 ConsumerExecutionReceipt assimilation -> independence/common-cause measurement -> ALIVE-to-dependency-relief conversion -> EXPLORE feedback. No standing or authority propagates transitively.",
+    "metadata": {
+      "bus_head_before_request": "c72e0df278139196173fa2ba03b22a774812719a",
+      "new_merges": ["ex4pm@e2e36755f87c9a5297ed1d2727929f6a7031caf2", "gymact@f3457bdb8a7878946783d34f402b95774eaf8c4b"],
+      "preserved": ["R61 receipt assimilation", "R54 independence measurement", "cloud independent consumer evidence"],
+      "new_edges": ["ex4pm-receipt->R61-assimilation", "gymact-receipt->R61-assimilation", "multi-consumer-receipts->independence-measurement", "ALIVE-receipts->dependency-relief-measurement"]
+    }
+  }}
+}
