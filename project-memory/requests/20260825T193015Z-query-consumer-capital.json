@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T193015Z-query-consumer-capital",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "consumer"}
+}
