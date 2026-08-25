@@ -1,0 +1,27 @@
+{
+  "error": {
+    "details": null,
+    "message": "Memory key not found: dfcm/implement/latest",
+    "type": "ProxyError"
+  },
+  "observed_at": "2026-08-25T10:03:45Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/implement/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T100100Z-read-implement"
+  },
+  "request_id": "20260825T100100Z-read-implement",
+  "request_path": "project-memory/requests/20260825T100100Z-read-implement.json",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
