@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T210900Z-measure-r5-run-control",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/measure/current",
+      "kind": "dfcm.run-control",
+      "standing": "RUNNING",
+      "cell": "MEASURE",
+      "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+      "body": "MEASURE run started from live Project #2 snapshot PVT_kwHOCCCFfc4BhZKe / 372 items. Canonical DfCM memories were consumed via bounded memory.query and are being revalidated against exact live GitHub subjects. Remembered marketplace currentness is stale: live ggen-marketplace main is 5eac35d1a597080cab8388f4a72cb5278b3e4c92 after R66 receipt-realization calibration; live ggen main is ddfa602bfbab57b7ed5150f61b0acac7a41e3020. Weakest multiplier remains independently qualified consumer breadth plus causal downstream yield. standing=RUNNING.",
+      "metadata": {
+        "utc_start": "2026-08-25T21:02:48Z",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count": 372,
+        "snapshot_receipt": "20260825T210400Z-measure-r5-snapshot",
+        "memory_query_receipt": "20260825T210730Z-measure-r5-dfcm-query",
+        "exact_bus_head_before_request": "891bbc26aeee29d4d009d06c77ca68adff4b3f7c",
+        "consumed_memory_keys": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/portfolio/latest"],
+        "candidate_repositories": ["seanchatmangpt/ggen-marketplace", "seanchatmangpt/ggen", "seanchatmangpt/chatgpt-cloud-elixir", "seanchatmangpt/ex4pm", "seanchatmangpt/gymact"],
+        "initial_frontier_size": 10,
+        "initial_weakest_multiplier": "independent_consumer_breadth_and_causal_downstream_yield",
+        "live_marketplace_head": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+        "live_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "stale_memory_repaired_by_upsert": true,
+        "supersedes_prior_stale_running_state": true,
+        "consequential_do": false,
+        "1000X": "NOT_ADMITTED"
+      }
+    }
+  }
+}
