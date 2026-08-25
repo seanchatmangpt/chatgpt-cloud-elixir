@@ -1,0 +1,47 @@
+{
+  "request_id": "20260825T214500Z-select-post-latest",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/select/latest",
+      "title": "DfCM SELECT latest — R67 independence-weighted consumer capital",
+      "kind": "dfcm.selection",
+      "cell": "SELECT_DEVELOP",
+      "standing": "ALIVE",
+      "tags": ["1000x", "dfcm", "select", "r67", "consumer-independence", "marketplace"],
+      "body": "Selected and developed the current-main consumer-independence/common-cause measurement primitive instead of rebasing stale PR #288. Exact base 5eac35d1a597080cab8388f4a72cb5278b3e4c92 -> exact qualified candidate e723bc369ba4a2bf00d4e22052b0b7a04970e102 -> merged/default-contained at 95387a0632f7e460e65cdd89e77ea7f902093af0 via PR #292. Manufactured 50 independently committed SPARQL courts plus public ontology, current-head fixture, bounded RDFLib court, four Diátaxis surfaces, construction receipt, exact-head CI and a permanent verifier repair binding exact query identities because numeric ordinals are family-local. Preserved lawful alternatives: independent consumer expansion, R61/R63/R65 causal-yield calibration, and historical PR #288 as provenance without importing its stale substrate. Exact R67 court ALIVE, Vacuity ALIVE, broad CI ALIVE including 4/4 real-ggen shards. 1000X remains NOT_ADMITTED: common-cause-discounted independently qualified consumer breadth and causal downstream yield remain limiting. IMPLEMENT/QUALIFY handoff: execute R67 against returned consumer evidence, choose all orthogonal non-dominated consumers, manufacture target-local adapters through canonical marketplace/ggen substrate, return receipts, assimilate via R61/R63/R65, and measure downstream Y.",
+      "metadata": {
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count_pre": 372,
+        "exact_bus_head_before_request": "c8cc5818a821fa3d68c8b09a6e1574d6a6ee9102",
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "base": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+        "candidate": "e723bc369ba4a2bf00d4e22052b0b7a04970e102",
+        "merge_sha": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+        "pr": 292,
+        "new_semantic_courts": 50,
+        "new_meaningful_commits": 60,
+        "merge_count": 1,
+        "reusable_primitive": "R67 consumer-independence/common-cause court family",
+        "consumers_profiled": 4,
+        "admitted_in_fixture": 1,
+        "partial_in_fixture": 3,
+        "fully_orthogonal_pairs": 5,
+        "strong_orthogonal_pairs": 1,
+        "Y": "UNKNOWN",
+        "M_lower_bound": 2,
+        "weakest_multiplier": "common-cause-discounted independently qualified consumer breadth plus causal downstream yield",
+        "thousand_x": "NOT_ADMITTED",
+        "qualification_runs": {"r67": 32902284152, "vacuity": 32902284120, "broad_ci": 32902284090},
+        "ERRC": {
+          "eliminate": ["global ordinal uniqueness assumption", "force-rebase of deeply stale branch", "raw repo count as independent evidence", "duplicate R65 repairs already on main"],
+          "reduce": ["common-cause inflation", "stale-substrate integration risk", "authority/receipt/qualification ambiguity"],
+          "raise": ["orthogonal evidence roots", "exact-head qualification", "public ontology alignment", "replayability", "option preservation"],
+          "create": ["50-court R67 family", "public semantic model", "current-head fixture", "executable court", "construction receipt", "exact-head CI", "Diataxis", "family-local query identity guard"]
+        },
+        "consequential_do": false
+      }
+    }
+  }
+}
