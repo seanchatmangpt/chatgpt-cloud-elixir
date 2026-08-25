@@ -48,7 +48,6 @@ jobs:
           set -euo pipefail
           mkdir -p .project-memory-runtime project-memory/receipts
           : > .project-memory-runtime/requests.txt
-
           dispatch_path="${{ inputs.request_path || '' }}"
           if [[ -n "$dispatch_path" ]]; then
             case "$dispatch_path" in
@@ -56,65 +55,39 @@ jobs:
                 test -f "$dispatch_path"
                 printf '%s\n' "$dispatch_path" >> .project-memory-runtime/requests.txt
                 ;;
-              *)
-                echo "workflow_dispatch request_path must be under project-memory/requests/" >&2
-                exit 2
-                ;;
+              *) exit 2 ;;
             esac
           elif [[ "${{ github.event_name }}" == "push" ]]; then
             before="${{ github.event.before }}"
             after="${{ github.sha }}"
             if [[ "$before" =~ ^0+$ ]]; then
-              git diff-tree --no-commit-id --name-only -r "$after" -- project-memory/requests/ \
-                | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
+              git diff-tree --no-commit-id --name-only -r "$after" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
             else
-              git diff --name-only --diff-filter=AM "$before" "$after" -- project-memory/requests/ \
-                | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
+              git diff --name-only --diff-filter=AM "$before" "$after" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
             fi
           fi
-
           sort -u -o .project-memory-runtime/requests.txt .project-memory-runtime/requests.txt
           count="$(grep -c . .project-memory-runtime/requests.txt || true)"
           echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "Resolved $count request(s)."
 
       - name: Execute bounded Project v2 requests
         if: steps.requests.outputs.count != '0'
         shell: bash
         run: |
           set -uo pipefail
-          if [[ -n "${PROJECTS_TOKEN_PRIMARY:-}" ]]; then
-            export PROJECTS_TOKEN="$PROJECTS_TOKEN_PRIMARY"
-            export PROJECTS_TOKEN_SOURCE="PROJECTS_TOKEN secret"
-          elif [[ -n "${PROJECTS_TOKEN_GH_TOKEN:-}" ]]; then
-            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_TOKEN"
-            export PROJECTS_TOKEN_SOURCE="GH_TOKEN secret"
-          elif [[ -n "${PROJECTS_TOKEN_GH_PAT:-}" ]]; then
-            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_PAT"
-            export PROJECTS_TOKEN_SOURCE="GH_PAT secret"
-          elif [[ -n "${PROJECTS_TOKEN_GITHUB_PAT:-}" ]]; then
-            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GITHUB_PAT"
-            export PROJECTS_TOKEN_SOURCE="GITHUB_PAT secret"
-          else
-            export PROJECTS_TOKEN="$GITHUB_TOKEN_FALLBACK"
-            export PROJECTS_TOKEN_SOURCE="repository GITHUB_TOKEN fallback"
-          fi
-
+          if [[ -n "${PROJECTS_TOKEN_PRIMARY:-}" ]]; then export PROJECTS_TOKEN="$PROJECTS_TOKEN_PRIMARY"; export PROJECTS_TOKEN_SOURCE="PROJECTS_TOKEN secret";
+          elif [[ -n "${PROJECTS_TOKEN_GH_TOKEN:-}" ]]; then export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_TOKEN"; export PROJECTS_TOKEN_SOURCE="GH_TOKEN secret";
+          elif [[ -n "${PROJECTS_TOKEN_GH_PAT:-}" ]]; then export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_PAT"; export PROJECTS_TOKEN_SOURCE="GH_PAT secret";
+          elif [[ -n "${PROJECTS_TOKEN_GITHUB_PAT:-}" ]]; then export PROJECTS_TOKEN="$PROJECTS_TOKEN_GITHUB_PAT"; export PROJECTS_TOKEN_SOURCE="GITHUB_PAT secret";
+          else export PROJECTS_TOKEN="$GITHUB_TOKEN_FALLBACK"; export PROJECTS_TOKEN_SOURCE="repository GITHUB_TOKEN fallback"; fi
           failures=0
           while IFS= read -r request; do
             [[ -n "$request" ]] || continue
             base="$(basename "$request" .json)"
             receipt="project-memory/receipts/${base}.receipt.json"
-            set +e
-            python scripts/project_memory_proxy.py --request "$request" --receipt "$receipt"
-            rc=$?
-            set -e
-            if [[ "$rc" -ne 0 ]]; then
-              failures=$((failures + 1))
-            fi
+            python scripts/project_memory_proxy.py --request "$request" --receipt "$receipt" || failures=$((failures + 1))
           done < .project-memory-runtime/requests.txt
           printf '%s\n' "$failures" > .project-memory-runtime/failures.txt
-          exit 0
 
       - name: Commit receipts to transport branch
         if: always() && steps.requests.outputs.count != '0'
@@ -124,12 +97,20 @@ jobs:
           git config user.name "chatgpt-project-memory[bot]"
           git config user.email "chatgpt-project-memory[bot]@users.noreply.github.com"
           git add project-memory/receipts/
-          if git diff --cached --quiet; then
-            echo "No receipt changes to commit."
-            exit 0
-          fi
+          git diff --cached --quiet && exit 0
           git commit -m "receipt: Project v2 memory proxy"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "REFUSED[RECEIPT_REBASE_CONFLICT]" >&2
+              exit 2
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep "$attempt"
+          done
+          echo "REFUSED[RECEIPT_PUSH_CONTENTION]" >&2
+          exit 3
 
       - name: Upload receipts
         if: always() && steps.requests.outputs.count != '0'
@@ -149,7 +130,4 @@ jobs:
         run: |
           set -euo pipefail
           failures="$(cat .project-memory-runtime/failures.txt 2>/dev/null || echo 0)"
-          if [[ "$failures" != "0" ]]; then
-            echo "$failures Project v2 request(s) did not reach ALIVE. Inspect committed receipts." >&2
-            exit 1
-          fi
+          test "$failures" = "0"
