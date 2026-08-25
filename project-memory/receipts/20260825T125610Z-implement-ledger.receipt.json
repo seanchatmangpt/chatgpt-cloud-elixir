@@ -1,0 +1,274 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T12:53:56Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Added durable edges: epistemic-sensor-factory-pack -> ex4pm@7a08ba84 -> 25-case exact-head court SUCCESS; epistemic-sensor-factory-pack -> gymact@9a9dfdbd -> 20-case exact-head court SUCCESS. Both PRs mergeable. Broad CI remains non-terminal. ggen #670 exact-head ALIVE but merge actuation was refused before GitHub execution.",
+        "cell": "IMPLEMENT_QUALIFY",
+        "key": "dfcm/ledger/current",
+        "kind": "dfcm.ledger",
+        "metadata": {
+          "bus_head_before_request": "1f94ee3cbc8f43649b9cc2eb11e3ffb2846e148c",
+          "canonical_primitive": "epistemic-sensor-factory-pack",
+          "consumers": [
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact"
+          ],
+          "meaningful_commits": 51,
+          "qualification_artifacts": 45,
+          "standing": "PARTIAL_ALIVE"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "ledger",
+          "replication-capital",
+          "r54"
+        ],
+        "title": "DfCM capability ledger current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T125610Z-implement-ledger"
+  },
+  "request_id": "20260825T125610Z-implement-ledger",
+  "request_path": "project-memory/requests/20260825T125610Z-implement-ledger.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Added durable edges: epistemic-sensor-factory-pack -> ex4pm@7a08ba84 -> 25-case exact-head court SUCCESS; epistemic-sensor-factory-pack -> gymact@9a9dfdbd -> 20-case exact-head court SUCCESS. Both PRs mergeable. Broad CI remains non-terminal. ggen #670 exact-head ALIVE but merge actuation was refused before GitHub execution.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CtY",
+      "metadata": {
+        "C_observed_lower_bound": 5.0,
+        "E": 4.0,
+        "HANDWRITTEN_IRREDUCIBLE_REASON": null,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "alive_consumers": 1,
+        "authority": "SELECT",
+        "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+        "bootstrap_from_empty_namespace": true,
+        "bus_head": "01960bdaf7e3098fb69c8a29aeed7e422e39ebc6",
+        "bus_head_before_request": "1f94ee3cbc8f43649b9cc2eb11e3ffb2846e148c",
+        "canonical_primitive": "epistemic-sensor-factory-pack",
+        "cell": "IMPLEMENT_QUALIFY",
+        "concurrent_merge": {
+          "head": "d0545b5ec392aad466969433a915e23359d26e98",
+          "merge": "7d158ef97c6f41a67933f501397e29729abef071",
+          "pr": 247
+        },
+        "concurrent_repair_head": "d0545b5ec392aad466969433a915e23359d26e98",
+        "concurrent_repair_merge": "7d158ef97c6f41a67933f501397e29729abef071",
+        "concurrent_repair_pr": 247,
+        "consumer_candidates": 4,
+        "consumers": [
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact"
+        ],
+        "containment": "EXACT",
+        "created_at": "2026-08-25T08:19:33Z",
+        "current_main": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "duplicate_semantic_capital_counted_twice": false,
+        "durable_falsifiers": [
+          "stale Project identity",
+          "unordered deterministic ggen evidence",
+          "missing workflow timeout",
+          "duplicate concurrent repair lineage",
+          "individual-vs-composed qualification",
+          "ambient DO refusal"
+        ],
+        "durable_unlock_edges": [
+          "consumer fanout",
+          "postmerge realization",
+          "cross-repo qualification reuse",
+          "R45+ control/measurement",
+          "stale-capital reconciliation"
+        ],
+        "edges_added": 9,
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+        "generated_outputs_hand_edited": 0,
+        "ggen_head": "b0833991198f12f0f0eddc9cb8f6d9927123d231",
+        "ggen_pr": 670,
+        "head_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "key": "dfcm/ledger/current",
+        "kind": "dfcm.ledger",
+        "known_consumers": 3,
+        "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "marketplace_head": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "meaningful_commits": 51,
+        "memory_avoided_rediscovery_edges": 1,
+        "memory_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+        "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+        "merge_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "new_adjacency_count": 5,
+        "new_rule": "deduplicate concurrent equivalent repair lineages by exact resulting capability/tree",
+        "new_unlock_edges": 5,
+        "next_edges": [
+          "requalify exact head",
+          "merge if ALIVE",
+          "enumerate distinct-repository consumers",
+          "measure replication realization"
+        ],
+        "observed_consumer_multiplier": 1,
+        "partial_consumers": 2,
+        "portfolio_authored_ci_commits": 1,
+        "portfolio_authored_semantic_commits": 2,
+        "portfolio_merges": [
+          {
+            "containment": "EXACT",
+            "head": "2db35c65e30511b688f379228e9b90474e56864e",
+            "merge": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+            "pr": 246
+          },
+          {
+            "containment": "EXACT",
+            "head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+            "merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+            "net_tree_delta": 0,
+            "pr": 248
+          },
+          {
+            "containment": "EXACT",
+            "head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+            "merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+            "pr": 249
+          }
+        ],
+        "portfolio_repair_head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+        "portfolio_repair_merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "portfolio_repair_pr": 248,
+        "pr": 260,
+        "pr_merges": [
+          250,
+          251
+        ],
+        "pre_snapshot_items": 365,
+        "previous_valid_lineage": "R45/R45B retained",
+        "producer": "epistemic-sensor-factory-pack",
+        "qualification_artifacts": 45,
+        "qualification_run": 32843730780,
+        "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "2db35c65e30511b688f379228e9b90474e56864e",
+        "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+        "r44_pr": 246,
+        "r46_qualified_head": "32f0af7d7b36b336c029b4d3a81e61a0d905a32c",
+        "r47_courts": 50,
+        "r50_edges": [
+          {
+            "from": "memory:dfcm/portfolio/latest",
+            "relation": "prov:wasDerivedFrom",
+            "to": "observation:stale-R-observed-1"
+          },
+          {
+            "from": "observation:ggen-r48-merged",
+            "relation": "prov:generated",
+            "to": "sensor-family:consumer-evidence-return"
+          },
+          {
+            "from": "sensor-family:consumer-evidence-return",
+            "relation": "prov:generated",
+            "to": "opportunity:missing-consumer-receipt-return"
+          },
+          {
+            "from": "opportunity:missing-consumer-receipt-return",
+            "relation": "prov:wasAssociatedWith",
+            "to": "subject:chatgpt-cloud-elixir-current"
+          },
+          {
+            "from": "subject:ggen@a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+            "relation": "prov:generated",
+            "to": "receipt:ggen-r48-independent-consumer"
+          },
+          {
+            "from": "receipt:ggen-r48-independent-consumer",
+            "relation": "prov:generated",
+            "to": "standing:ALIVE"
+          },
+          {
+            "from": "subject:chatgpt-cloud-elixir@327d6013252ca9f6df3dba712f3ff0d493adbc83",
+            "relation": "prov:generated",
+            "to": "standing:PARTIAL_ALIVE"
+          },
+          {
+            "from": "observation:synthetic-merge-checkout",
+            "relation": "prov:generated",
+            "to": "repair:immutable-pr-head-checkout"
+          },
+          {
+            "from": "repair:immutable-pr-head-checkout",
+            "relation": "prov:generated",
+            "to": "receipt:workflow-run-32841749107-success"
+          },
+          {
+            "from": "receipt:workflow-run-32841749107-success",
+            "relation": "prov:generated",
+            "to": "standing:R50-ALIVE"
+          },
+          {
+            "from": "standing:R50-ALIVE",
+            "relation": "prov:generated",
+            "to": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711"
+          },
+          {
+            "from": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711",
+            "relation": "prov:generated",
+            "to": "unlock:independent-cloud-consumer-return"
+          }
+        ],
+        "r50_ledger_append_at": "2026-08-25T11:22:35Z",
+        "r50_preserves_prior_edges": true,
+        "readiness_count": 2,
+        "repair_commits": [
+          "21e7542445bf4bb4f801d2e9697bcaac0ee1be6f",
+          "c7731659694a111bdffe3f958a40a86c1e430f44"
+        ],
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_pr": 250,
+        "semantic_commits": 50,
+        "sensor_count": 50,
+        "sensors_added": 50,
+        "standing": "PARTIAL_ALIVE",
+        "structural_multiplier_standing": "INFERRED_STRUCTURAL_NOT_OBSERVED",
+        "structural_variants": 3375,
+        "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "tags": [
+          "dfcm",
+          "ledger",
+          "r54",
+          "replication-capital"
+        ],
+        "unique_meaningful_semantic_commits_observed": 54,
+        "unique_semantic_repairs": 2,
+        "updated_at": "2026-08-25T12:54:06Z",
+        "upstream_falsifier": "TEMPLATE_VARIABLE_MISSING rows",
+        "upstream_repair": "rows->results + permanent guard",
+        "weakest_multiplier": "R_consumer_replication"
+      },
+      "title": "DfCM capability ledger current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
