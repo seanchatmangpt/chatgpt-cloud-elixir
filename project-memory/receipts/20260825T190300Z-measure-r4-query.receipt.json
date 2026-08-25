@@ -1,0 +1,39 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T19:03:48Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "max_scan": 5000,
+      "text": "ggen-marketplace ggen sensor ontology pack falsifier dependency standing consumer replication phase-change",
+      "transport_head": "854ecf8eb68b4d4d39e381d71e80734a0534fc39"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T190300Z-measure-r4-query"
+  },
+  "request_id": "20260825T190300Z-measure-r4-query",
+  "request_path": "project-memory/requests/20260825T190300Z-measure-r4-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 28,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
