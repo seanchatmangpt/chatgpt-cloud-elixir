@@ -1,0 +1,1 @@
+{"request_id":"20260825T112415Z-measure-r50-final-query","operation":"memory.query","project":{"owner":"seanchatmangpt","number":2},"payload":{"text":"consumer","limit":100,"max_scan":5000,"include_archived":false}}
