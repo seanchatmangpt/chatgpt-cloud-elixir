@@ -1,0 +1,13 @@
+PREFIX cc: <https://chatman.ai/chatgpt-cloud/capability#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?repository ?sha ?role ?capitalClass ?executionMode ?standing WHERE {
+  ?source a cc:CapabilitySource ;
+          skos:prefLabel ?name ;
+          cc:repository ?repository ;
+          cc:commitSha ?sha ;
+          cc:role ?role ;
+          cc:capitalClass ?capitalClass ;
+          cc:executionMode ?executionMode ;
+          cc:requiredStanding ?standing .
+}
+ORDER BY ?name
