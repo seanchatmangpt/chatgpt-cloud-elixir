@@ -1,0 +1,10 @@
+{
+  "request_id": "20260825T155430Z-select-query-capital",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "text": "consumer primitive dependency unlock capital yield phase-change weak multiplier failed investment reusable factory adapter qualification composition",
+    "include_archived": false,
+    "limit": 50
+  }
+}
