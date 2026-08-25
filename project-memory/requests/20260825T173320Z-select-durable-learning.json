@@ -1,0 +1,20 @@
+{
+  "request_id": "20260825T173320Z-select-durable-learning",
+  "operation": "memory.create",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run/select/20260825T173320Z/f3457bdb",
+    "title": "SELECT durable learning: contain qualified consumers before duplicating factories",
+    "kind": "dfcm.run.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "ALIVE",
+    "tags": ["dfcm","learning","consumer","capital-yield"],
+    "body": "Durable learning: when a producer-owned reusable adapter already exists and independent consumer branches have exact-head courts ALIVE, capital allocation should remove metadata/containment suppressors before creating parallel consumer machinery. Aggregate repository CI may remain red without invalidating a scoped verification-only consumer when the changed-file boundary contains no runtime source and the failures are independently localized outside the diff; preserve the aggregate BUILD_BROKEN evidence rather than laundering it. After containment, the production-function frontier advances to multi-receipt assimilation, independence/common-cause measurement, and causal dependency-relief yield.",
+    "metadata": {
+      "bus_head_before_request": "c37a3884cb94da122d67494374b2c5750bd365fa",
+      "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+      "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+      "marketplace_r61": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1"
+    }
+  }}
+}
