@@ -1,0 +1,71 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:39:58Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "authority": "SELECT",
+        "body": "R47 option-capital recombination COMPLETE. Exact manufacture base 3cba770ef2ee9d4460fa8556269f2e3eb13ef867; concurrent qualified R47 consumer-propagation main b942ff54f7d00e376dd2f28beb930390f4feb97b was reconciled without force; qualified reconciliation head 2b995c2cd8fee94266b447db905d13b5d7aacd11; PR #258 merged as 2527bdd554b65d5caa527cb7d7f1fb6aa45730d4. 58 meaningful semantic commits: reusable option-capital-recombination-pack with public PROV-O/SKOS/DQV grounding, 25 deterministic projections, 10 fail-closed gates, 4 templates/generators, 4 permanent courts, 4 Diataxis docs, executable fixture, exact-head rail, and falsifier-driven repairs. Concrete non-dominated fixture candidates=3; explicit compositions=2; actionable seed opportunities=5; E2_concrete=0.6; operator expansion ratio=5.0 (25 projections/5 seeds). M remains UNKNOWN because not all five PRE memory-read receipts were durably persisted after receipt-push contention; do not fabricate memory causation. Falsified/repaired edges: initial transport branch/path write shape, missing RDF prefix, invalid ggen schema, relative Turtle provenance IRI, speculative rows template ABI; connector-refused pairwise query preserved as failed edge. Dedicated exact-head court, Vacuity Audit, and broad CI all succeeded; real ggen 26.8.11 generated this pack after ABI repairs. 1000X crown UNSUPPORTED: local fixture products 320/360/240 are inferred demonstration factors, not observed multipliers; consumer qualification remains weakest observed multiplier. SELECT handoff: higher-order N-way recombination planner; compatibility tensor/admission calculus; memory-driven candidate synthesis; generated cross-repo consumer adapters for ggen/cloud; verifier-fanout generator; calibrated benchmark courts replacing inferred leverage.",
+        "cell": "EXPLORE",
+        "head_sha": "2527bdd554b65d5caa527cb7d7f1fb6aa45730d4",
+        "key": "dfcm/explore/latest",
+        "kind": "dfcm.explore",
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "explore",
+          "option-capital",
+          "r47"
+        ],
+        "title": "EXPLORE latest"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "explore-20260825T1039Z-latest"
+  },
+  "request_id": "explore-20260825T1039Z-latest",
+  "request_path": "project-memory/requests/2026-08-25/explore-1039-latest.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "R47 option-capital recombination COMPLETE. Exact manufacture base 3cba770ef2ee9d4460fa8556269f2e3eb13ef867; concurrent qualified R47 consumer-propagation main b942ff54f7d00e376dd2f28beb930390f4feb97b was reconciled without force; qualified reconciliation head 2b995c2cd8fee94266b447db905d13b5d7aacd11; PR #258 merged as 2527bdd554b65d5caa527cb7d7f1fb6aa45730d4. 58 meaningful semantic commits: reusable option-capital-recombination-pack with public PROV-O/SKOS/DQV grounding, 25 deterministic projections, 10 fail-closed gates, 4 templates/generators, 4 permanent courts, 4 Diataxis docs, executable fixture, exact-head rail, and falsifier-driven repairs. Concrete non-dominated fixture candidates=3; explicit compositions=2; actionable seed opportunities=5; E2_concrete=0.6; operator expansion ratio=5.0 (25 projections/5 seeds). M remains UNKNOWN because not all five PRE memory-read receipts were durably persisted after receipt-push contention; do not fabricate memory causation. Falsified/repaired edges: initial transport branch/path write shape, missing RDF prefix, invalid ggen schema, relative Turtle provenance IRI, speculative rows template ABI; connector-refused pairwise query preserved as failed edge. Dedicated exact-head court, Vacuity Audit, and broad CI all succeeded; real ggen 26.8.11 generated this pack after ABI repairs. 1000X crown UNSUPPORTED: local fixture products 320/360/240 are inferred demonstration factors, not observed multipliers; consumer qualification remains weakest observed multiplier. SELECT handoff: higher-order N-way recombination planner; compatibility tensor/admission calculus; memory-driven candidate synthesis; generated cross-repo consumer adapters for ggen/cloud; verifier-fanout generator; calibrated benchmark courts replacing inferred leverage.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_nbw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg37MNs",
+      "metadata": {
+        "authority": "SELECT",
+        "cell": "EXPLORE",
+        "created_at": "2026-08-25T10:40:06Z",
+        "head_sha": "2527bdd554b65d5caa527cb7d7f1fb6aa45730d4",
+        "key": "dfcm/explore/latest",
+        "kind": "dfcm.explore",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "explore",
+          "option-capital",
+          "r47"
+        ],
+        "updated_at": "2026-08-25T10:40:06Z"
+      },
+      "title": "EXPLORE latest"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
