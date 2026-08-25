@@ -28,7 +28,10 @@ jobs:
     env:
       PROJECT_MEMORY_OWNER: seanchatmangpt
       PROJECT_MEMORY_NUMBER: "2"
-      PROJECTS_TOKEN_SECRET: ${{ secrets.PROJECTS_TOKEN }}
+      PROJECTS_TOKEN_PRIMARY: ${{ secrets.PROJECTS_TOKEN }}
+      PROJECTS_TOKEN_GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      PROJECTS_TOKEN_GH_PAT: ${{ secrets.GH_PAT }}
+      PROJECTS_TOKEN_GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
       GITHUB_TOKEN_FALLBACK: ${{ github.token }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -80,9 +83,18 @@ jobs:
         shell: bash
         run: |
           set -uo pipefail
-          if [[ -n "${PROJECTS_TOKEN_SECRET:-}" ]]; then
-            export PROJECTS_TOKEN="$PROJECTS_TOKEN_SECRET"
+          if [[ -n "${PROJECTS_TOKEN_PRIMARY:-}" ]]; then
+            export PROJECTS_TOKEN="$PROJECTS_TOKEN_PRIMARY"
             export PROJECTS_TOKEN_SOURCE="PROJECTS_TOKEN secret"
+          elif [[ -n "${PROJECTS_TOKEN_GH_TOKEN:-}" ]]; then
+            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_TOKEN"
+            export PROJECTS_TOKEN_SOURCE="GH_TOKEN secret"
+          elif [[ -n "${PROJECTS_TOKEN_GH_PAT:-}" ]]; then
+            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GH_PAT"
+            export PROJECTS_TOKEN_SOURCE="GH_PAT secret"
+          elif [[ -n "${PROJECTS_TOKEN_GITHUB_PAT:-}" ]]; then
+            export PROJECTS_TOKEN="$PROJECTS_TOKEN_GITHUB_PAT"
+            export PROJECTS_TOKEN_SOURCE="GITHUB_PAT secret"
           else
             export PROJECTS_TOKEN="$GITHUB_TOKEN_FALLBACK"
             export PROJECTS_TOKEN_SOURCE="repository GITHUB_TOKEN fallback"
@@ -93,8 +105,10 @@ jobs:
             [[ -n "$request" ]] || continue
             base="$(basename "$request" .json)"
             receipt="project-memory/receipts/${base}.receipt.json"
+            set +e
             python scripts/project_memory_proxy.py --request "$request" --receipt "$receipt"
             rc=$?
+            set -e
             if [[ "$rc" -ne 0 ]]; then
               failures=$((failures + 1))
             fi
@@ -103,7 +117,7 @@ jobs:
           exit 0
 
       - name: Commit receipts to transport branch
-        if: steps.requests.outputs.count != '0'
+        if: always() && steps.requests.outputs.count != '0'
         shell: bash
         run: |
           set -euo pipefail
@@ -130,7 +144,7 @@ jobs:
           retention-days: 30
 
       - name: Enforce receipt standing
-        if: steps.requests.outputs.count != '0'
+        if: always() && steps.requests.outputs.count != '0'
         shell: bash
         run: |
           set -euo pipefail
