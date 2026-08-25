@@ -1,0 +1,6 @@
+{
+  "request_id":"20260825T190230Z-measure-r4-read-portfolio",
+  "operation":"memory.read",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"key":"dfcm/portfolio/latest","transport_head":"11c53d3f13b35af0105e277de6debd034912c36e"}
+}
