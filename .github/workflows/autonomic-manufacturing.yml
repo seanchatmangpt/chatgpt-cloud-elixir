@@ -1,0 +1,139 @@
+name: Autonomic Manufacturing Capsule
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+      - feat/**
+    paths:
+      - "manufacturing/**"
+      - "capsules/autonomic-manufacturing/**"
+      - "scripts/build-autonomic-manufacturing.sh"
+      - "scripts/verify-autonomic-manufacturing.sh"
+      - "scripts/verify-autonomic-contract.py"
+      - "versions.toml"
+      - ".github/workflows/autonomic-manufacturing.yml"
+  pull_request:
+    paths:
+      - "manufacturing/**"
+      - "capsules/autonomic-manufacturing/**"
+      - "scripts/build-autonomic-manufacturing.sh"
+      - "scripts/verify-autonomic-manufacturing.sh"
+      - "scripts/verify-autonomic-contract.py"
+      - "versions.toml"
+      - ".github/workflows/autonomic-manufacturing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manufacture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout capsule foundry
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Qualify bootstrap contract
+        run: |
+          python3 -m py_compile scripts/verify-autonomic-contract.py
+          python3 scripts/verify-autonomic-contract.py
+          bash -n scripts/build-autonomic-manufacturing.sh
+          bash -n scripts/verify-autonomic-manufacturing.sh
+
+      - name: Resolve bootstrap ggen identity
+        id: bootstrap
+        shell: bash
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import tomllib
+          v = tomllib.load(open("versions.toml", "rb"))["bootstrap"]
+          print(f"repository={v['ggen_repository']}")
+          print(f"sha={v['ggen_sha']}")
+          print(f"toolchain={v['rust_toolchain']}")
+          PY
+
+      - name: Fetch exact ggen bootstrap
+        shell: bash
+        run: |
+          mkdir -p .capability-sources/ggen
+          git -C .capability-sources/ggen init -q
+          git -C .capability-sources/ggen remote add origin "https://github.com/${{ steps.bootstrap.outputs.repository }}.git"
+          git -C .capability-sources/ggen fetch -q --depth 1 origin "${{ steps.bootstrap.outputs.sha }}"
+          git -C .capability-sources/ggen checkout -q --detach FETCH_HEAD
+          test "$(git -C .capability-sources/ggen rev-parse HEAD)" = "${{ steps.bootstrap.outputs.sha }}"
+
+      - name: Build exact ggen manufacturing engine
+        shell: bash
+        run: |
+          rustup toolchain install "${{ steps.bootstrap.outputs.toolchain }}" --profile minimal
+          cargo +"${{ steps.bootstrap.outputs.toolchain }}" build \
+            --manifest-path .capability-sources/ggen/Cargo.toml \
+            --locked --release -p ggen-cli-lib --bin ggen
+          .capability-sources/ggen/target/release/ggen --help >/dev/null
+
+      - name: Manufacture capability lock from ontology
+        shell: bash
+        run: |
+          GGEN_BIN="$PWD/.capability-sources/ggen/target/release/ggen"
+          (
+            cd manufacturing
+            "$GGEN_BIN" sync run
+          )
+          test -s manufacturing/generated/capability-lock.json
+          test -s manufacturing/generated/autonomic-manufacturing.mmd
+
+      - name: Fetch exact ecosystem source closure
+        shell: bash
+        run: |
+          python3 - <<'PY' > /tmp/capability-sources.tsv
+          import json
+          lock = json.load(open("manufacturing/generated/capability-lock.json"))
+          for s in lock["sources"]:
+              if s["name"] != "ggen":
+                  print(f"{s['name']}\t{s['repository']}\t{s['sha']}")
+          PY
+          while IFS=$'\t' read -r name repository sha; do
+            dir=".capability-sources/$name"
+            mkdir -p "$dir"
+            git -C "$dir" init -q
+            git -C "$dir" remote add origin "https://github.com/$repository.git"
+            git -C "$dir" fetch -q --depth 1 origin "$sha"
+            git -C "$dir" checkout -q --detach FETCH_HEAD
+            test "$(git -C "$dir" rev-parse HEAD)" = "$sha"
+          done < /tmp/capability-sources.tsv
+
+      - name: Manufacture portable autonomy capsule
+        shell: bash
+        run: |
+          export GITHUB_SHA="${{ github.event.pull_request.head.sha || github.sha }}"
+          export GGEN_BIN="$PWD/.capability-sources/ggen/target/release/ggen"
+          export CAPABILITY_SOURCE_ROOT="$PWD/.capability-sources"
+          chmod +x scripts/build-autonomic-manufacturing.sh scripts/verify-autonomic-manufacturing.sh
+          scripts/build-autonomic-manufacturing.sh
+
+      - name: Verify fresh extracted consumer
+        shell: bash
+        run: |
+          archive="$(find dist -maxdepth 1 -type f -name 'chatgpt-cloud-autonomic-manufacturing-*.tar.gz' | head -1)"
+          test -n "$archive"
+          expected="$(awk '{print $1}' "$archive.sha256")"
+          actual="$(sha256sum "$archive" | awk '{print $1}')"
+          test "$actual" = "$expected"
+          mkdir consumer
+          tar -xzf "$archive" -C consumer
+          bash consumer/scripts/verify-autonomic-manufacturing.sh
+          cp consumer/receipt.json dist/autonomic-manufacturing-consumer-receipt.json
+
+      - name: Upload capsule and receipts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: chatgpt-cloud-autonomic-manufacturing-v26.8.25-linux-x86_64
+          path: |
+            dist/chatgpt-cloud-autonomic-manufacturing-*.tar.gz
+            dist/chatgpt-cloud-autonomic-manufacturing-*.tar.gz.sha256
+            dist/autonomic-manufacturing-consumer-receipt.json
+          if-no-files-found: error
+          retention-days: 14

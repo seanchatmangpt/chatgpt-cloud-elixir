@@ -1,0 +1,11 @@
+flowchart TD
+  O[Admitted semantic objective O*] --> D[DfCM frontier]
+  D --> G[ggen deterministic manufacture]
+  G --> C[Capability resolver]
+  C --> S[SwarmSH bounded execution cells]
+  S --> R[Receipts and observations]
+  R --> K[Capitalization candidates]
+  K --> M[ggen marketplace]
+  M --> G
+{% for s in results %}  SRC{{ loop.index }}[{{ s.name }}\n{{ s.capitalClass }}] --> C
+{% endfor %}
