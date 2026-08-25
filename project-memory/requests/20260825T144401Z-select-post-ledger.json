@@ -1,0 +1,32 @@
+{
+  "request_id": "20260825T144401Z-select-post-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM durable selection ledger",
+      "kind": "dfcm.ledger",
+      "standing": "ALIVE",
+      "tags": ["dfcm", "ledger", "provenance", "consumer-fanout"],
+      "body": "Durable lineage appended without deleting still-lawful option value: remembered weak multiplier -> SELECT R55 consumer fanout -> discover first-PR owning-court bootstrap dead-zone -> manufacture two-mode default-owned R55 court -> qualify and merge bootstrap #271 -> exact R55 subject execution -> broad real-ggen shard falsifier exposes missing ORDER BY -> determinize evidence-return query -> broad real-ggen falsifier exposes causal-template context ABI mismatch -> align rows to results -> exact R55 owning court + Vacuity + 4/4 real-ggen + aggregate ALIVE -> merge #270 -> default containment e6810f8e. R54 causal/yield measurement remains preserved as a non-dominated measurement edge.",
+      "metadata": {
+        "edges_added": [
+          "weak-consumer-breadth->select-R55",
+          "R55->bootstrap-owning-court",
+          "bootstrap-court->merge-271",
+          "R55-exact->ORDER-BY-repair",
+          "ORDER-BY-repair->template-context-repair",
+          "repairs->exact-R55-qualification",
+          "exact-R55-qualification->merge-270",
+          "merge-270->consumer-evidence-return-frontier"
+        ],
+        "bootstrap_merge": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+        "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "qualification_runs": [32860889375, 32860889543, 32860889422],
+        "preserved_option_value": ["R54 causal/yield measurement", "admitted consumer adapter/evidence-return candidates"],
+        "standing": "ALIVE"
+      }
+    }
+  }
+}
