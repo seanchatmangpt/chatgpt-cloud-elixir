@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T102805Z-implement-latest-corrected",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/implement/latest",
+      "title": "DfCM IMPLEMENT QUALIFY latest",
+      "kind": "dfcm.implement",
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "implement", "qualify", "replication-capital", "r47"],
+      "body": "R47 consumer-propagation qualification is merged at seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b. Fifty new executable SPARQL courts qualify the canonical R46 replication compiler across exact subject/default-head parity, consumer census, evidence-root independence, receipt/spec completeness, standing queues, SHA validity, cross-repository coverage, replication gaps, and zero ambient actuation. Broad CI exposed a canonical template-context defect (`rows` versus admitted ggen `results`); repaired upstream with permanent regression guard, after which exact R47, Vacuity Audit, fast admission, deterministic manufacture, and all four real-ggen shards passed. Known consumer census remains marketplace + ggen + chatgpt-cloud-elixir; marketplace is exact-head ALIVE, external two remain PARTIAL_ALIVE pending propagated runtime realization. PRE Project mutation was refused before GitHub execution, so M is UNKNOWN for this run.",
+      "metadata": {
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "merge_sha": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+        "meaningful_commits": 52,
+        "qualification_artifacts": 50,
+        "known_consumers": 3,
+        "qualified_consumers_alive": 1,
+        "partial_consumers": 2,
+        "R_qualification": 50,
+        "R_consumer_alive": 1,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable",
+        "upstream_defect": "TEMPLATE_VARIABLE_MISSING rows",
+        "upstream_repair": "rows->results plus permanent regression guard",
+        "project_post_receipt": "20260825T102620Z-implement-post",
+        "bus_head": "9f9acb4eab5c3a22fba56bf742e55518fa655a7d"
+      }
+    }
+  }
+}
