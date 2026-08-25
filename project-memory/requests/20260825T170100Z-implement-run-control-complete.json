@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T170100Z-implement-run-control-complete",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "dfcm/run-control/implement/current",
+    "value": {
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+      "project_post": "ALIVE_WITH_STALE_BODY_MISMATCH",
+      "marketplace_main": "aba29c44cab7577818f392878974c405f6a0a5ff",
+      "qualified_subject": "f29068caee39ad16ac7534c789d6f186e5c65cd6",
+      "meaningful_commits": 54,
+      "raw_commits": 57,
+      "merge_count": 1,
+      "R_qualification": 50,
+      "R_complete_plan_fanout": 4,
+      "R_alive_consumer_fanout": 1,
+      "M": "UNKNOWN",
+      "weakest_multiplier": "independently_ALIVE_consumer_fanout",
+      "consumer_shortfall_to_10": 9,
+      "receipt_ids": ["20260825T165800Z-implement-post", "20260825T165900Z-implement-ledger", "20260825T170000Z-implement-frontier"]
+    }
+  }
+}
