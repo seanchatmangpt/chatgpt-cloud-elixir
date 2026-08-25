@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T135120Z-portfolio-frontier-key",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/frontier/current", "include_archived": false, "limit": 10, "max_scan": 5000}
+}
