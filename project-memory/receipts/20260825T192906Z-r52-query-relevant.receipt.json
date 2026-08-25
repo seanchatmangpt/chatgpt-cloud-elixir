@@ -1,0 +1,37 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T19:30:16Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": true,
+      "limit": 100,
+      "text": "ggen marketplace sensor receipt falsifier dependency consumer replication ontology stale standing phase-change"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T192906Z-r52-query-relevant"
+  },
+  "request_id": "20260825T192906Z-r52-query-relevant",
+  "request_path": "project-memory/requests/20260825T192906Z-r52-query-relevant.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 28,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
