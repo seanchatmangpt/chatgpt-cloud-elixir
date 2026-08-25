@@ -1,0 +1,126 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:14:28Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R46 materially changed the reachable frontier. Producer-local sensor manufacture is no longer the immediate bottleneck: exact repository census facts can now be deterministically compiled into replication targets, qualification gaps, evidence-root requirements, receipts, and standing observations. Current frontier: (1) independently execute compiled target in ggen@f4e1bce1efdcdc4f6c2531be9f66070950f7ec93; (2) independently execute compiled target in chatgpt-cloud-elixir against a newly re-resolved exact head; (3) issue per-consumer receipts/falsifiers; (4) measure dependency-relief conversion; (5) enumerate additional reachable exact repository targets; (6) calibrate cross-repo reuse/duplication/orphan sensors; (7) feed qualified consumer receipts back into Project memory; (8) measure R_observed and causal independence; (9) only then retry 1000X admission. Weakest multiplier remains independent consumer realization, but rollout topology is now executable rather than rediscovered. standing=PARTIAL_ALIVE because compiler is ALIVE while non-producer consumers are not yet independently qualified.",
+        "cell": "MEASURE",
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "metadata": {
+          "compiler_standing": "ALIVE",
+          "consumer_rollout_standing": "PARTIAL_ALIVE",
+          "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+          "frontier_size": 9,
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "r46",
+          "replication"
+        ],
+        "title": "DfCM frontier current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T101405Z-measure-frontier-upsert"
+  },
+  "request_id": "20260825T101405Z-measure-frontier-upsert",
+  "request_path": "project-memory/requests/20260825T101405Z-measure-frontier-upsert.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R46 materially changed the reachable frontier. Producer-local sensor manufacture is no longer the immediate bottleneck: exact repository census facts can now be deterministically compiled into replication targets, qualification gaps, evidence-root requirements, receipts, and standing observations. Current frontier: (1) independently execute compiled target in ggen@f4e1bce1efdcdc4f6c2531be9f66070950f7ec93; (2) independently execute compiled target in chatgpt-cloud-elixir against a newly re-resolved exact head; (3) issue per-consumer receipts/falsifiers; (4) measure dependency-relief conversion; (5) enumerate additional reachable exact repository targets; (6) calibrate cross-repo reuse/duplication/orphan sensors; (7) feed qualified consumer receipts back into Project memory; (8) measure R_observed and causal independence; (9) only then retry 1000X admission. Weakest multiplier remains independent consumer realization, but rollout topology is now executable rather than rediscovered. standing=PARTIAL_ALIVE because compiler is ALIVE while non-producer consumers are not yet independently qualified.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+      "metadata": {
+        "E_observed": 4.0,
+        "E_work": 4.0,
+        "M_observed": 4.0,
+        "M_work": 2.0,
+        "branching_factor_lower_bound": 5,
+        "bus_head_before_request": "0a88c285df7d9cb2d4721ae1e16d941e81089b7b",
+        "cell": "MEASURE",
+        "compiler_standing": "ALIVE",
+        "composition_head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+        "composition_merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "composition_pr": 249,
+        "consumer_rollout_standing": "PARTIAL_ALIVE",
+        "containment": "EXACT",
+        "created_at": "2026-08-25T08:52:58Z",
+        "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+        "frontier_size": 9,
+        "generation_depth": 3,
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "main_after": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "main_before": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "new_frontier_edges": 7,
+        "new_opportunities_from_merge": 5,
+        "new_repairs": 2,
+        "new_unlock_classes": [
+          "R45+ derivative measurement/control",
+          "producer #245 changed integration standing",
+          "consumer adoption of frontier-derivative-pack",
+          "postmerge replication realization measurement",
+          "cross-repo qualification reuse"
+        ],
+        "next_edges": [
+          "exact-head requalification",
+          "merge if ALIVE",
+          "distinct-repository consumer adoption",
+          "cross-repo reproduction receipt",
+          "predicted-vs-realized derivative calibration",
+          "chatgpt-cloud-elixir manufacturing repair"
+        ],
+        "next_measure_seed_count": 5,
+        "r43_pr": 244,
+        "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+        "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+        "r44_pr": 246,
+        "r44_qualified_head": "2db35c65e30511b688f379228e9b90474e56864e",
+        "r44_semantic_commit_floor": 50,
+        "r45_candidate": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "r45_pr": 250,
+        "r45_standing": "REQUALIFYING",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "standing_reason": "R44 closure complete; broad portfolio frontier remains and no R45 exact subject yet exists",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "r46",
+          "replication"
+        ],
+        "updated_at": "2026-08-25T10:14:36Z",
+        "weakest_multiplier": "R_consumer_replication"
+      },
+      "title": "DfCM frontier current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
