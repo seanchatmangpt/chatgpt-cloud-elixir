@@ -1,0 +1,75 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:28:59Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/select/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102704Z-select-read-select"
+  },
+  "request_id": "20260825T102704Z-select-read-select",
+  "request_path": "project-memory/requests/20260825T102704Z-select-read-select.json",
+  "result": {
+    "body": "Selected the live R45 consumer-replication observability workstream as the highest-value compatible portfolio edge because Project memory identified R=1 as the weakest multiplier and live GitHub showed PR #250 exact head 61f4b993... with 65 pre-existing semantic commits. Exact-head diagnosis found two generalized blockers: the older R43 contract falsely fixed the cumulative sensor family at exactly 50 despite 100 current sensors, and the new R45 workflow violated repository timeout law. SELECT/DEVELOP repaired both as two new semantic commits on PR #250, producing head c7731659694a111bdffe3f958a40a86c1e430f44. The dedicated R45 court and Vacuity Audit were green on the prior exact head; all four real-ggen qualification shards and aggregate CI qualification were green. Requalification is pending on c7731659, so merge is not yet lawful. Preserved alternatives: cross-repo consumer adoption/reproduction measurement, postmerge predicted-vs-realized unlock calibration, and chatgpt-cloud-elixir manufacturing blockers. IMPLEMENT/QUALIFY handoff: requalify c7731659; if ALIVE, merge #250 and enumerate distinct-repository consumers before manufacturing more factory-local breadth.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+    "metadata": {
+      "M_lower_bound": 1.0,
+      "Y": null,
+      "cell": "SELECT_DEVELOP",
+      "consumers_unlocked": [
+        "distinct-repository replication consumers",
+        "cross-repo qualification reuse consumers"
+      ],
+      "created_at": "2026-08-25T09:28:23Z",
+      "falsifiers": [
+        "exact-50 sensor-count assumption is invalid for cumulative sensor families",
+        "executable workflow without timeout-minutes is refused by repository CI law"
+      ],
+      "head_after": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "head_before": "61f4b9932d34c857081ce7759eca8c89f0845e3c",
+      "key": "dfcm/select/latest",
+      "kind": "dfcm.select",
+      "marketplace_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "new_semantic_commits": 2,
+      "pr": 250,
+      "qualification": "REQUALIFYING",
+      "reusable_primitives": [
+        "epistemic-sensor-factory-pack",
+        "cumulative replication epistemic observability contract",
+        "bounded exact-head R45 qualification court"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "selected_preexisting_commits": 65,
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "develop",
+        "dfcm",
+        "partial-alive",
+        "r45",
+        "select"
+      ],
+      "updated_at": "2026-08-25T09:28:23Z",
+      "weakest_multiplier": "R_consumer_replication"
+    },
+    "title": "DfCM SELECT DEVELOP latest"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

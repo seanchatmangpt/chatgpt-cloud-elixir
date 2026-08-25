@@ -1,0 +1,142 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:29:18Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "yield"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102710Z-select-query-yield"
+  },
+  "request_id": "20260825T102710Z-select-query-yield",
+  "request_path": "project-memory/requests/20260825T102710Z-select-query-yield.json",
+  "result": {
+    "matched": 2,
+    "records": [
+      {
+        "body": "Durable learning: independently-qualified sensor generations must own disjoint immutable identity ranges; historical courts qualify their own tranche, never the unbounded future query set. Project-memory proxy failures are evidence: malformed requests must preserve BUILD_BROKEN receipts and be superseded by a new exact-head bounded request, never overwritten. Weakest multiplier observed from Project memory was consumer replication; R45B therefore made realized cross-repository replication yield observable with sensors 136..185. Exact final default=be81dd42c8eae76b571b6e0b43951ee52b061367; exact R45B head=6dc67c421c7b2e8498df581a46ecc9e30202cab3; direct merge containment proven. Live 1000X remains NOT_ADMITTED until exhaustive portfolio projection supplies observed factors.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_mFQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36xgM",
+        "metadata": {
+          "bus_head_before_request": "4044f7d69bba4b2c38a617099d39216b6300807e",
+          "cell": "MEASURE",
+          "created_at": "2026-08-25T09:47:06Z",
+          "head": "6dc67c421c7b2e8498df581a46ecc9e30202cab3",
+          "key": "dfcm/run/measure/20260825T094630Z/be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "kind": "dfcm.run",
+          "meaningful_commits": 54,
+          "merge": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "schema": "chatgpt-project-memory/v1",
+          "sensors": 50,
+          "standing": "ALIVE",
+          "tags": [
+            "dfcm",
+            "immutable",
+            "measure",
+            "r45",
+            "r45b"
+          ],
+          "updated_at": "2026-08-25T09:47:06Z"
+        },
+        "title": "MEASURE R45/R45B durable learning"
+      },
+      {
+        "body": "R44 recurrence crossed the 50-semantic-commit floor and recursively produced three material generations. Generation 1: exact R44 #246 at 2db35c65... qualified full marketplace CI + all four real-ggen shards and merged to 9e7586be.... Generation 2: postmerge R43 deterministic-order/timeout defect produced a current-main repair/falsifier lineage; concurrent #247 merged as 7d158ef9..., then exact current-main #248 8c7a998b... independently qualified R43 + Vacuity + full CI and merged as topology/containment closure 8b971799.... Equivalent concurrent repair semantics were deduplicated by resulting tree/capability identity. Generation 3: newly generated #249 executable composition qualification at eb79231b... ran all exactly 50 R44 SPARQL courts together, passed R44 exact-head court + Vacuity + full CI, and merged as 8c05c425.... Unique meaningful semantic production observed in the recurrence is at least 54: 50 R44 qualification/falsifier courts, deterministic R43 ordering, permanent ordering falsifier, executable 50-court composition runner, and DO-falsifier-vs-actuation semantic correction. CI-only/merge-only topology commits are excluded. Project memory corrected stale R43 PR identity, bootstrapped missing frontier/run-control, drove the R44 seed, tracked every material merge, and archived the contradicted immutable R43 run card. Starting Project snapshot=347 items; intermediate post-repo snapshot=349. Weakest multiplier is independent consumer replication R: factories and courts are manufactured/qualified faster than they are independently adopted across consumer repositories. Next MEASURE seeds: measure actual post-R44 consumer adoption/fanout, qualification reuse, composition reproduction, false-positive/false-negative consumer suitability, and memory-to-manufacture latency. 1000X causal crown is not yet admitted: arithmetic proxy product can exceed 1000, but E/E2/Y/C share causal ancestry and R remains 1, so factor independence/counterfactual multiplication is unproven.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lIg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36b-U",
+        "metadata": {
+          "C_observed_lower_bound": 5.0,
+          "E2_observed_lower_bound": 3.0,
+          "ERRC_after": [
+            "R43 identity corrected",
+            "frontier/run-control/portfolio memory live",
+            "R44 50-court capital on default history",
+            "R43 query deterministically ordered",
+            "R43 workflow timeout bounded",
+            "permanent deterministic-order falsifier",
+            "50-court composition runner qualified and merged",
+            "concurrent duplicate repair semantics deduplicated"
+          ],
+          "ERRC_before": [
+            "stale R43 Project identity",
+            "absent canonical frontier/portfolio control records",
+            "R44 branch capital not in default history",
+            "R43 nondeterministic generation query",
+            "unbounded R43 workflow",
+            "individual R44 courts without executable composition court"
+          ],
+          "E_observed_lower_bound": 4.0,
+          "H6_causal_standing": "UNSUPPORTED[FACTOR_INDEPENDENCE_AND_CONSUMER_REPLICATION]",
+          "H6_naive_proxy_lower_bound": 3990.0,
+          "M_observed_lower_bound": 1.33,
+          "R_observed": 1.0,
+          "Y_semantic_edge_yield_lower_bound": 50.0,
+          "branching_factor_lower_bound": 5,
+          "cell": "PORTFOLIO",
+          "concurrent_merge_sha": "7d158ef97c6f41a67933f501397e29729abef071",
+          "concurrent_merges_observed": 1,
+          "containment_proofs": "3/3 portfolio merges exact",
+          "created_at": "2026-08-25T09:06:30Z",
+          "generation_depth": 3,
+          "key": "dfcm/portfolio/latest",
+          "kind": "dfcm.portfolio",
+          "meaningful_semantic_commits_observed": 54,
+          "merge_shas": [
+            "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+            "8b97179940c5d748f994c10bfc64261743b6fde1",
+            "8c05c4252264fb0cfd60585657d9776ff2c9de29"
+          ],
+          "merges_by_portfolio": 3,
+          "next_measure_seeds": [
+            "measure independent consumer adoption/fanout of frontier-derivative-pack",
+            "measure cross-repo qualification reuse and reproduction",
+            "measure consumer-suitability precision/recall",
+            "measure memory-to-manufacture latency and avoided rediscovery",
+            "measure postmerge composition realization versus predicted unlocks"
+          ],
+          "portfolio_authored_nonsemantic_ci_commits": 1,
+          "portfolio_authored_semantic_commits": 2,
+          "schema": "chatgpt-project-memory/v1",
+          "semantic_floor": 50,
+          "semantic_floor_surplus": 4,
+          "standing": "PARTIAL_ALIVE",
+          "tags": [
+            "autocatalytic",
+            "capital",
+            "dfcm",
+            "memory",
+            "portfolio",
+            "r44"
+          ],
+          "updated_at": "2026-08-25T09:06:30Z",
+          "utc_end_observed": "2026-08-25T09:06:00Z",
+          "utc_start": "2026-08-25T08:48:43Z",
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "title": "DfCM PORTFOLIO latest — R44 autocatalytic closure"
+      }
+    ],
+    "scanned": 15,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

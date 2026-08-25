@@ -1,0 +1,117 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:29:14Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "failed"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102709Z-select-query-failures"
+  },
+  "request_id": "20260825T102709Z-select-query-failures",
+  "request_path": "project-memory/requests/20260825T102709Z-select-query-failures.json",
+  "result": {
+    "matched": 2,
+    "records": [
+      {
+        "body": "Durable novel learning: consumer replication topology can be compiled rather than rediscovered. Exact construction base 22743d39d31a19490d6c9db881d02f3690b24913; exact qualified head 32f0af7d7b36b336c029b4d3a81e61a0d905a32c; primary merge ce479a76e3b60c34414c89cb17746e3bcb30b13c; regression closure merge 3cba770ef2ee9d4460fa8556269f2e3eb13ef867. 65 meaningful commits, including 50 executable sensors 186-235. Owning run 32835895904 SUCCESS. Falsifier: initial R46 court failed due unnecessary pytest dependency after all upstream gates passed; repaired into dependency-free direct court and both owning/dedicated rails aligned. Public semantics reuse PROV-O/DCAT/DQV/ODRL. R_observed still 1 because ggen/cloud consumers are exact observed targets but not independently qualified; do not infer 1000X from compiled fanout.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_m-4",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36_7M",
+        "metadata": {
+          "cell": "MEASURE",
+          "created_at": "2026-08-25T10:14:53Z",
+          "key": "dfcm/run/measure/20260825T095259Z/3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+          "kind": "dfcm.run",
+          "schema": "chatgpt-project-memory/v1",
+          "standing": "ALIVE",
+          "tags": [
+            "dfcm",
+            "immutable",
+            "measure",
+            "r46",
+            "replication-compiler"
+          ],
+          "updated_at": "2026-08-25T10:14:53Z"
+        },
+        "title": "MEASURE R46 immutable run"
+      },
+      {
+        "body": "RUNNING. UTC start=2026-08-25T09:52:59Z. Project=PVT_kwHOCCCFfc4BhZKe; pre-snapshot item_count=355. Exact bus head before request=27153b8534b95a893151e96fdcc699ec96bbe56c. Consumed keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest plus marketplace memory query. Candidate repos: seanchatmangpt/ggen-marketplace, seanchatmangpt/chatgpt-cloud-elixir and reachable consumer repositories. Initial frontier size=9. Initial weakest multiplier=R_consumer_replication. standing=RUNNING.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+        "metadata": {
+          "E_work": 4.0,
+          "M_work": 2.0,
+          "bus_head": "27153b8534b95a893151e96fdcc699ec96bbe56c",
+          "bus_head_before_request": "2b58f2b5f4c9eac512a8dce485d4c1f0365d391e",
+          "candidate_repositories": [
+            "seanchatmangpt/ggen-marketplace",
+            "seanchatmangpt/ggen",
+            "seanchatmangpt/chatgpt-cloud-elixir"
+          ],
+          "cell": "MEASURE",
+          "consumed_memory_keys": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/measure/latest",
+            "dfcm/portfolio/latest",
+            "dfcm query: ggen marketplace measure epistemic sensors falsifiers stale standing ontology pack dependency phase-change 1000x"
+          ],
+          "control_started_at": "2026-08-25T09:43:00Z",
+          "created_at": "2026-08-25T09:05:24Z",
+          "ended_at": "2026-08-25T09:46:30Z",
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "initial_frontier_size": 9,
+          "initial_weakest_multiplier": "R_consumer_replication",
+          "key": "dfcm/run-control/measure/current",
+          "kind": "dfcm.run-control",
+          "live_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "meaningful_commits": 54,
+          "merge_count": 2,
+          "original_started_at": "2026-08-25T09:22:56Z",
+          "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 355,
+          "project_title": "@seanchatmangpt's post-agi project",
+          "reference_multiplier": 160,
+          "reference_shortfall": 840,
+          "schema": "chatgpt-project-memory/v1",
+          "sensor_count": 50,
+          "standing": "RUNNING",
+          "started_at": "2026-08-25T09:52:59Z",
+          "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+          "tags": [
+            "dfcm",
+            "measure",
+            "r46",
+            "run-control"
+          ],
+          "updated_at": "2026-08-25T09:56:01Z",
+          "utc_start": "2026-08-25T09:05:00Z"
+        },
+        "title": "MEASURE run control"
+      }
+    ],
+    "scanned": 15,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

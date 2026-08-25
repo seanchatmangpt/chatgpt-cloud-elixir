@@ -1,0 +1,94 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:29:21Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "phase-change"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102711Z-select-query-phase"
+  },
+  "request_id": "20260825T102711Z-select-query-phase",
+  "request_path": "project-memory/requests/20260825T102711Z-select-query-phase.json",
+  "result": {
+    "matched": 1,
+    "records": [
+      {
+        "body": "RUNNING. UTC start=2026-08-25T09:52:59Z. Project=PVT_kwHOCCCFfc4BhZKe; pre-snapshot item_count=355. Exact bus head before request=27153b8534b95a893151e96fdcc699ec96bbe56c. Consumed keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest plus marketplace memory query. Candidate repos: seanchatmangpt/ggen-marketplace, seanchatmangpt/chatgpt-cloud-elixir and reachable consumer repositories. Initial frontier size=9. Initial weakest multiplier=R_consumer_replication. standing=RUNNING.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+        "metadata": {
+          "E_work": 4.0,
+          "M_work": 2.0,
+          "bus_head": "27153b8534b95a893151e96fdcc699ec96bbe56c",
+          "bus_head_before_request": "2b58f2b5f4c9eac512a8dce485d4c1f0365d391e",
+          "candidate_repositories": [
+            "seanchatmangpt/ggen-marketplace",
+            "seanchatmangpt/ggen",
+            "seanchatmangpt/chatgpt-cloud-elixir"
+          ],
+          "cell": "MEASURE",
+          "consumed_memory_keys": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/measure/latest",
+            "dfcm/portfolio/latest",
+            "dfcm query: ggen marketplace measure epistemic sensors falsifiers stale standing ontology pack dependency phase-change 1000x"
+          ],
+          "control_started_at": "2026-08-25T09:43:00Z",
+          "created_at": "2026-08-25T09:05:24Z",
+          "ended_at": "2026-08-25T09:46:30Z",
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "initial_frontier_size": 9,
+          "initial_weakest_multiplier": "R_consumer_replication",
+          "key": "dfcm/run-control/measure/current",
+          "kind": "dfcm.run-control",
+          "live_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "meaningful_commits": 54,
+          "merge_count": 2,
+          "original_started_at": "2026-08-25T09:22:56Z",
+          "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 355,
+          "project_title": "@seanchatmangpt's post-agi project",
+          "reference_multiplier": 160,
+          "reference_shortfall": 840,
+          "schema": "chatgpt-project-memory/v1",
+          "sensor_count": 50,
+          "standing": "RUNNING",
+          "started_at": "2026-08-25T09:52:59Z",
+          "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+          "tags": [
+            "dfcm",
+            "measure",
+            "r46",
+            "run-control"
+          ],
+          "updated_at": "2026-08-25T09:56:01Z",
+          "utc_start": "2026-08-25T09:05:00Z"
+        },
+        "title": "MEASURE run control"
+      }
+    ],
+    "scanned": 15,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
