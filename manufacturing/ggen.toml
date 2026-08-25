@@ -1,0 +1,34 @@
+[project]
+name = "chatgpt-cloud-autonomic-manufacturing"
+version = "26.8.25"
+description = "Deterministic capability-lock compiler for the ggen + SwarmSH cloud manufacturing substrate."
+
+[ontology]
+source = "ontology.ttl"
+base_iri = "https://chatman.ai/chatgpt-cloud/capability#"
+
+[ontology.prefixes]
+cc = "https://chatman.ai/chatgpt-cloud/capability#"
+prov = "http://www.w3.org/ns/prov#"
+dcterms = "http://purl.org/dc/terms/"
+skos = "http://www.w3.org/2004/02/skos/core#"
+odrl = "http://www.w3.org/ns/odrl/2/"
+
+[inference]
+
+[generation]
+output_dir = "generated"
+
+[[generation.rules]]
+name = "capability-lock"
+query = { file = "queries/sources.rq" }
+template = { file = "templates/capability-lock.json.tera" }
+output_file = "capability-lock.json"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "manufacturing-topology"
+query = { file = "queries/sources.rq" }
+template = { file = "templates/topology.mmd.tera" }
+output_file = "autonomic-manufacturing.mmd"
+mode = "Overwrite"
