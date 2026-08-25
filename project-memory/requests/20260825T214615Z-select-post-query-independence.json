@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T214615Z-select-post-query-independence",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "independence"}
+}
