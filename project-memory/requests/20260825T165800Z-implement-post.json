@@ -1,0 +1,29 @@
+{
+  "request_id": "20260825T165800Z-implement-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "dfcm/implement/latest",
+    "value": {
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "marketplace_head": "aba29c44cab7577818f392878974c405f6a0a5ff",
+      "qualified_subject": "f29068caee39ad16ac7534c789d6f186e5c65cd6",
+      "pr": 278,
+      "merge_sha": "aba29c44cab7577818f392878974c405f6a0a5ff",
+      "meaningful_commits": 54,
+      "raw_commits": 57,
+      "qualification_courts": 50,
+      "R_qualification": 50,
+      "complete_realization_plans": 4,
+      "alive_consumers": 1,
+      "consumer_shortfall_to_10": 9,
+      "M": "UNKNOWN",
+      "weakest_multiplier": "independently_ALIVE_consumer_fanout",
+      "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+      "upstream_repairs": ["sparse-generation skip_empty=true for R57/R58/R59", "cloud target exact-head rebind to 61849a3d34188b7e044696a895d60454306f08a0"],
+      "consumer_census": ["ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020", "ex4pm@e12fccb42a67bc4496cac91c86bff2b856cc463d", "gymact@b40df62bbb1f6d5661eb1dbeb332476c90faa470", "chatgpt-cloud-elixir@61849a3d34188b7e044696a895d60454306f08a0"],
+      "portfolio_handoff": "qualify and realize the three adapter-required PARTIAL_ALIVE consumers; expand from four complete plans toward ten independently ALIVE consumer roots"
+    }
+  }
+}
