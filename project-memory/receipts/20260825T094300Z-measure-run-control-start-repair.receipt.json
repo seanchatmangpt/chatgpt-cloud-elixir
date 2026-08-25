@@ -1,0 +1,102 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:41:45Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "RUNNING. UTC original start=2026-08-25T09:22:56Z; corrected control mutation=2026-08-25T09:43:00Z after malformed-request falsifier. Project=PVT_kwHOCCCFfc4BhZKe; pre-snapshot item_count=351 at 2026-08-25T09:25:04Z. Exact bus head before corrected request=a9f8407f54c90f35c999f1b7aeb896802a68e19a. Consumed memory keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest. Candidate repos: seanchatmangpt/ggen-marketplace, seanchatmangpt/chatgpt-cloud-elixir, dspygen. Initial frontier size=8. Initial weakest multiplier=R_consumer_replication. Prior request 20260825T092700Z-measure-run-control-start is BUILD_BROKEN[JSONDecodeError] and preserved as provenance.",
+        "cell": "MEASURE",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "bus_head": "a9f8407f54c90f35c999f1b7aeb896802a68e19a",
+          "control_started_at": "2026-08-25T09:43:00Z",
+          "initial_frontier_size": 8,
+          "initial_weakest_multiplier": "R_consumer_replication",
+          "original_started_at": "2026-08-25T09:22:56Z",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 351,
+          "standing": "RUNNING",
+          "supersedes_failed_request": "20260825T092700Z-measure-run-control-start"
+        },
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "measure",
+          "run-control",
+          "r45"
+        ],
+        "title": "MEASURE run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T094300Z-measure-run-control-start-repair"
+  },
+  "request_id": "20260825T094300Z-measure-run-control-start-repair",
+  "request_path": "project-memory/requests/20260825T094300Z-measure-run-control-start-repair.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "RUNNING. UTC original start=2026-08-25T09:22:56Z; corrected control mutation=2026-08-25T09:43:00Z after malformed-request falsifier. Project=PVT_kwHOCCCFfc4BhZKe; pre-snapshot item_count=351 at 2026-08-25T09:25:04Z. Exact bus head before corrected request=a9f8407f54c90f35c999f1b7aeb896802a68e19a. Consumed memory keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest. Candidate repos: seanchatmangpt/ggen-marketplace, seanchatmangpt/chatgpt-cloud-elixir, dspygen. Initial frontier size=8. Initial weakest multiplier=R_consumer_replication. Prior request 20260825T092700Z-measure-run-control-start is BUILD_BROKEN[JSONDecodeError] and preserved as provenance.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+      "metadata": {
+        "bus_head": "a9f8407f54c90f35c999f1b7aeb896802a68e19a",
+        "candidate_repositories": [
+          "seanchatmangpt/ggen-marketplace",
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir"
+        ],
+        "cell": "MEASURE",
+        "consumed_memory_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest",
+          "dfcm query: ggen marketplace measure epistemic sensors falsifiers stale standing ontology pack dependency phase-change 1000x"
+        ],
+        "control_started_at": "2026-08-25T09:43:00Z",
+        "created_at": "2026-08-25T09:05:24Z",
+        "initial_frontier_size": 8,
+        "initial_weakest_multiplier": "R_consumer_replication",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "live_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "original_started_at": "2026-08-25T09:22:56Z",
+        "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 351,
+        "project_title": "@seanchatmangpt's post-agi project",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "RUNNING",
+        "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r45",
+          "run-control"
+        ],
+        "updated_at": "2026-08-25T09:41:54Z",
+        "utc_start": "2026-08-25T09:05:00Z"
+      },
+      "title": "MEASURE run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
