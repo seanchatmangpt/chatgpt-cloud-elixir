@@ -1,0 +1,9 @@
+{
+  "request_id": "20260825T103120Z-implement-newly-actionable-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "text": "replication consumer ggen chatgpt-cloud-elixir evidence root qualification upstream falsifier",
+    "tags": ["dfcm"]
+  }
+}
