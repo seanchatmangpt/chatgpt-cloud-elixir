@@ -26,6 +26,42 @@ project-memory/receipts/<request-id>.receipt.json
 
 The **Project is canonical memory**. Request and receipt files are transport/evidence only.
 
+## Second transport: the Claude junction (MCP)
+
+The flow above is the ChatGPT-side transport. There is a second, symmetric transport for
+Claude (or any MCP client): `control-plane`'s `ChatGPTCloud.DfcmMemory` Ash domain
+(`control-plane/lib/chatgpt_cloud_control_plane/dfcm_memory/`) wraps the same Project
+`seanchatmangpt/2` — same hard-scoped owner/number, same body-encoding marker
+(`<!-- chatgpt-project-memory:v1 ... -->`) as `scripts/project_memory_proxy.py` — and
+exposes it as `AshAi` tools over the existing `/mcp` endpoint
+(`control-plane/lib/chatgpt_cloud_control_plane_web/router.ex`):
+
+```text
+ChatGPT scheduled cell                          Claude (MCP client)
+        |                                                |
+        | request JSON + push-triggered Action           | read_dfcm_memory /
+        v                                                 | upsert_dfcm_memory /
+scripts/project_memory_proxy.py                           | snapshot_dfcm_project
+        |                                                 v
+        `---------------> GitHub Project v2 #2 <----------'
+                      (seanchatmangpt/2, shared)
+```
+
+Both transports write and read the *same* records — a memory key either side upserts is
+immediately legible to the other on its next read-before-manufacture check. Neither
+transport is authoritative over the other; the Project itself is. Tools:
+
+- `read_dfcm_memory` — `MemoryRecord.read`, filterable by key/kind/cell/standing/tags.
+- `upsert_dfcm_memory` — `MemoryRecord.upsert_record`, always resolves the current record
+  for `key` first (never a blind overwrite).
+- `snapshot_dfcm_project` — live Project identity + item/memory-record counts, read-only.
+
+Implementation follows the [wrap-external-APIs Ash pattern](https://ash.hexdocs.pm/wrap-external-apis.html):
+`MemoryRecord` is an `Ash.Resource` on `Ash.DataLayer.Simple` with a manual `:read` action
+(`ChatGPTCloud.DfcmMemory.ManualRead`) that calls the GitHub GraphQL API directly (no new
+dependency — Erlang's built-in `:httpc`, mirroring the Python proxy's stdlib-only
+`urllib` client) and applies the Ash query to the resulting in-memory list.
+
 ## Authority
 
 The proxy is hard-scoped to:
@@ -76,6 +112,8 @@ Memory records are Project draft issues so the memory store does not need to man
         "Y": 3,
         "R": 6,
         "C": 2,
+        "M": 2,
+        "commit_count": 0,
         "head_sha": "..."
       }
     }
@@ -103,9 +141,30 @@ Recommended stable keys:
 
 Append immutable historical memory only when it has durable evidentiary or learning value, for example `dfcm/run/<cell>/<UTC>/<head>`. Do not explode the Project into one card per commit. Commits remain receipts in Git; Project memory stores **capability state, frontier state, learned constraints, reusable decisions, falsifiers, and cross-run continuity**.
 
-### Read-before-manufacture
+### Manufacturing cadence and phase-change baseline
 
-Each cell should begin by reading:
+The prior per-cell baseline was 50 meaningful semantic commits/run (250/hour across the
+five cells). That baseline was a *floor*, not a target, and floors that are never revisited
+become ceilings by habit. The standing target is a **1000x phase change** on that floor:
+
+```text
+50 -> 500 -> 5,000 -> 50,000 meaningful semantic commits/run (search expansion, not a hard gate)
+```
+
+`50,000` is the phase-change reference point (1000x of the old 50), not a quota to pad
+toward with trivial or duplicate commits — the ERRC discipline below (Eliminate rediscovery,
+Raise provenance) still governs what counts as meaningful. A cell that has real lawful work
+should keep expanding past its previous run's count; a cell that has exhausted real lawful
+work reports that honestly (`UNKNOWN`/`BLOCKED`, not a padded number) rather than
+manufacturing volume for its own sake. The multiplier stack (`E`, `E2`, `Y`, `R`, `C`, `M`)
+is what should carry a cell from the old floor toward the new phase-change reference, not a
+raw commit-count target pursued directly.
+
+### Read-before-manufacture (mandatory, every run)
+
+Every cell **must** check Project #2 before doing any manufacturing work, with no
+conditional skip. "Should read" is upgraded to "does not begin manufacturing until it has
+read." Order:
 
 1. `dfcm/frontier/current`;
 2. `dfcm/ledger/current`;
@@ -113,24 +172,37 @@ Each cell should begin by reading:
 4. the immediately preceding cell's `latest` record;
 5. relevant queried memories for repositories/capabilities it is about to touch.
 
-Project memory is an input to observation, never unquestioned truth. Bind reused memory to current GitHub evidence and classify stale or contradicted memories rather than silently acting on them.
+Project memory is an input to observation, never unquestioned truth. Bind reused memory to
+current GitHub evidence and classify stale or contradicted memories rather than silently
+acting on them. A `memory.query`/`memory.read` failure (`BLOCKED`/`UNKNOWN`) is itself an
+observation — record it and proceed from live GitHub evidence alone; it does not authorize
+skipping the check on the *next* run.
 
-### Write-after-manufacture
+### Write-after-manufacture (mandatory, every run)
 
-Each cell should upsert its `latest` record with:
+Every cell **must** upsert Project #2 after manufacturing, whether or not it produced new
+commits — a no-new-work run is itself a fact worth recording (falsifier, exhausted search
+space, blocked edge), not a silent no-op. "Should upsert" is upgraded to "does not consider
+the run complete until it has written." Each cell upserts its `latest` record with:
 
 - exact repositories/refs/heads observed and changed;
 - observed/admitted/executed/verified/inferred distinctions;
 - new capabilities and newly reachable combinations;
 - ERRC before/after delta;
-- cell multiplier (`E`, `E2`, `Y`, `R`, or `C`);
+- cell multiplier (`E`, `E2`, `Y`, `R`, `C`, or `M`);
+- commit count this run vs. the 50->500->5,000->50,000 cadence above;
 - cross-repo dependency/unlock edges;
 - falsifiers and repaired defects;
 - qualification/merge receipts;
 - next-cell handoff;
 - exact standing.
 
-PORTFOLIO additionally upserts `dfcm/frontier/current` and the shared ledger after each materially frontier-changing generation.
+PORTFOLIO additionally upserts `dfcm/frontier/current` and the shared ledger after each
+materially frontier-changing generation.
+
+A cell that skips either the before-check or the after-write for a given run is
+`BUILD_BROKEN` for that run's memory-loop contract, independent of whether its manufacturing
+work itself succeeded.
 
 ## DfCM × ERRC rule
 

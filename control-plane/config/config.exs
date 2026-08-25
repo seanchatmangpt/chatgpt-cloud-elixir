@@ -3,7 +3,7 @@ import Config
 config :chatgpt_cloud_control_plane,
   namespace: ChatGPTCloud,
   ecto_repos: [ChatGPTCloud.Repo],
-  ash_domains: [ChatGPTCloud.ProcessIntelligence],
+  ash_domains: [ChatGPTCloud.ProcessIntelligence, ChatGPTCloud.DfcmMemory],
   browser_auth_required: true
 
 config :chatgpt_cloud_control_plane, ChatGPTCloud.Repo,

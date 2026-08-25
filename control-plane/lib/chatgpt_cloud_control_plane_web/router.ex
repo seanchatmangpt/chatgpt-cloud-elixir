@@ -47,7 +47,13 @@ defmodule ChatGPTCloudWeb.Router do
     pipe_through :api
 
     forward "/", AshAi.Mcp.Router,
-      tools: [:list_qualifications, :list_cost_observations],
+      tools: [
+        :list_qualifications,
+        :list_cost_observations,
+        :read_dfcm_memory,
+        :upsert_dfcm_memory,
+        :snapshot_dfcm_project
+      ],
       otp_app: :chatgpt_cloud_control_plane
   end
 
