@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T084930Z-portfolio-read-dfcm",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"query": {"text": "dfcm/"}}
+}
