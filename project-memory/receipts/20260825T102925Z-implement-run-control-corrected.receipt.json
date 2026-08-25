@@ -1,0 +1,102 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:30:14Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Run completed repository manufacture and merge but PRE Project mutation/read was refused before GitHub execution. POST control-plane writes are now executing through the bounded proxy. Repository subject is ALIVE; run standing remains PARTIAL_ALIVE because mandatory PRE memory admission was not observed and external ggen/cloud consumers remain PARTIAL_ALIVE.",
+        "cell": "IMPLEMENT_QUALIFY",
+        "key": "dfcm/run-control/implement/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+          "R_consumer_alive": 1,
+          "R_qualification": 50,
+          "bus_head": "32975aa2389143b746ddd936c886b301bcc73436",
+          "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "known_consumers": 3,
+          "meaningful_commits": 52,
+          "merges": 1,
+          "project_post": "ALIVE:20260825T102620Z-implement-post",
+          "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+          "qualified_consumers_alive": 1,
+          "utc_end": "2026-08-25T10:29:25Z",
+          "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "implement",
+          "qualify",
+          "replication-capital",
+          "r47"
+        ],
+        "title": "DfCM IMPLEMENT QUALIFY run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102925Z-implement-run-control-corrected"
+  },
+  "request_id": "20260825T102925Z-implement-run-control-corrected",
+  "request_path": "project-memory/requests/20260825T102925Z-implement-run-control-corrected.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Run completed repository manufacture and merge but PRE Project mutation/read was refused before GitHub execution. POST control-plane writes are now executing through the bounded proxy. Repository subject is ALIVE; run standing remains PARTIAL_ALIVE because mandatory PRE memory admission was not observed and external ggen/cloud consumers remain PARTIAL_ALIVE.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_mhw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg364QE",
+      "metadata": {
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "R_artifact": 50,
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "bus_head": "32975aa2389143b746ddd936c886b301bcc73436",
+        "cell": "IMPLEMENT_QUALIFY",
+        "created_at": "2026-08-25T09:59:55Z",
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "key": "dfcm/run-control/implement/current",
+        "kind": "dfcm.run-control",
+        "known_consumers": 3,
+        "meaningful_commits": 52,
+        "merges": 1,
+        "project_post": "ALIVE:20260825T102620Z-implement-post",
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+        "qualified_consumers_alive": 1,
+        "repository_head": "b4693431358b63e9ae09b2e78fdaa11b3931a1fa",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_capability": "replication-epistemic-observability-pack/R46",
+        "semantic_commits": 50,
+        "standing": "PARTIAL_ALIVE",
+        "start_utc": "2026-08-25T09:40:37Z",
+        "tags": [
+          "dfcm",
+          "implement",
+          "qualify",
+          "r47",
+          "replication-capital"
+        ],
+        "updated_at": "2026-08-25T10:30:19Z",
+        "utc_end": "2026-08-25T10:29:25Z",
+        "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable"
+      },
+      "title": "DfCM IMPLEMENT QUALIFY run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
