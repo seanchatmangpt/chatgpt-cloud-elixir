@@ -1,0 +1,76 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:36:17Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: execution evidence becomes manufacturing capital only after exact-subject assimilation preserves currentness, independent evidence root, qualification, replay, falsifier, containment, receipt identity, and standing separately. Standing never propagates by adjacency. R71 merged 50 executable courts implementing this law.",
+        "cell": "MEASURE",
+        "key": "dfcm/run/measure/20260825T233700Z/97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+        "kind": "dfcm.run",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "merge_sha": "97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+          "pr": 297,
+          "qualified_head": "4e4562c955de1efef26dce8b6013f63bbb42df33",
+          "sensors": 50
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r71",
+          "immutable"
+        ],
+        "title": "MEASURE R71 durable learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T233702Z-measure-r71-immutable"
+  },
+  "request_id": "20260825T233702Z-measure-r71-immutable",
+  "request_path": "project-memory/requests/20260825T233702Z-measure-r71-immutable.json",
+  "result": {
+    "body": "Durable learning: execution evidence becomes manufacturing capital only after exact-subject assimilation preserves currentness, independent evidence root, qualification, replay, falsifier, containment, receipt identity, and standing separately. Standing never propagates by adjacency. R71 merged 50 executable courts implementing this law.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_1z0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Bcu4",
+    "metadata": {
+      "1000X": "NOT_ADMITTED",
+      "cell": "MEASURE",
+      "created_at": "2026-08-25T23:36:22Z",
+      "key": "dfcm/run/measure/20260825T233700Z/97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+      "kind": "dfcm.run",
+      "merge_sha": "97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+      "pr": 297,
+      "qualified_head": "4e4562c955de1efef26dce8b6013f63bbb42df33",
+      "schema": "chatgpt-project-memory/v1",
+      "sensors": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "immutable",
+        "measure",
+        "r71"
+      ],
+      "updated_at": "2026-08-25T23:36:22Z"
+    },
+    "title": "MEASURE R71 durable learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
