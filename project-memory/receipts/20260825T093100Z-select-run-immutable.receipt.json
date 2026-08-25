@@ -1,0 +1,82 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:31:24Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable novel learning: cumulative semantic families make fixed total-cardinality verifier contracts anti-compositional. The R43 verifier asserted exactly 50 sensors, but R45 lawfully appended another 50, producing 100 while preserving the original family. General verifier law should constrain identity, contiguity, family-local cardinality, mutation prohibition, and semantic invariants without freezing the total extension surface. Independently, timeout-law caught a workflow reliability defect even while all four real-ggen qualification shards and aggregate pack qualification were green, proving these courts cover different failure dimensions. Future consumer factories should therefore pair cumulative-extension compatibility courts with bounded execution courts. Exact repaired candidate=c7731659694a111bdffe3f958a40a86c1e430f44; merge remains fenced until exact-head requalification.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260825T093100Z/c7731659694a111bdffe3f958a40a86c1e430f44",
+        "kind": "dfcm.run.select",
+        "metadata": {
+          "durable_learning": [
+            "fixed global cardinality is anti-compositional for cumulative semantic families",
+            "family-local invariants should remain strict while extension surface stays open",
+            "timeout court and real-ggen qualification are independent evidence dimensions"
+          ],
+          "pr": 250,
+          "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "durable-learning",
+          "r45",
+          "replication"
+        ],
+        "title": "DfCM SELECT DEVELOP R45 cumulative-family learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T093100Z-select-run-immutable"
+  },
+  "request_id": "20260825T093100Z-select-run-immutable",
+  "request_path": "project-memory/requests/20260825T093100Z-select-run-immutable.json",
+  "result": {
+    "body": "Durable novel learning: cumulative semantic families make fixed total-cardinality verifier contracts anti-compositional. The R43 verifier asserted exactly 50 sensors, but R45 lawfully appended another 50, producing 100 while preserving the original family. General verifier law should constrain identity, contiguity, family-local cardinality, mutation prohibition, and semantic invariants without freezing the total extension surface. Independently, timeout-law caught a workflow reliability defect even while all four real-ggen qualification shards and aggregate pack qualification were green, proving these courts cover different failure dimensions. Future consumer factories should therefore pair cumulative-extension compatibility courts with bounded execution courts. Exact repaired candidate=c7731659694a111bdffe3f958a40a86c1e430f44; merge remains fenced until exact-head requalification.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_lp4",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36prA",
+    "metadata": {
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-25T09:31:29Z",
+      "durable_learning": [
+        "fixed global cardinality is anti-compositional for cumulative semantic families",
+        "family-local invariants should remain strict while extension surface stays open",
+        "timeout court and real-ggen qualification are independent evidence dimensions"
+      ],
+      "key": "dfcm/run/select/20260825T093100Z/c7731659694a111bdffe3f958a40a86c1e430f44",
+      "kind": "dfcm.run.select",
+      "pr": 250,
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "tags": [
+        "dfcm",
+        "durable-learning",
+        "r45",
+        "replication"
+      ],
+      "updated_at": "2026-08-25T09:31:29Z",
+      "weakest_multiplier": "R_consumer_replication"
+    },
+    "title": "DfCM SELECT DEVELOP R45 cumulative-family learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
