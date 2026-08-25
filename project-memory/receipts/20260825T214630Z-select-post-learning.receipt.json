@@ -1,0 +1,84 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T21:46:43Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: when a high-value semantic capability exists only on a deeply divergent branch, preserve the branch as provenance and reconstitute the capability on the exact current substrate instead of force-rebasing stale implementation truth. A verifier must bind the identity of its semantic family, not infer identity from globally reused numeric ordinals. R67 first exact-head execution falsified the global-ordinal assumption because current marketplace legitimately contained another 651 court; binding the exact 50 query filenames repaired composition without weakening any semantic CTQ. Consumer-count evidence must likewise be family/causal-root aware: repository count alone is not independent evidence. This learning applies to future sensor/verifier factories and cross-repo consumer qualification.",
+        "key": "dfcm/run/select/20260825T214630Z/95387a06",
+        "kind": "dfcm.learning",
+        "metadata": {
+          "consequential_do": false,
+          "exact_bus_head_before_request": "0e248366f47c0e7402f2da0a5a8ed2a13f0c14cb",
+          "failed_candidate": "9b5ec1adad2dbcc335703fcbd4e2246c8bc99828",
+          "falsifier": "numeric query ordinals are not globally unique across sensor families",
+          "historical_behind": 132,
+          "historical_pr": 288,
+          "marketplace_merge": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+          "qualified_candidate": "e723bc369ba4a2bf00d4e22052b0b7a04970e102",
+          "repair": "bind exact semantic query filenames/family identity"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "learning",
+          "r67",
+          "verification",
+          "currentness"
+        ],
+        "title": "SELECT durable learning — current-substrate reconstitution and family-local verifier identity"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T214630Z-select-post-learning"
+  },
+  "request_id": "20260825T214630Z-select-post-learning",
+  "request_path": "project-memory/requests/20260825T214630Z-select-post-learning.json",
+  "result": {
+    "body": "Durable learning: when a high-value semantic capability exists only on a deeply divergent branch, preserve the branch as provenance and reconstitute the capability on the exact current substrate instead of force-rebasing stale implementation truth. A verifier must bind the identity of its semantic family, not infer identity from globally reused numeric ordinals. R67 first exact-head execution falsified the global-ordinal assumption because current marketplace legitimately contained another 651 court; binding the exact 50 query filenames repaired composition without weakening any semantic CTQ. Consumer-count evidence must likewise be family/causal-root aware: repository count alone is not independent evidence. This learning applies to future sensor/verifier factories and cross-repo consumer qualification.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_0KE",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4A2Og",
+    "metadata": {
+      "consequential_do": false,
+      "created_at": "2026-08-25T21:46:50Z",
+      "exact_bus_head_before_request": "0e248366f47c0e7402f2da0a5a8ed2a13f0c14cb",
+      "failed_candidate": "9b5ec1adad2dbcc335703fcbd4e2246c8bc99828",
+      "falsifier": "numeric query ordinals are not globally unique across sensor families",
+      "historical_behind": 132,
+      "historical_pr": 288,
+      "key": "dfcm/run/select/20260825T214630Z/95387a06",
+      "kind": "dfcm.learning",
+      "marketplace_merge": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+      "qualified_candidate": "e723bc369ba4a2bf00d4e22052b0b7a04970e102",
+      "repair": "bind exact semantic query filenames/family identity",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "tags": [
+        "currentness",
+        "dfcm",
+        "learning",
+        "r67",
+        "verification"
+      ],
+      "updated_at": "2026-08-25T21:46:50Z"
+    },
+    "title": "SELECT durable learning — current-substrate reconstitution and family-local verifier identity"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
