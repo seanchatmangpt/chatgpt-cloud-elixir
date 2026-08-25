@@ -1,0 +1,31 @@
+{
+  "request_id": "20260825T102925Z-implement-run-control-corrected",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/implement/current",
+      "title": "DfCM IMPLEMENT QUALIFY run control",
+      "kind": "dfcm.run-control",
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "implement", "qualify", "replication-capital", "r47"],
+      "body": "Run completed repository manufacture and merge but PRE Project mutation/read was refused before GitHub execution. POST control-plane writes are now executing through the bounded proxy. Repository subject is ALIVE; run standing remains PARTIAL_ALIVE because mandatory PRE memory admission was not observed and external ggen/cloud consumers remain PARTIAL_ALIVE.",
+      "metadata": {
+        "utc_end": "2026-08-25T10:29:25Z",
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "meaningful_commits": 52,
+        "merges": 1,
+        "known_consumers": 3,
+        "qualified_consumers_alive": 1,
+        "R_qualification": 50,
+        "R_consumer_alive": 1,
+        "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+        "project_post": "ALIVE:20260825T102620Z-implement-post",
+        "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable",
+        "bus_head": "32975aa2389143b746ddd936c886b301bcc73436"
+      }
+    }
+  }
+}
