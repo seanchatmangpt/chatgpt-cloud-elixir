@@ -1,0 +1,29 @@
+{
+  "request_id": "20260825T085800Z-portfolio-run-control-bottleneck",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run-control/portfolio/current",
+    "title": "DfCM PORTFOLIO run control",
+    "kind": "dfcm.run-control.portfolio",
+    "cell": "PORTFOLIO",
+    "standing": "RUNNING",
+    "tags": ["dfcm","portfolio","run-control","autocatalytic","r44"],
+    "body": "R44 #246 merged exactly into ggen-marketplace/main. Recurrence has now capitalized the 50-court frontier-derivative qualification family and generated at least five next adjacency classes. Weakest multiplier changed from unknown R/E2 to consumer replication R: the portfolio can manufacture/qualify factories faster than it has demonstrated independent consumer fanout. Immediate work: current-main repair #248 for deterministic R43 sensor + timeout-law compliance; consumer/adoption census; newly generated R45+ fronts; changed-base requalification across sibling PRs.",
+    "metadata": {
+      "utc_start": "2026-08-25T08:48:43Z",
+      "bus_head_at_update": "f2ada118ff4e71b2536165677a56603bec3d52c6",
+      "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "semantic_commits_capitalized": 50,
+      "semantic_commits_authored_by_portfolio": 1,
+      "ci_integration_commits_authored_by_portfolio": 1,
+      "merges": 1,
+      "generation_depth": 2,
+      "C_observed_lower_bound": 5.0,
+      "M_observed_lower_bound": 1.0,
+      "weakest_multiplier": "R_consumer_replication",
+      "active_repair_pr": 248,
+      "active_repair_head": "ca0970a5dbe1702a627ea7cca9dadcba6ee97cbc"
+    }
+  }}
+}
