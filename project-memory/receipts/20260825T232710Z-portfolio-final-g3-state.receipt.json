@@ -1,0 +1,195 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:26:24Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Final G3 correction: three recursive chatman-ecosystem merges completed with exact containment: #158 91398d08->98fc4f90; #155 98fc4f90->446c62db; #152 446c62db->a81e36a5. GALL remained an independently in-progress broad observer at #152 admission; owning Compositional Robustness and all other observed exact-head rails were green. Direct semantic commits authored by this cell=0; 50 floor not met because run was consumed by changed-head requalification/merge recursion and Project-control updates, not frontier exhaustion. Concurrent ggen-marketplace R70 50-court factory already on main@2469a38d; duplicate R70 manufacture deliberately eliminated. C>=2 from one external recursive seed producing two additional actionable parent subjects and three completed generations. R=1 remains weakest; H6 causal unsupported.",
+        "cell": "PORTFOLIO",
+        "key": "dfcm/portfolio/latest",
+        "kind": "dfcm.portfolio",
+        "metadata": {
+          "C_observed_lower_bound": 2,
+          "E2_observed_lower_bound": 2,
+          "E_observed_lower_bound": 2,
+          "H6": "UNSUPPORTED[Y_DIRECT_0_AND_R_EQ_1]",
+          "M_observed_lower_bound": 2,
+          "R_observed": 1,
+          "Y_direct": 0,
+          "baseline": 50,
+          "branching_factor": 1,
+          "generation_depth": 3,
+          "marketplace_main": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+          "meaningful_semantic_commits": 0,
+          "merge_shas": [
+            "98fc4f900faf3db972b341989b921794e440ec47",
+            "446c62db307b62e251ddc3fdd67b5676f0178199",
+            "a81e36a529ecd0c4ee40b69981d6f58af87dc34c"
+          ],
+          "merges": 3,
+          "shortfall": 50,
+          "weakest_multiplier": "independent_consumer_replication"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "portfolio",
+          "autocatalytic-capital"
+        ],
+        "title": "DfCM PORTFOLIO latest"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T232710Z-portfolio-final-g3-state"
+  },
+  "request_id": "20260825T232710Z-portfolio-final-g3-state",
+  "request_path": "project-memory/requests/20260825T232710Z-portfolio-final-g3-state.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Final G3 correction: three recursive chatman-ecosystem merges completed with exact containment: #158 91398d08->98fc4f90; #155 98fc4f90->446c62db; #152 446c62db->a81e36a5. GALL remained an independently in-progress broad observer at #152 admission; owning Compositional Robustness and all other observed exact-head rails were green. Direct semantic commits authored by this cell=0; 50 floor not met because run was consumed by changed-head requalification/merge recursion and Project-control updates, not frontier exhaustion. Concurrent ggen-marketplace R70 50-court factory already on main@2469a38d; duplicate R70 manufacture deliberately eliminated. C>=2 from one external recursive seed producing two additional actionable parent subjects and three completed generations. R=1 remains weakest; H6 causal unsupported.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lIg",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36b-U",
+      "metadata": {
+        "C_bounded": 3,
+        "C_observed_lower_bound": 2,
+        "E2_observed": 2,
+        "E2_observed_lower_bound": 2,
+        "ERRC": {
+          "create": "recursive changed-parent qualification generations and R57 reconciliation edge",
+          "eliminate": "stale exact-head standing and duplicated R56 repair hypothesis",
+          "raise": "exact-head merge containment and persistent frontier fidelity",
+          "reduce": "evidence-to-next-edge latency"
+        },
+        "ERRC_after": [
+          "R43 identity corrected",
+          "frontier/run-control/portfolio memory live",
+          "R44 50-court capital on default history",
+          "R43 query deterministically ordered",
+          "R43 workflow timeout bounded",
+          "permanent deterministic-order falsifier",
+          "50-court composition runner qualified and merged",
+          "concurrent duplicate repair semantics deduplicated"
+        ],
+        "ERRC_before": [
+          "stale R43 Project identity",
+          "absent canonical frontier/portfolio control records",
+          "R44 branch capital not in default history",
+          "R43 nondeterministic generation query",
+          "unbounded R43 workflow",
+          "individual R44 courts without executable composition court"
+        ],
+        "E_observed": 2,
+        "E_observed_lower_bound": 2,
+        "H6": "UNSUPPORTED[Y_DIRECT_0_AND_R_EQ_1]",
+        "H6_causal": "UNSUPPORTED[R_consumer_replication=1; factor independence not proven]",
+        "H6_causal_standing": "UNSUPPORTED[FACTOR_INDEPENDENCE_AND_CONSUMER_REPLICATION]",
+        "H6_naive_proxy_lower_bound": 3990.0,
+        "H6_proxy_lower_bound": 40,
+        "M_observed": 1,
+        "M_observed_lower_bound": 2,
+        "R_observed": 1,
+        "Y_direct": 0,
+        "Y_observed": 50,
+        "Y_observed_lower_bound": 1,
+        "Y_semantic_edge_yield_lower_bound": 50.0,
+        "baseline": 50,
+        "baseline_surplus": 7,
+        "branching_factor": 1,
+        "branching_factor_lower_bound": 5,
+        "cell": "PORTFOLIO",
+        "concurrent_merge_sha": "7d158ef97c6f41a67933f501397e29729abef071",
+        "concurrent_merges_consumed": 1,
+        "concurrent_merges_observed": 1,
+        "containment_proofs": "3/3 portfolio merges exact",
+        "created_at": "2026-08-25T09:06:30Z",
+        "default_head": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+        "direct_merges": 1,
+        "ended_at": "2026-08-25T16:04:03Z",
+        "generation_depth": 3,
+        "key": "dfcm/portfolio/latest",
+        "kind": "dfcm.portfolio",
+        "local_transport": "BLOCKED[LOCAL_GITHUB_DNS]",
+        "marketplace_main": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+        "meaningful_commits": 57,
+        "meaningful_semantic_commits": 0,
+        "meaningful_semantic_commits_observed": 54,
+        "merge_sha": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+        "merge_shas": [
+          "98fc4f900faf3db972b341989b921794e440ec47",
+          "446c62db307b62e251ddc3fdd67b5676f0178199",
+          "a81e36a529ecd0c4ee40b69981d6f58af87dc34c"
+        ],
+        "merges": 3,
+        "merges_by_portfolio": 3,
+        "next_cycle_seeds": [
+          "chatman#142 crown completion",
+          "chatman#138 next generation",
+          "R57#275 current-main reconciliation",
+          "R56/R57 shard0 compatibility repair",
+          "consumer replication R>1"
+        ],
+        "next_measure_seeds": [
+          "measure independent consumer adoption/fanout of frontier-derivative-pack",
+          "measure cross-repo qualification reuse and reproduction",
+          "measure consumer-suitability precision/recall",
+          "measure memory-to-manufacture latency and avoided rediscovery",
+          "measure postmerge composition realization versus predicted unlocks"
+        ],
+        "portfolio_authored_nonsemantic_ci_commits": 1,
+        "portfolio_authored_semantic_commits": 2,
+        "qualified_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+        "r50_corrected_at": "2026-08-25T11:23:25Z",
+        "r50_observed_independent_alive_consumers": 1,
+        "r50_partial_consumers": 1,
+        "r50_revalidation": {
+          "correction": "treat R_observed=1 as historical-at-R44/R46, not a timeless portfolio truth",
+          "current_live_evidence": "ggen independently consumed canonical R48 court and merged at a5be7f0c88c411cb023eb7960a4cb1b3e521f474; cloud workflow exists but exact current successful return receipt remains unadmitted",
+          "prior_claim": "R_observed=1 represented a then-current replication snapshot",
+          "provenance": [
+            "seanchatmangpt/ggen#PR668",
+            "seanchatmangpt/ggen-marketplace#PR261"
+          ]
+        },
+        "r50_weakest_multiplier": "consumer execution plus receipt return, not target compilation",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commit_floor": 50,
+        "semantic_commit_shortfall": 50,
+        "semantic_commits": 0,
+        "semantic_floor": 50,
+        "semantic_floor_surplus": 4,
+        "semantic_sensor_commits": 50,
+        "shortfall": 50,
+        "standing": "PARTIAL_ALIVE",
+        "started_at": "2026-08-25T15:53:00Z",
+        "tags": [
+          "autocatalytic-capital",
+          "dfcm",
+          "portfolio"
+        ],
+        "updated_at": "2026-08-25T23:26:37Z",
+        "utc_end_observed": "2026-08-25T09:06:00Z",
+        "utc_start": "2026-08-25T08:48:43Z",
+        "weakest_multiplier": "independent_consumer_replication"
+      },
+      "title": "DfCM PORTFOLIO latest"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
