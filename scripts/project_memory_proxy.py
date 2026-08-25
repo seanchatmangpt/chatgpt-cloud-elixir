@@ -24,6 +24,7 @@ API_URL = "https://api.github.com/graphql"
 MARKER_RE = re.compile(r"^<!-- chatgpt-project-memory:v1 ([A-Za-z0-9_-]+) -->\n?", re.M)
 ALLOWED_OPERATIONS = {
     "project.snapshot",
+    "project.items",
     "memory.create",
     "memory.read",
     "memory.update",
@@ -67,6 +68,39 @@ def decode_memory_body(body: str) -> tuple[dict[str, Any] | None, str]:
         return None, body or ""
     cleaned = (body[: match.start()] + body[match.end() :]).lstrip("\n")
     return metadata, cleaned.rstrip()
+
+
+def flatten_field_values(field_values: dict[str, Any] | None) -> dict[str, Any]:
+    """Flatten a ProjectV2 GraphQL fieldValues connection into {field_name: value}.
+
+    Decodes each union variant (text/number/date/single-select/iteration) into a
+    plain scalar or dict, keyed by the field's display name. Unrecognized/empty
+    nodes are skipped. Pure function -- no network, easy to unit test.
+    """
+    result: dict[str, Any] = {}
+    nodes = ((field_values or {}).get("nodes")) or []
+    for node in nodes:
+        if not node:
+            continue
+        field = node.get("field") or {}
+        name = field.get("name")
+        if not name:
+            continue
+        if "text" in node:
+            result[name] = node.get("text")
+        elif "number" in node:
+            result[name] = node.get("number")
+        elif "date" in node:
+            result[name] = node.get("date")
+        elif "startDate" in node or "duration" in node:
+            result[name] = {
+                "title": node.get("title"),
+                "start_date": node.get("startDate"),
+                "duration": node.get("duration"),
+            }
+        elif "name" in node:
+            result[name] = node.get("name")
+    return result
 
 
 class ProxyError(RuntimeError):
@@ -175,8 +209,29 @@ class ProjectMemoryStore:
                   type
                   content {
                     ... on DraftIssue { id title body }
-                    ... on Issue { id title body url number repository { nameWithOwner } }
-                    ... on PullRequest { id title body url number repository { nameWithOwner } }
+                    ... on Issue {
+                      id title body url number
+                      state
+                      repository { nameWithOwner }
+                      labels(first: 20) { nodes { name color } }
+                      assignees(first: 10) { nodes { login } }
+                    }
+                    ... on PullRequest {
+                      id title body url number
+                      state
+                      repository { nameWithOwner }
+                      labels(first: 20) { nodes { name color } }
+                      assignees(first: 10) { nodes { login } }
+                    }
+                  }
+                  fieldValues(first: 20) {
+                    nodes {
+                      ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon { name } } }
+                      ... on ProjectV2ItemFieldNumberValue { number field { ... on ProjectV2FieldCommon { name } } }
+                      ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } }
+                      ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name } } }
+                      ... on ProjectV2ItemFieldIterationValue { title startDate duration field { ... on ProjectV2FieldCommon { name } } }
+                    }
                   }
                 }
                 pageInfo { hasNextPage endCursor }
@@ -205,6 +260,46 @@ class ProjectMemoryStore:
             if not after:
                 break
         return items, truncated
+
+    def project_items(
+        self, *, types: list[str] | None = None, include_archived: bool = False, max_items: int = 5000
+    ) -> tuple[list[dict[str, Any]], bool]:
+        items, truncated = self.list_items(max_items=max_items)
+        allowed_types = {str(t).upper() for t in types} if types else None
+        result: list[dict[str, Any]] = []
+        for item in items:
+            if item.get("isArchived") and not include_archived:
+                continue
+            item_type = item.get("type")
+            if allowed_types is not None and item_type not in allowed_types:
+                continue
+            content = item.get("content") or {}
+            labels = [
+                {"name": node.get("name"), "color": node.get("color")}
+                for node in ((content.get("labels") or {}).get("nodes") or [])
+                if node
+            ]
+            assignees = [node.get("login") for node in ((content.get("assignees") or {}).get("nodes") or []) if node]
+            result.append(
+                {
+                    "item_id": item.get("id"),
+                    "is_archived": bool(item.get("isArchived")),
+                    "type": item_type,
+                    "content": {
+                        "id": content.get("id"),
+                        "title": content.get("title") or "",
+                        "body": content.get("body") or "",
+                        "url": content.get("url"),
+                        "number": content.get("number"),
+                        "repository": (content.get("repository") or {}).get("nameWithOwner"),
+                        "state": content.get("state"),
+                        "labels": labels,
+                        "assignees": assignees,
+                    },
+                    "field_values": flatten_field_values(item.get("fieldValues")),
+                }
+            )
+        return result, truncated
 
     def memory_items(self, *, include_archived: bool = False, max_items: int = 5000) -> tuple[list[dict[str, Any]], bool]:
         items, truncated = self.list_items(max_items=max_items)
@@ -441,6 +536,13 @@ def execute_request(store: ProjectMemoryStore, request: dict[str, Any], operatio
     payload = request.get("payload") or {}
     if operation == "project.snapshot":
         return store.snapshot(max_items=int(payload.get("max_items", 500)))
+    if operation == "project.items":
+        items, truncated = store.project_items(
+            types=payload.get("types"),
+            include_archived=bool(payload.get("include_archived", False)),
+            max_items=int(payload.get("max_items", 5000)),
+        )
+        return {"items": items, "item_count": len(items), "truncated": truncated}
     if operation == "memory.create":
         return store.create(payload.get("record") or payload)
     if operation == "memory.read":

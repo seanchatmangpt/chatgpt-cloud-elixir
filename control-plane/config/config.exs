@@ -3,8 +3,16 @@ import Config
 config :chatgpt_cloud_control_plane,
   namespace: ChatGPTCloud,
   ecto_repos: [ChatGPTCloud.Repo],
-  ash_domains: [ChatGPTCloud.ProcessIntelligence],
+  ash_domains: [ChatGPTCloud.ProcessIntelligence, ChatGPTCloud.DfcmMemory],
   browser_auth_required: true
+
+# Hard-scoped by default to the same Project scripts/project_memory_proxy.py
+# targets; override only via config/runtime.exs + DFCM_MEMORY_PROJECT_OWNER /
+# DFCM_MEMORY_PROJECT_NUMBER if this control-plane is ever deployed against a
+# different DfCM memory Project. See ChatGPTCloud.DfcmMemory.GithubProjectClient.
+config :chatgpt_cloud_control_plane, :dfcm_memory,
+  owner: "seanchatmangpt",
+  number: 2
 
 config :chatgpt_cloud_control_plane, ChatGPTCloud.Repo,
   migration_primary_key: [name: :id, type: :uuid],

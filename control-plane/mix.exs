@@ -17,7 +17,7 @@ defmodule ChatGPTCloud.MixProject do
   def application do
     [
       mod: {ChatGPTCloud.Application, []},
-      extra_applications: [:logger, :runtime_tools, :crypto]
+      extra_applications: [:logger, :runtime_tools, :crypto, :inets, :ssl]
     ]
   end
 

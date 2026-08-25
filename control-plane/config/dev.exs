@@ -16,9 +16,11 @@ config :chatgpt_cloud_control_plane, ChatGPTCloudWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "n3P4g4x4sHfE4W6rR7hK1W3z3yW5wYf1oQ1lV4m8c4x7k8r9P4t6m7z8u9v0w1x2",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:chatgpt_cloud_control_plane, ~w(--sourcemap=inline --watch)]},
+    esbuild:
+      {Esbuild, :install_and_run, [:chatgpt_cloud_control_plane, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:chatgpt_cloud_control_plane, ~w(--watch)]}
   ]
 
-config :chatgpt_cloud_control_plane, :ocel_ingest_token,
-  System.get_env("OCEL_INGEST_TOKEN", "dev-ocel-token")
+config :chatgpt_cloud_control_plane,
+       :ocel_ingest_token,
+       System.get_env("OCEL_INGEST_TOKEN", "dev-ocel-token")

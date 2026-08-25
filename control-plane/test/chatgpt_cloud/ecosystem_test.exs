@@ -22,7 +22,10 @@ defmodule ChatGPTCloud.EcosystemTest do
     assert length(AshJsonApi.Domain.Info.routes(ChatGPTCloud.ProcessIntelligence)) == 4
     assert length(AshGraphql.Domain.Info.queries(ChatGPTCloud.ProcessIntelligence)) == 4
 
-    tools = AshAi.exposed_tools(domains: [ChatGPTCloud.ProcessIntelligence])
+    tools =
+      AshAi.exposed_tools(otp_app: :chatgpt_cloud_control_plane)
+      |> Enum.filter(&(&1.domain == ChatGPTCloud.ProcessIntelligence))
+
     names = Enum.map(tools, & &1.name)
 
     assert :list_qualifications in names
