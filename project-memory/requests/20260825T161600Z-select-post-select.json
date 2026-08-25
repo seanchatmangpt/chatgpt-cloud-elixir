@@ -1,0 +1,47 @@
+{
+  "request_id": "20260825T161600Z-select-post-select",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/select/latest",
+      "title": "DfCM latest SELECT allocation",
+      "kind": "dfcm.select",
+      "cell": "SELECT_DEVELOP",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "select", "r58", "consumer-fanout"],
+      "body": "Fresh evidence superseded the remembered unmerged R57 fence: ggen-marketplace PR #274 is contained on main@8bd29043a2818a5fb6a4de65cc403eff8e495b58. Capital was therefore allocated to two distinct target-local R58 consumers: ex4pm and GymAct. Both consume the canonical R57 adapter-capital primitive without duplicating producer-owned admission truth. Each manufactured 27 semantic/evidence commits; GymAct added one execution-derived verifier-isolation repair. Ex4pm R58 exact-head court is ALIVE; GymAct repaired R58 court and world-execution crown are ALIVE. Broad repository gates remain in progress, so both PRs remain unmerged and consumer standing is not promoted beyond scoped R58 ALIVE / overall REQUALIFYING.",
+      "metadata": {
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "producer_head": "8bd29043a2818a5fb6a4de65cc403eff8e495b58",
+        "reusable_primitive": "epistemic-sensor-factory-pack/R57-consumer-adapter-capital",
+        "selected_portfolio": ["seanchatmangpt/ex4pm#33", "seanchatmangpt/gymact#125"],
+        "ex4pm_base": "e12fccb42a67bc4496cac91c86bff2b856cc463d",
+        "ex4pm_head": "40e62701976a0c4555ffc00530b71c6acae515f2",
+        "ex4pm_r58_run": 32869939214,
+        "ex4pm_r58": "ALIVE",
+        "ex4pm_broad_ci": "IN_PROGRESS",
+        "gymact_base": "b40df62bbb1f6d5661eb1dbeb332476c90faa470",
+        "gymact_head": "b072261ee48a792445394115df5a1d8600baf886",
+        "gymact_r58_run": 32870489499,
+        "gymact_r58": "ALIVE",
+        "gymact_world_crown_run": 32870489559,
+        "gymact_world_crown": "ALIVE",
+        "gymact_broad_ci": "IN_PROGRESS",
+        "meaningful_commits": 55,
+        "workflow_commits_excluded": 2,
+        "merge_count": 0,
+        "Y": "UNKNOWN_UNTIL_DEFAULT_CONTAINMENT_AND_DOWNSTREAM_ACTIONS",
+        "M": ">=2",
+        "weakest_multiplier": "independently qualified consumer breadth",
+        "consumer_ready_before": 2,
+        "consumer_ready_structural_after_candidate": 4,
+        "consumer_target": 10,
+        "1000X": "NOT_ADMITTED",
+        "preserved_alternatives": ["ggen-marketplace#265 R54 independence-weighted realization", "ggen-marketplace#263 transitive propagation"],
+        "ERRC": {"eliminate": ["consumer-local admission duplication"], "reduce": ["adapter reasoning reconstruction", "verifier config coupling"], "raise": ["independent consumer breadth", "exact-head qualification", "public semantic correspondence"], "create": ["ex4pm R58 adapter", "GymAct R58 adapter", "cross-domain receipt-return courts"]},
+        "implement_handoff": ["complete broad CI for ex4pm#33 and GymAct#125", "merge each only after exact-head terminal green", "assimilate merged exact consumer heads into marketplace R55/R57 fixture", "requalify marketplace readiness census", "then manufacture next independent consumer family"]
+      }
+    }
+  }
+}
