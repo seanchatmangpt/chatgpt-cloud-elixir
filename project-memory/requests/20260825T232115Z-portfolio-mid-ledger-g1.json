@@ -1,0 +1,15 @@
+{
+  "request_id": "20260825T232115Z-portfolio-mid-ledger-g1",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM manufacturing ledger",
+    "kind": "dfcm.ledger",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","portfolio","merge","unlock"],
+    "body": "Durable edge: chatman-ecosystem PR #158 exact subject 91398d08a78f646463dae12adaeef681ca3ab010 --[24/24 exact-head qualification SUCCESS]--> merge 98fc4f900faf3db972b341989b921794e440ec47 --[branch graph delta]--> parent PR #155 changed subject and fresh qualification required. Containment proven mergeBase(91398d08,98fc4f90)=91398d08, behind=0. External graph delta: ggen-marketplace R70 was concurrently merged to main@2469a38d0e7af8225bbd44693ad7256bc9efbf63; dedupe equivalent R70 manufacture and follow post-R70 yield/consumer-replication frontier.",
+    "metadata": {"edges":[{"from":"chatman-ecosystem#158@91398d08a78f646463dae12adaeef681ca3ab010","relation":"MERGED_AS","to":"98fc4f900faf3db972b341989b921794e440ec47"},{"from":"98fc4f900faf3db972b341989b921794e440ec47","relation":"UNLOCKS_REQUALIFICATION","to":"chatman-ecosystem#155"},{"from":"ggen-marketplace/main@2469a38d0e7af8225bbd44693ad7256bc9efbf63","relation":"CONTAINS_CONCURRENT_CAPITAL","to":"R70_causal_manufacturing_yield"}],"containment":"ALIVE"}
+  }}
+}
