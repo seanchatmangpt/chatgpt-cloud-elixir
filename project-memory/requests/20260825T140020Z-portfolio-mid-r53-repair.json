@@ -1,0 +1,27 @@
+{
+  "request_id": "20260825T140020Z-portfolio-mid-r53-repair",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "portfolio", "current"],
+      "body": "R53 merged concurrently at 1716756badb9f193ffed97e38cefdc1d152add80 and current marketplace main advanced to b116088d8b6c6daf6595c3e9b30eb6bb58572f4b. Exact post-merge real-ggen evidence exposed two deterministic-generation defects. PORTFOLIO manufactured current-main repair PR #267: epistemic-sensor-factory evidence-return ORDER BY + permanent guard, then consumer-realization-frontier cardinality ORDER BY + permanent guard. Exact repair head d523d1a3fec4eeedf1412658d9d5979db38cdbef is REQUALIFYING. Next edge after repair qualification is R52 #265 current-head/current-main reconciliation and independent consumer fanout expansion.",
+      "metadata": {
+        "observed_at": "2026-08-25T14:00:20Z",
+        "bus_head": "f74feb341dcd6622aea01745c6c853facf2a2fa6",
+        "generation_depth_this_run": 2,
+        "portfolio_semantic_commits": 4,
+        "active_pr": 267,
+        "active_head": "d523d1a3fec4eeedf1412658d9d5979db38cdbef",
+        "repairs": ["epistemic evidence-return deterministic ORDER BY", "consumer-realization frontier-cardinality deterministic ORDER BY"],
+        "R_consumer_observed_lower_bound": 2,
+        "weakest_multiplier": "R_consumer_replication"
+      }
+    }
+  }
+}
