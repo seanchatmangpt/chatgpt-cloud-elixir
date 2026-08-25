@@ -41,6 +41,15 @@ defmodule ChatGPTCloud.DfcmMemory do
           "Read-only. Useful for confirming the junction is actually connected before " <>
           "trusting any cached memory read."
     )
+
+    tool(:list_project_items, ChatGPTCloud.DfcmMemory.MemoryRecord, :project_items,
+      description:
+        "Full-fidelity read of every item on Project #2 (seanchatmangpt/2), not just " <>
+          "memory-marked ones -- content (title, body, url, number, repository, state, " <>
+          "labels, assignees) plus every custom field value (Status, Priority, Iteration, " <>
+          "etc.) flattened to {field_name => value}. Optional input: max_items, types " <>
+          "(subset of ISSUE/PULL_REQUEST/DRAFT_ISSUE), include_archived. Read-only."
+    )
   end
 
   resources do

@@ -115,8 +115,44 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
                 type
                 content {
                   ... on DraftIssue { id title body }
-                  ... on Issue { id title body url number repository { nameWithOwner } }
-                  ... on PullRequest { id title body url number repository { nameWithOwner } }
+                  ... on Issue {
+                    id title body url number state
+                    repository { nameWithOwner }
+                    labels(first: 20) { nodes { name color } }
+                    assignees(first: 10) { nodes { login } }
+                  }
+                  ... on PullRequest {
+                    id title body url number state
+                    repository { nameWithOwner }
+                    labels(first: 20) { nodes { name color } }
+                    assignees(first: 10) { nodes { login } }
+                  }
+                }
+                fieldValues(first: 20) {
+                  nodes {
+                    ... on ProjectV2ItemFieldTextValue {
+                      text
+                      field { ... on ProjectV2FieldCommon { name } }
+                    }
+                    ... on ProjectV2ItemFieldNumberValue {
+                      number
+                      field { ... on ProjectV2FieldCommon { name } }
+                    }
+                    ... on ProjectV2ItemFieldDateValue {
+                      date
+                      field { ... on ProjectV2FieldCommon { name } }
+                    }
+                    ... on ProjectV2ItemFieldSingleSelectValue {
+                      name
+                      field { ... on ProjectV2FieldCommon { name } }
+                    }
+                    ... on ProjectV2ItemFieldIterationValue {
+                      title
+                      startDate
+                      duration
+                      field { ... on ProjectV2FieldCommon { name } }
+                    }
+                  }
                 }
               }
               pageInfo { hasNextPage endCursor }
@@ -129,6 +165,99 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
       collect_pages(query, %{"project" => project.id}, [], max_items)
     end
   end
+
+  @default_project_items_max_items 5000
+
+  @doc """
+  Full-fidelity item listing: id/type/archived state, content (title, body,
+  url, number, repository, state, labels, assignees), and every custom field
+  value on the item flattened to a plain `%{field_name => value}` map — not the
+  raw GraphQL `ProjectV2ItemFieldValue` union. Mirrors the Python proxy's
+  `project.items` operation. Read-only; supports the same `types`/
+  `include_archived` client-side filters (GraphQL `items()` takes no server-side
+  filter beyond pagination).
+  """
+  def project_items(opts \\ []) do
+    max_items = Keyword.get(opts, :max_items, @default_project_items_max_items)
+    types = opts |> Keyword.get(:types) |> normalize_types()
+    include_archived = Keyword.get(opts, :include_archived, false)
+
+    with {:ok, {items, _truncated}} <- list_items(max_items) do
+      mapped =
+        items
+        |> Enum.filter(fn item -> include_archived or not item["isArchived"] end)
+        |> Enum.filter(fn item -> is_nil(types) or item["type"] in types end)
+        |> Enum.map(&map_project_item/1)
+
+      {:ok, mapped}
+    end
+  end
+
+  defp normalize_types(nil), do: nil
+  defp normalize_types([]), do: nil
+
+  defp normalize_types(types) do
+    Enum.map(types, &to_string/1)
+  end
+
+  defp map_project_item(item) do
+    content = item["content"] || %{}
+
+    %{
+      item_id: item["id"],
+      type: item["type"],
+      is_archived: !!item["isArchived"],
+      content_id: content["id"],
+      title: content["title"] || "",
+      body: content["body"] || "",
+      url: content["url"],
+      number: content["number"],
+      repository: get_in(content, ["repository", "nameWithOwner"]),
+      state: content["state"],
+      labels: map_labels(content["labels"]),
+      assignees: map_assignees(content["assignees"]),
+      field_values: map_field_values(item["fieldValues"])
+    }
+  end
+
+  defp map_labels(nil), do: []
+
+  defp map_labels(%{"nodes" => nodes}) do
+    Enum.map(nodes || [], fn n -> %{name: n["name"], color: n["color"]} end)
+  end
+
+  defp map_assignees(nil), do: []
+
+  defp map_assignees(%{"nodes" => nodes}) do
+    Enum.map(nodes || [], fn n -> %{login: n["login"]} end)
+  end
+
+  defp map_field_values(nil), do: %{}
+
+  defp map_field_values(%{"nodes" => nodes}) do
+    nodes
+    |> Enum.reduce(%{}, fn node, acc ->
+      case get_in(node, ["field", "name"]) do
+        nil ->
+          acc
+
+        field_name ->
+          Map.put(acc, field_name, decode_field_value(node))
+      end
+    end)
+  end
+
+  defp decode_field_value(%{"text" => text}) when not is_nil(text), do: text
+  defp decode_field_value(%{"number" => number}) when not is_nil(number), do: number
+  defp decode_field_value(%{"date" => date}) when not is_nil(date), do: date
+  defp decode_field_value(%{"name" => name}) when not is_nil(name), do: name
+
+  defp decode_field_value(%{"title" => title, "startDate" => start_date, "duration" => duration})
+       when not is_nil(title) do
+    %{title: title, start_date: start_date, duration: duration}
+  end
+
+  defp decode_field_value(_other), do: nil
 
   @doc "List only items carrying the memory-record marker, decoded to {key, title, body, metadata, item_id, content_id, is_archived}."
   def memory_items(include_archived \\ false, max_items \\ @default_list_max_items) do

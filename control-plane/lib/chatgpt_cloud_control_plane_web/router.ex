@@ -52,7 +52,8 @@ defmodule ChatGPTCloudWeb.Router do
         :list_cost_observations,
         :read_dfcm_memory,
         :upsert_dfcm_memory,
-        :snapshot_dfcm_project
+        :snapshot_dfcm_project,
+        :list_project_items
       ],
       otp_app: :chatgpt_cloud_control_plane
   end

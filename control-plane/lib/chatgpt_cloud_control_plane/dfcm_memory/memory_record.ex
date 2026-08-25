@@ -65,5 +65,20 @@ defmodule ChatGPTCloud.DfcmMemory.MemoryRecord do
       description "Live Project #2 identity + item/memory-record counts. Read-only, no mutation."
       run ChatGPTCloud.DfcmMemory.Snapshot
     end
+
+    action :project_items, {:array, :map} do
+      description """
+      Full-fidelity read of every item on Project #2 (seanchatmangpt/2) -- not just
+      memory-marked ones. Returns id/type/archived state, content (title, body, url,
+      number, repository, state, labels, assignees), and every custom field value
+      flattened to a plain {field_name => value} map. Read-only, no mutation.
+      """
+
+      argument :max_items, :integer
+      argument :types, {:array, :string}
+      argument :include_archived, :boolean, default: false
+
+      run ChatGPTCloud.DfcmMemory.ProjectItems
+    end
   end
 end
