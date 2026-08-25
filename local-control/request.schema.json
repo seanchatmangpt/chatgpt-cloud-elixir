@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/local-control/request.schema.json",
+  "title": "ChatGPT Local Control Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "operation", "machine", "payload"],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "system.snapshot",
+        "filesystem.list",
+        "filesystem.read",
+        "filesystem.write",
+        "filesystem.mkdir",
+        "filesystem.delete",
+        "process.run",
+        "macos.open",
+        "macos.notify",
+        "macos.applescript.named"
+      ]
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 200}
+      }
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}
