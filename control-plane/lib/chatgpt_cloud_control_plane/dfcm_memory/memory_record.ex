@@ -19,8 +19,6 @@ defmodule ChatGPTCloud.DfcmMemory.MemoryRecord do
     domain: ChatGPTCloud.DfcmMemory,
     data_layer: Ash.DataLayer.Simple
 
-  alias ChatGPTCloud.DfcmMemory.GithubProjectClient
-
   attributes do
     attribute :key, :string, primary_key?: true, allow_nil?: false, public?: true
     attribute :title, :string, public?: true

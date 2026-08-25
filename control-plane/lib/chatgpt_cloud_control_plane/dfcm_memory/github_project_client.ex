@@ -398,10 +398,14 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
     end
   end
 
-  defp decode_body(body) do
-    case Regex.run(@marker_re, body || "", return: :index) do
+  # Every call site already normalizes its input with `|| ""`, so `body` here
+  # is always a binary -- no further `|| ""` fallback is reachable, and the
+  # compiler's type checker treats one as dead code under
+  # --warnings-as-errors.
+  defp decode_body(body) when is_binary(body) do
+    case Regex.run(@marker_re, body, return: :index) do
       nil ->
-        {nil, body || ""}
+        {nil, body}
 
       [{start, len} | _] ->
         marker_match = Regex.run(@marker_re, body)
@@ -416,7 +420,7 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
 
           {metadata, cleaned}
         else
-          _ -> {nil, body || ""}
+          _ -> {nil, body}
         end
     end
   end
