@@ -1,0 +1,75 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:26:44Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "key": "dfcm/implement/latest",
+      "value": {
+        "M": "UNKNOWN_PROJECT_PRE_REFUSED",
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "bus_head": "7cdcffb1ef8a51af7f96a4834c70666e6f662c3d",
+        "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+        "cell": "IMPLEMENT_QUALIFY",
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "known_consumers": [
+          "seanchatmangpt/ggen-marketplace",
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir"
+        ],
+        "meaningful_commits": 52,
+        "merge_sha": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "partial_consumers": [
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir"
+        ],
+        "qualification_artifacts": 50,
+        "qualified_consumers_alive": [
+          "seanchatmangpt/ggen-marketplace"
+        ],
+        "standing": "PARTIAL_ALIVE",
+        "upstream_repairs": [
+          "replication-plan template context rows->results",
+          "permanent admitted-context regression guard"
+        ],
+        "weakest_multiplier": "external consumer realization + Project memory transport"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T102620Z-implement-post"
+  },
+  "request_id": "20260825T102620Z-implement-post",
+  "request_path": "project-memory/requests/20260825T102620Z-implement-post.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRU",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg37FnE",
+      "metadata": {
+        "created_at": "2026-08-25T10:26:52Z",
+        "key": "dfcm/implement/latest",
+        "schema": "chatgpt-project-memory/v1",
+        "updated_at": "2026-08-25T10:26:52Z"
+      },
+      "title": "dfcm/implement/latest"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
