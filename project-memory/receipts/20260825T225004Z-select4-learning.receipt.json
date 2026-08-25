@@ -1,0 +1,88 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T22:53:13Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: workflow fanout is not manufacturing causality. M and Y may only be promoted from current exact request -> relevant workflow -> returned receipt correspondence, with independent evidence roots discounted separately by R67. Falsifier queries that search for forbidden states must not be mistaken for forbidden behavior; verifier authority checks must distinguish observation vocabulary from asserted runtime state. Concurrent orthogonal semantic capabilities should compose by exact-parent/path-disjoint evidence when possible rather than force-rebasing or importing stale implementation substrate. R69 is default-contained at d92e65b761788c8ec18562d3d1183bce29c341f7 and composes R67 independence with R68 run closure without ambient consequential DO.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260825T225004Z/d92e65b7",
+        "kind": "dfcm.run.learning",
+        "metadata": {
+          "candidate": "d10783fde8101f0d3265a119ed218fb4ac6979a2",
+          "consequential_do": false,
+          "exact_bus_head_before_request": "acfef735fafcf2dc0b579b8410167d66853e9b86",
+          "learning": [
+            "fanout != causality",
+            "observation of forbidden state != forbidden actuation",
+            "compose orthogonal exact subjects rather than force-rebase stale substrate"
+          ],
+          "merge_sha": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+          "pr": 294,
+          "repository": "seanchatmangpt/ggen-marketplace"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "causality",
+          "dfcm",
+          "learning",
+          "r69"
+        ],
+        "title": "R69 causal-control learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T225004Z-select4-learning"
+  },
+  "request_id": "20260825T225004Z-select4-learning",
+  "request_path": "project-memory/requests/20260825T225004Z-select4-learning.json",
+  "result": {
+    "body": "Durable learning: workflow fanout is not manufacturing causality. M and Y may only be promoted from current exact request -> relevant workflow -> returned receipt correspondence, with independent evidence roots discounted separately by R67. Falsifier queries that search for forbidden states must not be mistaken for forbidden behavior; verifier authority checks must distinguish observation vocabulary from asserted runtime state. Concurrent orthogonal semantic capabilities should compose by exact-parent/path-disjoint evidence when possible rather than force-rebasing or importing stale implementation substrate. R69 is default-contained at d92e65b761788c8ec18562d3d1183bce29c341f7 and composes R67 independence with R68 run closure without ambient consequential DO.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_1X0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4BOWs",
+    "metadata": {
+      "candidate": "d10783fde8101f0d3265a119ed218fb4ac6979a2",
+      "cell": "SELECT_DEVELOP",
+      "consequential_do": false,
+      "created_at": "2026-08-25T22:53:19Z",
+      "exact_bus_head_before_request": "acfef735fafcf2dc0b579b8410167d66853e9b86",
+      "key": "dfcm/run/select/20260825T225004Z/d92e65b7",
+      "kind": "dfcm.run.learning",
+      "learning": [
+        "fanout != causality",
+        "observation of forbidden state != forbidden actuation",
+        "compose orthogonal exact subjects rather than force-rebase stale substrate"
+      ],
+      "merge_sha": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+      "pr": 294,
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "tags": [
+        "causality",
+        "dfcm",
+        "learning",
+        "r69"
+      ],
+      "updated_at": "2026-08-25T22:53:19Z"
+    },
+    "title": "R69 causal-control learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
