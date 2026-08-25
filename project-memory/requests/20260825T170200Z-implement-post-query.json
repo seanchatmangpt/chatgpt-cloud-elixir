@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T170200Z-implement-post-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "consumer adapter realization epistemic replication ex4pm gymact cloud ggen", "limit": 50}
+}
