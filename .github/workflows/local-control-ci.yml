@@ -4,7 +4,10 @@ on:
   pull_request:
     paths:
       - "scripts/local_control_agent.py"
+      - "scripts/install-local-control-macos*.sh"
+      - "scripts/uninstall-local-control-macos*.sh"
       - "tests/test_local_control_agent.py"
+      - "tests/test_local_control_no_sudo.py"
       - "local-control/**"
       - ".github/workflows/local-control-ci.yml"
   push:
@@ -12,7 +15,10 @@ on:
       - main
     paths:
       - "scripts/local_control_agent.py"
+      - "scripts/install-local-control-macos*.sh"
+      - "scripts/uninstall-local-control-macos*.sh"
       - "tests/test_local_control_agent.py"
+      - "tests/test_local_control_no_sudo.py"
       - "local-control/**"
       - ".github/workflows/local-control-ci.yml"
 
@@ -30,7 +36,15 @@ jobs:
           python-version: "3.12"
       - name: Compile agent
         run: python3 -m py_compile scripts/local_control_agent.py
+      - name: Parse macOS installer scripts
+        run: |
+          bash -n scripts/install-local-control-macos.sh
+          bash -n scripts/uninstall-local-control-macos.sh
+          bash -n scripts/install-local-control-macos-user.sh
+          bash -n scripts/uninstall-local-control-macos-user.sh
       - name: Run local-control policy tests
         run: python3 -m unittest -v tests/test_local_control_agent.py
+      - name: Enforce no-sudo user installer contract
+        run: python3 -m unittest -v tests/test_local_control_no_sudo.py
       - name: Validate example policy
         run: python3 scripts/local_control_agent.py validate-policy --policy local-control/policy.example.json
