@@ -1,0 +1,26 @@
+{
+  "request_id":"20260825T104315Z-explore-run-control-start",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/run-control/explore/current",
+    "title":"DfCM EXPLORE run control",
+    "kind":"dfcm.run-control",
+    "cell":"EXPLORE",
+    "standing":"RUNNING",
+    "tags":["dfcm","explore","run-control"],
+    "body":"EXPLORE consuming R46/R47 evidence. Seed opportunities: independently realize compiled consumer plans in ggen and chatgpt-cloud-elixir; manufacture per-consumer receipt/falsifier machinery; dependency-relief conversion; expand exact-repository census; N-way recombination planner; compatibility tensor; memory-driven candidate synthesis; verifier-fanout generation; calibrated multiplier benchmark courts. Weakest multiplier is independent external-consumer realization. Preserve failed query/refusal edges and prior falsifiers.",
+    "metadata":{
+      "utc_start":"2026-08-25T10:43:08Z",
+      "bus_head":"248eac92751dbba17a51f23b694fc5ec97da0a4f",
+      "project_id":"PVT_kwHOCCCFfc4BhZKe",
+      "project_number":2,
+      "memory_keys_consumed":["dfcm/frontier/current","dfcm/ledger/current","dfcm/measure/latest","dfcm/explore/latest","dfcm/portfolio/latest"],
+      "query_receipt":"20260825T104314Z-explore-dfcm-query",
+      "initial_frontier_size":9,
+      "branching_factor_lower_bound":5,
+      "weakest_multiplier":"independent external-consumer realization",
+      "seed_opportunity_count":9
+    }
+  }}
+}
