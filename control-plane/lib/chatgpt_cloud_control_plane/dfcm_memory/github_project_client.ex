@@ -11,17 +11,41 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
   Hard-scoped, deliberately, to mirror `project-memory/README.md`'s "Authority"
   section:
 
-    - owner: `seanchatmangpt`
-    - project number: `2`
+    - owner: `seanchatmangpt` (`config :chatgpt_cloud_control_plane, :dfcm_memory, owner: ...`)
+    - project number: `2` (`config :chatgpt_cloud_control_plane, :dfcm_memory, number: ...`)
+
+  These are read from application config (see `config/config.exs`), not
+  compiled-in literals, so a deployment can point at a different owner/project
+  without editing source — the same shape as `scripts/project_memory_proxy.py`'s
+  `allowed_owner`/`allowed_number` init params. The default (`seanchatmangpt`/
+  `2`) matches the Python proxy's hard-coded scope so the two transports agree
+  unless someone deliberately reconfigures both; nothing a remote GraphQL
+  caller sends can change these values at runtime — they come only from this
+  process's own compiled config, never from request/response data.
 
   Not general-purpose GraphQL. Raw queries are not accepted from callers.
   """
 
+  @default_owner "seanchatmangpt"
+  @default_number 2
   @api_url "https://api.github.com/graphql"
-  @allowed_owner "seanchatmangpt"
-  @allowed_number 2
   @marker_prefix "<!-- chatgpt-project-memory:v1 "
   @marker_re ~r/^<!-- chatgpt-project-memory:v1 ([A-Za-z0-9_-]+) -->\n?/m
+  @default_list_max_items 5000
+  @default_snapshot_max_items 500
+  @request_timeout_ms 30_000
+
+  defp allowed_owner do
+    :chatgpt_cloud_control_plane
+    |> Application.get_env(:dfcm_memory, [])
+    |> Keyword.get(:owner, @default_owner)
+  end
+
+  defp allowed_number do
+    :chatgpt_cloud_control_plane
+    |> Application.get_env(:dfcm_memory, [])
+    |> Keyword.get(:number, @default_number)
+  end
 
   defmodule ProxyError do
     defexception [:message, standing: "UNKNOWN", reason: nil, details: nil]
@@ -51,7 +75,10 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
     }
     """
 
-    with {:ok, data} <- execute(query, %{login: @allowed_owner, number: @allowed_number}) do
+    owner = allowed_owner()
+    number = allowed_number()
+
+    with {:ok, data} <- execute(query, %{login: owner, number: number}) do
       case get_in(data, ["user", "projectV2"]) do
         nil ->
           {:error,
@@ -64,8 +91,8 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
         project ->
           {:ok,
            %{
-             owner: @allowed_owner,
-             number: @allowed_number,
+             owner: owner,
+             number: number,
              id: project["id"],
              title: project["title"] || "",
              url: project["url"] || ""
@@ -75,7 +102,7 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
   end
 
   @doc "List every item (draft issue, issue, PR) currently on the Project, paginated."
-  def list_items(max_items \\ 5000) do
+  def list_items(max_items \\ @default_list_max_items) do
     with {:ok, project} <- resolve_project() do
       query = """
       query($project: ID!, $after: String) {
@@ -104,7 +131,7 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
   end
 
   @doc "List only items carrying the memory-record marker, decoded to {key, title, body, metadata, item_id, content_id, is_archived}."
-  def memory_items(include_archived \\ false, max_items \\ 5000) do
+  def memory_items(include_archived \\ false, max_items \\ @default_list_max_items) do
     with {:ok, {items, truncated}} <- list_items(max_items) do
       records =
         items
@@ -231,7 +258,7 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
   end
 
   @doc "Whole-project summary: identity, item count, memory-record count."
-  def snapshot(max_items \\ 500) do
+  def snapshot(max_items \\ @default_snapshot_max_items) do
     with {:ok, project} <- resolve_project(),
          {:ok, {items, truncated}} <- list_items(max_items) do
       memory_count =
@@ -295,7 +322,7 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
 
         request = {String.to_charlist(@api_url), headers, ~c"application/json", body}
 
-        case :httpc.request(:post, request, [{:timeout, 30_000}], []) do
+        case :httpc.request(:post, request, [{:timeout, @request_timeout_ms}], []) do
           {:ok, {{_line, status, _reason}, _resp_headers, resp_body}} when status in 200..299 ->
             data = Jason.decode!(resp_body)
 
