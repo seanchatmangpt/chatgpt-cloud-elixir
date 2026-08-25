@@ -1,0 +1,86 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T11:30:13Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/select/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "select-20260825T112904Z-select"
+  },
+  "request_id": "select-20260825T112904Z-select",
+  "request_path": "project-memory/requests/20260825T112904Z-select-read-select.json",
+  "result": {
+    "body": "Selected Pareto portfolio: migrate ggen from duplicated R47 local verifier to canonical marketplace R48 consumer court; preserve cloud R48 consumer; enumerate additional compatible writable consumers; preserve TensorFlow as authority-constrained. Developed ggen PR #668 exact head 26ed26b71f2b22781c351950c5a8d7d6db33a585 with six meaningful transitions: contract binding, canonical court workflow, removal of duplicate verifier, removal of duplicate falsifier, removal of duplicate receipt schema, replay/reference update. Owning exact-head R48 court executed SUCCESS. Broad CI remains in progress, so merge is withheld and standing is PARTIAL_ALIVE. Y remains UNKNOWN until merge and downstream qualified actions; M>=1 because memory changed selection from primitive creation to consumer replication. IMPLEMENT/QUALIFY handoff: observe broad CI on exact head, merge only if terminal green, prove default containment, then expand the R48 adoption factory to newly admitted compatible repositories.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+    "metadata": {
+      "M_lower_bound": 1,
+      "Y": "UNKNOWN",
+      "base_sha": "aa53795636e4fe1775b3eff5ff91227a02320ffc",
+      "bus_head_before_request": "19f0ce67401b11d4b07bf8e6d9b4baecc990361c",
+      "cell": "SELECT_DEVELOP",
+      "consumers_developed": [
+        "seanchatmangpt/ggen"
+      ],
+      "consumers_preserved": [
+        "seanchatmangpt/chatgpt-cloud-elixir"
+      ],
+      "consumers_unlocked": [
+        "distinct-repository replication consumers",
+        "cross-repo qualification reuse consumers"
+      ],
+      "created_at": "2026-08-25T09:28:23Z",
+      "falsifiers": [
+        "exact-50 sensor-count assumption is invalid for cumulative sensor families",
+        "executable workflow without timeout-minutes is refused by repository CI law"
+      ],
+      "head_after": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "head_before": "61f4b9932d34c857081ce7759eca8c89f0845e3c",
+      "head_sha": "26ed26b71f2b22781c351950c5a8d7d6db33a585",
+      "key": "dfcm/select/latest",
+      "kind": "dfcm.select",
+      "marketplace_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "meaningful_commits": 6,
+      "new_semantic_commits": 2,
+      "pr": 668,
+      "qualification": "OWNING_COURT_ALIVE_BROAD_CI_PENDING",
+      "reusable_primitive": "ggen-marketplace epistemic-sensor-factory-pack R48 consumer_court",
+      "reusable_primitives": [
+        "epistemic-sensor-factory-pack",
+        "cumulative replication epistemic observability contract",
+        "bounded exact-head R45 qualification court"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "selected_preexisting_commits": 65,
+      "selected_repo": "seanchatmangpt/ggen",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "consumer-replication",
+        "dfcm",
+        "r48",
+        "select"
+      ],
+      "updated_at": "2026-08-25T11:02:54Z",
+      "weakest_multiplier": "breadth of independently qualified external consumers"
+    },
+    "title": "DfCM latest selection"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
