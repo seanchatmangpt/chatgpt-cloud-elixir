@@ -1,0 +1,56 @@
+name: Format Control Plane
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/format-control-plane.yml"
+      - "control-plane/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: feat/process-intelligence-capsule
+          fetch-depth: 0
+
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+        with:
+          otp-version: "29.0"
+          elixir-version: "1.20.2"
+
+      - name: Resolve exact formatter dependency closure
+        working-directory: control-plane
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get
+
+      - name: Apply canonical formatter
+        working-directory: control-plane
+        run: |
+          mix format
+          mix format --check-formatted
+
+      - name: Commit formatter-owned source and resolved lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "chatgpt-cloud-elixir formatter"
+          git config user.email "136349053+seanchatmangpt@users.noreply.github.com"
+          git add control-plane
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "Formatter already converged"
+            exit 0
+          fi
+          bad="$(git diff --cached --name-only | grep -v '^control-plane/' || true)"
+          test -z "$bad" || { printf 'REFUSED_FORMAT_SCOPE\n%s\n' "$bad" >&2; exit 70; }
+          git commit -m "style(control-plane): apply OTP29 Elixir 1.20 formatter"
+          git push origin HEAD:feat/process-intelligence-capsule

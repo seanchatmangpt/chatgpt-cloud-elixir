@@ -18,17 +18,41 @@ jobs:
   build:
     name: ${{ matrix.variant }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
-        variant: [beam-core, ash-core, ash-postgres, ash-phoenix, ash-full]
+        include:
+          - variant: beam-core
+            otp: "29.0"
+            elixir: "1.20.2"
+            artifact_name: chatgpt-cloud-elixir-beam-core-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-core
+            otp: "29.0"
+            elixir: "1.20.2"
+            artifact_name: chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-postgres
+            otp: "29.0"
+            elixir: "1.20.2"
+            artifact_name: chatgpt-cloud-elixir-ash-postgres-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-phoenix
+            otp: "29.0"
+            elixir: "1.20.2"
+            artifact_name: chatgpt-cloud-elixir-ash-phoenix-otp29-elixir1.20.2-linux-x86_64
+          - variant: ash-full
+            otp: "29.0"
+            elixir: "1.20.2"
+            artifact_name: chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.2-linux-x86_64
+          - variant: process-intelligence
+            otp: "27.2.4"
+            elixir: "1.18.4"
+            artifact_name: chatgpt-cloud-elixir-process-intelligence-otp27-elixir1.18.4-linux-x86_64
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # observed v1
         with:
-          otp-version: "29.0"
-          elixir-version: "1.20.2"
+          otp-version: ${{ matrix.otp }}
+          elixir-version: ${{ matrix.elixir }}
 
       - name: Manufacture capsule
         shell: bash
@@ -37,7 +61,11 @@ jobs:
           # The capsule identity must bind the exact source head that is being proposed.
           export GITHUB_SHA="${{ github.event.pull_request.head.sha || github.sha }}"
           chmod +x scripts/*.sh
-          scripts/build-capsule.sh "${{ matrix.variant }}"
+          if [[ "${{ matrix.variant }}" == "process-intelligence" ]]; then
+            scripts/build-process-intelligence.sh
+          else
+            scripts/build-capsule.sh "${{ matrix.variant }}"
+          fi
 
       - name: Verify fresh extracted consumer
         shell: bash
@@ -52,14 +80,18 @@ jobs:
           tar -xzf "$archive" -C consumer
           CAPSULE_ARCHIVE_DIGEST="$actual" bash consumer/scripts/run-offline.sh
           cp consumer/receipt.json "dist/${{ matrix.variant }}-consumer-receipt.json"
+          if [[ -f consumer/harness/process-lab-receipt.json ]]; then
+            cp consumer/harness/process-lab-receipt.json "dist/${{ matrix.variant }}-process-lab-receipt.json"
+          fi
 
       - name: Upload capsule
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: chatgpt-cloud-elixir-${{ matrix.variant }}-otp29-elixir1.20.2-linux-x86_64
+          name: ${{ matrix.artifact_name }}
           path: |
             dist/chatgpt-cloud-elixir-${{ matrix.variant }}-*.tar.gz
             dist/chatgpt-cloud-elixir-${{ matrix.variant }}-*.tar.gz.sha256
             dist/${{ matrix.variant }}-consumer-receipt.json
+            dist/${{ matrix.variant }}-process-lab-receipt.json
           if-no-files-found: error
           retention-days: 14

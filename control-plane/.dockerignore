@@ -1,0 +1,9 @@
+.git
+_build
+deps
+cover
+doc
+tmp
+.env
+.env.*
+test

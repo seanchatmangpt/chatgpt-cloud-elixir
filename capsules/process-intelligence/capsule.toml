@@ -1,0 +1,45 @@
+schema_version = 1
+name = "process-intelligence"
+description = "Offline source-bound process-intelligence laboratory for AshR2RML and ex4pm."
+fixture = "mix_smoke"
+packages = []
+required_modules = []
+requires_services = []
+acceptance = [
+  "ash_r2rml: MIX_ENV=test mix compile --warnings-as-errors",
+  "ash_r2rml: MIX_ENV=test mix test test/fortune5/",
+  "ex4pm: MIX_ENV=test mix verify",
+  "bridge: bash harness/verify.sh"
+]
+
+[runtime]
+otp = "27.2.4"
+elixir = "1.18.4"
+
+[subjects.ash_r2rml]
+repository = "https://github.com/seanchatmangpt/ash_r2rml.git"
+sha = "a3445b7b252514880cd0f3c9843c0353b0385af1"
+tree_sha = "d76b113d16aeecd47d246cac5e18619a8bd4be88"
+build_acceptance = [
+  "MIX_ENV=test mix compile --warnings-as-errors",
+  "MIX_ENV=test mix test test/fortune5/"
+]
+consumer_acceptance = [
+  "MIX_ENV=test mix compile --warnings-as-errors",
+  "MIX_ENV=test mix test test/fortune5/"
+]
+
+[subjects.ex4pm]
+repository = "https://github.com/seanchatmangpt/ex4pm.git"
+sha = "498cce61e6541f273439b460244764c7aec408dc"
+tree_sha = "5185abb8b678f52441d5fbeabf8f79994d067f57"
+build_acceptance = ["MIX_ENV=test mix verify"]
+consumer_acceptance = ["MIX_ENV=test mix verify"]
+
+[process_lab]
+world = "harness/world.json"
+ash_probe = "harness/ash_probe.exs"
+ex4pm_probe = "harness/ex4pm_probe.exs"
+verifier = "harness/verify.sh"
+standing_scope = "offline_in_memory_process_intelligence"
+external_crowns = ["postgresql", "ontop", "docker"]

@@ -1,0 +1,28 @@
+{
+  "objects": {
+    "o1": {"type": "Order", "customer": "alpha"},
+    "o2": {"type": "Order", "customer": "beta"}
+  },
+  "events": {
+    "e1": {
+      "activity": "create",
+      "timestamp": "2026-08-21T20:00:00Z",
+      "objects": ["o1"]
+    },
+    "e2": {
+      "activity": "approve",
+      "timestamp": "2026-08-21T20:01:00Z",
+      "objects": ["o1"]
+    },
+    "e3": {
+      "activity": "create",
+      "timestamp": "2026-08-21T20:02:00Z",
+      "objects": ["o2"]
+    },
+    "e4": {
+      "activity": "reject",
+      "timestamp": "2026-08-21T20:03:00Z",
+      "objects": ["o2"]
+    }
+  }
+}

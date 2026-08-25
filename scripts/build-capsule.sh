@@ -18,8 +18,10 @@ mkdir -p "$BUILD_ROOT/project" "$BUILD_ROOT/host/mix" "$BUILD_ROOT/host/hex" "$O
 export MIX_HOME="$BUILD_ROOT/host/mix"
 export HEX_HOME="$BUILD_ROOT/host/hex"
 
-EXPECTED_OTP="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["otp"])' "$VERSIONS")"
-EXPECTED_ELIXIR="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["elixir"])' "$VERSIONS")"
+DEFAULT_OTP="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["otp"])' "$VERSIONS")"
+DEFAULT_ELIXIR="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["runtime"]["elixir"])' "$VERSIONS")"
+EXPECTED_OTP="${CAPSULE_OTP_OVERRIDE:-$DEFAULT_OTP}"
+EXPECTED_ELIXIR="${CAPSULE_ELIXIR_OVERRIDE:-$DEFAULT_ELIXIR}"
 ACTUAL_OTP="$(erl -noshell -eval 'io:format("~s", [erlang:system_info(otp_release)]), halt().')"
 ACTUAL_ELIXIR="$(elixir -e 'IO.write(System.version())')"
 [[ "${ACTUAL_OTP%%.*}" == "${EXPECTED_OTP%%.*}" ]] || { echo "BUILD_BROKEN: OTP expected $EXPECTED_OTP observed $ACTUAL_OTP" >&2; exit 65; }
@@ -35,11 +37,12 @@ MIX_VERSION="$(mix --version | sed -n 's/^Mix //p' | head -1)"
 FIXTURE="$(python3 -c 'import tomllib,sys; print(tomllib.load(open(sys.argv[1],"rb"))["fixture"])' "$CAPSULE_CONFIG")"
 cp -a "$ROOT/fixtures/$FIXTURE/." "$BUILD_ROOT/project/"
 
-python3 - "$VERSIONS" "$CAPSULE_CONFIG" "$BUILD_ROOT/project" <<'PY'
+python3 - "$VERSIONS" "$CAPSULE_CONFIG" "$BUILD_ROOT/project" "$EXPECTED_ELIXIR" <<'PY'
 import pathlib, sys, tomllib
 versions = tomllib.load(open(sys.argv[1], "rb"))
 cfg = tomllib.load(open(sys.argv[2], "rb"))
 project = pathlib.Path(sys.argv[3])
+expected_elixir = sys.argv[4]
 deps = []
 for package in cfg.get("packages", []):
     version = versions["packages"][package]
@@ -52,7 +55,7 @@ project.joinpath("mix.exs").write_text(f'''defmodule CloudCapsule.MixProject do
     [
       app: :cloud_capsule,
       version: "0.1.0",
-      elixir: "~> {versions["runtime"]["elixir"].rsplit(".", 1)[0]}",
+      elixir: "~> {expected_elixir.rsplit(".", 1)[0]}",
       start_permanent: false,
       deps: deps()
     ]
