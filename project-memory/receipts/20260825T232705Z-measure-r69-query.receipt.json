@@ -1,0 +1,36 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:27:54Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "max_results": 50,
+      "text": "MEASURE sensor run closure scheduler failure project memory ggen marketplace falsifier stale standing unresolved dependency phase change"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T232705Z-measure-r69-query"
+  },
+  "request_id": "20260825T232705Z-measure-r69-query",
+  "request_path": "project-memory/requests/20260825T232705Z-measure-r69-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 32,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
