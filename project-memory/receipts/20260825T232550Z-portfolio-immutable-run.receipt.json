@@ -1,0 +1,94 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:25:23Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: exact-head recursive merge chain #158 -> #155 produced G3 #152 during one recurrence. Each merge invalidated parent standing and required fresh execution. Two merges have exact containment. Project PRE memory found 31 records and prevented duplicate R70 work because R70 was already contained on ggen-marketplace main. C>=2 from the one recursive seed; R independent consumer replication remains 1 and is the weakest multiplier. Direct semantic authorship was 0 because current work was merge/qualification-bound; do not count pre-existing R70 or historical branch commits as this cell's production.",
+        "cell": "PORTFOLIO",
+        "key": "dfcm/run/portfolio/20260825T232550Z/446c62db307b62e251ddc3fdd67b5676f0178199",
+        "kind": "dfcm.run",
+        "metadata": {
+          "C_lower_bound": 2,
+          "R": 1,
+          "marketplace_main": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+          "memory_records_consumed": 31,
+          "merge_chain": [
+            158,
+            155,
+            152
+          ],
+          "merge_shas": [
+            "98fc4f900faf3db972b341989b921794e440ec47",
+            "446c62db307b62e251ddc3fdd67b5676f0178199"
+          ],
+          "project_pre_items": 375
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "portfolio",
+          "run",
+          "durable-learning"
+        ],
+        "title": "PORTFOLIO 2026-08-25 23:25Z recursive crown"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T232550Z-portfolio-immutable-run"
+  },
+  "request_id": "20260825T232550Z-portfolio-immutable-run",
+  "request_path": "project-memory/requests/20260825T232550Z-portfolio-immutable-run.json",
+  "result": {
+    "body": "Durable learning: exact-head recursive merge chain #158 -> #155 produced G3 #152 during one recurrence. Each merge invalidated parent standing and required fresh execution. Two merges have exact containment. Project PRE memory found 31 records and prevented duplicate R70 work because R70 was already contained on ggen-marketplace main. C>=2 from the one recursive seed; R independent consumer replication remains 1 and is the weakest multiplier. Direct semantic authorship was 0 because current work was merge/qualification-bound; do not count pre-existing R70 or historical branch commits as this cell's production.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_1uM",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4BZMA",
+    "metadata": {
+      "C_lower_bound": 2,
+      "R": 1,
+      "cell": "PORTFOLIO",
+      "created_at": "2026-08-25T23:25:30Z",
+      "key": "dfcm/run/portfolio/20260825T232550Z/446c62db307b62e251ddc3fdd67b5676f0178199",
+      "kind": "dfcm.run",
+      "marketplace_main": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+      "memory_records_consumed": 31,
+      "merge_chain": [
+        158,
+        155,
+        152
+      ],
+      "merge_shas": [
+        "98fc4f900faf3db972b341989b921794e440ec47",
+        "446c62db307b62e251ddc3fdd67b5676f0178199"
+      ],
+      "project_pre_items": 375,
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "dfcm",
+        "durable-learning",
+        "portfolio",
+        "run"
+      ],
+      "updated_at": "2026-08-25T23:25:30Z"
+    },
+    "title": "PORTFOLIO 2026-08-25 23:25Z recursive crown"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
