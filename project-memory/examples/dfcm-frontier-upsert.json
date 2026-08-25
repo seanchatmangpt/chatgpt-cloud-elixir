@@ -1,0 +1,27 @@
+{
+  "request_id": "example-dfcm-frontier-upsert",
+  "operation": "memory.upsert",
+  "project": {
+    "owner": "seanchatmangpt",
+    "number": 2
+  },
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "ALIVE",
+      "tags": ["dfcm", "frontier", "shared-memory"],
+      "body": "Example only. Scheduled cells replace this with the current admitted frontier.",
+      "metadata": {
+        "E": null,
+        "E2": null,
+        "Y": null,
+        "R": null,
+        "C": null,
+        "H5": null
+      }
+    }
+  }
+}
