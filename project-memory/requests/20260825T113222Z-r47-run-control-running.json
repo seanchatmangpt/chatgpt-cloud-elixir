@@ -1,0 +1,6 @@
+{
+  "request_id":"20260825T113222Z-r47-run-control-running",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{"key":"dfcm/run-control/measure/current","title":"MEASURE current run control","body":"R47 MEASURE started from live Project #2 snapshot. Candidate repositories: ggen-marketplace, ggen, chatgpt-cloud-elixir. Initial frontier is consumer replication/adoption and portfolio breadth, not another producer-local sensor tranche.","kind":"dfcm.run-control","standing":"RUNNING","cell":"MEASURE","generation":"R47","authority":"OBSERVE|VERIFY|SELECT|CONSTRUCT","metadata":{"utc_start":"2026-08-25T11:29:16Z","project_id":"PVT_kwHOCCCFfc4BhZKe","project_title":"@seanchatmangpt's post-agi project","project_item_count":364,"bus_head_before_request":"fa07adc928b3d919cee17c3e4415a4a6f6d97a5c","consumed_memory_keys":["dfcm/frontier/current","dfcm/ledger/current","dfcm/measure/latest","dfcm/portfolio/latest"],"candidate_repositories":["seanchatmangpt/ggen-marketplace","seanchatmangpt/ggen","seanchatmangpt/chatgpt-cloud-elixir"],"initial_frontier_size":18,"initial_weakest_multiplier":"independent consumer breadth"}}}
+}
