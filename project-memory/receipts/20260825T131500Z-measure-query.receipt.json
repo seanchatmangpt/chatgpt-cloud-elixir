@@ -1,0 +1,36 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T13:13:30Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "replication consumer receipt assimilation ggen ggen-marketplace chatgpt-cloud-elixir ex4pm gymact ontology pack falsifier stale standing dependency phase-change multiplier"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T131500Z-measure-query"
+  },
+  "request_id": "20260825T131500Z-measure-query",
+  "request_path": "project-memory/requests/20260825T131500Z-measure-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 21,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
