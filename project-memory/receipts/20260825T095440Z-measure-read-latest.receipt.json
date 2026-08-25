@@ -1,0 +1,87 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:55:02Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/measure/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T095440Z-measure-read-latest"
+  },
+  "request_id": "20260825T095440Z-measure-read-latest",
+  "request_path": "project-memory/requests/20260825T095440Z-measure-read-latest.json",
+  "result": {
+    "body": "R45/R45B phase-change complete. Start subject ggen-marketplace main@8c05c4252264fb0cfd60585657d9776ff2c9de29. R45 exact qualified head=2fe19ebc665572c76fa9839ef95ec0b507a2ead0; PR250 merged as 171120927d93eeacaf67c843b1fca64665ffd8db. R45B exact qualified head=6dc67c421c7b2e8498df581a46ecc9e30202cab3; PR251 merged as final main@be81dd42c8eae76b571b6e0b43951ee52b061367. New meaningful semantic commits attributable to this run=54: 50 replication-yield sensors 136..185 + 2 historical-court compatibility repairs + grounded fixture + executable R45B court; exact-head workflow excluded. R45 predecessor factory adds public-ontology/ggen sensor-family manufacturing capital. Exact-head R45B, R45, repaired R43, Vacuity Audit, and full real-ggen CI all SUCCESS. E_work=4.0 from 12 actionable opportunity classes / 3 seed observations. M_work=2.0 from 4 memory-caused actionable classes / 2 successfully consumed memory records. ERRC: eliminate global-contiguous historical sensor assumption and repeated manual replication-gap inspection; reduce reconstruction/evidence distance; raise fanout/evidence-root/receipt/falsifier/court/CI observability; create sensor-family factory plus 50-sensor replication-yield tranche. 1000X remains UNKNOWN/NOT_ADMITTED; reference multiplier fixture=5*4*8=160, shortfall=840, fixture-only. Defects repaired: R43 historical court future-generation contamination; malformed Project run-control JSON was detected as BUILD_BROKEN and replaced by ALIVE request 20260825T094300Z-measure-run-control-start-repair. Next EXPLORE: project live repository census into replication graph; execute consumer replication across eligible repos; calibrate precision/recall and realized dependency relief; use sensor factory to manufacture next disjoint tranche.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_jyY",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CJE",
+    "metadata": {
+      "E": 4.0,
+      "E_observed": 4.0,
+      "E_work": 4.0,
+      "M": 4.0,
+      "M_observed": 4.0,
+      "M_work": 2.0,
+      "actuation_performed": false,
+      "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+      "bus_head_before_request": "ceee4b4d5c4a00067ebe642c552cc575b409ae42",
+      "cell": "MEASURE",
+      "contradicted_prior_r43_pr": 246,
+      "correction_source": "live GitHub PR #244/#246 and main branch evidence",
+      "created_at": "2026-08-25T08:18:30Z",
+      "current_main": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+      "key": "dfcm/measure/latest",
+      "kind": "dfcm.measure",
+      "live_r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+      "live_r44_pr": 246,
+      "meaningful_commits": 54,
+      "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+      "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "multiplier_standing": "UNKNOWN_NOT_ADMITTED",
+      "new_sensors": 50,
+      "owning_run": 32825762824,
+      "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+      "r43_merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "r43_pr": 244,
+      "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+      "r45_head": "2fe19ebc665572c76fa9839ef95ec0b507a2ead0",
+      "r45_merge": "171120927d93eeacaf67c843b1fca64665ffd8db",
+      "r45b_head": "6dc67c421c7b2e8498df581a46ecc9e30202cab3",
+      "reference_multiplier": 160,
+      "reference_shortfall": 840,
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "sensors": 50,
+      "standing": "ALIVE",
+      "start_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "tags": [
+        "dfcm",
+        "epistemic-capital",
+        "measure",
+        "r45",
+        "r45b"
+      ],
+      "updated_at": "2026-08-25T09:45:38Z",
+      "vacuity_run": 32825762894
+    },
+    "title": "MEASURE latest"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
