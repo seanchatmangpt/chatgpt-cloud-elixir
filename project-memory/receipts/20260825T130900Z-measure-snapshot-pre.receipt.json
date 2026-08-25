@@ -1,0 +1,3693 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T13:10:18Z",
+  "operation": "project.snapshot",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "project.snapshot",
+    "payload": {
+      "max_items": 500
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T130900Z-measure-snapshot-pre"
+  },
+  "request_id": "20260825T130900Z-measure-snapshot-pre",
+  "request_path": "project-memory/requests/20260825T130900Z-measure-snapshot-pre.json",
+  "result": {
+    "item_count": 365,
+    "items": [
+      {
+        "content_id": "I_kwDOLX6mS86IIc7l",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Codegen workflow (WIP)",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOLX6mS86LMBCp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "call to `dspygen init` fail",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDphj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Hide any sensitive data using Docker secrets",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDphr",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement Basic Instrumentation",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDph0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Make the Elixir application autoscale",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDph5",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create Your Own Custom PromEx Metric",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpiC",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create A CPU Alert For Your Application",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpiN",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Elixir integration pipelines",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpia",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cOw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement the Dockerfile's runner stage",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpih",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cO0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Make Elixir app part of a Distributed Erlang cluster",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpin",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create a Continuous Deployment pipeline",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpiy",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create production env in AWS for a single-node swarm",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpjE",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Update Terraform Configuration for a multi-node swarm",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpjN",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement automatic rollback upon failed deployments",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpjT",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Push Docker image to GitHub registry automatically",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMb-r-M6RDpjl",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create the EC2 AMI",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMeJlAs6Ro2Bn",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cPw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Develop Arbitrage Calculation Model",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMeJlAs6Ro2DX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Setup Data Ingestion Pipeline",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMeJlAs6Ro2Og",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Integrate Transport Logistics Management",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOMeJlAs6Ro2Ua",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create User Dashboard for Visualizing Arbitrage Opportunities",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOLX6mS86VC70O",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Security Issue: Exposed Ngrok Auth Token in ngrok.yml",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86r3u26",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement the Dockerfile's builder stage",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86r3u3p",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement the Dockerfile's runner stage",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86r3yy1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Investigate performance",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86r3yz8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQ0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Add instrumentation library",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86r3y0m",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQ4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Add dev environment documentation",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOOAECR86s-WPI",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cQ8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "API calls in tests",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPLFpfM7Axryk",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "AutoTel Production",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrL_A",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrP-u",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrQAC",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrQcb",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrRDt",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrRXp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrRjS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87KrRjX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87K4r5r",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87K4tHq",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87K5ByX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cRw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87K6kDD",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cR0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87K6nX6",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cR8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LG1iv",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LH4UE",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJyg-",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ0wH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ1Fw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ1Jv",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ1UT",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ1Wa",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LJ1Zz",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cSs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LKLah",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cTU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LKLg0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cTg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LK2nq",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cTo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LLgf2",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cTs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LLgyR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cT0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LL9Io",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LL9g4",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LXDWE",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LXDzW",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LXGX-",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LXGuY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LYgh8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cUw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LYgtQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cU0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LZYmm",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cU4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LhJqG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LhK13",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87LnNdM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87L2oFx",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87L7CFT",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87L7DSV",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87L7FKN",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cVs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87L7FeS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cV0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87MG6Pq",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cV4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87MWXCR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cV8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Ml5x8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87M0__F",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87M54yW",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87M55o_",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87M-me0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDNKf",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDNpp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDN5O",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cWs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDRfl",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cW8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDSeQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDVgk",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDWol",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDWr5",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDZ7Z",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDaDo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDbPI",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cXs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDgEc",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cX4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDjA9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cX8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDkH1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDkTY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDkUf",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDlHS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDlVX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDlcI",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NDlcR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cYo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NPjEh",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cY0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NTTI5",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NTTbG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87NejM_",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Nu2Qk",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87N99zQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ONQRX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OSk0L",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OSlrx",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OaQFr",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OgD6F",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OgE7i",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZ0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Oh66Q",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cZ4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Oh7vW",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35caA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87OqqnX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35caE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87O7zJw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35caI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87PK_ZG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35caM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87PZbFb",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35caU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Pm4pn",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cac",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87PrnZN",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cag",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ProHf",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cao",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87PwFK9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ca0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0Mfo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ca4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0M4r",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ca8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0OE5",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0OkL",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0Ot-",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87P0Pc_",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87QAN90",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87QPCYC",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Qdntg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Qr2wx",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Q6n30",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cbw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RAilb",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cb8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RAjk3",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RG9SK",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLh9-",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLi6W",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLn5q",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLpQr",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cck",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLp1I",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cco",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RLqwj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ccw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RVtpL",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cc0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RZR0e",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cc4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87RZSXX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cc8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Rk7hH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87R0Imq",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87SDp7U",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOTvS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Container isolation not working - commands run on host instead of in Docker containers",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOhtw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Self-test feature crashes with 'not implemented' panic",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOhza",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cdc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Misleading performance claims - comparing different features",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOh4c",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cd4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "README contains extensive false claims about features and functionality",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOh9w",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Multiple claimed features are missing or non-functional",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOnkt",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "dev --watch command does not exist despite being marked as ✅ Working",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOnnu",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Macro library not found - 8 reusable macros claimed but not implemented",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOnrs",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Fake data generators not implemented - 50+ claimed functions don't exist",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOnu3",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "JUnit XML report generation missing despite ✅ v1.0 claim",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOnzN",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "SHA-256 digest output missing despite reproducibility claims",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOn35",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "analyze command requires undocumented OTEL collector setup",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOn8p",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "AI features listed in help but crash with 'not installed' error",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOQCmyxs7SOoE0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cek",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "AI features listed in help but crash with 'not installed' error",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87SSKEY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ceo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87SXvCl",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cew",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87SXv6e",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ce0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87SdAcM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ce4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShSc2",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShVtS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShXQe",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShYIQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShYeH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShY7K",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShauR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShcSo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ShfP5",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Shf8e",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cfw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Srdqz",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cf0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87S7yQ8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87TLK21",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87TcGyV",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87TsGG1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87TyZE1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87TyaB3",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T4kGc",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9Uga",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9Vt7",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cgw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9ZTP",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cg0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9akU",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cg4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9cG2",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cg8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9dNe",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9jOX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9kc9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9qTH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T9sYR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T-y-u",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87T-0Ks",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87UKVwx",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Ub8iQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35chw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Uthvu",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ch0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87U-koa",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ciA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87VNZFd",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ciI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87VUFEa",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ciU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87VUIfj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cis",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87VZ7AI",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ciw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87VpuBi",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ci0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87V6dSO",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ci4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87WMkxV",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ci8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87WezrH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Wu38W",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87W1iIp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87W1kRh",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87W7SHf",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87XMyJW",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87XcuYj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Xtw1F",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cjw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87X_FcS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cj0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87YPMut",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cj8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87YWIMj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87YWKbG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87YdRWL",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87YtkEh",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ZAgaL",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ZRRSY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Zjk38",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ZxvrM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ckw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Z4STP",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ck4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Z4TW0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ck8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87Z91_h",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87aOru1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87aejPB",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87auna3",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87a9CHH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bH2oZ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bLyVS",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bLzUo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cls",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bSQy9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35clw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bkZW2",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cl8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bvimW",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87bvjj9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87b1m9K",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87cGMLo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87cYAqD",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87clwEd",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ctWqd",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ctYcf",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cmw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87czMgw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cm0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87dEVje",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cm4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87dVPbE",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cm8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87dlIyX",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cnE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87d1LnD",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cnI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87eDI17",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cnM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87eICep",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cnU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87eIEAn",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cnk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ePAdR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cno",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87efv_r",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cns",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ev6i8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cn8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87e_g_9",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35coA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87fRBu_",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35coE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ffBB6",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35coI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87fjol2",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35coQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87fjpxM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35coU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87fo_aI",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cog",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87f3UyH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cok",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gDivV",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cow",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gMO51",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35co0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gRGCJ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35co4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gXbRu",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35co8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gbWU1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gbXXp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gfOTG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87gpDF6",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87g0aue",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87g82bY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hCjLp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hKdGz",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cps",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hOnmO",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cpw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hOo3M",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cp0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hTf1b",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cp8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hhBDG",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87hu3OR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87h9ndd",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87iNv-n",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87icDqJ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87iifAp",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ii1M1",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cqs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ipu2e",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cq4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87i57du",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cq8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87jLApL",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87jb6Um",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87jsW-Y",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87j8dMH",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87kD7NR",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87kD_hz",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87kJ2Bz",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35crs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87kZOW0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cr0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87kqfkJ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cr4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87k8PyA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87lNtIy",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87lemtw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ln6o3",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87ln-ED",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87lvF7y",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35csk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87l_Pgw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87mRT8o",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87mlOyg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87m4wN8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87nKPVj",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87nUpys",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cto",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "🚨 Compliance Validation Failures Detected",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOPql5U87nUw0U",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cts",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "❌ KGEN Drift Detection Failed",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOP-H71s71r6pv",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35ctw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Did you plan to release a version with DuckDB 1.5 ?",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvBf3M8AAAABLqsDgQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuA",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Forward Deployment OS rebrand rollout across 339 owned repositories",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32ZdQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Author the AutoFDE phase-graph ontology",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32aUQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "CI gate on the round-trip law",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32bJA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Breach clock",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32b9A",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Name every AutoFDE refusal",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32czQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Bounded plan-structure scheduler",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32drQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cug",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Declarative GitHub project management module",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32ejA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "First CI gate attempt (superseded)",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32fZQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cus",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Breach attestation record",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32gPA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cuw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Execution bound accounting",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32hDg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cu0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Workload identity federation",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTvI1CM8AAAABL32kWw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cu8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Azure landing zone",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4G8Q",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvI",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Make Elixir app part of a Distributed Erlang cluster",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4H1w",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvU",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Make the Elixir application autoscale",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4IrA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create production env in AWS for a single-node swarm",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4Jog",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement Basic Instrumentation",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4Kkw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvs",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement the Dockerfile's builder stage",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4LZw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cvw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create a Continuous Deployment pipeline",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4MIw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cv8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Update Terraform Configuration for a multi-node swarm",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4M4w",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create A CPU Alert For Your Application",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4NuQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwM",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Push Docker image to GitHub registry automatically",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4OgQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Elixir integration pipelines",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4RCw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwg",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement the Dockerfile's runner stage",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4R4g",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Implement automatic rollback upon failed deployments",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4Sqg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cwo",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Hide any sensitive data using Docker secrets",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4TRw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cws",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create a Docker Compose file",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4UFA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cww",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create the EC2 AMI",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNl4U5Q",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cw0",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Create Your Own Custom PromEx Metric",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNne8MA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cw8",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Decide the real customer-facing mutation API surface (create/update/destroy routes)",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNne82w",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxE",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Real per-resource authorization policies (replace the deny-by-default floor)",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNne9Vw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxQ",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Design real access control for Ledger + Accounts.User/Token before any API exposure",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNne-aQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxY",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Port platform-console (Next.js, 211 real routes / ~31K lines) to Ash/Phoenix",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOT-ubL88AAAABNnm7mQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxc",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Strip Petal Framework for parts, rebuild via ggen-create",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOUADjJM8AAAABNw5Vtg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxk",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "DfCM phase shift: compile admitted execution closures from capability graphs",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOUADjJM8AAAABNxxPJA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cxw",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "Ash ecosystem closure for live process-intelligence control plane",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "I_kwDOTxmiUM8AAAABNyYLow",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg35cx4",
+        "memory_key": null,
+        "memory_kind": null,
+        "memory_updated_at": null,
+        "title": "[DEFINE] Close rejected EnvHarness reset lifecycle",
+        "type": "ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_jyY",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CJE",
+        "memory_key": "dfcm/measure/latest",
+        "memory_kind": "dfcm.measure",
+        "memory_updated_at": "2026-08-25T12:04:43Z",
+        "title": "MEASURE latest",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CtY",
+        "memory_key": "dfcm/ledger/current",
+        "memory_kind": "dfcm.ledger",
+        "memory_updated_at": "2026-08-25T12:54:06Z",
+        "title": "DfCM capability ledger current",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_ktQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36S7M",
+        "memory_key": "dfcm/run-control/portfolio/current",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-25T11:55:02Z",
+        "title": "DfCM PORTFOLIO run control",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+        "memory_key": "dfcm/frontier/current",
+        "memory_kind": "dfcm.frontier",
+        "memory_updated_at": "2026-08-25T12:54:24Z",
+        "title": "DfCM current frontier",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+        "memory_key": "dfcm/run-control/measure/current",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-25T12:01:08Z",
+        "title": "MEASURE live run control",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lIg",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36b-U",
+        "memory_key": "dfcm/portfolio/latest",
+        "memory_kind": "dfcm.portfolio",
+        "memory_updated_at": "2026-08-25T11:23:57Z",
+        "title": "DfCM PORTFOLIO latest — R44 autocatalytic closure",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lKA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36c-U",
+        "memory_key": "dfcm/run/portfolio/20260825T090730Z/8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "memory_kind": "dfcm.run.portfolio",
+        "memory_updated_at": "2026-08-25T09:08:12Z",
+        "title": "DfCM PORTFOLIO R44 autocatalytic run 2026-08-25",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lng",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36nMk",
+        "memory_key": "dfcm/run-control/select/current",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-25T12:30:30Z",
+        "title": "SELECT DEVELOP current run control",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+        "memory_key": "dfcm/select/latest",
+        "memory_kind": "dfcm.select",
+        "memory_updated_at": "2026-08-25T12:29:50Z",
+        "title": "SELECT DEVELOP latest",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lp4",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36prA",
+        "memory_key": "dfcm/run/select/20260825T093100Z/c7731659694a111bdffe3f958a40a86c1e430f44",
+        "memory_kind": "dfcm.run.select",
+        "memory_updated_at": "2026-08-25T09:31:29Z",
+        "title": "DfCM SELECT DEVELOP R45 cumulative-family learning",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_mFQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36xgM",
+        "memory_key": "dfcm/run/measure/20260825T094630Z/be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "memory_kind": "dfcm.run",
+        "memory_updated_at": "2026-08-25T09:47:06Z",
+        "title": "MEASURE R45/R45B durable learning",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_mhw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg364QE",
+        "memory_key": "dfcm/run-control/implement/current",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-25T12:53:42Z",
+        "title": "IMPLEMENT QUALIFY current run control",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_m-4",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36_7M",
+        "memory_key": "dfcm/run/measure/20260825T095259Z/3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+        "memory_kind": "dfcm.run",
+        "memory_updated_at": "2026-08-25T10:14:53Z",
+        "title": "MEASURE R46 immutable run",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRU",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37FnE",
+        "memory_key": "dfcm/implement/latest",
+        "memory_kind": "dfcm.implement",
+        "memory_updated_at": "2026-08-25T12:52:55Z",
+        "title": "IMPLEMENT QUALIFY latest",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRc",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37Fo4",
+        "memory_key": "dfcm/run-control/explore/current",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-25T11:01:35Z",
+        "title": "DfCM EXPLORE run control",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nbw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37MNs",
+        "memory_key": "dfcm/explore/latest",
+        "memory_kind": "dfcm.explore",
+        "memory_updated_at": "2026-08-25T11:00:27Z",
+        "title": "EXPLORE latest",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nk8",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37RUE",
+        "memory_key": "dfcm/run/select/20260825T104904Z/1bce7b3a",
+        "memory_kind": "dfcm.run.learning",
+        "memory_updated_at": "2026-08-25T10:50:02Z",
+        "title": "R48 reusable independent-consumer court learning",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nyM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37YwY",
+        "memory_key": "dfcm/run/explore/2026-08-25T10:43:08Z/0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8",
+        "memory_kind": "dfcm.run",
+        "memory_updated_at": "2026-08-25T11:02:07Z",
+        "title": "EXPLORE R49 durable learning",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_n1I",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37aPo",
+        "memory_key": "dfcm/run/select/20260825T110420Z/a5be7f0c",
+        "memory_kind": "dfcm.run-learning",
+        "memory_updated_at": "2026-08-25T11:05:06Z",
+        "title": "R48 shared consumer court replication learning",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_oMw",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37kdM",
+        "memory_key": "dfcm/run/measure/20260825T112355Z/9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "memory_kind": "dfcm.run-learning",
+        "memory_updated_at": "2026-08-25T11:24:28Z",
+        "title": "MEASURE R50 durable learning — consumer evidence return",
+        "type": "DRAFT_ISSUE"
+      },
+      {
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_ods",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37wDQ",
+        "memory_key": "dfcm/run/select/20260825T114504Z/0f3349af",
+        "memory_kind": "dfcm.learning",
+        "memory_updated_at": "2026-08-25T11:45:38Z",
+        "title": "R51 consumer-admission capital learning",
+        "type": "DRAFT_ISSUE"
+      }
+    ],
+    "memory_item_count": 21,
+    "project": {
+      "id": "PVT_kwHOCCCFfc4BhZKe",
+      "number": 2,
+      "owner": "seanchatmangpt",
+      "title": "@seanchatmangpt's post-agi project",
+      "url": "https://github.com/users/seanchatmangpt/projects/2"
+    },
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
