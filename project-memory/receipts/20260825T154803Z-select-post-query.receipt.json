@@ -1,0 +1,37 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T15:51:05Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "text": "R57 consumer adapter capital ex4pm GymAct chatgpt cloud ggen receipt return dependency qualification composition R54 independence causal yield"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T154803Z-select-post-query"
+  },
+  "request_id": "20260825T154803Z-select-post-query",
+  "request_path": "project-memory/requests/20260825T154803Z-select-post-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 24,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
