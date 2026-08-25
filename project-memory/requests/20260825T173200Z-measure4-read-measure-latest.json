@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T173200Z-measure4-read-measure-latest",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/measure/latest"}
+}
