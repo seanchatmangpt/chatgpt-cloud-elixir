@@ -1,0 +1,179 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T21:10:33Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "body": "MEASURE run started from live Project #2 snapshot PVT_kwHOCCCFfc4BhZKe / 372 items. Canonical DfCM memories were consumed via bounded memory.query and are being revalidated against exact live GitHub subjects. Remembered marketplace currentness is stale: live ggen-marketplace main is 5eac35d1a597080cab8388f4a72cb5278b3e4c92 after R66 receipt-realization calibration; live ggen main is ddfa602bfbab57b7ed5150f61b0acac7a41e3020. Weakest multiplier remains independently qualified consumer breadth plus causal downstream yield. standing=RUNNING.",
+        "cell": "MEASURE",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "candidate_repositories": [
+            "seanchatmangpt/ggen-marketplace",
+            "seanchatmangpt/ggen",
+            "seanchatmangpt/chatgpt-cloud-elixir",
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact"
+          ],
+          "consequential_do": false,
+          "consumed_memory_keys": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/measure/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "exact_bus_head_before_request": "891bbc26aeee29d4d009d06c77ca68adff4b3f7c",
+          "initial_frontier_size": 10,
+          "initial_weakest_multiplier": "independent_consumer_breadth_and_causal_downstream_yield",
+          "live_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "live_marketplace_head": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+          "memory_query_receipt": "20260825T210730Z-measure-r5-dfcm-query",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 372,
+          "project_title": "@seanchatmangpt's post-agi project",
+          "snapshot_receipt": "20260825T210400Z-measure-r5-snapshot",
+          "stale_memory_repaired_by_upsert": true,
+          "supersedes_prior_stale_running_state": true,
+          "utc_start": "2026-08-25T21:02:48Z"
+        },
+        "standing": "RUNNING"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T210900Z-measure-r5-run-control"
+  },
+  "request_id": "20260825T210900Z-measure-r5-run-control",
+  "request_path": "project-memory/requests/20260825T210900Z-measure-r5-run-control.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "MEASURE run started from live Project #2 snapshot PVT_kwHOCCCFfc4BhZKe / 372 items. Canonical DfCM memories were consumed via bounded memory.query and are being revalidated against exact live GitHub subjects. Remembered marketplace currentness is stale: live ggen-marketplace main is 5eac35d1a597080cab8388f4a72cb5278b3e4c92 after R66 receipt-realization calibration; live ggen main is ddfa602bfbab57b7ed5150f61b0acac7a41e3020. Weakest multiplier remains independently qualified consumer breadth plus causal downstream yield. standing=RUNNING.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+      "metadata": {
+        "1000X": "NOT_ADMITTED",
+        "E": "3.33",
+        "E_work": 3.33,
+        "M": "UNKNOWN[PRE_MEMORY_REFUSED]",
+        "M_work": 1.2,
+        "actuation_performed": false,
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "bus_head": "d56a973326b9b716099f2a84d1aecfeb87da0a43",
+        "bus_head_before_request": "5cc7eafb8700eb03827992798d5babcf9f79a5cf",
+        "candidate_repositories": [
+          "seanchatmangpt/ggen-marketplace",
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir",
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact"
+        ],
+        "cell": "MEASURE",
+        "consequential_do": false,
+        "consumed_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "consumed_memory_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "consumer_factor_observability_delta": "receipt-return and assimilation now executable; realized factor unchanged until more independent consumer executions",
+        "control_started_at": "2026-08-25T09:43:00Z",
+        "created_at": "2026-08-25T09:05:24Z",
+        "ended_at": "2026-08-25T09:46:30Z",
+        "exact_bus_head_before_request": "891bbc26aeee29d4d009d06c77ca68adff4b3f7c",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "final_marketplace_head": "b116088d8b6c6daf6595c3e9b30eb6bb58572f4b",
+        "generation": "R47",
+        "head_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "initial_frontier_size": 10,
+        "initial_weakest_multiplier": "independent_consumer_breadth_and_causal_downstream_yield",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "live_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "live_marketplace_head": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+        "meaningful_commits": 66,
+        "memory_keys_consumed": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "memory_query": "replication",
+        "memory_query_matches": 14,
+        "memory_query_receipt": "20260825T210730Z-measure-r5-dfcm-query",
+        "merge_count": 2,
+        "observed_1000x": "NOT_ADMITTED",
+        "observed_consumer_factor_after": 1,
+        "observed_consumer_factor_before": 1,
+        "original_started_at": "2026-08-25T09:22:56Z",
+        "owning_run": 32841749107,
+        "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+        "pr": 261,
+        "project_frontier_request": "20260825T112305Z-measure-r50-frontier-update",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 372,
+        "project_ledger_request": "20260825T112235Z-measure-r50-ledger-append",
+        "project_measure_request": "20260825T112132Z-measure-r50-latest",
+        "project_portfolio_correction_request": "20260825T112325Z-measure-r50-portfolio-correction",
+        "project_post_snapshot_request": "20260825T112130Z-measure-r50-snapshot-post",
+        "project_pre_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
+        "project_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "qualified_head": "008dd897b95bec935fc8c982a95061cee68e72cb",
+        "query_literal_match_count": 0,
+        "query_receipt": "20260825T192906Z-r52-query-relevant",
+        "ref": "main",
+        "reference_multiplier": 160,
+        "reference_shortfall": 840,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "sensor_count": 50,
+        "snapshot_receipt": "20260825T210400Z-measure-r5-snapshot",
+        "stale_memory_repaired_by_upsert": true,
+        "standing": "RUNNING",
+        "start_utc": "2026-08-25T13:08:53Z",
+        "started_at": "2026-08-25T09:52:59Z",
+        "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+        "supersedes_prior_stale_running_state": true,
+        "tags": [
+          "1000x",
+          "dfcm",
+          "measure",
+          "run-control"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "transport_head": "980693e751672ecd64eefee585d84d3b11e601ec",
+        "updated_at": "2026-08-25T21:10:47Z",
+        "utc_end": "2026-08-25T14:01:00Z",
+        "utc_start": "2026-08-25T21:02:48Z",
+        "vacuity_run": 32841749050
+      },
+      "title": "DfCM MEASURE run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
