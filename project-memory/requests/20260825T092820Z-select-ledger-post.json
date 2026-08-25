@@ -1,0 +1,21 @@
+{
+  "request_id": "20260825T092820Z-select-ledger-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM capability ledger",
+    "kind": "dfcm.ledger",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","r45","replication"],
+    "body": "Selection->primitive->repair->qualification edges appended without deleting prior option value: Project frontier weakest multiplier R=1 -> select ggen-marketplace PR #250 -> epistemic-sensor-factory-pack + cumulative replication-epistemic-observability family -> falsifier: exact-50 cardinality assumption contradicted by 100-sensor cumulative corpus -> repair commit 21e7542445bf4bb4f801d2e9697bcaac0ee1be6f -> CI-law falsifier: R45 executable workflow lacked timeout-minutes -> repair c7731659694a111bdffe3f958a40a86c1e430f44 -> exact-head requalification pending. Prior head 61f4b993 had dedicated R45 court SUCCESS, Vacuity SUCCESS, all four real-ggen shards SUCCESS and aggregate qualification SUCCESS. Merge remains fenced pending exact c7731659 evidence. Preserved dependency edges: distinct-repo consumer replication, cross-repo qualification reuse, predicted-vs-realized derivative calibration.",
+    "metadata": {
+      "selected_pr": 250,
+      "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "repair_commits": ["21e7542445bf4bb4f801d2e9697bcaac0ee1be6f","c7731659694a111bdffe3f958a40a86c1e430f44"],
+      "standing": "PARTIAL_ALIVE",
+      "next_edges": ["requalify exact head","merge if ALIVE","enumerate distinct-repository consumers","measure replication realization"]
+    }
+  }}
+}
