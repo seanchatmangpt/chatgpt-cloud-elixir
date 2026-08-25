@@ -1,0 +1,116 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:46:35Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "COMPLETE. UTC end=2026-08-25T09:46:30Z. Final marketplace default=be81dd42c8eae76b571b6e0b43951ee52b061367. Qualified heads: R45=2fe19ebc665572c76fa9839ef95ec0b507a2ead0, R45B=6dc67c421c7b2e8498df581a46ecc9e30202cab3. New meaningful commits attributable to this run=54 versus 50 baseline; merge count=2. New sensors=50. E_work=4.0; M_work=2.0. Multiplier standing=UNKNOWN/NOT_ADMITTED; reference 160/1000, shortfall=840. Defects repaired=2 repo-contract defects plus one Project-request transport defect. PRE ALIVE receipt=20260825T094300Z-measure-run-control-start-repair; failed predecessor=20260825T092700Z-measure-run-control-start BUILD_BROKEN[JSONDecodeError]. POST requests: snapshot 20260825T094500Z-measure-snapshot-post, measure 20260825T094501Z-measure-latest-post, ledger 20260825T094502Z-measure-ledger-post, frontier 20260825T094503Z-measure-frontier-post. Exact containment: final merge be81dd42 has second parent 6dc67c421c7b2e8498df581a46ecc9e30202cab3 and first parent 171120927d93eeacaf67c843b1fca64665ffd8db.",
+        "cell": "MEASURE",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "E_work": 4.0,
+          "M_work": 2.0,
+          "bus_head_before_request": "2b58f2b5f4c9eac512a8dce485d4c1f0365d391e",
+          "ended_at": "2026-08-25T09:46:30Z",
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "meaningful_commits": 54,
+          "merge_count": 2,
+          "reference_multiplier": 160,
+          "reference_shortfall": 840,
+          "sensor_count": 50,
+          "standing": "COMPLETE"
+        },
+        "standing": "COMPLETE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "run-control",
+          "r45",
+          "r45b"
+        ],
+        "title": "MEASURE run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T094504Z-measure-run-control-complete"
+  },
+  "request_id": "20260825T094504Z-measure-run-control-complete",
+  "request_path": "project-memory/requests/20260825T094504Z-measure-run-control-complete.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "COMPLETE. UTC end=2026-08-25T09:46:30Z. Final marketplace default=be81dd42c8eae76b571b6e0b43951ee52b061367. Qualified heads: R45=2fe19ebc665572c76fa9839ef95ec0b507a2ead0, R45B=6dc67c421c7b2e8498df581a46ecc9e30202cab3. New meaningful commits attributable to this run=54 versus 50 baseline; merge count=2. New sensors=50. E_work=4.0; M_work=2.0. Multiplier standing=UNKNOWN/NOT_ADMITTED; reference 160/1000, shortfall=840. Defects repaired=2 repo-contract defects plus one Project-request transport defect. PRE ALIVE receipt=20260825T094300Z-measure-run-control-start-repair; failed predecessor=20260825T092700Z-measure-run-control-start BUILD_BROKEN[JSONDecodeError]. POST requests: snapshot 20260825T094500Z-measure-snapshot-post, measure 20260825T094501Z-measure-latest-post, ledger 20260825T094502Z-measure-ledger-post, frontier 20260825T094503Z-measure-frontier-post. Exact containment: final merge be81dd42 has second parent 6dc67c421c7b2e8498df581a46ecc9e30202cab3 and first parent 171120927d93eeacaf67c843b1fca64665ffd8db.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+      "metadata": {
+        "E_work": 4.0,
+        "M_work": 2.0,
+        "bus_head": "a9f8407f54c90f35c999f1b7aeb896802a68e19a",
+        "bus_head_before_request": "2b58f2b5f4c9eac512a8dce485d4c1f0365d391e",
+        "candidate_repositories": [
+          "seanchatmangpt/ggen-marketplace",
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir"
+        ],
+        "cell": "MEASURE",
+        "consumed_memory_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest",
+          "dfcm query: ggen marketplace measure epistemic sensors falsifiers stale standing ontology pack dependency phase-change 1000x"
+        ],
+        "control_started_at": "2026-08-25T09:43:00Z",
+        "created_at": "2026-08-25T09:05:24Z",
+        "ended_at": "2026-08-25T09:46:30Z",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "initial_frontier_size": 8,
+        "initial_weakest_multiplier": "R_consumer_replication",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "live_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "meaningful_commits": 54,
+        "merge_count": 2,
+        "original_started_at": "2026-08-25T09:22:56Z",
+        "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 351,
+        "project_title": "@seanchatmangpt's post-agi project",
+        "reference_multiplier": 160,
+        "reference_shortfall": 840,
+        "schema": "chatgpt-project-memory/v1",
+        "sensor_count": 50,
+        "standing": "COMPLETE",
+        "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r45",
+          "r45b",
+          "run-control"
+        ],
+        "updated_at": "2026-08-25T09:46:42Z",
+        "utc_start": "2026-08-25T09:05:00Z"
+      },
+      "title": "MEASURE run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
