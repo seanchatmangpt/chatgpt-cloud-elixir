@@ -1,0 +1,76 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T18:45:38Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: dependency relief is not manufacturing yield. Allocation requires clean exact-current evidence, replay, qualification receipt, falsifier, generated projection, positive relief, non-zero actionable opportunity yield, consumer/evidence-root breadth, and coherent request->execution->receipt->relief ordering. Historical independence machinery must be reconstituted onto current canonical main rather than merged from a deeply diverged lineage.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260825T184500Z/3d579af7",
+        "kind": "dfcm.run.learning",
+        "metadata": {
+          "1000x": "NOT_ADMITTED",
+          "marketplace_default": "3d579af785c3665fdc47aa872892c804284c46ff",
+          "pr": 283,
+          "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+          "semantic_courts": 50
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "select",
+          "r63",
+          "learning"
+        ],
+        "title": "R63 relief-capital allocation learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T184500Z-select-learning"
+  },
+  "request_id": "20260825T184500Z-select-learning",
+  "request_path": "project-memory/requests/20260825T184500Z-select-learning.json",
+  "result": {
+    "body": "Durable learning: dependency relief is not manufacturing yield. Allocation requires clean exact-current evidence, replay, qualification receipt, falsifier, generated projection, positive relief, non-zero actionable opportunity yield, consumer/evidence-root breadth, and coherent request->execution->receipt->relief ordering. Historical independence machinery must be reconstituted onto current canonical main rather than merged from a deeply diverged lineage.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_xLU",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg3_jUQ",
+    "metadata": {
+      "1000x": "NOT_ADMITTED",
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-25T18:45:42Z",
+      "key": "dfcm/run/select/20260825T184500Z/3d579af7",
+      "kind": "dfcm.run.learning",
+      "marketplace_default": "3d579af785c3665fdc47aa872892c804284c46ff",
+      "pr": 283,
+      "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+      "schema": "chatgpt-project-memory/v1",
+      "semantic_courts": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "learning",
+        "r63",
+        "select"
+      ],
+      "updated_at": "2026-08-25T18:45:42Z"
+    },
+    "title": "R63 relief-capital allocation learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
