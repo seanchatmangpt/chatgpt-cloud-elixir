@@ -5,7 +5,7 @@ defmodule ChatGPTCloud.ProcessIntelligence do
     extensions: [AshAdmin.Domain, AshJsonApi.Domain, AshGraphql.Domain, AshAi]
 
   admin do
-    show? true
+    show?(true)
   end
 
   json_api do
@@ -32,11 +32,14 @@ defmodule ChatGPTCloud.ProcessIntelligence do
   end
 
   tools do
-    tool :list_qualifications, ChatGPTCloud.ProcessIntelligence.Qualification, :read,
-      description: "Read qualification evidence and bounded standing. This tool cannot actuate deployments."
+    tool(:list_qualifications, ChatGPTCloud.ProcessIntelligence.Qualification, :read,
+      description:
+        "Read qualification evidence and bounded standing. This tool cannot actuate deployments."
+    )
 
-    tool :list_cost_observations, ChatGPTCloud.ProcessIntelligence.CostObservation, :read,
+    tool(:list_cost_observations, ChatGPTCloud.ProcessIntelligence.CostObservation, :read,
       description: "Read metering observations. Values are evidence, not billing authority."
+    )
   end
 
   resources do

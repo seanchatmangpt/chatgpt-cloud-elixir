@@ -29,13 +29,16 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
 
   @doc "Resolve the auth token the same way the Python proxy does: PROJECTS_TOKEN > GH_TOKEN > GH_PAT > GITHUB_PAT > GITHUB_TOKEN."
   def resolve_token do
-    Enum.find_value(["PROJECTS_TOKEN", "GH_TOKEN", "GH_PAT", "GITHUB_PAT", "GITHUB_TOKEN"], fn name ->
-      case System.get_env(name) do
-        nil -> nil
-        "" -> nil
-        value -> {value, name}
+    Enum.find_value(
+      ["PROJECTS_TOKEN", "GH_TOKEN", "GH_PAT", "GITHUB_PAT", "GITHUB_TOKEN"],
+      fn name ->
+        case System.get_env(name) do
+          nil -> nil
+          "" -> nil
+          value -> {value, name}
+        end
       end
-    end)
+    )
   end
 
   @doc "Resolve the configured Project's node id, title, and url."
@@ -153,7 +156,8 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
     key = Map.get(record, "key") || Map.get(record, :key)
 
     if is_nil(key) or key == "" do
-      {:error, %ProxyError{message: "record.key is required", standing: "REFUSED", reason: "MISSING_KEY"}}
+      {:error,
+       %ProxyError{message: "record.key is required", standing: "REFUSED", reason: "MISSING_KEY"}}
     else
       with {:ok, project} <- resolve_project(),
            {:ok, existing} <- find_by_key(key) do
@@ -180,7 +184,11 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
           """
 
           with {:ok, data} <-
-                 execute(mutation, %{"draft" => existing.content_id, "title" => title, "body" => encoded}) do
+                 execute(mutation, %{
+                   "draft" => existing.content_id,
+                   "title" => title,
+                   "body" => encoded
+                 }) do
             draft = get_in(data, ["updateProjectV2DraftIssue", "draftIssue"]) || %{}
 
             {:ok,
@@ -202,7 +210,8 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
           }
           """
 
-          with {:ok, data} <- execute(mutation, %{"project" => project.id, "title" => title, "body" => encoded}) do
+          with {:ok, data} <-
+                 execute(mutation, %{"project" => project.id, "title" => title, "body" => encoded}) do
             item = get_in(data, ["addProjectV2DraftIssue", "projectItem"]) || %{}
             content = item["content"] || %{}
 
@@ -268,7 +277,11 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
     case resolve_token() do
       nil ->
         {:error,
-         %ProxyError{message: "No GitHub token available", standing: "BLOCKED", reason: "IRREDUCIBLE_AUTHORITY"}}
+         %ProxyError{
+           message: "No GitHub token available",
+           standing: "BLOCKED",
+           reason: "IRREDUCIBLE_AUTHORITY"
+         }}
 
       {token, _source} ->
         body = Jason.encode!(%{query: query, variables: variables})
@@ -308,7 +321,13 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
                     {"UNKNOWN", "GRAPHQL_ERROR"}
                   end
 
-                {:error, %ProxyError{message: message, standing: standing, reason: reason, details: errors}}
+                {:error,
+                 %ProxyError{
+                   message: message,
+                   standing: standing,
+                   reason: reason,
+                   details: errors
+                 }}
             end
 
           {:ok, {{_line, status, _reason}, _resp_headers, resp_body}} when status in [401, 403] ->
@@ -330,7 +349,13 @@ defmodule ChatGPTCloud.DfcmMemory.GithubProjectClient do
              }}
 
           {:error, reason} ->
-            {:error, %ProxyError{message: "GitHub GraphQL network failure", standing: "UNKNOWN", reason: "NETWORK", details: inspect(reason)}}
+            {:error,
+             %ProxyError{
+               message: "GitHub GraphQL network failure",
+               standing: "UNKNOWN",
+               reason: "NETWORK",
+               details: inspect(reason)
+             }}
         end
     end
   end

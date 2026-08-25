@@ -125,7 +125,12 @@ defmodule ChatGPTCloud.ProcessIntelligence.Qualification do
     attribute :kind, :string, allow_nil?: false, default: "process_intelligence", public?: true
     attribute :standing, :string, allow_nil?: false, default: "UNKNOWN", public?: true
     attribute :result, :map, allow_nil?: false, default: %{}, public?: true
-    attribute :requested_at, :utc_datetime_usec, allow_nil?: false, default: &DateTime.utc_now/0, public?: true
+
+    attribute :requested_at, :utc_datetime_usec,
+      allow_nil?: false,
+      default: &DateTime.utc_now/0,
+      public?: true
+
     attribute :started_at, :utc_datetime_usec, public?: true
     attribute :completed_at, :utc_datetime_usec, public?: true
     create_timestamp :inserted_at

@@ -27,7 +27,9 @@ defmodule ChatGPTCloud.DfcmMemory.UpsertRecord do
       end)
 
     case GithubProjectClient.upsert(record) do
-      {:ok, result} -> {:ok, result}
+      {:ok, result} ->
+        {:ok, result}
+
       {:error, %{message: message, standing: standing, reason: reason}} ->
         {:error, Ash.Error.to_ash_error("#{standing}[#{reason}]: #{message}")}
 

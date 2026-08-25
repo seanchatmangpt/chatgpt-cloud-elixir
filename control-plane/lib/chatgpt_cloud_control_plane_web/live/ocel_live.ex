@@ -35,15 +35,25 @@ defmodule ChatGPTCloudWeb.OcelLive do
       <div class="mx-auto max-w-[1600px] px-6 py-8">
         <header class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">ChatGPT Cloud</p>
-            <h1 class="mt-2 text-4xl font-semibold tracking-tight">Streaming OCEL Process Intelligence</h1>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              ChatGPT Cloud
+            </p>
+            <h1 class="mt-2 text-4xl font-semibold tracking-tight">
+              Streaming OCEL Process Intelligence
+            </h1>
             <p class="mt-2 max-w-3xl text-slate-400">
               Exact agent, run, activity, authority, standing, object, and receipt observations streamed from admitted cloud executions.
             </p>
           </div>
           <nav class="flex gap-3 text-sm">
-            <a class="rounded-lg border border-slate-700 px-4 py-2 hover:border-cyan-400" href="/admin">AshAdmin</a>
-            <a class="rounded-lg border border-slate-700 px-4 py-2 hover:border-cyan-400" href="/healthz">Health</a>
+            <a
+              class="rounded-lg border border-slate-700 px-4 py-2 hover:border-cyan-400"
+              href="/admin"
+            >AshAdmin</a>
+            <a
+              class="rounded-lg border border-slate-700 px-4 py-2 hover:border-cyan-400"
+              href="/healthz"
+            >Health</a>
           </nav>
         </header>
 
@@ -58,7 +68,9 @@ defmodule ChatGPTCloudWeb.OcelLive do
         <section class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 shadow-2xl">
           <div class="border-b border-slate-800 px-5 py-4">
             <h2 class="font-semibold">Live event stream</h2>
-            <p class="text-sm text-slate-400">Newest admitted observations appear first. Duplicate event identities are ignored.</p>
+            <p class="text-sm text-slate-400">
+              Newest admitted observations appear first. Duplicate event identities are ignored.
+            </p>
           </div>
 
           <div class="grid grid-cols-[minmax(150px,0.8fr)_minmax(130px,0.7fr)_minmax(180px,1.2fr)_minmax(130px,0.7fr)_minmax(120px,0.6fr)_minmax(160px,1fr)] gap-3 border-b border-slate-800 bg-slate-950/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -128,6 +140,12 @@ defmodule ChatGPTCloudWeb.OcelLive do
     Queries.stats()
   rescue
     _ ->
-      %{events_last_minute: 0, active_agents: 0, active_runs: 0, refusals_last_hour: 0, process_variants: 0}
+      %{
+        events_last_minute: 0,
+        active_agents: 0,
+        active_runs: 0,
+        refusals_last_hour: 0,
+        process_variants: 0
+      }
   end
 end

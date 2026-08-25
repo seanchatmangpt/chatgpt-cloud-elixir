@@ -41,7 +41,12 @@ defmodule ChatGPTCloud.ProcessIntelligence.CostObservation do
       constraints: [storage_type: :map]
 
     attribute :basis, :map, allow_nil?: false, default: %{}, public?: true
-    attribute :observed_at, :utc_datetime_usec, allow_nil?: false, default: &DateTime.utc_now/0, public?: true
+
+    attribute :observed_at, :utc_datetime_usec,
+      allow_nil?: false,
+      default: &DateTime.utc_now/0,
+      public?: true
+
     create_timestamp :inserted_at
     update_timestamp :updated_at
   end

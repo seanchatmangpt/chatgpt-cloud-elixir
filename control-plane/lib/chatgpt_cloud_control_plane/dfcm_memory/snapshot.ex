@@ -8,7 +8,9 @@ defmodule ChatGPTCloud.DfcmMemory.Snapshot do
   @impl true
   def run(_input, _opts, _context) do
     case GithubProjectClient.snapshot() do
-      {:ok, result} -> {:ok, result}
+      {:ok, result} ->
+        {:ok, result}
+
       {:error, %{message: message, standing: standing, reason: reason}} ->
         {:error, Ash.Error.to_ash_error("#{standing}[#{reason}]: #{message}")}
 

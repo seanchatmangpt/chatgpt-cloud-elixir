@@ -112,7 +112,16 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
     Repo.insert_all("ocel_runs", [row],
       on_conflict:
         {:replace,
-         [:agent_key, :status, :subject_repo, :subject_sha, :last_seen_at, :ended_at, :metadata, :updated_at]},
+         [
+           :agent_key,
+           :status,
+           :subject_repo,
+           :subject_sha,
+           :last_seen_at,
+           :ended_at,
+           :metadata,
+           :updated_at
+         ]},
       conflict_target: [:run_key]
     )
   end
@@ -203,7 +212,8 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
   defp upsert_variants(rows) do
     Repo.insert_all("ocel_process_variants", rows,
-      on_conflict: {:replace, [:name, :model_type, :model_digest, :payload, :last_seen_at, :updated_at]},
+      on_conflict:
+        {:replace, [:name, :model_type, :model_digest, :payload, :last_seen_at, :updated_at]},
       conflict_target: [:variant_key]
     )
   end
@@ -476,8 +486,10 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
     {:ok,
      Enum.flat_map(rows, fn
-       %{"id" => id, "name" => name, "model_type" => model_type, "model_digest" => model_digest} = row
-       when is_binary(id) and is_binary(name) and is_binary(model_type) and is_binary(model_digest) ->
+       %{"id" => id, "name" => name, "model_type" => model_type, "model_digest" => model_digest} =
+           row
+       when is_binary(id) and is_binary(name) and is_binary(model_type) and
+              is_binary(model_digest) ->
          [
            %{
              id: Ecto.UUID.generate(),
@@ -519,7 +531,9 @@ defmodule ChatGPTCloud.ProcessIntelligence.Ingestor do
 
   defp required_integer(map, key) do
     case map[key] do
-      value when is_integer(value) -> {:ok, value}
+      value when is_integer(value) ->
+        {:ok, value}
+
       value when is_binary(value) ->
         case Integer.parse(value) do
           {integer, ""} -> {:ok, integer}
