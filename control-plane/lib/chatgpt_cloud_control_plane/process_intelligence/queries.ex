@@ -27,9 +27,13 @@ defmodule ChatGPTCloud.ProcessIntelligence.Queries do
   def stats do
     %{
       events_last_minute:
-        scalar("SELECT count(*)::bigint FROM ocel_events WHERE ingested_at > now() - interval '60 seconds'"),
+        scalar(
+          "SELECT count(*)::bigint FROM ocel_events WHERE ingested_at > now() - interval '60 seconds'"
+        ),
       active_agents:
-        scalar("SELECT count(*)::bigint FROM ocel_agents WHERE last_seen_at > now() - interval '5 minutes'"),
+        scalar(
+          "SELECT count(*)::bigint FROM ocel_agents WHERE last_seen_at > now() - interval '5 minutes'"
+        ),
       active_runs:
         scalar(
           "SELECT count(*)::bigint FROM ocel_runs WHERE ended_at IS NULL AND last_seen_at > now() - interval '5 minutes'"

@@ -11,7 +11,8 @@ defmodule ChatGPTCloudWeb.Layouts do
         <meta name="csrf-token" content={Phoenix.Controller.get_csrf_token()} />
         <title>ChatGPT Cloud Process Intelligence</title>
         <link phx-track-static rel="stylesheet" href="/assets/css/app.css" />
-        <script defer phx-track-static type="text/javascript" src="/assets/js/app.js"></script>
+        <script defer phx-track-static type="text/javascript" src="/assets/js/app.js">
+        </script>
       </head>
       <body>
         {@inner_content}

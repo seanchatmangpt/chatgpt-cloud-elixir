@@ -9,8 +9,8 @@ defmodule ChatGPTCloud.ProcessIntelligence.QualificationReactor do
     default_domain ChatGPTCloud.ProcessIntelligence
   end
 
-  input :qualification
-  input :receipt
+  input(:qualification)
+  input(:receipt)
 
   update :start_qualification, Qualification, :start do
     initial input(:qualification)

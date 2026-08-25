@@ -1,0 +1,14 @@
+schema_version = 1
+name = "autonomic-manufacturing"
+description = "Portable ggen manufacturing capital plus SwarmSH execution ancestry for restricted ChatGPT Linux containers."
+authority_ceiling = "CONSTRUCT_VERIFY"
+source_project = "manufacturing"
+generated_contract = "manufacturing/generated/capability-lock.json"
+required_sources = ["ggen", "ggen-marketplace", "ggen-create", "ggen-legacy", "ggen-spec-kit", "swarmsh", "swarmsh-v2"]
+required_host_commands = ["bash", "python3", "git", "tar", "gzip", "sha256sum"]
+acceptance = [
+  "bin/ggen --help",
+  "bash scripts/verify-autonomic-manufacturing.sh"
+]
+standing = "UNKNOWN"
+notes = "SwarmSH v1 is executable ancestry; SwarmSH v2 is source-bound typed ancestry and is not promoted to runtime ALIVE by this capsule. Consequential DO remains external and separately authorized."

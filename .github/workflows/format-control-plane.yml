@@ -9,16 +9,29 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   format:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: feat/process-intelligence-capsule
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+
+      - name: Assert exact subject
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="${{ github.event.pull_request.head.sha || github.sha }}"
+          actual="$(git rev-parse HEAD)"
+          test "$actual" = "$expected" || {
+            printf 'REFUSED_INEXACT_FORMAT_SUBJECT expected=%s actual=%s\n' "$expected" "$actual" >&2
+            exit 70
+          }
+          printf 'FORMAT_SUBJECT=%s\n' "$actual"
 
       - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
         with:
@@ -32,25 +45,20 @@ jobs:
           mix local.rebar --force
           mix deps.get
 
-      - name: Apply canonical formatter
+      - name: Verify canonical formatter without mutation
         working-directory: control-plane
         run: |
-          mix format
+          set -euo pipefail
           mix format --check-formatted
 
-      - name: Commit formatter-owned source and resolved lock
+      - name: Refuse formatter-induced source mutation
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "chatgpt-cloud-elixir formatter"
-          git config user.email "136349053+seanchatmangpt@users.noreply.github.com"
-          git add control-plane
-          git diff --cached --check
-          if git diff --cached --quiet; then
-            echo "Formatter already converged"
-            exit 0
+          if ! git diff --quiet -- control-plane; then
+            echo "REFUSED_FORMATTER_MUTATION" >&2
+            git diff --check -- control-plane
+            git diff -- control-plane
+            exit 70
           fi
-          bad="$(git diff --cached --name-only | grep -v '^control-plane/' || true)"
-          test -z "$bad" || { printf 'REFUSED_FORMAT_SCOPE\n%s\n' "$bad" >&2; exit 70; }
-          git commit -m "style(control-plane): apply OTP29 Elixir 1.20 formatter"
-          git push origin HEAD:feat/process-intelligence-capsule
+          echo "FORMAT_CONTROL_PLANE=ALIVE authority=VERIFY actuation_performed=false"

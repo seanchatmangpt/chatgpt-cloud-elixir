@@ -1,4 +1,13 @@
-schema_version = 1
+schema_version = 2
+
+[release]
+version = "26.8.25"
+date = "2026-08-25"
+
+[bootstrap]
+ggen_repository = "seanchatmangpt/ggen"
+ggen_sha = "f4e1bce1efdcdc4f6c2531be9f66070950f7ec93"
+rust_toolchain = "nightly-2026-06-22"
 
 [runtime]
 otp = "29.0"

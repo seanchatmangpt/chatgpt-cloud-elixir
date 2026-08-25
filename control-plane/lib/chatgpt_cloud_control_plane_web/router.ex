@@ -58,6 +58,6 @@ defmodule ChatGPTCloudWeb.Router do
 
   scope "/" do
     pipe_through :browser
-    ash_admin "/admin"
+    ash_admin("/admin")
   end
 end

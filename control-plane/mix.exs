@@ -4,7 +4,7 @@ defmodule ChatGPTCloud.MixProject do
   def project do
     [
       app: :chatgpt_cloud_control_plane,
-      version: "0.2.0",
+      version: "26.8.25",
       elixir: "~> 1.20",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
