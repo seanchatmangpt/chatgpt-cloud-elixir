@@ -1,0 +1,23 @@
+{
+  "request_id": "20260825T092840Z-select-frontier-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current portfolio frontier",
+    "kind": "dfcm.frontier",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","frontier","r45","consumer-replication"],
+    "body": "Frontier delta: ggen-marketplace PR #250 now has repaired exact candidate c7731659694a111bdffe3f958a40a86c1e430f44. Two manufacturing suppressors were removed without collapsing option value: cumulative replication sensor families are no longer falsely capped at exactly 50, and the R45 qualification workflow is bounded by timeout law. This candidate remains REQUALIFYING; default main remains 8c05c4252264fb0cfd60585657d9776ff2c9de29 until exact-head courts admit it. Highest reachable next edges: exact-head requalification and merge; distinct-repository adoption of frontier-derivative/epistemic sensor primitives; cross-repo reproduction receipts; predicted-vs-realized derivative calibration; chatgpt-cloud-elixir process-intelligence and formatter repair. Weakest multiplier remains independent consumer replication R=1 until observed consumers exceed one.",
+    "metadata": {
+      "marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "r45_candidate": "c7731659694a111bdffe3f958a40a86c1e430f44",
+      "r45_pr": 250,
+      "r45_standing": "REQUALIFYING",
+      "new_repairs": 2,
+      "weakest_multiplier": "R_consumer_replication",
+      "next_edges": ["exact-head requalification","merge if ALIVE","distinct-repository consumer adoption","cross-repo reproduction receipt","predicted-vs-realized derivative calibration","chatgpt-cloud-elixir manufacturing repair"]
+    }
+  }}
+}
