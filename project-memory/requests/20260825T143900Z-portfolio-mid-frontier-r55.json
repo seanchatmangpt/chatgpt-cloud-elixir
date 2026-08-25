@@ -1,0 +1,30 @@
+{
+  "request_id": "20260825T143900Z-portfolio-mid-frontier-r55",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "r55", "consumer-replication"],
+      "body": "Live frontier advanced to R55 independent-consumer fanout. PR #270 exact head moved 64f4b212 -> 37e61aa8 after real-ggen shard 0/4 exposed a branch regression of the already-admitted evidence-return ORDER BY contract. Current branch now restores that deterministic query; owning R55 and Vacuity are SUCCESS; broad CI is requalifying. R55 contains 50 executable fanout sensors and still reports independently-ready consumer shortfall 9/10.",
+      "metadata": {
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "pr": 270,
+        "head_sha": "37e61aa8d86c70e88e17b9a733a893c1a714fc4d",
+        "default_head": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+        "semantic_commits_in_subject": 50,
+        "owning_r55": "ALIVE",
+        "vacuity": "ALIVE",
+        "broad_ci": "REQUALIFYING",
+        "real_ggen_failure_repaired": "epistemic-sensor-factory-pack evidence-return-protocol ORDER BY",
+        "weakest_multiplier": "independent qualified consumer breadth",
+        "consumer_target": 10,
+        "consumer_shortfall": 9
+      }
+    }
+  }
+}
