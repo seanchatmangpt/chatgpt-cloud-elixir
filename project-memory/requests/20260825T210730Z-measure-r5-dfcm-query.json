@@ -1,0 +1,11 @@
+{
+  "request_id": "20260825T210730Z-measure-r5-dfcm-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "text": "dfcm",
+    "include_archived": false,
+    "max_scan": 5000,
+    "limit": 100
+  }
+}
