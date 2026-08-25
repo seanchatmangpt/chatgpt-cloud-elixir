@@ -1,0 +1,80 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T11:05:02Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: once a verifier becomes canonical producer-owned substrate, each independent consumer should retain only its exact identity and invocation authority boundary. Migrating ggen from local R47 verifier/falsifier/schema copies to the marketplace R48 court preserved independent execution while deleting three parallel truths. Exact candidate 26ed26b71f2b22781c351950c5a8d7d6db33a585 passed both the R48 owning court and broad CI, then merged to ggen main as a5be7f0c88c411cb023eb7960a4cb1b3e521f474. Future fanout must admit exact targets upstream before projecting local adapters; write authority alone is not compatibility evidence.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260825T110420Z/a5be7f0c",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "bus_head_before_request": "a81014920d25c7bcf8f87c38df2f55275156800f",
+          "candidate_sha": "26ed26b71f2b22781c351950c5a8d7d6db33a585",
+          "duplicate_surfaces_eliminated": 3,
+          "merge_sha": "a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+          "pr": 668,
+          "producer_court": "4715c562c3dd2c073c0ca119edbc013647978cae",
+          "semantic_commits": 6
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "r48",
+          "consumer",
+          "reuse"
+        ],
+        "title": "R48 shared consumer court replication learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "select-110420-learning"
+  },
+  "request_id": "select-110420-learning",
+  "request_path": "project-memory/requests/select-110420-learning.json",
+  "result": {
+    "body": "Durable learning: once a verifier becomes canonical producer-owned substrate, each independent consumer should retain only its exact identity and invocation authority boundary. Migrating ggen from local R47 verifier/falsifier/schema copies to the marketplace R48 court preserved independent execution while deleting three parallel truths. Exact candidate 26ed26b71f2b22781c351950c5a8d7d6db33a585 passed both the R48 owning court and broad CI, then merged to ggen main as a5be7f0c88c411cb023eb7960a4cb1b3e521f474. Future fanout must admit exact targets upstream before projecting local adapters; write authority alone is not compatibility evidence.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_n1I",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg37aPo",
+    "metadata": {
+      "bus_head_before_request": "a81014920d25c7bcf8f87c38df2f55275156800f",
+      "candidate_sha": "26ed26b71f2b22781c351950c5a8d7d6db33a585",
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-25T11:05:06Z",
+      "duplicate_surfaces_eliminated": 3,
+      "key": "dfcm/run/select/20260825T110420Z/a5be7f0c",
+      "kind": "dfcm.run-learning",
+      "merge_sha": "a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+      "pr": 668,
+      "producer_court": "4715c562c3dd2c073c0ca119edbc013647978cae",
+      "schema": "chatgpt-project-memory/v1",
+      "semantic_commits": 6,
+      "standing": "ALIVE",
+      "tags": [
+        "consumer",
+        "dfcm",
+        "r48",
+        "reuse"
+      ],
+      "updated_at": "2026-08-25T11:05:06Z"
+    },
+    "title": "R48 shared consumer court replication learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
