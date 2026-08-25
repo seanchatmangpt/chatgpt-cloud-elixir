@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T162606Z-select-query-capital",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "selection alternatives dependency unlock consumer reusable primitive capital yield phase-change weakest multiplier failed investment", "limit": 100}
+}
