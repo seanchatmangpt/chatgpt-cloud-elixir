@@ -1,0 +1,87 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:41:06Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R48 extended epistemic-sensor-factory-pack with 10 semantic consumer-census and authority qualification courts on branch implement/r48-replication-capital-20260825. TensorFlow consumer seanchatman/tensorflow observed exact master f8190fd2a8904b17ed0827d03033802ee5ba5556 and is read-only through current connector, so consumer propagation is refused at write edge. Marketplace base b942ff54f7d00e376dd2f28beb930390f4feb97b. 50-commit floor not reached due bounded run window.",
+        "cell": "IMPLEMENT_QUALIFY",
+        "key": "dfcm/implement/latest",
+        "kind": "dfcm.implement",
+        "metadata": {
+          "M": "UNKNOWN",
+          "R": "PARTIAL",
+          "marketplace_base": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "meaningful_commits": 10
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "implement"
+        ],
+        "title": "DfCM implement latest"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T104100Z-implement-post"
+  },
+  "request_id": "20260825T104100Z-implement-post",
+  "request_path": "project-memory/requests/20260825T104100Z-implement-post.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R48 extended epistemic-sensor-factory-pack with 10 semantic consumer-census and authority qualification courts on branch implement/r48-replication-capital-20260825. TensorFlow consumer seanchatman/tensorflow observed exact master f8190fd2a8904b17ed0827d03033802ee5ba5556 and is read-only through current connector, so consumer propagation is refused at write edge. Marketplace base b942ff54f7d00e376dd2f28beb930390f4feb97b. 50-commit floor not reached due bounded run window.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRU",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg37FnE",
+      "metadata": {
+        "M": "UNKNOWN",
+        "R": "PARTIAL",
+        "R_consumer_alive": 1,
+        "R_qualification": 50,
+        "bus_head": "9f9acb4eab5c3a22fba56bf742e55518fa655a7d",
+        "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+        "cell": "IMPLEMENT_QUALIFY",
+        "created_at": "2026-08-25T10:26:52Z",
+        "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "key": "dfcm/implement/latest",
+        "kind": "dfcm.implement",
+        "known_consumers": 3,
+        "marketplace_base": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "meaningful_commits": 10,
+        "merge_sha": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+        "partial_consumers": 2,
+        "project_post_receipt": "20260825T102620Z-implement-post",
+        "qualification_artifacts": 50,
+        "qualified_consumers_alive": 1,
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "implement"
+        ],
+        "updated_at": "2026-08-25T10:41:14Z",
+        "upstream_defect": "TEMPLATE_VARIABLE_MISSING rows",
+        "upstream_repair": "rows->results plus permanent regression guard",
+        "weakest_multiplier": "external consumer realization; PRE memory leverage unavailable"
+      },
+      "title": "DfCM implement latest"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
