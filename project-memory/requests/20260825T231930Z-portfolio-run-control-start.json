@@ -1,0 +1,31 @@
+{
+  "request_id": "20260825T231930Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "autocatalytic-capital"],
+      "body": "PORTFOLIO recurrence started 2026-08-25T23:19:30Z. Project snapshot PVT_kwHOCCCFfc4BhZKe/@seanchatmangpt's post-agi project item_count=375. Memory query request 20260825T231910Z-portfolio-pre-dfcm-query is in flight. Initial seeds: recursive chatman-ecosystem dependency train after #161; ggen-marketplace R67 Project-memory causality/consumer-replication frontier; independent consumer fanout; Project-memory transport/meta-factory opportunities. Preserve exact-head qualification and marketplace-first repair law.",
+      "metadata": {
+        "utc_start": "2026-08-25T23:19:30Z",
+        "bus_head": "878e9ebd135c4114c3b99b430fd94d54ec20a970",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 375,
+        "memory_keys_requested": ["dfcm/frontier/current","dfcm/ledger/current","dfcm/measure/latest","dfcm/explore/latest","dfcm/select/latest","dfcm/implement/latest","dfcm/portfolio/latest"],
+        "initial_frontier_size": null,
+        "E": null,
+        "E2": null,
+        "Y": null,
+        "R": 1,
+        "C": null,
+        "M": null,
+        "weakest_multiplier": "R_consumer_replication_and_memory_closure"
+      }
+    }
+  }
+}
