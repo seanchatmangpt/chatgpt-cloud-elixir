@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T125400Z-implement-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/implement/latest",
+      "title": "IMPLEMENT QUALIFY latest",
+      "kind": "dfcm.implement",
+      "cell": "IMPLEMENT_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm","implement","r54","replication-capital"],
+      "body": "R54 replicated the canonical epistemic-sensor-factory consumer contract into ex4pm and GymAct as independent execution roots. 51 new semantic commits across two PRs; both owning exact-head courts ALIVE; broad repository CI still executing; ggen #670 merge actuation refused by write-surface safety before GitHub execution.",
+      "metadata": {
+        "meaningful_commits": 51,
+        "R_qualified_consumers": 2,
+        "producer_pack": "epistemic-sensor-factory-pack",
+        "ex4pm_pr": 32,
+        "ex4pm_head": "7a08ba84b46f38f9ed3e3e371fead1953c70bf9e",
+        "gymact_pr": 124,
+        "gymact_head": "9a9dfdbdfbc904cead5f9364a57289770f1ffa49",
+        "weakest_multiplier": "qualified writable consumer breadth",
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+        "standing": "PARTIAL_ALIVE"
+      }
+    }
+  }
+}
