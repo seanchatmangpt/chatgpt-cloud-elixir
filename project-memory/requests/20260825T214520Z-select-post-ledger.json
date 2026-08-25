@@ -1,0 +1,14 @@
+{
+  "request_id": "20260825T214520Z-select-post-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM durable innovation-capital ledger",
+    "kind": "dfcm.ledger",
+    "standing": "ALIVE",
+    "tags": ["dfcm", "ledger", "r67", "provenance"],
+    "body": "Durable edge appended without deleting lawful option value: Project #2 snapshot PVT_kwHOCCCFfc4BhZKe/372 + frontier/ledger/EXPLORE/SELECT/PORTFOLIO evidence -> live GitHub revalidation -> stale PR #288 classified as provenance (62 ahead/132 behind current main) -> exact-current base 5eac35d1a597080cab8388f4a72cb5278b3e4c92 -> R67 public semantic consumer-independence primitive -> 50 independent SPARQL courts 651-700 -> exact current consumer fixture -> bounded RDFLib execution -> first falsifier exposed family-local ordinal collision -> permanent exact-query-identity repair e723bc369ba4a2bf00d4e22052b0b7a04970e102 -> R67 ALIVE + Vacuity ALIVE + broad CI ALIVE/4-of-4 real-ggen -> PR #292 -> merge/default containment 95387a0632f7e460e65cdd89e77ea7f902093af0. Preserved edges: R61/R63/R65 receipt-to-yield calibration; target-local canonical-adapter consumer expansion; correlated candidates remain options but carry discounted epistemic weight.",
+    "metadata": {"exact_bus_head_before_request":"8540ce0fd7cc44c6b7c23181afceb5814dafecf3","base":"5eac35d1a597080cab8388f4a72cb5278b3e4c92","candidate":"e723bc369ba4a2bf00d4e22052b0b7a04970e102","merge":"95387a0632f7e460e65cdd89e77ea7f902093af0","pr":292,"historical_pr":288,"historical_ahead":62,"historical_behind":132,"semantic_courts":50,"meaningful_commits":60,"consequential_do":false}
+  }}
+}
