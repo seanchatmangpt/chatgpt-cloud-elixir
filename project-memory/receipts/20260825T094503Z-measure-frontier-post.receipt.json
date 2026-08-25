@@ -1,0 +1,125 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:46:11Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Frontier advanced from local replication observability toward realized cross-repository replication yield. Exact marketplace default=be81dd42c8eae76b571b6e0b43951ee52b061367. Newly lawful reusable capital: epistemic-sensor-factory-pack; cumulative replication observability with immutable R43 baseline and R45/R45B additive generations; 50 R45B sensors 136..185; grounded replication-yield fixture/court; exact-head CI qualification. Current weakest multiplier remains live consumer replication because sensors expose the paths but exhaustive portfolio execution has not yet populated every eligible repository. Reachable next frontier: (1) enumerate all reachable default-head repositories and exact subjects; (2) project eligible consumer targets into replication graph; (3) deterministically manufacture/qualify reusable sensor-family projections across dependency closure; (4) measure realized receipts, falsifiers, independent roots, courts, CI and dependency relief per repo; (5) calibrate opportunity precision/recall against independent repository truth; (6) feed live residual shortfall into EXPLORE/SELECT; (7) use disjoint sensor generations rather than contaminating immutable courts. Live 1000X remains UNKNOWN/NOT_ADMITTED; reference fixture multiplier=160, shortfall=840.",
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "metadata": {
+          "E_work": 4.0,
+          "M_work": 2.0,
+          "bus_head_before_request": "0a88c285df7d9cb2d4721ae1e16d941e81089b7b",
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "frontier_size": 9,
+          "new_frontier_edges": 7,
+          "standing": "PARTIAL_ALIVE",
+          "weakest_multiplier": "R_consumer_replication"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "measure",
+          "r45b"
+        ],
+        "title": "DfCM lawful frontier"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T094503Z-measure-frontier-post"
+  },
+  "request_id": "20260825T094503Z-measure-frontier-post",
+  "request_path": "project-memory/requests/20260825T094503Z-measure-frontier-post.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Frontier advanced from local replication observability toward realized cross-repository replication yield. Exact marketplace default=be81dd42c8eae76b571b6e0b43951ee52b061367. Newly lawful reusable capital: epistemic-sensor-factory-pack; cumulative replication observability with immutable R43 baseline and R45/R45B additive generations; 50 R45B sensors 136..185; grounded replication-yield fixture/court; exact-head CI qualification. Current weakest multiplier remains live consumer replication because sensors expose the paths but exhaustive portfolio execution has not yet populated every eligible repository. Reachable next frontier: (1) enumerate all reachable default-head repositories and exact subjects; (2) project eligible consumer targets into replication graph; (3) deterministically manufacture/qualify reusable sensor-family projections across dependency closure; (4) measure realized receipts, falsifiers, independent roots, courts, CI and dependency relief per repo; (5) calibrate opportunity precision/recall against independent repository truth; (6) feed live residual shortfall into EXPLORE/SELECT; (7) use disjoint sensor generations rather than contaminating immutable courts. Live 1000X remains UNKNOWN/NOT_ADMITTED; reference fixture multiplier=160, shortfall=840.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+      "metadata": {
+        "E_observed": 4.0,
+        "E_work": 4.0,
+        "M_observed": 4.0,
+        "M_work": 2.0,
+        "branching_factor_lower_bound": 5,
+        "bus_head_before_request": "0a88c285df7d9cb2d4721ae1e16d941e81089b7b",
+        "cell": "SELECT_DEVELOP",
+        "composition_head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+        "composition_merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "composition_pr": 249,
+        "containment": "EXACT",
+        "created_at": "2026-08-25T08:52:58Z",
+        "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "frontier_size": 9,
+        "generation_depth": 3,
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "main_after": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "main_before": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "new_frontier_edges": 7,
+        "new_opportunities_from_merge": 5,
+        "new_repairs": 2,
+        "new_unlock_classes": [
+          "R45+ derivative measurement/control",
+          "producer #245 changed integration standing",
+          "consumer adoption of frontier-derivative-pack",
+          "postmerge replication realization measurement",
+          "cross-repo qualification reuse"
+        ],
+        "next_edges": [
+          "exact-head requalification",
+          "merge if ALIVE",
+          "distinct-repository consumer adoption",
+          "cross-repo reproduction receipt",
+          "predicted-vs-realized derivative calibration",
+          "chatgpt-cloud-elixir manufacturing repair"
+        ],
+        "next_measure_seed_count": 5,
+        "r43_pr": 244,
+        "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+        "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+        "r44_pr": 246,
+        "r44_qualified_head": "2db35c65e30511b688f379228e9b90474e56864e",
+        "r44_semantic_commit_floor": 50,
+        "r45_candidate": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "r45_pr": 250,
+        "r45_standing": "REQUALIFYING",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "standing_reason": "R44 closure complete; broad portfolio frontier remains and no R45 exact subject yet exists",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "measure",
+          "r45b"
+        ],
+        "updated_at": "2026-08-25T09:46:18Z",
+        "weakest_multiplier": "R_consumer_replication"
+      },
+      "title": "DfCM lawful frontier"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
