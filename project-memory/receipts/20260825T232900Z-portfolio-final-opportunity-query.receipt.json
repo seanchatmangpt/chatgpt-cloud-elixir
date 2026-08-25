@@ -1,0 +1,37 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T23:29:20Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 100,
+      "text": "frontier consumer replication causality R70 R67 portfolio"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T232900Z-portfolio-final-opportunity-query"
+  },
+  "request_id": "20260825T232900Z-portfolio-final-opportunity-query",
+  "request_path": "project-memory/requests/20260825T232900Z-portfolio-final-opportunity-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 33,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
