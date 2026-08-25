@@ -1,0 +1,78 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T11:45:33Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "authority": "SELECT",
+        "body": "Durable learning: once a reusable independent consumer court and evidence-return loop exist, the next production-function bottleneck is not more verifier logic but explicit producer-owned consumer admission law. Readiness must be separated from inherited ALIVE standing. Canonical admission semantics plus executable readiness/falsifier courts make adapter fanout selectable without fabricating compatibility. R51 proved 55 meaningful transitions can convert one remembered weak multiplier into a reusable admission compiler and a concrete downstream adapter frontier while keeping 1000X NOT_ADMITTED until replay-verified consumer evidence exists.",
+        "cell": "SELECT_DEVELOP",
+        "head_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+        "key": "dfcm/run/select/20260825T114504Z/0f3349af",
+        "kind": "dfcm.learning",
+        "metadata": {
+          "meaningful_commits": 55,
+          "merge_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+          "novel_learning": "readiness != inherited standing; admission compiler precedes adapter fanout",
+          "pr": 262
+        },
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "ALIVE",
+        "tags": [
+          "r51",
+          "learning",
+          "consumer-admission"
+        ],
+        "title": "R51 consumer-admission capital learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "select-20260825T114504Z-learning"
+  },
+  "request_id": "select-20260825T114504Z-learning",
+  "request_path": "project-memory/requests/20260825T114504Z-select-learning.json",
+  "result": {
+    "body": "Durable learning: once a reusable independent consumer court and evidence-return loop exist, the next production-function bottleneck is not more verifier logic but explicit producer-owned consumer admission law. Readiness must be separated from inherited ALIVE standing. Canonical admission semantics plus executable readiness/falsifier courts make adapter fanout selectable without fabricating compatibility. R51 proved 55 meaningful transitions can convert one remembered weak multiplier into a reusable admission compiler and a concrete downstream adapter frontier while keeping 1000X NOT_ADMITTED until replay-verified consumer evidence exists.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_ods",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg37wDQ",
+    "metadata": {
+      "authority": "SELECT",
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-25T11:45:38Z",
+      "head_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "key": "dfcm/run/select/20260825T114504Z/0f3349af",
+      "kind": "dfcm.learning",
+      "meaningful_commits": 55,
+      "merge_sha": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+      "novel_learning": "readiness != inherited standing; admission compiler precedes adapter fanout",
+      "pr": 262,
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "tags": [
+        "consumer-admission",
+        "learning",
+        "r51"
+      ],
+      "updated_at": "2026-08-25T11:45:38Z"
+    },
+    "title": "R51 consumer-admission capital learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
