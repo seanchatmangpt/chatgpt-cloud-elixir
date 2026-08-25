@@ -1,0 +1,157 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T13:14:10Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "MEASURE started 2026-08-25T13:08:53Z. Project pre-snapshot 20260825T130900Z-measure-snapshot-pre resolved PVT_kwHOCCCFfc4BhZKe with 365 items. Exact bus head before this mutation=6f5516b1a46b55caca6d3d362263ed7746670411. Consumed keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest plus replication/consumer memory query. Candidate repositories: seanchatmangpt/ggen-marketplace, seanchatmangpt/ggen, seanchatmangpt/chatgpt-cloud-elixir, seanchatmangpt/ex4pm, seanchatmangpt/gymact. Initial frontier size=18. Initial weakest multiplier=independently executed consumer replication and receipt return. Standing RUNNING.",
+        "cell": "MEASURE",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "bus_head": "6f5516b1a46b55caca6d3d362263ed7746670411",
+          "candidate_repositories": [
+            "seanchatmangpt/ggen-marketplace",
+            "seanchatmangpt/ggen",
+            "seanchatmangpt/chatgpt-cloud-elixir",
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact"
+          ],
+          "consumed_keys": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/measure/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "initial_frontier_size": 18,
+          "initial_weakest_multiplier": "consumer_replication_and_receipt_return",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 365,
+          "project_title": "@seanchatmangpt's post-agi project",
+          "snapshot_receipt": "20260825T130900Z-measure-snapshot-pre",
+          "start_utc": "2026-08-25T13:08:53Z"
+        },
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "measure",
+          "run-control",
+          "consumer-replication"
+        ],
+        "title": "MEASURE live run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T131600Z-measure-run-control-running"
+  },
+  "request_id": "20260825T131600Z-measure-run-control-running",
+  "request_path": "project-memory/requests/20260825T131600Z-measure-run-control-running.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "MEASURE started 2026-08-25T13:08:53Z. Project pre-snapshot 20260825T130900Z-measure-snapshot-pre resolved PVT_kwHOCCCFfc4BhZKe with 365 items. Exact bus head before this mutation=6f5516b1a46b55caca6d3d362263ed7746670411. Consumed keys: dfcm/frontier/current, dfcm/ledger/current, dfcm/measure/latest, dfcm/portfolio/latest plus replication/consumer memory query. Candidate repositories: seanchatmangpt/ggen-marketplace, seanchatmangpt/ggen, seanchatmangpt/chatgpt-cloud-elixir, seanchatmangpt/ex4pm, seanchatmangpt/gymact. Initial frontier size=18. Initial weakest multiplier=independently executed consumer replication and receipt return. Standing RUNNING.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lHM",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
+      "metadata": {
+        "E_work": 3.33,
+        "M_work": 1.2,
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "bus_head": "6f5516b1a46b55caca6d3d362263ed7746670411",
+        "bus_head_before_request": "fa07adc928b3d919cee17c3e4415a4a6f6d97a5c",
+        "candidate_repositories": [
+          "seanchatmangpt/ggen-marketplace",
+          "seanchatmangpt/ggen",
+          "seanchatmangpt/chatgpt-cloud-elixir",
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact"
+        ],
+        "cell": "MEASURE",
+        "consumed_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "consumed_memory_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "consumer_factor_observability_delta": "receipt-return and assimilation now executable; realized factor unchanged until more independent consumer executions",
+        "control_started_at": "2026-08-25T09:43:00Z",
+        "created_at": "2026-08-25T09:05:24Z",
+        "ended_at": "2026-08-25T09:46:30Z",
+        "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+        "final_marketplace_head": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "generation": "R47",
+        "head_sha": "9fe8fe237601a08817cbc14f05e8dd93186e3711",
+        "initial_frontier_size": 18,
+        "initial_weakest_multiplier": "consumer_replication_and_receipt_return",
+        "key": "dfcm/run-control/measure/current",
+        "kind": "dfcm.run-control",
+        "live_ggen_head": "a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+        "live_marketplace_head": "cc96804052f9d94e60c0bddbd45c1ef4fe72031d",
+        "meaningful_commits": 63,
+        "merge_count": 1,
+        "observed_consumer_factor_after": 1,
+        "observed_consumer_factor_before": 1,
+        "original_started_at": "2026-08-25T09:22:56Z",
+        "owning_run": 32841749107,
+        "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+        "pr": 261,
+        "project_frontier_request": "20260825T112305Z-measure-r50-frontier-update",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 365,
+        "project_ledger_request": "20260825T112235Z-measure-r50-ledger-append",
+        "project_measure_request": "20260825T112132Z-measure-r50-latest",
+        "project_portfolio_correction_request": "20260825T112325Z-measure-r50-portfolio-correction",
+        "project_post_snapshot_request": "20260825T112130Z-measure-r50-snapshot-post",
+        "project_pre_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
+        "project_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "qualified_head": "008dd897b95bec935fc8c982a95061cee68e72cb",
+        "ref": "main",
+        "reference_multiplier": 160,
+        "reference_shortfall": 840,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "sensor_count": 50,
+        "snapshot_receipt": "20260825T130900Z-measure-snapshot-pre",
+        "standing": "RUNNING",
+        "start_utc": "2026-08-25T13:08:53Z",
+        "started_at": "2026-08-25T09:52:59Z",
+        "supersedes_failed_request": "20260825T092700Z-measure-run-control-start",
+        "tags": [
+          "consumer-replication",
+          "dfcm",
+          "measure",
+          "run-control"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "updated_at": "2026-08-25T13:14:17Z",
+        "utc_end": "2026-08-25T11:23:40Z",
+        "utc_start": "2026-08-25T11:29:16Z",
+        "vacuity_run": 32841749050
+      },
+      "title": "MEASURE live run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
