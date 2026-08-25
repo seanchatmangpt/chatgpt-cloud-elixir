@@ -1,0 +1,14 @@
+{
+  "request_id": "20260825T214545Z-select-post-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current reachable frontier after R67",
+    "kind": "dfcm.frontier",
+    "standing": "ALIVE",
+    "tags": ["dfcm", "frontier", "r67", "1000x"],
+    "body": "R67 independence-weighted consumer capital is default-contained at ggen-marketplace@95387a0632f7e460e65cdd89e77ea7f902093af0. Newly reachable non-dominated edges: (1) execute R67 over returned R50/R61 consumer evidence and compute common-cause-discounted fanout; (2) select all consumers that add runtime/failure/authority/receipt/qualification orthogonality; (3) manufacture target-local adapters via canonical marketplace/ggen substrate and exact-head qualify/return receipts; (4) assimilate those receipts through R61 then R63/R65 to measure relief-to-qualified-manufacture Y; (5) compose independent consumers only after causal downstream unlock is observed. Historical PR #288 is superseded as implementation substrate but retained as provenance/option history. Correlated consumers remain lawful options, not independent multiplier evidence.",
+    "metadata": {"exact_bus_head_before_request":"6f5dec36ab4997f739f03e67d0615faaa1044a60","marketplace_main":"95387a0632f7e460e65cdd89e77ea7f902093af0","newly_reachable_edges":["R67 common-cause-discounted consumer selection","orthogonal target-local consumer manufacture","R61 receipt assimilation","R63/R65 causal yield calibration","evidence-bounded independent composition"],"preserved_options":["historical PR #288 provenance","correlated consumer candidates","R61/R63/R65 causal-yield path"],"weakest_multiplier":"common-cause-discounted independently qualified consumer breadth plus causal downstream yield","Y":"UNKNOWN","M_lower_bound":2,"thousand_x":"NOT_ADMITTED","consequential_do":false}
+  }}
+}
