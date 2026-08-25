@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T135125Z-portfolio-ledger-key",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/ledger/current", "include_archived": false, "limit": 10, "max_scan": 5000}
+}
