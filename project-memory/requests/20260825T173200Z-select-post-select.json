@@ -1,0 +1,33 @@
+{
+  "request_id": "20260825T173200Z-select-post-select",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/select/latest",
+    "title": "DfCM SELECT latest",
+    "kind": "dfcm.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "ALIVE",
+    "tags": ["dfcm","select","consumer","capital-allocation"],
+    "body": "Selected non-conflicting consumer-replication portfolio from current R61 frontier. Converted exact-head ALIVE ex4pm R58 consumer and scoped-ALIVE GymAct R58 consumer from draft inventory into default-contained capital. Preserved R54 independence measurement and R61 receipt-assimilation/causal-relief work as non-dominated next edges. Reusable primitive remains producer-owned epistemic-sensor-factory-pack/R57 consumer adapter plus R61 ConsumerExecutionReceipt assimilation. IMPLEMENT/QUALIFY handoff: assimilate exact ex4pm and GymAct returned receipts into R61; measure ALIVE->dependency-relief conversion/latency; reconstitute R54 independence measurement on current marketplace main; do not duplicate consumer courts locally.",
+    "metadata": {
+      "bus_head_before_request": "fe6aec45b65ae004d3ffa106908bcfe372f96c16",
+      "selected_portfolio": ["ex4pm#33", "gymact#125", "R61-receipt-assimilation-next"],
+      "ex4pm_candidate": "40e62701976a0c4555ffc00530b71c6acae515f2",
+      "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+      "gymact_candidate": "b072261ee48a792445394115df5a1d8600baf886",
+      "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+      "semantic_capital_contained": 55,
+      "direct_semantic_commits_authored_this_cell": 0,
+      "merges": 2,
+      "Y": "UNKNOWN_FUTURE; containment_conversion=2/55",
+      "M": ">=2",
+      "independent_executed_consumer_lower_bound": 3,
+      "consumer_shortfall_to_10x": 7,
+      "1000X": "NOT_ADMITTED",
+      "weakest_multiplier_after": "independent consumer breadth plus empirical ALIVE-to-dependency-relief conversion",
+      "ERRC": {"eliminate":"draft-state suppressors on exact-qualified consumers","reduce":"qualified-consumer-to-default latency","raise":"independent consumer breadth and receipt-return potential","create":"two newly default-contained independent consumer evidence roots"},
+      "preserved_alternatives": ["ggen-marketplace#265 R54 independence measurement", "R61 causal relief measurement", "chatgpt-cloud-elixir consumer receipt assimilation"]
+    }
+  }}
+}
