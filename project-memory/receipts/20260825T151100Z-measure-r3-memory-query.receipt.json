@@ -1,0 +1,36 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T15:10:48Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "consumer replication evidence ontology pack falsifier standing dependency phase-change"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T151100Z-measure-r3-memory-query"
+  },
+  "request_id": "20260825T151100Z-measure-r3-memory-query",
+  "request_path": "project-memory/requests/20260825T151100Z-measure-r3-memory-query.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 24,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
