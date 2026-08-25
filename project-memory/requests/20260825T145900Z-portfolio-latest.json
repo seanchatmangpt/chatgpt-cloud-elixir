@@ -1,0 +1,38 @@
+{
+  "request_id": "20260825T145900Z-portfolio-latest",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/portfolio/latest",
+      "title": "DfCM PORTFOLIO latest",
+      "kind": "dfcm.portfolio",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "portfolio", "r55", "r56", "autocatalytic"],
+      "body": "PORTFOLIO converted R55 independent-consumer fanout into R56 combinatorial portfolio capital. R55 exact 0e9ac9f0 reached main as e6810f8e. This run authored 57 meaningful R56 commits: 50 independent SPARQL pair/triple sensors plus court, exact-head workflow, receipt, and four Diataxis docs. Exact R56 cea34949 passed owning court, Vacuity, and broad real-ggen CI and merged as 2e7d3ecb. Containment exact; merge base=qualified head, behind=0. Next frontier: use the single clean cross-family pair to construct independent ggen + chatgpt-cloud-elixir qualification, close adapter/manufacturability gaps for ex4pm/gymact, and expand admitted consumers toward ten.",
+      "metadata": {
+        "meaningful_commits": 57,
+        "semantic_sensor_commits": 50,
+        "baseline": 50,
+        "baseline_surplus": 7,
+        "direct_merges": 1,
+        "concurrent_merges_consumed": 1,
+        "generation_depth": 2,
+        "branching_factor": 3,
+        "qualified_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+        "merge_sha": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+        "default_head": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+        "E_observed": 2,
+        "E2_observed": 2,
+        "Y_observed": 50,
+        "R_observed": 1,
+        "C_bounded": 3,
+        "M_observed": 1,
+        "H6_causal": "UNSUPPORTED:R=1 and factor independence unproven",
+        "weakest_multiplier": "independent qualified consumer replication",
+        "local_transport": "BLOCKED[LOCAL_GITHUB_DNS]"
+      }
+    }
+  }
+}
