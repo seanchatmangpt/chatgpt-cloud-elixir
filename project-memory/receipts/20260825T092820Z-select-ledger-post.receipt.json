@@ -1,0 +1,172 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T09:28:36Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Selection->primitive->repair->qualification edges appended without deleting prior option value: Project frontier weakest multiplier R=1 -> select ggen-marketplace PR #250 -> epistemic-sensor-factory-pack + cumulative replication-epistemic-observability family -> falsifier: exact-50 cardinality assumption contradicted by 100-sensor cumulative corpus -> repair commit 21e7542445bf4bb4f801d2e9697bcaac0ee1be6f -> CI-law falsifier: R45 executable workflow lacked timeout-minutes -> repair c7731659694a111bdffe3f958a40a86c1e430f44 -> exact-head requalification pending. Prior head 61f4b993 had dedicated R45 court SUCCESS, Vacuity SUCCESS, all four real-ggen shards SUCCESS and aggregate qualification SUCCESS. Merge remains fenced pending exact c7731659 evidence. Preserved dependency edges: distinct-repo consumer replication, cross-repo qualification reuse, predicted-vs-realized derivative calibration.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/ledger/current",
+        "kind": "dfcm.ledger",
+        "metadata": {
+          "next_edges": [
+            "requalify exact head",
+            "merge if ALIVE",
+            "enumerate distinct-repository consumers",
+            "measure replication realization"
+          ],
+          "repair_commits": [
+            "21e7542445bf4bb4f801d2e9697bcaac0ee1be6f",
+            "c7731659694a111bdffe3f958a40a86c1e430f44"
+          ],
+          "selected_pr": 250,
+          "standing": "PARTIAL_ALIVE",
+          "subject": "c7731659694a111bdffe3f958a40a86c1e430f44"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "ledger",
+          "r45",
+          "replication"
+        ],
+        "title": "DfCM capability ledger"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T092820Z-select-ledger-post"
+  },
+  "request_id": "20260825T092820Z-select-ledger-post",
+  "request_path": "project-memory/requests/20260825T092820Z-select-ledger-post.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Selection->primitive->repair->qualification edges appended without deleting prior option value: Project frontier weakest multiplier R=1 -> select ggen-marketplace PR #250 -> epistemic-sensor-factory-pack + cumulative replication-epistemic-observability family -> falsifier: exact-50 cardinality assumption contradicted by 100-sensor cumulative corpus -> repair commit 21e7542445bf4bb4f801d2e9697bcaac0ee1be6f -> CI-law falsifier: R45 executable workflow lacked timeout-minutes -> repair c7731659694a111bdffe3f958a40a86c1e430f44 -> exact-head requalification pending. Prior head 61f4b993 had dedicated R45 court SUCCESS, Vacuity SUCCESS, all four real-ggen shards SUCCESS and aggregate qualification SUCCESS. Merge remains fenced pending exact c7731659 evidence. Preserved dependency edges: distinct-repo consumer replication, cross-repo qualification reuse, predicted-vs-realized derivative calibration.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CtY",
+      "metadata": {
+        "C_observed_lower_bound": 5.0,
+        "E": 4.0,
+        "HANDWRITTEN_IRREDUCIBLE_REASON": null,
+        "M": 4.0,
+        "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+        "bootstrap_from_empty_namespace": true,
+        "cell": "SELECT_DEVELOP",
+        "concurrent_merge": {
+          "head": "d0545b5ec392aad466969433a915e23359d26e98",
+          "merge": "7d158ef97c6f41a67933f501397e29729abef071",
+          "pr": 247
+        },
+        "concurrent_repair_head": "d0545b5ec392aad466969433a915e23359d26e98",
+        "concurrent_repair_merge": "7d158ef97c6f41a67933f501397e29729abef071",
+        "concurrent_repair_pr": 247,
+        "containment": "EXACT",
+        "created_at": "2026-08-25T08:19:33Z",
+        "current_main": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "duplicate_semantic_capital_counted_twice": false,
+        "durable_falsifiers": [
+          "stale Project identity",
+          "unordered deterministic ggen evidence",
+          "missing workflow timeout",
+          "duplicate concurrent repair lineage",
+          "individual-vs-composed qualification",
+          "ambient DO refusal"
+        ],
+        "durable_unlock_edges": [
+          "consumer fanout",
+          "postmerge realization",
+          "cross-repo qualification reuse",
+          "R45+ control/measurement",
+          "stale-capital reconciliation"
+        ],
+        "edges_added": 12,
+        "generated_outputs_hand_edited": 0,
+        "key": "dfcm/ledger/current",
+        "kind": "dfcm.ledger",
+        "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "memory_avoided_rediscovery_edges": 1,
+        "memory_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+        "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+        "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "new_adjacency_count": 5,
+        "new_rule": "deduplicate concurrent equivalent repair lineages by exact resulting capability/tree",
+        "next_edges": [
+          "requalify exact head",
+          "merge if ALIVE",
+          "enumerate distinct-repository consumers",
+          "measure replication realization"
+        ],
+        "portfolio_authored_ci_commits": 1,
+        "portfolio_authored_semantic_commits": 2,
+        "portfolio_merges": [
+          {
+            "containment": "EXACT",
+            "head": "2db35c65e30511b688f379228e9b90474e56864e",
+            "merge": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+            "pr": 246
+          },
+          {
+            "containment": "EXACT",
+            "head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+            "merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+            "net_tree_delta": 0,
+            "pr": 248
+          },
+          {
+            "containment": "EXACT",
+            "head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+            "merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+            "pr": 249
+          }
+        ],
+        "portfolio_repair_head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+        "portfolio_repair_merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+        "portfolio_repair_pr": 248,
+        "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "2db35c65e30511b688f379228e9b90474e56864e",
+        "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+        "r44_pr": 246,
+        "repair_commits": [
+          "21e7542445bf4bb4f801d2e9697bcaac0ee1be6f",
+          "c7731659694a111bdffe3f958a40a86c1e430f44"
+        ],
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_pr": 250,
+        "semantic_commits": 50,
+        "sensor_count": 50,
+        "standing": "PARTIAL_ALIVE",
+        "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "tags": [
+          "dfcm",
+          "ledger",
+          "r45",
+          "replication"
+        ],
+        "unique_meaningful_semantic_commits_observed": 54,
+        "unique_semantic_repairs": 2,
+        "updated_at": "2026-08-25T09:28:44Z",
+        "weakest_multiplier": "R_consumer_replication"
+      },
+      "title": "DfCM capability ledger"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
