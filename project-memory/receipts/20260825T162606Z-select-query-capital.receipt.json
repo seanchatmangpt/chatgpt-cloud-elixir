@@ -1,0 +1,36 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T16:27:39Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 100,
+      "text": "selection alternatives dependency unlock consumer reusable primitive capital yield phase-change weakest multiplier failed investment"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T162606Z-select-query-capital"
+  },
+  "request_id": "20260825T162606Z-select-query-capital",
+  "request_path": "project-memory/requests/20260825T162606Z-select-query-capital.json",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 24,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
