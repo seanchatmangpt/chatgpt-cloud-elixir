@@ -1,0 +1,167 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:41:09Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL4 consumed the exact CELL3 selected_workstreams without restarting SELECT. ex4pm#34 exact 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8 is downstream-realized and exact-head qualified: R79 consumer, source capsule, format capsule, formal POWL, broad ex4pm-ci, ChatGPT Cloud Qualification and Chicago global BEAM all completed SUCCESS. PR #34 is mergeable and was transitioned from draft to ready-for-review; no merge was performed. GymAct#126 exact bcb14a65b83fc543bb11acaa84709765ac88f42c remains downstream-realized and R79-scoped ALIVE: R79 consumer court SUCCESS and world-execution crown SUCCESS. Broad CI completed FAILURE with 18 failures across pre-existing unrelated repository surfaces; PR #126 changes only four additive R79 files, so CELL4 classifies repository-wide qualification as PARTIAL_ALIVE[INHERITED_BROAD_CI_DEBT] and leaves it draft for CELL5 repair/closure. XaaS remains COMPATIBLE_NOT_READY from CELL3 and was not promoted or mutated. Remaining ForcedTop25 targets remain UNKNOWN_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING].",
+        "cell": "REALIZE_QUALIFY_FANOUT",
+        "key": "ggen/fanout/cell4/current",
+        "kind": "ggen.fanout.realization",
+        "metadata": {
+          "Coverage": "2 selected READY workstreams realized; 1 exact-head full-green; 1 scoped-green/broad-red",
+          "F_C": 11,
+          "F_Q": 2,
+          "F_R": 2,
+          "ForcedTop25": {
+            "M_lower_bound": 2,
+            "OpenFanoutObligations_global": "UNKNOWN_UNTIL_U_CLOSED",
+            "Q_lower_bound": 2,
+            "R_lower_bound": 2,
+            "U_lower_bound": 3
+          },
+          "consequential_do": false,
+          "control_commits_excluded": true,
+          "fanout_targets": {
+            "ex4pm": {
+              "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+              "downstream_commits": 5,
+              "draft": false,
+              "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+              "mergeable": true,
+              "pr": 34,
+              "qualification": "ALL_OBSERVED_EXACT_HEAD_RAILS_SUCCESS",
+              "state": "CLOSE_READY"
+            },
+            "gymact": {
+              "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+              "downstream_commits": 6,
+              "draft": true,
+              "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+              "mergeable": true,
+              "pr": 126,
+              "qualification": "R79_SUCCESS; WORLD_CROWN_SUCCESS; BROAD_CI_FAILURE_18",
+              "reason": "INHERITED_BROAD_CI_DEBT; PR diff is four additive R79 files only",
+              "state": "REPAIR_REQUIRED"
+            },
+            "xaas": {
+              "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+              "pr": 31,
+              "reason": "CELL3_COMPATIBLE_NOT_READY_CI_CD_ELIXIR_FAILURE",
+              "state": "REPAIR_REQUIRED"
+            }
+          },
+          "selected_workstreams": [
+            "seanchatmangpt/ex4pm#34@38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c"
+          ]
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell4",
+          "fanout",
+          "r79",
+          "forced-top25",
+          "qualification"
+        ],
+        "title": "CELL4 R79 realization and exact-head qualification MID"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T054100Z-cell4-r79-mid-upsert"
+  },
+  "request_id": "20260826T054100Z-cell4-r79-mid-upsert",
+  "request_path": "project-memory/requests/20260826T054100Z-cell4-r79-mid-upsert.json",
+  "request_sha256": "sha256:f2c747bb1d3b5069dad4955902f8d384defc4825362e8586269d26299814df19",
+  "request_transport_sha256": "sha256:dcd215cf789f4d8ed2007ed648c3942968ca3799ad14f832dd8274434c1ffb3c",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "CELL4 consumed the exact CELL3 selected_workstreams without restarting SELECT. ex4pm#34 exact 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8 is downstream-realized and exact-head qualified: R79 consumer, source capsule, format capsule, formal POWL, broad ex4pm-ci, ChatGPT Cloud Qualification and Chicago global BEAM all completed SUCCESS. PR #34 is mergeable and was transitioned from draft to ready-for-review; no merge was performed. GymAct#126 exact bcb14a65b83fc543bb11acaa84709765ac88f42c remains downstream-realized and R79-scoped ALIVE: R79 consumer court SUCCESS and world-execution crown SUCCESS. Broad CI completed FAILURE with 18 failures across pre-existing unrelated repository surfaces; PR #126 changes only four additive R79 files, so CELL4 classifies repository-wide qualification as PARTIAL_ALIVE[INHERITED_BROAD_CI_DEBT] and leaves it draft for CELL5 repair/closure. XaaS remains COMPATIBLE_NOT_READY from CELL3 and was not promoted or mutated. Remaining ForcedTop25 targets remain UNKNOWN_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING].",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_6WE",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DbNs",
+      "metadata": {
+        "Coverage": "2 selected READY workstreams realized; 1 exact-head full-green; 1 scoped-green/broad-red",
+        "F_C": 11,
+        "F_Q": 2,
+        "F_R": 2,
+        "ForcedTop25": {
+          "M_lower_bound": 2,
+          "OpenFanoutObligations_global": "UNKNOWN_UNTIL_U_CLOSED",
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U_lower_bound": 3
+        },
+        "cell": "REALIZE_QUALIFY_FANOUT",
+        "consequential_do": false,
+        "control_commits_excluded": true,
+        "created_at": "2026-08-26T05:41:20Z",
+        "fanout_targets": {
+          "ex4pm": {
+            "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "downstream_commits": 5,
+            "draft": false,
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "mergeable": true,
+            "pr": 34,
+            "qualification": "ALL_OBSERVED_EXACT_HEAD_RAILS_SUCCESS",
+            "state": "CLOSE_READY"
+          },
+          "gymact": {
+            "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "downstream_commits": 6,
+            "draft": true,
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "mergeable": true,
+            "pr": 126,
+            "qualification": "R79_SUCCESS; WORLD_CROWN_SUCCESS; BROAD_CI_FAILURE_18",
+            "reason": "INHERITED_BROAD_CI_DEBT; PR diff is four additive R79 files only",
+            "state": "REPAIR_REQUIRED"
+          },
+          "xaas": {
+            "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+            "pr": 31,
+            "reason": "CELL3_COMPATIBLE_NOT_READY_CI_CD_ELIXIR_FAILURE",
+            "state": "REPAIR_REQUIRED"
+          }
+        },
+        "key": "ggen/fanout/cell4/current",
+        "kind": "ggen.fanout.realization",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstreams": [
+          "seanchatmangpt/ex4pm#34@38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c"
+        ],
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell4",
+          "fanout",
+          "forced-top25",
+          "qualification",
+          "r79"
+        ],
+        "updated_at": "2026-08-26T05:41:20Z"
+      },
+      "title": "CELL4 R79 realization and exact-head qualification MID"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
