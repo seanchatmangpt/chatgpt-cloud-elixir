@@ -1,0 +1,28 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": {
+      "failures": [
+        "RUN_ID_MISSING",
+        "OCEL_DIGEST_MISSING"
+      ],
+      "message": "GGEN Ecosystem OCEL Project-memory projection failed independent admission",
+      "reason": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT"
+    },
+    "message": "GGEN Ecosystem OCEL Project-memory projection failed independent admission",
+    "type": "TransportAdmissionError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T21:14:49Z",
+  "operation": null,
+  "reason": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT",
+  "request_digest_basis": {},
+  "request_id": null,
+  "request_path": "project-memory/requests/20260826T211415Z-cell1-post-ocel.json",
+  "request_sha256": null,
+  "request_transport_sha256": "sha256:9e5f0635cc531a674c7655538a5ce207728968aef699a82e8fd9e4c51ae4992f",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
