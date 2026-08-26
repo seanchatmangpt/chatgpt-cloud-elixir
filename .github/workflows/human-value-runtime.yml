@@ -83,9 +83,17 @@ jobs:
           mix deps.get
 
       - name: Quality at source — format and strict compile
+        shell: bash
         run: |
-          mix format --check-formatted
-          mix compile --warnings-as-errors
+          set -uo pipefail
+          mkdir -p artifacts/human-value
+          status=0
+          mix format --check-formatted 2>&1 | tee artifacts/human-value/format.log || status=$?
+          if [ "$status" -eq 0 ]; then
+            mix compile --warnings-as-errors 2>&1 | tee artifacts/human-value/compile.log || status=$?
+          fi
+          printf '{"subject":"%s","format_log":"format.log","compile_log":"compile.log","exit":%d}\n' "$PR_HEAD_SHA" "$status" > artifacts/human-value/source-quality.json
+          exit "$status"
 
       - name: Create and migrate exact test database
         run: |
