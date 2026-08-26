@@ -1,0 +1,10 @@
+{
+  "request_id": "20260826T034230Z-select4-post-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key":"dfcm/frontier/current","title":"DfCM reachable frontier","kind":"dfcm.frontier","cell":"SELECT_DEVELOP","standing":"PARTIAL_ALIVE","tags":["dfcm","frontier","r78","tcps"],
+    "body":"R78 adds a legality-first ready-set morphism after R77 exact repository-universe observation: RepositorySnapshot -> downstream demand -> hard admissibility -> ready set -> capital measure -> preserve compatible Pareto alternatives -> choose execution-edge linear extension -> deterministic GGEN allocation plan -> exact qualification. Newly reachable edges: (1) revalidate current R76 structural-capital compiler only when its predecessor/currentness gates enter READY; (2) revalidate R74 structural-option factory independently; (3) map R77 repository snapshots into R78 candidate facts; (4) manufacture all concurrently READY cross-repo consumers rather than serializing them; (5) return generalizable consumer refinements upstream and regenerate/requalify; (6) measure T/G/D/F/U/Y/M and dual RevOps from receipts. Weakest multiplier remains qualified cross-repository fanout. 1000X NOT_ADMITTED.",
+    "metadata":{"candidate":"df908435a84a0240b9d89a48ea8ded81bfb74265","pr":315,"ready_set":["R78_TCPS_READY_SET_CAPITAL"],"new_edges":6,"weakest_multiplier":"qualified_cross_repository_consumer_fanout","Y":"UNKNOWN","M":">=2","1000X":"NOT_ADMITTED","transport_head_before_request":"64b54a18ac6d3ab32d2b195dd4070c65c1663f46"}
+  }}
+}
