@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T024810Z-select-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/select/latest",
+    "title": "SELECT+DEVELOP latest structural capital allocation",
+    "kind": "dfcm.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","select","structural-capital","ggen","r76"],
+    "body": "Selected R76 Structural-Capital Compiler on current R75 default. Exact base e11e19baf281701339e7fb6da46ccb10d0e790cf; exact current candidate 57301a8d9ad9ebb5e66884c185d4d3d5b623fbf7; draft PR #307. Manufactured 50 new semantic courts plus ontology, fixture, deterministic GGEN projection, executable court, exact-head workflow, receipt, and two R47 verifier-capital repairs. R76 owning exact-head court succeeded on prior 57-commit subject; latest 59-commit subject is REQUALIFYING. Preserved stale R74 semantics as provenance/option value instead of importing stale substrate. Y=UNKNOWN; M>=1. 1000X=NOT_ADMITTED pending qualified consumer regeneration and observed downstream composition yield.",
+    "metadata": {"base":"e11e19baf281701339e7fb6da46ccb10d0e790cf","candidate":"57301a8d9ad9ebb5e66884c185d4d3d5b623fbf7","pr":307,"new_semantic_courts":50,"meaningful_commits":59,"ggen_involved":59,"G":1.0,"Y":"UNKNOWN","M_lower_bound":1,"D":"PENDING","F":"PENDING_REGENERATION","U":"R47_VERIFIER_PROMOTED_REQUALIFYING","1000X":"NOT_ADMITTED","implement_handoff":["qualify exact 57301a8d head","merge #307 only after exact-head admissible evidence","execute R76 plan over current R75 gaps","manufacture all admitted consumer populations from canonical packs","return qualification receipts and measure realized Y/M"]}
+  }}
+}
