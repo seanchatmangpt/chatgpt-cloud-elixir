@@ -8,6 +8,16 @@ function field(world, name) {
   return world.locator(`[data-field="${name}"]`).innerText();
 }
 
+async function admitConnectedLiveView(page) {
+  await page.waitForFunction(() => {
+    return Boolean(
+      window.liveSocket &&
+      typeof window.liveSocket.isConnected === 'function' &&
+      window.liveSocket.isConnected()
+    );
+  });
+}
+
 test('dynamic acquisition -> Ash -> LiveView -> human interaction -> receipt', async ({ page, context }) => {
   fs.mkdirSync(artifactDir, { recursive: true });
   const tracePath = path.join(artifactDir, 'human-value-trace.zip');
@@ -18,6 +28,7 @@ test('dynamic acquisition -> Ash -> LiveView -> human interaction -> receipt', a
   try {
     await page.goto('/human-value');
     await expect(page.getByRole('heading', { name: 'Dynamic Ash value world' })).toBeVisible();
+    await admitConnectedLiveView(page);
     await expect(page.getByTestId('world-count')).toContainText('0 runtime worlds');
 
     await page.getByRole('button', { name: 'Acquire synthetic value world' }).click();
@@ -87,6 +98,7 @@ test('dynamic acquisition -> Ash -> LiveView -> human interaction -> receipt', a
       exact_head: process.env.PR_HEAD_SHA || process.env.GITHUB_SHA || 'UNKNOWN',
       journey: [
         'navigate:/human-value',
+        'admit:connected-liveview',
         'acquire:first',
         'observe:first-rendered-values',
         'acquire:second',
