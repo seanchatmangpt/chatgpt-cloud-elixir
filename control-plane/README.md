@@ -61,13 +61,14 @@ Every projected work object contains this non-overridable boundary:
 
 Incoming JSON cannot elevate `DO`. Claim, progress, completion, block, refusal,
 and replay operations produce append-only `swarmsh.receipt/v1` records with a
-SHA-256 digest and trace identity. `complete` defaults to `PARTIAL_ALIVE`; it is
-not an execution crown. A caller may assert `ALIVE` in a completion result only
-when it is carrying the separately observed exact-subject acceptance evidence.
+SHA-256 digest and trace identity. `complete` always remains `PARTIAL_ALIVE`:
+raw/model/planner completion JSON cannot self-crown execution standing. `ALIVE`
+continues to belong to the independent exact-subject verification/receipt path.
 
 Project #2 is demand, not the scheduler. Import maps each Project item to a
-stable `project2_<digest>` work id, making repeated imports replayable instead
-of manufacturing duplicate work objects.
+stable `project2_<digest>` work id, making repeated and concurrent imports
+replayable instead of manufacturing duplicate work objects. Project-memory
+records are control state and are excluded from work demand.
 
 ## Local
 
