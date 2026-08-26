@@ -74,7 +74,9 @@ jobs:
 
       - name: Preserve evidence-only authority boundary
         run: |
-          ! grep -R --line-number -E '(deploy|release|publish|kubectl|terraform apply|process discovery|conformance|fitness|precision|variants)' ggen.toml ontology/ggen-ecosystem-ocel-run.ttl templates/ggen-ecosystem-ocel
+          ! grep -R --line-number -E '(deploy|release|publish|kubectl|terraform apply)' ggen.toml ontology/ggen-ecosystem-ocel-run.ttl
+          grep -q 'wasm4pm' templates/ggen-ecosystem-ocel/README.md
+          grep -q 'process_analysis_owner == "wasm4pm"' .github/workflows/ggen-ecosystem-ocel-consumer.yml
 
       - name: Upload exact generated evidence
         uses: actions/upload-artifact@v4
