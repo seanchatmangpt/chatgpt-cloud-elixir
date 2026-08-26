@@ -1,0 +1,1 @@
+{"request_id":"20260826T035600Z-select-r78-structural-read","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"ggen/structural-manufacturing/current"}}
