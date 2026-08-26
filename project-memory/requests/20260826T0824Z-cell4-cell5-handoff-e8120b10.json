@@ -1,0 +1,73 @@
+{
+  "request_id": "20260826T0824Z-cell4-cell5-handoff-e8120b10",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/cell5/handoff",
+      "title": "CELL4 to CELL5 complete ForcedTop25 closure inventory",
+      "kind": "ggen.fanout.cell5.handoff",
+      "cell": "REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["cell4", "cell5", "forced-top25", "closure", "xaas"],
+      "body": "CELL5 closure inventory after exact CELL3 allocation consumption. ex4pm #34 and GymAct #126 are merged/default-assimilated. XaaS #31 is the only active inherited CELL3 READY lineage: exact base 2207203b1bef612cc55a52676b8e607f930640e7, branch fanout/r79-tcps-admission, current head e8120b10cfd30c911ac710eb7ba9411943ab41da, 31 ahead/0 behind. R79 and R81 exact-head courts are ALIVE. CELL4 repaired fresh-db migration failure by eliminating duplicate platform_webhooks cloak convergence from later migration and added a permanent regression court; broad CI run 32946813480 remains in progress. Do not merge XaaS until broad CI terminates green. Remaining 22 forced targets retain target-specific admissibility-receipt obligations; chatgpt-cloud-elixir remains CONTROL-excluded until a downstream product/runtime GGEN causality receipt exists. No discovered appended consumers this wave; no superseded or duplicate new lineage; no unmerged upstream repair; no external consequential DO.",
+      "metadata": {
+        "forced_top25_count": 25,
+        "discovered_targets": [],
+        "superseded_work": [],
+        "duplicate_lineages": [],
+        "unmerged_upstream_repairs": [],
+        "project_memory_requests": [
+          "20260826T0818Z-cell4-xaas-mid-e8120b10",
+          "20260826T0823Z-cell4-fanout-post-e8120b10",
+          "20260826T0824Z-cell4-cell5-handoff-e8120b10"
+        ],
+        "open_prs": [{"repo":"xaas","pr":31,"base":"2207203b1bef612cc55a52676b8e607f930640e7","head":"e8120b10cfd30c911ac710eb7ba9411943ab41da","branch":"fanout/r79-tcps-admission","draft":true,"mergeable":true,"checks":"R79_SUCCESS;R81_SUCCESS;BROAD_CI_IN_PROGRESS"}],
+        "targets": {
+          "ex4pm": {"class":"CLOSE_READY","evidence":"PR34 merged; head 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8; merge 06d326f59d05afdcd39637f42fe277a474095dda","human_value":"HUMAN_VALUE_UNKNOWN"},
+          "gymact": {"class":"CLOSE_READY","evidence":"PR126 merged; head bcb14a65b83fc543bb11acaa84709765ac88f42c; merge d8382cac7dd888a77c8cca8bcd335a04ddb49a15","human_value":"HUMAN_VALUE_UNKNOWN"},
+          "xaas": {"class":"REPAIR_REQUIRED","evidence":"PR31 e8120b10; R79/R81 success; broad CI 32946813480 in progress after migration repair","human_value":"HUMAN_VALUE_UNKNOWN"},
+          "autofde-lab": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "autofde": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "chatgpt-cloud-elixir": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_GGEN_ADMISSIBILITY_RECEIPT_MISSING; CONTROL commits excluded; product/runtime causality unproven","human_value":"HUMAN_VALUE_UNKNOWN"},
+          "process-intelligence": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "ash_r2rml": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "wasm4pm": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "pm4wasm": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "mfact": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "mfact-command-center": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "mfw": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "SREGym": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "fdegym": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "revops": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "chatman-ecosystem": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "POWL": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "swarmsh-v2": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "cargo-cicd": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "clap-noun-verb": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "unrdf": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "dspygen": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "yawl": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+          "a2a-rs": {"class":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"}
+        },
+        "partial_fanout": ["xaas"],
+        "pending_checks": ["xaas#31 CI/CD Elixir run 32946813480"],
+        "failed_checks": [],
+        "conflicts": [],
+        "stale_heads": [],
+        "U": 3,
+        "R": 3,
+        "Q_strict_full_repo": 1,
+        "Q_scoped": 3,
+        "M": 2,
+        "OpenFanoutObligations": 1,
+        "F_R": 3,
+        "F_C": 42,
+        "F_A": 2,
+        "F_Q": 1,
+        "Coverage": 1.0,
+        "consequential_external_do": false
+      }
+    }
+  }
+}
