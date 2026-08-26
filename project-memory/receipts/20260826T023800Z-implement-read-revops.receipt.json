@@ -1,0 +1,94 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:47:18Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ocel/v2/revops/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T023800Z-implement-read-revops"
+  },
+  "request_id": "20260826T023800Z-implement-read-revops",
+  "request_path": "project-memory/requests/20260826T023800Z-implement-read-revops.json",
+  "request_sha256": "sha256:71bc15ee4ec5aecec516a2a42c0d0fd56ce73ad8b3cf516b177842771228b6d6",
+  "request_transport_sha256": "sha256:db7808baefc27a6c7723c6ba7ac9c6f988c005ed798416fb4aac28742422e20b",
+  "result": {
+    "body": "R75 preserves RevenueFROMCustomer and RevenueFORCustomer as distinct semantic/evidence paths and adds deterministic OCEL value-evidence projection plus regeneration/requalification topology. No observed revenue multiplier is claimed; economic leverage remains evidence-bounded until exact consumers execute.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_2nU",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4ByJo",
+    "metadata": {
+      "canonical_project": "seanchatmangpt/2",
+      "case_centric_views": "projection-only",
+      "cell": "EXPLORE",
+      "correction": "metadata counts reconciled to explicit object/event lists",
+      "created_at": "2026-08-26T00:41:26Z",
+      "customer_revenue_yield": "UNKNOWN",
+      "dual_revenue_flows": true,
+      "dual_revops": true,
+      "event_type_count": 39,
+      "git_commits": "immutable manufacturing receipts",
+      "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+      "key": "ocel/v2/revops/current",
+      "kind": "ocel.revops",
+      "object_type_count": 26,
+      "objective": "maximize commit manufacturing throughput, hyperdimensional information density, portfolio revenue, and customer revenue generation",
+      "observed_revenue_multiplier": "UNKNOWN",
+      "ocel_projection": true,
+      "pr": 305,
+      "project_memory": "canonical current object/process/economic control state",
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "revenue_for_customer": "DISTINCT",
+      "revenue_from_customer": "DISTINCT",
+      "run_id": "SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "standing_model": [
+        "UNKNOWN",
+        "PARTIAL_ALIVE",
+        "ALIVE",
+        "BUILD_BROKEN",
+        "UNSUPPORTED",
+        "REFUSED"
+      ],
+      "supersedes_request": "20260825T174013-ocel-v2-revops-hypergraph",
+      "tags": [
+        "ocel",
+        "r75",
+        "revenue-for",
+        "revenue-from",
+        "revops",
+        "value-evidence"
+      ],
+      "transport": "chatgpt-cloud-elixir/project-memory-bus",
+      "ui_runtime": [
+        "Elixir",
+        "Ash Framework",
+        "Reactor",
+        "Phoenix/LiveView"
+      ],
+      "updated_at": "2026-08-26T02:34:19Z"
+    },
+    "title": "OCEL v2 dual-RevOps frontier"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
