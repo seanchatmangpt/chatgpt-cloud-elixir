@@ -1,0 +1,42 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:46:22Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "max_scan": 1000,
+      "text": "R78 ready set consumer structural qualification fanout upstream return TCPS"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T034510Z-select4-post-query"
+  },
+  "request_id": "20260826T034510Z-select4-post-query",
+  "request_path": "project-memory/requests/20260826T034510Z-select4-post-query.json",
+  "request_sha256": "sha256:405882491973634545716dc5387759dd191b5e322f760bc16e32898baa07f2ea",
+  "request_transport_sha256": "sha256:be64c3fa6ae0250371cdab310dfa986868229e0da8e5349510e22b4510e49322",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 44,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
