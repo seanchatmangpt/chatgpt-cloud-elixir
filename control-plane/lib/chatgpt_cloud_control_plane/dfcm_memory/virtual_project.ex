@@ -879,9 +879,11 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
 
   defp normalize_int(value, _default) when is_integer(value), do: value
 
-  defp normalize_int(value, default) when is_binary(value), do: case(Integer.parse(value)) do
-    {int, ""} -> int
-    _ -> default
+  defp normalize_int(value, default) when is_binary(value) do
+    case Integer.parse(value) do
+      {int, ""} -> int
+      _ -> default
+    end
   end
 
   defp normalize_int(_, default), do: default
