@@ -14,9 +14,28 @@ producers.
 - `/admin` — AshAdmin over the persisted process-intelligence Ash resources.
 - `/api/v1/ocel/batches` — authenticated `chatgpt-cloud-ocel/1` ingestion.
 - `/healthz` — database-backed health check used by Fly.
+- `/mcp` — AshAi/MCP junction, including read-only Project Two semantic projections.
 
 Browser routes use HTTP Basic Auth from `ADMIN_USERNAME` / `ADMIN_PASSWORD`.
 The ingest API requires `Authorization: Bearer $OCEL_INGEST_TOKEN`.
+
+## Project Two semantic PaaS
+
+The `ChatGPTCloud.DfcmMemory` Ash domain wraps GitHub Project v2
+`seanchatmangpt/2` as one canonical subject with multiple deterministic read
+models. MCP clients can inspect the same Project as ordinary items, shared
+memory, a property graph, bounded graph queries, relational tables, semantic
+triples, JSON-LD, a service/capability catalog, OCEL-shaped process evidence,
+or bounded LLM context.
+
+These are virtual projections, not synchronized databases. Project #2 remains
+the persisted subject; the projection tools carry `READ_ONLY_VIRTUAL_PROJECTION`
+authority and do not convert graph paths, ontology facts, or model output into
+ambient execution authority. Existing Project-memory writes remain separately
+bounded and receipted.
+
+See `../project-memory/SEMANTIC_VIRTUALIZATION.md` for the projection law,
+operations, standing boundaries, and OCEL conformance caveat.
 
 ## Local
 

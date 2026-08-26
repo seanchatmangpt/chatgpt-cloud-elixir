@@ -84,6 +84,11 @@ class SemanticProjectionTests(unittest.TestCase):
         self.assertEqual("virtual-semantic-paas", self.graph["services"]["model"])
         self.assertTrue(self.graph["ocel"]["objects"])
 
+    def test_service_catalog_binds_one_canonical_subject(self):
+        services = self.graph["services"]
+        self.assertEqual("GitHub Project v2 #2", services["canonical_subject"])
+        self.assertEqual("virtual-semantic-paas", services["model"])
+
     def test_explicit_memory_relationship_becomes_edge(self):
         consumed = [edge for edge in self.graph["edges"] if edge["predicate"] == "CONSUMES_MEMORY"]
         self.assertEqual(1, len(consumed))
