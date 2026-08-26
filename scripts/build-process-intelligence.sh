@@ -41,10 +41,11 @@ mkdir -p "$STAGE/subjects"
 SUBJECT_ROWS="$WORK/subjects.ndjson"
 : > "$SUBJECT_ROWS"
 
-# ex4pm's frozen mix.exs resolves ../../../wasm4pm-compat/bindings/elixir
-# from $STAGE/subjects/ex4pm to $WORK/wasm4pm-compat/bindings/elixir.
-# Materialize the exact pinned dependency at that resolved path so the capsule
-# is dependency-closed instead of relying on ambient filesystem state.
+# ex4pm umbrella child apps resolve ../../../wasm4pm-compat/bindings/elixir
+# relative to $STAGE/subjects/ex4pm/apps/<app>, which lands at
+# $STAGE/subjects/wasm4pm-compat. Materialize the exact pinned dependency at
+# that resolved path so the capsule is dependency-closed rather than relying
+# on ambient filesystem state.
 DEPENDENCY_REPOSITORY="$(python3 - "$CFG" <<'PY'
 import sys, tomllib
 cfg = tomllib.load(open(sys.argv[1], "rb"))
@@ -75,7 +76,7 @@ PY
   echo "UNSUPPORTED: dependency repository must be public github.com git URL" >&2; exit 64;
 }
 DEPENDENCY_GIT="$WORK/git-wasm4pm-compat"
-DEPENDENCY_SOURCE="$WORK/$DEPENDENCY_NAME"
+DEPENDENCY_SOURCE="$STAGE/subjects/$DEPENDENCY_NAME"
 git init -q "$DEPENDENCY_GIT"
 git -C "$DEPENDENCY_GIT" remote add origin "$DEPENDENCY_REPOSITORY"
 git -C "$DEPENDENCY_GIT" fetch -q --depth=1 origin "$DEPENDENCY_SHA"
