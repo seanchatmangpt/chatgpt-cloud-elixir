@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import project_memory_proxy as base
 import project_semantic_projection as semantic
+import project_vision_2030 as vision_2030
 
 SEMANTIC_OPERATIONS = {
     "project.semantic",
@@ -26,6 +27,7 @@ SEMANTIC_OPERATIONS = {
     "project.services",
     "project.ocel",
     "project.context",
+    "project.vision2030",
 }
 
 _ORIGINAL_EXECUTE_REQUEST = base.execute_request
@@ -106,6 +108,8 @@ def execute_request(store: base.ProjectMemoryStore, request: dict[str, Any], ope
         result = {"schema": graph["schema"], "project": graph["project"], "observed_at": graph["observed_at"], "ocel": graph["ocel"]}
     elif operation == "project.context":
         result = semantic.context_projection(graph, query)
+    elif operation == "project.vision2030":
+        result = vision_2030.project(graph, query)
     else:  # pragma: no cover - guarded by SEMANTIC_OPERATIONS
         raise AssertionError(operation)
 
