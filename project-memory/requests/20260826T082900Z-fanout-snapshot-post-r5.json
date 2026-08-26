@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T082900Z-fanout-snapshot-post-r5",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}
