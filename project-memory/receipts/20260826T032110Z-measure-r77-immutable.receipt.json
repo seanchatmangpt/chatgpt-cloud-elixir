@@ -1,0 +1,85 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:25:11Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Durable R77 learning: a portfolio census is not epistemically complete until repository identity, default branch, exact head, observation time, and authority scope are all explicit. The first R77 collector enumerated repositories/default branches but omitted exact heads; sensor 02 exposed that latent blind spot before merge. The collector was repaired to resolve every default branch through read-only branch GETs, and the permanent court now rejects collectors without `/branches/`, exact_head, head_resolved, and GET-only behavior. A second operational falsifier occurred in Project memory: bot receipt generation moved the transport head between read and write, causing an expected-head 409; re-resolution plus non-force replay succeeded. Therefore exact transport-head resolution must be treated as a per-request operation, not a run-level fact. Authority-scoped connector reachability (100 repos observed) must never be conflated with full public/account universe cardinality. Merge containment is exact: 8ecb785 parent1=04cd8add..., parent2=d79b687....",
+        "cell": "MEASURE",
+        "key": "dfcm/run/measure/20260826T032407Z/8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "novel_rules": 3,
+          "qualified_head": "d79b687ad0acc7a69b0386af7eec0c74ccbae029",
+          "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+          "transport_head_before_request": "c6f0a55c43172cb84cedf8a8ea220a229abeabf2"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "r77",
+          "immutable-learning",
+          "repository-universe"
+        ],
+        "title": "R77 exact repository universe learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T032110Z-measure-r77-immutable"
+  },
+  "request_id": "20260826T032110Z-measure-r77-immutable",
+  "request_path": "project-memory/requests/20260826T032110Z-measure-r77-immutable.json",
+  "request_sha256": "sha256:8d97283d1b92f1ef01d44d75dc9da3ebef7ca6273c4bbeccaf28d7cf0974b4ad",
+  "request_transport_sha256": "sha256:dbb9b59c7191e838272e25f980b69026c334edffd24066be62cb9a6da2dc396b",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable R77 learning: a portfolio census is not epistemically complete until repository identity, default branch, exact head, observation time, and authority scope are all explicit. The first R77 collector enumerated repositories/default branches but omitted exact heads; sensor 02 exposed that latent blind spot before merge. The collector was repaired to resolve every default branch through read-only branch GETs, and the permanent court now rejects collectors without `/branches/`, exact_head, head_resolved, and GET-only behavior. A second operational falsifier occurred in Project memory: bot receipt generation moved the transport head between read and write, causing an expected-head 409; re-resolution plus non-force replay succeeded. Therefore exact transport-head resolution must be treated as a per-request operation, not a run-level fact. Authority-scoped connector reachability (100 repos observed) must never be conflated with full public/account universe cardinality. Merge containment is exact: 8ecb785 parent1=04cd8add..., parent2=d79b687....",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5Is",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CrIc",
+      "metadata": {
+        "cell": "MEASURE",
+        "created_at": "2026-08-26T03:25:26Z",
+        "key": "dfcm/run/measure/20260826T032407Z/8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "kind": "dfcm.run-learning",
+        "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "novel_rules": 3,
+        "qualified_head": "d79b687ad0acc7a69b0386af7eec0c74ccbae029",
+        "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "immutable-learning",
+          "measure",
+          "r77",
+          "repository-universe"
+        ],
+        "transport_head_before_request": "c6f0a55c43172cb84cedf8a8ea220a229abeabf2",
+        "updated_at": "2026-08-26T03:25:26Z"
+      },
+      "title": "R77 exact repository universe learning"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
