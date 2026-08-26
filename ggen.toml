@@ -1,6 +1,5 @@
 [project]
 name = "chatgpt-cloud-elixir-ocel"
-version = "26.8.26"
 description = "GGEN-owned OCEL 2.0 execution-history projection for bounded Project #2 manufacturing evidence"
 
 [ontology]
