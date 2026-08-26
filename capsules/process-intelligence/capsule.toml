@@ -18,8 +18,8 @@ elixir = "1.18.4"
 
 [dependencies.wasm4pm_compat]
 repository = "https://github.com/seanchatmangpt/wasm4pm-compat.git"
-sha = "577e2d1d8bdfe27d96f61c63f3ea120994e8bfda"
-tree_sha = "fcc6d3e778970e19be0bbd02efab02b3b28d1282"
+sha = "a1c98bb8f0b6f2f6efd39cba0bc48e1485f39193"
+tree_sha = "084e0280666038d779ef0e6b57538ca83b47e319"
 materialize_as = "wasm4pm-compat"
 
 [subjects.ash_r2rml]
