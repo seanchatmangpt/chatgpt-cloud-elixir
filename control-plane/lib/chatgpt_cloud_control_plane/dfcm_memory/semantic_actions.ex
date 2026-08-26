@@ -1,7 +1,7 @@
 defmodule ChatGPTCloud.DfcmMemory.SemanticAction do
   @moduledoc false
 
-  alias ChatGPTCloud.DfcmMemory.VirtualProject
+  alias ChatGPTCloud.DfcmMemory.{VirtualProject, Vision2030}
 
   def run(input, view) do
     max_items = Ash.ActionInput.get_argument(input, :max_items)
@@ -21,9 +21,15 @@ defmodule ChatGPTCloud.DfcmMemory.SemanticAction do
 
     case VirtualProject.project(opts) do
       {:ok, graph} ->
-        case VirtualProject.view(graph, view, query) do
+        result =
+          case view do
+            "vision2030" -> Vision2030.project(graph, query)
+            _ -> VirtualProject.view(graph, view, query)
+          end
+
+        case result do
           {:error, reason} -> {:error, Ash.Error.to_ash_error(reason)}
-          result -> {:ok, result}
+          projection -> {:ok, projection}
         end
 
       {:error, %{message: message, standing: standing, reason: reason}} ->
@@ -122,4 +128,11 @@ defmodule ChatGPTCloud.DfcmMemory.SemanticContext do
   @impl true
   def run(input, _opts, _context),
     do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "context")
+end
+
+defmodule ChatGPTCloud.DfcmMemory.SemanticVision2030 do
+  use Ash.Resource.Actions.Implementation
+  @impl true
+  def run(input, _opts, _context),
+    do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "vision2030")
 end
