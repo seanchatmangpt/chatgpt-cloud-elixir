@@ -1,0 +1,42 @@
+{
+  "request_id": "20260826T232702Z-cell1-post-ocel-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "manufacturing", "ocel", "project2", "cell1"],
+      "body": "CELL1 added 60 canonical ForcedTop25 exact-subject/frontier gates at ggen-marketplace@de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. Vacuity Audit and general exact-head CI succeeded. No new deterministic OCEL artifact was generated, so the canonical artifact remains the previously admitted sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 with unchanged-prior-artifact scope; this run claims no new O/Q/M. A fresh grounded ForcedTop25 OCEL execution of the new gates remains an explicit observation obligation.",
+      "metadata": {
+        "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+        "ggen_first": true,
+        "process_analysis_owner": "wasm4pm",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+        "pr": 337,
+        "semantic_commits": 60,
+        "forced_top25_observed": 25,
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT",
+        "new_ocel_artifact_generated": false,
+        "U_lower_bound_preserved": 17,
+        "G": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "O": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "Q": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "M_lower_bound_preserved": 10,
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenObservationObligations": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_GATE_EXECUTION]",
+        "vacuity": "ALIVE",
+        "general_ci": "ALIVE",
+        "gate_execution": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_FIXTURE]",
+        "consequential_external_do": false
+      }
+    }
+  }
+}
