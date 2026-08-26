@@ -1,0 +1,423 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:58:20Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "UTC start 2026-08-26T03:52:17Z. Project snapshot PVT_kwHOCCCFfc4BhZKe item_count=388. Exact marketplace default observed 8ecb78504241aef4fb1de1bd4f14bd1e71089a0b; R78 candidate 59ab631592496a502620ea4a8ebc8efc8cc4f7ce. Memory keys requested before manufacture: dfcm/frontier/current, dfcm/ledger/current, dfcm/explore/latest, dfcm/select/latest, dfcm/portfolio/latest, ggen/structural-manufacturing/current, ocel/v2/revops/current, manufacturing/schedule-throughput/current, tcps/schedule-actuation/current. Candidate portfolio: R78 TCPS ready-set compiler READY subject to broad real-ggen qualification; R76 and R74 preserved as lawful non-ready alternatives; newly observed upstream return: deterministic ORDER BY repair for R77 repository-universe generation rule. Hard gates: exact subject, legality before priority, GGEN strict determinism, authority bounded, receipt coverage, no consequential DO. Initial Y=UNKNOWN; initial M=UNKNOWN; weakest multiplier=qualified independent consumer fanout/realized downstream yield. tcps_patterns_applied=[downstream_customer_first,partial_order_preserved,ready_set_only,legality_before_priority,linear_extension_at_execution_edge,pull_by_downstream,authority_hard_gate,zero_unreceipted_actuation,quality_at_source,qualified_novelty_to_standard_work].",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run-control/select/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "M": "UNKNOWN",
+          "Y": "UNKNOWN",
+          "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 388,
+          "r78_head": "59ab631592496a502620ea4a8ebc8efc8cc4f7ce",
+          "transport_head": "7ccb27751a6433018d4b7cd429e9213ec0b4f03a",
+          "weakest_multiplier": "qualified_independent_consumer_fanout_and_realized_yield"
+        },
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "select",
+          "develop",
+          "tcps",
+          "r78",
+          "run-control"
+        ],
+        "title": "DfCM SELECT+DEVELOP run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T035800Z-select-r78-run-control-running"
+  },
+  "request_id": "20260826T035800Z-select-r78-run-control-running",
+  "request_path": "project-memory/requests/20260826T035800Z-select-r78-run-control-running.json",
+  "request_sha256": "sha256:ca6260f04e1d51763193e80564d08d7a510981fd2ebbef86bc0df6d42570cd1b",
+  "request_transport_sha256": "sha256:8b079c76756ed874737874559156f11d67af6fc4e0a241e3c67db00c972cf9a6",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "UTC start 2026-08-26T03:52:17Z. Project snapshot PVT_kwHOCCCFfc4BhZKe item_count=388. Exact marketplace default observed 8ecb78504241aef4fb1de1bd4f14bd1e71089a0b; R78 candidate 59ab631592496a502620ea4a8ebc8efc8cc4f7ce. Memory keys requested before manufacture: dfcm/frontier/current, dfcm/ledger/current, dfcm/explore/latest, dfcm/select/latest, dfcm/portfolio/latest, ggen/structural-manufacturing/current, ocel/v2/revops/current, manufacturing/schedule-throughput/current, tcps/schedule-actuation/current. Candidate portfolio: R78 TCPS ready-set compiler READY subject to broad real-ggen qualification; R76 and R74 preserved as lawful non-ready alternatives; newly observed upstream return: deterministic ORDER BY repair for R77 repository-universe generation rule. Hard gates: exact subject, legality before priority, GGEN strict determinism, authority bounded, receipt coverage, no consequential DO. Initial Y=UNKNOWN; initial M=UNKNOWN; weakest multiplier=qualified independent consumer fanout/realized downstream yield. tcps_patterns_applied=[downstream_customer_first,partial_order_preserved,ready_set_only,legality_before_priority,linear_extension_at_execution_edge,pull_by_downstream,authority_hard_gate,zero_unreceipted_actuation,quality_at_source,qualified_novelty_to_standard_work].",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_lng",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36nMk",
+      "metadata": {
+        "1000X": "NOT_ADMITTED",
+        "1000x": "NOT_ADMITTED",
+        "D": "PENDING",
+        "F": "UNCHANGED",
+        "G": 1.0,
+        "M": "UNKNOWN",
+        "M_initial": ">=1",
+        "M_initial_lower_bound": 1,
+        "M_lower_bound": 1,
+        "U": "PROMOTED_REGEN_PENDING",
+        "Y": "UNKNOWN",
+        "Y_future": "UNKNOWN",
+        "Y_initial": "UNKNOWN",
+        "Y_observed": 0.2,
+        "Y_observed_full_run": 0.143,
+        "Y_observed_primitive": 0.4,
+        "admissible_set": [
+          "R78_TCPS_READY_SET_CAPITAL",
+          "R76_STRUCTURAL_CAPITAL_REQUALIFY",
+          "R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"
+        ],
+        "archived": [],
+        "attempted_upper_bound": "100+",
+        "authority": "SELECT|CONSTRUCT",
+        "base": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+        "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+        "baseline": 50,
+        "baseline_shortfall": 45,
+        "baseline_shortfall_reason": "current multiplier frontier already had dependency-closed consumer work manufactured and exact-head qualified; duplicating 50 new courts would violate marketplace-first and ERRC. Highest-yield action was containment plus exposure of receipt-assimilation dependencies.",
+        "branch": "develop/r73-revalidation-manufacturing-capital-20260825",
+        "branch_commits": 67,
+        "broad_ci": "QUEUED_IN_PROGRESS",
+        "broad_ci_run": 32840193214,
+        "bus_head": "15602f1114daf05219e64504ab9fe5ee7d1a10de",
+        "bus_head_before_request": "e822d3140a42caf79429eafa565ccfa8f2198934",
+        "bus_head_final_request": "49f1c69589b9e2b4632261be3a5b81d2957ea90b",
+        "bus_head_pre": "9466128673ee7217e3e35332aac4ef8d74495180",
+        "candidate": "231826736a1aa5ebb9eea0c93f0ffaaced5241f2",
+        "candidate_portfolio": [
+          "ggen-marketplace#302",
+          "ggen-marketplace#301",
+          "schedule-throughput-attribution extension"
+        ],
+        "candidate_sha": "58a42694d52b08e57c51e6ff7b131b1ec916869d",
+        "cell": "SELECT_DEVELOP",
+        "clean_independent_fixture": 3,
+        "cloud_merge_sha": "2117c4a06b715ef1a852654de0d210859a09d4ee",
+        "cloud_pr": 12,
+        "commits_per_hour_active": 391.94,
+        "consequential_do": false,
+        "construction_base": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+        "consumer_readiness": {
+          "admitted": 3,
+          "grounded": 4,
+          "independently_ready": 1,
+          "shortfall": 9,
+          "target": 10
+        },
+        "consumer_ready": 2,
+        "consumer_ready_remembered": 2,
+        "consumer_shortfall": 7,
+        "consumer_shortfall_to_10x": 7,
+        "consumer_target": 10,
+        "containment": "ALIVE",
+        "created_at": "2026-08-25T09:26:32Z",
+        "default_head": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+        "defect_repaired": "verifier assumed globally unique numeric query ordinals; replaced with exact semantic-family query identity binding",
+        "defects_repaired": [
+          "cross-pack Project-memory instance ownership leak",
+          "unconsumed concurrent provenance stub causing exact-head Vacuity failure"
+        ],
+        "direct_meaningful_commits": 66,
+        "direct_new_semantic_commits": 0,
+        "direct_new_semantic_commits_authored": 0,
+        "ended_at": "2026-08-25T23:10:35Z",
+        "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+        "exact_bus_head": "25aa5726decefd16e0827a93e0bc808463ba9cfc",
+        "exact_bus_head_before_request": "1317d7977d1b60c6b946c814a21a41295fa6c953",
+        "final_consumer_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+        "final_marketplace_head": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+        "fixture_consumer_shortfall": 6,
+        "fixture_fanout_shortfall": 2,
+        "fixture_independent_selected": 4,
+        "generation": "R73",
+        "ggen_base": "aa53795636e4fe1775b3eff5ff91227a02320ffc",
+        "ggen_head": "ddfa602be2940b7d1fd5a7c68134ffc01bcd2a45",
+        "ggen_merge_sha": "a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+        "ggen_pr": 666,
+        "ggen_pr_head": "26ed26b71f2b22781c351950c5a8d7d6db33a585",
+        "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+        "head_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+        "implement_handoff": [
+          "enumerate admitted-but-not-independently-ready R55 consumers from Project and producer evidence",
+          "manufacture target-local adapters without duplicating producer-owned courts",
+          "return exact consumer receipts through R52/R55 evidence path",
+          "measure causal downstream unlocks with preserved R54 measurement edge",
+          "only promote consumer factor and 1000X after independent execution receipts"
+        ],
+        "independent_executed_consumer_lower_bound": 3,
+        "initial_M": 2,
+        "initial_M_lower_bound": 1,
+        "initial_Y": "UNKNOWN",
+        "initial_weakest_multiplier": "qualified_structural_displacement_and_attributed_commit_throughput",
+        "key": "dfcm/run-control/select/current",
+        "kind": "dfcm.run-control",
+        "marketplace_base": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+        "marketplace_candidate": "fb0e89d215540dea2958122948baa37667753600",
+        "marketplace_candidate_head": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "marketplace_default": "d1ed42b25421b659821b75287fee45ee94b19489",
+        "marketplace_default_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "marketplace_final": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "marketplace_head": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "marketplace_initial": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+        "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "marketplace_main_observed": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+        "marketplace_merge_sha": "1bce7b3aa9cc74675126a6f2b9778a2331226824",
+        "marketplace_pr": 272,
+        "meaningful_commits": 64,
+        "meaningful_repo_commits": 54,
+        "meaningful_semantic_commits": 52,
+        "meaningful_semantic_commits_newly_contained": 55,
+        "memory_created": [
+          "dfcm/run/select/20260826T0038Z/55dd1400"
+        ],
+        "memory_key_created": "dfcm/run/select/20260825T214630Z/95387a06",
+        "memory_keys": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/explore/latest",
+          "dfcm/select/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "memory_keys_consumed": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/explore/latest",
+          "dfcm/select/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "memory_keys_updated": [
+          "dfcm/select/latest",
+          "dfcm/ledger/current",
+          "dfcm/frontier/current",
+          "dfcm/run-control/select/current"
+        ],
+        "merge": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+        "merge_count": 0,
+        "merge_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+        "merge_shas": [
+          "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+          "e6810f8e36ef81b567d2c60f892b6f11eea5b89f"
+        ],
+        "merged_prs": [
+          271,
+          270
+        ],
+        "merges": 1,
+        "new_authorship_baseline_shortfall": 50,
+        "new_semantic_courts": 50,
+        "nonsemantic_integration_commits": 1,
+        "owning_court": "ALIVE",
+        "owning_court_run": 32840193279,
+        "owning_r70": "ALIVE",
+        "parked": [],
+        "post_query_request": "20260825T214615Z-select-post-query-independence",
+        "post_receipts": [
+          "20260825T145800Z-select-post",
+          "20260825T145801Z-ledger-post",
+          "20260825T145802Z-frontier-post",
+          "20260825T145803Z-query-unlocked",
+          "20260825T145804Z-select-learning",
+          "20260825T145805Z-select-complete"
+        ],
+        "post_receipts_observed_alive": [
+          "20260825T214500Z-select-post-latest",
+          "20260825T214520Z-select-post-ledger"
+        ],
+        "post_requests": [
+          "20260825T234100Z-select4-final-select",
+          "20260825T234110Z-select4-final-ledger",
+          "20260825T234120Z-select4-final-frontier",
+          "20260825T234130Z-select4-post-query-unlocked",
+          "20260825T234140Z-select4-learning",
+          "20260825T234150Z-select4-post-snapshot",
+          "20260825T234200Z-select4-run-control-complete"
+        ],
+        "post_snapshot_request": "20260826T0049Z-select4-post-snapshot",
+        "pr": 300,
+        "pre_item_count": 380,
+        "pre_mutation_original": "BUILD_BROKEN",
+        "pre_mutation_repair_at": "2026-08-25T15:45:00Z",
+        "pre_receipts": [
+          "20260825T232620Z-select4-snapshot-pre",
+          "20260825T232627Z-select4-run-control-running"
+        ],
+        "pre_run_control_receipt": "20260825T145600Z-select-running",
+        "pre_snapshot_receipt": "20260826T0026Z-select4-pre-snapshot",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 388,
+        "project_item_count_post": 360,
+        "project_item_count_pre": 376,
+        "project_items_pre": 384,
+        "project_post": "ALIVE/receipting",
+        "project_post_requests": [
+          "20260825T173200Z-select-post-select",
+          "20260825T173220Z-select-post-ledger",
+          "20260825T173240Z-select-post-frontier",
+          "20260825T173300Z-select-post-query",
+          "20260825T173320Z-select-durable-learning",
+          "20260825T173340Z-select-run-control-complete"
+        ],
+        "project_post_snapshot_request": "20260825T234150Z-select4-post-snapshot",
+        "project_pre": "REFUSED[WRITE_SURFACE_POLICY] before execution",
+        "project_pre_requests": [
+          "20260825T172500Z-select-snapshot",
+          "20260825T172600Z-select-read-frontier",
+          "20260825T172610Z-select-read-ledger",
+          "20260825T172620Z-select-read-explore",
+          "20260825T172630Z-select-read-select",
+          "20260825T172640Z-select-read-portfolio",
+          "20260825T172710Z-select-query-capital",
+          "20260825T172800Z-select-run-control-running"
+        ],
+        "project_receipt_ids": [
+          "20260825T142100Z-select-snapshot",
+          "20260825T142500Z-select-run-control-running",
+          "20260825T144400Z-select-post-select",
+          "20260825T144401Z-select-post-ledger",
+          "20260825T144402Z-select-post-frontier",
+          "20260825T144403Z-select-post-query",
+          "20260825T144404Z-select-learning",
+          "20260825T144405Z-select-run-control-complete"
+        ],
+        "project_request_commits_post": 6,
+        "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_snapshot_item_count": 361,
+        "project_snapshot_items": 373,
+        "prompt_digest": "52dd39e1a2db9adb1e4502c8eee2feb23e3b623c619b14927fbfc02ff74dacb1",
+        "qualification": "ALIVE",
+        "qualification_receipts": {
+          "broad_ci_run": 32860889422,
+          "r55_owning_run": 32860889375,
+          "vacuity_run": 32860889543
+        },
+        "qualification_run": 32843730780,
+        "qualification_runs": {
+          "ci": 32916335511,
+          "r73": 32916335483,
+          "vacuity": 32916335505
+        },
+        "qualified_candidate": "60a4a4611a7be113115e3e35c6043bf79a82955b",
+        "qualified_external_consumers_added": 2,
+        "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+        "queries": [
+          "independence",
+          "yield"
+        ],
+        "query_receipts": [
+          "20260825T212820Z-select-query-consumer",
+          "20260825T212900Z-select-query-yield"
+        ],
+        "query_request": "20260825T142305Z-select-query-capital",
+        "r69_regression": "ALIVE",
+        "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+        "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+        "r78_head": "59ab631592496a502620ea4a8ebc8efc8cc4f7ce",
+        "readiness_count": 2,
+        "readiness_shortfall": 8,
+        "ready_set": [
+          "R78_TCPS_READY_SET_CAPITAL"
+        ],
+        "receipt_ids": [
+          "20260825T105413Z-select-snapshot",
+          "select-105600-frontier",
+          "select-105708-run-control",
+          "select-110300-post-select",
+          "select-110301-post-ledger",
+          "select-110302-post-frontier",
+          "select-110303-post-query",
+          "select-110420-learning"
+        ],
+        "ref": "main",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "run_id": "select4+20260826T032826Z+SELECT_DEVELOP",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstream_commits_after": 67,
+        "selected_workstream_commits_before": 65,
+        "semantic_commit_shas": [
+          "45b993d9356a5dd4068f74b48f64c991d050d2e7",
+          "1df94088d7d8b5fc256be94befe00936befade1f",
+          "bb4649519bc87243d18024f560cb34895e266b25",
+          "37e61aa8d86c70e88e17b9a733a893c1a714fc4d",
+          "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf"
+        ],
+        "semantic_commits": 50,
+        "semantic_commits_authored": 5,
+        "semantic_commits_contained": 54,
+        "semantic_courts": 51,
+        "shortfall": 44,
+        "shortfall_reason": "dependency/run-frontier exhaustion under exact-head qualification; remaining consumer breadth is downstream of adapter/evidence-return admission, not lawfully countable as ready manufacture",
+        "snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+        "snapshot_item_count": 368,
+        "snapshot_items": 368,
+        "snapshot_receipt": "20260826T0026Z-select4-pre-snapshot",
+        "standing": "RUNNING",
+        "started_at": "2026-08-26T03:28:26Z",
+        "started_at_utc": "2026-08-25T15:54:24Z",
+        "support_commits_contained": 2,
+        "tags": [
+          "develop",
+          "dfcm",
+          "r78",
+          "run-control",
+          "select",
+          "tcps"
+        ],
+        "tcps_patterns_applied": [
+          "downstream_customer_first",
+          "partial_order_preservation",
+          "ready_set_only",
+          "legality_before_priority",
+          "linear_extension_at_execution_edge",
+          "parallelism_as_production_space",
+          "pull_from_downstream",
+          "upstream_return",
+          "qualified_novelty_to_standard_work"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "total_commits": 66,
+        "transient_events": [
+          "broad CI cancellation on a42d28e; rerun succeeded without semantic change"
+        ],
+        "transport_head": "7ccb27751a6433018d4b7cd429e9213ec0b4f03a",
+        "transport_head_before_request": "aa9af29eb192da115f0f21ba5f347eafe6009194",
+        "typed_refusals": [
+          "REFUSED[409_CONCURRENT_RECEIPT] final-frontier first attempt; fresh-head retry succeeded"
+        ],
+        "unmanufactured_dependency_dependent_opportunity_classes": 4,
+        "updated_at": "2026-08-26T03:58:31Z",
+        "utc_end": "2026-08-26T00:49:00Z",
+        "utc_start": "2026-08-26T02:27:43Z",
+        "vacuity": "ALIVE",
+        "vacuity_run": 32843730757,
+        "validation": {
+          "aggregate": "ALIVE",
+          "fast_admission": "ALIVE",
+          "r73": "ALIVE",
+          "real_ggen": "4/4 ALIVE",
+          "vacuity": "ALIVE"
+        },
+        "weakest_multiplier": "qualified_independent_consumer_fanout_and_realized_yield",
+        "weakest_multiplier_after": "independently qualified consumers manufactured from current exact-subject plans",
+        "weakest_multiplier_initial": "independently executed consumer breadth beyond ggen"
+      },
+      "title": "DfCM SELECT+DEVELOP run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
