@@ -1,0 +1,191 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T06:26:43Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/fanout/forced-top25/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T062500Z-cell3-read-forced-top25"
+  },
+  "request_id": "20260826T062500Z-cell3-read-forced-top25",
+  "request_path": "project-memory/requests/20260826T062500Z-cell3-read-forced-top25.json",
+  "request_sha256": "sha256:910ae40be07e235683dde3138c9b09234562314a435dce04eddd836654674d2c",
+  "request_transport_sha256": "sha256:86b6dca05958bcf96a72148f81b0fbb21fd6d248237f586d0119895046980a23",
+  "result": {
+    "body": "Ordered population preserved exactly. ex4pm and gymact remain realized seed consumers; XaaS remains compatible but repair-gated; 22 targets remain preserved UNKNOWN pending upstream admissibility evidence. R81 manufactures reusable exact-head consumer and qualification plans from R80 admission without evicting or reranking targets.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_5x8",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DDa8",
+    "metadata": {
+      "authority": "SELECT|CONSTRUCT",
+      "blockers": [
+        "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+        "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING",
+        "XAAS_CI_CD_ELIXIR_FAILURE"
+      ],
+      "canonical_factory": {
+        "head": "e00541af68f879500aac0c28d197f5a84092c746",
+        "pack": "forced-top25-admissibility-factory-pack",
+        "pr": 317,
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "cell": "COMPOSE",
+      "consequential_do": false,
+      "count": 25,
+      "created_at": "2026-08-26T04:34:38Z",
+      "exact_known_heads": {
+        "ex4pm": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+        "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+        "xaas": "3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+      },
+      "fanout_state": {
+        "ex4pm": "DOWNSTREAM_REALIZED",
+        "gymact": "DOWNSTREAM_REALIZED",
+        "xaas": "REPAIR_REQUIRED"
+      },
+      "forced_top25": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "key": "ggen/fanout/forced-top25/current",
+      "kind": "ggen.fanout.forced-top25",
+      "ordered_population": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "ordered_repos": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "qualification_state": {
+        "ex4pm": "ALIVE_EXACT_HEAD_FULL_REPO",
+        "gymact": "PARTIAL_ALIVE_INHERITED_BROAD_CI_DEBT",
+        "xaas": "BUILD_BROKEN_CI_CD_ELIXIR_FAILURE"
+      },
+      "ready": [
+        {
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "pr": 34,
+          "rank": 1,
+          "repo": "ex4pm"
+        },
+        {
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "pr": 126,
+          "rank": 2,
+          "repo": "gymact"
+        }
+      ],
+      "repair_gated": [
+        {
+          "blocker": "CI_CD_ELIXIR_FAILURE",
+          "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+          "pr": 31,
+          "rank": 5,
+          "repo": "xaas"
+        }
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "source": "explicit_user_contract",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "cell2",
+        "forced-top25",
+        "r81"
+      ],
+      "transport_head": "a74fa57d16c4d6b5bc16310d911bdb9b48b0ea4f",
+      "unknown_count": 22,
+      "unknown_reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+      "updated_at": "2026-08-26T06:20:31Z"
+    },
+    "title": "ForcedTop25 canonical demand — R81"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

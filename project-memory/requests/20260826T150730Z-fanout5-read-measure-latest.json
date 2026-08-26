@@ -1,0 +1,1 @@
+{"request_id":"20260826T150730Z-fanout5-read-measure-latest","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"dfcm/measure/latest"}}

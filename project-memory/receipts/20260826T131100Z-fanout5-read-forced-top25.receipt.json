@@ -1,0 +1,391 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T13:10:24Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/fanout/forced-top25/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T131100Z-fanout5-read-forced-top25"
+  },
+  "request_id": "20260826T131100Z-fanout5-read-forced-top25",
+  "request_path": "project-memory/requests/20260826T131100Z-fanout5-read-forced-top25.json",
+  "request_sha256": "sha256:71c12280005458b58a951016cec3a1338d696babafe5d214d3264ec5f1e7bed1",
+  "request_transport_sha256": "sha256:f2293cf77954b945e09e58de5ee59aa9e7c2a963980e0ba23b56f3c66aae3959",
+  "result": {
+    "body": "Forced order remains exactly ex4pm,gymact,autofde-lab,autofde,xaas,chatgpt-cloud-elixir,process-intelligence,ash_r2rml,wasm4pm,pm4wasm,mfact,mfact-command-center,mfw,SREGym,fdegym,revops,chatman-ecosystem,POWL,swarmsh-v2,cargo-cicd,clap-noun-verb,unrdf,dspygen,yawl,a2a-rs. R83 is default-lineage assimilated. autofde-lab and autofde are now exact-head qualified and default-lineage assimilated. R84 ash-reactor-domain-error-contract-pack is ALIVE on exact ggen-marketplace head 6092fe3631d08a8a138b3377cf969e56d0358975: fast admission, timeout court, all four real-ggen 26.8.11 shards, aggregate CI and Vacuity succeeded. XaaS has four new downstream GGEN-path commits and current exact head f52d8cd836d275c6ac7cc271c1c31cfa18a4842 binding R84; its R80, R84 and native Elixir rails are requalifying. CONTROL commits remain excluded from downstream fanout. Conservative current ledger while XaaS new head is requalifying: U>=17,R>=6,Q>=5,M>=6; maintained lower-bound OpenFanoutObligations ledger>=11, exact obligation identities remain UNKNOWN until admitted identities are fully bound.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_5x8",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DDa8",
+    "metadata": {
+      "M_lower_bound": 10,
+      "OpenFanoutObligations_lower_bound": 7,
+      "Q_current_exact_lower_bound": 5,
+      "Q_lower_bound": 6,
+      "R_lower_bound": 11,
+      "U_lower_bound": 17,
+      "andon": [
+        "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE_RUNTIME_INTEGRATION",
+        "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+      ],
+      "assimilated_lower_bound": [
+        "ex4pm",
+        "gymact",
+        "xaas",
+        "dspygen",
+        "autofde-lab",
+        "autofde"
+      ],
+      "assimilated_new": {
+        "SREGym": "4f6757c758521a359f1091d17d37ae5a9b1fb962",
+        "fdegym": "f493d2bf5e093d8430b7e39b56d8222e95192dbe",
+        "mfact": "79643f87f35cb59514ebce096ad067b713a47db3"
+      },
+      "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "blocked": {
+        "mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+        "yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+      },
+      "blocked_new": {
+        "seanchatmangpt/mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+        "seanchatmangpt/yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+      },
+      "blockers": [
+        "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+        "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING",
+        "XAAS_CI_CD_ELIXIR_FAILURE"
+      ],
+      "canonical_composition": {
+        "head": "079a315c02d686fc6baa1166999dded3afb587fe",
+        "pack": "forced-top25-r75-realization-composition-pack",
+        "pr": 318,
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "canonical_factory": {
+        "head": "e00541af68f879500aac0c28d197f5a84092c746",
+        "pack": "forced-top25-admissibility-factory-pack",
+        "pr": 317,
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "canonical_pack": "forced-top25-generated-closure-pack",
+      "canonical_pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+      "canonical_path": [
+        "forced-top25-admissibility-factory-pack:R83",
+        "ash-reactor-domain-error-contract-pack:R84"
+      ],
+      "canonical_pr": 323,
+      "canonical_r80_producer": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+      "canonical_r83_producer": "92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+      "canonical_upstream": {
+        "head": "6092fe3631d08a8a138b3377cf969e56d0358975",
+        "pack": "ash-reactor-domain-error-contract-pack",
+        "pr": 324,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "ALIVE[SCOPED_CANONICAL_PACK]"
+      },
+      "cell": "COMPOSE_EXPAND_FANOUT",
+      "chatgpt_cloud_elixir_control_excluded": true,
+      "compatible_lower_bound": 17,
+      "consequential_do": false,
+      "consumer_ready_set": [],
+      "count": 25,
+      "created_at": "2026-08-26T04:34:38Z",
+      "dspygen": {
+        "assimilation_state": "ALIVE_DEFAULT_LINEAGE",
+        "blocker": null,
+        "consumer_family": "DSPy/Python",
+        "consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "downstream_commits": 3,
+        "exact_current_head": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+        "fanout_state": "DOWNSTREAM_REALIZED",
+        "qualification_state": "ALIVE_EXACT_HEAD",
+        "rank": 23
+      },
+      "dspygen_consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+      "dspygen_main": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+      "exact_heads": {
+        "autofde_consumer": "adf9e840874bd0f3f2f0037b23b676ecf56c86f2",
+        "autofde_default": "d803547355f5fa0febda58abe4d14154b5d54e71",
+        "autofde_lab_consumer": "1e34d1cfddbd90c86769f114e621584c0025bd55",
+        "autofde_lab_default": "a004da26bdf2b0cd2bde434b365dade9916b2fe9",
+        "ggen_marketplace_r83_default": "93c99170cad21e5914934837dbd01bb9e9f83d92",
+        "r84_head": "d958cd7f7b687a244fbd7a125df00737d5b04f65",
+        "xaas_consumer": "6b87b222a9d9fad6c4802939562d35f5845b6812",
+        "xaas_default": "62c8f83a15db69e003960a5cf4eacb74070e835a"
+      },
+      "exact_known_heads": {
+        "ex4pm": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+        "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+        "xaas": "3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+      },
+      "factory_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "factory_marketplace_head": "f75bdb35c2e9104679325c6772194005cc6fef67",
+      "fanout_state": {
+        "ex4pm": "DOWNSTREAM_REALIZED",
+        "gymact": "DOWNSTREAM_REALIZED",
+        "xaas": "REPAIR_REQUIRED"
+      },
+      "forced_count": 25,
+      "forced_order": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "forced_top25": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "key": "ggen/fanout/forced-top25/current",
+      "kind": "ggen.fanout.forced_top25",
+      "new_default_assimilation": {
+        "process-intelligence": "c1ed9f0393f4782c48e4b0f71aff9c28930d9b44"
+      },
+      "new_downstream_commits": {
+        "count": 4,
+        "head": "f52d8cd836d275c6ac7cc271c1c31cfa18a4842a",
+        "repo": "seanchatmangpt/xaas"
+      },
+      "new_downstream_repos": 1,
+      "new_scoped_qualified": {
+        "clap-noun-verb": "9d8abc59b49be0ee1a4a083255f7310757a786ca",
+        "wasm4pm": "e99dbb42c6ed07e4fe025dd87d2b46aac725bc03"
+      },
+      "new_wip": [
+        "seanchatmangpt/SREGym",
+        "seanchatmangpt/fdegym",
+        "seanchatmangpt/mfact",
+        "seanchatmangpt/mfw",
+        "seanchatmangpt/yawl"
+      ],
+      "observed_count": 25,
+      "open_fanout_obligation_identities": "UNKNOWN[ADMITTED_IDENTITIES_NOT_FULLY_BOUND]",
+      "open_fanout_obligations_ledger_lower_bound": 11,
+      "open_fanout_obligations_lower_bound": 13,
+      "open_fanout_obligations_upper_from_U_lower_bound": 13,
+      "ordered_population": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "ordered_repos": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "partial_order_edges": [
+        "R83_ASSIMILATED->AUTOFDE_LAB_ASSIMILATED",
+        "R83_ASSIMILATED->AUTOFDE_ASSIMILATED",
+        "XAAS_R80_OLD_HEAD_ALIVE->R84_UPSTREAM_RETURN",
+        "R84_EXACT_HEAD_ALIVE->XAAS_R84_CONSUMER@f52d8cd8->XAAS_EXACT_HEAD_REQUALIFICATION"
+      ],
+      "preserve_existing_fanout_targets": true,
+      "producer": "seanchatmangpt/ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75",
+      "qualification": {
+        "autofde": "ALIVE_EXACT_HEAD_R80+SELF_MANUFACTURING_CROWN",
+        "autofde-lab": "ALIVE_EXACT_HEAD_R80+PR_CI",
+        "xaas": "ALIVE_EXACT_HEAD_R80|BUILD_BROKEN[NATIVE_IDEMPOTENCY_ERROR_ENVELOPE]"
+      },
+      "qualification_state": {
+        "ex4pm": "ALIVE_EXACT_HEAD_FULL_REPO",
+        "gymact": "PARTIAL_ALIVE_INHERITED_BROAD_CI_DEBT",
+        "xaas": "BUILD_BROKEN_CI_CD_ELIXIR_FAILURE"
+      },
+      "qualified_new": [
+        "seanchatmangpt/SREGym",
+        "seanchatmangpt/fdegym",
+        "seanchatmangpt/mfact"
+      ],
+      "r86": {
+        "pack": "forced-top25-qualification-capsule-pack",
+        "pr": 325,
+        "producer": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+        "standing": "ALIVE_SCOPED"
+      },
+      "ready": [
+        {
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "pr": 34,
+          "rank": 1,
+          "repo": "ex4pm"
+        },
+        {
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "pr": 126,
+          "rank": 2,
+          "repo": "gymact"
+        }
+      ],
+      "refreshed_wip": [
+        "seanchatmangpt/process-intelligence",
+        "seanchatmangpt/wasm4pm",
+        "seanchatmangpt/clap-noun-verb"
+      ],
+      "repair_gated": [
+        {
+          "blocker": "CI_CD_ELIXIR_FAILURE",
+          "repo": "xaas"
+        }
+      ],
+      "repair_ready_set": [
+        "xaas"
+      ],
+      "requalifying": [
+        "autofde-lab",
+        "autofde",
+        "xaas"
+      ],
+      "requalifying_set": [
+        "xaas"
+      ],
+      "runner_independent_capsules": {
+        "mfw": "a889bc70328d9da6f24e67e1d9a15040a570a36a",
+        "yawl": "e7a97110d4901e37b4f6cb20ffacef29d1a919d8"
+      },
+      "schema": "chatgpt-project-memory/v1",
+      "source": "explicit_user_contract",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "exact-subject",
+        "fanout",
+        "forced-top25",
+        "ggen",
+        "r84"
+      ],
+      "target_updates": {
+        "autofde": {
+          "blocker": null,
+          "exact_current_head": "d803547355f5fa0febda58abe4d14154b5d54e71",
+          "fanout_state": "DEFAULT_LINEAGE_ASSIMILATED",
+          "qualification_state": "ALIVE_EXACT_HEAD_R80+SELF_MANUFACTURING_CROWN"
+        },
+        "autofde-lab": {
+          "blocker": null,
+          "exact_current_head": "a004da26bdf2b0cd2bde434b365dade9916b2fe9",
+          "fanout_state": "DEFAULT_LINEAGE_ASSIMILATED",
+          "qualification_state": "ALIVE_EXACT_HEAD_R80+PR_CI"
+        },
+        "xaas": {
+          "blocker": "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE_RUNTIME_INTEGRATION",
+          "exact_current_head": "f52d8cd836d275c6ac7cc271c1c31cfa18a4842a",
+          "fanout_state": "DOWNSTREAM_REALIZED_REQUALIFYING",
+          "qualification_state": "REQUALIFYING[R80|R84|NATIVE_ELIXIR]"
+        }
+      },
+      "transport_head": "a74fa57d16c4d6b5bc16310d911bdb9b48b0ea4f",
+      "unknown_count": 22,
+      "unknown_reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+      "updated_at": "2026-08-26T13:01:31Z",
+      "xaas_consumer_head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+      "xaas_main": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+      "xaas_qualification_state": "REQUALIFYING"
+    },
+    "title": "Forced Top25 fanout census after R86 consumer composition"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

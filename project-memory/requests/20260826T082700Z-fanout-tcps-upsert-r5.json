@@ -1,0 +1,23 @@
+{
+  "request_id": "20260826T082700Z-fanout-tcps-upsert-r5",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tcps/muda-mura-muri/current",
+      "title": "TCPS muda mura muri current",
+      "kind": "tcps.constraint_state",
+      "cell": "MAXIMUM_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["tcps", "fanout", "muda", "mura", "muri"],
+      "body": "MUDA eliminated this cycle: stale exact ggen constructor identity in the dspygen owning court; brittle generated-class text coupling; incomplete syntax coverage of the third generated projection. MURA remains high: compatible lower bound U>=17 versus merged/default-lineage M>=2. MURI: exact ggen compilation time serializes terminal qualification; global cross-repository code search returned transient 502; Project request receipts are asynchronous. Upstream-return rule applied at consumer verifier boundary without changing generated projections or weakening admission.",
+      "metadata": {
+        "U_lower_bound": 17,
+        "M_lower_bound": 2,
+        "open_obligations_lower_bound": 15,
+        "new_downstream_commits": 3,
+        "limiting_multiplier": "qualified independent consumer fanout and exact-head qualification concurrency"
+      }
+    }
+  }
+}

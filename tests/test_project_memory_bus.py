@@ -20,6 +20,70 @@ class DigestTests(unittest.TestCase):
         self.assertEqual(bus.canonical_digest(left), bus.canonical_digest(right))
 
 
+class GgenEcosystemOcelContractTests(unittest.TestCase):
+    def valid_request(self):
+        return {
+            "request_id": "schedule-20260826T170200Z-ggen-ecosystem-ocel",
+            "operation": "memory.upsert",
+            "project": {"owner": "seanchatmangpt", "number": 2},
+            "payload": {
+                "record": {
+                    "key": "ggen/ecosystem/ocel/current",
+                    "title": "GGEN Ecosystem OCEL current",
+                    "kind": "ggen.ecosystem.ocel.current",
+                    "cell": "CELL1",
+                    "standing": "ALIVE",
+                    "tags": ["ggen", "ocel", "manufacturing", "project2"],
+                    "body": "Generated projection.",
+                    "metadata": {
+                        "run_id": "schedule-20260826T170200Z",
+                        "ocel_digest": "sha256:abc123",
+                        "manufacturing_ladder": "U->G->O->Q->M",
+                        "ggen_first": True,
+                        "process_analysis_owner": "wasm4pm",
+                    },
+                }
+            },
+        }
+
+    def test_generated_contract_shape_is_admitted(self):
+        bus.validate_ggen_ecosystem_ocel_contract(self.valid_request())
+
+    def test_parallel_ocel_memory_key_is_refused(self):
+        request = self.valid_request()
+        request["payload"]["record"]["key"] = "ocel/v2/revops/current"
+        with self.assertRaises(ValueError) as raised:
+            bus.validate_ggen_ecosystem_ocel_contract(request)
+        details = json.loads(str(raised.exception))
+        self.assertEqual("INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT", details["reason"])
+        self.assertIn("CANONICAL_KEY_MISMATCH", details["failures"])
+
+    def test_process_analysis_owner_must_remain_wasm4pm(self):
+        request = self.valid_request()
+        request["payload"]["record"]["metadata"]["process_analysis_owner"] = "chatgpt-cloud-elixir"
+        with self.assertRaises(ValueError) as raised:
+            bus.validate_ggen_ecosystem_ocel_contract(request)
+        details = json.loads(str(raised.exception))
+        self.assertIn("PROCESS_ANALYSIS_OWNER_MISMATCH", details["failures"])
+
+    def test_contract_refusal_never_reaches_project_actuation(self):
+        request_data = self.valid_request()
+        request_data["payload"]["record"]["metadata"]["ggen_first"] = False
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            request = root / "request.json"
+            receipt = root / "receipt.json"
+            request.write_text(json.dumps(request_data), encoding="utf-8")
+
+            code = bus.main(["--request", str(request), "--receipt", str(receipt)])
+            self.assertEqual(2, code)
+            data = json.loads(receipt.read_text(encoding="utf-8"))
+            self.assertEqual("REFUSED", data["standing"])
+            self.assertEqual("INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT", data["reason"])
+            self.assertFalse(data["actuation_performed"])
+            self.assertIn("GGEN_FIRST_REQUIRED", data["error"]["details"]["failures"])
+
+
 class AdmissionTests(unittest.TestCase):
     def test_malformed_json_is_typed_refusal_without_project_actuation(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,0 +1,1 @@
+{"request_id":"20260826T170111Z-fanout-read-portfolio","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"dfcm/portfolio/latest"}}

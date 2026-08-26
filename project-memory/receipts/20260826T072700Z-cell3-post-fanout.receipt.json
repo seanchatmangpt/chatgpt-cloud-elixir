@@ -1,0 +1,316 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "request_id is required",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T07:29:57Z",
+  "operation": null,
+  "reason": "INVALID_REQUEST",
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "key": "ggen/fanout/current",
+        "value": {
+          "FanoutTarget": {
+            "POWL": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "SREGym": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "a2a-rs": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ash_r2rml": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde-lab": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "cargo-cicd": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "chatgpt-cloud-elixir": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "default_head": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+              "reason": "TARGET_SPECIFIC_GGEN_ADMISSIBILITY_RECEIPT_MISSING; control commits excluded; merged product runtime PR15 is not counted as TRUE_FANOUT without GGEN-causality evidence"
+            },
+            "chatman-ecosystem": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "clap-noun-verb": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "dspygen": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ex4pm": {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "R79 already merged/default-lineage assimilated"
+            },
+            "fdegym": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "gymact": {
+              "classification": "COMPATIBLE_NOT_READY",
+              "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+              "reason": "R79 realization exists and scoped court is exact-head ALIVE; inherited broad-CI debt remains before further closure"
+            },
+            "mfact": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfact-command-center": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfw": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "pm4wasm": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "process-intelligence": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "revops": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "swarmsh-v2": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "unrdf": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "wasm4pm": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "xaas": {
+              "classification": "COMPATIBLE_READY",
+              "head": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7",
+              "reason": "exact-head R79 admission succeeded and prior Ash.Changeset.get_context compile blocker is repaired; native compile passes; test failure is now a bounded repair/qualification edge"
+            },
+            "yawl": {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+            }
+          },
+          "authority": {
+            "CONSTRUCT": true,
+            "DO": "GitHub+Project-memory only",
+            "SELECT": true,
+            "consequential_external_do": false,
+            "release_deploy_publish_commerce": false
+          },
+          "cell": "CELL3",
+          "dependencies": {
+            "gymact": [
+              "classify/repair inherited broad CI without weakening R79 court"
+            ],
+            "unknown22": [
+              "canonical target-specific admissibility receipt"
+            ],
+            "xaas": [
+              "identify/fix exact native test failure",
+              "preserve successful compile and R79 admission court"
+            ]
+          },
+          "evidence": {
+            "gymact_r79_conclusion": "success",
+            "gymact_r79_run": 32933652655,
+            "xaas_compile": "success",
+            "xaas_native_run": 32940830647,
+            "xaas_r79_conclusion": "success",
+            "xaas_r79_run": 32940830643,
+            "xaas_tests": "failure"
+          },
+          "expected_fanout": {
+            "admitted_open_obligations": 2,
+            "immediate_ready_consumers": 1,
+            "preserved_unknown_consumers": 22
+          },
+          "forced_top25": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "handoff": "CELL4 exclusively via Project2",
+          "metrics": {
+            "M": 1,
+            "OpenFanoutObligations": 2,
+            "Q": 1,
+            "Q_scoped": 2,
+            "R": 2,
+            "U": 3,
+            "open_repos": [
+              "gymact",
+              "xaas"
+            ]
+          },
+          "nonready_set": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "observed_at": "2026-08-26T07:27:00Z",
+          "partial_order_edges": [
+            "canonical R81 admissibility factory -> target-specific admission",
+            "target-specific admission -> COMPATIBLE_READY",
+            "xaas exact-head compile repair -> native test repair",
+            "native test repair -> GGEN consumer realization",
+            "consumer realization -> exact-head qualification -> default-lineage assimilation",
+            "gymact inherited broad-CI repair -> closure qualification"
+          ],
+          "preserved_alternatives": [
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "qualification_plan": {
+            "gymact": [
+              "R79 TCPS Ready-Set Consumer exact head",
+              "world execution crown",
+              "broad native CI after repair"
+            ],
+            "xaas": [
+              "R79 TCPS Ready-Set Admission exact head",
+              "mix compile --warnings-as-errors",
+              "native tests",
+              "GGEN realization court",
+              "exact-head broad CI"
+            ]
+          },
+          "ready_set": [
+            "xaas#31@9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+          ],
+          "selected_workstreams": [
+            {
+              "class": "COMPATIBLE_READY",
+              "head": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7",
+              "pr": 31,
+              "repo": "xaas",
+              "work": "repair exact native test failure, then perform GGEN-caused consumer realization and exact-head qualification"
+            }
+          ],
+          "standing": "PARTIAL_ALIVE",
+          "tcps": {
+            "MUDA": "no universe rerank; only delta-classified XaaS from new exact-head evidence",
+            "MURA": "no READY starvation; sole newly READY XaaS allocated",
+            "MURI": "WIP=1 selected repair/realization stream; GymAct closure and 22 unknowns preserved outside active WIP",
+            "WIP_budget": 1
+          },
+          "true_fanout_accounting": {
+            "control_commits_excluded": true,
+            "new_consumer_commits_this_cell": 0,
+            "new_consumer_merges_this_cell": 0
+          },
+          "upstream_downstream_heads": {
+            "chatgpt-cloud-elixir-main": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+            "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "xaas": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+          }
+        }
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    }
+  },
+  "request_id": null,
+  "request_path": "project-memory/requests/20260826T072700Z-cell3-post-fanout.json",
+  "request_sha256": "sha256:2b114c73b1ce14f544ba619e704b95ea2f5003f79f25602de2b6079b6226f63e",
+  "request_transport_sha256": "sha256:7a3a154a6989bf55732c36de66e8039168d7b8f27fcd1e517ce26d552d71858b",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}

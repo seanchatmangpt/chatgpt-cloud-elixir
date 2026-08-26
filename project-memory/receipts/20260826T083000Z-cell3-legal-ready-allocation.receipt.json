@@ -1,0 +1,842 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T08:30:21Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL3 consumed the authoritative ForcedTop25 and current fanout state without reranking the universe. Fresh exact-head evidence promotes dspygen PR #36 head 4f70719dfef0d7fa4c9db93c280e5c80961aa9be to COMPATIBLE_READY because the owning DSPy Pack DfCM Full Closure workflow completed SUCCESS on that exact head after three GGEN-caused downstream consumer commits. ex4pm and gymact remain default-lineage assimilated; xaas remains COMPATIBLE_NOT_READY behind its native test failure after successful compile/admission; the other 21 forced targets remain UNKNOWN_WITH_REASON because target-specific current admissibility identities were not available in the consumed Project record. Global inherited admissibility lower bound U>=17 is preserved without falsely assigning those anonymous admitted identities to named repos. No merge/release/deploy was performed. Handoff CELL4: consume dspygen#36 exact head; preserve xaas repair edge and all unresolved alternatives.",
+        "cell": "LEGAL_READY_SET_ALLOCATION",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.allocation",
+        "metadata": {
+          "M": 2,
+          "MUDA": "no universe rediscovery or reranking; only fresh exact-head dspygen court changed allocation",
+          "MURA": "all observed READY ForcedTop25 work allocated; no ready target starved",
+          "MURI": "WIP=1 active READY consumer; repair-gated and unknown alternatives preserved outside active WIP",
+          "OpenFanoutObligations": ">=15",
+          "OpenFanoutObligations_exact_confirmed": [
+            "dspygen",
+            "xaas"
+          ],
+          "OpenFanoutObligations_global": "PARTIAL_ALIVE[U_IDENTITY_MAPPING_NOT_CLOSED]",
+          "Q_scoped": 3,
+          "Q_strict": 2,
+          "R": 3,
+          "U": ">=17",
+          "WIP_budget": 1,
+          "authority": {
+            "CONSTRUCT": true,
+            "DO": "GitHub+Project-memory only",
+            "SELECT": true,
+            "consequential_external_do": false,
+            "release_deploy_publish_commerce": false
+          },
+          "control_commits_excluded_from_true_fanout": true,
+          "dependencies": {
+            "dspygen": [
+              "CELL4 closure/default-lineage assimilation"
+            ],
+            "unknown21": [
+              "target-specific admissibility identity/receipt"
+            ],
+            "xaas": [
+              "repair exact native test failure without weakening successful compile/admission"
+            ]
+          },
+          "downstream_heads": {
+            "dspygen_pr36": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "ex4pm_main": "06d326f59d05afdcd39637f42fe277a474095dda",
+            "gymact_main": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+            "xaas_main": "2207203b1bef612cc55a52676b8e607f930640e7"
+          },
+          "expected_fanout": {
+            "immediate_ready_consumers": 1,
+            "new_realized_repo_commits_this_cell": 0,
+            "preserved_nonready_or_unknown": 22
+          },
+          "fanout_targets": {
+            "POWL": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "SREGym": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "a2a-rs": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "ash_r2rml": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "autofde": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "autofde-lab": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "cargo-cicd": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "chatgpt-cloud-elixir": {
+              "reason": "TRUE_FANOUT_PRODUCT_RUNTIME_ADMISSIBILITY_NOT_BOUND; CONTROL_COMMITS_EXCLUDED",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "chatman-ecosystem": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "clap-noun-verb": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "dspygen": {
+              "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+              "pr": 36,
+              "reason": "EXACT_HEAD_OWNING_GGEN_COURT_SUCCESS",
+              "state": "COMPATIBLE_READY"
+            },
+            "ex4pm": {
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            "fdegym": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "gymact": {
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            "mfact": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "mfact-command-center": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "mfw": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "pm4wasm": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "process-intelligence": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "revops": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "swarmsh-v2": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "unrdf": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "wasm4pm": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            "xaas": {
+              "reason": "NATIVE_TEST_FAILURE_AFTER_COMPILE_AND_ADMISSION_SUCCESS",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            "yawl": {
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+              "state": "UNKNOWN_WITH_REASON"
+            }
+          },
+          "forced_top25": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "nonready_set": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "yawl",
+            "a2a-rs"
+          ],
+          "partial_order_edges": [
+            "target-specific-admission -> COMPATIBLE_READY",
+            "dspygen exact ggen subject ddfa602bfbab57b7ed5150f61b0acac7a41e3020 -> consumer manufacture -> exact-head owning court -> CELL4 closure",
+            "xaas native-test repair -> exact-head qualification -> realization -> merge eligibility"
+          ],
+          "preserved_alternatives": [
+            "xaas",
+            "autofde-lab",
+            "autofde",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "yawl",
+            "a2a-rs"
+          ],
+          "qualification_plan": {
+            "dspygen": "preserve exact head; owning DSPy Pack DfCM Full Closure SUCCESS; CELL4 may perform closure subject to branch/merge authority",
+            "unknown21": "admit exact current subject before construction",
+            "xaas": "repair native test boundary then rerun exact-head qualification"
+          },
+          "ready_set": [
+            "dspygen"
+          ],
+          "selected_workstreams": [
+            "dspygen#36@4f70719dfef0d7fa4c9db93c280e5c80961aa9be"
+          ],
+          "upstream_heads": {
+            "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+            "ggen-marketplace": "f75bdb35c2e9104679325c6772194005cc6fef67"
+          }
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "fanout",
+          "forced-top25",
+          "cell3",
+          "legal-ready-set"
+        ],
+        "title": "GGEN fanout current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T083000Z-cell3-legal-ready-allocation"
+  },
+  "request_id": "20260826T083000Z-cell3-legal-ready-allocation",
+  "request_path": "project-memory/requests/20260826T083000Z-cell3-legal-ready-allocation.json",
+  "request_sha256": "sha256:ac168763b68ac597a3c1d958f210b65ffbb7cc0716473cb3a371ac80d51ea9d8",
+  "request_transport_sha256": "sha256:a18d7a404f6ad72b822a6908190ae30dde1f05fdbf850918c66d4595debf4417",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL3 consumed the authoritative ForcedTop25 and current fanout state without reranking the universe. Fresh exact-head evidence promotes dspygen PR #36 head 4f70719dfef0d7fa4c9db93c280e5c80961aa9be to COMPATIBLE_READY because the owning DSPy Pack DfCM Full Closure workflow completed SUCCESS on that exact head after three GGEN-caused downstream consumer commits. ex4pm and gymact remain default-lineage assimilated; xaas remains COMPATIBLE_NOT_READY behind its native test failure after successful compile/admission; the other 21 forced targets remain UNKNOWN_WITH_REASON because target-specific current admissibility identities were not available in the consumed Project record. Global inherited admissibility lower bound U>=17 is preserved without falsely assigning those anonymous admitted identities to named repos. No merge/release/deploy was performed. Handoff CELL4: consume dspygen#36 exact head; preserve xaas repair edge and all unresolved alternatives.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5zE",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DD80",
+      "metadata": {
+        "B_new": 1,
+        "Coverage": 1.0,
+        "F_A": 2,
+        "F_C": 42,
+        "F_Q": 1,
+        "F_R": 1,
+        "F_effective": "PARTIAL_ALIVE[3_REALIZED;2_ASSIMILATED;1_REQUALIFYING]",
+        "F_effective_new": 1.0,
+        "M": 2,
+        "MUDA": "no universe rediscovery or reranking; only fresh exact-head dspygen court changed allocation",
+        "MURA": "all observed READY ForcedTop25 work allocated; no ready target starved",
+        "MURI": "WIP=1 active READY consumer; repair-gated and unknown alternatives preserved outside active WIP",
+        "M_lower_bound": 2,
+        "OpenFanoutObligations": ">=15",
+        "OpenFanoutObligations_confirmed": [
+          "xaas"
+        ],
+        "OpenFanoutObligations_exact_confirmed": [
+          "dspygen",
+          "xaas"
+        ],
+        "OpenFanoutObligations_global": "PARTIAL_ALIVE[U_IDENTITY_MAPPING_NOT_CLOSED]",
+        "OpenFanoutObligations_lower_bound": [
+          "xaas"
+        ],
+        "Q": 1,
+        "Q_lower_bound": 2,
+        "Q_scoped": 3,
+        "Q_strict": 2,
+        "Q_strict_full_repo": 1,
+        "R": 3,
+        "R_lower_bound": 3,
+        "T_A": 0,
+        "T_A_new": 0,
+        "T_M": 2,
+        "T_M_semantic": 3,
+        "U": ">=17",
+        "U_lower_bound": 17,
+        "WIP_budget": 1,
+        "WIP_remaining": 1,
+        "andon": [
+          "XAAS_CI_CD_ELIXIR_FAILURE",
+          "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+          "M_IDENTITY_NOT_CLOSED"
+        ],
+        "authority": {
+          "CONSTRUCT": true,
+          "DO": "GitHub+Project-memory only",
+          "SELECT": true,
+          "consequential_external_do": false,
+          "release_deploy_publish_commerce": false
+        },
+        "blockers": [
+          "XAAS_BROAD_CI_IN_PROGRESS"
+        ],
+        "canonical_paths": [
+          "forced-top25-standard-consumer-factory-pack",
+          "epistemic-sensor-factory-pack:r75",
+          "forced-top25-r75-realization-composition-pack"
+        ],
+        "cell": "LEGAL_READY_SET_ALLOCATION",
+        "cell5_handoff": "REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPTS]",
+        "close_ready": [
+          "ex4pm",
+          "gymact"
+        ],
+        "consequential_do": false,
+        "consequential_external_do": false,
+        "consumer_ready_set": [
+          "ex4pm",
+          "gymact"
+        ],
+        "consumer_repo_commits": 0,
+        "control_commits": 6,
+        "control_commits_excluded": true,
+        "control_commits_excluded_from_true_fanout": true,
+        "created_at": "2026-08-26T04:36:39Z",
+        "dependencies": {
+          "dspygen": [
+            "CELL4 closure/default-lineage assimilation"
+          ],
+          "unknown21": [
+            "target-specific admissibility identity/receipt"
+          ],
+          "xaas": [
+            "repair exact native test failure without weakening successful compile/admission"
+          ]
+        },
+        "discovered_consumers": [],
+        "downstream_heads": {
+          "dspygen_pr36": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+          "ex4pm_main": "06d326f59d05afdcd39637f42fe277a474095dda",
+          "gymact_main": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+          "xaas_main": "2207203b1bef612cc55a52676b8e607f930640e7"
+        },
+        "downstream_repositories_touched": [
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact",
+          "seanchatmangpt/xaas"
+        ],
+        "downstream_unique_commits_new": 0,
+        "downstream_unique_commits_realized_total": 11,
+        "downstream_unique_commits_this_wave": 2,
+        "draft_prs": [
+          "seanchatmangpt/ex4pm#34",
+          "seanchatmangpt/gymact#126",
+          "seanchatmangpt/xaas#31"
+        ],
+        "dspygen_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "dspygen_qualification": "PARTIAL_ALIVE[OWNING_COURT_IN_PROGRESS]",
+        "duplicate_lineages": [],
+        "evidence": {
+          "gymact_r79_conclusion": "success",
+          "gymact_r79_run": 32933652655,
+          "xaas_compile": "success",
+          "xaas_native_run": 32940830647,
+          "xaas_r79_conclusion": "success",
+          "xaas_r79_run": 32940830643,
+          "xaas_tests": "failure"
+        },
+        "ex4pm": {
+          "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "standing": "ALIVE[SCOPED_R79_COURT]"
+        },
+        "expected_downstream_ready_commits": 22,
+        "expected_fanout": {
+          "immediate_ready_consumers": 1,
+          "new_realized_repo_commits_this_cell": 0,
+          "preserved_nonready_or_unknown": 22
+        },
+        "fanout_targets": {
+          "POWL": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "SREGym": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "a2a-rs": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "ash_r2rml": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "autofde": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "autofde-lab": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "cargo-cicd": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "chatgpt-cloud-elixir": {
+            "reason": "TRUE_FANOUT_PRODUCT_RUNTIME_ADMISSIBILITY_NOT_BOUND; CONTROL_COMMITS_EXCLUDED",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "chatman-ecosystem": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "clap-noun-verb": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "dspygen": {
+            "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "pr": 36,
+            "reason": "EXACT_HEAD_OWNING_GGEN_COURT_SUCCESS",
+            "state": "COMPATIBLE_READY"
+          },
+          "ex4pm": {
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          "fdegym": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "gymact": {
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          "mfact": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "mfact-command-center": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "mfw": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "pm4wasm": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "process-intelligence": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "revops": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "swarmsh-v2": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "unrdf": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "wasm4pm": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          "xaas": {
+            "reason": "NATIVE_TEST_FAILURE_AFTER_COMPILE_AND_ADMISSION_SUCCESS",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          "yawl": {
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_NOT_PRESENT_IN_CONSUMED_RECORD",
+            "state": "UNKNOWN_WITH_REASON"
+          }
+        },
+        "forced_observed": 25,
+        "forced_top25": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "forced_top25_count": 25,
+        "global_U_standing": "UNKNOWN_UNTIL_UPSTREAM_ADMISSIBILITY_RECEIPTS",
+        "gymact": {
+          "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+        },
+        "handoff_cell4": "Consume gymact#126 exact head first as the sole READY consumer; preserve xaas behind its observed failure; admit further ForcedTop25 targets only from exact target-specific receipts generated from canonical factory capital.",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.allocation",
+        "known_U_lower_bound": 2,
+        "known_metrics": {
+          "M_lower_bound": 2,
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U_lower_bound": 2
+        },
+        "merge_ready": [],
+        "merge_ready_new": 0,
+        "merges": 0,
+        "metrics": {
+          "M_r79": 1,
+          "OpenFanoutObligations": 2,
+          "OpenFanoutObligations_repos": [
+            "gymact",
+            "xaas"
+          ],
+          "Q_scoped": 2,
+          "R": 2,
+          "U": 3,
+          "unresolved_forced_targets": 22
+        },
+        "muda": "No universe rediscovery or rank replay; only live readiness transitions were applied.",
+        "mura": "No READY ForcedTop25 target is starved: gymact is the sole active READY target; ex4pm is assimilated; xaas is repair-gated; 22 unknowns are preserved.",
+        "muri": "WIP budget is 1 READY + 1 repair-gated; no speculative 22-repo consumer WIP opened.",
+        "new_downstream_commits": 3,
+        "new_downstream_semantic_commits": 12,
+        "new_upstream_commits": 16,
+        "nonready_set": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "yawl",
+          "a2a-rs"
+        ],
+        "open_fanout_obligation_repos": [
+          "xaas"
+        ],
+        "open_fanout_obligations": "UNKNOWN_UNTIL_U_CLOSED; forced target IDs 3-25 remain explicit, with xaas now under active admission",
+        "open_fanout_obligations_lower_bound": 15,
+        "open_repos": [
+          "gymact",
+          "xaas"
+        ],
+        "parallel_branches": 3,
+        "partial_order_edges": [
+          "target-specific-admission -> COMPATIBLE_READY",
+          "dspygen exact ggen subject ddfa602bfbab57b7ed5150f61b0acac7a41e3020 -> consumer manufacture -> exact-head owning court -> CELL4 closure",
+          "xaas native-test repair -> exact-head qualification -> realization -> merge eligibility"
+        ],
+        "per_target": {
+          "POWL": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "SREGym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "a2a-rs": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "ash_r2rml": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "autofde": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "autofde-lab": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "cargo-cicd": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "chatgpt-cloud-elixir": "REPAIR_REQUIRED[TARGET_SPECIFIC_GGEN_ADMISSIBILITY_RECEIPT_MISSING;CONTROL_EXCLUDED]",
+          "chatman-ecosystem": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "clap-noun-verb": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "dspygen": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "ex4pm": "CLOSE_READY[MERGED_DEFAULT_ASSIMILATED]",
+          "fdegym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "gymact": "CLOSE_READY[MERGED_DEFAULT_ASSIMILATED;INHERITED_BROAD_CI_DEBT_REMAINS_HISTORICAL]",
+          "mfact": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "mfact-command-center": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "mfw": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "pm4wasm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "process-intelligence": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "revops": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "swarmsh-v2": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "unrdf": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "wasm4pm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "xaas": "REPAIR_REQUIRED[R79_ALIVE;R81_ALIVE;BROAD_CI_REQUALIFYING]",
+          "yawl": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]"
+        },
+        "pr": 318,
+        "preserved_alternatives": [
+          "xaas",
+          "autofde-lab",
+          "autofde",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "yawl",
+          "a2a-rs"
+        ],
+        "prior_M_lower_bound": 2,
+        "prior_Q_lower_bound": 2,
+        "prior_R_lower_bound": 2,
+        "producer_base": "f75bdb35c2e9104679325c6772194005cc6fef67",
+        "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+        "producer_head": "079a315c02d686fc6baa1166999dded3afb587fe",
+        "producer_pack": "forced-top25-standard-consumer-factory-pack",
+        "producer_pr": 318,
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "project_memory_loop": "BUILD_BROKEN[PRE_ACTUATION_SEQUENCE_VIOLATION]",
+        "project_snapshot_items": 397,
+        "qualification": "exact-head workflow in progress at producer_head",
+        "qualification_latency": "UNKNOWN[CI_IN_PROGRESS]",
+        "qualification_plan": {
+          "dspygen": "preserve exact head; owning DSPy Pack DfCM Full Closure SUCCESS; CELL4 may perform closure subject to branch/merge authority",
+          "unknown21": "admit exact current subject before construction",
+          "xaas": "repair native test boundary then rerun exact-head qualification"
+        },
+        "ready_set": [
+          "dspygen"
+        ],
+        "regenerations": 0,
+        "regenerations_new": 0,
+        "repair_gated": [
+          "xaas"
+        ],
+        "repair_required": [
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_ready_coverage": 1.0,
+        "selected_workstreams": [
+          "dspygen#36@4f70719dfef0d7fa4c9db93c280e5c80961aa9be"
+        ],
+        "source_cell3_head": "26dedf79df44bdd1ba710b336bcedcaec07b5503",
+        "standing": "PARTIAL_ALIVE",
+        "superseded": [],
+        "tags": [
+          "cell3",
+          "fanout",
+          "forced-top25",
+          "ggen",
+          "legal-ready-set"
+        ],
+        "transport_head": "7ff6b299baf215585e0511a71da9f9c0c6fb5292",
+        "true_fanout_accounting": {
+          "control_commits_excluded": true,
+          "new_consumer_commits_this_cell": 0,
+          "new_consumer_merges_this_cell": 0
+        },
+        "true_fanout_new": 0,
+        "true_fanout_standing": "PARTIAL_ALIVE",
+        "unknown_count": 22,
+        "unknown_targets": 22,
+        "unresolved_forced_targets": [
+          "autofde-lab",
+          "autofde",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "updated_at": "2026-08-26T08:30:39Z",
+        "upstream": {
+          "current_main": "f75bdb35c2e9104679325c6772194005cc6fef67",
+          "factory_merge_commit": "bcab3805cbff9c3a00fd1eadb397b04607ec8e07",
+          "factory_repo": "seanchatmangpt/ggen-marketplace",
+          "pack": "forced-top25-admissibility-factory-pack"
+        },
+        "upstream_downstream_heads": {
+          "chatgpt-cloud-elixir-main": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+          "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "xaas": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+        },
+        "upstream_heads": {
+          "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "ggen-marketplace": "f75bdb35c2e9104679325c6772194005cc6fef67"
+        },
+        "upstream_returns": [],
+        "upstream_returns_new": 0,
+        "upstream_unique_commits": 0,
+        "upstream_unique_commits_this_wave": 0,
+        "wip_budget": {
+          "ready_for_cell4": 1,
+          "repair_gated": 1,
+          "unknown_preserved": 22
+        },
+        "wip_budget_used": 0,
+        "xaas": {
+          "ahead_by": 31,
+          "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+          "behind_by": 0,
+          "branch": "fanout/r79-tcps-admission",
+          "broad_ci": "IN_PROGRESS",
+          "broad_ci_run": 32946813480,
+          "head": "e8120b10cfd30c911ac710eb7ba9411943ab41da",
+          "human_value": "HUMAN_VALUE_UNKNOWN",
+          "pr": 31,
+          "r79": "ALIVE",
+          "r79_run": 32946813432,
+          "r81": "ALIVE",
+          "r81_run": 32946813512
+        }
+      },
+      "title": "GGEN fanout current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

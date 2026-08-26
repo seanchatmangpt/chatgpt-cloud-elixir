@@ -1,0 +1,153 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T06:45:53Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL5 owns complete closure. ex4pm#34 is CLOSE_READY and already merged/default-assimilated at merge 06d326f59d05afdcd39637f42fe277a474095dda after exact-head full-repo qualification. GymAct#126 remains open draft/mergeable at bcb14a65b83fc543bb11acaa84709765ac88f42c over exact base f3457bdb8a7878946783d34f402b95774eaf8c4b; six actual GGEN-caused commits and four additive R79 files are present; R79 court and v26.9.1 world crown are ALIVE; broad CI fails 18 tests on pre-existing protocol/registry/ontology/Terraform/replay surfaces, therefore REPAIR_REQUIRED[INHERITED_BROAD_CI_DEBT], HUMAN_VALUE_UNKNOWN. XaaS#31 remains open draft/mergeable at 3b16d499ca1e39aebdee5316eb3d5cae3941113b over 2207203b1bef612cc55a52676b8e607f930640e7; R79 admission is ALIVE, native CI compilation is BUILD_BROKEN because Xaas.Actuation.Validations.ReactorContext invokes undefined Ash.Changeset.get_context/2 with current Ash 3.32 resolution; HUMAN_VALUE_UNKNOWN. No stale selected heads, conflicts, duplicate lineages, superseded work, discovered consumers, or unmerged upstream repairs were introduced by CELL4. The other 22 forced targets remain REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING], with chatgpt-cloud-elixir additionally control-only and lacking downstream product/runtime admission. Project read requests were submitted for forced-top25, fanout, TCPS, throughput, structural manufacturing, RevOps, frontier, ledger, implement/latest, select/latest; operation receipts observed for forced-top25, TCPS, frontier, and select/latest at least; MID/POST requests are separately receipted when the proxy processes them. No merge/deploy/release/external actuation performed.",
+        "cell": "REALIZE_QUALIFY_FANOUT",
+        "key": "ggen/fanout/cell5/handoff",
+        "kind": "ggen.fanout.closure-handoff",
+        "metadata": {
+          "WIP": {
+            "admissibility_unknown": 22,
+            "ready": 0,
+            "repair_required": 2
+          },
+          "consequential_do": false,
+          "fanout_metrics": {
+            "Coverage": 0.6666666667,
+            "F_A": 1,
+            "F_C": 11,
+            "F_Q": 1,
+            "F_R": 2,
+            "F_effective": "UNKNOWN[FORMULA_NOT_CANONICALLY_DEFINED]",
+            "selected_ready_coverage": 1.0
+          },
+          "forced_metrics": {
+            "M": 1,
+            "OpenFanoutObligations": 2,
+            "Q": 1,
+            "Q_scoped": 2,
+            "R": 2,
+            "U": 3
+          },
+          "merged": [
+            "seanchatmangpt/ex4pm#34@06d326f59d05afdcd39637f42fe277a474095dda"
+          ],
+          "next_closure": [
+            "repair GymAct inherited broad-CI debt without changing R79 semantics, then exact-head requalify",
+            "repair XaaS Ash changeset context compatibility at lawful local seam, rerun compile/test/format/dialyzer and R79",
+            "obtain target-specific canonical admissibility receipts for preserved 22, route newly READY targets back to CELL4"
+          ],
+          "open_prs": [
+            "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "seanchatmangpt/xaas#31@3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+          ],
+          "upstream_factory": {
+            "default_contained": true,
+            "pack": "forced-top25-admissibility-factory-pack",
+            "repo": "seanchatmangpt/ggen-marketplace"
+          }
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell5",
+          "closure",
+          "forced-top25",
+          "r81"
+        ],
+        "title": "CELL5 closure inventory — CELL4 R81"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T064502Z-cell5-handoff"
+  },
+  "request_id": "20260826T064502Z-cell5-handoff",
+  "request_path": "project-memory/requests/20260826T064502Z-cell5-handoff.json",
+  "request_sha256": "sha256:1f5466dd86aefa3fd79a245cb8ce3420bd54713f1393a604dd9f7ab2953e3b66",
+  "request_transport_sha256": "sha256:66afc64f453a6c43fe8f0068bf30e17b49a200490fa548d3b9a497590b005f30",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "CELL5 owns complete closure. ex4pm#34 is CLOSE_READY and already merged/default-assimilated at merge 06d326f59d05afdcd39637f42fe277a474095dda after exact-head full-repo qualification. GymAct#126 remains open draft/mergeable at bcb14a65b83fc543bb11acaa84709765ac88f42c over exact base f3457bdb8a7878946783d34f402b95774eaf8c4b; six actual GGEN-caused commits and four additive R79 files are present; R79 court and v26.9.1 world crown are ALIVE; broad CI fails 18 tests on pre-existing protocol/registry/ontology/Terraform/replay surfaces, therefore REPAIR_REQUIRED[INHERITED_BROAD_CI_DEBT], HUMAN_VALUE_UNKNOWN. XaaS#31 remains open draft/mergeable at 3b16d499ca1e39aebdee5316eb3d5cae3941113b over 2207203b1bef612cc55a52676b8e607f930640e7; R79 admission is ALIVE, native CI compilation is BUILD_BROKEN because Xaas.Actuation.Validations.ReactorContext invokes undefined Ash.Changeset.get_context/2 with current Ash 3.32 resolution; HUMAN_VALUE_UNKNOWN. No stale selected heads, conflicts, duplicate lineages, superseded work, discovered consumers, or unmerged upstream repairs were introduced by CELL4. The other 22 forced targets remain REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING], with chatgpt-cloud-elixir additionally control-only and lacking downstream product/runtime admission. Project read requests were submitted for forced-top25, fanout, TCPS, throughput, structural manufacturing, RevOps, frontier, ledger, implement/latest, select/latest; operation receipts observed for forced-top25, TCPS, frontier, and select/latest at least; MID/POST requests are separately receipted when the proxy processes them. No merge/deploy/release/external actuation performed.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_8YI",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4D4oE",
+      "metadata": {
+        "WIP": {
+          "admissibility_unknown": 22,
+          "ready": 0,
+          "repair_required": 2
+        },
+        "cell": "REALIZE_QUALIFY_FANOUT",
+        "consequential_do": false,
+        "created_at": "2026-08-26T06:46:07Z",
+        "fanout_metrics": {
+          "Coverage": 0.6666666667,
+          "F_A": 1,
+          "F_C": 11,
+          "F_Q": 1,
+          "F_R": 2,
+          "F_effective": "UNKNOWN[FORMULA_NOT_CANONICALLY_DEFINED]",
+          "selected_ready_coverage": 1.0
+        },
+        "forced_metrics": {
+          "M": 1,
+          "OpenFanoutObligations": 2,
+          "Q": 1,
+          "Q_scoped": 2,
+          "R": 2,
+          "U": 3
+        },
+        "key": "ggen/fanout/cell5/handoff",
+        "kind": "ggen.fanout.closure-handoff",
+        "merged": [
+          "seanchatmangpt/ex4pm#34@06d326f59d05afdcd39637f42fe277a474095dda"
+        ],
+        "next_closure": [
+          "repair GymAct inherited broad-CI debt without changing R79 semantics, then exact-head requalify",
+          "repair XaaS Ash changeset context compatibility at lawful local seam, rerun compile/test/format/dialyzer and R79",
+          "obtain target-specific canonical admissibility receipts for preserved 22, route newly READY targets back to CELL4"
+        ],
+        "open_prs": [
+          "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "seanchatmangpt/xaas#31@3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell5",
+          "closure",
+          "forced-top25",
+          "r81"
+        ],
+        "updated_at": "2026-08-26T06:46:07Z",
+        "upstream_factory": {
+          "default_contained": true,
+          "pack": "forced-top25-admissibility-factory-pack",
+          "repo": "seanchatmangpt/ggen-marketplace"
+        }
+      },
+      "title": "CELL5 closure inventory — CELL4 R81"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

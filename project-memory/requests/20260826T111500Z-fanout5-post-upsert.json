@@ -1,0 +1,21 @@
+{
+  "request_id":"20260826T111500Z-fanout5-post-upsert",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/current",
+    "title":"GGEN maximum fanout current",
+    "summary":"ForcedTop25 exact-head census refreshed 25/25. New R85 downstream consumer branches: SREGym, fdegym, mfact, mfw, yawl. Scoped exact-head R85 SUCCESS observed for SREGym, fdegym, mfact; mfw and yawl BUILD_BROKEN at hosted workflow pre-execution. Existing process-intelligence, wasm4pm, clap-noun-verb R83 consumers were refreshed from stale producer aef231 to current ggen-marketplace a658cda. Project transport writes remain refused by connector safety gate. No merges performed.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "producer_marketplace":"a658cda7066bba344e481173b5b52a0dc18c5c75",
+      "producer_ggen":"ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "new_downstream_commits":26,
+      "new_consumer_repos":5,
+      "refreshed_consumer_repos":3,
+      "forced_top25_observed":25,
+      "compatible_lower_bound":17,
+      "project_transport_head":"fc0fa3dc9498e5f59e4af653b458b5eb97a2f730"
+    }
+  }
+}

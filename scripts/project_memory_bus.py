@@ -8,6 +8,7 @@ Invariants:
 - malformed transport is REFUSED, never misclassified as proxy BUILD_BROKEN;
 - exact successful requests are replay-idempotent and never actuate twice;
 - receipts bind both raw transport bytes and canonical request semantics;
+- GGEN Ecosystem OCEL claims have one canonical Project #2 key and contract;
 - no credential is read before the request envelope is admitted.
 """
 from __future__ import annotations
@@ -23,6 +24,9 @@ from typing import Any
 
 PROXY_PATH = Path(__file__).with_name("project_memory_proxy.py")
 GATE_SCHEMA = "chatgpt-project-memory-gate/v2"
+GGEN_ECOSYSTEM_OCEL_KEY = "ggen/ecosystem/ocel/current"
+GGEN_ECOSYSTEM_OCEL_KIND = "ggen.ecosystem.ocel.current"
+GGEN_ECOSYSTEM_OCEL_TAGS = {"ggen", "ocel", "manufacturing", "project2"}
 
 
 def load_proxy():
@@ -46,6 +50,70 @@ def canonical_digest(request: dict[str, Any]) -> str:
         ensure_ascii=False,
     ).encode("utf-8")
     return sha256_bytes(raw)
+
+
+def validate_ggen_ecosystem_ocel_contract(request: dict[str, Any]) -> None:
+    """Independently verify the Project-memory projection emitted by the GGEN pack.
+
+    This does not manufacture OCEL or perform process analysis. It only refuses a
+    request that claims the GGEN Ecosystem OCEL contract while diverging from its
+    canonical memory identity or required provenance metadata.
+    """
+    if request.get("operation") != "memory.upsert":
+        return
+    payload = request.get("payload")
+    if not isinstance(payload, dict):
+        return
+    record = payload.get("record")
+    if not isinstance(record, dict):
+        return
+
+    tags_raw = record.get("tags")
+    tags = {str(tag) for tag in tags_raw} if isinstance(tags_raw, list) else set()
+    claims_contract = (
+        record.get("key") == GGEN_ECOSYSTEM_OCEL_KEY
+        or record.get("kind") == GGEN_ECOSYSTEM_OCEL_KIND
+        or {"ggen", "ocel", "manufacturing"}.issubset(tags)
+    )
+    if not claims_contract:
+        return
+
+    metadata = record.get("metadata")
+    metadata = metadata if isinstance(metadata, dict) else {}
+    failures: list[str] = []
+    if record.get("key") != GGEN_ECOSYSTEM_OCEL_KEY:
+        failures.append("CANONICAL_KEY_MISMATCH")
+    if record.get("kind") != GGEN_ECOSYSTEM_OCEL_KIND:
+        failures.append("KIND_MISMATCH")
+    if not GGEN_ECOSYSTEM_OCEL_TAGS.issubset(tags):
+        failures.append("REQUIRED_TAGS_MISSING")
+    if not isinstance(record.get("cell"), str) or not record.get("cell"):
+        failures.append("CELL_MISSING")
+    if not isinstance(record.get("standing"), str) or not record.get("standing"):
+        failures.append("STANDING_MISSING")
+    if not isinstance(metadata.get("run_id"), str) or not metadata.get("run_id"):
+        failures.append("RUN_ID_MISSING")
+    digest = metadata.get("ocel_digest")
+    if not isinstance(digest, str) or not digest.startswith("sha256:"):
+        failures.append("OCEL_DIGEST_MISSING")
+    if metadata.get("manufacturing_ladder") != "U->G->O->Q->M":
+        failures.append("MANUFACTURING_LADDER_MISMATCH")
+    if metadata.get("ggen_first") is not True:
+        failures.append("GGEN_FIRST_REQUIRED")
+    if metadata.get("process_analysis_owner") != "wasm4pm":
+        failures.append("PROCESS_ANALYSIS_OWNER_MISMATCH")
+
+    if failures:
+        raise ValueError(
+            json.dumps(
+                {
+                    "reason": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT",
+                    "message": "GGEN Ecosystem OCEL Project-memory projection failed independent admission",
+                    "failures": failures,
+                },
+                sort_keys=True,
+            )
+        )
 
 
 def load_request(path: Path) -> tuple[dict[str, Any], str, str]:
@@ -179,6 +247,13 @@ def augment_receipt(
     )
 
 
+def _details_from_value_error(exc: ValueError) -> dict[str, Any]:
+    try:
+        return json.loads(str(exc))
+    except json.JSONDecodeError:
+        return {"reason": "INVALID_REQUEST", "message": str(exc)}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--request", required=True, type=Path)
@@ -192,11 +267,24 @@ def main(argv: list[str] | None = None) -> int:
     try:
         request, transport_digest, request_sha256 = load_request(args.request)
     except ValueError as exc:
-        try:
-            details = json.loads(str(exc))
-        except json.JSONDecodeError:
-            details = {"reason": "INVALID_REQUEST", "message": str(exc)}
+        details = _details_from_value_error(exc)
         reason = str(details.get("reason") or "INVALID_REQUEST")
+        write_transport_refusal(
+            proxy=proxy,
+            request_path=args.request,
+            receipt_path=args.receipt,
+            transport_digest=transport_digest,
+            reason=reason,
+            details=details,
+        )
+        print(json.dumps({"standing": "REFUSED", "reason": reason}, sort_keys=True))
+        return 2
+
+    try:
+        validate_ggen_ecosystem_ocel_contract(request)
+    except ValueError as exc:
+        details = _details_from_value_error(exc)
+        reason = str(details.get("reason") or "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT")
         write_transport_refusal(
             proxy=proxy,
             request_path=args.request,

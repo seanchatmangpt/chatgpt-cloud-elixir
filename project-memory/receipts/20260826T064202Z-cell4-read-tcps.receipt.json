@@ -1,0 +1,93 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T06:41:59Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "tcps/muda-mura-muri/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T064202Z-cell4-read-tcps"
+  },
+  "request_id": "20260826T064202Z-cell4-read-tcps",
+  "request_path": "project-memory/requests/20260826T064202Z-cell4-read-tcps.json",
+  "request_sha256": "sha256:83f4d8f3cba428ead04797fc5dc19394be4fbb69b0fe9f4cf0f51b726beddf67",
+  "request_transport_sha256": "sha256:5492f97bb0bbf90046a43b9556de9550bd902950e7e00a5ae97bb697da3d27c9",
+  "result": {
+    "body": "次工程は顧客: ex4pm and gymact remain the lawful ready downstream customers; xaas remains repair-gated. Shared UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING across 22 preserved targets was returned upstream once as canonical R80 GGEN capital rather than duplicated per repository. No speculative downstream WIP was opened.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+    "metadata": {
+      "andon": [
+        "XAAS_CI_CD_ELIXIR_FAILURE",
+        "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+      ],
+      "authority": "SELECT|CONSTRUCT",
+      "cell": "COMPOSE",
+      "cognitive_wip": 0,
+      "consequential_do": false,
+      "created_at": "2026-08-26T05:40:44Z",
+      "downstream_customer": [
+        "ex4pm",
+        "gymact"
+      ],
+      "downstream_shape": "exact-head non-actuating generated consumer subject plus target-local qualification",
+      "key": "tcps/muda-mura-muri/current",
+      "kind": "tcps.fanout",
+      "muda": "eliminated per-repo duplicated admissibility interpretation",
+      "mura": "preserved all 25 targets; two ready consumers allocated in parallel",
+      "muri": "did not open 22 unresolved consumer branches",
+      "partial_order_edges": [
+        "admissibility_receipt->ready_set",
+        "ready_set->consumer_projection",
+        "consumer_projection->exact_head_qualification",
+        "qualification->closure"
+      ],
+      "preserved_parallel_options": [
+        "ex4pm",
+        "gymact"
+      ],
+      "pull_edges": [
+        "22 missing admissibility receipts->R80 canonical factory"
+      ],
+      "ready_set": [
+        "ex4pm",
+        "gymact"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "standard_work_candidates": [
+        "canonical exact-head admissibility projection before downstream allocation"
+      ],
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "fanout",
+        "ggen",
+        "r80",
+        "tcps"
+      ],
+      "updated_at": "2026-08-26T05:40:44Z",
+      "upstream_returns": [
+        "forced-top25-admissibility-factory-pack"
+      ]
+    },
+    "title": "TCPS fanout state — R80"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

@@ -1,0 +1,42 @@
+{
+  "request_id": "20260826T0818Z-cell4-xaas-mid-e8120b10",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/implement/latest",
+      "title": "CELL4 ForcedTop25 realization and qualification",
+      "kind": "dfcm.implement",
+      "cell": "REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["cell4", "forced-top25", "xaas", "r79", "r81", "tcps"],
+      "body": "CELL4 consumed CELL3 selected XaaS PR #31 without reranking. Revalidated current selected branch from stale allocated subject to exact head e8120b10cfd30c911ac710eb7ba9411943ab41da. R79 and R81 exact-head courts are ALIVE. Native CI exposed duplicate generated webhook cloak convergence: 20260821031500 already idempotently owns secret->encrypted_secret, while later 20260821055848 repeated add encrypted_secret/drop secret and failed fresh-db migration. Repaired the local lawful migration seam by removing only the duplicate webhook transition while preserving independent token extra_data cloak transition, then added a permanent single-owner regression court. Two new downstream XaaS commits: 29ccfc3c179f816cb61b6b1ec9f11a5c0b4b9e69 and e8120b10cfd30c911ac710eb7ba9411943ab41da. Broad CI is requalifying; no merge/deploy/release.",
+      "metadata": {
+        "U": 3,
+        "R": 3,
+        "Q_strict_full_repo": 1,
+        "Q_scoped": 3,
+        "M": 2,
+        "OpenFanoutObligations": 1,
+        "F_R": 3,
+        "F_C_prior": 11,
+        "F_C_new_xaas": 2,
+        "downstream_unique_commits_this_wave": 2,
+        "upstream_unique_commits_this_wave": 0,
+        "xaas_base": "2207203b1bef612cc55a52676b8e607f930640e7",
+        "xaas_branch": "fanout/r79-tcps-admission",
+        "xaas_head": "e8120b10cfd30c911ac710eb7ba9411943ab41da",
+        "xaas_pr": 31,
+        "r79_run": 32946813432,
+        "r79_conclusion": "success",
+        "r81_run": 32946813512,
+        "r81_conclusion": "success",
+        "broad_ci_run": 32946813480,
+        "broad_ci_conclusion": "IN_PROGRESS",
+        "andon": "XAAS_DUPLICATE_WEBHOOK_CLOAK_MIGRATION",
+        "human_value": "HUMAN_VALUE_UNKNOWN",
+        "consequential_external_do": false
+      }
+    }
+  }
+}

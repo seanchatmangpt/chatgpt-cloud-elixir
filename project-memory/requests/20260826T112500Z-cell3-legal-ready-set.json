@@ -1,0 +1,65 @@
+{
+  "request_id": "20260826T112500Z-cell3-legal-ready-set",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/current",
+    "title": "CELL3 legal ForcedTop25 ready-set allocation",
+    "summary": "Allocate all currently lawful READY ForcedTop25 fanout in parallel: SREGym@1eed63be362f56b977ab0f5d8eed229322c4a173, fdegym@93dc33620295bb617700092715c279d6a7f8d51d, and mfact@dba4d690edbbe8685c62ee0f14b01f9b766a6b06. Each exact head has a successful R85 TCPS Ready-Set Consumer court; fdegym and mfact additionally have broad CI green. SREGym retains unrelated Run SRE-QL Queries failure as inherited non-owning debt. Process-intelligence, wasm4pm, and clap-noun-verb remain requalifying WIP; mfw and yawl remain BUILD_BROKEN at hosted pre-execution. Six consumers are already default-lineage assimilated: ex4pm, gymact, autofde-lab, autofde, xaas, dspygen. Remaining forced targets retain UNKNOWN_WITH_REASON rather than silent omission.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "cell": "LEGAL_READY_SET_ALLOCATION",
+      "authority": "SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "consequential_do": false,
+      "producer": "seanchatmangpt/ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75",
+      "forced_top25": [
+        {"rank":1,"repo":"ex4pm","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":2,"repo":"gymact","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":3,"repo":"autofde-lab","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":4,"repo":"autofde","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":5,"repo":"xaas","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE_WITH_REMAINING_NATIVE_DEBT_OUTSIDE_CURRENT_FANOUT_COURT"},
+        {"rank":6,"repo":"chatgpt-cloud-elixir","classification":"UNKNOWN_WITH_REASON","reason":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING; PROJECT2_CONTROL_COMMITS_EXCLUDED_FROM_TRUE_FANOUT"},
+        {"rank":7,"repo":"process-intelligence","classification":"COMPATIBLE_NOT_READY","reason":"R85_WIP_REFRESHED_REQUALIFYING"},
+        {"rank":8,"repo":"ash_r2rml","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":9,"repo":"wasm4pm","classification":"COMPATIBLE_NOT_READY","reason":"R85_WIP_REFRESHED_REQUALIFYING"},
+        {"rank":10,"repo":"pm4wasm","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":11,"repo":"mfact","classification":"COMPATIBLE_READY","head":"dba4d690edbbe8685c62ee0f14b01f9b766a6b06","qualification":"R85_TCPS_READY_SET_SUCCESS; CI_SUCCESS"},
+        {"rank":12,"repo":"mfact-command-center","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":13,"repo":"mfw","classification":"COMPATIBLE_NOT_READY","reason":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"},
+        {"rank":14,"repo":"SREGym","classification":"COMPATIBLE_READY","head":"1eed63be362f56b977ab0f5d8eed229322c4a173","qualification":"R85_TCPS_READY_SET_SUCCESS; PROBLEM_VALIDATION_SUCCESS; INTEGRATION_SMOKE_SUCCESS","inherited_nonowning_debt":"RUN_SRE_QL_QUERIES_FAILURE"},
+        {"rank":15,"repo":"fdegym","classification":"COMPATIBLE_READY","head":"93dc33620295bb617700092715c279d6a7f8d51d","qualification":"R85_TCPS_READY_SET_SUCCESS; CI_SUCCESS; GGEN_FORTUNE5_SUCCESS; GYM_MATURITY_SUCCESS"},
+        {"rank":16,"repo":"revops","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":17,"repo":"chatman-ecosystem","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":18,"repo":"POWL","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":19,"repo":"swarmsh-v2","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":20,"repo":"cargo-cicd","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":21,"repo":"clap-noun-verb","classification":"COMPATIBLE_NOT_READY","reason":"R85_WIP_REFRESHED_REQUALIFYING"},
+        {"rank":22,"repo":"unrdf","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":23,"repo":"dspygen","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":24,"repo":"yawl","classification":"COMPATIBLE_NOT_READY","reason":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"},
+        {"rank":25,"repo":"a2a-rs","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"}
+      ],
+      "selected_workstreams": [
+        {"repo":"SREGym","head":"1eed63be362f56b977ab0f5d8eed229322c4a173","next":"CELL4 exact-head closure/default-lineage assimilation; do not treat unrelated SRE-QL failure as owning-court failure"},
+        {"repo":"fdegym","head":"93dc33620295bb617700092715c279d6a7f8d51d","next":"CELL4 exact-head closure/default-lineage assimilation"},
+        {"repo":"mfact","head":"dba4d690edbbe8685c62ee0f14b01f9b766a6b06","next":"CELL4 exact-head closure/default-lineage assimilation while preserving mfact certification authority boundaries"}
+      ],
+      "preserved_alternatives": ["process-intelligence","wasm4pm","clap-noun-verb","mfw","yawl","chatgpt-cloud-elixir","ash_r2rml","pm4wasm","mfact-command-center","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","unrdf","a2a-rs"],
+      "ready_set": ["SREGym","fdegym","mfact"],
+      "nonready_set": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact-command-center","mfw","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+      "partial_order_edges": [
+        "R85_EXACT_CONSUMER_SUBJECT->R85_OWNING_COURT",
+        "R85_OWNING_COURT_SUCCESS->CELL4_CLOSURE",
+        "CELL4_CLOSURE->DEFAULT_LINEAGE_ASSIMILATION",
+        "SHARED_CONSUMER_DEFECT->CANONICAL_GGEN_REPAIR->PARALLEL_REQUALIFICATION",
+        "TARGET_SPECIFIC_ADMISSION->READY_SET"
+      ],
+      "metrics": {"U_lower_bound":17,"M_exact":6,"OpenFanoutObligations_lower_bound":11,"R_exact_named_lower_bound":14,"Q_exact_named_lower_bound":9},
+      "expected_fanout": {"selected_repositories":3,"independent_streams":3,"expected_M_increment":3},
+      "dependencies": {"SREGym":"none beyond exact producer/consumer correspondence already qualified","fdegym":"none beyond exact producer/consumer correspondence already qualified","mfact":"preserve ggen renders -> Lean admits -> mfact certifies; no authority promotion"},
+      "qualification_plan": {"CELL4":"consume the three exact heads; re-observe owning court; verify branch/currentness and mergeability; assimilate only with exact-head evidence","CELL5":"post-merge/default-lineage verification and receipt"},
+      "tcps": {"MUDA":"no universe reranking; reused authoritative ForcedTop25 and fresh exact-head evidence","MURA":"zero READY starvation; all three READY targets allocated","MURI":"WIP bounded to three qualified closure streams; requalifying/blocked/unknown alternatives preserved outside active closure WIP"},
+      "wip_budget": {"active_ready":3,"requalifying_preserved":3,"blocked_preserved":2,"unknown_preserved":11}
+    }
+  }
+}

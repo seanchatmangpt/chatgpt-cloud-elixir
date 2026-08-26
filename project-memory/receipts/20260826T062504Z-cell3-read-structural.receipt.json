@@ -1,0 +1,89 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T06:27:24Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/structural-manufacturing/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T062504Z-cell3-read-structural"
+  },
+  "request_id": "20260826T062504Z-cell3-read-structural",
+  "request_path": "project-memory/requests/20260826T062504Z-cell3-read-structural.json",
+  "request_sha256": "sha256:df776d1f3d14b8fad764333158266f57017bda6cdbe361f3c4d17c18cb3b3fa4",
+  "request_transport_sha256": "sha256:4cbe3d78b9eed3af2724eb7b2862bb66d7c604a5677748250ec80037b8c58062",
+  "result": {
+    "body": "Structural-manufacturing delta: canonical portfolio-epistemic-observability pack now has deterministic R77 repository-universe projection and deterministic R78 ready-set allocation projection. This strengthens the ExistingStructure -> Decision -> DesiredStructure -> Ontology -> Pack -> Generator correspondence before R76/R74 consumer regeneration. Generalizable defects were lifted to pack source and permanent tests, not retained as consumer-local fixes. Exact head f96dc9a5 is REQUALIFYING; regeneration fanout waits on producer crown.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_4I0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CS_E",
+    "metadata": {
+      "D": "PENDING_EXACT_QUALIFICATION",
+      "F": "UNCHANGED",
+      "G": 1.0,
+      "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+      "actuation_performed": false,
+      "authority": "SELECT|CONSTRUCT",
+      "base_sha": "e1a707b2e3a3905b80f727ab3b43d2c53187a8df",
+      "canonical_pack": "portfolio-epistemic-observability-pack",
+      "cell": "SELECT_DEVELOP",
+      "consumer_regeneration": "PENDING_PRODUCER_QUALIFICATION",
+      "courts": 4,
+      "created_at": "2026-08-26T02:17:42Z",
+      "feature_head": "bf12a25429f612031e746715a07042e99ff31836",
+      "feature_pr": 301,
+      "gates": 4,
+      "generated_surface_hand_edits": 0,
+      "ggen_version": "26.8.11",
+      "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+      "key": "ggen/structural-manufacturing/current",
+      "kind": "ggen.structural-manufacturing",
+      "meaningful_commits": 53,
+      "next": [
+        "R76 structural-capital revalidate",
+        "R74 option-factory revalidate",
+        "compatible consumer regeneration"
+      ],
+      "pr": 305,
+      "queries": 23,
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "repair_head": "74bf06395d8a92b680a3abf81d2823dec1c3f88b",
+      "repair_pr": 312,
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "run_id": "SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE",
+      "schema": "chatgpt-project-memory/v1",
+      "standard_work_promotions": 2,
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "ggen",
+        "r78",
+        "structural-manufacturing",
+        "tcps"
+      ],
+      "templates": 7,
+      "updated_at": "2026-08-26T04:04:45Z",
+      "upstream_returns": 2
+    },
+    "title": "GGEN structural manufacturing"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

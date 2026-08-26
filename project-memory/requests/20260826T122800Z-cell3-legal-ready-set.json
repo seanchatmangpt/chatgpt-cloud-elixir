@@ -1,0 +1,65 @@
+{
+  "request_id": "20260826T122800Z-cell3-legal-ready-set",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/current",
+    "title": "CELL3 legal ForcedTop25 ready-set allocation",
+    "summary": "Previous READY portfolio SREGym, fdegym, and mfact is now default-lineage assimilated. Fresh exact-head evidence promotes process-intelligence#9@39a8240be54dba1cbdea1ee9ca849a06ce6403c9 to the sole observed COMPATIBLE_READY stream: construct, dfcm, definition-of-done, and alive-002 all succeeded on the same head. wasm4pm, clap-noun-verb, mfw, and yawl remain COMPATIBLE_NOT_READY because exact-head repository or owning qualification checks are failing. Remaining forced targets retain explicit UNKNOWN_WITH_REASON; no universe rerank was performed.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "cell": "LEGAL_READY_SET_ALLOCATION",
+      "authority": "SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "consequential_do": false,
+      "producer": "seanchatmangpt/ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75",
+      "forced_top25": [
+        {"rank":1,"repo":"ex4pm","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":2,"repo":"gymact","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":3,"repo":"autofde-lab","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":4,"repo":"autofde","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":5,"repo":"xaas","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE_WITH_REMAINING_NATIVE_DEBT_OUTSIDE_CURRENT_FANOUT_COURT"},
+        {"rank":6,"repo":"chatgpt-cloud-elixir","classification":"UNKNOWN_WITH_REASON","reason":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING; PROJECT2_CONTROL_COMMITS_EXCLUDED_FROM_TRUE_FANOUT"},
+        {"rank":7,"repo":"process-intelligence","classification":"COMPATIBLE_READY","head":"39a8240be54dba1cbdea1ee9ca849a06ce6403c9","qualification":"CONSTRUCT_SUCCESS; DFCM_SUCCESS; DEFINITION_OF_DONE_SUCCESS; ALIVE_002_SUCCESS","pr":9},
+        {"rank":8,"repo":"ash_r2rml","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":9,"repo":"wasm4pm","classification":"COMPATIBLE_NOT_READY","head":"cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4","reason":"OWNING_QUALIFY_SUCCESS_BUT_EXACT_SUBJECT_RUST_WASM_TYPESCRIPT_CLI_FAILURE","pr":616},
+        {"rank":10,"repo":"pm4wasm","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":11,"repo":"mfact","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE","merge":"79643f87f35cb59514ebce096ad067b713a47db3"},
+        {"rank":12,"repo":"mfact-command-center","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":13,"repo":"mfw","classification":"COMPATIBLE_NOT_READY","head":"f3bc48b7863ddf4474bf0c3abe1aaf8b94425074","reason":"BUILD_BROKEN[QUALIFY_FAILURE]","pr":82},
+        {"rank":14,"repo":"SREGym","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE","merge":"4f6757c758521a359f1091d17d37ae5a9b1fb962"},
+        {"rank":15,"repo":"fdegym","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE","merge":"f493d2bf5e093d8430b7e39b56d8222e95192dbe"},
+        {"rank":16,"repo":"revops","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":17,"repo":"chatman-ecosystem","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":18,"repo":"POWL","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":19,"repo":"swarmsh-v2","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":20,"repo":"cargo-cicd","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":21,"repo":"clap-noun-verb","classification":"COMPATIBLE_NOT_READY","head":"efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd","reason":"BUILD_BROKEN[CI_SUMMARY_TEST_STABLE_TEST_BETA_LICENSE_FAILURES]","pr":43},
+        {"rank":22,"repo":"unrdf","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":23,"repo":"dspygen","classification":"COMPATIBLE_NOT_READY","reason":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":24,"repo":"yawl","classification":"COMPATIBLE_NOT_READY","head":"9ca41b5a896795cc88c9a3e2b769233bfc0223e5","reason":"BUILD_BROKEN[QUALIFY_AND_AGGREGATE_TEST_FAILURE]","pr":240},
+        {"rank":25,"repo":"a2a-rs","classification":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"}
+      ],
+      "selected_workstreams": [
+        {"repo":"process-intelligence","pr":9,"head":"39a8240be54dba1cbdea1ee9ca849a06ce6403c9","next":"CELL4 exact-head closure/default-lineage assimilation; re-observe exact head and mergeability before any consequential GitHub merge"}
+      ],
+      "preserved_alternatives": ["wasm4pm","clap-noun-verb","mfw","yawl","chatgpt-cloud-elixir","ash_r2rml","pm4wasm","mfact-command-center","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","unrdf","a2a-rs"],
+      "ready_set": ["process-intelligence"],
+      "nonready_set": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+      "partial_order_edges": [
+        "R85_EXACT_CONSUMER_SUBJECT->R85_OWNING_COURT",
+        "R85_OWNING_COURT_SUCCESS_AND_REQUIRED_REPO_GATES->CELL4_CLOSURE",
+        "CELL4_CLOSURE->DEFAULT_LINEAGE_ASSIMILATION",
+        "SHARED_CONSUMER_DEFECT->CANONICAL_GGEN_REPAIR->PARALLEL_REQUALIFICATION",
+        "TARGET_SPECIFIC_ADMISSION->READY_SET"
+      ],
+      "metrics": {"U_lower_bound":17,"R_exact_named_lower_bound":14,"Q_exact_named_lower_bound":10,"M_exact":9,"OpenFanoutObligations_lower_bound":8},
+      "expected_fanout": {"selected_repositories":1,"independent_streams":1,"expected_M_increment":1},
+      "exact_heads": {"process-intelligence":"39a8240be54dba1cbdea1ee9ca849a06ce6403c9","wasm4pm":"cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4","clap-noun-verb":"efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd","mfw":"f3bc48b7863ddf4474bf0c3abe1aaf8b94425074","yawl":"9ca41b5a896795cc88c9a3e2b769233bfc0223e5"},
+      "dependencies": {"process-intelligence":"none beyond exact producer/consumer correspondence already qualified","wasm4pm":"repair or classify exact-subject Rust/WASM/TypeScript/CLI failure","clap-noun-verb":"repair repository CI/test/license failures before READY","mfw":"repair owning qualify failure","yawl":"repair owning qualify and aggregate-test failures"},
+      "qualification_plan": {"CELL4":"consume process-intelligence#9 exact head; confirm currentness/mergeability and exact-head gates before assimilation","repair_streams":"localize each nonready exact-head failure; shared defects return upstream to canonical GGEN before parallel requalification","CELL5":"post-assimilation default-lineage verification and receipt"},
+      "tcps": {"MUDA":"no universe rediscovery/reranking; only fresh exact-head evidence changed allocation","MURA":"zero observed READY starvation; sole READY target allocated","MURI":"active closure WIP=1; four known repair streams and eleven unknowns remain preserved outside closure WIP"},
+      "wip_budget": {"active_ready":1,"repair_preserved":4,"unknown_preserved":11,"assimilated":9},
+      "true_fanout": {"control_commits_excluded":true,"new_consumer_commits_this_cell3":0,"new_merges_observed_since_prior_cell3":3}
+    }
+  }
+}
