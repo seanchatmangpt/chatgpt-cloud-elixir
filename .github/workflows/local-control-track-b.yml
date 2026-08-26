@@ -1,0 +1,36 @@
+name: Local Control Track B
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/local_control_agent.py'
+      - 'local-control/**'
+      - 'tests/test_local_control_agent.py'
+      - '.github/workflows/local-control-track-b.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/local_control_agent.py'
+      - 'local-control/**'
+      - 'tests/test_local_control_agent.py'
+      - '.github/workflows/local-control-track-b.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  hosted-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Compile agent
+        run: python3 -m py_compile scripts/local_control_agent.py
+      - name: Run Track B contract tests
+        run: python3 -m unittest -v tests/test_local_control_agent.py
+      - name: State proof boundary
+        run: |
+          echo 'Hosted CI proves parsing, fencing, approval/receipt state transitions, and command manufacture.'
+          echo 'It does NOT prove execution against the user Mac or real Colima; that requires a Mac-local receipt.'
