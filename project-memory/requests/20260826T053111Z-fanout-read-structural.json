@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T053111Z-fanout-read-structural",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "ggen/structural-manufacturing/current", "include_archived": true}
+}
