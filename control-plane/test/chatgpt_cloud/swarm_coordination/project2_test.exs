@@ -7,7 +7,8 @@ defmodule ChatGPTCloud.SwarmCoordination.Project2Test do
     refute Project2.work_candidate?(%{
              item_id: "memory-item",
              type: "DRAFT_ISSUE",
-             body: "<!-- chatgpt-project-memory:v1 ZGZjbS9mcm9udGllci9jdXJyZW50 -->\ncontrol state"
+             body:
+               "<!-- chatgpt-project-memory:v1 ZGZjbS9mcm9udGllci9jdXJyZW50 -->\ncontrol state"
            })
   end
 
