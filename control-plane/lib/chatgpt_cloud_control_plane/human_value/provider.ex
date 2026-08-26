@@ -13,7 +13,10 @@ defmodule ChatGPTCloud.HumanValue.Provider do
     invoice_cents = div(offer_cents * (70 + bounded(seed, "invoice", 26)), 100)
     payment_cents = div(invoice_cents * (60 + bounded(seed, "payment", 41)), 100)
     value_outcome_cents = payment_cents * (2 + bounded(seed, "value", 4))
-    customer_revenue_outcome_cents = value_outcome_cents + bounded(seed, "customer-revenue", 250_000)
+
+    customer_revenue_outcome_cents =
+      value_outcome_cents + bounded(seed, "customer-revenue", 250_000)
+
     acquired_at = DateTime.utc_now()
 
     %{
