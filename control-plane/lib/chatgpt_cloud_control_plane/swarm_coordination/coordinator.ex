@@ -60,7 +60,9 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
         end
 
       existing ->
-        receipt = insert_receipt!(existing, "enqueue_replayed", existing.agent_id, "PARTIAL_ALIVE", %{})
+        receipt =
+          insert_receipt!(existing, "enqueue_replayed", existing.agent_id, "PARTIAL_ALIVE", %{})
+
         emit(:enqueue_replayed, existing, receipt)
         {:ok, envelope(existing), receipt_envelope(receipt)}
     end
@@ -120,6 +122,14 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
           Repo.rollback(invalid_transition(work, "claim"))
       end
     end)
+  end
+
+  def claim(work_item_id, agent_id) do
+    {:error,
+     error("REFUSED", "INVALID_AGENT_ID", work_item_id, %{
+       "agent_id" => agent_id,
+       "required" => "non-empty string"
+     })}
   end
 
   def progress(work_item_id, agent_id, percent, status \\ "in_progress")
@@ -191,12 +201,29 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
     terminate(work_item_id, agent_id, "blocked", "BLOCKED", %{"reason" => reason})
   end
 
+  def block(work_item_id, _agent_id, reason) do
+    {:error,
+     error("REFUSED", "INVALID_BLOCK_REASON", work_item_id, %{
+       "reason" => reason,
+       "required" => "non-empty string"
+     })}
+  end
+
   def refuse(work_item_id, agent_id, refusal_type, reason)
       when is_binary(refusal_type) and refusal_type != "" do
     terminate(work_item_id, agent_id, "refused", "REFUSED", %{
       "refusal_type" => refusal_type,
       "reason" => reason || ""
     })
+  end
+
+  def refuse(work_item_id, _agent_id, refusal_type, reason) do
+    {:error,
+     error("REFUSED", "INVALID_REFUSAL_TYPE", work_item_id, %{
+       "refusal_type" => refusal_type,
+       "reason" => reason,
+       "required" => "non-empty string"
+     })}
   end
 
   defp terminate(work_item_id, agent_id, terminal_status, standing, details) do
