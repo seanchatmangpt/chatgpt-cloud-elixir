@@ -61,6 +61,8 @@ Arbitrary prose remains a fact/literal. A sentence containing words such as “d
 
 All scalar Project fields and memory metadata remain inspectable as facts even when they are not promoted to graph edges.
 
+The semantic control-plane source itself is also subject to repository admission: the canonical `mix format --check-formatted` gate must pass before strict compile and the broader control-plane qualification can crown an exact head. Formatting is therefore manufactured, not waived, and never substitutes for compile/test execution.
+
 ## Public semantic vocabulary
 
 The JSON-LD context uses public namespaces where the equivalence is defensible: PROV-O for provenance entities, DCAT for dataset/data-service framing, DCTERMS for general metadata vocabulary, SKOS for labels/tags as concepts, FOAF for actors/agents, and DOAP/Schema.org for source-code repositories.
