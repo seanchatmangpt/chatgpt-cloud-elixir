@@ -7,8 +7,10 @@ on:
       - "scripts/project_memory_proxy.py"
       - "scripts/project_memory_semantic_proxy.py"
       - "scripts/project_semantic_projection.py"
+      - "scripts/project_vision_2030.py"
       - "tests/test_project_memory_proxy.py"
       - "tests/test_project_semantic_projection.py"
+      - "tests/test_project_vision_2030.py"
       - "project-memory/requests/**/*.json"
   workflow_dispatch:
     inputs:
@@ -42,7 +44,11 @@ jobs:
           fetch-depth: 0
 
       - name: Validate proxy implementation
-        run: python -m unittest tests/test_project_memory_proxy.py tests/test_project_semantic_projection.py
+        run: >-
+          python -m unittest
+          tests/test_project_memory_proxy.py
+          tests/test_project_semantic_projection.py
+          tests/test_project_vision_2030.py
 
       - name: Resolve request set
         id: requests
