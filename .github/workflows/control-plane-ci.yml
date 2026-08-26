@@ -5,14 +5,34 @@ on:
     paths:
       - "control-plane/**"
       - "scripts/emit-ocel.py"
+      - "scripts/project_memory_proxy.py"
+      - "scripts/project_memory_bus.py"
+      - "scripts/project_memory_semantic_proxy.py"
+      - "scripts/project_semantic_projection.py"
+      - "scripts/project_vision_2030.py"
+      - "tests/test_project_memory_proxy.py"
+      - "tests/test_project_memory_bus.py"
+      - "tests/test_project_semantic_projection.py"
+      - "tests/test_project_vision_2030.py"
       - ".github/workflows/control-plane-ci.yml"
+      - ".github/workflows/project-memory-proxy.yml"
       - ".github/workflows/deploy-fly.yml"
   push:
     branches: [main, "feat/**", "feature/**"]
     paths:
       - "control-plane/**"
       - "scripts/emit-ocel.py"
+      - "scripts/project_memory_proxy.py"
+      - "scripts/project_memory_bus.py"
+      - "scripts/project_memory_semantic_proxy.py"
+      - "scripts/project_semantic_projection.py"
+      - "scripts/project_vision_2030.py"
+      - "tests/test_project_memory_proxy.py"
+      - "tests/test_project_memory_bus.py"
+      - "tests/test_project_semantic_projection.py"
+      - "tests/test_project_vision_2030.py"
       - ".github/workflows/control-plane-ci.yml"
+      - ".github/workflows/project-memory-proxy.yml"
       - ".github/workflows/deploy-fly.yml"
   workflow_dispatch:
 
@@ -48,6 +68,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Qualify Project memory and Vision 2030 deterministic parity
+        working-directory: .
+        run: >-
+          python3 -m unittest
+          tests/test_project_memory_proxy.py
+          tests/test_project_memory_bus.py
+          tests/test_project_semantic_projection.py
+          tests/test_project_vision_2030.py
 
       - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
         with:
