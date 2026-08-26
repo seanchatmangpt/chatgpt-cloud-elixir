@@ -1,0 +1,46 @@
+{
+  "request_id": "20260826T094900Z-cell4-fanout-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current after CELL4 qualification",
+      "kind": "ggen.fanout",
+      "cell": "CELL4_REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "forced-top25", "fanout", "tcps", "qualification", "cell5-handoff"],
+      "body": "CELL4 had no CELL3-selected READY workstreams, so downstream manufacture remained 0 this wave. Exact consumer requalification exposed a shared canonical producer-schema defect across autofde-lab#88, autofde#33, and xaas#32; that defect was returned once to ggen-marketplace PR #321 with a permanent falsifier. Named compatible population remains ex4pm, gymact, autofde-lab, autofde, xaas, dspygen (U_named=6); ex4pm, gymact, and dspygen are default-lineage assimilated (M_named=3), so OpenFanoutObligations_named=3. Project memory also preserves inherited U_lower_bound>=17 without exact name binding, therefore global U and OpenFanoutObligations remain UNKNOWN except lower-bound implications. All six named compatible repositories have GGEN-caused downstream realization evidence (R_named=6), but current exact Q is not fully bound for ex4pm/gymact in the CELL3 record; dspygen is explicitly Q=true while the three new R80 consumers are Q=false. No exact global Q/F_Q or F_C total is fabricated. Named realization coverage R/U=100%; F_A=3; wave downstream commits=0; wave upstream commits=2; regenerations=0. Consequential DO=false.",
+      "metadata": {
+        "U_named": 6,
+        "U_global_lower_bound": 17,
+        "R_named": 6,
+        "Q_exact": "UNKNOWN[EX4PM_GYMACT_Q_NOT_BOUND_IN_CURRENT_CELL3_RECORD]",
+        "Q_explicit_min": 1,
+        "M_named": 3,
+        "OpenFanoutObligations_named": 3,
+        "OpenFanoutObligations_global": "UNKNOWN[INHERITED_U_IDENTITIES_UNBOUND]",
+        "F_R_named": 6,
+        "F_C_wave": 0,
+        "F_C_portfolio": "UNKNOWN[CURRENT_RECORD_LACKS_ALL_CONSUMER_COMMIT_COUNTS]",
+        "F_A": 3,
+        "F_Q": "UNKNOWN",
+        "Coverage_named": 1.0,
+        "F_effective": "UNKNOWN[FORMULA_NOT_BOUND]",
+        "upstream_unique_commits_wave": 2,
+        "downstream_unique_commits_wave": 0,
+        "T_M": 0,
+        "T_A": 0,
+        "regenerations_wave": 0,
+        "upstream_returns_wave": 1,
+        "upstream_repair": {"repo":"ggen-marketplace","pr":321,"head":"2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253","standing":"PARTIAL_ALIVE[QUALIFICATION_PENDING]"},
+        "consumer_andon": [
+          {"repo":"autofde-lab","pr":88,"head":"d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a","reason":"UPSTREAM_R80_PACK_SCHEMA"},
+          {"repo":"autofde","pr":33,"head":"bf753d1dfdc137a6fce04008a2841752216654bb","reason":"UPSTREAM_R80_PACK_SCHEMA"},
+          {"repo":"xaas","pr":32,"head":"35b6b49f8d63580d4d94d5fd938753d32509cc86","reason":"UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL"}
+        ],
+        "consequential_do": false
+      }
+    }
+  }
+}
