@@ -1,0 +1,20 @@
+{
+  "request_id":"20260826T125200Z-cell2-fanout-r86",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/current",
+    "title":"CELL2 compose/expand fanout topology",
+    "summary":"Canonical path is now CELL1 admission -> ForcedTop25 lawful ready-set -> exact consumer subject -> R78 TCPS capital -> R86 runner-independent qualification capsule -> exact qualification -> default-lineage assimilation. SREGym/fdegym/mfact crossed assimilation. mfw/yawl remain parallel hosted-preexec Andons. No target was reranked or evicted.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "producer_main":"seanchatmangpt/ggen-marketplace@93c99170cad21e5914934837dbd01bb9e9f83d92",
+      "r86_candidate":"seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+      "r86_pr":325,
+      "consumer_ready_set":["process-intelligence","wasm4pm","clap-noun-verb","mfw","yawl"],
+      "partial_order_edges":["CELL1_ADMISSION->FORCED_TOP25_READY_SET","FORCED_TOP25_READY_SET->EXACT_CONSUMER_SUBJECT","EXACT_CONSUMER_SUBJECT->R78_TCPS_CAPITAL","R78_TCPS_CAPITAL->R86_QUALIFICATION_CAPSULE","R86_QUALIFICATION_CAPSULE->EXACT_QUALIFICATION","EXACT_QUALIFICATION->DEFAULT_LINEAGE_ASSIMILATION"],
+      "authority":"VERIFY|CONSTRUCT",
+      "consequential_do":false
+    }
+  }
+}
