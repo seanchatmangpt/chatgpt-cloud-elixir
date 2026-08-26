@@ -2,6 +2,41 @@
 @prefix run: <https://chatgpt-cloud-elixir.dev/run/cell1-20260826T200101Z#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# Projection joins are intentionally explicit. Specialized object classes are
+# also admitted as ManufacturingObject because the canonical pack fails closed
+# on unresolved event/object joins without relying on an inference regime.
+run:primitive-marketplace a geocel:ManufacturingObject .
+run:primitive-ggen a geocel:ManufacturingObject .
+run:project-key-refusal a geocel:ManufacturingObject .
+run:project-read-gate a geocel:ManufacturingObject .
+run:config-falsifier a geocel:ManufacturingObject .
+run:cargo-authority-falsifier a geocel:ManufacturingObject .
+run:repo-01 a geocel:ManufacturingObject .
+run:repo-02 a geocel:ManufacturingObject .
+run:repo-03 a geocel:ManufacturingObject .
+run:repo-04 a geocel:ManufacturingObject .
+run:repo-05 a geocel:ManufacturingObject .
+run:repo-06 a geocel:ManufacturingObject .
+run:repo-07 a geocel:ManufacturingObject .
+run:repo-08 a geocel:ManufacturingObject .
+run:repo-09 a geocel:ManufacturingObject .
+run:repo-10 a geocel:ManufacturingObject .
+run:repo-11 a geocel:ManufacturingObject .
+run:repo-12 a geocel:ManufacturingObject .
+run:repo-13 a geocel:ManufacturingObject .
+run:repo-14 a geocel:ManufacturingObject .
+run:repo-15 a geocel:ManufacturingObject .
+run:repo-16 a geocel:ManufacturingObject .
+run:repo-17 a geocel:ManufacturingObject .
+run:repo-18 a geocel:ManufacturingObject .
+run:repo-19 a geocel:ManufacturingObject .
+run:repo-20 a geocel:ManufacturingObject .
+run:repo-21 a geocel:ManufacturingObject .
+run:repo-22 a geocel:ManufacturingObject .
+run:repo-23 a geocel:ManufacturingObject .
+run:repo-24 a geocel:ManufacturingObject .
+run:repo-25 a geocel:ManufacturingObject .
+
 run:manufacturing-run a geocel:ManufacturingRun ;
   geocel:runId "cell1-20260826T200101Z" ;
   geocel:cell "MAXIMUM_FANOUT_FRONTIER" ;
