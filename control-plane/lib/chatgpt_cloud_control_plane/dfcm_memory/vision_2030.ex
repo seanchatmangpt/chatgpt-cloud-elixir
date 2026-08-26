@@ -16,17 +16,20 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030 do
     %{
       id: "deterministic-manufacture",
       label: "Deterministic manufacture",
-      signals: ~w(ggen generator generated generation pack marketplace manufacture manufacturing ontology)
+      signals:
+        ~w(ggen generator generated generation pack marketplace manufacture manufacturing ontology)
     },
     %{
       id: "governed-actuation",
       label: "Governed actuation",
-      signals: ~w(brce authority admission receipt receipts replay standing verifier court bounded)
+      signals:
+        ~w(brce authority admission receipt receipts replay standing verifier court bounded)
     },
     %{
       id: "autonomous-qualification",
       label: "Autonomous qualification",
-      signals: ~w(ci test tests qualification qualify verification verify validator exact-head workflow)
+      signals:
+        ~w(ci test tests qualification qualify verification verify validator exact-head workflow)
     },
     %{
       id: "cloud-execution",
@@ -211,7 +214,8 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030 do
         mutating_operations_introduced: 0,
         standing_granted: false,
         consequential_do_authority: false,
-        rule: "Observation may identify gaps; only existing bounded mutation paths may act on them."
+        rule:
+          "Observation may identify gaps; only existing bounded mutation paths may act on them."
       }
     }
   end
@@ -358,7 +362,9 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030 do
 
         matched =
           @pillars
-          |> Enum.filter(fn pillar -> Enum.any?(pillar.signals, &String.contains?(corpus, &1)) end)
+          |> Enum.filter(fn pillar ->
+            Enum.any?(pillar.signals, &String.contains?(corpus, &1))
+          end)
           |> Enum.map(& &1.id)
           |> Enum.sort()
 
@@ -527,7 +533,8 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030 do
 
     %{
       status: if(closed, do: "CLOSED", else: "OPEN"),
-      structural_phase: if(closed, do: "INTEGRATED_AUTONOMIC_STACK", else: "ASSEMBLY_IN_PROGRESS"),
+      structural_phase:
+        if(closed, do: "INTEGRATED_AUTONOMIC_STACK", else: "ASSEMBLY_IN_PROGRESS"),
       falsifiers: falsifiers,
       capability_gaps: capability_gaps,
       minimum_receipt_ratio: minimum_receipt_ratio,
@@ -573,14 +580,17 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030 do
         standing: standing,
         evidence_weight: evidence_weight,
         relation_weight: relation_weight,
-        observational_rank: evidence_weight + relation_weight + standing_weight + repository_weight
+        observational_rank:
+          evidence_weight + relation_weight + standing_weight + repository_weight
       }
     end)
     |> Enum.sort_by(&{-&1.observational_rank, to_string(&1.memory_key), to_string(&1.id)})
     |> Enum.take(limit)
   end
 
-  defp coverage_metric(count, total), do: %{count: count, total: total, ratio: ratio(count, total)}
+  defp coverage_metric(count, total),
+    do: %{count: count, total: total, ratio: ratio(count, total)}
+
   defp ratio(_count, 0), do: 0.0
   defp ratio(count, total), do: Float.round(count / total, 4)
 

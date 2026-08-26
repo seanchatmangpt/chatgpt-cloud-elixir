@@ -1,0 +1,520 @@
+# SPDX-FileCopyrightText: 2020 Zach Daniel
+# SPDX-FileCopyrightText: 2020 ash_admin contributors <https://github.com/ash-project/ash_admin/graphs/contributors>
+#
+# SPDX-License-Identifier: MIT
+
+defmodule AshAdmin.PageNotFound do
+  @moduledoc false
+  defexception [:message, plug_status: 404]
+end
+
+defmodule AshAdmin.PageLive do
+  @moduledoc false
+  use Phoenix.LiveView
+  import AshAdmin.Helpers
+  require Ash.Query
+  alias AshAdmin.Components.{PageHeader, Resource, Sidebar}
+
+  require Logger
+
+  def mount(socket) do
+    {:ok, socket}
+  end
+
+  @impl true
+  def mount(
+        _params,
+        %{
+          "prefix" => prefix
+        } = session,
+        socket
+      ) do
+    otp_app = socket.endpoint.config(:otp_app)
+
+    prefix =
+      case prefix do
+        "/" ->
+          session["request_path"]
+
+        _ ->
+          request_path = session["request_path"]
+          [scope, _] = String.split(request_path, prefix)
+          scope <> prefix
+      end
+
+    socket = assign(socket, :prefix, prefix)
+
+    domains = domains(otp_app)
+
+    tenant_mode = AshAdmin.tenant_mode()
+
+    tenant_options =
+      if tenant_mode == :dropdown do
+        AshAdmin.list_tenants()
+      else
+        []
+      end
+
+    {:ok,
+     socket
+     |> assign(:prefix, prefix)
+     |> assign(:primary_key, nil)
+     |> assign(:record, nil)
+     |> assign(:domains, domains)
+     |> assign(:tenant, session["tenant"])
+     |> assign(:tenant_label, nil)
+     |> assign(:editing_tenant, false)
+     |> assign(:tenant_mode, tenant_mode)
+     |> assign(:tenant_options, tenant_options)
+     |> assign(:tenant_suggestions, [])
+     |> assign(:sidebar_open, false)
+     |> then(fn socket ->
+       assign(socket, AshAdmin.ActorPlug.actor_assigns(socket, session))
+     end)
+     |> assign_new(:actor_domain, fn -> nil end)
+     |> assign_new(:actor_resources, fn -> [] end)
+     |> assign_new(:authorizing, fn -> true end)
+     |> assign_new(:actor_paused, fn -> false end)
+     |> assign_new(:actor_tenant, fn -> nil end)}
+  end
+
+  @impl true
+  def render(assigns) do
+    ~H"""
+    <div class="flex h-full bg-slate-50 dark:bg-slate-950">
+      <.live_component
+        module={Sidebar}
+        id="sidebar"
+        domains={@domains}
+        domain={@domain}
+        resource={@resource}
+        prefix={@prefix}
+        open={@sidebar_open}
+        actor={@actor}
+        actor_domain={@actor_domain}
+        actor_resources={@actor_resources}
+        actor_paused={@actor_paused}
+        actor_tenant={@actor_tenant}
+        authorizing={@authorizing}
+        tenant={@tenant}
+        tenant_label={@tenant_label}
+        tenant_mode={@tenant_mode}
+        tenant_options={@tenant_options}
+        tenant_suggestions={@tenant_suggestions}
+        editing_tenant={@editing_tenant}
+      />
+      <%!-- Mobile backdrop --%>
+      <div
+        :if={@sidebar_open}
+        class="fixed inset-0 bg-black/50 z-30 md:hidden"
+        phx-click="toggle_sidebar"
+      />
+      <div class="flex-1 flex flex-col min-w-0 min-h-0">
+        <PageHeader.page_header
+          resource={@resource}
+          domain={@domain}
+          action={@action}
+          action_type={@action_type}
+          table={@table}
+          prefix={@prefix}
+        />
+        <main class="flex-1 min-h-0 overflow-y-auto admin-main">
+          <.live_component
+            :if={@resource}
+            module={Resource}
+            id={@resource}
+            resource={@resource}
+            set_actor="set_actor"
+            primary_key={@primary_key}
+            record={@record}
+            domain={@domain}
+            action_type={@action_type}
+            url_path={@url_path}
+            params={@params}
+            action={@action}
+            tenant={@tenant}
+            actor={unless @actor_paused, do: @actor}
+            authorizing={@authorizing}
+            table={@table}
+            tables={@tables}
+            polymorphic_actions={@polymorphic_actions}
+            prefix={@prefix}
+          />
+        </main>
+      </div>
+    </div>
+    """
+  end
+
+  defp domains(otp_app) do
+    otp_app
+    |> Application.get_env(:ash_domains)
+    |> Enum.filter(&AshAdmin.Domain.show?/1)
+  end
+
+  defp assign_domain(socket, domain) do
+    domain =
+      Enum.find(socket.assigns.domains, fn shown_domain ->
+        AshAdmin.Domain.name(shown_domain) == domain
+      end) || Enum.at(socket.assigns.domains, 0)
+
+    assign(socket, :domain, domain)
+  end
+
+  defp assign_resource(socket, resource) do
+    if socket.assigns.domain do
+      resources = AshAdmin.Domain.show_resources(socket.assigns.domain)
+
+      resource =
+        Enum.find(resources, fn domain_resources ->
+          AshAdmin.Resource.name(domain_resources) == resource
+        end) || Enum.at(resources, 0)
+
+      assign(socket, :resource, resource)
+    else
+      assign(socket, :resource, nil)
+    end
+  end
+
+  defp assign_action(socket, action, action_type) do
+    requested_action = action
+
+    if socket.assigns.domain && socket.assigns.resource do
+      action_type =
+        case action_type do
+          "read" -> :read
+          "update" -> :update
+          "create" -> :create
+          "destroy" -> :destroy
+          "action" -> :action
+          nil -> default_action_type(socket.assigns.resource)
+        end
+
+      if action_type do
+        available_actions = available_actions(socket.assigns.resource, action_type)
+
+        if available_actions == [] do
+          assign(socket, action_type: nil, action: nil)
+        else
+          action =
+            Enum.find(
+              available_actions,
+              &(to_string(&1) == action)
+            )
+
+          if action do
+            assign(socket,
+              action_type: action_type,
+              action: Ash.Resource.Info.action(socket.assigns.resource, action)
+            )
+          else
+            action =
+              Ash.Resource.Info.action(socket.assigns.resource, Enum.at(available_actions, 0))
+
+            if requested_action && action &&
+                 to_string(action.name) != requested_action do
+              raise AshAdmin.Errors.NotFound,
+                thing: "action",
+                key: requested_action
+            end
+
+            if action do
+              assign(socket,
+                action_type: action.type,
+                action: action
+              )
+            else
+              assign(socket, action_type: nil, action: nil)
+            end
+          end
+        end
+      else
+        assign(socket, action_type: nil, action: nil)
+      end
+    else
+      assign(socket, :action, nil)
+    end
+  end
+
+  defp default_action_type(resource) do
+    cond do
+      AshAdmin.Resource.read_actions(resource) != [] -> :read
+      AshAdmin.Resource.generic_actions(resource) != [] -> :action
+      AshAdmin.Resource.create_actions(resource) != [] -> :create
+      true -> nil
+    end
+  end
+
+  defp available_actions(resource, action_type) do
+    case action_type do
+      :read -> AshAdmin.Resource.read_actions(resource)
+      :update -> AshAdmin.Resource.update_actions(resource)
+      :create -> AshAdmin.Resource.create_actions(resource)
+      :destroy -> AshAdmin.Resource.destroy_actions(resource)
+      :action -> AshAdmin.Resource.generic_actions(resource)
+    end
+  end
+
+  defp assign_tables(socket, table) do
+    if socket.assigns.resource do
+      tables =
+        AshAdmin.Resource.polymorphic_tables(socket.assigns.resource, socket.assigns.domains)
+
+      if table && table != "" do
+        assign(socket,
+          table: table,
+          tables: tables,
+          polymorphic_actions: AshAdmin.Resource.polymorphic_actions(socket.assigns.resource)
+        )
+      else
+        assign(socket,
+          table: Enum.at(tables, 0),
+          tables: tables,
+          polymorphic_actions: AshAdmin.Resource.polymorphic_actions(socket.assigns.resource)
+        )
+      end
+    else
+      assign(socket, table: table, tables: [], polymorphic_actions: [])
+    end
+  end
+
+  @impl true
+  def handle_params(params, url, socket) do
+    url = URI.parse(url)
+
+    socket =
+      socket
+      |> assign_domain(params["domain"])
+      |> assign_resource(params["resource"])
+      |> assign_action(params["action"], params["action_type"])
+      |> assign_tables(params["table"])
+      |> assign(primary_key: params["primary_key"])
+
+    socket =
+      if socket.assigns[:primary_key] do
+        case decode_primary_key(socket.assigns.resource, socket.assigns[:primary_key]) do
+          {:ok, primary_key} ->
+            actor =
+              if socket.assigns.actor_paused do
+                nil
+              else
+                socket.assigns.actor
+              end
+
+            show_action =
+              AshAdmin.Resource.show_action(socket.assigns.resource)
+
+            record =
+              socket.assigns.resource
+              |> Ash.Query.filter(^primary_key)
+              |> Ash.Query.set_tenant(socket.assigns[:tenant])
+              |> Ash.Query.for_read(
+                show_action,
+                %{},
+                actor: actor,
+                authorize?: socket.assigns.authorizing
+              )
+              |> Ash.read_one(domain: socket.assigns.domain)
+
+            record =
+              socket.assigns.resource
+              |> to_one_relationships(socket.assigns.domain)
+              |> Enum.reduce(record, fn
+                rel, {:ok, record} ->
+                  case Ash.load(record, rel,
+                         actor: actor,
+                         domain: socket.assigns.domain,
+                         tenant: socket.assigns[:tenant],
+                         authorize?: socket.assigns.authorizing
+                       ) do
+                    {:ok, record} ->
+                      {:ok, record}
+
+                    {:error, %Ash.Error.Forbidden{}} ->
+                      {:ok, record}
+
+                    {:error, error} ->
+                      Logger.warning(
+                        "Error while loading relationship #{inspect(rel)} on admin dashboard\n: #{Exception.format(:error, error)}"
+                      )
+
+                      {:ok, record}
+                  end
+
+                _rel, other ->
+                  other
+              end)
+
+            with {:error, error} <- record do
+              Logger.warning(
+                "Error while loading record #{inspect(primary_key)}\n: #{Exception.format(:error, error)}"
+              )
+            end
+
+            socket
+            |> assign(:id, params["primary_key"])
+            |> assign(:record, record)
+
+          _ ->
+            socket
+            |> assign(:id, nil)
+            |> assign(:record, nil)
+        end
+      else
+        socket
+        |> assign(:id, nil)
+        |> assign(:record, nil)
+      end
+
+    {:noreply,
+     socket
+     |> assign(:url_path, url.path)
+     |> assign(:params, params)}
+  end
+
+  defp to_one_relationships(resource, domain) do
+    resource
+    |> Ash.Resource.Info.relationships()
+    |> Enum.filter(fn relationship ->
+      domain = Ash.Resource.Info.domain(relationship.destination) || relationship.domain || domain
+      AshAdmin.Domain.show?(domain) && relationship.cardinality == :one
+    end)
+    |> Enum.map(& &1.name)
+  end
+
+  @impl true
+  def handle_event("toggle_sidebar", _, socket) do
+    {:noreply, assign(socket, :sidebar_open, !socket.assigns.sidebar_open)}
+  end
+
+  def handle_event("toggle_authorizing", _, socket) do
+    {:noreply,
+     socket
+     |> assign(:authorizing, !socket.assigns.authorizing)
+     |> push_event("toggle_authorizing", %{authorizing: to_string(!socket.assigns.authorizing)})}
+  end
+
+  def handle_event("toggle_actor_paused", _, socket) do
+    {:noreply,
+     socket
+     |> assign(:actor_paused, !socket.assigns.actor_paused)
+     |> push_event("toggle_actor_paused", %{actor_paused: to_string(!socket.assigns.actor_paused)})}
+  end
+
+  def handle_event("clear_actor", _, socket) do
+    push_event(socket, "clear_actor", %{})
+
+    {:noreply,
+     socket
+     |> assign(:actor, nil)
+     |> assign(:actor_paused, true)
+     |> assign(:authorizing, false)
+     |> push_event("clear_actor", %{})}
+  end
+
+  def handle_event("start_editing_tenant", _, socket) do
+    socket = assign(socket, :editing_tenant, true)
+
+    socket =
+      if socket.assigns.tenant_mode == :typeahead do
+        suggestions = AshAdmin.search_tenants(socket.assigns[:tenant] || "")
+        assign(socket, :tenant_suggestions, suggestions)
+      else
+        socket
+      end
+
+    {:noreply, socket}
+  end
+
+  def handle_event("stop_editing_tenant", _, socket) do
+    {:noreply,
+     socket
+     |> assign(:editing_tenant, false)
+     |> assign(:tenant_suggestions, [])}
+  end
+
+  def handle_event("search_tenants", %{"tenant" => search}, socket) do
+    suggestions = AshAdmin.search_tenants(search)
+    {:noreply, assign(socket, :tenant_suggestions, suggestions)}
+  end
+
+  def handle_event(
+        "set_actor",
+        %{"resource" => resource, "domain" => domain, "pkey" => primary_key},
+        socket
+      )
+      when not is_nil(resource) and not is_nil(domain) do
+    resource = Module.concat([resource])
+
+    case decode_primary_key(resource, primary_key) do
+      {:ok, pkey_filter} ->
+        domain = Module.concat([domain])
+        action = AshAdmin.Helpers.primary_action(resource, :read)
+        actor_load = AshAdmin.Resource.actor_load(resource)
+
+        actor =
+          resource
+          |> Ash.Query.filter(^pkey_filter)
+          |> Ash.Query.load(actor_load)
+          |> Ash.Query.set_tenant(socket.assigns[:tenant])
+          |> Ash.read_one!(action: action, authorize?: false, domain: domain)
+
+        domain_name = AshAdmin.Domain.name(domain)
+        resource_name = AshAdmin.Resource.name(resource)
+
+        {:noreply,
+         socket
+         |> push_event(
+           "set_actor",
+           %{
+             resource: to_string(resource_name),
+             tenant: socket.assigns[:tenant],
+             primary_key: encode_primary_key(actor),
+             action: to_string(action.name),
+             domain: to_string(domain_name)
+           }
+         )
+         |> assign(actor: actor, actor_domain: domain, actor_tenant: socket.assigns[:tenant])}
+    end
+  end
+
+  def handle_event("set_tenant", data, socket) do
+    tenant = data["tenant"]
+    tenant = if tenant in [nil, ""], do: nil, else: tenant
+    tenant_label = if tenant, do: data["tenant_label"], else: nil
+
+    socket =
+      socket
+      |> assign(:editing_tenant, false)
+      |> assign(:tenant, tenant)
+      |> assign(:tenant_label, tenant_label)
+      |> assign(:tenant_suggestions, [])
+
+    if tenant do
+      {:noreply, push_event(socket, "set_tenant", %{tenant: tenant})}
+    else
+      {:noreply, push_event(socket, "clear_tenant", %{})}
+    end
+  end
+
+  def handle_event("clear_tenant", _, socket) do
+    {:noreply,
+     socket
+     |> assign(:tenant, nil)
+     |> assign(:tenant_label, nil)
+     |> push_event("clear_tenant", %{})}
+  end
+
+  @impl true
+  def handle_info({:filter_builder_value, _filter, filter_query}, socket) do
+    {:noreply,
+     socket
+     |> push_patch(
+       replace: true,
+       to:
+         self_path(socket.assigns.url_path, socket.assigns.params, %{
+           filter: filter_query
+         })
+     )}
+  end
+end
