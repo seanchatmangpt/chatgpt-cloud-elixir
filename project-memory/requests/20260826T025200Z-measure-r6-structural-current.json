@@ -1,0 +1,24 @@
+{
+  "request_id": "20260826T025200Z-measure-r6-structural-current",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"ggen/structural-manufacturing/current",
+    "title":"GGEN structural manufacturing current",
+    "kind":"ggen.structural-manufacturing",
+    "standing":"PARTIAL_ALIVE",
+    "tags":["ggen","structural-manufacturing","r76","portfolio"],
+    "body":"Current canonical structural chain: RepositorySnapshot -> ExistingStructure -> DesiredStructure -> public Ontology -> ExistingPackComposition/Pack -> Generator -> GeneratedArtifact -> Consumer -> QualificationReceipt -> Standing -> AgentExperience -> Refinement -> UpstreamPromotion -> Regeneration -> Requalification -> Supersession -> Receipt -> Value/Revenue. R76 extends portfolio-epistemic-observability-pack with 50 sensors and deterministic frontier projection. Qualified exact R76 head dd3951607c814c0cfa98a53ea9fb0f4dbaf38c9b is merged at 04cd8add33e732c556a916a8182d25f8849ec557. Next structural objective is to materialize the exact >300 <=400 repository census and populate every compatible displacement chain; existing implementation has no preservation credit.",
+    "metadata": {
+      "run_id":"6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+      "marketplace_main":"04cd8add33e732c556a916a8182d25f8849ec557",
+      "pack":"portfolio-epistemic-observability-pack",
+      "sensors":50,
+      "generator":"r76-portfolio-structural-census",
+      "repository_universe":"OBSERVED[>300,<=400]",
+      "D_live":"PARTIAL_ALIVE[GRAPH_NOT_POPULATED]",
+      "F_live":"PARTIAL_ALIVE[GRAPH_NOT_POPULATED]",
+      "standing":"PARTIAL_ALIVE"
+    }
+  }}
+}
