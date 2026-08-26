@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T230002Z-cell1-pre-forced-top25",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "ggen/fanout/forced-top25/current"}
+}
