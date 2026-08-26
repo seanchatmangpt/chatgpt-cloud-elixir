@@ -1,0 +1,57 @@
+name: Format Project Two Semantic Branch
+
+on:
+  push:
+    branches:
+      - feature/project-two-semantic-virtualization-20260825
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: feature/project-two-semantic-virtualization-20260825
+          fetch-depth: 0
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+        with:
+          otp-version: '29.0'
+          elixir-version: '1.20.2'
+      - name: Resolve formatter dependency closure
+        working-directory: control-plane
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get
+      - name: Apply canonical formatter
+        working-directory: control-plane
+        run: |
+          mix format \
+            lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex \
+            lib/chatgpt_cloud_control_plane/dfcm_memory/semantic_actions.ex \
+            test/chatgpt_cloud/dfcm_memory/virtual_project_test.exs
+          mix format --check-formatted \
+            lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex \
+            lib/chatgpt_cloud_control_plane/dfcm_memory/semantic_actions.ex \
+            test/chatgpt_cloud/dfcm_memory/virtual_project_test.exs
+      - name: Commit formatter delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- control-plane; then
+            echo 'FORMAT_NOOP=1'
+            exit 0
+          fi
+          git config user.name 'project-two-format[bot]'
+          git config user.email 'project-two-format[bot]@users.noreply.github.com'
+          git add \
+            control-plane/lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex \
+            control-plane/lib/chatgpt_cloud_control_plane/dfcm_memory/semantic_actions.ex \
+            control-plane/test/chatgpt_cloud/dfcm_memory/virtual_project_test.exs
+          git diff --cached --check
+          git commit -m 'style: apply canonical Project Two formatter'
+          git push origin HEAD:feature/project-two-semantic-virtualization-20260825
