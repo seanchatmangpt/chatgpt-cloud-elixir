@@ -1,0 +1,25 @@
+{
+  "request_id": "20260826T145000Z-cell4-mid",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "dfcm/implement/latest",
+    "title": "CELL4 R88 fanout MID",
+    "summary": "Consumed exact CELL3 READY set only: chatman-ecosystem#217@911f1ff9713fa305a6df762ecb14a27a8e0b90db and unrdf#107@4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb. Exact branches remain 4/0 and 5/0 ahead/behind their admitted defaults. Owning R88 R86 Qualification Capsule Consumer courts are SUCCESS on both exact heads. Broad failures are inherited repository debt: chatman-ecosystem Fast constitutional gates fails cargo clippy --locked because Cargo.lock needs update; unrdf base and head both expose existing ESLint v9/config and broader quality failures. No shared R86 producer defect observed. No duplicate downstream source commits manufactured in CELL4 because the selected GGEN-caused consequences already exist. Both remain draft/open/mergeable and are REPAIR_REQUIRED for inherited broad qualification debt; no merge performed.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "cell": "CELL4_REALIZE_QUALIFY",
+      "selected_workstreams": ["chatman-ecosystem#217@911f1ff9713fa305a6df762ecb14a27a8e0b90db", "unrdf#107@4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb"],
+      "producer": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+      "pack": "forced-top25-qualification-capsule-pack",
+      "constructor": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "selected_realized_repos": 2,
+      "selected_downstream_commits": 9,
+      "new_downstream_commits_cell4": 0,
+      "upstream_returns_cell4": 0,
+      "chatman_ecosystem": {"pr":217,"base":"ffe93f68a81fc46ccf60594a9615167bd36031a4","head":"911f1ff9713fa305a6df762ecb14a27a8e0b90db","ahead":4,"behind":0,"r88":"ALIVE","standing":"PARTIAL_ALIVE[INHERITED_CARGO_LOCK_DEBT]"},
+      "unrdf": {"pr":107,"base":"dcc6ada4df196fd23cb96885f018cb5c1c89386e","head":"4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb","ahead":5,"behind":0,"r88":"ALIVE","standing":"PARTIAL_ALIVE[INHERITED_ESLINT_QUALITY_DEBT]"},
+      "authority": "VERIFY|CONSTRUCT|PROJECT_MEMORY; NO_MERGE|NO_RELEASE|NO_DEPLOY"
+    }
+  }
+}
