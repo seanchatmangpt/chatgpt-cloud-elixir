@@ -1,0 +1,150 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T12:23:30Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "次工程は顧客: XaaS native runtime contract pulled the next work. The R80 consumer path itself is green; the failed downstream shape is typed BRCE refusal preservation across an Ash/Reactor boundary. Cognitive WIP was converted immediately into executable R84 pack+court capital. No new repository was guessed or serialized ahead of legality. autofde-lab and autofde were closed as successful standard work by exact-head qualification plus default-lineage assimilation. The XaaS failure remains topology until R84 is qualified and realized downstream.",
+        "cell": "COMPOSE_EXPAND_FANOUT",
+        "key": "tcps/muda-mura-muri/current",
+        "kind": "tcps.muda_mura_muri",
+        "metadata": {
+          "andon": [
+            "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE"
+          ],
+          "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+          "cognitive_wip": 0,
+          "consequential_do": false,
+          "downstream_customer": "seanchatmangpt/xaas#32",
+          "downstream_shape": "typed domain refusal survives Reactor orchestration without losing consumer contract",
+          "muda": "one upstream normalizer replaces repeated bespoke unwrap logic",
+          "mura": "successful consumers assimilated before additional WIP",
+          "muri": "one active repair customer; unresolved identities remain outside WIP",
+          "partial_order_edges": [
+            "XAAS_R80_SUCCESS->XAAS_NATIVE_FAILURE",
+            "XAAS_NATIVE_FAILURE->R84_UPSTREAM_RETURN",
+            "R84_QUALIFIED->XAAS_REALIZATION->XAAS_NATIVE_REQUALIFICATION"
+          ],
+          "preserved_parallel_options": [
+            "remaining ForcedTop25 admission identities",
+            "future Ash/Reactor consumers with typed domain refusals"
+          ],
+          "pull_edges": [
+            "xaas:idempotency_conflict->r84:domain-error-normalizer"
+          ],
+          "ready_set": [
+            "R84 marketplace qualification"
+          ],
+          "receipts": [
+            "autofde-lab#88:R80+PR_CI+merge",
+            "autofde#33:R80+self-manufacturing+merge",
+            "xaas#32:R80_SUCCESS|NATIVE_BUILD_BROKEN",
+            "ggen-marketplace#324:R84_PARTIAL_ALIVE"
+          ],
+          "standard_work_candidates": [
+            "typed domain errors cross Reactor boundaries without generic wrapper loss"
+          ],
+          "upstream_returns": [
+            "ggen-marketplace#324:ash-reactor-domain-error-contract-pack"
+          ]
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "tcps",
+          "ggen",
+          "fanout",
+          "andon",
+          "r84"
+        ],
+        "title": "TCPS fanout state after R84 upstream return"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T122600Z-cell2-tcps-r84"
+  },
+  "request_id": "20260826T122600Z-cell2-tcps-r84",
+  "request_path": "project-memory/requests/20260826T122600Z-cell2-tcps-r84.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "次工程は顧客: XaaS native runtime contract pulled the next work. The R80 consumer path itself is green; the failed downstream shape is typed BRCE refusal preservation across an Ash/Reactor boundary. Cognitive WIP was converted immediately into executable R84 pack+court capital. No new repository was guessed or serialized ahead of legality. autofde-lab and autofde were closed as successful standard work by exact-head qualification plus default-lineage assimilation. The XaaS failure remains topology until R84 is qualified and realized downstream.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+      "metadata": {
+        "andon": [
+          "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE"
+        ],
+        "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+        "cell": "COMPOSE_EXPAND_FANOUT",
+        "cognitive_wip": 0,
+        "consequential_do": false,
+        "created_at": "2026-08-26T05:40:44Z",
+        "downstream_customer": "seanchatmangpt/xaas#32",
+        "downstream_shape": "typed domain refusal survives Reactor orchestration without losing consumer contract",
+        "key": "tcps/muda-mura-muri/current",
+        "kind": "tcps.muda_mura_muri",
+        "muda": "one upstream normalizer replaces repeated bespoke unwrap logic",
+        "muda_reduced": "manual generated-output enumeration",
+        "mura": "successful consumers assimilated before additional WIP",
+        "mura_reduced": "consumer qualification inconsistency",
+        "muri": "one active repair customer; unresolved identities remain outside WIP",
+        "muri_reduced": "per-repo CI reinterpretation",
+        "partial_order_edges": [
+          "XAAS_R80_SUCCESS->XAAS_NATIVE_FAILURE",
+          "XAAS_NATIVE_FAILURE->R84_UPSTREAM_RETURN",
+          "R84_QUALIFIED->XAAS_REALIZATION->XAAS_NATIVE_REQUALIFICATION"
+        ],
+        "preserved_parallel_options": [
+          "remaining ForcedTop25 admission identities",
+          "future Ash/Reactor consumers with typed domain refusals"
+        ],
+        "pull_edges": [
+          "xaas:idempotency_conflict->r84:domain-error-normalizer"
+        ],
+        "ready_set": [
+          "R84 marketplace qualification"
+        ],
+        "receipts": [
+          "autofde-lab#88:R80+PR_CI+merge",
+          "autofde#33:R80+self-manufacturing+merge",
+          "xaas#32:R80_SUCCESS|NATIVE_BUILD_BROKEN",
+          "ggen-marketplace#324:R84_PARTIAL_ALIVE"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "standard_work_candidates": [
+          "typed domain errors cross Reactor boundaries without generic wrapper loss"
+        ],
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "andon",
+          "fanout",
+          "ggen",
+          "r84",
+          "tcps"
+        ],
+        "updated_at": "2026-08-26T12:23:37Z",
+        "upstream_returns": [
+          "ggen-marketplace#324:ash-reactor-domain-error-contract-pack"
+        ]
+      },
+      "title": "TCPS fanout state after R84 upstream return"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
