@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T022108Z-implement-structural-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "structural manufacturing ggen Ash OCEL RevOps consumer fanout qualification upstream repair revenue throughput", "max_items": 100}
+}
