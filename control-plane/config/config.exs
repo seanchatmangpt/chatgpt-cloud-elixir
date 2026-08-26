@@ -3,7 +3,11 @@ import Config
 config :chatgpt_cloud_control_plane,
   namespace: ChatGPTCloud,
   ecto_repos: [ChatGPTCloud.Repo],
-  ash_domains: [ChatGPTCloud.ProcessIntelligence, ChatGPTCloud.DfcmMemory, ChatGPTCloud.HumanValue],
+  ash_domains: [
+    ChatGPTCloud.ProcessIntelligence,
+    ChatGPTCloud.DfcmMemory,
+    ChatGPTCloud.HumanValue
+  ],
   browser_auth_required: true
 
 # Hard-scoped by default to the same Project scripts/project_memory_proxy.py
