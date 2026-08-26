@@ -49,22 +49,10 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
           last_update: now
         }
 
-        case Repo.insert(work) do
-          {:ok, inserted} ->
-            receipt = insert_receipt!(inserted, "enqueued", nil, "PARTIAL_ALIVE", %{})
-            emit(:enqueued, inserted, receipt)
-            {:ok, envelope(inserted), receipt_envelope(receipt)}
-
-          {:error, error} ->
-            {:error, error}
-        end
+        insert_or_replay(work)
 
       existing ->
-        receipt =
-          insert_receipt!(existing, "enqueue_replayed", existing.agent_id, "PARTIAL_ALIVE", %{})
-
-        emit(:enqueue_replayed, existing, receipt)
-        {:ok, envelope(existing), receipt_envelope(receipt)}
+        replay_enqueue(existing)
     end
   end
 
@@ -179,7 +167,6 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
       end
 
       result = normalize_result(result)
-      standing = Map.get(result, "standing", "PARTIAL_ALIVE")
 
       updated =
         update!(work,
@@ -191,7 +178,12 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
           telemetry: telemetry(work, "swarm.work.complete")
         )
 
-      receipt = insert_receipt!(updated, "completed", agent_id, standing, %{"result" => result})
+      receipt =
+        insert_receipt!(updated, "completed", agent_id, "PARTIAL_ALIVE", %{
+          "result" => result,
+          "standing_law" => "completion_is_not_verification"
+        })
+
       emit(:completed, updated, receipt)
       {updated, receipt}
     end)
@@ -224,6 +216,34 @@ defmodule ChatGPTCloud.SwarmCoordination.Coordinator do
        "reason" => reason,
        "required" => "non-empty string"
      })}
+  end
+
+  defp insert_or_replay(work) do
+    changeset =
+      work
+      |> Ecto.Changeset.change()
+      |> Ecto.Changeset.unique_constraint(:work_item_id)
+
+    case Repo.insert(changeset) do
+      {:ok, inserted} ->
+        receipt = insert_receipt!(inserted, "enqueued", nil, "PARTIAL_ALIVE", %{})
+        emit(:enqueued, inserted, receipt)
+        {:ok, envelope(inserted), receipt_envelope(receipt)}
+
+      {:error, changeset} ->
+        case Repo.get_by(WorkItem, work_item_id: work.work_item_id) do
+          nil -> {:error, changeset}
+          existing -> replay_enqueue(existing)
+        end
+    end
+  end
+
+  defp replay_enqueue(existing) do
+    receipt =
+      insert_receipt!(existing, "enqueue_replayed", existing.agent_id, "PARTIAL_ALIVE", %{})
+
+    emit(:enqueue_replayed, existing, receipt)
+    {:ok, envelope(existing), receipt_envelope(receipt)}
   end
 
   defp terminate(work_item_id, agent_id, terminal_status, standing, details) do
