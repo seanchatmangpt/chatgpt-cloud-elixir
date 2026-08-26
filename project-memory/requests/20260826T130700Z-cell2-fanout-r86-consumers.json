@@ -1,0 +1,21 @@
+{
+  "request_id":"20260826T130700Z-cell2-fanout-r86-consumers",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/current",
+    "title":"CELL2 fanout after R86 consumer-side composition",
+    "summary":"Canonical path is CELL1 admission -> ForcedTop25 lawful ready-set -> exact consumer subject -> R78 TCPS capital -> R86 runner-independent qualification capsule -> exact qualification -> default-lineage assimilation. R86 producer is exact-head qualified. process-intelligence has crossed default-lineage assimilation; clap-noun-verb and wasm4pm passed exact composed R83/R86 courts; mfw/yawl received runner-independent capsule artifacts without misclassifying hosted pre-exec as semantic failure.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "producer":"seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+      "pack":"forced-top25-qualification-capsule-pack",
+      "consumer_ready_set":["clap-noun-verb","wasm4pm","mfw","yawl"],
+      "admissible_assimilated_new":["process-intelligence"],
+      "partial_order_edges":["CELL1_ADMISSION->FORCED_TOP25_READY_SET","FORCED_TOP25_READY_SET->EXACT_CONSUMER_SUBJECT","EXACT_CONSUMER_SUBJECT->R78_TCPS_CAPITAL","R78_TCPS_CAPITAL->R86_QUALIFICATION_CAPSULE","R86_QUALIFICATION_CAPSULE->EXACT_QUALIFICATION","EXACT_QUALIFICATION->DEFAULT_LINEAGE_ASSIMILATION"],
+      "expected_fanout":{"F_R_potential":17,"external_consumers_touched_this_run":4,"new_downstream_commits":6},
+      "authority":"VERIFY|CONSTRUCT",
+      "consequential_do":false
+    }
+  }
+}
