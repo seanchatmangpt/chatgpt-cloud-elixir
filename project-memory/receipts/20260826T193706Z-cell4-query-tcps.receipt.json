@@ -1,0 +1,3379 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T19:38:49Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 50,
+      "text": "TCPS"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T193706Z-cell4-query-tcps"
+  },
+  "request_id": "20260826T193706Z-cell4-query-tcps",
+  "request_path": "project-memory/requests/20260826T193706Z-cell4-query-tcps.json",
+  "request_sha256": "sha256:e0d7942f5131475b7a506faa8f8cb9889915a8f23854f09fe4c350af7135988c",
+  "request_transport_sha256": "sha256:dc90b2fd92b00c2b9553aaa84f2bad25e2dde3f92664df7fbc9628299654b5b4",
+  "result": {
+    "matched": 11,
+    "records": [
+      {
+        "body": "CELL3 consumed current Project2 control state without rediscovery. Canonical ggen/ecosystem/ocel/current read returned MEMORY_NOT_FOUND, so O and OpenObservationObligations remain UNKNOWN and no digest is fabricated. The sole legal READY stream remains ash_r2rml PR20, now exact head e8de8bb28e17ac79aeb1e4982ff0e8a7067a433c on still-current base main@263aa768bbc5a933124409ee68f2b9efb9d09a3a. Its owning R84 Ash Reactor Domain Error Fanout court executed SUCCESS on that exact head; broad CI remains red at Dialyzer and Neo4j startup boundaries, preserved as qualification debt. chatgpt-cloud-elixir PR22 exact head 9c4ed8ff8dda77205422886a4a491f238224064a has now executed its owning R84 GGEN Consumer court SUCCESS plus Control Plane CI/format/release/capsule rails SUCCESS, promoting Q evidence, but its admitted base e7ae67719dd76d499b394c1dc1dc27ec8419edac is no longer current because Project-control commits advanced main; therefore it is COMPATIBLE_NOT_READY until exact-base currentness is restored/requalified. No merge/release/deploy/external DO.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_5zE",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DD80",
+        "metadata": {
+          "B": 3,
+          "B_new": 1,
+          "Coverage": 1.0,
+          "Coverage_named": 1.0,
+          "Coverage_new": 0.1764705882,
+          "Coverage_qualified_lower_bound": 0.48,
+          "Coverage_realized_lower_bound": 0.64,
+          "Coverage_selected": 1.0,
+          "Coverage_wave": 1.0,
+          "F_A": 1,
+          "F_A_delta": 0,
+          "F_A_selected": 0,
+          "F_A_wave": 0,
+          "F_C": 4,
+          "F_C_downstream_commits": 9,
+          "F_C_portfolio": "UNKNOWN",
+          "F_C_post_cell3_handoff": 26,
+          "F_C_selected": 9,
+          "F_C_wave": 1,
+          "F_Q": 1,
+          "F_Q_delta": 2,
+          "F_Q_lower_bound": 8,
+          "F_Q_selected_scoped": 2,
+          "F_Q_wave": 0,
+          "F_R": 1,
+          "F_R_named": 6,
+          "F_R_potential_lower_bound": 17,
+          "F_R_potential_this_run": 3,
+          "F_R_realized_lower_bound": 3,
+          "F_R_realized_this_run": 2,
+          "F_R_selected": 2,
+          "F_R_wave": 1,
+          "F_effective": 1,
+          "F_effective_delta": 2,
+          "F_effective_new": 1.0,
+          "F_effective_selected": 2.0,
+          "G_lower_bound": 18,
+          "HUMAN_VALUE": "UNKNOWN",
+          "M": 4,
+          "MUDA": "no universe rediscovery or reranking; only fresh exact-head dspygen court changed allocation",
+          "MURA": "all observed READY ForcedTop25 work allocated; no ready target starved",
+          "MURI": "WIP=1 active READY consumer; repair-gated and unknown alternatives preserved outside active WIP",
+          "M_exact": 12,
+          "M_exact_named": 3,
+          "M_lower_bound": 16,
+          "M_named": 3,
+          "O": "UNKNOWN[CANONICAL_OCEL_KEY_MISSING]",
+          "OpenFanoutObligations": ">=13",
+          "OpenFanoutObligations_confirmed": [
+            "xaas"
+          ],
+          "OpenFanoutObligations_exact_confirmed": [
+            "dspygen",
+            "xaas"
+          ],
+          "OpenFanoutObligations_exact_named": 3,
+          "OpenFanoutObligations_exact_repos": [
+            "autofde-lab",
+            "autofde",
+            "xaas"
+          ],
+          "OpenFanoutObligations_global": "UNKNOWN[INHERITED_U_IDENTITIES_UNBOUND]",
+          "OpenFanoutObligations_inherited_lower_bound": 14,
+          "OpenFanoutObligations_lower_bound": 3,
+          "OpenFanoutObligations_named": 3,
+          "OpenObservationObligations": "UNKNOWN[G_KNOWN_LOWER_BOUND;O_UNKNOWN]",
+          "Q": 1,
+          "Q_exact": "UNKNOWN[EX4PM_GYMACT_Q_NOT_BOUND_IN_CURRENT_CELL3_RECORD]",
+          "Q_exact_named": 3,
+          "Q_explicit_min": 1,
+          "Q_lower_bound": 14,
+          "Q_scoped": 4,
+          "Q_strict": 3,
+          "Q_strict_full_repo": 1,
+          "R": 4,
+          "R_exact_named": 6,
+          "R_lower_bound": 3,
+          "R_named": 6,
+          "T_A": 0,
+          "T_A_new": 0,
+          "T_M": 0,
+          "T_M_downstream": 12,
+          "T_M_semantic": 3,
+          "U": ">=17",
+          "U_exact_named": 6,
+          "U_global_lower_bound": 17,
+          "U_inherited_lower_bound": 17,
+          "U_lower_bound": 19,
+          "U_named": 6,
+          "WIP_budget": 1,
+          "WIP_remaining": ">=13 fanout obligations by inherited U lower bound",
+          "WIP_remaining_selected": 0,
+          "admissible_assimilated_new": [
+            "process-intelligence"
+          ],
+          "admissible_candidates": [
+            "chatman-ecosystem",
+            "cargo-cicd",
+            "unrdf"
+          ],
+          "admissible_candidates_lower_bound": 17,
+          "andon": [
+            "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE",
+            "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+          ],
+          "authority": "SELECT|CONSTRUCT",
+          "autofde": {
+            "base": "6c21cda73f7cc8873ea429f79f49c5b4b615c1fe",
+            "head": "adf9e840874bd0f3f2f0037b23b676ecf56c86f2",
+            "post_handoff_commits": 8,
+            "pr": 33,
+            "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;CROWN_SUCCESS]"
+          },
+          "autofde_lab": {
+            "base": "0b968955f69698fee50e9a132a87de287f15a0e7",
+            "head": "1e34d1cfddbd90c86769f114e621584c0025bd55",
+            "post_handoff_commits": 10,
+            "pr": 88,
+            "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;EXACT_HEAD_QUALIFICATION_SUCCESS]"
+          },
+          "blocked_causes": [
+            "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:mfw",
+            "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:yawl",
+            "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+          ],
+          "blocked_set": {
+            "mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+            "unrdf": "BUILD_BROKEN[CHECKOUT_BOUNDARY]",
+            "yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+          },
+          "blockers": [
+            "chatman-ecosystem inherited Crown Admission: cargo clippy --locked failure; cargo deny failure"
+          ],
+          "canonical_change": "generated artifact closure qualification",
+          "canonical_commits_this_run": 2,
+          "canonical_ocel": {
+            "fabricated": false,
+            "ocel_digest": null,
+            "read": "BUILD_BROKEN[OPERATION_RECEIPT_ABSENT]",
+            "write": "BUILD_BROKEN[GENUINE_OCEL_DIGEST_UNAVAILABLE]"
+          },
+          "canonical_ocel_read": {
+            "receipt_commit": "c6c31abbeaba215eb7e3f39792a3e6f3c4c3203f",
+            "request_id": "20260826T182801Z-cell1-ocel-current",
+            "standing": "BUILD_BROKEN[MEMORY_NOT_FOUND]"
+          },
+          "canonical_pack": "forced-top25-admissibility-factory-pack",
+          "canonical_path": "ExistingPackReuse:R86_FORCED_TOP25_QUALIFICATION_CAPSULE",
+          "canonical_paths": [
+            "forced-top25-standard-consumer-factory-pack",
+            "epistemic-sensor-factory-pack:r75",
+            "forced-top25-r75-realization-composition-pack"
+          ],
+          "canonical_pr": 323,
+          "canonical_producer": {
+            "head": "18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+            "pack": "forced-top25-qualification-capsule-pack",
+            "repo": "seanchatmangpt/ggen-marketplace"
+          },
+          "canonical_producer_head": "92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+          "canonical_producer_repo": "seanchatmangpt/ggen-marketplace",
+          "cell": "LEGAL_READY_SET_ALLOCATION",
+          "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+          "cell3_handoff": {
+            "admissible_candidates": [
+              "chatman-ecosystem",
+              "cargo-cicd",
+              "unrdf"
+            ],
+            "authority_fenced": [
+              "cargo-cicd"
+            ],
+            "consumer_ready_set": [],
+            "dependencies": {
+              "cargo-cicd": "requires lawful cargo cicd * mutation executor/toolchain capsule"
+            },
+            "falsifiers": [
+              "FOREIGN_CONSUMER",
+              "FOREIGN_PRODUCER",
+              "FOREIGN_PACK",
+              "FOREIGN_CAPABILITY",
+              "GGEN_CONTRACT",
+              "AUTHORITY_FENCE",
+              "SUBJECT_NOT_ADMITTED"
+            ],
+            "fanout_candidate_set": [
+              "chatman-ecosystem",
+              "cargo-cicd",
+              "unrdf"
+            ],
+            "forced_top25": [
+              "ex4pm",
+              "gymact",
+              "autofde-lab",
+              "autofde",
+              "xaas",
+              "chatgpt-cloud-elixir",
+              "process-intelligence",
+              "ash_r2rml",
+              "wasm4pm",
+              "pm4wasm",
+              "mfact",
+              "mfact-command-center",
+              "mfw",
+              "SREGym",
+              "fdegym",
+              "revops",
+              "chatman-ecosystem",
+              "POWL",
+              "swarmsh-v2",
+              "cargo-cicd",
+              "clap-noun-verb",
+              "unrdf",
+              "dspygen",
+              "yawl",
+              "a2a-rs"
+            ],
+            "qualified_this_run": [
+              "chatman-ecosystem",
+              "unrdf"
+            ]
+          },
+          "cell5_handoff": "REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPTS]",
+          "classification_delta": {
+            "SREGym": "COMPATIBLE_READY[#6@9cdcaa79c871ffd8e6205e3830af23198f934bc9]",
+            "cargo-cicd": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]",
+            "chatman-ecosystem": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]",
+            "fdegym": "COMPATIBLE_READY[#7@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c]",
+            "mfact": "COMPATIBLE_READY[#10@836be06b4fd290089ada8a926d62b9b67a4cb5ad]",
+            "process-intelligence": "COMPATIBLE_NOT_READY[ALIVE_DEFAULT_LINEAGE@c1ed9f0393f4782c48e4b0f71aff9c28930d9b44]",
+            "unrdf": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]"
+          },
+          "close_ready": [
+            "ex4pm",
+            "gymact"
+          ],
+          "compatible_lower_bound": 17,
+          "consequential_do": false,
+          "consequential_external_do": false,
+          "constructor": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "consumer_andon": [
+            {
+              "head": "d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a",
+              "pr": 88,
+              "reason": "UPSTREAM_R80_PACK_SCHEMA",
+              "repo": "autofde-lab"
+            },
+            {
+              "head": "bf753d1dfdc137a6fce04008a2841752216654bb",
+              "pr": 33,
+              "reason": "UPSTREAM_R80_PACK_SCHEMA",
+              "repo": "autofde"
+            },
+            {
+              "head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+              "pr": 32,
+              "reason": "UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL",
+              "repo": "xaas"
+            }
+          ],
+          "consumer_heads": {
+            "autofde": "adf9e840874bd0f3f2f0037b23b676ecf56c86f2",
+            "autofde-lab": "1e34d1cfddbd90c86769f114e621584c0025bd55",
+            "xaas": "6b87b222a9d9fad6c4802939562d35f5845b6812"
+          },
+          "consumer_ready_set": [
+            "ex4pm",
+            "gymact",
+            "dspygen"
+          ],
+          "consumer_regeneration_required": [
+            "autofde-lab#88",
+            "autofde#33",
+            "xaas#32"
+          ],
+          "consumer_repo_commits": 0,
+          "consumers_unlocked_by_canonical_change": [
+            "mfw",
+            "yawl"
+          ],
+          "control_commits": 6,
+          "control_commits_count_as_G_or_O": false,
+          "control_commits_excluded": true,
+          "control_commits_excluded_from_true_fanout": true,
+          "created_at": "2026-08-26T04:36:39Z",
+          "current_main": "88556e8d0265936d430606cca848dda3e2b1dd8f",
+          "deep_scan_pending": [
+            "chatgpt-cloud-elixir",
+            "ash_r2rml",
+            "pm4wasm",
+            "mfact-command-center",
+            "revops",
+            "POWL",
+            "swarmsh-v2",
+            "a2a-rs"
+          ],
+          "delta_M": 0,
+          "delta_Q": 3,
+          "delta_R": 3,
+          "dependencies": {
+            "clap-noun-verb": "repair repository CI/test/license failures before READY",
+            "mfw": "repair owning qualify failure",
+            "process-intelligence": "none beyond exact producer/consumer correspondence already qualified",
+            "wasm4pm": "repair or classify exact-subject Rust/WASM/TypeScript/CLI failure",
+            "yawl": "repair owning qualify and aggregate-test failures"
+          },
+          "discovered_consumers": [],
+          "downstream_commits_this_run": 9,
+          "downstream_heads": {
+            "dspygen_pr36": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "ex4pm_main": "06d326f59d05afdcd39637f42fe277a474095dda",
+            "gymact_main": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+            "xaas_main": "2207203b1bef612cc55a52676b8e607f930640e7"
+          },
+          "downstream_repositories_touched": [
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact",
+            "seanchatmangpt/xaas"
+          ],
+          "downstream_unique_commits_new": 0,
+          "downstream_unique_commits_post_handoff": 26,
+          "downstream_unique_commits_realized_total": 11,
+          "downstream_unique_commits_selected": 9,
+          "downstream_unique_commits_this_wave": 0,
+          "downstream_unique_commits_wave": 1,
+          "draft": false,
+          "draft_prs": [
+            "seanchatmangpt/ex4pm#34",
+            "seanchatmangpt/gymact#126",
+            "seanchatmangpt/xaas#31"
+          ],
+          "dspygen_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+          "dspygen_main": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+          "dspygen_qualification": "PARTIAL_ALIVE[OWNING_COURT_IN_PROGRESS]",
+          "duplicate_lineages": [],
+          "evidence": {
+            "gymact_r79_conclusion": "success",
+            "gymact_r79_run": 32933652655,
+            "xaas_compile": "success",
+            "xaas_native_run": 32940830647,
+            "xaas_r79_conclusion": "success",
+            "xaas_r79_run": 32940830643,
+            "xaas_tests": "failure"
+          },
+          "ex4pm": {
+            "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "standing": "ALIVE[SCOPED_R79_COURT]"
+          },
+          "exact_cell3_control_commit": "2b8e3d6326b853e30b02589c452b2e44f86a78a2",
+          "exact_downstream_heads": {
+            "cargo-cicd": "e64f8224c23771e8c4e5d1d22fb939f812b04e1b",
+            "chatman-ecosystem": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+            "unrdf": "4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb"
+          },
+          "exact_heads": {
+            "clap-noun-verb": "efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd",
+            "mfw": "f3bc48b7863ddf4474bf0c3abe1aaf8b94425074",
+            "process-intelligence": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+            "wasm4pm": "cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4",
+            "yawl": "9ca41b5a896795cc88c9a3e2b769233bfc0223e5"
+          },
+          "exact_upstream_head": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+          "expected_downstream_ready_commits": 22,
+          "expected_fanout": {
+            "F_R_potential": 17,
+            "external_consumers_touched_this_run": 4,
+            "new_downstream_commits": 6
+          },
+          "factory_reuse": "ExistingPackReuse",
+          "falsifiers": [
+            "HEAD_MOVED",
+            "BASE_MOVED",
+            "OWNING_R88_COURT_NOT_SUCCESS",
+            "PRODUCER_IDENTITY_MISMATCH",
+            "PACK_IDENTITY_MISMATCH",
+            "AUTHORITY_CHANGED",
+            "DEPENDENCY_NOT_READY"
+          ],
+          "fanout_candidate_set": [
+            "ex4pm",
+            "gymact",
+            "dspygen",
+            "xaas"
+          ],
+          "fanout_targets": {
+            "POWL": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "SREGym": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "a2a-rs": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "ash_r2rml": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "autofde": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "autofde-lab": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "cargo-cicd": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "chatgpt-cloud-elixir": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TRUE_FANOUT_PRODUCT_RUNTIME_ADMISSIBILITY_NOT_BOUND; CONTROL_COMMITS_EXCLUDED"
+            },
+            "chatman-ecosystem": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "clap-noun-verb": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "dspygen": {
+              "classification": "CLOSE_READY",
+              "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+              "human_value": "UNKNOWN",
+              "merge": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+              "reason": "EXACT_HEAD_QUALIFIED_AND_DEFAULT_LINEAGE_ASSIMILATED"
+            },
+            "ex4pm": {
+              "classification": "CLOSE_READY",
+              "human_value": "UNKNOWN",
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+            },
+            "fdegym": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "gymact": {
+              "classification": "CLOSE_READY",
+              "human_value": "UNKNOWN",
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+            },
+            "mfact": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "mfact-command-center": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "mfw": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "pm4wasm": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "process-intelligence": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "revops": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "swarmsh-v2": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "unrdf": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "wasm4pm": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            },
+            "xaas": {
+              "classification": "REPAIR_REQUIRED",
+              "head": "853350027eb3d8e37162687d65c0ff51090b5c81",
+              "human_value": "UNKNOWN",
+              "merge": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+              "reason": "MERGED_WITH_BROAD_CI_FAILURE; R79_AND_R81_SCOPED_SUCCESS"
+            },
+            "yawl": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+            }
+          },
+          "forced_observed": 25,
+          "forced_top25": [
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "ex4pm"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "gymact"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "autofde-lab"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "autofde"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage R84 consumer already assimilated",
+              "repo": "xaas"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "R84 owning court SUCCESS on head 9c4ed8ff; admitted base is stale versus control-advanced main; exact-current-subject admission not satisfied",
+              "repo": "chatgpt-cloud-elixir"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "process-intelligence"
+            },
+            {
+              "classification": "COMPATIBLE_READY",
+              "reason": "PR20 base remains current; exact-head R84 owning court SUCCESS; broad Dialyzer/Neo4j CI debt preserved for causal classification",
+              "repo": "ash_r2rml"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved repair/qualification obligation",
+              "repo": "wasm4pm"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved realization/qualification obligation",
+              "repo": "pm4wasm"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "mfact"
+            },
+            {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "target-specific current admissibility evidence not rebound in consumed state",
+              "repo": "mfact-command-center"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved repair/qualification obligation",
+              "repo": "mfw"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "SREGym"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "fdegym"
+            },
+            {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "target-specific current admissibility evidence not rebound; revops OCEL projection is historical only",
+              "repo": "revops"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "chatman-ecosystem"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved realization/qualification obligation",
+              "repo": "POWL"
+            },
+            {
+              "classification": "UNKNOWN_WITH_REASON",
+              "reason": "target-specific current admissibility evidence not rebound in consumed state",
+              "repo": "swarmsh-v2"
+            },
+            {
+              "classification": "REFUSED_TYPED",
+              "reason": "REFUSED[REPO_MUTATION_BOUNDARY]",
+              "repo": "cargo-cicd"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved repair/qualification obligation",
+              "repo": "clap-noun-verb"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "unrdf"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "default-lineage/previously assimilated",
+              "repo": "dspygen"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved repair/qualification obligation",
+              "repo": "yawl"
+            },
+            {
+              "classification": "COMPATIBLE_NOT_READY",
+              "reason": "preserved realization/qualification obligation",
+              "repo": "a2a-rs"
+            }
+          ],
+          "forced_top25_M": 9,
+          "forced_top25_Q_lower_bound": 9,
+          "forced_top25_R_lower_bound": 10,
+          "forced_top25_U": 14,
+          "forced_top25_count": 25,
+          "forced_top25_observed": 25,
+          "genuine_ocel_digest": null,
+          "ggen_first": true,
+          "global_RQM": "PARTIAL_ALIVE[HETEROGENEOUS_PROJECT_METADATA_REQUIRES_RECONCILIATION]",
+          "global_U_standing": "UNKNOWN_UNTIL_UPSTREAM_ADMISSIBILITY_RECEIPTS",
+          "gymact": {
+            "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+          },
+          "handoff": "CELL4 exclusively via Project2; CELL3 performed no merges",
+          "handoff_cell4": "Consume gymact#126 exact head first as the sole READY consumer; preserve xaas behind its observed failure; admit further ForcedTop25 targets only from exact target-specific receipts generated from canonical factory capital.",
+          "key": "ggen/fanout/current",
+          "kind": "ggen.fanout",
+          "known_U_lower_bound": 2,
+          "known_metrics": {
+            "M_lower_bound": 2,
+            "Q_lower_bound": 2,
+            "R_lower_bound": 2,
+            "U_lower_bound": 2
+          },
+          "manufacturing_ladder": "U->G->O->Q->M",
+          "merge_performed": false,
+          "merge_ready": [],
+          "merge_ready_new": 0,
+          "merge_ready_repos": 0,
+          "merge_ready_selected": 0,
+          "mergeable": true,
+          "merges": 0,
+          "metrics": {
+            "CONTROL_commits_excluded": true,
+            "M_lower_bound": 10,
+            "OpenFanoutObligations_lower_bound": 7,
+            "Q_lower_bound": 12,
+            "R_lower_bound": 16,
+            "TRUE_FANOUT_new_commits_cell3": 0,
+            "U_lower_bound": 17,
+            "current_ready_count": 2,
+            "exact_open_obligations": [
+              "wasm4pm",
+              "mfw",
+              "chatman-ecosystem",
+              "cargo-cicd",
+              "clap-noun-verb",
+              "unrdf",
+              "yawl"
+            ],
+            "expected_cell4_delta_Q": 0,
+            "expected_cell4_delta_R": 0,
+            "expected_future_assimilation_delta_M": 2
+          },
+          "mid_project_operation": "ALIVE[ERROR_NULL]",
+          "mid_request_commit": "610acf23475081ab9c98c7beb77d53d1dc60fc48",
+          "muda": "zero duplicate upstream pack creation; zero generated-output edits",
+          "mura": "equal downstream commit distribution [4,4,4]",
+          "muri": [
+            "GLOBAL_CODE_SEARCH_502",
+            "PROJECT_PROXY_CONCURRENCY",
+            "PRE_READ_SEQUENCE_INCOMPLETE_BEFORE_FIRST_DOWNSTREAM_COMMIT"
+          ],
+          "new_canonical_commits": 6,
+          "new_canonical_pack": "ash-reactor-domain-error-contract-pack",
+          "new_consumer_repos": 5,
+          "new_default_assimilations": [
+            "autofde-lab",
+            "autofde"
+          ],
+          "new_downstream_commits": 26,
+          "new_downstream_commits_wave": 0,
+          "new_downstream_semantic_commits": 12,
+          "new_downstream_unique_commits_cell4": 0,
+          "new_upstream_commits": 0,
+          "nonready_set": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "open_fanout_obligation_repos": [
+            "xaas"
+          ],
+          "open_fanout_obligations": 5,
+          "open_fanout_obligations_lower_bound": 13,
+          "open_repos": [
+            "gymact",
+            "xaas"
+          ],
+          "pack": "forced-top25-generated-closure-pack",
+          "pack_composition_depth": 4,
+          "pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+          "parallel_branches": 3,
+          "partial_order_edges": [
+            "canonical R84 pack -> ash_r2rml exact consumer subject",
+            "ash_r2rml exact owning court -> classify broad CI causality",
+            "causal shared defect -> upstream canonical pack/gate/court -> re-enter ready_set",
+            "chatgpt-cloud-elixir Q success -> refresh exact current base -> requalify -> ready_set",
+            "canonical OCEL key establishment -> later genuine ggen-ecosystem-ocel-pack observation -> O/digest"
+          ],
+          "per_target": {
+            "SREGym": {
+              "ahead": 4,
+              "base": "4f6757c758521a359f1091d17d37ae5a9b1fb962",
+              "behind": 0,
+              "class": "CLOSE_READY",
+              "commits": 4,
+              "draft": false,
+              "head": "9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+              "mergeable": true,
+              "pr": 6,
+              "qualification": "SUCCESS"
+            },
+            "fdegym": {
+              "ahead": 4,
+              "base": "dbd9ac3a7107737366e643c362fd3aab0e4125d3",
+              "behind": 0,
+              "broad_ci": "SUCCESS",
+              "class": "CLOSE_READY",
+              "commits": 4,
+              "draft": false,
+              "head": "04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+              "mergeable": true,
+              "pr": 7,
+              "qualification": "SUCCESS"
+            },
+            "mfact": {
+              "ahead": 4,
+              "base": "79643f87f35cb59514ebce096ad067b713a47db3",
+              "behind": 0,
+              "broad_ci": "SUCCESS",
+              "class": "CLOSE_READY",
+              "commits": 4,
+              "draft": false,
+              "head": "836be06b4fd290089ada8a926d62b9b67a4cb5ad",
+              "mergeable": true,
+              "pr": 10,
+              "qualification": "SUCCESS"
+            }
+          },
+          "pr": 318,
+          "preserved_alternatives": [
+            "chatgpt-cloud-elixir#22 stale-base requalification",
+            "wasm4pm repair/qualification",
+            "pm4wasm realization/qualification",
+            "mfw repair/qualification",
+            "POWL realization/qualification",
+            "clap-noun-verb repair/qualification",
+            "yawl repair/qualification",
+            "a2a-rs realization/qualification",
+            "cargo-cicd authority-fenced path",
+            "mfact-command-center/revops/swarmsh-v2 target-specific admission"
+          ],
+          "preserved_parallel_options": true,
+          "previous_project_receipt": {
+            "actuation_performed": true,
+            "receipt_commit": "aed1fb252d2de71e3cf21279eefed7de09172456",
+            "request_id": "20260826T093200Z-cell3-fanout-allocation"
+          },
+          "prior_M_lower_bound": 2,
+          "prior_Q_lower_bound": 2,
+          "prior_R_lower_bound": 2,
+          "process_analysis_owner": "wasm4pm/wasm4pm-compat",
+          "producer": {
+            "head": "18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+            "pack": "forced-top25-qualification-capsule-pack",
+            "repo": "seanchatmangpt/ggen-marketplace"
+          },
+          "producer_base": "f75bdb35c2e9104679325c6772194005cc6fef67",
+          "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+          "producer_ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "producer_head": "92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+          "producer_main": "seanchatmangpt/ggen-marketplace@93c99170cad21e5914934837dbd01bb9e9f83d92",
+          "producer_marketplace": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+          "producer_pack": "forced-top25-standard-consumer-factory-pack",
+          "producer_pr": 323,
+          "producer_repo": "seanchatmangpt/ggen-marketplace",
+          "producer_standing": "CLOSE_READY[EXACT_HEAD_CI_GREEN;DRAFT_UNMERGED]",
+          "project_memory_loop": "BUILD_BROKEN[PRE_ACTUATION_SEQUENCE_VIOLATION]",
+          "project_snapshot_items": 397,
+          "project_transport_head": "fc0fa3dc9498e5f59e4af653b458b5eb97a2f730",
+          "qualification": {
+            "alive_002": "SUCCESS",
+            "definition_of_done": "SUCCESS",
+            "dfcm": "SUCCESS",
+            "r80": "IN_PROGRESS[BUILD_EXACT_GGEN_CONSTRUCTOR]"
+          },
+          "qualification_latency": "CELL4 observed already-terminal exact R88 qualification; assimilation observed at 2026-08-26T15:52:44Z",
+          "qualification_plan": {
+            "SREGym": "re-observe PR head==9cdcaa79c871ffd8e6205e3830af23198f934bc9 and owning run 32972465629 success; inspect mergeability/protections; assimilate only on unchanged subject",
+            "fdegym": "re-observe PR head==04b61a3edc52f14157f12e93fa5213c7cb1a2f3c and owning run 32972571869 success; inspect mergeability/protections; assimilate only on unchanged subject",
+            "mfact": "re-observe PR head==836be06b4fd290089ada8a926d62b9b67a4cb5ad and owning run 32972975422 success; inspect mergeability/protections; assimilate only on unchanged subject"
+          },
+          "qualification_state": {
+            "autofde": "REQUALIFYING",
+            "autofde-lab": "REQUALIFYING",
+            "xaas": "REQUALIFYING"
+          },
+          "qualified": [
+            "SREGym@9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+            "fdegym@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+            "mfact@836be06b4fd290089ada8a926d62b9b67a4cb5ad"
+          ],
+          "qualified_subjects": {
+            "mfw": "f3bc48b7863ddf4474bf0c3abe1aaf8b94425074",
+            "yawl": "9ca41b5a896795cc88c9a3e2b769233bfc0223e5"
+          },
+          "r86_candidate": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+          "r86_pr": 325,
+          "ready_set": [
+            "seanchatmangpt/ash_r2rml#20@e8de8bb28e17ac79aeb1e4982ff0e8a7067a433c"
+          ],
+          "realized_this_run": [
+            "chatman-ecosystem",
+            "unrdf"
+          ],
+          "receipt_heads": {
+            "mfw": "d8043aafff7892201c5217b01d1ef6c3f28a779e",
+            "yawl": "5e46db6e997bf59140265246099125490c4ca177"
+          },
+          "reconciled_head": "57ae94e594dd29319683bb890077482bc8715a5f",
+          "refreshed_consumer_repos": 3,
+          "regenerations": 0,
+          "regenerations_new": 0,
+          "regenerations_wave": 0,
+          "repair_gated": [
+            "xaas"
+          ],
+          "repair_ready_set": [
+            "xaas"
+          ],
+          "repair_required": [
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "run_id": "GGEN-OCEL-CELL3-20260826T183200Z",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_head": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+          "selected_ready": [
+            "autofde-lab",
+            "autofde",
+            "xaas"
+          ],
+          "selected_ready_coverage": 1.0,
+          "selected_repo": "process-intelligence",
+          "selected_result": {
+            "M": true,
+            "Q": true,
+            "R": true,
+            "default_head": "2ba68907d42a63133a760dd842d87420fc3597fa",
+            "head": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+            "pr": 217,
+            "repo": "chatman-ecosystem",
+            "standing": "PARTIAL_ALIVE[DEFAULT_ASSIMILATED;INHERITED_BROAD_CI_DEBT]",
+            "tree": "a2f5b491fc6e57d08c51c3c3cfd876b6754507c6"
+          },
+          "selected_workstreams": [
+            {
+              "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY; repository branch/PR only; no merge",
+              "base": "main@263aa768bbc5a933124409ee68f2b9efb9d09a3a",
+              "cell4_expected_transitions": [
+                "ManufacturingObject:ash_r2rml_r84_consumer G remains admitted",
+                "ManufacturingEvent:allocation_selected",
+                "ManufacturingEvent:qualification_debt_classified",
+                "ManufacturingEvent:upstream_return if shared causal defect",
+                "ManufacturingEvent:exact_head_requalified if repaired",
+                "ManufacturingObject:Q remains scoped ALIVE only on exact observed execution; M unchanged"
+              ],
+              "classification": "COMPATIBLE_READY",
+              "head": "e8de8bb28e17ac79aeb1e4982ff0e8a7067a433c",
+              "pr": 20,
+              "qualification_plan": [
+                "preserve exact admitted head/base",
+                "classify Dialyzer and Neo4j startup failures for causality against R84 changes",
+                "return shared defects upstream if causal",
+                "repair only causal defects through canonical GGEN-first path",
+                "re-execute exact-head owning court and required repository gates",
+                "emit OCEL evidence only through canonical pack; no M without later explicit merge authority"
+              ],
+              "repo": "seanchatmangpt/ash_r2rml",
+              "scope": "R84_TYPED_REACTOR_DOMAIN_ERROR",
+              "upstream": {
+                "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+                "marketplace": "6b7fb4af7b4ef3a6330ad61ca833b98902300332",
+                "primitive": "ash-reactor-domain-error-contract-pack"
+              }
+            }
+          ],
+          "shared_andon": {
+            "command": "ggen sync run",
+            "declared_templates_dir": "fanout/r80/templates",
+            "failed_transition": "Manufacture consumer subject",
+            "head": "49c55a70937763966795d41485ff35554700ee93",
+            "observed": "No such file or directory",
+            "observed_repo": "autofde",
+            "type": "BUILD_BROKEN[FM_CONFIG_004_MISSING_CONSUMER_TEMPLATE_DIR]",
+            "upstream_owner": "canonical ForcedTop25 consumer bootstrap/generator contract"
+          },
+          "source_cell3_head": "26dedf79df44bdd1ba710b336bcedcaec07b5503",
+          "standing": "PARTIAL_ALIVE",
+          "superseded": [],
+          "superseded_work": [],
+          "supersedes": "20260826T132650Z-cell3-r87-legal-ready-set",
+          "tags": [
+            "cell3",
+            "fanout",
+            "forced-top25",
+            "ggen",
+            "ocel"
+          ],
+          "targets": {
+            "autofde": {
+              "head": "49c55a70937763966795d41485ff35554700ee93",
+              "pr": 33,
+              "state": "REPAIR_REQUIRED"
+            },
+            "autofde-lab": {
+              "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+              "pr": 88,
+              "state": "REQUALIFYING"
+            },
+            "xaas": {
+              "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+              "pr": 32,
+              "state": "REPAIR_REQUIRED"
+            }
+          },
+          "tcps": {
+            "MUDA": "no universe rediscovery/rerank; only exact-head/currentness evidence changed",
+            "MURA": "zero observed READY starvation; sole READY stream allocated",
+            "MURI": "active closure WIP=1; qualified stale-base chatgpt-cloud consumer preserved outside READY until currentness restoration"
+          },
+          "transport_head": "7ff6b299baf215585e0511a71da9f9c0c6fb5292",
+          "true_fanout": {
+            "control_commits_excluded": true,
+            "new_consumer_commits_this_cell3": 0,
+            "new_merges_observed_since_prior_cell3": 3
+          },
+          "true_fanout_accounting": {
+            "control_commits_excluded": true,
+            "new_consumer_commits_this_cell": 0,
+            "new_consumer_merges_this_cell": 0
+          },
+          "true_fanout_new": 0,
+          "true_fanout_standing": "PARTIAL_ALIVE",
+          "typed_stops": {
+            "cargo-cicd": "REFUSED[REPO_MUTATION_BOUNDARY:AGENT_MUTATION_REQUIRES_CARGO_CICD]"
+          },
+          "unchanged_retry": false,
+          "unknown_count": 22,
+          "unknown_targets": 22,
+          "unresolved_compatible_identity_debt_min": 11,
+          "unresolved_forced_targets": [
+            "autofde-lab",
+            "autofde",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "updated_at": "2026-08-26T18:32:55Z",
+          "upstream": {
+            "owning_compose_court": "SUCCESS",
+            "r80_admitted_producer_head": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+            "r81_r82_head": "c08da479e0e6f77880c576f1b388ef7be4298564",
+            "r81_r82_pr": 318,
+            "vacuity_audit": "FAILURE"
+          },
+          "upstream_downstream_heads": {
+            "chatgpt-cloud-elixir-main": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+            "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "xaas": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+          },
+          "upstream_heads": {
+            "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+            "ggen-marketplace": "f75bdb35c2e9104679325c6772194005cc6fef67"
+          },
+          "upstream_repair": {
+            "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+            "ci_run": 32954476907,
+            "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+            "merged": false,
+            "pr": 321,
+            "repo": "ggen-marketplace",
+            "standing": "ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]",
+            "vacuity_run": 32954476949
+          },
+          "upstream_return": {
+            "head": "d958cd7f7b687a244fbd7a125df00737d5b04f65",
+            "pack": "ash-reactor-domain-error-contract-pack",
+            "pr": 324,
+            "repo": "seanchatmangpt/ggen-marketplace",
+            "source_consumer": "seanchatmangpt/xaas#32",
+            "standing": "PARTIAL_ALIVE[CI_NOT_OBSERVED]"
+          },
+          "upstream_returns": 0,
+          "upstream_returns_new": 0,
+          "upstream_returns_wave": 1,
+          "upstream_unique_commits": 0,
+          "upstream_unique_commits_cell4": 0,
+          "upstream_unique_commits_this_wave": 0,
+          "upstream_unique_commits_wave": 0,
+          "wip": [
+            "SREGym#6@9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+            "fdegym#7@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+            "mfact#10@836be06b4fd290089ada8a926d62b9b67a4cb5ad"
+          ],
+          "wip_budget": {
+            "active_ready": 1,
+            "assimilated": 9,
+            "repair_preserved": 4,
+            "unknown_preserved": 11
+          },
+          "wip_budget_used": 0,
+          "xaas": {
+            "base": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+            "head": "6b87b222a9d9fad6c4802939562d35f5845b6812",
+            "post_handoff_commits": 8,
+            "pr": 32,
+            "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;NATIVE_CI_IN_PROGRESS]"
+          },
+          "xaas_blocker": "CI_CD_ELIXIR_FAILURE"
+        },
+        "title": "GGEN legal ready-set allocation current"
+      },
+      {
+        "body": "R87 reused one canonical qualification capsule across three independent forced consumers. MUDA reduced: no duplicate producer pack, no generated-output edits, no CONTROL-as-fanout accounting. MURA reduced: exactly four downstream semantic commits per consumer across three repositories. MURI remains in global code-search HTTP 502, deep compatibility discovery, Project proxy concurrency, and strict pre-read sequencing defect. All three downstream exact-head courts succeeded; failures elsewhere remain isolated graph edges.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+        "metadata": {
+          "MUDA": {
+            "control_as_fanout": 0,
+            "duplicate_factory_commits": 0,
+            "generated_output_edits": 0
+          },
+          "MURA": {
+            "F_effective": 3.0,
+            "repo_commit_distribution": [
+              4,
+              4,
+              4
+            ]
+          },
+          "MURI": [
+            "GLOBAL_CODE_SEARCH_502",
+            "DEEP_SCAN_CAPACITY",
+            "PROJECT_PROXY_CONCURRENCY",
+            "PRE_READ_SEQUENCE_INCOMPLETE_BEFORE_FIRST_DOWNSTREAM_COMMIT"
+          ],
+          "M_lower_bound": 2,
+          "U_lower_bound": 17,
+          "andon": [
+            "UNRDF_HOSTED_CHECKOUT_PREEXEC[MALFORMED_GITMODULES_OPEN_ONTOLOGIES]",
+            "CARGO_CICD_REFUSED[REPO_MUTATION_BOUNDARY]",
+            "OPEN_FANOUT_IDENTITY_CLOSURE_INCOMPLETE"
+          ],
+          "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+          "cell": "FANOUT",
+          "cognitive_wip": 0,
+          "consequential_do": false,
+          "consequential_external_do": false,
+          "created_at": "2026-08-26T05:40:44Z",
+          "downstream_customer": "CELL3 assimilation path for already-admitted mfw/yawl subjects",
+          "downstream_shape": "exact semantic qualification receipt independent of hosted workflow wrapper",
+          "key": "tcps/muda-mura-muri/current",
+          "kind": "tcps.muda_mura_muri",
+          "limiting_multiplier": "qualified independent consumer fanout and exact-head qualification concurrency",
+          "muda": [
+            "ELIMINATED_DUPLICATE_PACK_CREATION",
+            "ELIMINATED_UNCHANGED_HOSTED_CHECKOUT_RETRY",
+            "ELIMINATED_SPECULATIVE_CARGO_GITHUB_MUTATION"
+          ],
+          "muda_reduced": [
+            "unchanged hosted retries",
+            "hosted-wrapper-as-semantic-standing interpretation"
+          ],
+          "mura": [
+            "PRESERVED_PARALLEL_CHATMAN_AND_UNRDF_CONSUMER_PATHS",
+            "PRESERVED_CARGO_AS_COMPATIBLE_AUTHORITY_FENCED_OPTION"
+          ],
+          "mura_reduced": [
+            "unequal qualification ability across consumers whose hosted runners fail before execution"
+          ],
+          "muri": [
+            "HOSTED_CHECKOUT_COUPLING_REDUCED_BY_EXACT_SHA_ARCHIVE_MATERIALIZATION",
+            "REPO_LOCAL_AUTHORITY_NOT_OVERRIDDEN"
+          ],
+          "muri_reduced": [
+            "dependence on unavailable hosted pre-execution for runner-independent semantic courts"
+          ],
+          "new_downstream_commits": 3,
+          "next_process_customer": [
+            "SREGym",
+            "fdegym",
+            "mfact"
+          ],
+          "open_obligations_lower_bound": 15,
+          "partial_order_edges": [
+            "PROJECT_READY_SET_EMPTY->NO_NEW_ALLOCATION",
+            "R86_CONSTRUCTED->R85_EXECUTED->QUALIFIED",
+            "HOSTED_PREEXEC_FAILURE||SEMANTIC_QUALIFICATION"
+          ],
+          "preserved_parallel_options": [
+            "chatman-ecosystem",
+            "unrdf",
+            "cargo-cicd"
+          ],
+          "pull_edges": [
+            "PROJECT2_ROOT_GGEN_ADMITTED->CHATMAN_R88",
+            "PROJECT2_ROOT_GGEN_ADMITTED->UNRDF_R88",
+            "PROJECT2_ROOT_GGEN_ADMITTED->CARGO_AUTHORITY_FENCE"
+          ],
+          "ready_set": [],
+          "receipts": [
+            "chatman-ecosystem:911f1ff9713fa305a6df762ecb14a27a8e0b90db:workflow32979785212:SUCCESS",
+            "unrdf:4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb:workflow32979921297:SUCCESS"
+          ],
+          "schema": "chatgpt-project-memory/v1",
+          "standard_work_candidates": [
+            "R86 consumer qualification may materialize exact subject by authenticated exact-SHA archive when git checkout fails before subject execution",
+            "repository-local authority doctrine precedes generic GitHub write capability"
+          ],
+          "standing": "PARTIAL_ALIVE",
+          "tags": [
+            "fanout",
+            "r87",
+            "tcps"
+          ],
+          "updated_at": "2026-08-26T17:32:55Z",
+          "upstream_return": "NONE_REQUIRED_R87_ALL_QUALIFIED",
+          "upstream_returns": [
+            "candidate: exact-SHA archive materialization for consumers whose git metadata prevents actions/checkout",
+            "candidate: executor-selection contract must honor consumer repository mutation law before allocating write transport"
+          ]
+        },
+        "title": "TCPS maximum fanout constraint state"
+      },
+      {
+        "body": "Consumed exact CELL3 selected_workstreams without restarting SELECT. Sole selected target chatman-ecosystem#217 exact head 911f1ff9713fa305a6df762ecb14a27a8e0b90db was revalidated. PR is now merged through squash/default assimilation commit 2ba68907d42a63133a760dd842d87420fc3597fa. Exact selected tree and default-head tree are identical at a2f5b491fc6e57d08c51c3c3cfd876b6754507c6, so the generated/qualified consequence is default-lineage assimilated despite commit-lineage divergence. R88 owning court SUCCESS. Broad Crown Admission FAILURE is inherited repository-wide debt: cargo clippy --locked and cargo deny fail; R88 delta is only four additive qualification files and does not touch Cargo surfaces. No duplicate downstream commits manufactured.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRU",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg37FnE",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "Coverage": 0.6666666667,
+          "D": 1,
+          "F": 0,
+          "F_A": 1,
+          "F_C": 11,
+          "F_C_new_xaas": 2,
+          "F_C_prior": 11,
+          "F_Q": 1,
+          "F_R": 3,
+          "F_effective": "UNKNOWN[FORMULA_NOT_CANONICALLY_DEFINED]",
+          "G": 1.0,
+          "M": 2,
+          "M_lower_bound": 1,
+          "OpenFanoutObligations": 1,
+          "Q": 1,
+          "Q_scoped": 3,
+          "Q_strict_full_repo": 1,
+          "R": 3,
+          "R_consumer_alive": 1,
+          "R_qualification": 50,
+          "R_qualified_consumers": 2,
+          "T_A": "UNKNOWN[NOT_CANONICALLY_NORMALIZED]",
+          "T_M": "UNKNOWN[NOT_CANONICALLY_NORMALIZED]",
+          "U": 3,
+          "WIP_remaining": 24,
+          "affected_consumers": [
+            {
+              "head": "d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a",
+              "pr": 88,
+              "repo": "autofde-lab",
+              "state": "REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA]"
+            },
+            {
+              "head": "bf753d1dfdc137a6fce04008a2841752216654bb",
+              "pr": 33,
+              "repo": "autofde",
+              "state": "REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA]"
+            },
+            {
+              "head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+              "pr": 32,
+              "repo": "xaas",
+              "state": "REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL]"
+            }
+          ],
+          "andon": {
+            "failed_jobs": [
+              "Fast constitutional gates:cargo clippy --locked",
+              "Dependency license and source policy:cargo deny check"
+            ],
+            "r88_attribution": false,
+            "reason": "INHERITED_BROAD_CROWN_ADMISSION_DEBT",
+            "repo": "chatman-ecosystem",
+            "subject": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+            "upstream_owner": "chatman-ecosystem repository-wide Cargo/dependency policy"
+          },
+          "authority": "VERIFY + Project-memory CONTROL only; no release/deploy/commerce/external messaging",
+          "base_before_reconcile": "3774901c4103b3555cc367c71d6d4333eeec6d33",
+          "base_sha": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "bootstrap_merge": "edccb9870e0dcb5ee147944640fb332994123ef9",
+          "bootstrap_pr": 281,
+          "broad_ci_conclusion": "IN_PROGRESS",
+          "broad_ci_run": 32946813480,
+          "bus_head": "9f9acb4eab5c3a22fba56bf742e55518fa655a7d",
+          "bus_head_before_request": "ef32f0be3325644092b9a11fae18b60a33cfd8df",
+          "bus_head_post": "6f156c929aab1d4f2e98c8613bb6b1a27d97489b",
+          "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+          "cell": "CELL4",
+          "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+          "changed_files": 4,
+          "chatman_ecosystem": {
+            "ahead": 4,
+            "base": "ffe93f68a81fc46ccf60594a9615167bd36031a4",
+            "behind": 0,
+            "head": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+            "pr": 217,
+            "r88": "ALIVE",
+            "standing": "PARTIAL_ALIVE[INHERITED_CARGO_LOCK_DEBT]"
+          },
+          "consequential_do": false,
+          "consequential_external_do": false,
+          "constructor": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "consumer": "dspygen",
+          "consumer_commits": 15,
+          "consumer_repo": "seanchatmangpt/process-intelligence",
+          "consumer_shortfall": 8,
+          "created_at": "2026-08-25T10:26:52Z",
+          "current_main": "88556e8d0265936d430606cca848dda3e2b1dd8f",
+          "default_branch": "main",
+          "downstream_unique_commits_this_wave": 2,
+          "downstream_unique_commits_wave": 0,
+          "draft": false,
+          "ex4pm": {
+            "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "merge": "06d326f59d05afdcd39637f42fe277a474095dda",
+            "pr": 34,
+            "qualification": "ALIVE_EXACT_HEAD_FULL_REPO",
+            "state": "CLOSE_READY"
+          },
+          "ex4pm_head": "7a08ba84b46f38f9ed3e3e371fead1953c70bf9e",
+          "ex4pm_pr": 32,
+          "exact_head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+          "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "forced_top25_count": 25,
+          "full_replication_ready": 2,
+          "generated_outputs_edited": false,
+          "ggen_caused_downstream_commits": 3,
+          "ggen_source": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020:packs/dspy-pack",
+          "grounded_consumers": 4,
+          "gymact": {
+            "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "broad_ci": "BUILD_BROKEN[INHERITED_BROAD_CI_DEBT]",
+            "changed_files": 4,
+            "commits": 6,
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "human_value": "UNKNOWN",
+            "pr": 126,
+            "r79": "ALIVE",
+            "state": "REPAIR_REQUIRED",
+            "world_crown": "ALIVE"
+          },
+          "gymact_head": "9a9dfdbdfbc904cead5f9364a57289770f1ffa49",
+          "gymact_pr": 124,
+          "head_sha": "2f4882cb26acfbf188b953736926fdabbe858856",
+          "human_value": "HUMAN_VALUE_UNKNOWN",
+          "inherited_realized_downstream_commits": 11,
+          "key": "dfcm/implement/latest",
+          "kind": "dfcm.implement.cell4",
+          "known_consumers": 3,
+          "local_transport": "BLOCKED[LOCAL_GITHUB_DNS]",
+          "main_sha": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+          "marketplace_base": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "meaningful_commits": 10,
+          "meaningful_commits_authored": 54,
+          "merge_commit": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+          "merge_performed": false,
+          "merge_ready_new": 0,
+          "merge_sha": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+          "merge_standing": "REFUSED[DRAFT_STATE_TRANSITION_UNAVAILABLE]",
+          "mergeable": true,
+          "metrics": {
+            "Coverage_selected": 1.0,
+            "F_A_selected": 1,
+            "F_C_selected_existing": 4,
+            "F_Q_selected": 1,
+            "F_R_selected": 1,
+            "F_effective_selected": 1,
+            "M_exact": 12,
+            "OpenFanoutObligations_lower_bound": 9,
+            "Q_lower_bound": 12,
+            "R_lower_bound": 20,
+            "T_A_new": 0,
+            "T_M_new": 0,
+            "U_lower_bound": 21,
+            "WIP_selected": 0,
+            "assimilated_selected": 1,
+            "merge_ready_selected": 0,
+            "new_downstream_unique_commits": 0,
+            "new_upstream_unique_commits": 0
+          },
+          "new_downstream_commits_cell4": 0,
+          "new_downstream_commits_this_wave": 0,
+          "nonsemantic_integration_commits": 1,
+          "pack": "forced-top25-qualification-capsule-pack",
+          "partial_consumers": 2,
+          "pr": 9,
+          "pre_receipts": [
+            "20260825T143605Z-implement-snapshot",
+            "20260825T143620Z-implement-read-frontier"
+          ],
+          "producer": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+          "producer_pack": "epistemic-sensor-factory-pack",
+          "project_bus_head": "ee39c27c3d869fdd67e53e4a29629265021a7c4c",
+          "project_item_count": 369,
+          "project_item_count_pre": 365,
+          "project_post_receipt": "20260825T102620Z-implement-post",
+          "project_pre": "REFUSED[WRITE_SURFACE_POLICY]",
+          "project_read_batch_commit": "95bf6639fb4292a620f409efefb010c1bf331d32",
+          "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_snapshot_items": 385,
+          "project_snapshot_receipt": "20260825T174100Z-implement-pre-snapshot",
+          "qualification": "REQUALIFYING_EXACT_HEAD",
+          "qualification_artifacts": 50,
+          "qualified_consumers_alive": 1,
+          "qualified_head": "ca5a2f2334e64218ceee2c92cb7c98c7bd6d750f",
+          "quality_at_source": [
+            "workflow temporal bound",
+            "deterministic SPARQL ordering",
+            "explicit semantic-family manifests"
+          ],
+          "query_commits": 50,
+          "r79_conclusion": "success",
+          "r79_run": 32946813432,
+          "r81_conclusion": "success",
+          "r81_run": 32946813512,
+          "ready_remaining": 0,
+          "ready_set": [],
+          "reason_codes": [
+            "ANDON_WORKFLOW_TIMEOUT_MISSING",
+            "POKAYOKE_NONDETERMINISTIC_SELECT",
+            "ANDON_SEMANTIC_FAMILY_COLLISION",
+            "STANDARD_WORK_PROMOTION"
+          ],
+          "reconciled_head": "57ae94e594dd29319683bb890077482bc8715a5f",
+          "regenerations_wave": 0,
+          "repair_gated": [
+            "gymact",
+            "xaas"
+          ],
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "run_id": "6a6d460091948191ae8945277d01b467+20260826T013800Z+IMPLEMENT_QUALIFY",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_downstream_commits": 9,
+          "selected_head": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+          "selected_ready_coverage": 1.0,
+          "selected_realized_repos": 2,
+          "selected_workstreams": [
+            {
+              "M": true,
+              "Q": true,
+              "R": true,
+              "base": "ffe93f68a81fc46ccf60594a9615167bd36031a4",
+              "classification": "REPAIR_REQUIRED",
+              "merge_commit": "2ba68907d42a63133a760dd842d87420fc3597fa",
+              "pr": 217,
+              "reason": "DEFAULT_ASSIMILATED_R88_ALIVE;INHERITED_BROAD_CROWN_ADMISSION_DEBT",
+              "repo": "chatman-ecosystem",
+              "selected_head": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+              "tree": "a2f5b491fc6e57d08c51c3c3cfd876b6754507c6"
+            }
+          ],
+          "semantic_commits": 54,
+          "standing": "PARTIAL_ALIVE",
+          "state": "CLOSE_READY",
+          "tags": [
+            "cell4",
+            "fanout",
+            "forced-top25",
+            "ggen",
+            "qualification"
+          ],
+          "target_consumer_factor": 10,
+          "tcps_patterns_applied": [
+            "自働化",
+            "ポカヨケ",
+            "認知アンドン",
+            "前工程へ仕事を戻す",
+            "成功した新規性を標準作業にする"
+          ],
+          "thousand_x": "NOT_ADMITTED",
+          "unknown_admissibility_count": 22,
+          "unrdf": {
+            "ahead": 5,
+            "base": "dcc6ada4df196fd23cb96885f018cb5c1c89386e",
+            "behind": 0,
+            "head": "4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb",
+            "pr": 107,
+            "r88": "ALIVE",
+            "standing": "PARTIAL_ALIVE[INHERITED_ESLINT_QUALITY_DEBT]"
+          },
+          "updated_at": "2026-08-26T16:50:57Z",
+          "upstream_defect": "TEMPLATE_VARIABLE_MISSING rows",
+          "upstream_repair": {
+            "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+            "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+            "pr": 321,
+            "reason": "GGEN_PACK_TOML_UNSUPPORTED_QUALIFICATION_NAMESPACE",
+            "repo": "ggen-marketplace",
+            "state": "REPAIR_REQUIRED[EXACT_HEAD_QUALIFICATION_PENDING]"
+          },
+          "upstream_returns": [
+            "R47 semantic identity",
+            "R51 semantic identity"
+          ],
+          "upstream_returns_cell4": 0,
+          "upstream_unique_commits_this_wave": 0,
+          "upstream_unique_commits_wave": 2,
+          "weakest_multiplier": "independent qualified consumer breadth",
+          "xaas": {
+            "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+            "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+            "human_value": "UNKNOWN",
+            "native_ci": "BUILD_BROKEN[ASH_CHANGESET_GET_CONTEXT_UNDEFINED]",
+            "pr": 31,
+            "r79_admission": "ALIVE",
+            "state": "REPAIR_REQUIRED"
+          },
+          "xaas_base": "2207203b1bef612cc55a52676b8e607f930640e7",
+          "xaas_branch": "fanout/r79-tcps-admission",
+          "xaas_head": "e8120b10cfd30c911ac710eb7ba9411943ab41da",
+          "xaas_pr": 31
+        },
+        "title": "CELL4 R89 realization/qualification MID"
+      },
+      {
+        "body": "CELL4 consumed exactly the two CELL3-selected READY workstreams. ex4pm#34 is CLOSE_READY: exact 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8, all observed exact-head rails SUCCESS, mergeable, non-draft, unmerged. GymAct#126 is REPAIR_REQUIRED: exact bcb14a65b83fc543bb11acaa84709765ac88f42c, R79 consumer court and world crown SUCCESS, but broad CI has 18 failures. The PR changes only four additive R79 files, so failures are classified inherited broad repository debt rather than an R79 regression; it remains draft and unmerged. XaaS#31 remains inherited REPAIR_REQUIRED from CELL3 due CI/CD Elixir failure and was not selected or mutated. The remaining ForcedTop25 targets retain upstream admissibility-receipt obligations and were not guessed, reranked, or mutated. CELL5 owns closure of all open states. No merge, release, deploy, external publication, commerce actuation, credential exposure, or protection bypass occurred.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_6XA",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Db78",
+        "metadata": {
+          "cell": "REALIZE_QUALIFY_FANOUT_POST",
+          "consequential_do": false,
+          "created_at": "2026-08-26T05:43:32Z",
+          "discovered_targets": [],
+          "duplicate_lineages": [],
+          "key": "ggen/fanout/cell5/handoff/current",
+          "kind": "ggen.fanout.cell5-handoff",
+          "metrics": {
+            "Coverage_selected_full_qualified": 0.5,
+            "Coverage_selected_realized": 1.0,
+            "F_A": 2,
+            "F_C": 11,
+            "F_Q_scoped": 2,
+            "F_Q_strict": 1,
+            "F_R": 2,
+            "F_effective_closure_ready": 1,
+            "M_inherited_lower_bound": 2,
+            "M_wave_delta": 0,
+            "OpenFanoutObligations_global": "UNKNOWN_UNTIL_U_CLOSED",
+            "OpenFanoutObligations_lower_bound": 1,
+            "Q_scoped": 2,
+            "Q_strict_full_repo": 1,
+            "R": 2,
+            "T_A": "UNKNOWN_NOT_COMPUTED",
+            "T_M": "UNKNOWN_NOT_COMPUTED",
+            "U_lower_bound": 3,
+            "control_commits_excluded": true,
+            "cycle_latency": "UNKNOWN_NOT_COMPUTED",
+            "downstream_unique_commits": 11,
+            "qualification_latency": "UNKNOWN_NOT_COMPUTED",
+            "upstream_unique_commits": 0
+          },
+          "producer": "ggen-marketplace@aef231ceb3e27150366a11b547dd115720230880:R78_TCPS_READY_SET_CAPITAL",
+          "project_memory": {
+            "mid_receipt_commit": "81346f7082a33c4fb284b837b8bb0d196c1fc195",
+            "mid_receipt_standing": "ALIVE",
+            "mid_request_commit": "254ebe6df6c9e20ad2e9bdf25fe112fa9cdb29c7",
+            "post_request_id": "20260826T054300Z-cell4-post-cell5-handoff"
+          },
+          "regenerations": [],
+          "schema": "chatgpt-project-memory/v1",
+          "selected_workstreams": [
+            "seanchatmangpt/ex4pm#34@38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c"
+          ],
+          "standing": "PARTIAL_ALIVE",
+          "superseded_work": [],
+          "tags": [
+            "cell4",
+            "cell5",
+            "closure",
+            "forced-top25",
+            "r79"
+          ],
+          "targets": {
+            "POWL": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "SREGym": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "a2a-rs": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ash_r2rml": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde-lab": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "cargo-cicd": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "chatgpt-cloud-elixir": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN_NOT_SELECTED_THIS_WAVE",
+              "reason": "CONTROL_REPO; DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "chatman-ecosystem": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "clap-noun-verb": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "dspygen": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ex4pm": {
+              "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+              "branch": "fanout/r79-tcps-ready-set",
+              "classification": "CLOSE_READY",
+              "commits": 5,
+              "draft": false,
+              "failed_checks": [],
+              "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+              "mergeable": true,
+              "merged": false,
+              "open_state": "UNMERGED_CLOSE_READY",
+              "pending_checks": [],
+              "pr": 34,
+              "standing": "ALIVE_EXACT_HEAD_FULL_REPO"
+            },
+            "fdegym": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "gymact": {
+              "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+              "branch": "fanout/r79-tcps-ready-set",
+              "classification": "REPAIR_REQUIRED",
+              "commits": 6,
+              "draft": true,
+              "failed_checks": [
+                "CI Python 3.11 semantic/runtime",
+                "CI Python 3.12 semantic/runtime",
+                "CI Python 3.13 semantic/runtime"
+              ],
+              "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+              "mergeable": true,
+              "merged": false,
+              "open_state": "INHERITED_BROAD_CI_DEBT",
+              "pending_checks": [],
+              "pr": 126,
+              "standing": "PARTIAL_ALIVE[R79_AND_WORLD_CROWN_ALIVE;BROAD_CI_FAILURE_18]"
+            },
+            "mfact": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfact-command-center": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfw": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "pm4wasm": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "process-intelligence": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "revops": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "swarmsh-v2": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "unrdf": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "wasm4pm": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "xaas": {
+              "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+              "classification": "REPAIR_REQUIRED",
+              "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+              "pr": 31,
+              "reason": "CELL3_CI_CD_ELIXIR_FAILURE; NOT_SELECTED_THIS_WAVE"
+            },
+            "yawl": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            }
+          },
+          "updated_at": "2026-08-26T05:43:32Z",
+          "upstream_returns": [],
+          "wip_remaining": {
+            "close_ready": 1,
+            "repair_required_known": 2,
+            "selected_workstreams_remaining": 1,
+            "upstream_admissibility_receipt_missing": 22
+          }
+        },
+        "title": "CELL4 POST: ForcedTop25 R79 closure inventory for CELL5"
+      },
+      {
+        "body": "Terminal CELL3 standing. ForcedTop25 contract restored and receipted ALIVE. Snapshot Project PVT_kwHOCCCFfc4BhZKe items=389. Exact live default-lineage assimilation revalidated for ex4pm@e2e36755f87c9a5297ed1d2727929f6a7031caf2 and gymact@f3457bdb8a7878946783d34f402b95774eaf8c4b. ggen/fanout/current and other CELL1/CELL2 exact-state receipts were not all available at allocation boundary, so legality-before-priority kept remaining 23 forced targets UNKNOWN_WITH_REASON and ready_set empty. No external consumer repo commits, PRs, merges, releases, deployments, or consequential DO. Project ggen/fanout/current POST request committed; receipt pending. CELL4 handoff exists only through Project2 state.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_lng",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36nMk",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "1000x": "NOT_ADMITTED",
+          "D": "R78_ALIVE",
+          "F": "UNCHANGED_REALIZED",
+          "G": 1.0,
+          "M": ">=2",
+          "M_initial": ">=1",
+          "M_initial_lower_bound": 1,
+          "M_lower_bound": 2,
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U": "2_UPSTREAM_RETURNS_2_STANDARD_WORK_PROMOTIONS",
+          "U_lower_bound": 2,
+          "Y": "UNKNOWN",
+          "Y_future": "UNKNOWN",
+          "Y_initial": "UNKNOWN",
+          "Y_observed": 0.2,
+          "Y_observed_full_run": 0.143,
+          "Y_observed_primitive": 0.4,
+          "admissible_set": [
+            "R78",
+            "R76",
+            "R74"
+          ],
+          "archived": [],
+          "attempted_upper_bound": ">=100",
+          "authority": "SELECT|CONSTRUCT",
+          "base": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+          "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+          "baseline": 50,
+          "baseline_shortfall": 46,
+          "baseline_shortfall_reason": "current multiplier frontier already had dependency-closed consumer work manufactured and exact-head qualified; duplicating 50 new courts would violate marketplace-first and ERRC. Highest-yield action was containment plus exposure of receipt-assimilation dependencies.",
+          "branch": "develop/r73-revalidation-manufacturing-capital-20260825",
+          "branch_commits": 67,
+          "broad_ci": "QUEUED_IN_PROGRESS",
+          "broad_ci_run": 32840193214,
+          "bus_head": "15602f1114daf05219e64504ab9fe5ee7d1a10de",
+          "bus_head_before_request": "e822d3140a42caf79429eafa565ccfa8f2198934",
+          "bus_head_final_request": "49f1c69589b9e2b4632261be3a5b81d2957ea90b",
+          "bus_head_pre": "9466128673ee7217e3e35332aac4ef8d74495180",
+          "candidate": "f96dc9a5f76783fd7d041392027cd61c5be5e566",
+          "candidate_portfolio": [
+            "ggen-marketplace#302",
+            "ggen-marketplace#301",
+            "schedule-throughput-attribution extension"
+          ],
+          "candidate_sha": "58a42694d52b08e57c51e6ff7b131b1ec916869d",
+          "cell": "LEGAL_READY_SET_ALLOCATION",
+          "clean_independent_fixture": 3,
+          "cloud_merge_sha": "2117c4a06b715ef1a852654de0d210859a09d4ee",
+          "cloud_pr": 12,
+          "commits_per_hour_active": 391.94,
+          "consequential_do": false,
+          "consequential_external_do": 0,
+          "construction_base": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+          "consumer_readiness": {
+            "admitted": 3,
+            "grounded": 4,
+            "independently_ready": 1,
+            "shortfall": 9,
+            "target": 10
+          },
+          "consumer_ready": 2,
+          "consumer_ready_remembered": 2,
+          "consumer_repo_commits": 0,
+          "consumer_shortfall": 7,
+          "consumer_shortfall_to_10x": 7,
+          "consumer_target": 10,
+          "containment": "ALIVE",
+          "control_request_commits": 7,
+          "created_at": "2026-08-25T09:26:32Z",
+          "default_head": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+          "defect_repaired": "verifier assumed globally unique numeric query ordinals; replaced with exact semantic-family query identity binding",
+          "defects_repaired": [
+            "cross-pack Project-memory instance ownership leak",
+            "unconsumed concurrent provenance stub causing exact-head Vacuity failure"
+          ],
+          "direct_meaningful_commits": 4,
+          "direct_new_semantic_commits": 0,
+          "direct_new_semantic_commits_authored": 0,
+          "ended_at": "2026-08-25T23:10:35Z",
+          "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "exact_bus_head": "25aa5726decefd16e0827a93e0bc808463ba9cfc",
+          "exact_bus_head_before_request": "1317d7977d1b60c6b946c814a21a41295fa6c953",
+          "final_consumer_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+          "final_marketplace_head": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+          "fixture_consumer_shortfall": 6,
+          "fixture_fanout_shortfall": 2,
+          "fixture_independent_selected": 4,
+          "forced_top25_count": 25,
+          "generation": "R73",
+          "ggen_base": "aa53795636e4fe1775b3eff5ff91227a02320ffc",
+          "ggen_head": "ddfa602be2940b7d1fd5a7c68134ffc01bcd2a45",
+          "ggen_merge_sha": "a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+          "ggen_pr": 666,
+          "ggen_pr_head": "26ed26b71f2b22781c351950c5a8d7d6db33a585",
+          "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "head_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+          "implement_handoff": [
+            "enumerate admitted-but-not-independently-ready R55 consumers from Project and producer evidence",
+            "manufacture target-local adapters without duplicating producer-owned courts",
+            "return exact consumer receipts through R52/R55 evidence path",
+            "measure causal downstream unlocks with preserved R54 measurement edge",
+            "only promote consumer factor and 1000X after independent execution receipts"
+          ],
+          "independent_executed_consumer_lower_bound": 3,
+          "initial_M": 2,
+          "initial_M_lower_bound": 1,
+          "initial_Y": "UNKNOWN",
+          "initial_weakest_multiplier": "qualified_structural_displacement_and_attributed_commit_throughput",
+          "key": "dfcm/run-control/select/current",
+          "kind": "dfcm.run_control",
+          "known_M": [
+            "ex4pm",
+            "gymact"
+          ],
+          "marketplace_base": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+          "marketplace_candidate": "fb0e89d215540dea2958122948baa37667753600",
+          "marketplace_candidate_head": "c7731659694a111bdffe3f958a40a86c1e430f44",
+          "marketplace_default": "aef231ceb3e27150366a11b547dd115720230880",
+          "marketplace_default_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "marketplace_final": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+          "marketplace_head": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "marketplace_initial": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+          "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "marketplace_main_observed": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+          "marketplace_merge_sha": "1bce7b3aa9cc74675126a6f2b9778a2331226824",
+          "marketplace_pr": 272,
+          "meaningful_commits": 64,
+          "meaningful_repo_commits": 54,
+          "meaningful_semantic_commits": 52,
+          "meaningful_semantic_commits_newly_contained": 55,
+          "memory_created": [
+            "dfcm/run/select/20260826T0038Z/55dd1400"
+          ],
+          "memory_key_created": "dfcm/run/select/20260825T214630Z/95387a06",
+          "memory_keys": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/explore/latest",
+            "dfcm/select/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "memory_keys_consumed": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/explore/latest",
+            "dfcm/select/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "memory_keys_updated": [
+            "dfcm/select/latest",
+            "dfcm/ledger/current",
+            "dfcm/frontier/current",
+            "dfcm/run-control/select/current"
+          ],
+          "merge": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+          "merge_actuated_by_this_cell": 0,
+          "merge_count": 0,
+          "merge_observed": 1,
+          "merge_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+          "merge_shas": [
+            "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+            "e6810f8e36ef81b567d2c60f892b6f11eea5b89f"
+          ],
+          "merged_prs": [
+            271,
+            270
+          ],
+          "merges": 0,
+          "new_authorship_baseline_shortfall": 50,
+          "new_semantic_courts": 50,
+          "nonsemantic_integration_commits": 1,
+          "open_fanout_obligations": "UNKNOWN_UNTIL_U_CLOSED",
+          "owning_court": "ALIVE",
+          "owning_court_run": 32840193279,
+          "owning_r70": "ALIVE",
+          "parked": [],
+          "post_query_request": "20260825T214615Z-select-post-query-independence",
+          "post_receipts": [
+            "20260825T145800Z-select-post",
+            "20260825T145801Z-ledger-post",
+            "20260825T145802Z-frontier-post",
+            "20260825T145803Z-query-unlocked",
+            "20260825T145804Z-select-learning",
+            "20260825T145805Z-select-complete"
+          ],
+          "post_receipts_observed_alive": [
+            "20260825T214500Z-select-post-latest",
+            "20260825T214520Z-select-post-ledger"
+          ],
+          "post_requests": [
+            "20260825T234100Z-select4-final-select",
+            "20260825T234110Z-select4-final-ledger",
+            "20260825T234120Z-select4-final-frontier",
+            "20260825T234130Z-select4-post-query-unlocked",
+            "20260825T234140Z-select4-learning",
+            "20260825T234150Z-select4-post-snapshot",
+            "20260825T234200Z-select4-run-control-complete"
+          ],
+          "post_snapshot_request": "20260826T0049Z-select4-post-snapshot",
+          "pr": 315,
+          "pre_item_count": 388,
+          "pre_mutation_original": "BUILD_BROKEN",
+          "pre_mutation_repair_at": "2026-08-25T15:45:00Z",
+          "pre_receipts": [
+            "20260825T232620Z-select4-snapshot-pre",
+            "20260825T232627Z-select4-run-control-running"
+          ],
+          "pre_run_control_receipt": "20260825T145600Z-select-running",
+          "pre_snapshot_receipt": "20260826T0026Z-select4-pre-snapshot",
+          "preserved_alternatives": [
+            "R76",
+            "R74"
+          ],
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 388,
+          "project_item_count_post": 360,
+          "project_item_count_pre": 376,
+          "project_items": 389,
+          "project_items_pre": 384,
+          "project_post": "ALIVE/receipting",
+          "project_post_receipt": "PENDING",
+          "project_post_request": "20260826T043620Z-cell3-fanout-post",
+          "project_post_requests": [
+            "20260825T173200Z-select-post-select",
+            "20260825T173220Z-select-post-ledger",
+            "20260825T173240Z-select-post-frontier",
+            "20260825T173300Z-select-post-query",
+            "20260825T173320Z-select-durable-learning",
+            "20260825T173340Z-select-run-control-complete"
+          ],
+          "project_post_snapshot_request": "20260825T234150Z-select4-post-snapshot",
+          "project_pre": "REFUSED[WRITE_SURFACE_POLICY] before execution",
+          "project_pre_requests": [
+            "20260825T172500Z-select-snapshot",
+            "20260825T172600Z-select-read-frontier",
+            "20260825T172610Z-select-read-ledger",
+            "20260825T172620Z-select-read-explore",
+            "20260825T172630Z-select-read-select",
+            "20260825T172640Z-select-read-portfolio",
+            "20260825T172710Z-select-query-capital",
+            "20260825T172800Z-select-run-control-running"
+          ],
+          "project_receipt_ids": [
+            "20260825T142100Z-select-snapshot",
+            "20260825T142500Z-select-run-control-running",
+            "20260825T144400Z-select-post-select",
+            "20260825T144401Z-select-post-ledger",
+            "20260825T144402Z-select-post-frontier",
+            "20260825T144403Z-select-post-query",
+            "20260825T144404Z-select-learning",
+            "20260825T144405Z-select-run-control-complete"
+          ],
+          "project_request_commits_post": 6,
+          "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_snapshot_item_count": 361,
+          "project_snapshot_items": 373,
+          "prompt_digest": "52dd39e1a2db9adb1e4502c8eee2feb23e3b623c619b14927fbfc02ff74dacb1",
+          "qualification": "ALIVE",
+          "qualification_receipts": {
+            "broad_ci_run": 32860889422,
+            "r55_owning_run": 32860889375,
+            "vacuity_run": 32860889543
+          },
+          "qualification_run": 32843730780,
+          "qualification_runs": {
+            "ci": 32916335511,
+            "r73": 32916335483,
+            "vacuity": 32916335505
+          },
+          "qualified_candidate": "60a4a4611a7be113115e3e35c6043bf79a82955b",
+          "qualified_external_consumers_added": 2,
+          "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+          "queries": [
+            "independence",
+            "yield"
+          ],
+          "query_receipts": [
+            "20260825T212820Z-select-query-consumer",
+            "20260825T212900Z-select-query-yield"
+          ],
+          "query_request": "20260825T142305Z-select-query-capital",
+          "r69_regression": "ALIVE",
+          "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+          "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+          "r78_head": "59ab631592496a502620ea4a8ebc8efc8cc4f7ce",
+          "r78_total_commits": 78,
+          "readiness_count": 2,
+          "readiness_shortfall": 8,
+          "ready_set": [],
+          "ready_set_count": 0,
+          "ready_set_pre": [
+            "R78"
+          ],
+          "receipt_ids": [
+            "20260825T105413Z-select-snapshot",
+            "select-105600-frontier",
+            "select-105708-run-control",
+            "select-110300-post-select",
+            "select-110301-post-ledger",
+            "select-110302-post-frontier",
+            "select-110303-post-query",
+            "select-110420-learning"
+          ],
+          "ref": "main",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "run_id": "select4+20260826T032826Z+SELECT_DEVELOP",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_workstream_commits_after": 67,
+          "selected_workstream_commits_before": 65,
+          "semantic_commit_shas": [
+            "45b993d9356a5dd4068f74b48f64c991d050d2e7",
+            "1df94088d7d8b5fc256be94befe00936befade1f",
+            "bb4649519bc87243d18024f560cb34895e266b25",
+            "37e61aa8d86c70e88e17b9a733a893c1a714fc4d",
+            "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf"
+          ],
+          "semantic_commits": 50,
+          "semantic_commits_authored": 5,
+          "semantic_commits_contained": 54,
+          "semantic_courts": 51,
+          "shortfall": 44,
+          "shortfall_reason": "READY_FRONTIER_EXHAUSTION_DEPENDENCY_ORDERED_QUALIFICATION",
+          "snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+          "snapshot_item_count": 368,
+          "snapshot_items": 368,
+          "snapshot_receipt": "20260826T0026Z-select4-pre-snapshot",
+          "standing": "PARTIAL_ALIVE",
+          "standing_reason": "CELL1_CELL2_RECEIPTS_PENDING",
+          "started_at": "2026-08-26T03:28:26Z",
+          "started_at_utc": "2026-08-25T15:54:24Z",
+          "support_commits_contained": 2,
+          "tags": [
+            "cell3",
+            "fanout",
+            "forced-top25",
+            "ready-set"
+          ],
+          "tcps_patterns_applied": [
+            "downstream_customer_first",
+            "partial_order_preservation",
+            "ready_set_only",
+            "legality_before_priority",
+            "linear_extension_at_execution_edge",
+            "parallelism_as_production_space",
+            "pull_from_downstream",
+            "upstream_return",
+            "qualified_novelty_to_standard_work"
+          ],
+          "thousand_x": "NOT_ADMITTED",
+          "total_commits": 66,
+          "transient_events": [
+            "broad CI cancellation on a42d28e; rerun succeeded without semantic change"
+          ],
+          "transport_head": "bab4c0b60f496d935c85745d308d510650a73072",
+          "transport_head_before_request": "aa9af29eb192da115f0f21ba5f347eafe6009194",
+          "typed_refusals": [
+            "REFUSED[409_CONCURRENT_RECEIPT] final-frontier first attempt; fresh-head retry succeeded"
+          ],
+          "unknown_count": 23,
+          "unmanufactured_dependency_dependent_opportunity_classes": 4,
+          "updated_at": "2026-08-26T04:37:03Z",
+          "utc_end": "2026-08-26T00:49:00Z",
+          "utc_start": "2026-08-26T02:27:43Z",
+          "vacuity": "ALIVE",
+          "vacuity_run": 32843730757,
+          "validation": {
+            "aggregate": "ALIVE",
+            "fast_admission": "ALIVE",
+            "r73": "ALIVE",
+            "real_ggen": "4/4 ALIVE",
+            "vacuity": "ALIVE"
+          },
+          "validation_receipts": [
+            "32928685703",
+            "32928685715",
+            "32928685874"
+          ],
+          "weakest_multiplier": "qualified_independent_consumer_fanout_and_realized_downstream_yield",
+          "weakest_multiplier_after": "independently qualified consumers manufactured from current exact-subject plans",
+          "weakest_multiplier_initial": "independently executed consumer breadth beyond ggen"
+        },
+        "title": "CELL3 legal ready-set allocation"
+      },
+      {
+        "body": "R78 is default-contained at aef231ceb3e27150366a11b547dd115720230880. The ready-set frontier advances downstream without discarding preserved alternatives: revalidate R76 structural-capital compiler against current main; revalidate R74 structural-option factory when its dependencies are satisfied; then regenerate every compatible consumer, exact-qualify, return receipts, and measure throughput/RevOps/Y. The new canonical law is legality/authority -> READY set -> capital score -> deterministic execution-edge linear extension. R77 and R78 strict-GGEN ORDER BY defects are now upstream standard work rather than future serial blockers.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "1000x": "NOT_ADMITTED",
+          "C_run_lower_bound": 4,
+          "E_observed": 4.0,
+          "E_work": 4.0,
+          "M": ">=2",
+          "M_lower_bound": 2,
+          "M_observed": 4.0,
+          "M_observed_new_consumers": 0,
+          "M_work": 2.0,
+          "R_consumer_alive": 1,
+          "R_consumer_observed_lower_bound": 2,
+          "R_qualification": 50,
+          "Y": "UNKNOWN",
+          "active_edges": [
+            "ggen-marketplace#264 real-ggen shard0 repair",
+            "ggen-marketplace#265 current-head requalification"
+          ],
+          "active_head": "d523d1a3fec4eeedf1412658d9d5979db38cdbef",
+          "active_marketplace_prs": [
+            265,
+            266
+          ],
+          "active_pr": 267,
+          "adapter_shortfall": 8,
+          "aggregate": "REQUALIFYING",
+          "alive_consumers": 1,
+          "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|PROJECT_MEMORY",
+          "base_sha": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+          "branching_factor_lower_bound": 4,
+          "broad_ci": "REQUALIFYING",
+          "bus_head": "9a65c75e91bc3217adc466c4c48476badb1d7c8f",
+          "bus_head_before_request": "36e6fb5bc062c4644fe1daa539ae24ad127a65df",
+          "candidate": "df908435a84a0240b9d89a48ea8ded81bfb74265",
+          "candidate_consumers": 4,
+          "candidate_sha": "c5a973bf14e582c005bd4ce0cc39828c194f4249",
+          "canonical_primitive": "epistemic-sensor-factory-pack/R47-consumer-propagation-frontier",
+          "cell": "SELECT_DEVELOP",
+          "chatman_merge_pr": 148,
+          "chatman_merge_sha": "15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+          "chatman_next_head": "ac6d52ed027e32d854ab9e119a39977542262c51",
+          "chatman_next_pending_rails": 1,
+          "chatman_next_pr": 142,
+          "chatman_next_success_rails": 22,
+          "chatman_pending_rails": 1,
+          "chatman_success_rails": 23,
+          "ci_shards_failed": [
+            0
+          ],
+          "ci_shards_success": [
+            1,
+            2,
+            3
+          ],
+          "clean_independent_consumer_factor": 3,
+          "clean_pair_frontier": 1,
+          "commit_floor": 50,
+          "commit_shortfall": 50,
+          "compiler_standing": "ALIVE",
+          "completed_edges": [
+            "ggen#670->main@a9967f98df05f7a1f0c54376b2a35508bacb935d",
+            "ex4pm#32->main@e12fccb42a67bc4496cac91c86bff2b856cc463d"
+          ],
+          "composition_head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+          "composition_measurement": "ALIVE_CONTAINED",
+          "composition_merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "composition_pr": 249,
+          "conditionally_ready": [
+            "R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"
+          ],
+          "consequential_do": false,
+          "consumer_families": 4,
+          "consumer_ready": 2,
+          "consumer_rollout_standing": "PARTIAL_ALIVE",
+          "consumer_shortfall": 8,
+          "consumer_shortfall_to_10x": 7,
+          "consumer_target": 10,
+          "containment": true,
+          "corrected_at": "2026-08-25T17:06:10Z",
+          "created_at": "2026-08-25T08:52:58Z",
+          "current_marketplace_main": "b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "default": "aef231ceb3e27150366a11b547dd115720230880",
+          "default_head": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+          "defect": "R46 historical file-cardinality selector conflated immutable ordinal identity with later query variants",
+          "direct_semantic_commits": 9,
+          "ex4pm_merge": "e12fccb42a67bc4496cac91c86bff2b856cc463d",
+          "exact_bus_head": "18224fc1903c98665dbcc14a7ac3f8eab7accfa9",
+          "exact_bus_head_before_request": "156524e4be9bf891fc38b3dba26b8c35e9af1da3",
+          "exact_main": "2fd796423c678e0b33e1828a5d187ca170e4eccc",
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+          "fixture_consumer_shortfall_to_10": 6,
+          "fixture_fanout_shortfall_to_10": 2,
+          "fixture_independent_selected": 4,
+          "fixture_max_composition_unlock": 10,
+          "fixture_max_fanout": 8,
+          "frontier_additions": 5,
+          "frontier_change": "consumer-court-reuse -> admission-factory -> target-adapter fanout",
+          "frontier_size": 10,
+          "full_adapter_ready": 2,
+          "full_replication_ready": 2,
+          "generation": "R73",
+          "generation_depth": 2,
+          "generation_depth_this_run": 2,
+          "ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "ggen_main_observed": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "ggen_pr": 668,
+          "ggen_repo": "seanchatmangpt/ggen",
+          "gymact_merge": "b40df62bbb1f6d5661eb1dbeb332476c90faa470",
+          "head": "6e7dfa79b115a14cb2db9b231edf4b57a21e4012",
+          "head_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+          "independent_consumer_shortfall": 9,
+          "independently_alive_consumers": 1,
+          "independently_ready": 1,
+          "key": "dfcm/frontier/current",
+          "kind": "dfcm.frontier",
+          "known_consumers": 3,
+          "known_qualified_consumer_candidates": 2,
+          "latest_merge_pr": 145,
+          "latest_merge_sha": "ac6d52ed027e32d854ab9e119a39977542262c51",
+          "main_after": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "main_before": "8b97179940c5d748f994c10bfc64261743b6fde1",
+          "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+          "main_sha": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+          "marketplace_base": "d1ed42b25421b659821b75287fee45ee94b19489",
+          "marketplace_default": "3d579af785c3665fdc47aa872892c804284c46ff",
+          "marketplace_head": "aba29c44cab7577818f392878974c405f6a0a5ff",
+          "marketplace_main": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "marketplace_merge": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+          "marketplace_pr": 275,
+          "marketplace_r57_head": "302fe0be67a89c58665e14f059524f0b0615e6ba",
+          "marketplace_r57_pr": 275,
+          "marketplace_repo": "seanchatmangpt/ggen-marketplace",
+          "meaningful_commits": 61,
+          "meaningful_commits_direct": 0,
+          "merge_pr": 155,
+          "merge_sha": "446c62db307b62e251ddc3fdd67b5676f0178199",
+          "merges_this_run": 2,
+          "new_actionable_edges": 3,
+          "new_consumer_candidates": 2,
+          "new_edges": [
+            "R77_QUERY->DETERMINISTIC_GGEN_PROJECTION",
+            "R78_READY_SET->DETERMINISTIC_EXECUTION_EDGE_LINEAR_EXTENSION"
+          ],
+          "new_frontier_edges": [
+            "R71-plan->target-local-adapters",
+            "adapters->exact-consumer-qualification",
+            "consumer-receipts->R61-assimilation",
+            "R61->R63-R65-yield-calibration",
+            "orthogonal-consumers->independent-composition",
+            "composition->1000X-reevaluation"
+          ],
+          "new_opportunities_from_merge": [
+            "chatman#142 changed-head qualification",
+            "chatman#138 downstream if #142 qualifies",
+            "R57#275 reconcile with #274 verifier repairs"
+          ],
+          "new_primitive": "R63 relief-capital allocation courts",
+          "new_repairs": 2,
+          "new_unlock_classes": [
+            "R45+ derivative measurement/control",
+            "producer #245 changed integration standing",
+            "consumer adoption of frontier-derivative-pack",
+            "postmerge replication realization measurement",
+            "cross-repo qualification reuse"
+          ],
+          "newly_actionable": [
+            "compile bounded Project proxy receipts into temporal-truth RDF fixture",
+            "measure literal memory.query recall against canonical key reads",
+            "replicate temporal-truth contract into EXPLORE SELECT IMPLEMENT PORTFOLIO",
+            "project clean-current memory frontier into deterministic ggen inputs",
+            "calibrate supersession-chain depth and stale-field reconstruction cost",
+            "add independent live-head source collectors",
+            "close PR#299 after exact-head court terminal success"
+          ],
+          "newly_reachable_edges": [
+            "Project proxy -> RDF/OCEL causal projection -> R69",
+            "R69 clean chain -> R67 orthogonal consumer selection",
+            "R69 fanout discount -> corrected M/Y",
+            "R68 closure + R69 causality -> cross-cell causal lineage",
+            "clean independent roots -> R61 -> R63/R65 yield",
+            "orthogonal consumers -> canonical target adapters",
+            "causal independent consumers -> composition"
+          ],
+          "next": "QUALIFY_R73_THEN_R74_COMPOSE",
+          "next_chatman_head": "ac6d52ed027e32d854ab9e119a39977542262c51",
+          "next_chatman_pr": 142,
+          "next_chatman_standing": "REQUALIFYING",
+          "next_chatman_workflows_spawned": 24,
+          "next_edges": 3,
+          "next_measure_seed_count": 5,
+          "next_measure_seeds": [
+            "chatman#142 exact crown completion",
+            "chatman#138 downstream after #142",
+            "R57#275 current-main reconciliation",
+            "R56/R57 real-ggen shard0 compatibility",
+            "independent consumer replication expansion"
+          ],
+          "next_seeds": [
+            "R65 realized-capital reinvestment selection",
+            "R63 predicted-vs-R64 realized allocation calibration",
+            "cross-repository realization-return ingestion"
+          ],
+          "observed_1000x": "NOT_ADMITTED",
+          "observed_at": "2026-08-25T15:58:00Z",
+          "observed_merges": {
+            "ex4pm": 32,
+            "ggen": 670,
+            "gymact": 124
+          },
+          "observed_multiplier": 5,
+          "owning_court": "ALIVE",
+          "owning_r55": "ALIVE",
+          "pair_count": 6,
+          "partial_consumers": 2,
+          "partial_order_edges": [
+            "R78->R76",
+            "R76->R74",
+            "R74->COMPATIBLE_CONSUMERS",
+            "CONSUMERS->QUALIFICATION_RECEIPTS",
+            "RECEIPTS->THROUGHPUT_REVOPS_Y"
+          ],
+          "permanent_falsifier": "R46 exact ordinal slot coverage 186..235 plus SELECT-only authority for all slot variants",
+          "portfolio_semantic_commits": 4,
+          "post_query_matches": 25,
+          "post_query_receipt": "20260825T175700Z-implement-post-query",
+          "pr": 315,
+          "preserve": [
+            "SELECT R65 reinvestment selection",
+            "R61 receipt assimilation",
+            "R54 independence measurement",
+            "R51 admission factory"
+          ],
+          "preserved": [
+            "R71 orthogonal consumer allocator",
+            "R61 receipt assimilation",
+            "R63/R65 yield measurement",
+            "R72 temporal truth sensors",
+            "GymAct repair/revalidation option"
+          ],
+          "preserved_alternatives": [
+            "R76",
+            "R74"
+          ],
+          "preserved_edges": [
+            "R54 causal/yield measurement",
+            "R51 admission factory",
+            "R52 evidence-return loop"
+          ],
+          "preserved_options": [
+            "PR #291 provenance",
+            "correlated consumers with discounted evidence weight",
+            "R61 receipt assimilation",
+            "R63/R65 causal-yield calibration"
+          ],
+          "previous_branching_factor_lower_bound": 5,
+          "previous_frontier_size": 9,
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count": 365,
+          "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_snapshot_items": 368,
+          "qualified_head": "98fc4f900faf3db972b341989b921794e440ec47",
+          "qualified_scoped_consumers": 2,
+          "r43_pr": 244,
+          "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+          "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+          "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+          "r44_pr": 246,
+          "r44_qualified_head": "2db35c65e30511b688f379228e9b90474e56864e",
+          "r44_semantic_commit_floor": 50,
+          "r45_candidate": "c7731659694a111bdffe3f958a40a86c1e430f44",
+          "r45_composition": "ALIVE",
+          "r45_pr": 250,
+          "r45_standing": "REQUALIFYING",
+          "r46_contract": "ALIVE",
+          "r53_main": "b116088d8b6c6daf6595c3e9b30eb6bb58572f4b",
+          "r55_standing": "ALIVE",
+          "r56_consumer_court": "BUILD_BROKEN",
+          "r57_adapter_queries_passed": 50,
+          "r57_owning_court": "ALIVE",
+          "r57_r58_subject": "c64c3a712af7df28a5fe1591ab651d6f09562be2",
+          "r60_qualified_head": "f29068caee39ad16ac7534c789d6f186e5c65cd6",
+          "r61_qualified_head": "106b824f706866ee9f46243574818dd81ec56483",
+          "r65_contained": true,
+          "r70": "ALIVE[owning court]",
+          "r71_candidate": "231826736a1aa5ebb9eea0c93f0ffaaced5241f2",
+          "r71_head": "4e4562c955de1efef26dce8b6013f63bbb42df33",
+          "readiness_count": 2,
+          "ready_set": [
+            "R78_TCPS_READY_SET_CAPITAL"
+          ],
+          "ready_set_next": [
+            "R76_STRUCTURAL_CAPITAL_REQUALIFY"
+          ],
+          "real_ggen_failure_repaired": "epistemic-sensor-factory-pack evidence-return-protocol ORDER BY",
+          "realized_composition_multiplier": "UNKNOWN",
+          "reconciled_at": "2026-08-25T19:32:00Z",
+          "ref": "main",
+          "remaining_consumer_shortfall": 7,
+          "repair_commits": 3,
+          "repairs": [
+            "epistemic evidence-return deterministic ORDER BY",
+            "consumer-realization frontier-cardinality deterministic ORDER BY"
+          ],
+          "replication_qualification": "ALIVE",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_next": "R54-current-main-independence-reconstitution",
+          "semantic_commits": 50,
+          "semantic_commits_in_subject": 50,
+          "semantic_courts": 50,
+          "shortfall": 7,
+          "source_generation": "R56",
+          "source_head": "2de34340661086c01cc6fcc89e8db7e81c251b06",
+          "source_merge": "e11e19baf281701339e7fb6da46ccb10d0e790cf",
+          "source_pr": 265,
+          "stale_edge_removed": "reconcile-and-merge-r57-r58",
+          "stale_r65_pending_edge_superseded": true,
+          "standing": "ALIVE",
+          "standing_reason": "R44 closure complete; broad portfolio frontier remains and no R45 exact subject yet exists",
+          "structural_consumer_variants": 3375,
+          "structural_plans_per_consumer": 1125,
+          "superseded_frontier_claim": "convert R58 construction/verification plans into actual consumer execution surfaces",
+          "support_commits": 7,
+          "tags": [
+            "dfcm",
+            "frontier",
+            "merged",
+            "r78",
+            "tcps"
+          ],
+          "target": 10,
+          "target_consumer_factor": 10,
+          "target_factor": 10,
+          "thousand_x": "NOT_ADMITTED",
+          "total_new_meaningful_commits_run": 114,
+          "transport_head": "bb91beb6ed30416c85766f8de6b14fdc33468d04",
+          "transport_head_before_request": "64b54a18ac6d3ab32d2b195dd4070c65c1663f46",
+          "triple_count": 4,
+          "updated_at": "2026-08-26T04:06:25Z",
+          "vacuity": "ALIVE",
+          "weakest_multiplier": "qualified_independent_consumer_fanout_and_realized_yield"
+        },
+        "title": "DfCM reachable capital frontier"
+      },
+      {
+        "body": "Durable novel learning: strict GGEN determinism is a quality-at-source manufacturing law. A downstream real-ggen shard first exposed unordered R77 repository-universe projection; after repair it advanced and exposed unordered R78 allocation projection. Correct response is upstream pack repair plus permanent guard, not consumer workaround. TCPS correspondence: preserve partial order through admissibility/ready-set; only the generated execution edge chooses a deterministic linear extension, here ORDER BY DESC(selectionScore), candidate. Compatible concurrent cells may merge exact qualified capital while this cell validates; attribute merge actuation separately from authored capital and prove containment by merge parents. Exact contained subject f96dc9a5 -> merge/default aef231ce.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_5kM",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4C5K0",
+        "metadata": {
+          "candidate": "f96dc9a5f76783fd7d041392027cd61c5be5e566",
+          "cell": "SELECT_DEVELOP",
+          "created_at": "2026-08-26T04:05:57Z",
+          "key": "dfcm/run/select/20260826T035217Z/aef231ce",
+          "kind": "dfcm.run-learning",
+          "merge": "aef231ceb3e27150366a11b547dd115720230880",
+          "merge_actuated_by_this_cell": 0,
+          "new_meaningful_commits": 4,
+          "quality_at_source_repairs": 2,
+          "schema": "chatgpt-project-memory/v1",
+          "standard_work_promotions": 2,
+          "standing": "ALIVE",
+          "tags": [
+            "dfcm",
+            "durable-learning",
+            "ggen",
+            "r78",
+            "tcps"
+          ],
+          "updated_at": "2026-08-26T04:05:57Z"
+        },
+        "title": "R78 TCPS ready-set capital durable learning"
+      },
+      {
+        "body": "R78 TCPS ready-set capital compiler is exact-head ALIVE and default-contained. Exact candidate f96dc9a5f76783fd7d041392027cd61c5be5e566 passed owning R78 court, Vacuity Audit, fast admission, strict-GGEN qualification 4/4 shards and aggregate. PR #315 was merged concurrently by a compatible authorized cell while this cell was revalidating; merge/default SHA aef231ceb3e27150366a11b547dd115720230880 has parents frozen base 8ecb78504241aef4fb1de1bd4f14bd1e71089a0b and exact candidate f96dc9a5. This cell directly authored 4 meaningful quality-at-source commits contained in that merge: R77 deterministic ORDER BY repair + guard; R78 execution-edge deterministic ORDER BY repair + guard. R78 train total=78 commits, including pre-existing capital not relabeled as current-run authorship. Preserved alternatives R76/R74 become the next downstream ready-set revalidation frontier. Y=UNKNOWN; M>=2; G=1.0; 1000X NOT_ADMITTED.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "1000x": "NOT_ADMITTED",
+          "D": "PENDING_EXACT_AGGREGATE_QUALIFICATION",
+          "ERRC": {
+            "create": [
+              "50-court R69 causal family",
+              "current Project adversarial fixture",
+              "executable verifier",
+              "exact-head CI",
+              "R67+R68+R69 composition"
+            ],
+            "eliminate": [
+              "stale PR #291 as implementation substrate",
+              "raw workflow fanout as M/Y evidence",
+              "false refusal of actuation falsifier query text"
+            ],
+            "raise": [
+              "exact-subject causality",
+              "public ontology alignment",
+              "falsifier quality",
+              "deterministic qualification",
+              "causal evidence for M/Y"
+            ],
+            "reduce": [
+              "request-receipt identity/currentness/provenance ambiguity",
+              "workflow path/concurrency/latency ambiguity",
+              "correlated evidence inflation"
+            ]
+          },
+          "F": "UNCHANGED_REALIZED",
+          "G": 1.0,
+          "M": ">=2",
+          "M_lower_bound": 1,
+          "T_active_per_hour": 286.76,
+          "U": "STANDARD_WORK_PROMOTED_REQUALIFYING",
+          "Y": "UNKNOWN",
+          "Y_basis": "one downstream exact R55 subject qualified through the reusable court / five new semantic investments",
+          "Y_future": "UNKNOWN",
+          "Y_observed": 0.2,
+          "Y_qualified_observed": 0,
+          "Y_structural_lower_bound": 0.033,
+          "admissible_set": [
+            "R78_TCPS_READY_SET_CAPITAL",
+            "R76_STRUCTURAL_CAPITAL_REQUALIFY",
+            "R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"
+          ],
+          "admitted_in_fixture": 1,
+          "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|GITHUB_PR_MERGE|PROJECT_MEMORY",
+          "base": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+          "baseline": 50,
+          "bootstrap_candidate": "1df94088d7d8b5fc256be94befe00936befade1f",
+          "bootstrap_merge": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+          "bootstrap_pr": 271,
+          "branch_commits": 78,
+          "broad_ci": "ALIVE",
+          "broad_ci_run": 32860889422,
+          "bus_head": "a5bcf391d5a20365fa3d8de02bf974fa68d9ef0b",
+          "bus_head_before_request": "fe6aec45b65ae004d3ffa106908bcfe372f96c16",
+          "candidate": "f96dc9a5f76783fd7d041392027cd61c5be5e566",
+          "candidate_sha": "c5a973bf14e582c005bd4ce0cc39828c194f4249",
+          "cell": "SELECT_DEVELOP",
+          "changed_files": 72,
+          "clean_independent": 3,
+          "clean_independent_fixture": 3,
+          "consequential_do": false,
+          "construction_base": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+          "consumer_final_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+          "consumer_previous_head": "729a69eb4d4b03fe21887a0ba8093e74342799eb",
+          "consumer_ready": 2,
+          "consumer_ready_before": 2,
+          "consumer_ready_structural_after_candidate": 4,
+          "consumer_shortfall": 7,
+          "consumer_shortfall_to_10x": 7,
+          "consumer_target": 10,
+          "consumers_admitted": 3,
+          "consumers_developed": [
+            "seanchatmangpt/ggen"
+          ],
+          "consumers_grounded": 4,
+          "consumers_independently_ready": 1,
+          "consumers_observed": 4,
+          "consumers_preserved": [
+            "seanchatmangpt/chatgpt-cloud-elixir"
+          ],
+          "consumers_profiled": 4,
+          "consumers_unlocked": [
+            "ggen",
+            "ex4pm",
+            "chatgpt-cloud-elixir",
+            "marketplace current-subject revalidation",
+            "GymAct repair/revalidation"
+          ],
+          "created_at": "2026-08-25T09:28:23Z",
+          "current_base": "0377678f4741aadd5a40c5729ed016e163e3d4b2",
+          "current_marketplace_main": "97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+          "default_head": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+          "defects_repaired": [
+            "cross-pack Project-memory instance ownership leak",
+            "unconsumed concurrent provenance stub",
+            "cancelled broad-CI rerun after semantic repair"
+          ],
+          "direct_meaningful_commits": 66,
+          "direct_new_meaningful_commits": 4,
+          "direct_semantic_commits_authored_this_cell": 0,
+          "errc": {
+            "create": [
+              "51-court revalidation capital family",
+              "ggen manufacturing-plan projection",
+              "reference court",
+              "exact-head qualification rail"
+            ],
+            "eliminate": [
+              "stale-head standing inheritance",
+              "manual revalidation triage",
+              "ambient-DO planning"
+            ],
+            "raise": [
+              "exact-subject currentness",
+              "reversibility",
+              "yield/unlock visibility",
+              "deterministic manufacture"
+            ],
+            "reduce": [
+              "authority ambiguity",
+              "candidate-to-qualified latency",
+              "context reconstruction"
+            ]
+          },
+          "ex4pm_base": "e12fccb42a67bc4496cac91c86bff2b856cc463d",
+          "ex4pm_broad_ci": "IN_PROGRESS",
+          "ex4pm_candidate": "40e62701976a0c4555ffc00530b71c6acae515f2",
+          "ex4pm_head": "40e62701976a0c4555ffc00530b71c6acae515f2",
+          "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "ex4pm_r58": "ALIVE",
+          "ex4pm_r58_run": 32869939214,
+          "exact_bus_head": "0a363200c023625b8d932d3d0f621066f38f3cd5",
+          "exact_bus_head_before_request": "cdf5b1978171ee84773984c640789a7eb891fb56",
+          "exact_head_rails": {
+            "broad_ci": "IN_PROGRESS",
+            "r56_combinatorial": "ALIVE",
+            "r56_replication": "ALIVE",
+            "r57": "ALIVE",
+            "vacuity": "ALIVE"
+          },
+          "falsifier": "R52 exact-head qualification pending",
+          "falsifiers": [
+            "exact-50 sensor-count assumption is invalid for cumulative sensor families",
+            "executable workflow without timeout-minutes is refused by repository CI law"
+          ],
+          "full_replication_ready": 2,
+          "fully_orthogonal_pairs": 5,
+          "generation": "R73",
+          "ggen_involved": 59,
+          "gymact_base": "b40df62bbb1f6d5661eb1dbeb332476c90faa470",
+          "gymact_broad_ci": "IN_PROGRESS",
+          "gymact_candidate": "b072261ee48a792445394115df5a1d8600baf886",
+          "gymact_head": "b072261ee48a792445394115df5a1d8600baf886",
+          "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "gymact_r58": "ALIVE",
+          "gymact_r58_run": 32870489499,
+          "gymact_world_crown": "ALIVE",
+          "gymact_world_crown_run": 32870489559,
+          "handoff": "QUALIFY exact R73 head; merge #302 only after owning court, Vacuity, timeout law, and broad real-ggen CI are ALIVE. Requalify R74 c1153cd1 and preserve as next factory composition.",
+          "hard_gates": [
+            "exact_subject",
+            "legality_before_priority",
+            "strict_ggen_determinism",
+            "authority_bounded",
+            "receipt_required",
+            "zero_consequential_do"
+          ],
+          "head_after": "c7731659694a111bdffe3f958a40a86c1e430f44",
+          "head_before": "61f4b9932d34c857081ce7759eca8c89f0845e3c",
+          "head_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+          "implement_handoff": [
+            "qualify exact 57301a8d head",
+            "merge #307 only after exact-head admissible evidence",
+            "execute R76 plan over current R75 gaps",
+            "manufacture all admitted consumer populations from canonical packs",
+            "return qualification receipts and measure realized Y/M"
+          ],
+          "independent_executed_consumer_lower_bound": 3,
+          "key": "dfcm/select/latest",
+          "kind": "dfcm.select",
+          "marketplace_base": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "marketplace_base_initial": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+          "marketplace_default": "aef231ceb3e27150366a11b547dd115720230880",
+          "marketplace_main": "d1ed42b25421b659821b75287fee45ee94b19489",
+          "meaningful_commits": 74,
+          "merge_actuated_by_this_cell": 0,
+          "merge_count": 0,
+          "merge_observed": 1,
+          "merge_sha": "78073608a0b3456715d443d37f091b1634201ccb",
+          "merges": 2,
+          "new_meaningful_commits": 60,
+          "new_meaningful_repo_commits": 54,
+          "new_semantic_commits": 2,
+          "new_semantic_courts": 50,
+          "owning_court": "ALIVE",
+          "owning_court_run": 32860889375,
+          "owning_r70": "ALIVE",
+          "partial_in_fixture": 3,
+          "partial_order_edges": [
+            "R77_REPOSITORY_UNIVERSE->R78_TCPS_READY_SET_CAPITAL",
+            "R78_TCPS_READY_SET_CAPITAL->R76_STRUCTURAL_CAPITAL_REQUALIFY"
+          ],
+          "pr": 315,
+          "pr_commits": 78,
+          "pre_bus_head": "a49aebb8461aa499f5b2e7f4320019de09712325",
+          "preserved_alternatives": [
+            "R76",
+            "R74"
+          ],
+          "producer_head": "8bd29043a2818a5fb6a4de65cc403eff8e495b58",
+          "producer_repo": "seanchatmangpt/ggen-marketplace",
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_item_count_pre": 388,
+          "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_snapshot_items": 373,
+          "prompt_digest": "8419fc64af11a2fa5b81fe786aad6591a0e7a8f8c8a7ca6f90324238dbef8de2",
+          "qualification": {
+            "aggregate": "ALIVE",
+            "fast_admission": "ALIVE",
+            "r78": "ALIVE",
+            "real_ggen_shards": "4/4_ALIVE",
+            "vacuity": "ALIVE"
+          },
+          "qualification_runs": {
+            "broad_ci": 32907803468,
+            "r69": 32907803426,
+            "vacuity": 32907803508
+          },
+          "qualified_candidate": "60a4a4611a7be113115e3e35c6043bf79a82955b",
+          "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+          "r55_candidate": "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf",
+          "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+          "r55_pr": 270,
+          "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+          "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+          "readiness_count": 2,
+          "readiness_shortfall": 8,
+          "ready_set": [
+            "R78_TCPS_READY_SET_CAPITAL"
+          ],
+          "ready_set_after_merge": [
+            "R76_STRUCTURAL_CAPITAL_REQUALIFY",
+            "R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY_IF_DEPENDENCIES_SATISFIED"
+          ],
+          "real_ggen_shards": "4/4_ALIVE",
+          "ref": "main",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "reusable_primitive": "revalidation-manufacturing-capital-pack",
+          "reusable_primitives": [
+            "orthogonal-consumer-capital-pack"
+          ],
+          "run_id": "select4+20260826T032826Z+SELECT_DEVELOP",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+          "selected_portfolio": [
+            "R73 revalidation-manufacturing-capital-pack",
+            "R71 orthogonal consumer plan as downstream input",
+            "R61/R63/R65 receipt-yield calibration as preserved downstream"
+          ],
+          "selected_pr": 272,
+          "selected_preexisting_commits": 65,
+          "selected_repo": "seanchatmangpt/ggen",
+          "semantic_capital_contained": 55,
+          "semantic_commits": 52,
+          "semantic_commits_contained": 54,
+          "semantic_courts": 50,
+          "semantic_query_commits": 50,
+          "shortfall": 49,
+          "snapshot_item_count": 366,
+          "snapshot_project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "standard_work_promotions": [
+            "r77-deterministic-select",
+            "r78-deterministic-linear-extension"
+          ],
+          "standing": "ALIVE",
+          "strong_orthogonal_pairs": 1,
+          "tags": [
+            "dfcm",
+            "ggen",
+            "merged",
+            "r78",
+            "select",
+            "tcps"
+          ],
+          "thousand_x": "NOT_ADMITTED",
+          "total_commits": 66,
+          "total_pr_commits": 55,
+          "transport_head_before_request": "91e7d1d51a9c252f15b608648134d4263b9bf6a2",
+          "updated_at": "2026-08-26T04:05:32Z",
+          "upstream_returns": [
+            "R77_ORDER_BY_DETERMINISM",
+            "R78_EXECUTION_EDGE_ORDER_BY_DETERMINISM"
+          ],
+          "vacuity": "ALIVE",
+          "vacuity_run": 32860889543,
+          "weakest_multiplier": "independently qualified consumers manufactured from current exact-subject plans",
+          "weakest_multiplier_after": "independent consumer breadth plus empirical ALIVE-to-dependency-relief conversion",
+          "workflow_commits_excluded": 2
+        },
+        "title": "DfCM SELECT latest"
+      },
+      {
+        "body": "Structural-manufacturing delta: canonical portfolio-epistemic-observability pack now has deterministic R77 repository-universe projection and deterministic R78 ready-set allocation projection. This strengthens the ExistingStructure -> Decision -> DesiredStructure -> Ontology -> Pack -> Generator correspondence before R76/R74 consumer regeneration. Generalizable defects were lifted to pack source and permanent tests, not retained as consumer-local fixes. Exact head f96dc9a5 is REQUALIFYING; regeneration fanout waits on producer crown.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_4I0",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CS_E",
+        "metadata": {
+          "D": "PENDING_EXACT_QUALIFICATION",
+          "F": "UNCHANGED",
+          "G": 1.0,
+          "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+          "actuation_performed": false,
+          "authority": "SELECT|CONSTRUCT",
+          "base_sha": "e1a707b2e3a3905b80f727ab3b43d2c53187a8df",
+          "canonical_pack": "portfolio-epistemic-observability-pack",
+          "cell": "SELECT_DEVELOP",
+          "consumer_regeneration": "PENDING_PRODUCER_QUALIFICATION",
+          "courts": 4,
+          "created_at": "2026-08-26T02:17:42Z",
+          "feature_head": "bf12a25429f612031e746715a07042e99ff31836",
+          "feature_pr": 301,
+          "gates": 4,
+          "generated_surface_hand_edits": 0,
+          "ggen_version": "26.8.11",
+          "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+          "key": "ggen/structural-manufacturing/current",
+          "kind": "ggen.structural-manufacturing",
+          "meaningful_commits": 53,
+          "next": [
+            "R76 structural-capital revalidate",
+            "R74 option-factory revalidate",
+            "compatible consumer regeneration"
+          ],
+          "pr": 305,
+          "queries": 23,
+          "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+          "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+          "repair_head": "74bf06395d8a92b680a3abf81d2823dec1c3f88b",
+          "repair_pr": 312,
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "run_id": "SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE",
+          "schema": "chatgpt-project-memory/v1",
+          "standard_work_promotions": 2,
+          "standing": "PARTIAL_ALIVE",
+          "tags": [
+            "ggen",
+            "r78",
+            "structural-manufacturing",
+            "tcps"
+          ],
+          "templates": 7,
+          "updated_at": "2026-08-26T04:04:45Z",
+          "upstream_returns": 2
+        },
+        "title": "GGEN structural manufacturing"
+      },
+      {
+        "body": "R77 exact repository universe@8ecb7850 -> R78 TCPS legality/ready-set compiler@59ab6315 -> 50 courts + GGEN allocation projection -> first exact R78/Vacuity ALIVE -> broad CI Andon -> upstream repairs: R75/R76 deterministic projections, R75/R76/R77 temporal bounds, R47/R51 manifest-bound semantic identities -> standard-work regression court -> PR #315 REQUALIFYING. R76/R74 preserved as admissible not-ready alternatives. Consequential DO=0.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CtY",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "C_observed_lower_bound": 5.0,
+          "E": 4.0,
+          "HANDWRITTEN_IRREDUCIBLE_REASON": null,
+          "M": "UNKNOWN_PRE_READ_NOT_ADMITTED",
+          "R_consumer_alive": 1,
+          "R_consumer_observed_lower_bound": 2,
+          "R_qualification": 50,
+          "alive_consumers": 1,
+          "authored_head": "6c0037b2283b4151f5c1e95700de96a29c2eb69c",
+          "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|PROJECT_MEMORY",
+          "base": "5eac35d1a597080cab8388f4a72cb5278b3e4c92",
+          "base_sha": "e1a707b2e3a3905b80f727ab3b43d2c53187a8df",
+          "bootstrap_from_empty_namespace": true,
+          "bootstrap_merge": "edccb9870e0dcb5ee147944640fb332994123ef9",
+          "branch_commits": 67,
+          "branching_factor_lower_bound": 2,
+          "broad_ci": "IN_PROGRESS",
+          "bus_head": "b6677707dc72347fcc0b14fd1723430a29391877",
+          "bus_head_before_request": "01222e4fa7757aaee04f850b73f83f4755eaff38",
+          "candidate": "59ab631592496a502620ea4a8ebc8efc8cc4f7ce",
+          "candidate_sha": "60a4a4611a7be113115e3e35c6043bf79a82955b",
+          "canonical_primitive": "epistemic-sensor-factory-pack",
+          "capability": "R55 independent consumer fanout",
+          "cell": "SELECT_DEVELOP",
+          "commits": 74,
+          "composed_candidate": "913ef1012c01e99bed6df190e3d79dd7bf974998",
+          "concurrent_marketplace_main": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+          "concurrent_merge": {
+            "head": "d0545b5ec392aad466969433a915e23359d26e98",
+            "merge": "7d158ef97c6f41a67933f501397e29729abef071",
+            "pr": 247
+          },
+          "concurrent_repair_head": "d0545b5ec392aad466969433a915e23359d26e98",
+          "concurrent_repair_merge": "7d158ef97c6f41a67933f501397e29729abef071",
+          "concurrent_repair_pr": 247,
+          "consequential_do": false,
+          "consumer_candidates": 4,
+          "consumer_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+          "consumer_shortfall": 8,
+          "consumers": [
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact"
+          ],
+          "containment": "ALIVE_3_OF_3",
+          "containment_proofs": 2,
+          "created_at": "2026-08-25T08:19:33Z",
+          "current_main": "8b97179940c5d748f994c10bfc64261743b6fde1",
+          "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+          "default_head": "04cd8add33e732c556a916a8182d25f8849ec557",
+          "defect_classes": [
+            "SELECT generation lacks ORDER BY",
+            "legacy rows template context"
+          ],
+          "diagnostic_edges_from_r57": 4,
+          "direct_meaningful_commits": 66,
+          "duplicate_semantic_capital_counted_twice": false,
+          "durable_falsifiers": [
+            "exact-head invalidation after child merge",
+            "real-ggen shard0 R56/R57 compatibility",
+            "R56 50-court changed-subject failure"
+          ],
+          "durable_unlock_edges": [
+            "consumer fanout",
+            "postmerge realization",
+            "cross-repo qualification reuse",
+            "R45+ control/measurement",
+            "stale-capital reconciliation"
+          ],
+          "edge_count_added": 8,
+          "edges": [
+            "Project-pre->selection",
+            "R67+R70->R71-allocator",
+            "R71->51-courts",
+            "51-courts->ggen-plan",
+            "candidate->owning-ALIVE",
+            "candidate->Vacuity-ALIVE",
+            "candidate->broad-CI-ALIVE",
+            "PR298->merge-33dae58b",
+            "merge->default-containment"
+          ],
+          "edges_added": 9,
+          "exact_bus_head": "e5c388888638c1bbb536891e33f5434acb53ecbf",
+          "exact_bus_head_before_request": "fe42fb398d852a4f6d6ed05b3eeb67aa8c463f60",
+          "exact_subject": "seanchatmangpt/ggen-marketplace@b942ff54f7d00e376dd2f28beb930390f4feb97b",
+          "factory_for_factories": "generation-contract-preflight",
+          "failed_edges": 2,
+          "final_main": "be81dd42c8eae76b571b6e0b43951ee52b061367",
+          "final_marketplace_head": "3cba770ef2ee9d4460fa8556269f2e3eb13ef867",
+          "fresh_correction_at": "2026-08-25T13:29:00Z",
+          "full_replication_ready": 2,
+          "generated_outputs_hand_edited": 0,
+          "generation": "R73",
+          "generation_depth": 3,
+          "ggen_head": "b0833991198f12f0f0eddc9cb8f6d9927123d231",
+          "ggen_merge_sha": "a9967f98df05f7a1f0c54376b2a35508bacb935d",
+          "ggen_pr": 670,
+          "ggen_pr_state": "MERGED",
+          "ggen_qualified_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+          "head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+          "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+          "historical_ahead": 62,
+          "historical_behind": 132,
+          "historical_pr": 288,
+          "key": "dfcm/ledger/current",
+          "kind": "dfcm.ledger",
+          "known_consumers": 3,
+          "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+          "marketplace_head": "0f3349afe3fe12a26932974b8e6a47399b1e94ab",
+          "meaningful_commits": 62,
+          "meaningful_commits_authored": 54,
+          "memory_avoided_rediscovery_edges": 1,
+          "memory_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+          "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+          "merge": "95387a0632f7e460e65cdd89e77ea7f902093af0",
+          "merge_count": 1,
+          "merge_count_this_run": 1,
+          "merge_edge": "REFUSED[DRAFT_STATE_TRANSITION_UNAVAILABLE]",
+          "merge_pr": 270,
+          "merge_sha": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+          "merges": [
+            {
+              "head": "91398d08a78f646463dae12adaeef681ca3ab010",
+              "merge": "98fc4f900faf3db972b341989b921794e440ec47",
+              "pr": 158
+            },
+            {
+              "head": "98fc4f900faf3db972b341989b921794e440ec47",
+              "merge": "446c62db307b62e251ddc3fdd67b5676f0178199",
+              "pr": 155
+            },
+            {
+              "head": "446c62db307b62e251ddc3fdd67b5676f0178199",
+              "merge": "a81e36a529ecd0c4ee40b69981d6f58af87dc34c",
+              "pr": 152
+            }
+          ],
+          "new_actionable_edges_from_merge": 1,
+          "new_adjacency_count": 5,
+          "new_edges": [
+            "R72 temporal truth -> R73 revalidation candidate",
+            "R73 candidate -> 51 semantic courts",
+            "semantic courts -> Pareto capital frontier",
+            "frontier -> deterministic ggen manufacturing plan",
+            "cross-pack ownership failure -> literal provenance-key repair",
+            "concurrent orphan stub -> typed vacuity failure -> elimination",
+            "60a4a461 exact subject -> owning+Vacuity+real-ggen 4/4 ALIVE",
+            "PR300 -> merge 78073608 -> default containment",
+            "R73 plan -> owning consumer qualification -> R61 receipt assimilation -> R63/R65 realized Y"
+          ],
+          "new_merges": [
+            "ex4pm@e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "gymact@f3457bdb8a7878946783d34f402b95774eaf8c4b"
+          ],
+          "new_rule": "deduplicate concurrent equivalent repair lineages by exact resulting capability/tree",
+          "new_semantic_commits_authored_by_portfolio": 50,
+          "new_support_commits_authored_by_portfolio": 3,
+          "new_unlock_edges": 5,
+          "next": "chatman-ecosystem#152@446c62db307b62e251ddc3fdd67b5676f0178199",
+          "next_edges": 3,
+          "next_lawful_consumer": "seanchatmangpt/ex4pm#32@7a08ba84b46f38f9ed3e3e371fead1953c70bf9e",
+          "next_repair": "ggen-marketplace#264 real-ggen shard0",
+          "observed_at": "2026-08-25T14:03:30Z",
+          "observed_consumer_multiplier": 1,
+          "option_value_preserved": true,
+          "owning_court": "ALIVE",
+          "partial_consumers": 2,
+          "portfolio_authored_ci_commits": 1,
+          "portfolio_authored_semantic_commits": 2,
+          "portfolio_merges": [
+            {
+              "containment": "EXACT",
+              "head": "2db35c65e30511b688f379228e9b90474e56864e",
+              "merge": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+              "pr": 246
+            },
+            {
+              "containment": "EXACT",
+              "head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+              "merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+              "net_tree_delta": 0,
+              "pr": 248
+            },
+            {
+              "containment": "EXACT",
+              "head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+              "merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+              "pr": 249
+            }
+          ],
+          "portfolio_repair_head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+          "portfolio_repair_merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+          "portfolio_repair_pr": 248,
+          "postmerge_repair_merge": "b116088d8b6c6daf6595c3e9b30eb6bb58572f4b",
+          "pr": 315,
+          "pr_merges": [
+            250,
+            251
+          ],
+          "pre_snapshot_items": 365,
+          "preserve": [
+            "R54#265",
+            "R51#263"
+          ],
+          "preserve_prior": true,
+          "preserve_prior_alternatives": true,
+          "preserved": [
+            "R61 receipt assimilation",
+            "R54 independence measurement",
+            "cloud independent consumer evidence"
+          ],
+          "preserved_option_value": [
+            "R54 causal/yield measurement",
+            "admitted consumer adapter/evidence-return candidates"
+          ],
+          "preserves_prior_consumer_edges": true,
+          "previous_content_id": "DI_lAHOCCCFfc4BhZKezgK_j0E",
+          "previous_ledger_read_receipt": "20260825T170330Z-measure-r4-read-ledger",
+          "previous_valid_lineage": "R45/R45B retained",
+          "producer": "control-plane-causality-observability-pack/R70",
+          "producer_base": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+          "producer_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+          "project_pre": "PARTIAL_ALIVE[SNAPSHOT_ONLY;READ_WRITE_REFUSED]",
+          "qualification_artifacts": 45,
+          "qualification_run": 32843730780,
+          "qualification_runs": [
+            32860889375,
+            32860889543,
+            32860889422
+          ],
+          "qualified_head": "d79b687ad0acc7a69b0386af7eec0c74ccbae029",
+          "r44_head": "2db35c65e30511b688f379228e9b90474e56864e",
+          "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+          "r44_pr": 246,
+          "r46_qualified_head": "32f0af7d7b36b336c029b4d3a81e61a0d905a32c",
+          "r47_courts": 50,
+          "r50_edges": [
+            {
+              "from": "memory:dfcm/portfolio/latest",
+              "relation": "prov:wasDerivedFrom",
+              "to": "observation:stale-R-observed-1"
+            },
+            {
+              "from": "observation:ggen-r48-merged",
+              "relation": "prov:generated",
+              "to": "sensor-family:consumer-evidence-return"
+            },
+            {
+              "from": "sensor-family:consumer-evidence-return",
+              "relation": "prov:generated",
+              "to": "opportunity:missing-consumer-receipt-return"
+            },
+            {
+              "from": "opportunity:missing-consumer-receipt-return",
+              "relation": "prov:wasAssociatedWith",
+              "to": "subject:chatgpt-cloud-elixir-current"
+            },
+            {
+              "from": "subject:ggen@a5be7f0c88c411cb023eb7960a4cb1b3e521f474",
+              "relation": "prov:generated",
+              "to": "receipt:ggen-r48-independent-consumer"
+            },
+            {
+              "from": "receipt:ggen-r48-independent-consumer",
+              "relation": "prov:generated",
+              "to": "standing:ALIVE"
+            },
+            {
+              "from": "subject:chatgpt-cloud-elixir@327d6013252ca9f6df3dba712f3ff0d493adbc83",
+              "relation": "prov:generated",
+              "to": "standing:PARTIAL_ALIVE"
+            },
+            {
+              "from": "observation:synthetic-merge-checkout",
+              "relation": "prov:generated",
+              "to": "repair:immutable-pr-head-checkout"
+            },
+            {
+              "from": "repair:immutable-pr-head-checkout",
+              "relation": "prov:generated",
+              "to": "receipt:workflow-run-32841749107-success"
+            },
+            {
+              "from": "receipt:workflow-run-32841749107-success",
+              "relation": "prov:generated",
+              "to": "standing:R50-ALIVE"
+            },
+            {
+              "from": "standing:R50-ALIVE",
+              "relation": "prov:generated",
+              "to": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711"
+            },
+            {
+              "from": "merge:9fe8fe237601a08817cbc14f05e8dd93186e3711",
+              "relation": "prov:generated",
+              "to": "unlock:independent-cloud-consumer-return"
+            }
+          ],
+          "r50_ledger_append_at": "2026-08-25T11:22:35Z",
+          "r50_preserves_prior_edges": true,
+          "r53_merge": "1716756badb9f193ffed97e38cefdc1d152add80",
+          "r53_qualified_head": "b4012a45ccc4f8ce9e3cc03f9d14b337822eb7c9",
+          "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+          "r56_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+          "r56_merge": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+          "r61_main": "36fcc8e41dcbd01a3b10574eb1d029c1712fa3c1",
+          "r62_head": "ca5a2f2334e64218ceee2c92cb7c98c7bd6d750f",
+          "r62_merge": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+          "r64_edge": {
+            "base": "3d579af785c3665fdc47aa872892c804284c46ff",
+            "containment": "ALIVE",
+            "merge_sha": "ca8b736491a34ca84bda0b4a1e4f4cc0ca99ea96",
+            "pr": 284,
+            "qualified_head": "9b2df357aa56148e8f2cbe1d4222cc2c94758a6e",
+            "semantic_commits": 50,
+            "support_commits": 7,
+            "unlocks": [
+              "R65 reinvestment selection",
+              "R63-vs-R64 calibration",
+              "cross-repo realization return"
+            ]
+          },
+          "r65_edge": {
+            "head": "6e7dfa79b115a14cb2db9b231edf4b57a21e4012",
+            "parent_merge": "ca8b736491a34ca84bda0b4a1e4f4cc0ca99ea96",
+            "pr": 285,
+            "semantic_commits": 50,
+            "standing": "REQUALIFYING",
+            "support_commits": 7,
+            "unlocks": [
+              "target-bound consumer construction",
+              "allocation calibration",
+              "memory multiplier calibration",
+              "cross-repo realization return"
+            ]
+          },
+          "r72_defect_edges": [
+            "ontology:rdf_prefix_missing -> repair:48d8f15c",
+            "sensor:047_invalid_union -> falsifier:32914047725 -> repair:221510b9"
+          ],
+          "r72_merge_edge": "subject:221510b90a8b8ccb04bef8d4f860f914e7f7b4d0 -> qualification:32914179747/SUCCESS -> merge:a9a63586918acb680331c09bad3ad81b3723523c -> standing:ALIVE",
+          "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+          "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+          "readiness_count": 2,
+          "ref": "main",
+          "repair": "r55-template-results-context",
+          "repair_commits": [
+            "21e7542445bf4bb4f801d2e9697bcaac0ee1be6f",
+            "c7731659694a111bdffe3f958a40a86c1e430f44"
+          ],
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+          "schema": "chatgpt-project-memory/v1",
+          "selected_pr": 250,
+          "semantic_commits": 52,
+          "semantic_commits_direct": 9,
+          "semantic_courts": 50,
+          "semantic_sensors": 50,
+          "sensor_count": 50,
+          "sensor_family": "2001-2050",
+          "sensors_added": 50,
+          "stale_statement_reclassified": "ggen #670 merge actuation refused -> historical only",
+          "standing": "PARTIAL_ALIVE",
+          "structural_multiplier_standing": "INFERRED_STRUCTURAL_NOT_OBSERVED",
+          "structural_variants": 3375,
+          "subject": "c7731659694a111bdffe3f958a40a86c1e430f44",
+          "tags": [
+            "dfcm",
+            "ledger",
+            "r77",
+            "repository-universe"
+          ],
+          "transport_head": "07b6683d352be8ceecf53a4ec0c7395d68116594",
+          "transport_head_before_request": "30922c7f03d9260c7ff67f6c97d713f71486dc67",
+          "unique_meaningful_semantic_commits_observed": 54,
+          "unique_semantic_repairs": 2,
+          "unlock": "R56 pair/triple combinatorial consumer portfolio",
+          "unlock_edges": 5,
+          "unlocked_head": "11c4272f0094bed2d438398a3b76d10c3c8c2c5f",
+          "unlocked_pr": 273,
+          "updated_at": "2026-08-26T03:49:33Z",
+          "upstream_falsifier": "TEMPLATE_VARIABLE_MISSING rows",
+          "upstream_repair": "rows->results + permanent guard",
+          "vacuity": "ALIVE",
+          "weakest_multiplier": "causally-qualified consumer fanout",
+          "workflow_run": 32923088512,
+          "workflow_standing": "ALIVE"
+        },
+        "title": "DfCM capability ledger"
+      },
+      {
+        "body": "R78 standardizes downstream-customer-first, partial-order preservation, hard admissibility before capital score, ready-set-only allocation, delayed linear extension, parallelism preservation, upstream return, and qualified-novelty standard-work promotion. Exact candidate df908435, PR #315. R78 court ALIVE; repository crown pending broad CI/Vacuity. Consequential DO=0.",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgK_5Uc",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Cxgs",
+        "metadata": {
+          "admissible_set": [
+            "R78",
+            "R76",
+            "R74"
+          ],
+          "candidate": "df908435a84a0240b9d89a48ea8ded81bfb74265",
+          "cell": "SELECT_DEVELOP",
+          "created_at": "2026-08-26T03:42:30Z",
+          "key": "tcps/schedule-actuation/current",
+          "kind": "tcps.schedule_actuation",
+          "preserved_alternatives": [
+            "R76",
+            "R74"
+          ],
+          "ready_set": [
+            "R78"
+          ],
+          "schema": "chatgpt-project-memory/v1",
+          "standing": "PARTIAL_ALIVE",
+          "tags": [
+            "r78",
+            "ready-set",
+            "tcps"
+          ],
+          "tcps_patterns_applied": [
+            "downstream_customer_first",
+            "partial_order_preservation",
+            "ready_set_only",
+            "legality_before_priority",
+            "linear_extension_at_execution_edge",
+            "parallelism_as_production_space",
+            "pull_from_downstream",
+            "upstream_return",
+            "qualified_novelty_to_standard_work"
+          ],
+          "transport_head_before_request": "f05748aeeb424d32df822ca440404f82b2582e7b",
+          "updated_at": "2026-08-26T03:42:30Z"
+        },
+        "title": "TCPS schedule actuation"
+      }
+    ],
+    "scanned": 54,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
