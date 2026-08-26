@@ -1,0 +1,32 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: tcps/muda-mura-muri/current",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T04:35:00Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "tcps/muda-mura-muri/current",
+      "transport_head": "9f644dd84c945b6390e1443ca639be6ed59e1a5f"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T043020Z-cell3-read-muda"
+  },
+  "request_id": "20260826T043020Z-cell3-read-muda",
+  "request_path": "project-memory/requests/20260826T043020Z-cell3-read-muda.json",
+  "request_sha256": "sha256:c34e9bcb1c03f44029d31df7f18c1dac41a1bae3613d5184f1632724d16c8073",
+  "request_transport_sha256": "sha256:6541dbd3f1740993971759becaec5a134e05f50f26898804be34910a34658cc5",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
