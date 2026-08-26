@@ -16,6 +16,12 @@ acceptance = [
 otp = "27.2.4"
 elixir = "1.18.4"
 
+[dependencies.wasm4pm_compat]
+repository = "https://github.com/seanchatmangpt/wasm4pm-compat.git"
+sha = "577e2d1d8bdfe27d96f61c63f3ea120994e8bfda"
+tree_sha = "fcc6d3e778970e19be0bbd02efab02b3b28d1282"
+materialize_as = "wasm4pm-compat"
+
 [subjects.ash_r2rml]
 repository = "https://github.com/seanchatmangpt/ash_r2rml.git"
 sha = "7ce5ff63da03fcc3bb661890f51b0c9494147140"
