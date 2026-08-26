@@ -1,0 +1,146 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T17:35:22Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "tcps/muda-mura-muri/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T153202Z-fanout-read-tcps"
+  },
+  "request_id": "20260826T153202Z-fanout-read-tcps",
+  "request_path": "project-memory/requests/20260826T153202Z-fanout-read-tcps.json",
+  "request_sha256": "sha256:4a21d49e17baca706d6381b5f1ec3eb94360dd06f352f25969ac1b0b1a9ef409",
+  "request_transport_sha256": "sha256:b6f6b6b809fbea2bdbddfc8188f169a2ebe51ce9f43de7300fd766818e73e18c",
+  "result": {
+    "body": "R87 reused one canonical qualification capsule across three independent forced consumers. MUDA reduced: no duplicate producer pack, no generated-output edits, no CONTROL-as-fanout accounting. MURA reduced: exactly four downstream semantic commits per consumer across three repositories. MURI remains in global code-search HTTP 502, deep compatibility discovery, Project proxy concurrency, and strict pre-read sequencing defect. All three downstream exact-head courts succeeded; failures elsewhere remain isolated graph edges.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+    "metadata": {
+      "MUDA": {
+        "control_as_fanout": 0,
+        "duplicate_factory_commits": 0,
+        "generated_output_edits": 0
+      },
+      "MURA": {
+        "F_effective": 3.0,
+        "repo_commit_distribution": [
+          4,
+          4,
+          4
+        ]
+      },
+      "MURI": [
+        "GLOBAL_CODE_SEARCH_502",
+        "DEEP_SCAN_CAPACITY",
+        "PROJECT_PROXY_CONCURRENCY",
+        "PRE_READ_SEQUENCE_INCOMPLETE_BEFORE_FIRST_DOWNSTREAM_COMMIT"
+      ],
+      "M_lower_bound": 2,
+      "U_lower_bound": 17,
+      "andon": [
+        "UNRDF_HOSTED_CHECKOUT_PREEXEC[MALFORMED_GITMODULES_OPEN_ONTOLOGIES]",
+        "CARGO_CICD_REFUSED[REPO_MUTATION_BOUNDARY]",
+        "OPEN_FANOUT_IDENTITY_CLOSURE_INCOMPLETE"
+      ],
+      "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "cell": "FANOUT",
+      "cognitive_wip": 0,
+      "consequential_do": false,
+      "consequential_external_do": false,
+      "created_at": "2026-08-26T05:40:44Z",
+      "downstream_customer": "CELL3 assimilation path for already-admitted mfw/yawl subjects",
+      "downstream_shape": "exact semantic qualification receipt independent of hosted workflow wrapper",
+      "key": "tcps/muda-mura-muri/current",
+      "kind": "tcps.muda_mura_muri",
+      "limiting_multiplier": "qualified independent consumer fanout and exact-head qualification concurrency",
+      "muda": [
+        "ELIMINATED_DUPLICATE_PACK_CREATION",
+        "ELIMINATED_UNCHANGED_HOSTED_CHECKOUT_RETRY",
+        "ELIMINATED_SPECULATIVE_CARGO_GITHUB_MUTATION"
+      ],
+      "muda_reduced": [
+        "unchanged hosted retries",
+        "hosted-wrapper-as-semantic-standing interpretation"
+      ],
+      "mura": [
+        "PRESERVED_PARALLEL_CHATMAN_AND_UNRDF_CONSUMER_PATHS",
+        "PRESERVED_CARGO_AS_COMPATIBLE_AUTHORITY_FENCED_OPTION"
+      ],
+      "mura_reduced": [
+        "unequal qualification ability across consumers whose hosted runners fail before execution"
+      ],
+      "muri": [
+        "HOSTED_CHECKOUT_COUPLING_REDUCED_BY_EXACT_SHA_ARCHIVE_MATERIALIZATION",
+        "REPO_LOCAL_AUTHORITY_NOT_OVERRIDDEN"
+      ],
+      "muri_reduced": [
+        "dependence on unavailable hosted pre-execution for runner-independent semantic courts"
+      ],
+      "new_downstream_commits": 3,
+      "next_process_customer": [
+        "SREGym",
+        "fdegym",
+        "mfact"
+      ],
+      "open_obligations_lower_bound": 15,
+      "partial_order_edges": [
+        "PROJECT_READY_SET_EMPTY->NO_NEW_ALLOCATION",
+        "R86_CONSTRUCTED->R85_EXECUTED->QUALIFIED",
+        "HOSTED_PREEXEC_FAILURE||SEMANTIC_QUALIFICATION"
+      ],
+      "preserved_parallel_options": [
+        "chatman-ecosystem",
+        "unrdf",
+        "cargo-cicd"
+      ],
+      "pull_edges": [
+        "PROJECT2_ROOT_GGEN_ADMITTED->CHATMAN_R88",
+        "PROJECT2_ROOT_GGEN_ADMITTED->UNRDF_R88",
+        "PROJECT2_ROOT_GGEN_ADMITTED->CARGO_AUTHORITY_FENCE"
+      ],
+      "ready_set": [],
+      "receipts": [
+        "chatman-ecosystem:911f1ff9713fa305a6df762ecb14a27a8e0b90db:workflow32979785212:SUCCESS",
+        "unrdf:4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb:workflow32979921297:SUCCESS"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "standard_work_candidates": [
+        "R86 consumer qualification may materialize exact subject by authenticated exact-SHA archive when git checkout fails before subject execution",
+        "repository-local authority doctrine precedes generic GitHub write capability"
+      ],
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "fanout",
+        "r87",
+        "tcps"
+      ],
+      "updated_at": "2026-08-26T17:32:55Z",
+      "upstream_return": "NONE_REQUIRED_R87_ALL_QUALIFIED",
+      "upstream_returns": [
+        "candidate: exact-SHA archive materialization for consumers whose git metadata prevents actions/checkout",
+        "candidate: executor-selection contract must honor consumer repository mutation law before allocating write transport"
+      ]
+    },
+    "title": "TCPS maximum fanout constraint state"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

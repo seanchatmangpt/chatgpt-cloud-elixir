@@ -2,10 +2,10 @@
   "actuation_performed": false,
   "error": {
     "details": {
-      "column": 6269,
+      "column": 7826,
       "line": 1,
       "message": "Extra data",
-      "offset": 6268,
+      "offset": 7825,
       "reason": "INVALID_REQUEST_JSON"
     },
     "message": "Extra data",
@@ -17,9 +17,9 @@
   "reason": "INVALID_REQUEST_JSON",
   "request_digest_basis": {},
   "request_id": null,
-  "request_path": "project-memory/requests/20260826T162500Z-cell3-ready-allocation.json",
+  "request_path": "project-memory/requests/20260826T153500Z-cell3-r89-allocation.json",
   "request_sha256": null,
-  "request_transport_sha256": "sha256:8e57eb242f4eb52b3c0e45a47c4c6222712b7afbf4965497587deb5e057dd7c3",
+  "request_transport_sha256": "sha256:c40b79f737db2da1739102899f6a99c9e6c97f04b805e9ed76fc531f3120ceef",
   "result": null,
   "schema": "chatgpt-project-memory-receipt/v1",
   "standing": "REFUSED",
