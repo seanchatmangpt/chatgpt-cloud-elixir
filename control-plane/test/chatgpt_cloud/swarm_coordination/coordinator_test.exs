@@ -19,6 +19,9 @@ defmodule ChatGPTCloud.SwarmCoordination.CoordinatorTest do
     assert pending["authority"]["do"] == %{"granted" => false, "requires" => "BRCE"}
     assert enqueue_receipt["event_type"] == "enqueued"
 
+    assert {:error, %{"standing" => "REFUSED", "type" => "INVALID_AGENT_ID"}} =
+             Coordinator.claim("work_test_exclusive_claim", "")
+
     assert {:ok, claimed, claim_receipt} =
              Coordinator.claim("work_test_exclusive_claim", "chatgpt-agent-1")
 
