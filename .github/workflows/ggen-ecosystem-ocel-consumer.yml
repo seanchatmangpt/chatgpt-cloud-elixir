@@ -38,10 +38,11 @@ jobs:
           grep -q 'ggen-ecosystem-ocel-pack' ggen.toml
           grep -q 'ggen/ecosystem/ocel/current' ontology/ggen-ecosystem-ocel-run.ttl
 
-      - name: Materialize exact marketplace pack
+      - name: Sparse-materialize exact marketplace pack
         run: |
           mkdir -p vendor
-          git clone --filter=blob:none https://github.com/seanchatmangpt/ggen-marketplace.git vendor/ggen-marketplace
+          git clone --filter=blob:none --no-checkout https://github.com/seanchatmangpt/ggen-marketplace.git vendor/ggen-marketplace
+          git -C vendor/ggen-marketplace sparse-checkout set packs/ggen-ecosystem-ocel-pack
           git -C vendor/ggen-marketplace checkout --detach "${MARKETPLACE_SHA}"
           test "$(git -C vendor/ggen-marketplace rev-parse HEAD)" = "${MARKETPLACE_SHA}"
           test -s vendor/ggen-marketplace/packs/ggen-ecosystem-ocel-pack/pack.toml
