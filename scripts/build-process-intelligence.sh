@@ -41,6 +41,40 @@ mkdir -p "$STAGE/subjects"
 SUBJECT_ROWS="$WORK/subjects.ndjson"
 : > "$SUBJECT_ROWS"
 
+# Materialize dependency-closed local-path inputs before any subject build.
+# ex4pm/apps/ex4pm_domain resolves ../../../wasm4pm-compat/bindings/elixir
+# to this sibling of subjects/ex4pm. Identity is pinned in capsule.toml.
+python3 - "$CFG" <<'PY' > "$WORK/dependencies.ndjson"
+import json, sys, tomllib
+cfg = tomllib.load(open(sys.argv[1], "rb"))
+for name, dep in sorted(cfg.get("dependencies", {}).items()):
+    row = {"name": name, **dep}
+    print(json.dumps(row, sort_keys=True))
+PY
+while IFS= read -r DEP_ROW; do
+  [[ -n "$DEP_ROW" ]] || continue
+  DEP_NAME="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["name"])' "$DEP_ROW")"
+  DEP_REPOSITORY="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["repository"])' "$DEP_ROW")"
+  DEP_SHA="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["sha"])' "$DEP_ROW")"
+  DEP_TREE_SHA="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["tree_sha"])' "$DEP_ROW")"
+  DEP_MATERIALIZE_AS="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["materialize_as"])' "$DEP_ROW")"
+  [[ "$DEP_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid SHA for dependency $DEP_NAME" >&2; exit 65; }
+  [[ "$DEP_TREE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid tree SHA for dependency $DEP_NAME" >&2; exit 65; }
+  [[ "$DEP_MATERIALIZE_AS" != /* && "$DEP_MATERIALIZE_AS" != *".."* ]] || {
+    echo "REFUSED: unsafe materialization path for dependency $DEP_NAME" >&2; exit 64;
+  }
+  DEP_GIT_DIR="$WORK/git-dependency-$DEP_NAME"
+  DEP_SOURCE_DIR="$STAGE/subjects/$DEP_MATERIALIZE_AS"
+  git init -q "$DEP_GIT_DIR"
+  git -C "$DEP_GIT_DIR" remote add origin "$DEP_REPOSITORY"
+  git -C "$DEP_GIT_DIR" fetch -q --depth=1 origin "$DEP_SHA"
+  git -C "$DEP_GIT_DIR" checkout -q --detach FETCH_HEAD
+  [[ "$(git -C "$DEP_GIT_DIR" rev-parse HEAD)" == "$DEP_SHA" ]] || { echo "BUILD_BROKEN: dependency $DEP_NAME commit identity mismatch" >&2; exit 65; }
+  [[ "$(git -C "$DEP_GIT_DIR" rev-parse 'HEAD^{tree}')" == "$DEP_TREE_SHA" ]] || { echo "BUILD_BROKEN: dependency $DEP_NAME tree identity mismatch" >&2; exit 65; }
+  mkdir -p "$DEP_SOURCE_DIR"
+  git -C "$DEP_GIT_DIR" archive HEAD | tar -x -C "$DEP_SOURCE_DIR"
+done < "$WORK/dependencies.ndjson"
+
 for SUBJECT in ash_r2rml ex4pm; do
   REPOSITORY="$(python3 - "$CFG" "$SUBJECT" <<'PY'
 import sys, tomllib
@@ -131,9 +165,10 @@ manifest["required_modules"] = cfg.get("required_modules", [])
 manifest["requires_services"] = cfg.get("requires_services", [])
 manifest["acceptance"] = cfg.get("acceptance", [])
 manifest["subjects"] = subjects
+manifest["dependencies"] = cfg.get("dependencies", {})
 manifest["process_lab"] = cfg.get("process_lab", {})
 manifest["identity_fields"] = [
-    "source_sha", "capsule_name", "platform", "runtime", "subjects"
+    "source_sha", "capsule_name", "platform", "runtime", "subjects", "dependencies"
 ]
 with open(manifest_path, "w") as f:
     json.dump(manifest, f, indent=2, sort_keys=True)
