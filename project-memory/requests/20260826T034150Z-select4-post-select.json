@@ -1,0 +1,39 @@
+{
+  "request_id": "20260826T034150Z-select4-post-select",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/select/latest",
+    "title": "DfCM SELECT latest",
+    "kind": "dfcm.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","select","tcps","r78","ggen"],
+    "body": "R78 TCPS ready-set capital compiler selected and developed on frozen current R77 base 8ecb78504241aef4fb1de1bd4f14bd1e71089a0b. Exact candidate df908435a84a0240b9d89a48ea8ded81bfb74265, draft PR #315. 61 new meaningful commits, including public ontology, adversarial fixture, 50 executable SPARQL courts, deterministic ggen allocation plan, verifier, bounded exact-head CI, Diataxis, and receipt. Owning R78 exact-head court ALIVE; broad CI and Vacuity nonterminal at post-write boundary, therefore no merge. Admissible set preserves R76 and R74 as compatible alternatives but not READY on current substrate. Downstream customer=repository-universe structural manufacturing pipeline; downstream shape=admitted ready-set -> parallel allocation -> deterministic ggen plan -> exact qualification. Y=UNKNOWN; M>=2; 1000X=NOT_ADMITTED; weak multiplier remains qualified cross-repository consumer fanout.",
+    "metadata": {
+      "run_id": "select4+20260826T032826Z+SELECT_DEVELOP",
+      "base": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+      "candidate": "df908435a84a0240b9d89a48ea8ded81bfb74265",
+      "pr": 315,
+      "meaningful_commits": 61,
+      "semantic_courts": 50,
+      "semantic_commits": 52,
+      "T_active_per_hour": 484.77,
+      "G": 1.0,
+      "D": "PENDING_QUALIFICATION_CONTAINMENT",
+      "F": "UNCHANGED_REALIZED",
+      "U": "R78_GENERALIZABLE_SELECTOR_PROMOTED_REQUALIFYING",
+      "Y": "UNKNOWN",
+      "M": ">=2",
+      "1000X": "NOT_ADMITTED",
+      "admissible_set": ["R78_TCPS_READY_SET_CAPITAL","R76_STRUCTURAL_CAPITAL_REQUALIFY","R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"],
+      "ready_set": ["R78_TCPS_READY_SET_CAPITAL"],
+      "preserved_alternatives": ["R76_STRUCTURAL_CAPITAL_REQUALIFY","R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"],
+      "partial_order_edges": ["R77_REPOSITORY_UNIVERSE->R78_TCPS_READY_SET_CAPITAL","R78_TCPS_READY_SET_CAPITAL->R76_STRUCTURAL_CAPITAL_REQUALIFY"],
+      "qualification": {"r78":"ALIVE","broad_ci":"IN_PROGRESS","vacuity":"IN_PROGRESS"},
+      "merge_count": 0,
+      "consequential_do": false,
+      "transport_head_before_request": "5bd40d569049825ef1cbd94e39be634e25640e74"
+    }
+  }}
+}
