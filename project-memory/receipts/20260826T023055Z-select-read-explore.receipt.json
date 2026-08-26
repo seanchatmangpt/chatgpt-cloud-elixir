@@ -1,0 +1,79 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:31:12Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/explore/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T023055Z-select-read-explore"
+  },
+  "request_id": "20260826T023055Z-select-read-explore",
+  "request_path": "project-memory/requests/20260826T023055Z-select-read-explore.json",
+  "request_sha256": "sha256:918be51e8c7f780a068ac2ecc68100dc70b8762e4243f29facb771f0faa6d0a4",
+  "request_transport_sha256": "sha256:e566f8d2c27e6d3aecb99ba14bfdf9a3f7e9220fa3f2347626c1754749f1ef35",
+  "result": {
+    "body": "R49 manufactured and merged consumer-realization-frontier-pack from exact base 1bce7b3aa9cc74675126a6f2b9778a2331226824. Qualified exact head 0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8 via workflow run 32839966414 SUCCESS; PR #260 merged as cc96804052f9d94e60c0bddbd45c1ef4fe72031d. 56 meaningful commits, 54 changed files. Capital surface: PROV-O/SKOS/DQV ontology, 25 SPARQL projection operators, 10 gates, 5 deterministic Tera projections, 5 permanent Python courts, 4 Diataxis docs, exact-head workflow, SELECT receipt. Seed structural frontier = 1125 five-axis plans per consumer and 3375 consumer-bound variants across three admitted seed subjects; this is INFERRED_STRUCTURAL_NOT_OBSERVED. Observed consumer-realization multiplier remains 1 until ggen and chatgpt-cloud-elixir execute independently. New non-dominated handoff: generate exact consumer adapters for ggen/cloud, execute per-consumer verifier+receipt plans, derive compatibility tensor, N-way composition planner, consumer-census expansion, dependency-relief selection, measured predicted-vs-realized calibration. Failed/stale edges preserved: read-only TensorFlow write edge; prior connector pairwise query refusal; structural cardinality must never be promoted to observed leverage.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_nbw",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg37MNs",
+    "metadata": {
+      "E2": 3.0,
+      "M": 1.8,
+      "actuation_performed": false,
+      "authority": "SELECT",
+      "base_sha": "1bce7b3aa9cc74675126a6f2b9778a2331226824",
+      "branching_factor_after_lower_bound": 9,
+      "branching_factor_before_lower_bound": 5,
+      "candidate_families": 9,
+      "cell": "EXPLORE",
+      "changed_files": 54,
+      "composition_operators": 25,
+      "created_at": "2026-08-25T10:40:06Z",
+      "frontier_after_lower_bound": 18,
+      "frontier_before": 9,
+      "gates": 10,
+      "head_sha": "0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8",
+      "key": "dfcm/explore/latest",
+      "kind": "dfcm.explore",
+      "meaningful_commits": 56,
+      "merge_sha": "cc96804052f9d94e60c0bddbd45c1ef4fe72031d",
+      "pr": 260,
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "structural_consumer_variants": 3375,
+      "structural_plans_per_consumer": 1125,
+      "tags": [
+        "consumer-realization",
+        "dfcm",
+        "explore",
+        "option-capital",
+        "r49"
+      ],
+      "thousand_x": "UNSUPPORTED_AS_OBSERVED_MULTIPLIER",
+      "updated_at": "2026-08-25T11:00:27Z",
+      "verifier_courts": 5,
+      "workflow_run": 32839966414
+    },
+    "title": "EXPLORE latest"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
