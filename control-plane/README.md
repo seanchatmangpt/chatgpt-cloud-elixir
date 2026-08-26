@@ -14,9 +14,73 @@ producers.
 - `/admin` — AshAdmin over the persisted process-intelligence Ash resources.
 - `/api/v1/ocel/batches` — authenticated `chatgpt-cloud-ocel/1` ingestion.
 - `/healthz` — database-backed health check used by Fly.
+- `/mcp` — AshAi/MCP junction, including read-only Project Two semantic projections.
 
 Browser routes use HTTP Basic Auth from `ADMIN_USERNAME` / `ADMIN_PASSWORD`.
 The ingest API requires `Authorization: Bearer $OCEL_INGEST_TOKEN`.
+
+## Project Two semantic PaaS
+
+The `ChatGPTCloud.DfcmMemory` Ash domain wraps GitHub Project v2
+`seanchatmangpt/2` as one canonical subject with multiple deterministic read
+models. MCP clients can inspect the same Project as ordinary items, shared
+memory, a property graph, bounded graph queries, relational tables, semantic
+triples, JSON-LD, a service/capability catalog, OCEL-shaped process evidence,
+or bounded LLM context.
+
+These are virtual projections, not synchronized databases. Project #2 remains
+the persisted subject; the projection tools carry `READ_ONLY_VIRTUAL_PROJECTION`
+authority and do not convert graph paths, ontology facts, or model output into
+ambient execution authority. Existing Project-memory writes remain separately
+bounded and receipted.
+
+The MCP surface earns control-plane standing only through the repository's
+normal qualification sequence: canonical formatting, strict compile, test DB
+migration, Ash ecosystem verification, application tests, production release,
+and Docker-image construction. A successful projection fixture or Project-bus
+receipt cannot substitute for those runtime gates. Both `feat/**` and
+`feature/**` control-plane pushes enter those exact-head courts.
+
+The Python Project-memory verifier is an independent projection-law gate; its
+success transfers only while its Python source, tests, and workflow inputs are
+unchanged.
+
+See `../project-memory/SEMANTIC_VIRTUALIZATION.md` for the projection law,
+operations, standing boundaries, and OCEL conformance caveat.
+
+## Vision 2030 portfolio projection
+
+`project_vision_2030` is the AshAi/MCP read surface for the deterministic
+Project Two Vision 2030 model. The receipted request bus exposes the same model
+as `project.vision2030`.
+
+The projection reports eight autonomous-software-manufacturing capability
+pillars, explicit evidence coverage, dependency closure, and a bounded frontier
+ranking. `minimum_evidence` is caller-visible and turns insufficiently supported
+pillars into explicit `GAP` results rather than inferred readiness.
+
+The post-LLM projection additionally measures independent evidence-domain
+coverage, qualified reusable manufacturing capital, observed combinatorial
+capability pairings, and a maximalist gap frontier. Its fail-closed autonomy
+envelope can report structural integration only when capability, dependency,
+source-completeness, and caller-selected receipt-coverage conditions all hold.
+Even then, the envelope remains `OBSERVATIONAL_ONLY`.
+
+Vision 2030 parity now enters the same exact-head control-plane court as the
+Ash runtime: Project-memory, semantic, and Vision Python tests run before the
+canonical Elixir formatter, strict compilation, database migration, Ash
+ecosystem verification, application tests, production release, and Docker
+construction. This makes semantic parity and runtime qualification one evidence
+chain instead of two unrelated green checks.
+
+Vision 2030 is observational only. Every result is bound to
+`READ_ONLY_VIRTUAL_PROJECTION`; it introduces zero mutating operations, grants
+no standing, and carries no consequential `DO` authority. Gap closure still
+requires an existing bounded manufacturing or mutation path plus its ordinary
+receipts and exact-head qualification.
+
+See `../project-memory/VISION_2030.md` for capability pillars, dependency law,
+frontier ranking, and falsifiers.
 
 ## Local
 
@@ -30,7 +94,7 @@ Post a batch:
 ```bash
 curl -X POST http://localhost:4000/api/v1/ocel/batches \
   -H 'content-type: application/json' \
-  -H 'authorization: Bearer dev-ocel-token' \
+  -H 'authorization: Bearer $OCEL_INGEST_TOKEN' \
   -d @example.json
 ```
 

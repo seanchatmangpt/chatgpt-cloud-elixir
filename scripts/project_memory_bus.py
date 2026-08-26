@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Fail-closed front controller for Project #2 memory requests.
 
-This gate owns transport correctness only. The bounded Project-v2 semantics and
-GraphQL authority remain in ``project_memory_proxy.py``.
+This gate owns transport correctness only. The bounded Project-v2 mutation
+semantics remain in ``project_memory_proxy.py``; read-only semantic and Vision
+2030 projections are layered by ``project_memory_semantic_proxy.py``.
 
 Invariants:
 - malformed transport is REFUSED, never misclassified as proxy BUILD_BROKEN;
 - exact successful requests are replay-idempotent and never actuate twice;
 - receipts bind both raw transport bytes and canonical request semantics;
-- no credential is read before the request envelope is admitted.
+- no credential is read before the request envelope is admitted;
+- semantic/Vision reads use the same gate and never gain mutation authority.
 """
 from __future__ import annotations
 
@@ -21,17 +23,28 @@ import sys
 from pathlib import Path
 from typing import Any
 
-PROXY_PATH = Path(__file__).with_name("project_memory_proxy.py")
+BASE_PROXY_PATH = Path(__file__).with_name("project_memory_proxy.py")
+SEMANTIC_PROXY_PATH = Path(__file__).with_name("project_memory_semantic_proxy.py")
 GATE_SCHEMA = "chatgpt-project-memory-gate/v2"
 
 
-def load_proxy():
-    spec = importlib.util.spec_from_file_location("project_memory_proxy", PROXY_PATH)
+def _load_module(name: str, path: Path):
+    spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
-    sys.modules["project_memory_proxy"] = module
+    sys.modules[name] = module
     assert spec.loader is not None
     spec.loader.exec_module(module)
     return module
+
+
+def load_proxy():
+    # Always load a fresh base before applying the semantic extension. This
+    # prevents repeated in-process gate invocations from stacking wrappers.
+    base = _load_module("project_memory_proxy", BASE_PROXY_PATH)
+    semantic = _load_module("project_memory_semantic_proxy", SEMANTIC_PROXY_PATH)
+    if semantic.base is not base:
+        raise RuntimeError("semantic proxy did not bind the admitted base proxy")
+    return base
 
 
 def sha256_bytes(raw: bytes) -> str:

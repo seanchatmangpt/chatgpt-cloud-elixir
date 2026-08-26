@@ -1,10 +1,12 @@
 {
+  "actuation_performed": false,
   "error": {
     "details": null,
     "message": "Memory key not found: ggen/structural-manufacturing/current",
     "type": "ProxyError"
   },
-  "observed_at": "2026-08-26T01:12:29Z",
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:16:06Z",
   "operation": "memory.read",
   "reason": "MEMORY_NOT_FOUND",
   "request_digest_basis": {
@@ -20,6 +22,8 @@
   },
   "request_id": "20260826T011100Z-measure-r73-read-structural",
   "request_path": "project-memory/requests/20260826T011100Z-measure-r73-read-structural.json",
+  "request_sha256": "sha256:1899fc1ab138951a527423fd70f2c843aa1b220d0e44aa6976e7f9aa4d84900e",
+  "request_transport_sha256": "sha256:c7a9eb9b026bd6b7b90c232c878b283e19a119adc06da97229209e5dd6ae975a",
   "result": null,
   "schema": "chatgpt-project-memory-receipt/v1",
   "standing": "REFUSED",

@@ -1,0 +1,85 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:17:28Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Canonical R73 sensor family now has 132 structural/RevOps/throughput courts on exact candidate 4db0e87d. R74 revenue-structural-option-factory ggen.toml was migrated from obsolete projection/gate tables to admitted [generation] + [[generation.rules]] schema at c1153cd1. Desired flow: ExistingStructure -> DisplacementDecision -> DesiredStructure -> public ontology -> pack/composition -> generator -> GeneratedStructure -> consumers -> qualification -> agent refinement -> upstream promotion -> regeneration -> supersession -> throughput/value evidence.",
+        "cell": "SELECT_DEVELOP",
+        "key": "ggen/structural-manufacturing/current",
+        "kind": "capability",
+        "metadata": {
+          "D": "PENDING_EXACT_QUALIFICATION",
+          "F": "UNCHANGED",
+          "G": 1.0,
+          "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+          "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+          "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+          "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "factory",
+          "structural-displacement"
+        ],
+        "title": "GGEN structural manufacturing capital"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T020400Z-select4-post-ggen"
+  },
+  "request_id": "20260826T020400Z-select4-post-ggen",
+  "request_path": "project-memory/requests/20260826T020400Z-select4-post-ggen.json",
+  "request_sha256": "sha256:9de1fd902677b6ad4c6cad2d087c1dd0f3391e6923d4ad630fa7131b383d61ae",
+  "request_transport_sha256": "sha256:56ab4e4e967560017fa5d0a659bf59fe48693f249dc827b62e24f9b612562148",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Canonical R73 sensor family now has 132 structural/RevOps/throughput courts on exact candidate 4db0e87d. R74 revenue-structural-option-factory ggen.toml was migrated from obsolete projection/gate tables to admitted [generation] + [[generation.rules]] schema at c1153cd1. Desired flow: ExistingStructure -> DisplacementDecision -> DesiredStructure -> public ontology -> pack/composition -> generator -> GeneratedStructure -> consumers -> qualification -> agent refinement -> upstream promotion -> regeneration -> supersession -> throughput/value evidence.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_4I0",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CS_E",
+      "metadata": {
+        "D": "PENDING_EXACT_QUALIFICATION",
+        "F": "UNCHANGED",
+        "G": 1.0,
+        "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+        "cell": "SELECT_DEVELOP",
+        "created_at": "2026-08-26T02:17:42Z",
+        "key": "ggen/structural-manufacturing/current",
+        "kind": "capability",
+        "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+        "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+        "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "factory",
+          "ggen",
+          "structural-displacement"
+        ],
+        "updated_at": "2026-08-26T02:17:42Z"
+      },
+      "title": "GGEN structural manufacturing capital"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

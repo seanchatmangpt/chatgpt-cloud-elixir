@@ -6,8 +6,13 @@ on:
       - ".github/workflows/project-memory-proxy.yml"
       - "scripts/project_memory_proxy.py"
       - "scripts/project_memory_bus.py"
+      - "scripts/project_memory_semantic_proxy.py"
+      - "scripts/project_semantic_projection.py"
+      - "scripts/project_vision_2030.py"
       - "tests/test_project_memory_proxy.py"
       - "tests/test_project_memory_bus.py"
+      - "tests/test_project_semantic_projection.py"
+      - "tests/test_project_vision_2030.py"
       - "project-memory/requests/**/*.json"
   workflow_dispatch:
     inputs:
@@ -42,8 +47,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate memory transport and proxy implementation
-        run: python -m unittest tests/test_project_memory_proxy.py tests/test_project_memory_bus.py
+      - name: Validate memory transport, semantic parity, and Vision 2030
+        run: >-
+          python -m unittest
+          tests/test_project_memory_proxy.py
+          tests/test_project_memory_bus.py
+          tests/test_project_semantic_projection.py
+          tests/test_project_vision_2030.py
 
       - name: Resolve request set
         id: requests
@@ -67,7 +77,17 @@ jobs:
             if [[ "$before" =~ ^0+$ ]]; then
               git diff-tree --no-commit-id --name-only -r "$after" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
             else
-              git diff --name-only --diff-filter=AM "$before" "$after" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
+              while IFS= read -r commit; do
+                parent_count="$(git rev-list --parents -n 1 "$commit" | awk '{print NF - 1}')"
+                if (( parent_count > 1 )); then
+                  # Combined diff admits only request files changed relative to every
+                  # parent. Requests inherited unchanged from a merged branch are not
+                  # replayed merely because the merge makes them newly reachable.
+                  git diff-tree --cc --no-commit-id --name-only -r "$commit" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
+                else
+                  git diff-tree --no-commit-id --name-only -r "$commit" -- project-memory/requests/ | grep -E '\.json$' >> .project-memory-runtime/requests.txt || true
+                fi
+              done < <(git rev-list --reverse --first-parent "$before..$after")
             fi
           fi
           sort -u -o .project-memory-runtime/requests.txt .project-memory-runtime/requests.txt
