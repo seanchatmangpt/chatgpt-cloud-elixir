@@ -153,5 +153,15 @@ defmodule ChatGPTCloud.DfcmMemory.MemoryRecord do
       argument :include_bodies, :boolean, default: true
       run ChatGPTCloud.DfcmMemory.SemanticContext
     end
+
+    action :vision_2030, :map do
+      description "Deterministic Vision 2030 portfolio projection: manufacturing capability, evidence coverage, dependency closure, and explicit gaps."
+      argument :query, :map, default: %{}
+      argument :max_items, :integer
+      argument :types, {:array, :string}
+      argument :include_archived, :boolean, default: false
+      argument :include_bodies, :boolean, default: true
+      run ChatGPTCloud.DfcmMemory.SemanticVision2030
+    end
   end
 end
