@@ -1,0 +1,363 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:08:55Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL5 re-read Project #2 ForcedTop25 and current fanout ledgers through the bounded project-memory-bus. ForcedTop25 census=25/25. This run did not fabricate U: authoritative CELL4 fanout still proves only U>=2,R>=2,Q>=2,M>=2 and identifies ex4pm and gymact as the only wave-qualified/default-lineage consumers; the other 23 require upstream admissibility receipts before current-wave fanout realization can be lawfully counted. Exact repository heads were re-observed. CELL5 also diagnosed ggen-marketplace #316 qualification failure to canonical strict-GGEN nondeterminism in r75-throughput-learning-plan and repaired the owning query with ORDER BY at 8694d06c54aa29909dd71693944733a6c76e7a71; exact-head broad requalification has not yet produced an admitting success, so no merge. chatgpt-cloud-elixir #15 exact head d13f9c670be4cf03d1814d5618be064c11a6f4a6 fails strict format/compile before Postgres/Ash/Phoenix/Playwright, so VALUE_ALIVE is not admitted. ggen-marketplace #306 exact head 4c48f2d447e5e388a69e187126a2dc81a4dbcb8b remains conflicted/requalifying and is not silently closed. Control request/receipt commits are CONTROL and excluded from R/Q/M/T_M downstream fanout. WIP_end is nonzero; OpenFanoutObligations remains UNKNOWN until U is closed. Next closure seed: manufacture the 23 missing admissibility receipts, promote only READY consumers, regenerate through canonical GGEN, exact-head qualify, merge with containment receipts, then close/retire superseded lineages.",
+        "cell": "CLOSE_ALL",
+        "key": "dfcm/run-control/close/current",
+        "kind": "dfcm.run_control",
+        "metadata": {
+          "M_lower_bound": 2,
+          "OpenFanoutObligations": "UNKNOWN_UNTIL_U_CLOSED",
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "T_A_delta": 0,
+          "T_M_delta_noncontrol": 1,
+          "U_lower_bound": 2,
+          "WIP_end": "NONZERO",
+          "assimilation_ratio_delta": 0,
+          "control_commits_excluded": true,
+          "discovered_wip": [
+            {
+              "head": "d13f9c670be4cf03d1814d5618be064c11a6f4a6",
+              "human_value": "NOT_ADMITTED",
+              "pr": 15,
+              "repo": "chatgpt-cloud-elixir",
+              "state": "NOT_READY_WITH_REASON[STRICT_FORMAT_OR_COMPILE_FAILURE_BEFORE_RUNTIME]"
+            },
+            {
+              "head": "4c48f2d447e5e388a69e187126a2dc81a4dbcb8b",
+              "pr": 306,
+              "repo": "ggen-marketplace",
+              "state": "NOT_READY_WITH_REASON[MERGE_CONFLICT_AND_REQUALIFYING]"
+            },
+            {
+              "head": "8694d06c54aa29909dd71693944733a6c76e7a71",
+              "pr": 316,
+              "repo": "ggen-marketplace",
+              "state": "NOT_READY_WITH_REASON[EXACT_HEAD_REQUALIFICATION_PENDING_AFTER_CANONICAL_REPAIR]"
+            }
+          ],
+          "forced_states": {
+            "POWL": {
+              "head": "56b9d36ecd5a6ad78ac8264547446e60022135bd",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "SREGym": {
+              "head": "15daa656c1cb1aa21b1980ec3990eccb84519989",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "a2a-rs": {
+              "head": "05b88f81321d2a61556157e63180321acb661d53",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "ash_r2rml": {
+              "head": "7ce5ff63da03fcc3bb661890f51b0c9494147140",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "autofde": {
+              "head": "6c21cda73f7cc8873ea429f79f49c5b4b615c1fe",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "autofde-lab": {
+              "head": "0b968955f69698fee50e9a132a87de287f15a0e7",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "cargo-cicd": {
+              "head": "e64f8224c23771e8c4e5d1d22fb939f812b04e1b",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "chatgpt-cloud-elixir": {
+              "head": "857da10b8d31f6f02fc272b7308699ad3329201f",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "chatman-ecosystem": {
+              "head": "ffe93f68a81fc46ccf60594a9615167bd36031a4",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "clap-noun-verb": {
+              "head": "29f61a9c259db516cc3433e6b02fd2500011fd3a",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "dspygen": {
+              "head": "df424348aec1a89f9ccf09e82399c1e4f76c99d0",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "ex4pm": {
+              "head": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+              "state": "MERGED_ALIVE"
+            },
+            "fdegym": {
+              "head": "2d7c5acb3cbb8df1608cf9b81be53a74e39a1946",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "gymact": {
+              "head": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+              "state": "MERGED_ALIVE"
+            },
+            "mfact": {
+              "head": "10ce8e967b083a9abe12dd8702af5d40757c40e8",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "mfact-command-center": {
+              "head": "dda255df10e9037b9fee014d4ef2eccbd846d902",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "mfw": {
+              "head": "e4fbda46f13d8213b86aa4f981d2387638983066",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "pm4wasm": {
+              "head": "ddf402ee9856589187b85dd876cdf37e7ffd2c92",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "process-intelligence": {
+              "head": "3774901c4103b3555cc367c71d6d4333eeec6d33",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "revops": {
+              "head": "6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "swarmsh-v2": {
+              "head": "02e5eaae14bd03a832c0f031acc56c6d4db3845e",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "unrdf": {
+              "head": "dcc6ada4df196fd23cb96885f018cb5c1c89386e",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "wasm4pm": {
+              "head": "5ae555e4d71e76a2ed3ab08ad8f6360decb7ae0b",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "xaas": {
+              "head": "2207203b1bef612cc55a52676b8e607f930640e7",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            },
+            "yawl": {
+              "head": "589d535197e0e3f2ebcaff3889841181c80b388e",
+              "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+            }
+          },
+          "forced_top25_count": 25,
+          "next_cycle_seed": "close upstream admissibility receipts -> READY set -> canonical GGEN realization -> exact qualification -> merge/containment -> close superseded lineage",
+          "repairs": [
+            {
+              "head": "8694d06c54aa29909dd71693944733a6c76e7a71",
+              "pr": 316,
+              "repair": "ORDER_BY added to r75-throughput-learning-plan",
+              "repo": "ggen-marketplace",
+              "standing": "REQUALIFYING"
+            }
+          ]
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell5",
+          "forced-top25",
+          "closure",
+          "fanout",
+          "assimilation"
+        ],
+        "title": "CELL5 closure court POST — ForcedTop25 exact census and repair frontier"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T051000Z-cell5-closure-post"
+  },
+  "request_id": "20260826T051000Z-cell5-closure-post",
+  "request_path": "project-memory/requests/20260826T051000Z-cell5-closure-post.json",
+  "request_sha256": "sha256:ae61f52fa9c818c4d3860a06f5611368347ff306255f9afb705ae9f539b0bd4d",
+  "request_transport_sha256": "sha256:aa260eaa4c72c797db50967b257b1c2332a459c24e93416cb501f7f047c0d52d",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "CELL5 re-read Project #2 ForcedTop25 and current fanout ledgers through the bounded project-memory-bus. ForcedTop25 census=25/25. This run did not fabricate U: authoritative CELL4 fanout still proves only U>=2,R>=2,Q>=2,M>=2 and identifies ex4pm and gymact as the only wave-qualified/default-lineage consumers; the other 23 require upstream admissibility receipts before current-wave fanout realization can be lawfully counted. Exact repository heads were re-observed. CELL5 also diagnosed ggen-marketplace #316 qualification failure to canonical strict-GGEN nondeterminism in r75-throughput-learning-plan and repaired the owning query with ORDER BY at 8694d06c54aa29909dd71693944733a6c76e7a71; exact-head broad requalification has not yet produced an admitting success, so no merge. chatgpt-cloud-elixir #15 exact head d13f9c670be4cf03d1814d5618be064c11a6f4a6 fails strict format/compile before Postgres/Ash/Phoenix/Playwright, so VALUE_ALIVE is not admitted. ggen-marketplace #306 exact head 4c48f2d447e5e388a69e187126a2dc81a4dbcb8b remains conflicted/requalifying and is not silently closed. Control request/receipt commits are CONTROL and excluded from R/Q/M/T_M downstream fanout. WIP_end is nonzero; OpenFanoutObligations remains UNKNOWN until U is closed. Next closure seed: manufacture the 23 missing admissibility receipts, promote only READY consumers, regenerate through canonical GGEN, exact-head qualify, merge with containment receipts, then close/retire superseded lineages.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_6G4",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DN0c",
+      "metadata": {
+        "M_lower_bound": 2,
+        "OpenFanoutObligations": "UNKNOWN_UNTIL_U_CLOSED",
+        "Q_lower_bound": 2,
+        "R_lower_bound": 2,
+        "T_A_delta": 0,
+        "T_M_delta_noncontrol": 1,
+        "U_lower_bound": 2,
+        "WIP_end": "NONZERO",
+        "assimilation_ratio_delta": 0,
+        "cell": "CLOSE_ALL",
+        "control_commits_excluded": true,
+        "created_at": "2026-08-26T05:09:10Z",
+        "discovered_wip": [
+          {
+            "head": "d13f9c670be4cf03d1814d5618be064c11a6f4a6",
+            "human_value": "NOT_ADMITTED",
+            "pr": 15,
+            "repo": "chatgpt-cloud-elixir",
+            "state": "NOT_READY_WITH_REASON[STRICT_FORMAT_OR_COMPILE_FAILURE_BEFORE_RUNTIME]"
+          },
+          {
+            "head": "4c48f2d447e5e388a69e187126a2dc81a4dbcb8b",
+            "pr": 306,
+            "repo": "ggen-marketplace",
+            "state": "NOT_READY_WITH_REASON[MERGE_CONFLICT_AND_REQUALIFYING]"
+          },
+          {
+            "head": "8694d06c54aa29909dd71693944733a6c76e7a71",
+            "pr": 316,
+            "repo": "ggen-marketplace",
+            "state": "NOT_READY_WITH_REASON[EXACT_HEAD_REQUALIFICATION_PENDING_AFTER_CANONICAL_REPAIR]"
+          }
+        ],
+        "forced_states": {
+          "POWL": {
+            "head": "56b9d36ecd5a6ad78ac8264547446e60022135bd",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "SREGym": {
+            "head": "15daa656c1cb1aa21b1980ec3990eccb84519989",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "a2a-rs": {
+            "head": "05b88f81321d2a61556157e63180321acb661d53",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "ash_r2rml": {
+            "head": "7ce5ff63da03fcc3bb661890f51b0c9494147140",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "autofde": {
+            "head": "6c21cda73f7cc8873ea429f79f49c5b4b615c1fe",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "autofde-lab": {
+            "head": "0b968955f69698fee50e9a132a87de287f15a0e7",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "cargo-cicd": {
+            "head": "e64f8224c23771e8c4e5d1d22fb939f812b04e1b",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "chatgpt-cloud-elixir": {
+            "head": "857da10b8d31f6f02fc272b7308699ad3329201f",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "chatman-ecosystem": {
+            "head": "ffe93f68a81fc46ccf60594a9615167bd36031a4",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "clap-noun-verb": {
+            "head": "29f61a9c259db516cc3433e6b02fd2500011fd3a",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "dspygen": {
+            "head": "df424348aec1a89f9ccf09e82399c1e4f76c99d0",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "ex4pm": {
+            "head": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "state": "MERGED_ALIVE"
+          },
+          "fdegym": {
+            "head": "2d7c5acb3cbb8df1608cf9b81be53a74e39a1946",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "gymact": {
+            "head": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "state": "MERGED_ALIVE"
+          },
+          "mfact": {
+            "head": "10ce8e967b083a9abe12dd8702af5d40757c40e8",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "mfact-command-center": {
+            "head": "dda255df10e9037b9fee014d4ef2eccbd846d902",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "mfw": {
+            "head": "e4fbda46f13d8213b86aa4f981d2387638983066",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "pm4wasm": {
+            "head": "ddf402ee9856589187b85dd876cdf37e7ffd2c92",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "process-intelligence": {
+            "head": "3774901c4103b3555cc367c71d6d4333eeec6d33",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "revops": {
+            "head": "6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "swarmsh-v2": {
+            "head": "02e5eaae14bd03a832c0f031acc56c6d4db3845e",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "unrdf": {
+            "head": "dcc6ada4df196fd23cb96885f018cb5c1c89386e",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "wasm4pm": {
+            "head": "5ae555e4d71e76a2ed3ab08ad8f6360decb7ae0b",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "xaas": {
+            "head": "2207203b1bef612cc55a52676b8e607f930640e7",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          },
+          "yawl": {
+            "head": "589d535197e0e3f2ebcaff3889841181c80b388e",
+            "state": "NOT_READY_WITH_REASON[UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING]"
+          }
+        },
+        "forced_top25_count": 25,
+        "key": "dfcm/run-control/close/current",
+        "kind": "dfcm.run_control",
+        "next_cycle_seed": "close upstream admissibility receipts -> READY set -> canonical GGEN realization -> exact qualification -> merge/containment -> close superseded lineage",
+        "repairs": [
+          {
+            "head": "8694d06c54aa29909dd71693944733a6c76e7a71",
+            "pr": 316,
+            "repair": "ORDER_BY added to r75-throughput-learning-plan",
+            "repo": "ggen-marketplace",
+            "standing": "REQUALIFYING"
+          }
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "assimilation",
+          "cell5",
+          "closure",
+          "fanout",
+          "forced-top25"
+        ],
+        "updated_at": "2026-08-26T05:09:10Z"
+      },
+      "title": "CELL5 closure court POST — ForcedTop25 exact census and repair frontier"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
