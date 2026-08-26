@@ -1,0 +1,11 @@
+[project]
+name = "chatgpt-cloud-elixir-r84-reactor-domain-error-consumer"
+
+[ontology]
+source = "ontology.ttl"
+
+[templates]
+dir = "templates"
+
+[packs]
+ash-reactor-domain-error-contract-pack = { git = "https://github.com/seanchatmangpt/ggen-marketplace.git", version = "6b7fb4af7b4ef3a6330ad61ca833b98902300332", subdir = "packs/ash-reactor-domain-error-contract-pack" }
