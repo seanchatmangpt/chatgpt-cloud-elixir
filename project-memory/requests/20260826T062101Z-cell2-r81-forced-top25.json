@@ -1,0 +1,26 @@
+{
+  "request_id": "20260826T062101Z-cell2-r81-forced-top25",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/forced-top25/current",
+      "kind": "ggen.fanout.forced-top25",
+      "cell": "COMPOSE",
+      "title": "ForcedTop25 canonical demand — R81",
+      "body": "Ordered population preserved exactly. ex4pm and gymact remain realized seed consumers; XaaS remains compatible but repair-gated; 22 targets remain preserved UNKNOWN pending upstream admissibility evidence. R81 manufactures reusable exact-head consumer and qualification plans from R80 admission without evicting or reranking targets.",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["forced-top25","cell2","r81"],
+      "metadata": {
+        "forced_top25": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+        "exact_known_heads": {"ex4pm":"38b181d4a26aa9cb92f01ac1f898a366c47ae7c8","gymact":"bcb14a65b83fc543bb11acaa84709765ac88f42c","xaas":"3b16d499ca1e39aebdee5316eb3d5cae3941113b"},
+        "fanout_state": {"ex4pm":"DOWNSTREAM_REALIZED","gymact":"DOWNSTREAM_REALIZED","xaas":"REPAIR_REQUIRED"},
+        "qualification_state": {"ex4pm":"ALIVE_EXACT_HEAD_FULL_REPO","gymact":"PARTIAL_ALIVE_INHERITED_BROAD_CI_DEBT","xaas":"BUILD_BROKEN_CI_CD_ELIXIR_FAILURE"},
+        "unknown_count": 22,
+        "blockers": ["UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING","DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING","XAAS_CI_CD_ELIXIR_FAILURE"],
+        "authority": "SELECT|CONSTRUCT",
+        "consequential_do": false
+      }
+    }
+  }
+}
