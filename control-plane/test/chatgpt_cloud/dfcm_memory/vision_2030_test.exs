@@ -3,7 +3,7 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
 
   alias ChatGPTCloud.DfcmMemory.{VirtualProject, Vision2030}
 
-  test "projects autonomous manufacturing capability and evidence without granting authority" do
+  test "projects autonomous manufacturing capability, capital, and option space without granting authority" do
     project = %{
       owner: "seanchatmangpt",
       number: 2,
@@ -78,6 +78,20 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
              projection.frontier,
              &(&1.memory_key == "project/vision/manufacturing")
            )
+
+    assert projection.manufacturing_capital.capital_records >= 2
+    assert projection.manufacturing_capital.qualified_reusable_capital == 1
+    assert projection.manufacturing_capital.capital_ratio > 0.0
+    assert map_size(projection.manufacturing_capital.by_class) > 0
+
+    assert projection.combinatorial_option_space.possible_pairings == 28
+    assert projection.combinatorial_option_space.observed_pairings > 0
+    assert projection.combinatorial_option_space.cross_pillar_records > 0
+
+    assert projection.autonomy_envelope.status == "OPEN"
+    assert projection.autonomy_envelope.structural_phase == "ASSEMBLY_IN_PROGRESS"
+    assert "UNRESOLVED_DEPENDENCIES" in projection.autonomy_envelope.falsifiers
+    assert projection.maximalist_frontier != []
   end
 
   test "minimum evidence makes capability admission explicit instead of implied" do
@@ -111,7 +125,80 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
     assert semantic.evidence_count == 1
     assert semantic.minimum_evidence == 2
     assert semantic.status == "GAP"
+    assert "EVIDENCE_SHORTFALL" in semantic.falsifiers
     assert Enum.any?(projection.capability_coverage.gaps, &(&1.id == "semantic-interoperability"))
+  end
+
+  test "domain diversity prevents a single evidence domain from Goodharting a pillar" do
+    project = %{
+      owner: "seanchatmangpt",
+      number: 2,
+      id: "PVT_test",
+      title: "Project Two",
+      url: nil
+    }
+
+    graph =
+      VirtualProject.build(
+        project,
+        [item("A", "Manufacturing")],
+        [
+          memory("A", %{
+            "key" => "project/vision/manufacturing",
+            "standing" => "ALIVE",
+            "repo" => "seanchatmangpt/ggen-marketplace",
+            "tags" => ["ggen", "generator", "pack", "manufacturing"]
+          })
+        ],
+        observed_at: "2026-08-26T02:00:00Z"
+      )
+
+    projection = Vision2030.project(graph, %{"minimum_domains" => 2})
+
+    deterministic =
+      Enum.find(projection.capability_coverage.pillars, &(&1.id == "deterministic-manufacture"))
+
+    assert deterministic.domain_count == 1
+    assert deterministic.minimum_domains == 2
+    assert deterministic.status == "GAP"
+    assert "DOMAIN_DIVERSITY_SHORTFALL" in deterministic.falsifiers
+  end
+
+  test "closed autonomy envelope is structural and never grants actuation authority" do
+    project = %{
+      owner: "seanchatmangpt",
+      number: 2,
+      id: "PVT_test",
+      title: "Project Two",
+      url: nil
+    }
+
+    graph =
+      VirtualProject.build(
+        project,
+        [item("Z", "Integrated autonomic stack")],
+        [
+          memory("Z", %{
+            "key" => "project/vision/integrated-stack",
+            "standing" => "ALIVE",
+            "repo" => "seanchatmangpt/autonomic-stack",
+            "tags" => ["ggen", "receipt", "ci", "cloud", "process", "semantic", "gym", "memory"],
+            "head_sha" => "fedcba9876543210fedcba9876543210fedcba98",
+            "receipt" => "dfcm/receipt/integrated-stack"
+          })
+        ],
+        observed_at: "2026-08-26T03:00:00Z"
+      )
+
+    projection = Vision2030.project(graph, %{"minimum_receipt_ratio" => 1.0})
+
+    assert projection.capability_coverage.present_pillars == 8
+    assert projection.autonomy_envelope.status == "CLOSED"
+    assert projection.autonomy_envelope.structural_phase == "INTEGRATED_AUTONOMIC_STACK"
+    assert projection.autonomy_envelope.falsifiers == []
+    assert projection.autonomy_envelope.standing == "OBSERVATIONAL_ONLY"
+    refute projection.admission.standing_granted
+    refute projection.admission.consequential_do_authority
   end
 
   defp item(id, title) do
