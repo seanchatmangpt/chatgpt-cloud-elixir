@@ -130,26 +130,81 @@ defmodule ChatGPTCloudWeb.HumanValueLive do
             </div>
 
             <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <.value_card label="Offer" value={money(world.offer_cents, world.currency)} field="offer" />
-              <.value_card label="Invoice" value={money(world.invoice_cents, world.currency)} field="invoice" />
-              <.value_card label="Revenue FROM customer" value={money(world.revenue_from_customer_cents, world.currency)} field="revenue-from" />
-              <.value_card label="Revenue FOR customer" value={money(world.revenue_for_customer_cents, world.currency)} field="revenue-for" />
+              <.value_card
+                label="Offer"
+                value={money(world.offer_cents, world.currency)}
+                field="offer"
+              />
+              <.value_card
+                label="Invoice"
+                value={money(world.invoice_cents, world.currency)}
+                field="invoice"
+              />
+              <.value_card
+                label="Revenue FROM customer"
+                value={money(world.revenue_from_customer_cents, world.currency)}
+                field="revenue-from"
+              />
+              <.value_card
+                label="Revenue FOR customer"
+                value={money(world.revenue_for_customer_cents, world.currency)}
+                field="revenue-for"
+              />
             </div>
 
             <dl class="mt-6 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
-              <div><dt class="text-slate-500">Contact</dt><dd data-field="contact">{world.contact_name} · {world.contact_email}</dd></div>
-              <div><dt class="text-slate-500">Provider</dt><dd class="font-mono text-xs" data-field="provider">{world.provider}</dd></div>
-              <div><dt class="text-slate-500">Seed</dt><dd class="font-mono" data-field="seed">{world.seed}</dd></div>
-              <div><dt class="text-slate-500">Acquired</dt><dd class="font-mono text-xs" data-field="acquired-at">{DateTime.to_iso8601(world.acquired_at)}</dd></div>
-              <div><dt class="text-slate-500">Ash record</dt><dd class="font-mono text-xs" data-field="ash-record">{world.id}</dd></div>
-              <div><dt class="text-slate-500">Evidence class</dt><dd data-field="evidence-class">SYNTHETIC</dd></div>
+              <div>
+                <dt class="text-slate-500">Contact</dt><dd data-field="contact">
+                  {world.contact_name} · {world.contact_email}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-slate-500">Provider</dt><dd
+                  class="font-mono text-xs"
+                  data-field="provider"
+                >
+                  {world.provider}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-slate-500">Seed</dt><dd class="font-mono" data-field="seed">
+                  {world.seed}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-slate-500">Acquired</dt><dd
+                  class="font-mono text-xs"
+                  data-field="acquired-at"
+                >
+                  {DateTime.to_iso8601(world.acquired_at)}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-slate-500">Ash record</dt><dd
+                  class="font-mono text-xs"
+                  data-field="ash-record"
+                >
+                  {world.id}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-slate-500">Evidence class</dt><dd data-field="evidence-class">
+                  SYNTHETIC
+                </dd>
+              </div>
             </dl>
           </article>
         </section>
 
         <section class="mt-8 rounded-2xl border border-slate-800 bg-slate-950 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Latest value receipt</h2>
-          <pre id="human-value-receipt" data-testid="value-receipt" class="mt-3 overflow-x-auto whitespace-pre-wrap text-xs text-cyan-200"><%= @latest_receipt %></pre>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400">
+            Latest value receipt
+          </h2>
+          <pre
+            id="human-value-receipt"
+            data-testid="value-receipt"
+            class="mt-3 overflow-x-auto whitespace-pre-wrap text-xs text-cyan-200"
+          ><%= @latest_receipt %></pre>
         </section>
       </div>
     </main>
