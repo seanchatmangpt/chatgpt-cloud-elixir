@@ -1,0 +1,10 @@
+{
+  "request_id": "20260826T034215Z-select4-post-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current", "title": "DfCM capability ledger", "kind": "dfcm.ledger", "cell": "SELECT_DEVELOP", "standing": "PARTIAL_ALIVE", "tags": ["dfcm","ledger","r78","tcps"],
+    "body": "Durable edge: R77 exact repository universe@8ecb7850 -> R78 TCPS ready-set capital compiler@df908435 -> public ontology + adversarial fixture -> 50 executable legality/readiness/partial-order/capital/authority/receipt courts -> deterministic ggen allocation projection -> exact-head R78 court ALIVE -> PR #315 REQUALIFYING. Preserved non-dominated but not-ready alternatives: R76 structural-capital compiler and R74 revenue structural-option factory. Generalizable selector logic returned upstream into canonical portfolio-epistemic-observability-pack. No consequential DO.",
+    "metadata": {"base":"8ecb78504241aef4fb1de1bd4f14bd1e71089a0b","candidate":"df908435a84a0240b9d89a48ea8ded81bfb74265","pr":315,"semantic_courts":50,"commits":61,"standing":"PARTIAL_ALIVE","transport_head_before_request":"e24dda3bcafd03fb33dd52aadbb91ae0ad525484"}
+  }}
+}
