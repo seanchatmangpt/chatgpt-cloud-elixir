@@ -26,6 +26,7 @@ defmodule ChatGPTCloudWeb.Router do
 
     live "/", OcelLive, :index
     live "/process-intelligence/live", OcelLive, :index
+    live "/human-value", HumanValueLive, :index
   end
 
   scope "/api", ChatGPTCloudWeb do
