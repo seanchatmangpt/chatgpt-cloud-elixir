@@ -1,0 +1,79 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:04:15Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "tcps/schedule-actuation/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T050504Z-cell5-read-actuation"
+  },
+  "request_id": "20260826T050504Z-cell5-read-actuation",
+  "request_path": "project-memory/requests/20260826T050504Z-cell5-read-actuation.json",
+  "request_sha256": "sha256:195693420a15625578872ade01cbd57b9d13f4b26301939458a5f39983f3540b",
+  "request_transport_sha256": "sha256:0aa622b72ab52d66abaa5ea190512e53d4099634770852d923fa72d1d29e4e24",
+  "result": {
+    "body": "R78 standardizes downstream-customer-first, partial-order preservation, hard admissibility before capital score, ready-set-only allocation, delayed linear extension, parallelism preservation, upstream return, and qualified-novelty standard-work promotion. Exact candidate df908435, PR #315. R78 court ALIVE; repository crown pending broad CI/Vacuity. Consequential DO=0.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_5Uc",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Cxgs",
+    "metadata": {
+      "admissible_set": [
+        "R78",
+        "R76",
+        "R74"
+      ],
+      "candidate": "df908435a84a0240b9d89a48ea8ded81bfb74265",
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-26T03:42:30Z",
+      "key": "tcps/schedule-actuation/current",
+      "kind": "tcps.schedule_actuation",
+      "preserved_alternatives": [
+        "R76",
+        "R74"
+      ],
+      "ready_set": [
+        "R78"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "r78",
+        "ready-set",
+        "tcps"
+      ],
+      "tcps_patterns_applied": [
+        "downstream_customer_first",
+        "partial_order_preservation",
+        "ready_set_only",
+        "legality_before_priority",
+        "linear_extension_at_execution_edge",
+        "parallelism_as_production_space",
+        "pull_from_downstream",
+        "upstream_return",
+        "qualified_novelty_to_standard_work"
+      ],
+      "transport_head_before_request": "f05748aeeb424d32df822ca440404f82b2582e7b",
+      "updated_at": "2026-08-26T03:42:30Z"
+    },
+    "title": "TCPS schedule actuation"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
