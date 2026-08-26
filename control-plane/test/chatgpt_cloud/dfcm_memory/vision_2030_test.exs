@@ -20,7 +20,7 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
 
     memory = [
       memory("A", %{
-        "key" => "vision/manufacturing",
+        "key" => "project/vision/manufacturing",
         "standing" => "ALIVE",
         "repo" => "seanchatmangpt/ggen-marketplace",
         "tags" => ["ggen", "ontology", "receipt", "semantic"],
@@ -28,17 +28,17 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
         "receipt" => "dfcm/receipt/manufacturing"
       }),
       memory("B", %{
-        "key" => "vision/cloud-gym",
+        "key" => "project/vision/cloud-gym",
         "standing" => "PARTIAL_ALIVE",
         "repo" => "seanchatmangpt/gymact",
         "tags" => ["cloud", "aws", "azure", "gcp", "gym", "benchmark", "ci"],
-        "requires" => "vision/manufacturing"
+        "requires" => "project/vision/manufacturing"
       }),
       memory("C", %{
-        "key" => "vision/consumer",
+        "key" => "project/vision/consumer",
         "standing" => "UNKNOWN",
         "repo" => "seanchatmangpt/autofde",
-        "dependencies" => "vision/missing-capability"
+        "dependencies" => "project/vision/missing-capability"
       })
     ]
 
@@ -74,7 +74,10 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
              &(&1.id == "agent-evaluation" and &1.status == "PRESENT")
            )
 
-    assert Enum.any?(projection.frontier, &(&1.memory_key == "vision/manufacturing"))
+    assert Enum.any?(
+             projection.frontier,
+             &(&1.memory_key == "project/vision/manufacturing")
+           )
   end
 
   test "minimum evidence makes capability admission explicit instead of implied" do
@@ -92,7 +95,7 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
         [item("A", "One semantic record")],
         [
           memory("A", %{
-            "key" => "vision/semantic",
+            "key" => "project/vision/semantic",
             "standing" => "ALIVE",
             "tags" => ["semantic", "ontology", "rdf"]
           })
