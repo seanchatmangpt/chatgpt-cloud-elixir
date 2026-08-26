@@ -1,0 +1,31 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: ggen/structural-manufacturing/current",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T01:37:10Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/structural-manufacturing/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T013205Z-select4-read-structural"
+  },
+  "request_id": "20260826T013205Z-select4-read-structural",
+  "request_path": "project-memory/requests/20260826T013205Z-select4-read-structural.json",
+  "request_sha256": "sha256:e18831f20d75d31d1e9f77d6610e32bbf22cc26bf9847950194b13007b52d42b",
+  "request_transport_sha256": "sha256:977da551c939bde3f9b44fc3738e269a0856c5fa92cfb957a0678d8439a8fe7c",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}

@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T020300Z-select4-post-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current structural manufacturing frontier",
+    "kind": "frontier",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["frontier", "ggen", "revops", "throughput"],
+    "body": "New reachable edges: R73 132-court structural/RevOps/throughput family -> exact-head qualification -> default containment -> structural displacement candidates -> R74 deterministic dual-revenue option manufacture -> consumer regeneration -> qualification -> RevOps value evidence. Newly explicit falsifiers cover displacement receipts/supersession, exact consumer/qualification heads, upstream refinement promotion/regeneration, RevenueFROMCustomer payer/causal/receipt/time/confidence, RevenueFORCustomer beneficiary/causal/receipt/time/confidence/retention/expansion, and run/commit throughput attribution integrity.",
+    "metadata": {"run_id":"6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP","next":"QUALIFY_R73_THEN_R74_COMPOSE","weakest_multiplier":"qualified structural displacement and consumer regeneration","Y":"UNKNOWN","M":">=2"}
+  }}
+}

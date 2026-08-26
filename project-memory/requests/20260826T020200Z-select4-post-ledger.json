@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T020200Z-select4-post-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM structural-capital ledger",
+    "kind": "ledger",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["lineage", "ggen", "revops"],
+    "body": "Preserved lineage: Project memory -> select R73/R74 portfolio -> isolate R73 fixed-cardinality + unbounded-CI suppressors -> repair -> extend canonical R73 family with 50 new semantic falsifiers -> generalize verifier to semantic-family identity -> repair R74 obsolete ggen schema -> exact-head requalification. Old R73/R74 heads remain provenance/rollback, not authority. No generated output hand-edited and no consequential DO.",
+    "metadata": {"run_id":"6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP","r73_head":"4db0e87d419e6acd27d0b5c98537c8d669f2fc05","r74_head":"c1153cd1d5da92b8e0c4da7e5636547a3a209d8f","standing":"PARTIAL_ALIVE"}
+  }}
+}

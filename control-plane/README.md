@@ -48,6 +48,26 @@ unchanged.
 See `../project-memory/SEMANTIC_VIRTUALIZATION.md` for the projection law,
 operations, standing boundaries, and OCEL conformance caveat.
 
+## Vision 2030 portfolio projection
+
+`project_vision_2030` is the AshAi/MCP read surface for the deterministic
+Project Two Vision 2030 model. The receipted request bus exposes the same model
+as `project.vision2030`.
+
+The projection reports eight autonomous-software-manufacturing capability
+pillars, explicit evidence coverage, dependency closure, and a bounded frontier
+ranking. `minimum_evidence` is caller-visible and turns insufficiently supported
+pillars into explicit `GAP` results rather than inferred readiness.
+
+Vision 2030 is observational only. Every result is bound to
+`READ_ONLY_VIRTUAL_PROJECTION`; it introduces zero mutating operations, grants
+no standing, and carries no consequential `DO` authority. Gap closure still
+requires an existing bounded manufacturing or mutation path plus its ordinary
+receipts and exact-head qualification.
+
+See `../project-memory/VISION_2030.md` for capability pillars, dependency law,
+frontier ranking, and falsifiers.
+
 ## Local
 
 ```bash
