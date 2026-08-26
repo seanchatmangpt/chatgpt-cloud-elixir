@@ -623,6 +623,26 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
         exit_code = 3 if exc.standing == "BLOCKED" else 2 if exc.standing == "REFUSED" else 1
+    except json.JSONDecodeError as exc:
+        # Malformed input JSON (e.g. a stray trailing brace) is a distinct failure
+        # class from an unhandled proxy-internal error: the request file itself is
+        # broken, not the proxy's own logic. Keeping standing=BUILD_BROKEN (the
+        # input is genuinely unusable) but a dedicated reason makes this class of
+        # failure diagnosable at a glance instead of folding into the generic
+        # UNHANDLED_PROXY_FAILURE bucket alongside real proxy bugs.
+        receipt = receipt_for(args.request, request, request_id, operation, token_source)
+        receipt.update(
+            {
+                "standing": "BUILD_BROKEN",
+                "reason": "MALFORMED_REQUEST_JSON",
+                "error": {
+                    "type": type(exc).__name__,
+                    "message": str(exc),
+                    "details": {"line": exc.lineno, "column": exc.colno, "char": exc.pos},
+                },
+            }
+        )
+        exit_code = 1
     except Exception as exc:
         receipt = receipt_for(args.request, request, request_id, operation, token_source)
         receipt.update(

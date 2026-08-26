@@ -34,6 +34,7 @@ defmodule ChatGPTCloud.MixProject do
       {:spark, "2.7.2"},
       {:reactor, "1.0.6"},
       {:igniter, "0.8.3", only: [:dev, :test]},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ash_postgres, "2.12.0"},
       {:ash_phoenix, "2.3.24"},
       {:ash_json_api, "1.7.1"},
@@ -100,7 +101,8 @@ defmodule ChatGPTCloud.MixProject do
         "format --check-formatted",
         "compile --warnings-as-errors",
         "chatgpt_cloud.ecosystem.verify",
-        "test"
+        "test --cover",
+        "dialyzer"
       ]
     ]
   end

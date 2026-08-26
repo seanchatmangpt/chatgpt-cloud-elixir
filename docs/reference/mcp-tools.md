@@ -27,6 +27,12 @@ Auth), the JSON:API (`/api/json`), or GraphQL (`/graphql`).
 
 ## Auth
 
+> **Security:** `OCEL_INGEST_TOKEN` is the single credential securing four separate
+> surfaces — OCEL ingestion, this MCP tool set (including the `upsert_dfcm_memory`
+> write action), `/graphql`, and `/api/json`. There is no per-surface or read/write
+> split: anyone holding this one token has full read/write reach across all four.
+> Treat it with the same care as a database admin credential, not a scoped API key.
+
 All 6 tools share the same gate as raw OCEL ingestion: `Authorization: Bearer
 $OCEL_INGEST_TOKEN`, checked by `ChatGPTCloudWeb.OcelAuth` via
 `Plug.Crypto.secure_compare`. Anyone holding that token can call every tool listed
