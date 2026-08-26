@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023302Z-explore-r75-throughput-upsert",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "manufacturing/schedule-throughput/current",
+    "title": "EXPLORE manufacturing throughput",
+    "kind": "measurement",
+    "cell": "EXPLORE",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["ggen","schedule-run","throughput","explore","r75"],
+    "body": "Current EXPLORE run manufactured 53 attributed semantic commits in ggen-marketplace before Project post-state writes. All 53 carry Schedule-Run and Schedule-Cell trailers. Exact repository head 5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6. Previous canonical throughput observation was 54 commits over 8.2667 active minutes (~391.94 commits/hour) for SELECT_DEVELOP; cross-cell comparison is observational, not causal equivalence.",
+    "metadata": {"repo":"seanchatmangpt/ggen-marketplace","head_sha":"5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6","meaningful_commits":53,"ggen_involved_commits":53,"G":1.0,"previous_canonical_commits":54,"previous_canonical_rate_per_hour":391.94,"previous_cell":"SELECT_DEVELOP","run_id":"SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE","attribution":"Schedule-Run trailer + exact branch range"}
+  }}
+}
