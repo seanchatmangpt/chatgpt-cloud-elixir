@@ -1,0 +1,1 @@
+{"request_id":"20260826T051010Z-fanout-forced-top25-read","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"ggen/fanout/forced-top25/current"}}
