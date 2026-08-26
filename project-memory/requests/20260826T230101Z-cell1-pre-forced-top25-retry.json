@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T230101Z-cell1-pre-forced-top25-retry",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "ggen/fanout/forced-top25/current"}
+}
