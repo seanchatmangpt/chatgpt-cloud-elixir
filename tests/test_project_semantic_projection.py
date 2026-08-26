@@ -1,3 +1,4 @@
+# Exact-subject verifier for the one-Project / many-virtual-views law.
 import pathlib
 import sys
 import unittest
