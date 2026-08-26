@@ -23,7 +23,7 @@ class Vision2030ProjectionTests(unittest.TestCase):
                 "A",
                 "Manufacturing frontier",
                 {
-                    "key": "vision/manufacturing",
+                    "key": "project/vision/manufacturing",
                     "standing": "ALIVE",
                     "repo": "seanchatmangpt/ggen-marketplace",
                     "tags": ["ggen", "ontology", "receipt", "semantic"],
@@ -35,21 +35,21 @@ class Vision2030ProjectionTests(unittest.TestCase):
                 "B",
                 "Cloud gym qualification",
                 {
-                    "key": "vision/cloud-gym",
+                    "key": "project/vision/cloud-gym",
                     "standing": "PARTIAL_ALIVE",
                     "repo": "seanchatmangpt/gymact",
                     "tags": ["cloud", "aws", "azure", "gcp", "gym", "benchmark", "ci"],
-                    "requires": "vision/manufacturing",
+                    "requires": "project/vision/manufacturing",
                 },
             ),
             self.item(
                 "C",
                 "Unresolved consumer",
                 {
-                    "key": "vision/consumer",
+                    "key": "project/vision/consumer",
                     "standing": "UNKNOWN",
                     "repo": "seanchatmangpt/autofde",
-                    "dependencies": "vision/missing-capability",
+                    "dependencies": "project/vision/missing-capability",
                 },
             ),
         ]
@@ -85,7 +85,7 @@ class Vision2030ProjectionTests(unittest.TestCase):
         pillars = {pillar["id"]: pillar for pillar in projection["capability_coverage"]["pillars"]}
         self.assertEqual("PRESENT", pillars["deterministic-manufacture"]["status"])
         self.assertEqual("PRESENT", pillars["agent-evaluation"]["status"])
-        self.assertTrue(any(item["memory_key"] == "vision/manufacturing" for item in projection["frontier"]))
+        self.assertTrue(any(item["memory_key"] == "project/vision/manufacturing" for item in projection["frontier"]))
 
     def test_minimum_evidence_turns_single_signal_into_explicit_gap(self):
         projection = vision_2030.project(self.graph, {"minimum_evidence": 4})
