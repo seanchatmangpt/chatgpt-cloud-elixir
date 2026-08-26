@@ -1,0 +1,95 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T00:38:04Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "body": "Durable R73 learning: stale memory should not be merely archived or observed. Preserve provenance, bind current subject identity, compile a reversible manufacturing plan, and require owning exact-head qualification before capital becomes productive.",
+        "cell": "SELECT_DEVELOP",
+        "generation": "R73",
+        "head_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+        "key": "dfcm/run/select/20260826T0038Z/55dd1400",
+        "kind": "dfcm.run_learning",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+          "candidate_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+          "law": "Temporal truth is productive only when stale/current evidence compiles into exact-subject revalidation requirements, reversible Pareto capital allocation, deterministic manufacturing plans, owning qualification, and returned receipts.",
+          "meaningful_commits": 64,
+          "pr": 300,
+          "semantic_identity": "query-family identity outranks commit count; 51 courts are independent instruments, not ALIVE claims"
+        },
+        "ref": "develop/r73-revalidation-manufacturing-capital-20260825",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "learning",
+          "r73",
+          "temporal-truth",
+          "revalidation",
+          "capital"
+        ],
+        "title": "R73 durable learning: temporal truth must compile into revalidation capital"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T0038Z-select4-learning"
+  },
+  "request_id": "20260826T0038Z-select4-learning",
+  "request_path": "project-memory/requests/20260826T0038Z-select4-learning.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable R73 learning: stale memory should not be merely archived or observed. Preserve provenance, bind current subject identity, compile a reversible manufacturing plan, and require owning exact-head qualification before capital becomes productive.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_2mk",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4BxYc",
+      "metadata": {
+        "1000X": "NOT_ADMITTED",
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT",
+        "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+        "candidate_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+        "cell": "SELECT_DEVELOP",
+        "created_at": "2026-08-26T00:38:18Z",
+        "generation": "R73",
+        "head_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+        "key": "dfcm/run/select/20260826T0038Z/55dd1400",
+        "kind": "dfcm.run_learning",
+        "law": "Temporal truth is productive only when stale/current evidence compiles into exact-subject revalidation requirements, reversible Pareto capital allocation, deterministic manufacturing plans, owning qualification, and returned receipts.",
+        "meaningful_commits": 64,
+        "pr": 300,
+        "ref": "develop/r73-revalidation-manufacturing-capital-20260825",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_identity": "query-family identity outranks commit count; 51 courts are independent instruments, not ALIVE claims",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "capital",
+          "learning",
+          "r73",
+          "revalidation",
+          "temporal-truth"
+        ],
+        "updated_at": "2026-08-26T00:38:18Z"
+      },
+      "title": "R73 durable learning: temporal truth must compile into revalidation capital"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
