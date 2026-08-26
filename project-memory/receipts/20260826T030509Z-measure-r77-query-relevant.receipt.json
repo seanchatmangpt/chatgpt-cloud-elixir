@@ -1,0 +1,42 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:09:01Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "max_scan": 1000,
+      "text": "ggen marketplace structural manufacturing repository census displacement portfolio epistemic observability OCEL RevOps throughput pack generator consumer qualification upstream learning stale standing falsifier dependency Ash Elixir UI revenue phase change R75 R76"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T030509Z-measure-r77-query-relevant"
+  },
+  "request_id": "20260826T030509Z-measure-r77-query-relevant",
+  "request_path": "project-memory/requests/20260826T030509Z-measure-r77-query-relevant.json",
+  "request_sha256": "sha256:0133acfa99b01cc9dc975b686009b04ca5024c61ef8439f0c3677ea77c5ca2cb",
+  "request_transport_sha256": "sha256:c140887408cb1c1448217e985c8a27637a7c39c61308c98a277c3ef0dc3dca1c",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 42,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
