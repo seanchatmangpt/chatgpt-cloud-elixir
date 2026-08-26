@@ -75,25 +75,26 @@ defmodule ChatGPTCloud.SwarmCoordination.CoordinatorTest do
              Coordinator.complete("work_test_lifecycle", "agent-a")
   end
 
-  test "explicit observed standing may crown a completion receipt" do
+  test "completion JSON cannot self-crown ALIVE" do
     assert {:ok, _, _} =
              Coordinator.enqueue(%{
-               work_item_id: "work_test_alive",
+               work_item_id: "work_test_no_self_crown",
                work_type: "verification",
-               description: "Observe exact admitted acceptance command"
+               description: "Attempt to self-crown completion"
              })
 
-    assert {:ok, _, _} = Coordinator.claim("work_test_alive", "verifier")
+    assert {:ok, _, _} = Coordinator.claim("work_test_no_self_crown", "agent")
 
     assert {:ok, _, receipt} =
-             Coordinator.complete("work_test_alive", "verifier", %{
+             Coordinator.complete("work_test_no_self_crown", "agent", %{
                "standing" => "ALIVE",
                "subject_sha" => "abc123",
                "command" => "mix test",
                "exit" => 0
              })
 
-    assert receipt["standing"] == "ALIVE"
+    assert receipt["standing"] == "PARTIAL_ALIVE"
+    assert receipt["payload"]["details"]["standing_law"] == "completion_is_not_verification"
   end
 
   test "Project 2 items map to deterministic replayable work identities" do
