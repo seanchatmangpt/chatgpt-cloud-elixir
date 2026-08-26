@@ -59,6 +59,20 @@ pillars, explicit evidence coverage, dependency closure, and a bounded frontier
 ranking. `minimum_evidence` is caller-visible and turns insufficiently supported
 pillars into explicit `GAP` results rather than inferred readiness.
 
+The post-LLM projection additionally measures independent evidence-domain
+coverage, qualified reusable manufacturing capital, observed combinatorial
+capability pairings, and a maximalist gap frontier. Its fail-closed autonomy
+envelope can report structural integration only when capability, dependency,
+source-completeness, and caller-selected receipt-coverage conditions all hold.
+Even then, the envelope remains `OBSERVATIONAL_ONLY`.
+
+Vision 2030 parity now enters the same exact-head control-plane court as the
+Ash runtime: Project-memory, semantic, and Vision Python tests run before the
+canonical Elixir formatter, strict compilation, database migration, Ash
+ecosystem verification, application tests, production release, and Docker
+construction. This makes semantic parity and runtime qualification one evidence
+chain instead of two unrelated green checks.
+
 Vision 2030 is observational only. Every result is bound to
 `READ_ONLY_VIRTUAL_PROJECTION`; it introduces zero mutating operations, grants
 no standing, and carries no consequential `DO` authority. Gap closure still
@@ -80,7 +94,7 @@ Post a batch:
 ```bash
 curl -X POST http://localhost:4000/api/v1/ocel/batches \
   -H 'content-type: application/json' \
-  -H 'authorization: Bearer dev-ocel-token' \
+  -H 'authorization: Bearer $OCEL_INGEST_TOKEN' \
   -d @example.json
 ```
 
