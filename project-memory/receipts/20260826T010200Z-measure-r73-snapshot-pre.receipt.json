@@ -1,6 +1,8 @@
 {
+  "actuation_performed": true,
   "error": null,
-  "observed_at": "2026-08-26T01:12:02Z",
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:15:49Z",
   "operation": "project.snapshot",
   "project": {
     "id": "PVT_kwHOCCCFfc4BhZKe",
@@ -23,6 +25,8 @@
   },
   "request_id": "20260826T010200Z-measure-r73-snapshot-pre",
   "request_path": "project-memory/requests/20260826T010200Z-measure-r73-snapshot-pre.json",
+  "request_sha256": "sha256:2ddcdeaec8a14b0c83e2218e47e459d6b380449cce41c2f718579ba4fbb4a52a",
+  "request_transport_sha256": "sha256:b6b294bd63c53f766d9501d4f681a9f1a679b6a23e55fe1791deab1e548edccc",
   "result": {
     "item_count": 384,
     "items": [
@@ -3512,8 +3516,8 @@
         "item_id": "PVTI_lAHOCCCFfc4BhZKezg36bSM",
         "memory_key": "dfcm/run-control/measure/current",
         "memory_kind": "dfcm.run-control",
-        "memory_updated_at": "2026-08-26T00:04:21Z",
-        "title": "MEASURE R72 run control",
+        "memory_updated_at": "2026-08-26T02:05:20Z",
+        "title": "DfCM MEASURE run control",
         "type": "DRAFT_ISSUE"
       },
       {
@@ -3541,9 +3545,9 @@
         "is_archived": false,
         "item_id": "PVTI_lAHOCCCFfc4BhZKezg36nMk",
         "memory_key": "dfcm/run-control/select/current",
-        "memory_kind": "dfcm.run_control",
-        "memory_updated_at": "2026-08-26T00:49:54Z",
-        "title": "SELECT DEVELOP R73 innovation-capital allocation COMPLETE",
+        "memory_kind": "dfcm.run-control",
+        "memory_updated_at": "2026-08-26T01:38:14Z",
+        "title": "DfCM SELECT+DEVELOP structural-capital run control",
         "type": "DRAFT_ISSUE"
       },
       {
@@ -3551,9 +3555,9 @@
         "is_archived": false,
         "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
         "memory_key": "dfcm/select/latest",
-        "memory_kind": "dfcm.select",
-        "memory_updated_at": "2026-08-26T00:48:26Z",
-        "title": "SELECT R73 revalidation manufacturing capital contained",
+        "memory_kind": "selection",
+        "memory_updated_at": "2026-08-26T02:02:21Z",
+        "title": "SELECT+DEVELOP structural capital allocation",
         "type": "DRAFT_ISSUE"
       },
       {
