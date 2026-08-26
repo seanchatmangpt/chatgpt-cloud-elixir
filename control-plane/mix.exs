@@ -31,6 +31,7 @@ defmodule ChatGPTCloud.MixProject do
   defp deps do
     [
       {:ash, "3.32.0"},
+      {:simple_sat, "~> 0.1"},
       {:spark, "2.7.2"},
       {:reactor, "1.0.6"},
       {:igniter, "0.8.3", only: [:dev, :test]},
