@@ -1,0 +1,293 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T08:45:32Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "ForcedTop25 order preserved exactly. Project2 lower-bound admissibility remains U>=17. A third realized consumer, dspygen, is now exact-head qualified and default-lineage assimilated: consumer head 4f70719dfef0d7fa4c9db93c280e5c80961aa9be had all eight observed workflows SUCCESS including DSPy Pack DfCM Full Closure; main 8d9c2fa7f867e317c3fc4fba06903d88b3543180 is a verified merge whose second parent is that consumer head. R82 returned the consumer-local generated-file qualification defect upstream as forced-top25-generated-closure-pack on ggen-marketplace PR318 head 0f451f2789d9d4bd56c18437213f3d2aea9807f1. R>=3, Q>=3, M>=3, OpenFanoutObligations>=14. chatgpt-cloud-elixir control/request/receipt commits remain CONTROL only.",
+        "cell": "COMPOSE_EXPAND_FANOUT",
+        "key": "ggen/fanout/forced-top25/current",
+        "kind": "ggen.fanout.forced_top25",
+        "metadata": {
+          "M_lower_bound": 3,
+          "Q_lower_bound": 3,
+          "R_lower_bound": 3,
+          "U_lower_bound": 17,
+          "authority": "SELECT|CONSTRUCT",
+          "canonical_pack": "forced-top25-generated-closure-pack",
+          "canonical_pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+          "canonical_pr": 318,
+          "consequential_do": false,
+          "dspygen": {
+            "assimilation_state": "ALIVE_DEFAULT_LINEAGE",
+            "blocker": null,
+            "consumer_family": "DSPy/Python",
+            "consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "downstream_commits": 3,
+            "exact_current_head": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+            "fanout_state": "DOWNSTREAM_REALIZED",
+            "qualification_state": "ALIVE_EXACT_HEAD",
+            "rank": 23
+          },
+          "forced_top25": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "open_fanout_obligations_lower_bound": 14
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "fanout",
+          "forced-top25",
+          "r82",
+          "exact-subject"
+        ],
+        "title": "GGEN forced Top25 fanout current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T084200Z-cell2-r82-forced-top25-upsert"
+  },
+  "request_id": "20260826T084200Z-cell2-r82-forced-top25-upsert",
+  "request_path": "project-memory/requests/20260826T084200Z-cell2-r82-forced-top25-upsert.json",
+  "request_sha256": "sha256:27e088c1aa09980f7f0ae161943921189476a6dea4769e089dd718e8a900315f",
+  "request_transport_sha256": "sha256:b76ca9143e4ff468242e6ffbd022e7aee8776481f5a1f277decbb586359a8b52",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "ForcedTop25 order preserved exactly. Project2 lower-bound admissibility remains U>=17. A third realized consumer, dspygen, is now exact-head qualified and default-lineage assimilated: consumer head 4f70719dfef0d7fa4c9db93c280e5c80961aa9be had all eight observed workflows SUCCESS including DSPy Pack DfCM Full Closure; main 8d9c2fa7f867e317c3fc4fba06903d88b3543180 is a verified merge whose second parent is that consumer head. R82 returned the consumer-local generated-file qualification defect upstream as forced-top25-generated-closure-pack on ggen-marketplace PR318 head 0f451f2789d9d4bd56c18437213f3d2aea9807f1. R>=3, Q>=3, M>=3, OpenFanoutObligations>=14. chatgpt-cloud-elixir control/request/receipt commits remain CONTROL only.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5x8",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DDa8",
+      "metadata": {
+        "M_lower_bound": 3,
+        "Q_lower_bound": 3,
+        "R_lower_bound": 3,
+        "U_lower_bound": 17,
+        "authority": "SELECT|CONSTRUCT",
+        "blockers": [
+          "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+          "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING",
+          "XAAS_CI_CD_ELIXIR_FAILURE"
+        ],
+        "canonical_composition": {
+          "head": "079a315c02d686fc6baa1166999dded3afb587fe",
+          "pack": "forced-top25-r75-realization-composition-pack",
+          "pr": 318,
+          "repo": "seanchatmangpt/ggen-marketplace"
+        },
+        "canonical_factory": {
+          "head": "e00541af68f879500aac0c28d197f5a84092c746",
+          "pack": "forced-top25-admissibility-factory-pack",
+          "pr": 317,
+          "repo": "seanchatmangpt/ggen-marketplace"
+        },
+        "canonical_pack": "forced-top25-generated-closure-pack",
+        "canonical_pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+        "canonical_pr": 318,
+        "cell": "COMPOSE_EXPAND_FANOUT",
+        "consequential_do": false,
+        "consumer_ready_set": [
+          "ex4pm",
+          "gymact"
+        ],
+        "count": 25,
+        "created_at": "2026-08-26T04:34:38Z",
+        "dspygen": {
+          "assimilation_state": "ALIVE_DEFAULT_LINEAGE",
+          "blocker": null,
+          "consumer_family": "DSPy/Python",
+          "consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+          "downstream_commits": 3,
+          "exact_current_head": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+          "fanout_state": "DOWNSTREAM_REALIZED",
+          "qualification_state": "ALIVE_EXACT_HEAD",
+          "rank": 23
+        },
+        "dspygen_consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "exact_known_heads": {
+          "ex4pm": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "xaas": "3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+        },
+        "factory_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "factory_marketplace_head": "f75bdb35c2e9104679325c6772194005cc6fef67",
+        "fanout_state": {
+          "ex4pm": "DOWNSTREAM_REALIZED",
+          "gymact": "DOWNSTREAM_REALIZED",
+          "xaas": "REPAIR_REQUIRED"
+        },
+        "forced_count": 25,
+        "forced_top25": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "key": "ggen/fanout/forced-top25/current",
+        "kind": "ggen.fanout.forced_top25",
+        "new_downstream_commits": 3,
+        "new_downstream_repos": 1,
+        "observed_count": 25,
+        "open_fanout_obligations_lower_bound": 14,
+        "ordered_population": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "ordered_repos": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "qualification_state": {
+          "ex4pm": "ALIVE_EXACT_HEAD_FULL_REPO",
+          "gymact": "PARTIAL_ALIVE_INHERITED_BROAD_CI_DEBT",
+          "xaas": "BUILD_BROKEN_CI_CD_ELIXIR_FAILURE"
+        },
+        "ready": [
+          {
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "pr": 34,
+            "rank": 1,
+            "repo": "ex4pm"
+          },
+          {
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "pr": 126,
+            "rank": 2,
+            "repo": "gymact"
+          }
+        ],
+        "repair_gated": [
+          {
+            "blocker": "CI_CD_ELIXIR_FAILURE",
+            "repo": "xaas"
+          }
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "source": "explicit_user_contract",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "exact-subject",
+          "fanout",
+          "forced-top25",
+          "ggen",
+          "r82"
+        ],
+        "transport_head": "a74fa57d16c4d6b5bc16310d911bdb9b48b0ea4f",
+        "unknown_count": 22,
+        "unknown_reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+        "updated_at": "2026-08-26T08:45:46Z"
+      },
+      "title": "GGEN forced Top25 fanout current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
