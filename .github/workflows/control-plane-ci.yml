@@ -8,7 +8,7 @@ on:
       - ".github/workflows/control-plane-ci.yml"
       - ".github/workflows/deploy-fly.yml"
   push:
-    branches: [main, "feat/**"]
+    branches: [main, "feat/**", "feature/**"]
     paths:
       - "control-plane/**"
       - "scripts/emit-ocel.py"

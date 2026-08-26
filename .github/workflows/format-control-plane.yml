@@ -6,6 +6,11 @@ on:
     paths:
       - ".github/workflows/format-control-plane.yml"
       - "control-plane/**"
+  push:
+    branches: [main, "feat/**", "feature/**"]
+    paths:
+      - ".github/workflows/format-control-plane.yml"
+      - "control-plane/**"
   workflow_dispatch:
 
 permissions:
