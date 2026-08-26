@@ -5,7 +5,10 @@ on:
     paths:
       - ".github/workflows/project-memory-proxy.yml"
       - "scripts/project_memory_proxy.py"
+      - "scripts/project_memory_semantic_proxy.py"
+      - "scripts/project_semantic_projection.py"
       - "tests/test_project_memory_proxy.py"
+      - "tests/test_project_semantic_projection.py"
       - "project-memory/requests/**/*.json"
   workflow_dispatch:
     inputs:
@@ -39,7 +42,7 @@ jobs:
           fetch-depth: 0
 
       - name: Validate proxy implementation
-        run: python -m unittest tests/test_project_memory_proxy.py
+        run: python -m unittest tests/test_project_memory_proxy.py tests/test_project_semantic_projection.py
 
       - name: Resolve request set
         id: requests
@@ -85,7 +88,7 @@ jobs:
             [[ -n "$request" ]] || continue
             base="$(basename "$request" .json)"
             receipt="project-memory/receipts/${base}.receipt.json"
-            python scripts/project_memory_proxy.py --request "$request" --receipt "$receipt" || failures=$((failures + 1))
+            python scripts/project_memory_semantic_proxy.py --request "$request" --receipt "$receipt" || failures=$((failures + 1))
           done < .project-memory-runtime/requests.txt
           printf '%s\n' "$failures" > .project-memory-runtime/failures.txt
 

@@ -1,18 +1,11 @@
 defmodule ChatGPTCloud.DfcmMemory do
   @moduledoc """
-  The Claude <-> ChatGPT junction over DfCM shared memory.
+  The shared LLM junction over GitHub Project v2 `seanchatmangpt/2`.
 
-  ChatGPT's five hourly manufacturing cells (MEASURE/EXPLORE/SELECT/IMPLEMENT/
-  PORTFOLIO) write to GitHub Project v2 `seanchatmangpt/2` through
-  `scripts/project_memory_proxy.py` + `.github/workflows/project-memory-proxy.yml`.
-  This domain exposes the same Project, hard-scoped the same way, to Claude (or
-  any MCP client) as Ash tools over `/mcp` — so both sides read and write one
-  shared, evidence-bearing memory rather than two private ones.
-
-  Per `project-memory/README.md`'s read-before-manufacture / write-after-
-  manufacture contract: reading here is a required first step before any
-  manufacturing decision, and every write is an upsert bound to a stable `key`,
-  never a blind create.
+  ChatGPT's request/receipt bus and every AshAi/MCP client observe the same
+  Project. Memory mutation remains bounded to stable-key upserts; semantic
+  graph/table/triple/catalog/process/context tools are read-only projections over
+  that exact subject.
   """
 
   use Ash.Domain, extensions: [AshAi]
@@ -20,35 +13,71 @@ defmodule ChatGPTCloud.DfcmMemory do
   tools do
     tool(:read_dfcm_memory, ChatGPTCloud.DfcmMemory.MemoryRecord, :read,
       description:
-        "Read-before-manufacture: list current DfCM memory records from Project #2 " <>
-          "(seanchatmangpt/2). Filter by key/kind/cell/standing/tags via the Ash query " <>
-          "(pass filter conditions under \"filter\", arguments under \"input\"). Call this " <>
-          "before proposing or starting any manufacturing work."
+        "Read-before-manufacture: list current DfCM memory records from Project #2. " <>
+          "Filter through the Ash query. Call before proposing or starting manufacturing work."
     )
 
     tool(:upsert_dfcm_memory, ChatGPTCloud.DfcmMemory.MemoryRecord, :upsert_record,
       description:
-        "Write-after-manufacture: create-or-update a DfCM memory record by stable key " <>
-          "(e.g. dfcm/frontier/current, dfcm/measure/latest; pass key/title/kind/cell/" <>
-          "standing/tags/body/metadata under \"input\"). Always resolves the current record " <>
-          "for that key first, so this is an upsert, never a blind overwrite. Call this after " <>
-          "every manufacturing run, including runs that produced no new commits."
+        "Write-after-manufacture: create-or-update a Project #2 memory record by stable key. " <>
+          "This is a bounded mutation of the canonical Project, never a blind overwrite."
     )
 
     tool(:snapshot_dfcm_project, ChatGPTCloud.DfcmMemory.MemoryRecord, :snapshot,
-      description:
-        "Live identity and item/memory-record counts for Project #2 (seanchatmangpt/2). " <>
-          "Read-only. Useful for confirming the junction is actually connected before " <>
-          "trusting any cached memory read."
+      description: "Live identity and item/memory-record counts for Project #2. Read-only."
     )
 
     tool(:list_project_items, ChatGPTCloud.DfcmMemory.MemoryRecord, :project_items,
       description:
-        "Full-fidelity read of every item on Project #2 (seanchatmangpt/2), not just " <>
-          "memory-marked ones -- content (title, body, url, number, repository, state, " <>
-          "labels, assignees) plus every custom field value (Status, Priority, Iteration, " <>
-          "etc.) flattened to {field_name => value}. Optional input: max_items, types " <>
-          "(subset of ISSUE/PULL_REQUEST/DRAFT_ISSUE), include_archived. Read-only."
+        "Full-fidelity Project #2 item read: issues/PRs/drafts, fields, labels, assignees, and content. Read-only."
+    )
+
+    tool(:inspect_project_semantics, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_project,
+      description:
+        "One subject, many virtual views over Project #2. Select graph, tables, triples, JSON-LD, " <>
+          "service catalog, OCEL-shaped process evidence, and LLM context without copying data to another store."
+    )
+
+    tool(:project_property_graph, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_graph,
+      description:
+        "Read-only property graph over Project #2. Vertices include items, memory keys, repositories, actors, " <>
+          "labels, tags, commits, and explicit references. Edges are created only from explicit fields/metadata."
+    )
+
+    tool(:query_project_graph, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_graph_query,
+      description:
+        "Query or traverse the virtual Project #2 graph by text/type/repository/kind/standing/tags/predicate, " <>
+          "or expand bounded neighborhoods from node ids. Read-only."
+    )
+
+    tool(:project_relational_tables, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_tables,
+      description:
+        "Expose Project #2 as ordinary node/edge/fact rows so non-graph tooling can inspect the same graph subject. Read-only."
+    )
+
+    tool(:project_semantic_triples, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_triples,
+      description:
+        "Expose Project #2 as RDF-shaped subject/predicate/object facts derived from explicit Project fields and memory metadata. Read-only."
+    )
+
+    tool(:project_jsonld, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_jsonld,
+      description:
+        "JSON-LD projection of Project #2 using public PROV/DCAT/DCTERMS/SKOS/FOAF/DOAP namespaces plus bounded Project Two predicates. Read-only."
+    )
+
+    tool(:project_service_catalog, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_services,
+      description:
+        "Virtual semantic PaaS/SaaS catalog for Project #2: available interfaces, projection capabilities, and live resource facets. Read-only."
+    )
+
+    tool(:project_ocel, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_ocel,
+      description:
+        "OCEL-2-shaped process-evidence read model over Project #2. Conformance remains explicitly unclaimed until an independent OCEL validator executes."
+    )
+
+    tool(:project_llm_context, ChatGPTCloud.DfcmMemory.MemoryRecord, :semantic_context,
+      description:
+        "Bounded adjacency-aware Project #2 context optimized for LLMs: focused records, semantic neighbors, evidence-bearing identities, and truncated bodies."
     )
   end
 
