@@ -50,7 +50,10 @@ defmodule ChatGPTCloudWeb.WorkController do
   end
 
   def block(conn, %{"work_item_id" => work_item_id} = params) do
-    transition(conn, Coordinator.block(work_item_id, params["agent_id"] || "", params["reason"] || ""))
+    transition(
+      conn,
+      Coordinator.block(work_item_id, params["agent_id"] || "", params["reason"] || "")
+    )
   end
 
   def refuse(conn, %{"work_item_id" => work_item_id} = params) do
