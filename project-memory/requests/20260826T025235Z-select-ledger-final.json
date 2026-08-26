@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T025235Z-select-ledger-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM durable capital ledger",
+    "kind": "dfcm.ledger",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","r76","structural-capital"],
+    "body": "Durable lineage: R75 throughput/factory-learning observation -> R76 portfolio structural census on default 04cd8add33e732c556a916a8182d25f8849ec557 + R76 Structural-Capital Compiler authored lineage 6c0037b2283b4151f5c1e95700de96a29c2eb69c -> non-default exact composition 913ef1012c01e99bed6df190e3d79dd7bf974998 -> exact-head requalification. Compiler chain: StructuralGap -> CanonicalPrimitive -> PackPlan -> GeneratorPlan -> ConsumerPopulation -> QualificationPlan -> RegenerationPlan -> requalification -> Throughput/ValueEvidence. Verification-produced upstream learning: R47 and R51 historical courts used ordinal ranges as semantic identity; promoted explicit family manifests while preserving later sensor families. Stale #307 remains provenance; #311 is current exact-substrate candidate. No default merge until composed subject is ALIVE.",
+    "metadata": {"default_head":"04cd8add33e732c556a916a8182d25f8849ec557","authored_head":"6c0037b2283b4151f5c1e95700de96a29c2eb69c","composed_candidate":"913ef1012c01e99bed6df190e3d79dd7bf974998","pr":311,"meaningful_commits":62,"semantic_courts":50,"standing":"PARTIAL_ALIVE"}
+  }}
+}
