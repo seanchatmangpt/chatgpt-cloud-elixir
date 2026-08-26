@@ -1,0 +1,166 @@
+name: Human Value Runtime Court
+
+on:
+  pull_request:
+    paths:
+      - "control-plane/lib/chatgpt_cloud_control_plane/human_value/**"
+      - "control-plane/lib/chatgpt_cloud_control_plane_web/live/human_value_live.ex"
+      - "control-plane/lib/chatgpt_cloud_control_plane_web/router.ex"
+      - "control-plane/config/config.exs"
+      - "control-plane/priv/repo/migrations/*human_value*"
+      - "control-plane/e2e/**"
+      - "control-plane/playwright.config.js"
+      - "control-plane/scripts/verify_human_value_static_law.py"
+      - ".github/workflows/human-value-runtime.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  value-court:
+    name: dynamic acquisition -> Ash -> Phoenix -> Playwright -> receipt
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: chatgpt_cloud_control_plane_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d chatgpt_cloud_control_plane_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 30
+
+    env:
+      MIX_ENV: test
+      DATABASE_URL: ecto://postgres:postgres@localhost:5432/chatgpt_cloud_control_plane_test
+      OCEL_INGEST_TOKEN: test-token
+      PHX_SERVER: "true"
+      PORT: "4002"
+      HUMAN_VALUE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+
+    defaults:
+      run:
+        working-directory: control-plane
+
+    steps:
+      - name: Checkout exact subject
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Admit exact subject
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$PR_HEAD_SHA"
+          printf 'subject=%s\nrun=%s\n' "$PR_HEAD_SHA" "$HUMAN_VALUE_RUN_ID"
+
+      - name: Install BEAM toolchain
+        uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+        with:
+          otp-version: "29.0"
+          elixir-version: "1.20.2"
+
+      - name: Install Node for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Resolve Elixir dependency closure
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get
+
+      - name: Quality at source — format and strict compile
+        run: |
+          mix format --check-formatted
+          mix compile --warnings-as-errors
+
+      - name: Create and migrate exact test database
+        run: |
+          mix ecto.create --quiet
+          mix ecto.migrate
+
+      - name: Run Ash/provider source courts
+        run: |
+          mix test test/chatgpt_cloud_control_plane/human_value/provider_test.exs test/chatgpt_cloud_control_plane/human_value/world_test.exs
+
+      - name: Run anti-static value-theater court
+        run: |
+          mkdir -p artifacts/human-value
+          python3 scripts/verify_human_value_static_law.py | tee artifacts/human-value/static-law-receipt.json
+
+      - name: Build Phoenix assets
+        run: |
+          mix assets.setup
+          mix assets.build
+
+      - name: Start exact Phoenix runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          mix phx.server > artifacts/human-value/phoenix.log 2>&1 &
+          echo $! > artifacts/human-value/phoenix.pid
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:4002/healthz >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat artifacts/human-value/phoenix.log
+          exit 1
+
+      - name: Install bounded Playwright court
+        run: |
+          npm install --no-save @playwright/test@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Execute human gemba journey
+        run: npx playwright test e2e/human_value.spec.js --config=playwright.config.js --reporter=line
+
+      - name: Admit VALUE_ALIVE receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path("artifacts/human-value/human-value-playwright-receipt.json")
+          receipt = json.loads(path.read_text())
+          assert receipt["standing"] == "VALUE_ALIVE"
+          assert receipt["exact_head"] == os.environ["PR_HEAD_SHA"]
+          assert len(receipt["dynamic_worlds"]) >= 2
+          first, second = receipt["dynamic_worlds"][:2]
+          assert first["scenario_id"] != second["scenario_id"]
+          assert first["seed"] != second["seed"]
+          assert first["organization"] != second["organization"]
+          assert receipt["server_receipt"]["synthetic"] is True
+          assert receipt["server_receipt"]["ash_action"] == "qualify"
+          assert receipt["revenue_from_customer_evidence_class"] == "SYNTHETIC_SOFTWARE_BEHAVIOR_ONLY"
+          assert receipt["revenue_for_customer_evidence_class"] == "SYNTHETIC_SOFTWARE_BEHAVIOR_ONLY"
+          print(json.dumps({"subject": os.environ["PR_HEAD_SHA"], "standing": "VALUE_ALIVE"}))
+          PY
+
+      - name: Upload human-value receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-value-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            control-plane/artifacts/human-value/
+            control-plane/test-results/
+          if-no-files-found: warn
+          retention-days: 14
