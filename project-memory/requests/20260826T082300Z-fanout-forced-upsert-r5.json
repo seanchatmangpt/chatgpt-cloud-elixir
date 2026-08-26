@@ -1,0 +1,28 @@
+{
+  "request_id": "20260826T082300Z-fanout-forced-upsert-r5",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/forced-top25/current",
+      "title": "GGEN forced Top25 fanout current",
+      "kind": "ggen.fanout.forced_top25",
+      "cell": "MAXIMUM_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "forced-top25", "exact-subject"],
+      "body": "25/25 repositories re-resolved this cycle. Exact heads: ex4pm/main=06d326f59d05afdcd39637f42fe277a474095dda; gymact/main=d8382cac7dd888a77c8cca8bcd335a04ddb49a15; autofde-lab/master=0b968955f69698fee50e9a132a87de287f15a0e7; autofde/main=6c21cda73f7cc8873ea429f79f49c5b4b615c1fe; xaas/main=2207203b1bef612cc55a52676b8e607f930640e7; chatgpt-cloud-elixir/main=dynamic-control-subject; process-intelligence/main=3774901c4103b3555cc367c71d6d4333eeec6d33; ash_r2rml/main=263aa768bbc5a933124409ee68f2b9efb9d09a3a; wasm4pm/main=f21ecfd0cac1945da6c773c65ff3849dd8c6591d; pm4wasm/main=ddf402ee9856589187b85dd876cdf37e7ffd2c92; mfact/main=10ce8e967b083a9abe12dd8702af5d40757c40e8; mfact-command-center/main=dda255df10e9037b9fee014d4ef2eccbd846d902; mfw/main=e4fbda46f13d8213b86aa4f981d2387638983066; SREGym/main=15daa656c1cb1aa21b1980ec3990eccb84519989; fdegym/main=2d7c5acb3cbb8df1608cf9b81be53a74e39a1946; revops/main=6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94; chatman-ecosystem/main=ffe93f68a81fc46ccf60594a9615167bd36031a4; POWL/main=56b9d36ecd5a6ad78ac8264547446e60022135bd; swarmsh-v2/master=02e5eaae14bd03a832c0f031acc56c6d4db3845e; cargo-cicd/main=e64f8224c23771e8c4e5d1d22fb939f812b04e1b; clap-noun-verb/main=29f61a9c259db516cc3433e6b02fd2500011fd3a; unrdf/main=dcc6ada4df196fd23cb96885f018cb5c1c89386e; dspygen/main=df424348aec1a89f9ccf09e82399c1e4f76c99d0; yawl/master=589d535197e0e3f2ebcaff3889841181c80b388e; a2a-rs/master=05b88f81321d2a61556157e63180321acb661d53. Known current assimilated consumers: ex4pm, gymact. dspygen consumer branch 4f70719dfef0d7fa4c9db93c280e5c80961aa9be is requalifying after three consumer-local repair commits. Broad compatibility search returned transient 502; previously admitted unchanged exact subjects preserve lower-bound U>=17; OpenFanoutObligations>=15. Four defaults are master: autofde-lab, swarmsh-v2, yawl, a2a-rs.",
+      "metadata": {
+        "forced_count": 25,
+        "observed_count": 25,
+        "U_lower_bound": 17,
+        "M_lower_bound": 2,
+        "open_fanout_obligations_lower_bound": 15,
+        "new_downstream_repos": 1,
+        "new_downstream_commits": 3,
+        "dspygen_consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "factory_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "factory_marketplace_head": "f75bdb35c2e9104679325c6772194005cc6fef67"
+      }
+    }
+  }
+}
