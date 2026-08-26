@@ -1,0 +1,178 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T01:09:10Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Project Two is the canonical operational subject and is virtualized as a semantic PaaS rather than copied into a second authoritative database. The same admitted Project items can be inspected as memory KV, full-fidelity Project objects, a property graph, bounded graph neighborhoods, relational node/edge/fact tables, RDF-shaped triples, JSON-LD, a service/capability catalog, OCEL-2-shaped process evidence, and bounded adjacency-aware LLM context. ChatGPT uses the bounded request/receipt bus; MCP-capable LLMs use the AshAi junction; humans use the GitHub Project UI. Semantic projections are read-only; graph edges require explicit Project fields or admitted relation-bearing metadata; arbitrary prose remains literal evidence. Live project.services execution is ALIVE. Cross-LLM standing remains PARTIAL_ALIVE until the Ash/MCP exact-head qualification completes.",
+        "cell": "SYSTEM",
+        "key": "project-two/semantic-paas/v1",
+        "kind": "project.semantic.capability",
+        "metadata": {
+          "base_sha": "2e595d940fcbd8cd7f3dcde03590df3cb83d544e",
+          "canonical_subject": "GitHub Project v2 #2",
+          "cross_llm_standing": "PARTIAL_ALIVE",
+          "draft_pr": 14,
+          "free_prose_edge_inference": "REFUSED",
+          "implementation_sha": "d765d5c3c363951a6942832ef29df7aad95eb5e5",
+          "live_projection_standing": "ALIVE",
+          "live_receipt_sha": "6ba647dd7be3d9a818ffcb0e1670b7da0e36cd6c",
+          "live_request_sha": "698cae40c4ba0dced4a67aa7eed3fe8f230f5d54",
+          "mcp_tools": [
+            "inspect_project_semantics",
+            "project_property_graph",
+            "query_project_graph",
+            "project_relational_tables",
+            "project_semantic_triples",
+            "project_jsonld",
+            "project_service_catalog",
+            "project_ocel",
+            "project_llm_context"
+          ],
+          "model": "virtual-semantic-paas",
+          "mutation_authority": "BOUNDED_STABLE_KEY_ONLY",
+          "ocel_conformance": "NOT_CLAIMED_UNTIL_INDEPENDENT_OCEL_VALIDATOR_EXECUTES",
+          "projection_operations": [
+            "project.semantic",
+            "project.graph",
+            "project.graph.query",
+            "project.tables",
+            "project.triples",
+            "project.jsonld",
+            "project.services",
+            "project.ocel",
+            "project.context"
+          ],
+          "public_vocabularies": [
+            "PROV-O",
+            "DCAT",
+            "DCTERMS",
+            "SKOS",
+            "FOAF",
+            "DOAP",
+            "Schema.org"
+          ],
+          "schema": "project-two-semantic/v1",
+          "semantic_authority": "READ_ONLY_VIRTUAL_PROJECTION",
+          "source_repo": "seanchatmangpt/chatgpt-cloud-elixir",
+          "virtualization_law": "one admitted subject, multiple lawful query surfaces"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "project2",
+          "semantic",
+          "paas",
+          "saas",
+          "graph",
+          "jsonld",
+          "ocel-v2",
+          "mcp",
+          "ash",
+          "llm",
+          "virtualization",
+          "shared-memory"
+        ],
+        "title": "Project Two semantic PaaS v1"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "project-two-semantic-capability-upsert-20260826"
+  },
+  "request_id": "project-two-semantic-capability-upsert-20260826",
+  "request_path": "project-memory/requests/20260826-project-two-semantic-capability-upsert.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Project Two is the canonical operational subject and is virtualized as a semantic PaaS rather than copied into a second authoritative database. The same admitted Project items can be inspected as memory KV, full-fidelity Project objects, a property graph, bounded graph neighborhoods, relational node/edge/fact tables, RDF-shaped triples, JSON-LD, a service/capability catalog, OCEL-2-shaped process evidence, and bounded adjacency-aware LLM context. ChatGPT uses the bounded request/receipt bus; MCP-capable LLMs use the AshAi junction; humans use the GitHub Project UI. Semantic projections are read-only; graph edges require explicit Project fields or admitted relation-bearing metadata; arbitrary prose remains literal evidence. Live project.services execution is ALIVE. Cross-LLM standing remains PARTIAL_ALIVE until the Ash/MCP exact-head qualification completes.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_3A4",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4B7JI",
+      "metadata": {
+        "base_sha": "2e595d940fcbd8cd7f3dcde03590df3cb83d544e",
+        "canonical_subject": "GitHub Project v2 #2",
+        "cell": "SYSTEM",
+        "created_at": "2026-08-26T01:09:24Z",
+        "cross_llm_standing": "PARTIAL_ALIVE",
+        "draft_pr": 14,
+        "free_prose_edge_inference": "REFUSED",
+        "implementation_sha": "d765d5c3c363951a6942832ef29df7aad95eb5e5",
+        "key": "project-two/semantic-paas/v1",
+        "kind": "project.semantic.capability",
+        "live_projection_standing": "ALIVE",
+        "live_receipt_sha": "6ba647dd7be3d9a818ffcb0e1670b7da0e36cd6c",
+        "live_request_sha": "698cae40c4ba0dced4a67aa7eed3fe8f230f5d54",
+        "mcp_tools": [
+          "inspect_project_semantics",
+          "project_property_graph",
+          "query_project_graph",
+          "project_relational_tables",
+          "project_semantic_triples",
+          "project_jsonld",
+          "project_service_catalog",
+          "project_ocel",
+          "project_llm_context"
+        ],
+        "model": "virtual-semantic-paas",
+        "mutation_authority": "BOUNDED_STABLE_KEY_ONLY",
+        "ocel_conformance": "NOT_CLAIMED_UNTIL_INDEPENDENT_OCEL_VALIDATOR_EXECUTES",
+        "projection_operations": [
+          "project.semantic",
+          "project.graph",
+          "project.graph.query",
+          "project.tables",
+          "project.triples",
+          "project.jsonld",
+          "project.services",
+          "project.ocel",
+          "project.context"
+        ],
+        "public_vocabularies": [
+          "PROV-O",
+          "DCAT",
+          "DCTERMS",
+          "SKOS",
+          "FOAF",
+          "DOAP",
+          "Schema.org"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_authority": "READ_ONLY_VIRTUAL_PROJECTION",
+        "source_repo": "seanchatmangpt/chatgpt-cloud-elixir",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ash",
+          "graph",
+          "jsonld",
+          "llm",
+          "mcp",
+          "ocel-v2",
+          "paas",
+          "project2",
+          "saas",
+          "semantic",
+          "shared-memory",
+          "virtualization"
+        ],
+        "updated_at": "2026-08-26T01:09:24Z",
+        "virtualization_law": "one admitted subject, multiple lawful query surfaces"
+      },
+      "title": "Project Two semantic PaaS v1"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
