@@ -59,7 +59,7 @@ class Vision2030ProjectionTests(unittest.TestCase):
             observed_at="2026-08-26T02:00:00Z",
         )
 
-    def test_projects_capability_evidence_and_dependency_closure(self):
+    def test_projects_capability_evidence_dependency_capital_and_option_space(self):
         projection = vision_2030.project(self.graph)
 
         self.assertEqual("project-two-vision-2030/v1", projection["schema"])
@@ -87,11 +87,77 @@ class Vision2030ProjectionTests(unittest.TestCase):
         self.assertEqual("PRESENT", pillars["agent-evaluation"]["status"])
         self.assertTrue(any(item["memory_key"] == "project/vision/manufacturing" for item in projection["frontier"]))
 
+        capital = projection["manufacturing_capital"]
+        self.assertGreaterEqual(capital["capital_records"], 2)
+        self.assertEqual(1, capital["qualified_reusable_capital"])
+        self.assertGreater(capital["capital_ratio"], 0.0)
+        self.assertTrue(capital["by_class"])
+
+        option_space = projection["combinatorial_option_space"]
+        self.assertEqual(28, option_space["possible_pairings"])
+        self.assertGreater(option_space["observed_pairings"], 0)
+        self.assertGreater(option_space["cross_pillar_records"], 0)
+
+        envelope = projection["autonomy_envelope"]
+        self.assertEqual("OPEN", envelope["status"])
+        self.assertEqual("ASSEMBLY_IN_PROGRESS", envelope["structural_phase"])
+        self.assertIn("UNRESOLVED_DEPENDENCIES", envelope["falsifiers"])
+        self.assertTrue(projection["maximalist_frontier"])
+
     def test_minimum_evidence_turns_single_signal_into_explicit_gap(self):
         projection = vision_2030.project(self.graph, {"minimum_evidence": 4})
         pillars = {pillar["id"]: pillar for pillar in projection["capability_coverage"]["pillars"]}
         self.assertEqual("GAP", pillars["semantic-interoperability"]["status"])
         self.assertEqual(4, pillars["semantic-interoperability"]["minimum_evidence"])
+        self.assertIn("EVIDENCE_SHORTFALL", pillars["semantic-interoperability"]["falsifiers"])
+
+    def test_domain_diversity_prevents_repeated_single_repo_evidence_from_goodharting_a_pillar(self):
+        projection = vision_2030.project(self.graph, {"minimum_domains": 2})
+        pillars = {pillar["id"]: pillar for pillar in projection["capability_coverage"]["pillars"]}
+        deterministic = pillars["deterministic-manufacture"]
+        self.assertEqual(1, deterministic["domain_count"])
+        self.assertEqual(2, deterministic["minimum_domains"])
+        self.assertEqual("GAP", deterministic["status"])
+        self.assertIn("DOMAIN_DIVERSITY_SHORTFALL", deterministic["falsifiers"])
+
+    def test_closed_autonomy_envelope_requires_structural_evidence_but_never_grants_authority(self):
+        complete_items = [
+            self.item(
+                "Z",
+                "Integrated autonomic stack",
+                {
+                    "key": "project/vision/integrated-stack",
+                    "standing": "ALIVE",
+                    "repo": "seanchatmangpt/autonomic-stack",
+                    "tags": [
+                        "ggen",
+                        "receipt",
+                        "ci",
+                        "cloud",
+                        "process",
+                        "semantic",
+                        "gym",
+                        "memory",
+                    ],
+                    "head_sha": "fedcba9876543210fedcba9876543210fedcba98",
+                    "receipt": "dfcm/receipt/integrated-stack",
+                },
+            )
+        ]
+        graph = semantic.build_virtual_project(
+            self.project,
+            complete_items,
+            observed_at="2026-08-26T03:00:00Z",
+        )
+
+        projection = vision_2030.project(graph, {"minimum_receipt_ratio": 1.0})
+        self.assertEqual(8, projection["capability_coverage"]["present_pillars"])
+        self.assertEqual("CLOSED", projection["autonomy_envelope"]["status"])
+        self.assertEqual("INTEGRATED_AUTONOMIC_STACK", projection["autonomy_envelope"]["structural_phase"])
+        self.assertEqual([], projection["autonomy_envelope"]["falsifiers"])
+        self.assertEqual("OBSERVATIONAL_ONLY", projection["autonomy_envelope"]["standing"])
+        self.assertFalse(projection["admission"]["standing_granted"])
+        self.assertFalse(projection["admission"]["consequential_do_authority"])
 
     @staticmethod
     def item(item_id, title, metadata):
