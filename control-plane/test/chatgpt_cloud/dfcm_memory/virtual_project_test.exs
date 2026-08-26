@@ -4,7 +4,13 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProjectTest do
   alias ChatGPTCloud.DfcmMemory.VirtualProject
 
   test "projects one subject into graph, tables, triples, catalog, process evidence and LLM context" do
-    project = %{owner: "seanchatmangpt", number: 2, id: "PVT_test", title: "Project Two", url: "https://example.test/2"}
+    project = %{
+      owner: "seanchatmangpt",
+      number: 2,
+      id: "PVT_test",
+      title: "Project Two",
+      url: "https://example.test/2"
+    }
 
     items = [
       %{
@@ -62,9 +68,7 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProjectTest do
     ]
 
     graph =
-      VirtualProject.build(project, items, memory,
-        observed_at: "2026-08-25T17:49:00Z"
-      )
+      VirtualProject.build(project, items, memory, observed_at: "2026-08-25T17:49:00Z")
 
     assert graph.schema == "project-two-semantic/v1"
     assert Enum.any?(graph.edges, &(&1.predicate == "CONSUMES_MEMORY"))
@@ -82,9 +86,38 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProjectTest do
   end
 
   test "free prose is retained as a fact but is not promoted into a dependency edge" do
-    project = %{owner: "seanchatmangpt", number: 2, id: "PVT_test", title: "Project Two", url: nil}
-    item = %{item_id: "I", type: "DRAFT_ISSUE", is_archived: false, content_id: "D", title: "x", body: "", url: nil, number: nil, repository: nil, state: nil, labels: [], assignees: [], field_values: %{}}
-    memory = %{item_id: "I", content_id: "D", title: "x", body: "", is_archived: false, metadata: %{"key" => "dfcm/x", "body_note" => "maybe depends on something"}}
+    project = %{
+      owner: "seanchatmangpt",
+      number: 2,
+      id: "PVT_test",
+      title: "Project Two",
+      url: nil
+    }
+
+    item = %{
+      item_id: "I",
+      type: "DRAFT_ISSUE",
+      is_archived: false,
+      content_id: "D",
+      title: "x",
+      body: "",
+      url: nil,
+      number: nil,
+      repository: nil,
+      state: nil,
+      labels: [],
+      assignees: [],
+      field_values: %{}
+    }
+
+    memory = %{
+      item_id: "I",
+      content_id: "D",
+      title: "x",
+      body: "",
+      is_archived: false,
+      metadata: %{"key" => "dfcm/x", "body_note" => "maybe depends on something"}
+    }
 
     graph = VirtualProject.build(project, [item], [memory], observed_at: "2026-08-25T17:49:00Z")
 

@@ -13,7 +13,11 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   @schema "project-two-semantic/v1"
   @base "urn:project-two:"
   @capabilities [
-    %{name: "memory-kv", operations: ~w(memory.create memory.read memory.update memory.upsert memory.query memory.archive memory.delete)},
+    %{
+      name: "memory-kv",
+      operations:
+        ~w(memory.create memory.read memory.update memory.upsert memory.query memory.archive memory.delete)
+    },
     %{name: "project-object-store", operations: ~w(project.snapshot project.items)},
     %{name: "property-graph", operations: ~w(project.graph project.graph.query)},
     %{name: "semantic-facts", operations: ~w(project.triples)},
@@ -52,7 +56,8 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
 
     with {:ok, project} <- GithubProjectClient.resolve_project(),
          {:ok, items} <- GithubProjectClient.project_items(item_opts),
-         {:ok, {memory_records, memory_truncated}} <- GithubProjectClient.memory_items(include_archived, max_items) do
+         {:ok, {memory_records, memory_truncated}} <-
+           GithubProjectClient.memory_items(include_archived, max_items) do
       {:ok,
        build(project, items, memory_records,
          include_bodies: include_bodies,
@@ -79,12 +84,18 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     project_id = urn("project", project_key)
 
     state =
-      put_node(state, project_id, ["Project", "prov:Entity", "dcat:Dataset"], project.title || project_key, %{
-        owner: project.owner,
-        number: project.number,
-        node_id: project.id,
-        url: project.url
-      })
+      put_node(
+        state,
+        project_id,
+        ["Project", "prov:Entity", "dcat:Dataset"],
+        project.title || project_key,
+        %{
+          owner: project.owner,
+          number: project.number,
+          node_id: project.id,
+          url: project.url
+        }
+      )
 
     state =
       Enum.reduce(items, state, fn item, acc ->
@@ -92,7 +103,10 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
       end)
 
     nodes = state.nodes |> Map.values() |> Enum.sort_by(& &1.id)
-    edges = state.edges |> Map.values() |> Enum.sort_by(&{&1.source, &1.predicate, &1.target, &1.id})
+
+    edges =
+      state.edges |> Map.values() |> Enum.sort_by(&{&1.source, &1.predicate, &1.target, &1.id})
+
     facts = Enum.sort_by(state.facts, &{&1.subject, &1.predicate, inspect(&1.value)})
 
     graph = %{
@@ -117,7 +131,19 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   end
 
   def view(graph, "graph", _query),
-    do: Map.take(graph, [:schema, :project, :observed_at, :canonical_subject, :authority, :source_truncated, :nodes, :edges, :facts, :stats])
+    do:
+      Map.take(graph, [
+        :schema,
+        :project,
+        :observed_at,
+        :canonical_subject,
+        :authority,
+        :source_truncated,
+        :nodes,
+        :edges,
+        :facts,
+        :stats
+      ])
 
   def view(graph, "tables", _query), do: envelope(graph, %{tables: graph.tables})
   def view(graph, "triples", _query), do: envelope(graph, %{triples: graph.triples})
@@ -131,7 +157,10 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     do: {:error, "REFUSED[UNSUPPORTED_SEMANTIC_VIEW]: #{inspect(other)}"}
 
   def semantic(graph, views, query \\ %{}) do
-    views = if is_list(views) and views != [], do: views, else: ~w(graph tables triples jsonld services ocel context)
+    views =
+      if is_list(views) and views != [],
+        do: views,
+        else: ~w(graph tables triples jsonld services ocel context)
 
     Enum.reduce_while(views, envelope(graph, %{views: views}), fn name, acc ->
       case view(graph, to_string(name), query) do
@@ -196,13 +225,23 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   def context(graph, query) do
     query = Map.put_new(stringify_keys(query || %{}), "limit", 100)
     result = query(graph, query)
-    max_body = query_value(query, "max_body_chars", 1200) |> normalize_int(1200) |> min(20_000) |> max(0)
+
+    max_body =
+      query_value(query, "max_body_chars", 1200) |> normalize_int(1200) |> min(20_000) |> max(0)
 
     adjacency =
       Enum.reduce(result.edges, %{}, fn edge, acc ->
         acc
-        |> Map.update(edge.source, [%{predicate: edge.predicate, target: edge.target}], &[ %{predicate: edge.predicate, target: edge.target} | &1])
-        |> Map.update(edge.target, [%{predicate: "INVERSE_#{edge.predicate}", target: edge.source}], &[ %{predicate: "INVERSE_#{edge.predicate}", target: edge.source} | &1])
+        |> Map.update(
+          edge.source,
+          [%{predicate: edge.predicate, target: edge.target}],
+          &[%{predicate: edge.predicate, target: edge.target} | &1]
+        )
+        |> Map.update(
+          edge.target,
+          [%{predicate: "INVERSE_#{edge.predicate}", target: edge.source}],
+          &[%{predicate: "INVERSE_#{edge.predicate}", target: edge.source} | &1]
+        )
       end)
 
     records =
@@ -221,7 +260,11 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
           memory_key: props[:memory_key],
           tags: props[:tags] || [],
           body: if(max_body == 0, do: nil, else: String.slice(body, 0, max_body)),
-          relations: adjacency |> Map.get(node.id, []) |> Enum.sort_by(&{&1.predicate, &1.target}) |> Enum.take(100)
+          relations:
+            adjacency
+            |> Map.get(node.id, [])
+            |> Enum.sort_by(&{&1.predicate, &1.target})
+            |> Enum.take(100)
         }
       end)
 
@@ -241,8 +284,18 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     kind = metadata["kind"]
     standing = metadata["standing"]
     cell = metadata["cell"]
-    tags = metadata |> Map.get("tags", []) |> listify() |> Enum.map(&to_string/1) |> Enum.uniq() |> Enum.sort()
-    types = ["ProjectItem", "prov:Entity", item.type || "UNKNOWN"] ++ if(memory, do: ["MemoryRecord"] ++ if(kind, do: ["kind:#{kind}"], else: []), else: [])
+
+    tags =
+      metadata
+      |> Map.get("tags", [])
+      |> listify()
+      |> Enum.map(&to_string/1)
+      |> Enum.uniq()
+      |> Enum.sort()
+
+    types =
+      ["ProjectItem", "prov:Entity", item.type || "UNKNOWN"] ++
+        if(memory, do: ["MemoryRecord"] ++ if(kind, do: ["kind:#{kind}"], else: []), else: [])
 
     props = %{
       item_id: item.item_id,
@@ -259,7 +312,11 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
       standing: standing,
       cell: cell,
       tags: tags,
-      body: if(include_bodies, do: if(memory, do: memory.body || "", else: item.body || ""), else: nil)
+      body:
+        if(include_bodies,
+          do: if(memory, do: memory.body || "", else: item.body || ""),
+          else: nil
+        )
     }
 
     state = put_node(state, node_id, types, item.title || key || item.item_id, props)
@@ -275,8 +332,14 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     state =
       if repository do
         repo_id = urn("repository", to_string(repository))
+
         state
-        |> put_node(repo_id, ["Repository", "doap:Repository", "schema:SoftwareSourceCode"], to_string(repository), %{name: to_string(repository)})
+        |> put_node(
+          repo_id,
+          ["Repository", "doap:Repository", "schema:SoftwareSourceCode"],
+          to_string(repository),
+          %{name: to_string(repository)}
+        )
         |> put_edge(node_id, "BELONGS_TO_REPOSITORY", repo_id, "explicit repository field")
       else
         state
@@ -290,8 +353,12 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
           acc
         else
           label_id = urn("label", to_string(name))
+
           acc
-          |> put_node(label_id, ["Label", "skos:Concept"], to_string(name), %{name: name, color: label[:color] || label["color"]})
+          |> put_node(label_id, ["Label", "skos:Concept"], to_string(name), %{
+            name: name,
+            color: label[:color] || label["color"]
+          })
           |> put_edge(node_id, "HAS_LABEL", label_id, "GitHub label")
         end
       end)
@@ -304,6 +371,7 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
           acc
         else
           actor_id = urn("actor", to_string(login))
+
           acc
           |> put_node(actor_id, ["Actor", "foaf:Agent"], to_string(login), %{login: login})
           |> put_edge(node_id, "ASSIGNED_TO", actor_id, "GitHub assignee")
@@ -325,6 +393,7 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     state =
       if key do
         memory_id = urn("memory", to_string(key))
+
         state
         |> put_node(memory_id, ["MemoryKey", "prov:Entity"], to_string(key), %{key: key})
         |> put_edge(node_id, "HAS_MEMORY_KEY", memory_id, "memory marker metadata")
@@ -334,6 +403,7 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
 
     Enum.reduce(tags, state, fn tag, acc ->
       tag_id = urn("tag", tag)
+
       acc
       |> put_node(tag_id, ["Tag", "skos:Concept"], tag, %{name: tag})
       |> put_edge(node_id, "TAGGED_WITH", tag_id, "memory metadata tags")
@@ -343,7 +413,9 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   defp add_metadata_facts(state, node_id, metadata) do
     metadata
     |> flatten("metadata")
-    |> Enum.reduce(state, fn {path, value}, acc -> put_fact(acc, node_id, path, value, "memory marker metadata") end)
+    |> Enum.reduce(state, fn {path, value}, acc ->
+      put_fact(acc, node_id, path, value, "memory marker metadata")
+    end)
   end
 
   defp add_reference_edges(state, node_id, metadata) do
@@ -353,7 +425,9 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
       |> listify()
       |> Enum.reduce(acc, fn value, inner ->
         case reference_target(value, key) do
-          nil -> inner
+          nil ->
+            inner
+
           {target_id, target_type} ->
             inner
             |> put_node(target_id, [target_type, "prov:Entity"], to_string(value), %{value: value})
@@ -367,10 +441,17 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     Enum.reduce(metadata, state, fn {key, value}, acc ->
       key_s = to_string(key)
 
-      if is_binary(value) and sha?(value) and Enum.any?(~w(sha head base commit merge candidate), &String.contains?(String.downcase(key_s), &1)) do
+      if is_binary(value) and sha?(value) and
+           Enum.any?(
+             ~w(sha head base commit merge candidate),
+             &String.contains?(String.downcase(key_s), &1)
+           ) do
         commit_id = urn("commit", String.downcase(value))
+
         acc
-        |> put_node(commit_id, ["Commit", "prov:Entity"], String.slice(value, 0, 12), %{sha: String.downcase(value)})
+        |> put_node(commit_id, ["Commit", "prov:Entity"], String.slice(value, 0, 12), %{
+          sha: String.downcase(value)
+        })
         |> put_edge(node_id, metadata_predicate(key_s), commit_id, "metadata.#{key_s}")
       else
         acc
@@ -392,17 +473,32 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
           if MapSet.size(predicates) > 0 and not MapSet.member?(predicates, edge.predicate) do
             acc
           else
-            acc = if direction in ["both", "out"], do: Map.update(acc, edge.source, [edge.target], &[edge.target | &1]), else: acc
-            if direction in ["both", "in"], do: Map.update(acc, edge.target, [edge.source], &[edge.source | &1]), else: acc
+            acc =
+              if direction in ["both", "out"],
+                do: Map.update(acc, edge.source, [edge.target], &[edge.target | &1]),
+                else: acc
+
+            if direction in ["both", "in"],
+              do: Map.update(acc, edge.target, [edge.source], &[edge.source | &1]),
+              else: acc
           end
         end)
 
       seen = bfs(adjacency, MapSet.to_list(neighbor_ids), depth)
-      has_filters = Enum.any?(~w(text types repository kind standing tags node_ids), fn key -> query_value(query, key, nil) not in [nil, "", []] end)
 
-      ids = if has_filters, do: MapSet.intersection(MapSet.new(Map.keys(selected)), seen), else: seen
+      has_filters =
+        Enum.any?(~w(text types repository kind standing tags node_ids), fn key ->
+          query_value(query, key, nil) not in [nil, "", []]
+        end)
+
+      ids =
+        if has_filters, do: MapSet.intersection(MapSet.new(Map.keys(selected)), seen), else: seen
+
       all_nodes = Map.new(graph.nodes, &{&1.id, &1})
-      Map.new(ids, fn id -> {id, all_nodes[id]} end) |> Enum.reject(fn {_id, node} -> is_nil(node) end) |> Map.new()
+
+      Map.new(ids, fn id -> {id, all_nodes[id]} end)
+      |> Enum.reject(fn {_id, node} -> is_nil(node) end)
+      |> Map.new()
     end
   end
 
@@ -415,12 +511,18 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
 
   defp do_bfs(adjacency, queue, seen, depth) do
     case :queue.out(queue) do
-      {:empty, _} -> seen
-      {{:value, {_node, d}}, rest} when d >= depth -> do_bfs(adjacency, rest, seen, depth)
+      {:empty, _} ->
+        seen
+
+      {{:value, {_node, d}}, rest} when d >= depth ->
+        do_bfs(adjacency, rest, seen, depth)
+
       {{:value, {node, d}}, rest} ->
         {next_queue, next_seen} =
           Enum.reduce(Map.get(adjacency, node, []), {rest, seen}, fn target, {q, s} ->
-            if MapSet.member?(s, target), do: {q, s}, else: {:queue.in({target, d + 1}, q), MapSet.put(s, target)}
+            if MapSet.member?(s, target),
+              do: {q, s},
+              else: {:queue.in({target, d + 1}, q), MapSet.put(s, target)}
           end)
 
         do_bfs(adjacency, next_queue, next_seen, depth)
@@ -443,19 +545,48 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   defp put_edge(state, source, predicate, target, evidence, qualifiers \\ %{}) do
     basis = "#{source}|#{predicate}|#{target}|#{inspect(qualifiers)}"
     id = urn("edge", basis)
-    edge = %{id: id, source: source, predicate: predicate, target: target, evidence: evidence, qualifiers: qualifiers}
+
+    edge = %{
+      id: id,
+      source: source,
+      predicate: predicate,
+      target: target,
+      evidence: evidence,
+      qualifiers: qualifiers
+    }
+
     put_in(state, [:edges, id], edge)
   end
 
   defp put_fact(state, _subject, _predicate, nil, _evidence), do: state
-  defp put_fact(state, subject, predicate, value, evidence), do: %{state | facts: [%{subject: subject, predicate: predicate, value: value, evidence: evidence} | state.facts]}
+
+  defp put_fact(state, subject, predicate, value, evidence),
+    do: %{
+      state
+      | facts: [
+          %{subject: subject, predicate: predicate, value: value, evidence: evidence}
+          | state.facts
+        ]
+    }
 
   defp tables(graph) do
     %{
       nodes:
         Enum.map(graph.nodes, fn node ->
           props = node.properties || %{}
-          %{id: node.id, label: node.label, types: node.types, repository: props[:repository], kind: props[:kind], standing: props[:standing], cell: props[:cell], memory_key: props[:memory_key], state: props[:state], is_archived: props[:is_archived]}
+
+          %{
+            id: node.id,
+            label: node.label,
+            types: node.types,
+            repository: props[:repository],
+            kind: props[:kind],
+            standing: props[:standing],
+            cell: props[:cell],
+            memory_key: props[:memory_key],
+            state: props[:state],
+            is_archived: props[:is_archived]
+          }
         end),
       edges: graph.edges,
       facts: graph.facts
@@ -463,8 +594,28 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   end
 
   defp triples(graph) do
-    edge_triples = Enum.map(graph.edges, &%{subject: &1.source, predicate: "pt:#{String.downcase(&1.predicate)}", object: %{id: &1.target}, evidence: &1.evidence})
-    fact_triples = Enum.map(graph.facts, &%{subject: &1.subject, predicate: "pt:#{sanitize(&1.predicate)}", object: %{value: &1.value}, evidence: &1.evidence})
+    edge_triples =
+      Enum.map(
+        graph.edges,
+        &%{
+          subject: &1.source,
+          predicate: "pt:#{String.downcase(&1.predicate)}",
+          object: %{id: &1.target},
+          evidence: &1.evidence
+        }
+      )
+
+    fact_triples =
+      Enum.map(
+        graph.facts,
+        &%{
+          subject: &1.subject,
+          predicate: "pt:#{sanitize(&1.predicate)}",
+          object: %{value: &1.value},
+          evidence: &1.evidence
+        }
+      )
+
     Enum.sort_by(edge_triples ++ fact_triples, &{&1.subject, &1.predicate, inspect(&1.object)})
   end
 
@@ -472,13 +623,22 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     relations =
       Enum.reduce(graph.edges, %{}, fn edge, acc ->
         predicate = "pt:#{String.downcase(edge.predicate)}"
-        update_in(acc, [Access.key(edge.source, %{}), Access.key(predicate, [])], &(&1 ++ [%{"@id" => edge.target}]))
+
+        update_in(
+          acc,
+          [Access.key(edge.source, %{}), Access.key(predicate, [])],
+          &(&1 ++ [%{"@id" => edge.target}])
+        )
       end)
 
     docs =
       Enum.map(graph.nodes, fn node ->
         relation_props = Map.get(relations, node.id, %{})
-        Map.merge(%{"@id" => node.id, "@type" => ["prov:Entity"], "skos:prefLabel" => node.label}, relation_props)
+
+        Map.merge(
+          %{"@id" => node.id, "@type" => ["prov:Entity"], "skos:prefLabel" => node.label},
+          relation_props
+        )
       end)
 
     %{
@@ -523,7 +683,11 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
           Map.merge(capability, %{
             id: urn("capability", capability.name),
             type: "dcat:DataService",
-            authority: if(Enum.any?(capability.operations, &mutating_operation?/1), do: "BOUNDED_PROJECT_MEMORY_MUTATION", else: "READ_ONLY_PROJECTION")
+            authority:
+              if(Enum.any?(capability.operations, &mutating_operation?/1),
+                do: "BOUNDED_PROJECT_MEMORY_MUTATION",
+                else: "READ_ONLY_PROJECTION"
+              )
           })
         end),
       resource_facets: %{
@@ -551,7 +715,12 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
             end
           end)
 
-        %{id: node.id, type: if("MemoryRecord" in node.types, do: "MemoryRecord", else: "ProjectItem"), attributes: attributes, relationships: []}
+        %{
+          id: node.id,
+          type: if("MemoryRecord" in node.types, do: "MemoryRecord", else: "ProjectItem"),
+          attributes: attributes,
+          relationships: []
+        }
       end)
 
     snapshot = %{
@@ -571,8 +740,19 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
         [{"metadata.created_at", "MemoryCreated"}, {"metadata.updated_at", "MemoryUpdated"}]
         |> Enum.flat_map(fn {field, type} ->
           case by_predicate[field] do
-            nil -> []
-            timestamp -> [%{id: urn("event", "#{type}:#{node.id}:#{timestamp}"), type: type, time: timestamp, attributes: [], relationships: [%{objectId: node.id, qualifier: "subject"}]}]
+            nil ->
+              []
+
+            timestamp ->
+              [
+                %{
+                  id: urn("event", "#{type}:#{node.id}:#{timestamp}"),
+                  type: type,
+                  time: timestamp,
+                  attributes: [],
+                  relationships: [%{objectId: node.id, qualifier: "subject"}]
+                }
+              ]
           end
         end)
       end)
@@ -580,8 +760,15 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
     %{
       profile: "OCEL-2-shaped Project Two projection",
       conformance: "NOT_CLAIMED_UNTIL_INDEPENDENT_OCEL_VALIDATOR_EXECUTES",
-      objectTypes: [%{name: "ProjectItem", attributes: []}, %{name: "MemoryRecord", attributes: []}],
-      eventTypes: [%{name: "ProjectSemanticSnapshot", attributes: []}, %{name: "MemoryCreated", attributes: []}, %{name: "MemoryUpdated", attributes: []}],
+      objectTypes: [
+        %{name: "ProjectItem", attributes: []},
+        %{name: "MemoryRecord", attributes: []}
+      ],
+      eventTypes: [
+        %{name: "ProjectSemanticSnapshot", attributes: []},
+        %{name: "MemoryCreated", attributes: []},
+        %{name: "MemoryUpdated", attributes: []}
+      ],
       objects: objects,
       events: [snapshot | memory_events] |> Enum.sort_by(&{to_string(&1.time), &1.id})
     }
@@ -598,39 +785,73 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   end
 
   defp envelope(graph, payload) do
-    Map.merge(%{
-      schema: graph.schema,
-      project: graph.project,
-      observed_at: graph.observed_at,
-      canonical_subject: graph.canonical_subject,
-      authority: graph.authority,
-      source_truncated: graph.source_truncated
-    }, payload)
+    Map.merge(
+      %{
+        schema: graph.schema,
+        project: graph.project,
+        observed_at: graph.observed_at,
+        canonical_subject: graph.canonical_subject,
+        authority: graph.authority,
+        source_truncated: graph.source_truncated
+      },
+      payload
+    )
   end
 
-  defp strip_envelope(result) when is_map(result), do: Map.drop(result, [:schema, :project, :observed_at, :canonical_subject, :authority, :source_truncated])
+  defp strip_envelope(result) when is_map(result),
+    do:
+      Map.drop(result, [
+        :schema,
+        :project,
+        :observed_at,
+        :canonical_subject,
+        :authority,
+        :source_truncated
+      ])
 
   defp reference_target(value, relation_key) when is_binary(value) or is_integer(value) do
     text = to_string(value) |> String.trim()
 
     cond do
-      text == "" -> nil
-      String.starts_with?(relation_key, "memory") and memory_key?(text) -> {urn("memory", text), "MemoryKey"}
-      repository?(text) -> {urn("repository", text), "Repository"}
-      sha?(text) -> {urn("commit", String.downcase(text)), "Commit"}
-      (String.starts_with?(text, "dfcm/") or String.starts_with?(text, "project/")) and memory_key?(text) -> {urn("memory", text), "MemoryKey"}
-      Map.has_key?(@reference_relations, relation_key) -> {urn("reference", text), "Reference"}
-      true -> nil
+      text == "" ->
+        nil
+
+      String.starts_with?(relation_key, "memory") and memory_key?(text) ->
+        {urn("memory", text), "MemoryKey"}
+
+      repository?(text) ->
+        {urn("repository", text), "Repository"}
+
+      sha?(text) ->
+        {urn("commit", String.downcase(text)), "Commit"}
+
+      (String.starts_with?(text, "dfcm/") or String.starts_with?(text, "project/")) and
+          memory_key?(text) ->
+        {urn("memory", text), "MemoryKey"}
+
+      Map.has_key?(@reference_relations, relation_key) ->
+        {urn("reference", text), "Reference"}
+
+      true ->
+        nil
     end
   end
 
   defp reference_target(_, _), do: nil
 
-  defp metadata_predicate(key), do: "METADATA_" <> (key |> String.replace(~r/[^A-Za-z0-9]+/, "_") |> String.trim("_") |> String.upcase())
+  defp metadata_predicate(key),
+    do:
+      "METADATA_" <>
+        (key |> String.replace(~r/[^A-Za-z0-9]+/, "_") |> String.trim("_") |> String.upcase())
+
   defp repository?(text), do: Regex.match?(~r/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/, text)
   defp memory_key?(text), do: Regex.match?(~r/^[A-Za-z0-9_.:-]+(?:\/[A-Za-z0-9_.:@-]+)+$/, text)
   defp sha?(text), do: Regex.match?(~r/^[0-9a-f]{7,64}$/i, text)
-  defp mutating_operation?(operation), do: String.starts_with?(operation, "memory.") and operation not in ["memory.read", "memory.query"]
+
+  defp mutating_operation?(operation),
+    do:
+      String.starts_with?(operation, "memory.") and
+        operation not in ["memory.read", "memory.query"]
 
   defp flatten(value, prefix) when is_map(value) do
     value
@@ -639,7 +860,9 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   end
 
   defp flatten(value, prefix) when is_list(value) do
-    value |> Enum.with_index() |> Enum.flat_map(fn {child, index} -> flatten(child, "#{prefix}[#{index}]") end)
+    value
+    |> Enum.with_index()
+    |> Enum.flat_map(fn {child, index} -> flatten(child, "#{prefix}[#{index}]") end)
   end
 
   defp flatten(value, prefix), do: [{prefix, value}]
@@ -648,10 +871,19 @@ defmodule ChatGPTCloud.DfcmMemory.VirtualProject do
   defp listify(value) when is_list(value), do: value
   defp listify(value), do: [value]
 
-  defp query_value(query, key, default) when is_map(query), do: Map.get(query, key, Map.get(query, String.to_atom(key), default))
-  defp query_list(query, key), do: query_value(query, key, []) |> listify() |> Enum.map(&to_string/1)
+  defp query_value(query, key, default) when is_map(query),
+    do: Map.get(query, key, Map.get(query, String.to_atom(key), default))
+
+  defp query_list(query, key),
+    do: query_value(query, key, []) |> listify() |> Enum.map(&to_string/1)
+
   defp normalize_int(value, _default) when is_integer(value), do: value
-  defp normalize_int(value, default) when is_binary(value), do: case Integer.parse(value) do {int, ""} -> int; _ -> default end
+
+  defp normalize_int(value, default) when is_binary(value), do: case(Integer.parse(value)) do
+    {int, ""} -> int
+    _ -> default
+  end
+
   defp normalize_int(_, default), do: default
 
   defp stringify_keys(map) when is_map(map), do: Map.new(map, fn {k, v} -> {to_string(k), v} end)

@@ -11,7 +11,12 @@ defmodule ChatGPTCloud.DfcmMemory.SemanticAction do
     query = Ash.ActionInput.get_argument(input, :query) || %{}
 
     opts =
-      [max_items: max_items, include_archived: include_archived, include_bodies: include_bodies, types: types]
+      [
+        max_items: max_items,
+        include_archived: include_archived,
+        include_bodies: include_bodies,
+        types: types
+      ]
       |> Enum.reject(fn {_key, value} -> is_nil(value) end)
 
     case VirtualProject.project(opts) do
@@ -38,7 +43,12 @@ defmodule ChatGPTCloud.DfcmMemory.SemanticAction do
     query = Ash.ActionInput.get_argument(input, :query) || %{}
 
     opts =
-      [max_items: max_items, include_archived: include_archived, include_bodies: include_bodies, types: types]
+      [
+        max_items: max_items,
+        include_archived: include_archived,
+        include_bodies: include_bodies,
+        types: types
+      ]
       |> Enum.reject(fn {_key, value} -> is_nil(value) end)
 
     case VirtualProject.project(opts) do
@@ -84,7 +94,8 @@ end
 defmodule ChatGPTCloud.DfcmMemory.SemanticTriples do
   use Ash.Resource.Actions.Implementation
   @impl true
-  def run(input, _opts, _context), do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "triples")
+  def run(input, _opts, _context),
+    do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "triples")
 end
 
 defmodule ChatGPTCloud.DfcmMemory.SemanticJsonLd do
@@ -96,7 +107,8 @@ end
 defmodule ChatGPTCloud.DfcmMemory.SemanticServices do
   use Ash.Resource.Actions.Implementation
   @impl true
-  def run(input, _opts, _context), do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "services")
+  def run(input, _opts, _context),
+    do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "services")
 end
 
 defmodule ChatGPTCloud.DfcmMemory.SemanticOcel do
@@ -108,5 +120,6 @@ end
 defmodule ChatGPTCloud.DfcmMemory.SemanticContext do
   use Ash.Resource.Actions.Implementation
   @impl true
-  def run(input, _opts, _context), do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "context")
+  def run(input, _opts, _context),
+    do: ChatGPTCloud.DfcmMemory.SemanticAction.run(input, "context")
 end
