@@ -1,0 +1,36 @@
+{
+  "request_id": "20260826T145100Z-cell4-fanout-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/current",
+    "title": "ForcedTop25 fanout current after R88 CELL4",
+    "summary": "CELL4 consumed both and only CELL3-selected READY workstreams. chatman-ecosystem#217 and unrdf#107 each contain distinct canonical R88 GGEN-caused downstream consequence history (4 and 5 commits respectively), are zero behind admitted defaults, and have exact-head owning R88 qualification SUCCESS. Neither is full-repo CLOSE_READY because unrelated inherited broad CI remains red. No common R86 producer defect was found; no upstream return/regeneration was warranted. No merge performed.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "U_lower_bound": 17,
+      "R_lower_bound": 16,
+      "Q_lower_bound": 12,
+      "M_lower_bound": 10,
+      "OpenFanoutObligations_lower_bound": 7,
+      "F_R_selected": 2,
+      "F_C_selected": 9,
+      "F_A_selected": 0,
+      "F_Q_selected_scoped": 2,
+      "Coverage_selected": 1.0,
+      "F_effective_selected": 2.0,
+      "upstream_unique_commits_cell4": 0,
+      "downstream_unique_commits_selected": 9,
+      "new_downstream_unique_commits_cell4": 0,
+      "T_M": 0,
+      "T_A_new": 0,
+      "WIP_remaining_selected": 2,
+      "merge_ready_selected": 0,
+      "blockers": ["chatman-ecosystem inherited Cargo.lock/--locked broad CI debt", "unrdf inherited ESLint v9 config + broad quality debt"],
+      "upstream_returns": 0,
+      "regenerations": 0,
+      "HUMAN_VALUE": "UNKNOWN",
+      "authority": "VERIFY|CONSTRUCT|PROJECT_MEMORY; NO_MERGE|NO_RELEASE|NO_DEPLOY"
+    }
+  }
+}
