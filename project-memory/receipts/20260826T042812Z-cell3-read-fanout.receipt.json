@@ -1,0 +1,31 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: ggen/fanout/forced-top25/current",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T04:28:43Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/fanout/forced-top25/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T042812Z-cell3-read-fanout"
+  },
+  "request_id": "20260826T042812Z-cell3-read-fanout",
+  "request_path": "project-memory/requests/20260826T042812Z-cell3-read-fanout.json",
+  "request_sha256": "sha256:85c376e4d7962e77c9a3231ab5a9813e8e010c5fc855391fb13b5db1f4c1c996",
+  "request_transport_sha256": "sha256:ca0b852fad951f7ebe0b0c50904f6c2bfd847df8fc7e5e157ad53eeef4ca59cf",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
