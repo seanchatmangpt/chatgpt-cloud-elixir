@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T024900Z-select-ledger-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM durable capital ledger",
+    "kind": "dfcm.ledger",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","r76","structural-capital"],
+    "body": "Durable edge appended: R75 attributable observation -> R76 StructuralGap -> CapitalCandidate -> CanonicalPrimitive -> PackPlan -> GeneratorPlan -> ConsumerPopulation -> QualificationPlan -> RegenerationPlan -> requalification. R76 exact branch candidate 57301a8d9ad9ebb5e66884c185d4d3d5b623fbf7. Verification also discovered R47 semantic-family identity drift: ordinal range 300-349 had expanded to 182 files. Added explicit 50-query R47 manifest plus manifest-bound verifier, preserving later families instead of deleting them. PR #307 remains REQUALIFYING. Old R74 branch remains provenance/rollback, not authority.",
+    "metadata": {"producer":"R75","primitive":"R76_STRUCTURAL_CAPITAL_COMPILER","candidate":"57301a8d9ad9ebb5e66884c185d4d3d5b623fbf7","r47_repair":"manifest_bound_semantic_identity","semantic_courts":50,"meaningful_commits":59,"standing":"PARTIAL_ALIVE"}
+  }}
+}
