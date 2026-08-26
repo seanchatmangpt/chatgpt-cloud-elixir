@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T0200Z-portfolio-pre-memory-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"limit": 500, "include_archived": true}
+}
