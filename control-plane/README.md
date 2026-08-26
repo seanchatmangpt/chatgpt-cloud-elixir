@@ -34,6 +34,12 @@ authority and do not convert graph paths, ontology facts, or model output into
 ambient execution authority. Existing Project-memory writes remain separately
 bounded and receipted.
 
+The MCP surface earns control-plane standing only through the repository's
+normal qualification sequence: canonical formatting, strict compile, test DB
+migration, Ash ecosystem verification, application tests, production release,
+and Docker-image construction. A successful projection fixture or Project-bus
+receipt cannot substitute for those runtime gates.
+
 See `../project-memory/SEMANTIC_VIRTUALIZATION.md` for the projection law,
 operations, standing boundaries, and OCEL conformance caveat.
 
