@@ -1,0 +1,22 @@
+{
+  "request_id": "20260826T025300Z-measure-r6-revops-current",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"ocel/v2/revops/current",
+    "title":"OCEL v2 RevOps current",
+    "kind":"ocel.revops",
+    "standing":"PARTIAL_ALIVE",
+    "tags":["ocel-v2","revops","measure","r76"],
+    "body":"R76 preserves two non-conflated economic object classes. RevenueFROMCustomer requires payer, causal capability, producer, value/amount metric, evidence root, attribution confidence and time window. RevenueFORCustomer requires beneficiary, causal capability, producer, customer process, value outcome, customer revenue outcome, proof, confidence, time window and retention/expansion evidence. The merged sensors expose missing fields and semantic conflation. Current live economic edges remain UNKNOWN because no independently admitted customer payment or customer-revenue proof was consumed in this run. Next action is evidence ingestion, not commercial actuation.",
+    "metadata": {
+      "run_id":"6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+      "marketplace_main":"04cd8add33e732c556a916a8182d25f8849ec557",
+      "revenue_from_customer":"UNKNOWN[NO_LIVE_ECONOMIC_PROOF]",
+      "revenue_for_customer":"UNKNOWN[NO_LIVE_ECONOMIC_PROOF]",
+      "economic_sensor_count":5,
+      "consequential_do":false,
+      "standing":"PARTIAL_ALIVE"
+    }
+  }}
+}
