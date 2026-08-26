@@ -1,0 +1,31 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: human-value/runtime-validation/current",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:04:39Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "human-value/runtime-validation/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T050506Z-cell5-read-human-value"
+  },
+  "request_id": "20260826T050506Z-cell5-read-human-value",
+  "request_path": "project-memory/requests/20260826T050506Z-cell5-read-human-value.json",
+  "request_sha256": "sha256:8426a989bae5717b56025d0b38eed03c694461a1cbf05b1e4592b33a0e7a8ea2",
+  "request_transport_sha256": "sha256:31e225476f743dae5d048896cbe7bd3d43f5342172bcec9b606e45461dfcbd1f",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
