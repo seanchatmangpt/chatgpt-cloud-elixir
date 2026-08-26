@@ -1,0 +1,23 @@
+{
+  "request_id": "20260826T025000Z-measure-r6-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"dfcm/ledger/current",
+    "title":"DfCM ledger current",
+    "kind":"dfcm.ledger",
+    "standing":"PARTIAL_ALIVE",
+    "tags":["dfcm","ledger","measure","r75","r76"],
+    "body":"Append durable R75/R76 edges while preserving prior alternatives: live marketplace R75 merge e11e19ba -> portfolio structural-census opportunity; exact repo census observation >300 <=400 -> exact-cardinality opportunity; concurrent R75 subtree ownership -> select disjoint portfolio-observability owner; R75 throughput-learning capability -> R76 pack composition; R76 structural candidate -> public ontology -> portfolio-epistemic-observability-pack -> r76 ggen generator -> generated frontier -> MEASURE consumer -> exact qualification dd395160; exact qualification -> merge 04cd8add -> ALIVE; inherited R34 owner failure -> missing rdflib verifier dependency -> upstream workflow repair dd395160 -> R34 success + R76 success; generalizable verifier refinement -> promoted upstream -> requalified -> U=1/1; R76 -> full-universe live graph population opportunity; R76 -> real RevenueFROM/FOR proof ingestion opportunity; R76 -> Project proxy OCEL event-stream opportunity.",
+    "metadata": {
+      "run_id":"6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+      "edges_added":12,
+      "qualified_head":"dd3951607c814c0cfa98a53ea9fb0f4dbaf38c9b",
+      "merge_sha":"04cd8add33e732c556a916a8182d25f8849ec557",
+      "r34_requalification_run":32923955741,
+      "r76_qualification_run":32923955571,
+      "standing":"PARTIAL_ALIVE",
+      "preserve_prior_alternatives":true
+    }
+  }}
+}
