@@ -1,0 +1,758 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T10:50:40Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL4 consumed exact CELL3 allocation at 2b8e3d6326b853e30b02589c452b2e44f86a78a2: selected_workstreams=[] and ready_set=[], therefore no new consumer mutation or regeneration was lawful. Prior ggen-marketplace manifest/schema repair is assimilated on main=a658cda7066bba344e481173b5b52a0dc18c5c75. New exact Andon: AutoFDE R80 at 49c55a70937763966795d41485ff35554700ee93 reaches ggen sync run but fails FM-CONFIG-004 because fanout/r80/ggen.toml declares templates dir=templates and the directory is absent. CELL3 already observed the same Manufacture consumer subject transition in XaaS, so this is a shared canonical consumer-bootstrap/generator defect; repair once upstream, encode a permanent court, then regenerate/requalify AutoFDE and XaaS. AutoFDE-Lab remains independent requalification. No unchanged retry, no consequential DO.",
+        "cell": "CELL4_REALIZE_QUALIFY",
+        "key": "ggen/fanout/cell5/handoff",
+        "kind": "ggen.fanout.handoff",
+        "metadata": {
+          "Coverage_named": "100%",
+          "F_A_exact_named": 3,
+          "F_Q_exact_named": 3,
+          "F_R_exact_named": 6,
+          "HUMAN_VALUE": "UNKNOWN_FOR_OPEN_TARGETS",
+          "M_exact_named": 3,
+          "OpenFanoutObligations_exact_named": 3,
+          "OpenFanoutObligations_inherited_lower_bound": 14,
+          "Q_exact_named": 3,
+          "R_exact_named": 6,
+          "T_A": 0,
+          "T_M": 0,
+          "U_exact_named": 6,
+          "U_inherited_lower_bound": 17,
+          "authority": "OBSERVE|CONSTRUCT|VERIFY",
+          "consequential_do": false,
+          "discovered_targets": [],
+          "duplicate_lineages": [],
+          "forced_top25": [
+            {
+              "class": "CLOSE_READY",
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "repo": "ex4pm"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "DEFAULT_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT",
+              "repo": "gymact"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+              "pr": 88,
+              "reason": "R80_OWNING_COURT_REQUALIFICATION",
+              "repo": "autofde-lab"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "head": "49c55a70937763966795d41485ff35554700ee93",
+              "pr": 33,
+              "reason": "FM_CONFIG_004_MISSING_CONSUMER_TEMPLATE_DIR",
+              "repo": "autofde"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+              "pr": 32,
+              "reason": "SHARED_R80_MANUFACTURE_FAILURE_PLUS_NATIVE_CI_FAILURE",
+              "repo": "xaas"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND",
+              "repo": "chatgpt-cloud-elixir"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "process-intelligence"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "ash_r2rml"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "wasm4pm"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "pm4wasm"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfact"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfact-command-center"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfw"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "SREGym"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "fdegym"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "revops"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "chatman-ecosystem"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "POWL"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "swarmsh-v2"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "cargo-cicd"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "clap-noun-verb"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "unrdf"
+            },
+            {
+              "class": "CLOSE_READY",
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "repo": "dspygen"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "yawl"
+            },
+            {
+              "class": "REPAIR_REQUIRED",
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "a2a-rs"
+            }
+          ],
+          "merge_ready_repos": [],
+          "new_downstream_unique_commits": 0,
+          "new_upstream_unique_commits": 0,
+          "next_transition": "repair canonical consumer bootstrap so ggen config cannot reference an absent templates directory; add permanent falsifier; regenerate affected consumers only after CELL3 admits READY; separately close AutoFDE-Lab owning-court and XaaS native CI",
+          "open_fanout_prs": [
+            "autofde-lab#88",
+            "autofde#33",
+            "xaas#32"
+          ],
+          "partial_fanout": [
+            "autofde-lab",
+            "autofde",
+            "xaas"
+          ],
+          "project_memory_requests": [
+            "20260826T103740Z-cell4-mid-fanout",
+            "20260826T103805Z-cell4-cell5-handoff"
+          ],
+          "selected_workstreams": [],
+          "superseded_upstream_prs": [
+            "ggen-marketplace#321"
+          ],
+          "unmerged_upstream_repairs": [],
+          "wip_remaining": 3
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "forced-top25",
+          "cell5",
+          "closure",
+          "andon"
+        ],
+        "title": "CELL4 to CELL5 complete ForcedTop25 closure inventory"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T103805Z-cell4-cell5-handoff"
+  },
+  "request_id": "20260826T103805Z-cell4-cell5-handoff",
+  "request_path": "project-memory/requests/20260826T103805Z-cell4-cell5-handoff.json",
+  "request_sha256": "sha256:f5656242dc614b86b1691fecf5289042dd90d00ebc489e39cae7e130c0adf5da",
+  "request_transport_sha256": "sha256:c71cd5b8e7dae160141b786ed996f0d4320b126c1c0f5bf2f3561fac88e7ec09",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL4 consumed exact CELL3 allocation at 2b8e3d6326b853e30b02589c452b2e44f86a78a2: selected_workstreams=[] and ready_set=[], therefore no new consumer mutation or regeneration was lawful. Prior ggen-marketplace manifest/schema repair is assimilated on main=a658cda7066bba344e481173b5b52a0dc18c5c75. New exact Andon: AutoFDE R80 at 49c55a70937763966795d41485ff35554700ee93 reaches ggen sync run but fails FM-CONFIG-004 because fanout/r80/ggen.toml declares templates dir=templates and the directory is absent. CELL3 already observed the same Manufacture consumer subject transition in XaaS, so this is a shared canonical consumer-bootstrap/generator defect; repair once upstream, encode a permanent court, then regenerate/requalify AutoFDE and XaaS. AutoFDE-Lab remains independent requalification. No unchanged retry, no consequential DO.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_8YI",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4D4oE",
+      "metadata": {
+        "Coverage": 1.0,
+        "Coverage_named": "100%",
+        "F_A": 2,
+        "F_A_exact_named": 3,
+        "F_C": 42,
+        "F_Q": 1,
+        "F_Q_exact_named": 3,
+        "F_R": 3,
+        "F_R_exact_named": 6,
+        "HUMAN_VALUE": "UNKNOWN_FOR_OPEN_TARGETS",
+        "M": 2,
+        "M_exact_named": 3,
+        "OpenFanoutObligations": 1,
+        "OpenFanoutObligations_exact_named": 3,
+        "OpenFanoutObligations_inherited_lower_bound": 14,
+        "Q_exact_named": 3,
+        "Q_scoped": 3,
+        "Q_strict_full_repo": 1,
+        "R": 3,
+        "R_exact_named": 6,
+        "T_A": 0,
+        "T_M": 0,
+        "U": 3,
+        "U_exact_named": 6,
+        "U_inherited_lower_bound": 17,
+        "WIP": {
+          "admissibility_unknown": 22,
+          "ready": 0,
+          "repair_required": 2
+        },
+        "authority": "OBSERVE|CONSTRUCT|VERIFY",
+        "cell": "CELL4_REALIZE_QUALIFY",
+        "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+        "closed_merged_consumers": [
+          {
+            "checks": "ALL_OBSERVED_SUCCESS",
+            "classification": "CLOSE_READY",
+            "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "merge": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+            "pr": 36,
+            "repo": "dspygen"
+          },
+          {
+            "checks": "R79_SUCCESS;R81_SUCCESS;CI_CD_ELIXIR_FAILURE",
+            "classification": "REPAIR_REQUIRED",
+            "head": "853350027eb3d8e37162687d65c0ff51090b5c81",
+            "merge": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+            "pr": 31,
+            "repo": "xaas"
+          }
+        ],
+        "closure_priorities": [
+          "repair xaas broad CI on exact default lineage without weakening scoped courts",
+          "obtain target-specific admissibility identities for remaining forced targets",
+          "establish downstream product/runtime causality for chatgpt-cloud-elixir",
+          "close exact U identity mapping before claiming coverage denominator"
+        ],
+        "conflicts": [],
+        "consequential_do": false,
+        "consequential_external_do": false,
+        "created_at": "2026-08-26T06:46:07Z",
+        "discovered_targets": [],
+        "downstream_consumers": [
+          "ex4pm",
+          "gymact",
+          "xaas",
+          "dspygen"
+        ],
+        "duplicate_lineages": [],
+        "failed_checks": [],
+        "fanout_metrics": {
+          "Coverage": 0.6666666667,
+          "F_A": 1,
+          "F_C": 11,
+          "F_Q": 1,
+          "F_R": 2,
+          "F_effective": "UNKNOWN[FORMULA_NOT_CANONICALLY_DEFINED]",
+          "selected_ready_coverage": 1.0
+        },
+        "forced_metrics": {
+          "M": 1,
+          "OpenFanoutObligations": 2,
+          "Q": 1,
+          "Q_scoped": 2,
+          "R": 2,
+          "U": 3
+        },
+        "forced_top25": [
+          {
+            "class": "CLOSE_READY",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "repo": "ex4pm"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "DEFAULT_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT",
+            "repo": "gymact"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+            "pr": 88,
+            "reason": "R80_OWNING_COURT_REQUALIFICATION",
+            "repo": "autofde-lab"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "head": "49c55a70937763966795d41485ff35554700ee93",
+            "pr": 33,
+            "reason": "FM_CONFIG_004_MISSING_CONSUMER_TEMPLATE_DIR",
+            "repo": "autofde"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+            "pr": 32,
+            "reason": "SHARED_R80_MANUFACTURE_FAILURE_PLUS_NATIVE_CI_FAILURE",
+            "repo": "xaas"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND",
+            "repo": "chatgpt-cloud-elixir"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "process-intelligence"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "ash_r2rml"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "wasm4pm"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "pm4wasm"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfact"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfact-command-center"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfw"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "SREGym"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "fdegym"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "revops"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "chatman-ecosystem"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "POWL"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "swarmsh-v2"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "cargo-cicd"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "clap-noun-verb"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "unrdf"
+          },
+          {
+            "class": "CLOSE_READY",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "repo": "dspygen"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "yawl"
+          },
+          {
+            "class": "REPAIR_REQUIRED",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "a2a-rs"
+          }
+        ],
+        "forced_top25_count": 25,
+        "forced_top25_ordered": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "human_value": "HUMAN_VALUE_UNKNOWN for all forced targets in this wave unless independently receipted elsewhere",
+        "inherited_assimilated": [
+          "ex4pm",
+          "gymact"
+        ],
+        "key": "ggen/fanout/cell5/handoff",
+        "kind": "ggen.fanout.handoff",
+        "merge_ready_repos": [],
+        "merged": [
+          "seanchatmangpt/ex4pm#34@06d326f59d05afdcd39637f42fe277a474095dda"
+        ],
+        "metrics": {
+          "Coverage_named": 1.0,
+          "F_A": 3,
+          "F_C_portfolio": "UNKNOWN",
+          "F_C_wave": 0,
+          "F_Q": "UNKNOWN",
+          "F_R_named": 6,
+          "F_effective": "UNKNOWN",
+          "M_named": 3,
+          "OpenFanoutObligations_global": "UNKNOWN",
+          "OpenFanoutObligations_named": 3,
+          "R_named": 6,
+          "U_global_lower_bound": 17,
+          "U_named": 6,
+          "WIP": "PR321 admission/merge by closure authority; regenerate 3 R80 consumers; XaaS local test seam; 19 target identity gaps; chatgpt-cloud-elixir product/runtime binding; gymact inherited CI debt",
+          "downstream_unique_commits_wave": 0,
+          "merge_ready_repos": [
+            "ggen-marketplace#321 producer repair (draft, not merged)",
+            "ex4pm",
+            "dspygen"
+          ],
+          "regenerations_wave": 0,
+          "upstream_returns_wave": 1,
+          "upstream_unique_commits_wave": 2
+        },
+        "new_downstream_unique_commits": 0,
+        "new_upstream_unique_commits": 0,
+        "next_closure": [
+          "repair GymAct inherited broad-CI debt without changing R79 semantics, then exact-head requalify",
+          "repair XaaS Ash changeset context compatibility at lawful local seam, rerun compile/test/format/dialyzer and R79",
+          "obtain target-specific canonical admissibility receipts for preserved 22, route newly READY targets back to CELL4"
+        ],
+        "next_transition": "repair canonical consumer bootstrap so ggen config cannot reference an absent templates directory; add permanent falsifier; regenerate affected consumers only after CELL3 admits READY; separately close AutoFDE-Lab owning-court and XaaS native CI",
+        "open_fanout_prs": [
+          "autofde-lab#88",
+          "autofde#33",
+          "xaas#32"
+        ],
+        "open_prs": [
+          {
+            "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+            "branch": "fanout/r79-tcps-admission",
+            "checks": "R79_SUCCESS;R81_SUCCESS;BROAD_CI_IN_PROGRESS",
+            "draft": true,
+            "head": "e8120b10cfd30c911ac710eb7ba9411943ab41da",
+            "mergeable": true,
+            "pr": 31,
+            "repo": "xaas"
+          }
+        ],
+        "open_prs_or_branches": [],
+        "partial_fanout": [
+          "autofde-lab",
+          "autofde",
+          "xaas"
+        ],
+        "pending_checks": [
+          "xaas#31 CI/CD Elixir run 32946813480"
+        ],
+        "pending_failed_checks": [
+          "xaas#31 exact head 853350027eb3d8e37162687d65c0ff51090b5c81: CI/CD Elixir=FAILURE"
+        ],
+        "project_memory_receipts": "PENDING_OBSERVATION",
+        "project_memory_requests": [
+          "20260826T103740Z-cell4-mid-fanout",
+          "20260826T103805Z-cell4-cell5-handoff"
+        ],
+        "project_operation_receipts": "UNKNOWN[PENDING_RECEIPTS]",
+        "ready_set": [],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstreams": [],
+        "selected_workstreams_consumed": [
+          "dspygen#36@4f70719dfef0d7fa4c9db93c280e5c80961aa9be"
+        ],
+        "stale_heads": [],
+        "standing": "PARTIAL_ALIVE",
+        "statuses": {
+          "POWL": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "SREGym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "a2a-rs": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "ash_r2rml": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "autofde": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "autofde-lab": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "cargo-cicd": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "chatgpt-cloud-elixir": "REPAIR_REQUIRED[DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_MISSING;CONTROL_EXCLUDED]",
+          "chatman-ecosystem": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "clap-noun-verb": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "dspygen": "CLOSE_READY[EXACT_HEAD_QUALIFIED_AND_DEFAULT_ASSIMILATED]",
+          "ex4pm": "CLOSE_READY[DEFAULT_LINEAGE_ASSIMILATED]",
+          "fdegym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "gymact": "CLOSE_READY[DEFAULT_LINEAGE_ASSIMILATED]",
+          "mfact": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "mfact-command-center": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "mfw": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "pm4wasm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "process-intelligence": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "revops": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "swarmsh-v2": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "unrdf": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "wasm4pm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]",
+          "xaas": "REPAIR_REQUIRED[MERGED_BUT_BROAD_CI_FAILURE]",
+          "yawl": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING]"
+        },
+        "superseded_upstream_prs": [
+          "ggen-marketplace#321"
+        ],
+        "superseded_work": [
+          "20260826T095000Z-cell4-cell5-handoff superseded only for PR321 qualification standing"
+        ],
+        "tags": [
+          "andon",
+          "cell5",
+          "closure",
+          "forced-top25"
+        ],
+        "targets": {
+          "POWL": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "SREGym": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "a2a-rs": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "ash_r2rml": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "autofde": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "autofde-lab": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "cargo-cicd": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "chatgpt-cloud-elixir": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_GGEN_ADMISSIBILITY_RECEIPT_MISSING; CONTROL commits excluded; product/runtime causality unproven",
+            "human_value": "HUMAN_VALUE_UNKNOWN"
+          },
+          "chatman-ecosystem": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "clap-noun-verb": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "dspygen": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "ex4pm": {
+            "class": "CLOSE_READY",
+            "evidence": "PR34 merged; head 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8; merge 06d326f59d05afdcd39637f42fe277a474095dda",
+            "human_value": "HUMAN_VALUE_UNKNOWN"
+          },
+          "fdegym": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "gymact": {
+            "class": "CLOSE_READY",
+            "evidence": "PR126 merged; head bcb14a65b83fc543bb11acaa84709765ac88f42c; merge d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+            "human_value": "HUMAN_VALUE_UNKNOWN"
+          },
+          "mfact": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "mfact-command-center": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "mfw": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "pm4wasm": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "process-intelligence": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "revops": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "swarmsh-v2": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "unrdf": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "wasm4pm": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "xaas": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "PR31 e8120b10; R79/R81 success; broad CI 32946813480 in progress after migration repair",
+            "human_value": "HUMAN_VALUE_UNKNOWN"
+          },
+          "yawl": {
+            "class": "REPAIR_REQUIRED",
+            "evidence": "TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"
+          }
+        },
+        "unmerged_upstream_repairs": [],
+        "updated_at": "2026-08-26T10:50:55Z",
+        "upstream_factory": {
+          "default_contained": true,
+          "pack": "forced-top25-admissibility-factory-pack",
+          "repo": "seanchatmangpt/ggen-marketplace"
+        },
+        "upstream_repair": {
+          "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+          "branch": "repair/r80-pack-schema-admission-20260826",
+          "ci_run": 32954476907,
+          "classification": "CLOSE_READY",
+          "commits": 2,
+          "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+          "merged": false,
+          "pr": 321,
+          "regenerate_after_admission": [
+            "autofde-lab#88",
+            "autofde#33",
+            "xaas#32"
+          ],
+          "repo": "ggen-marketplace",
+          "standing": "ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]",
+          "vacuity_run": 32954476949
+        },
+        "upstream_repairs": [
+          {
+            "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+            "branch": "repair/r80-pack-schema-admission-20260826",
+            "classification": "REPAIR_REQUIRED",
+            "commits": 2,
+            "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+            "pr": 321,
+            "reason": "EXACT_HEAD_QUALIFICATION_PENDING",
+            "regenerate_after_admission": [
+              "autofde-lab#88",
+              "autofde#33",
+              "xaas#32"
+            ],
+            "repo": "ggen-marketplace"
+          }
+        ],
+        "wip_remaining": 3
+      },
+      "title": "CELL4 to CELL5 complete ForcedTop25 closure inventory"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
