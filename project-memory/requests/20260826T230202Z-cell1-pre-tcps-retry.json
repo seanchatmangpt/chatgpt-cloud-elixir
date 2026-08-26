@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T230202Z-cell1-pre-tcps-retry",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "tcps/muda-mura-muri/current"}
+}
