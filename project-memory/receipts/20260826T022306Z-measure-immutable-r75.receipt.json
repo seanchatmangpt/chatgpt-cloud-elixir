@@ -1,0 +1,67 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:24:32Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Durable learning: commit-rate is an epistemic/process signal only when exact run attribution is preserved. Falling T should manufacture a typed constraint diagnosis; temporal proximity alone is UNATTRIBUTED_OBSERVED. Generalizable downstream refinements are upstream factory-learning obligations requiring regeneration and requalification. RevenueFROMCustomer and RevenueFORCustomer require distinct causal evidence chains.",
+        "key": "dfcm/run/measure/20260826T020200Z/e11e19baf281701339e7fb6da46ccb10d0e790cf",
+        "kind": "dfcm.run",
+        "metadata": {
+          "merge_sha": "e11e19baf281701339e7fb6da46ccb10d0e790cf",
+          "pr": 304,
+          "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+          "sensors": 39
+        },
+        "standing": "ALIVE",
+        "title": "MEASURE R75 durable learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T022306Z-measure-immutable-r75"
+  },
+  "request_id": "20260826T022306Z-measure-immutable-r75",
+  "request_path": "project-memory/requests/20260826T022306Z-measure-immutable-r75.json",
+  "request_sha256": "sha256:956d1079529eb6573b73b9aa518d559463307e4c3c9d48efe6a9d4b2b41a9e13",
+  "request_transport_sha256": "sha256:22bdcc9644a541656c73876c4c9dbdb0b439c8ead0680142a98fef2dc191451d",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable learning: commit-rate is an epistemic/process signal only when exact run attribution is preserved. Falling T should manufacture a typed constraint diagnosis; temporal proximity alone is UNATTRIBUTED_OBSERVED. Generalizable downstream refinements are upstream factory-learning obligations requiring regeneration and requalification. RevenueFROMCustomer and RevenueFORCustomer require distinct causal evidence chains.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_4RQ",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CVlM",
+      "metadata": {
+        "created_at": "2026-08-26T02:24:46Z",
+        "key": "dfcm/run/measure/20260826T020200Z/e11e19baf281701339e7fb6da46ccb10d0e790cf",
+        "kind": "dfcm.run",
+        "merge_sha": "e11e19baf281701339e7fb6da46ccb10d0e790cf",
+        "pr": 304,
+        "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+        "schema": "chatgpt-project-memory/v1",
+        "sensors": 39,
+        "standing": "ALIVE",
+        "updated_at": "2026-08-26T02:24:46Z"
+      },
+      "title": "MEASURE R75 durable learning"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
