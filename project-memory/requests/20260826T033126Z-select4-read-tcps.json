@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T033126Z-select4-read-tcps",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "tcps/schedule-actuation/current"}
+}
