@@ -1,0 +1,42 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:25:39Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 50,
+      "max_scan": 1000,
+      "text": "R77 exact repository universe headResolved structural displacement GGEN path qualified fanout throughput rate drop RevenueFROMCustomer RevenueFORCustomer OCEL density upstream regeneration newly actionable"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T032111Z-measure-r77-post-query"
+  },
+  "request_id": "20260826T032111Z-measure-r77-post-query",
+  "request_path": "project-memory/requests/20260826T032111Z-measure-r77-post-query.json",
+  "request_sha256": "sha256:c6164de31e5e23dc51ba89fea38c94c6bad028fd2eb6fcad469f7db249f08e9a",
+  "request_transport_sha256": "sha256:fc7088ab4b2025e1cad87ec193aeb6e78a6e2ea2ba65b4c5487f9521ab21b272",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 43,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
