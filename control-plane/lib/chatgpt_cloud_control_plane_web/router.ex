@@ -32,6 +32,15 @@ defmodule ChatGPTCloudWeb.Router do
   scope "/api", ChatGPTCloudWeb do
     pipe_through :api
     post "/v1/ocel/batches", IngestController, :create
+
+    get "/v1/swarm/work", WorkController, :index
+    post "/v1/swarm/work", WorkController, :create
+    post "/v1/swarm/work/:work_item_id/claim", WorkController, :claim
+    post "/v1/swarm/work/:work_item_id/progress", WorkController, :progress
+    post "/v1/swarm/work/:work_item_id/complete", WorkController, :complete
+    post "/v1/swarm/work/:work_item_id/block", WorkController, :block
+    post "/v1/swarm/work/:work_item_id/refuse", WorkController, :refuse
+    post "/v1/swarm/project2/import", WorkController, :import_project2
   end
 
   scope "/api" do

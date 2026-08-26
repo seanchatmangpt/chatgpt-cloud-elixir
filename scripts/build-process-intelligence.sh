@@ -41,54 +41,39 @@ mkdir -p "$STAGE/subjects"
 SUBJECT_ROWS="$WORK/subjects.ndjson"
 : > "$SUBJECT_ROWS"
 
-# ex4pm umbrella child apps resolve ../../../wasm4pm-compat/bindings/elixir
-# relative to $STAGE/subjects/ex4pm/apps/<app>, which lands at
-# $STAGE/subjects/wasm4pm-compat. Materialize the exact pinned dependency at
-# that resolved path so the capsule is dependency-closed rather than relying
-# on ambient filesystem state.
-DEPENDENCY_REPOSITORY="$(python3 - "$CFG" <<'PY'
-import sys, tomllib
+# Materialize dependency-closed local-path inputs before any subject build.
+# ex4pm/apps/ex4pm_domain resolves ../../../wasm4pm-compat/bindings/elixir
+# to this sibling of subjects/ex4pm. Identity is pinned in capsule.toml.
+python3 - "$CFG" <<'PY' > "$WORK/dependencies.ndjson"
+import json, sys, tomllib
 cfg = tomllib.load(open(sys.argv[1], "rb"))
-print(cfg["dependencies"]["wasm4pm_compat"]["repository"])
+for name, dep in sorted(cfg.get("dependencies", {}).items()):
+    row = {"name": name, **dep}
+    print(json.dumps(row, sort_keys=True))
 PY
-)"
-DEPENDENCY_SHA="$(python3 - "$CFG" <<'PY'
-import sys, tomllib
-cfg = tomllib.load(open(sys.argv[1], "rb"))
-print(cfg["dependencies"]["wasm4pm_compat"]["sha"])
-PY
-)"
-DEPENDENCY_TREE_SHA="$(python3 - "$CFG" <<'PY'
-import sys, tomllib
-cfg = tomllib.load(open(sys.argv[1], "rb"))
-print(cfg["dependencies"]["wasm4pm_compat"]["tree_sha"])
-PY
-)"
-DEPENDENCY_NAME="$(python3 - "$CFG" <<'PY'
-import sys, tomllib
-cfg = tomllib.load(open(sys.argv[1], "rb"))
-print(cfg["dependencies"]["wasm4pm_compat"]["materialize_as"])
-PY
-)"
-[[ "$DEPENDENCY_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid wasm4pm-compat SHA" >&2; exit 65; }
-[[ "$DEPENDENCY_TREE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid wasm4pm-compat tree SHA" >&2; exit 65; }
-[[ "$DEPENDENCY_REPOSITORY" == https://github.com/*.git ]] || {
-  echo "UNSUPPORTED: dependency repository must be public github.com git URL" >&2; exit 64;
-}
-DEPENDENCY_GIT="$WORK/git-wasm4pm-compat"
-DEPENDENCY_SOURCE="$STAGE/subjects/$DEPENDENCY_NAME"
-git init -q "$DEPENDENCY_GIT"
-git -C "$DEPENDENCY_GIT" remote add origin "$DEPENDENCY_REPOSITORY"
-git -C "$DEPENDENCY_GIT" fetch -q --depth=1 origin "$DEPENDENCY_SHA"
-git -C "$DEPENDENCY_GIT" checkout -q --detach FETCH_HEAD
-[[ "$(git -C "$DEPENDENCY_GIT" rev-parse HEAD)" == "$DEPENDENCY_SHA" ]] || {
-  echo "BUILD_BROKEN: wasm4pm-compat commit identity mismatch" >&2; exit 65;
-}
-[[ "$(git -C "$DEPENDENCY_GIT" rev-parse 'HEAD^{tree}')" == "$DEPENDENCY_TREE_SHA" ]] || {
-  echo "BUILD_BROKEN: wasm4pm-compat tree identity mismatch" >&2; exit 65;
-}
-mkdir -p "$DEPENDENCY_SOURCE"
-git -C "$DEPENDENCY_GIT" archive HEAD | tar -x -C "$DEPENDENCY_SOURCE"
+while IFS= read -r DEP_ROW; do
+  [[ -n "$DEP_ROW" ]] || continue
+  DEP_NAME="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["name"])' "$DEP_ROW")"
+  DEP_REPOSITORY="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["repository"])' "$DEP_ROW")"
+  DEP_SHA="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["sha"])' "$DEP_ROW")"
+  DEP_TREE_SHA="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["tree_sha"])' "$DEP_ROW")"
+  DEP_MATERIALIZE_AS="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["materialize_as"])' "$DEP_ROW")"
+  [[ "$DEP_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid SHA for dependency $DEP_NAME" >&2; exit 65; }
+  [[ "$DEP_TREE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid tree SHA for dependency $DEP_NAME" >&2; exit 65; }
+  [[ "$DEP_MATERIALIZE_AS" != /* && "$DEP_MATERIALIZE_AS" != *".."* ]] || {
+    echo "REFUSED: unsafe materialization path for dependency $DEP_NAME" >&2; exit 64;
+  }
+  DEP_GIT_DIR="$WORK/git-dependency-$DEP_NAME"
+  DEP_SOURCE_DIR="$STAGE/subjects/$DEP_MATERIALIZE_AS"
+  git init -q "$DEP_GIT_DIR"
+  git -C "$DEP_GIT_DIR" remote add origin "$DEP_REPOSITORY"
+  git -C "$DEP_GIT_DIR" fetch -q --depth=1 origin "$DEP_SHA"
+  git -C "$DEP_GIT_DIR" checkout -q --detach FETCH_HEAD
+  [[ "$(git -C "$DEP_GIT_DIR" rev-parse HEAD)" == "$DEP_SHA" ]] || { echo "BUILD_BROKEN: dependency $DEP_NAME commit identity mismatch" >&2; exit 65; }
+  [[ "$(git -C "$DEP_GIT_DIR" rev-parse 'HEAD^{tree}')" == "$DEP_TREE_SHA" ]] || { echo "BUILD_BROKEN: dependency $DEP_NAME tree identity mismatch" >&2; exit 65; }
+  mkdir -p "$DEP_SOURCE_DIR"
+  git -C "$DEP_GIT_DIR" archive HEAD | tar -x -C "$DEP_SOURCE_DIR"
+done < "$WORK/dependencies.ndjson"
 
 for SUBJECT in ash_r2rml ex4pm; do
   REPOSITORY="$(python3 - "$CFG" "$SUBJECT" <<'PY'
