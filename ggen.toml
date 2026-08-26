@@ -3,7 +3,6 @@ name = "chatgpt-cloud-elixir-ocel"
 
 [ontology]
 source = "ontology/ggen-ecosystem-ocel-run.ttl"
-base_iri = "https://chatgpt-cloud-elixir.dev/ontology/ggen-ecosystem-ocel-run#"
 
 [ontology.prefixes]
 geocel = "https://ggen.dev/ontology/ggen-ecosystem-ocel#"
