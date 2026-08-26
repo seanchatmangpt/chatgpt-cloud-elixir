@@ -102,7 +102,7 @@ class Vision2030ProjectionTests(unittest.TestCase):
         self.assertEqual("OPEN", envelope["status"])
         self.assertEqual("ASSEMBLY_IN_PROGRESS", envelope["structural_phase"])
         self.assertIn("UNRESOLVED_DEPENDENCIES", envelope["falsifiers"])
-        self.assertTrue(projection["maximalist_frontier"])
+        self.assertEqual([], projection["maximalist_frontier"])
 
     def test_minimum_evidence_turns_single_signal_into_explicit_gap(self):
         projection = vision_2030.project(self.graph, {"minimum_evidence": 4})
@@ -110,6 +110,8 @@ class Vision2030ProjectionTests(unittest.TestCase):
         self.assertEqual("GAP", pillars["semantic-interoperability"]["status"])
         self.assertEqual(4, pillars["semantic-interoperability"]["minimum_evidence"])
         self.assertIn("EVIDENCE_SHORTFALL", pillars["semantic-interoperability"]["falsifiers"])
+        self.assertTrue(projection["maximalist_frontier"])
+        self.assertTrue(any(item["id"] == "semantic-interoperability" for item in projection["maximalist_frontier"]))
 
     def test_domain_diversity_prevents_repeated_single_repo_evidence_from_goodharting_a_pillar(self):
         projection = vision_2030.project(self.graph, {"minimum_domains": 2})
