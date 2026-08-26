@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/local-control/request.schema.json",
+  "title": "Track B Local Colima Capsule Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "operation", "machine", "payload"],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "operation": {"const": "process.run"},
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {"id": {"type": "string", "minLength": 1, "maxLength": 200}}
+    },
+    "expires_at": {"type": "string", "format": "date-time"},
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["script"],
+      "properties": {
+        "script": {
+          "type": "string",
+          "pattern": "^scripts/(build|verify)-[A-Za-z0-9][A-Za-z0-9._-]*\\.sh$"
+        },
+        "timeout_seconds": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}
