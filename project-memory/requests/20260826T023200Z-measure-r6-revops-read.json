@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T023200Z-measure-r6-revops-read",
+  "operation": "memory.read",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"key":"ocel/v2/revops/current"}
+}
