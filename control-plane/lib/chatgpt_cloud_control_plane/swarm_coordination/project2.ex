@@ -4,29 +4,35 @@ defmodule ChatGPTCloud.SwarmCoordination.Project2 do
 
   Project items supply demand. They do not schedule or actuate work. Import is
   idempotent because every Project item is assigned a deterministic work id.
+  Project-memory records are control state and are never promoted into work.
   """
 
   alias ChatGPTCloud.DfcmMemory.GithubProjectClient
   alias ChatGPTCloud.SwarmCoordination.Coordinator
+
+  @memory_marker "<!-- chatgpt-project-memory:v1 "
 
   def import(opts \\ []) do
     max_items = Keyword.get(opts, :max_items, 500)
     include_archived = Keyword.get(opts, :include_archived, false)
     types = Keyword.get(opts, :types, ["ISSUE", "PULL_REQUEST", "DRAFT_ISSUE"])
 
-    with {:ok, items} <-
+    with {:ok, observed_items} <-
            GithubProjectClient.project_items(
              max_items: max_items,
              include_archived: include_archived,
              types: types
            ) do
+      items = Enum.filter(observed_items, &work_candidate?/1)
       results = Enum.map(items, &import_item/1)
 
       {:ok,
        %{
          "schema" => "swarmsh.project2-import/v1",
          "project" => %{"owner" => "seanchatmangpt", "number" => 2},
-         "observed_items" => length(items),
+         "observed_items" => length(observed_items),
+         "eligible_demand" => length(items),
+         "control_records_excluded" => length(observed_items) - length(items),
          "accepted" => Enum.count(results, &match?({:ok, _, _}, &1)),
          "results" => Enum.map(results, &result_json/1)
        }}
@@ -34,7 +40,16 @@ defmodule ChatGPTCloud.SwarmCoordination.Project2 do
   end
 
   def import_item(item) when is_map(item) do
-    Coordinator.enqueue(project_item_to_work(item))
+    if work_candidate?(item) do
+      Coordinator.enqueue(project_item_to_work(item))
+    else
+      {:error, %{standing: "REFUSED", type: "PROJECT_CONTROL_RECORD"}}
+    end
+  end
+
+  def work_candidate?(item) when is_map(item) do
+    body = value(item, :body, "") || ""
+    not String.contains?(body, @memory_marker) and not value(item, :is_archived, false)
   end
 
   def project_item_to_work(item) when is_map(item) do
