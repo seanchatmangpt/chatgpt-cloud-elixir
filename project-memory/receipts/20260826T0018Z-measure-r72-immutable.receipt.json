@@ -1,0 +1,90 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T00:13:31Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable R72 learning: memory capital compounds only when currentness, exact-subject identity, supersession, receipts, authority, and contradiction resolution are observable. R72 manufactures that missing layer as a reusable marketplace pack.",
+        "cell": "MEASURE",
+        "generation": "R72",
+        "head_sha": "80adbffeb32ff62a0f58c1d55aa968fdafe0429a",
+        "key": "dfcm/run/measure/20260826T001800Z/80adbffeb32ff62a0f58c1d55aa968fdafe0429a",
+        "kind": "dfcm.run",
+        "metadata": {
+          "falsifier": "live marketplace head contradicted remembered Project head",
+          "meaningful_commits": 52,
+          "merge": 0,
+          "novel_rule": "Accumulated executable memory requires temporal exact-subject truth law; append-only metadata without supersession/currentness instrumentation creates stale parallel truths.",
+          "pr": 299,
+          "qualification_run": 32914047725,
+          "qualification_standing": "REQUALIFYING",
+          "sensors": 48
+        },
+        "ref": "measure/r72-temporal-truth-observability",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "immutable",
+          "measure",
+          "r72",
+          "temporal-truth"
+        ],
+        "title": "MEASURE R72 durable temporal-truth learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T0018Z-measure-r72-immutable"
+  },
+  "request_id": "20260826T0018Z-measure-r72-immutable",
+  "request_path": "project-memory/requests/20260826T0018Z-measure-r72-immutable.json",
+  "result": {
+    "body": "Durable R72 learning: memory capital compounds only when currentness, exact-subject identity, supersession, receipts, authority, and contradiction resolution are observable. R72 manufactures that missing layer as a reusable marketplace pack.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_2O0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4BoLs",
+    "metadata": {
+      "cell": "MEASURE",
+      "created_at": "2026-08-26T00:13:38Z",
+      "falsifier": "live marketplace head contradicted remembered Project head",
+      "generation": "R72",
+      "head_sha": "80adbffeb32ff62a0f58c1d55aa968fdafe0429a",
+      "key": "dfcm/run/measure/20260826T001800Z/80adbffeb32ff62a0f58c1d55aa968fdafe0429a",
+      "kind": "dfcm.run",
+      "meaningful_commits": 52,
+      "merge": 0,
+      "novel_rule": "Accumulated executable memory requires temporal exact-subject truth law; append-only metadata without supersession/currentness instrumentation creates stale parallel truths.",
+      "pr": 299,
+      "qualification_run": 32914047725,
+      "qualification_standing": "REQUALIFYING",
+      "ref": "measure/r72-temporal-truth-observability",
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "sensors": 48,
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "immutable",
+        "measure",
+        "r72",
+        "temporal-truth"
+      ],
+      "updated_at": "2026-08-26T00:13:38Z"
+    },
+    "title": "MEASURE R72 durable temporal-truth learning"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
