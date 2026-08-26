@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T023015Z-select-read-ledger",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/ledger/current"}
+}
