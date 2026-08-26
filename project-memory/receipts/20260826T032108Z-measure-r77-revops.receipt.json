@@ -1,0 +1,121 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:24:16Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R77 adds repository-universe adjacency to dual RevOps observation. RevenueFROMCustomer remains distinct from RevenueFORCustomer. New sensors require RevenueFROMCustomer evidence root, payer, causal capability, time window and attribution confidence; RevenueFORCustomer requires evidence root, beneficiary, causal capability, time window and attribution confidence. No independent live commercial evidence was observed in this run, therefore both revenue standings remain UNKNOWN[NO_LIVE_ECONOMIC_PROOF]. OCEL density vector remains numerically UNKNOWN for live portfolio; R77 adds an explicit completeness detector and new repository/head/displacement/fanout/throughput observation object classes so the next census can populate cross-repository, consumer, causal, economic, replay, and actionable-adjacency dimensions without prose inference.",
+        "cell": "MEASURE",
+        "key": "ocel/v2/revops/current",
+        "kind": "ocel.revops",
+        "metadata": {
+          "RevenueFORCustomer": "UNKNOWN_NO_LIVE_ECONOMIC_PROOF",
+          "RevenueFROMCustomer": "UNKNOWN_NO_LIVE_ECONOMIC_PROOF",
+          "ocel_density_delta": "UNKNOWN_PENDING_LIVE_GRAPH_POPULATION",
+          "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+          "sensor_range": "r77/42-49",
+          "transport_head_before_request": "c3b9cf5f65262010f5b445d5f207dbc505e6a502"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ocel-v2",
+          "revops",
+          "r77",
+          "revenue"
+        ],
+        "title": "OCEL v2 dual RevOps observability"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T032108Z-measure-r77-revops"
+  },
+  "request_id": "20260826T032108Z-measure-r77-revops",
+  "request_path": "project-memory/requests/20260826T032108Z-measure-r77-revops.json",
+  "request_sha256": "sha256:e4684c33ad726cbafdc6c679bd8d2e03c799688e0ae9e2b4faa6a4c37ed8fe63",
+  "request_transport_sha256": "sha256:3c831eb24e2212be4ea3b399c888064140de587387cf7a9fae0eb4c1e2d47262",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R77 adds repository-universe adjacency to dual RevOps observation. RevenueFROMCustomer remains distinct from RevenueFORCustomer. New sensors require RevenueFROMCustomer evidence root, payer, causal capability, time window and attribution confidence; RevenueFORCustomer requires evidence root, beneficiary, causal capability, time window and attribution confidence. No independent live commercial evidence was observed in this run, therefore both revenue standings remain UNKNOWN[NO_LIVE_ECONOMIC_PROOF]. OCEL density vector remains numerically UNKNOWN for live portfolio; R77 adds an explicit completeness detector and new repository/head/displacement/fanout/throughput observation object classes so the next census can populate cross-repository, consumer, causal, economic, replay, and actionable-adjacency dimensions without prose inference.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_2nU",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4ByJo",
+      "metadata": {
+        "RevenueFORCustomer": "UNKNOWN_NO_LIVE_ECONOMIC_PROOF",
+        "RevenueFROMCustomer": "UNKNOWN_NO_LIVE_ECONOMIC_PROOF",
+        "canonical_project": "seanchatmangpt/2",
+        "case_centric_views": "projection-only",
+        "cell": "MEASURE",
+        "correction": "metadata counts reconciled to explicit object/event lists",
+        "created_at": "2026-08-26T00:41:26Z",
+        "customer_revenue_yield": "UNKNOWN",
+        "dual_revenue_flows": true,
+        "dual_revops": true,
+        "event_type_count": 39,
+        "git_commits": "immutable manufacturing receipts",
+        "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+        "key": "ocel/v2/revops/current",
+        "kind": "ocel.revops",
+        "object_type_count": 26,
+        "objective": "maximize commit manufacturing throughput, hyperdimensional information density, portfolio revenue, and customer revenue generation",
+        "observed_revenue_multiplier": "UNKNOWN",
+        "ocel_density_delta": "UNKNOWN_PENDING_LIVE_GRAPH_POPULATION",
+        "ocel_projection": true,
+        "pr": 305,
+        "project_memory": "canonical current object/process/economic control state",
+        "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+        "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "revenue_for_customer": "DISTINCT",
+        "revenue_from_customer": "DISTINCT",
+        "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T030200Z+MEASURE",
+        "schema": "chatgpt-project-memory/v1",
+        "sensor_range": "r77/42-49",
+        "standing": "PARTIAL_ALIVE",
+        "standing_model": [
+          "UNKNOWN",
+          "PARTIAL_ALIVE",
+          "ALIVE",
+          "BUILD_BROKEN",
+          "UNSUPPORTED",
+          "REFUSED"
+        ],
+        "supersedes_request": "20260825T174013-ocel-v2-revops-hypergraph",
+        "tags": [
+          "ocel-v2",
+          "r77",
+          "revenue",
+          "revops"
+        ],
+        "transport": "chatgpt-cloud-elixir/project-memory-bus",
+        "transport_head_before_request": "c3b9cf5f65262010f5b445d5f207dbc505e6a502",
+        "ui_runtime": [
+          "Elixir",
+          "Ash Framework",
+          "Reactor",
+          "Phoenix/LiveView"
+        ],
+        "updated_at": "2026-08-26T03:24:31Z"
+      },
+      "title": "OCEL v2 dual RevOps observability"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
