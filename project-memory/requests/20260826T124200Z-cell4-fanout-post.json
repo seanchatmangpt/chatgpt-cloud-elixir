@@ -1,0 +1,49 @@
+{
+  "request_id": "20260826T124200Z-cell4-fanout-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/current",
+    "title": "CELL4 ForcedTop25 realization and qualification POST",
+    "summary": "Consumed the exact CELL3 allocation from Project #2. Sole READY workstream was process-intelligence#9 at selected head 39a8240be54dba1cbdea1ee9ca849a06ce6403c9. Fresh main was 88556e8d0265936d430606cca848dda3e2b1dd8f; selected branch was 14 ahead/7 behind. CELL4 created one non-force two-parent reconciliation commit 57ae94e594dd29319683bb890077482bc8715a5f using GitHub's conflict-free PR merge tree. PR #9 is open, non-draft, mergeable, now 15 commits/4 files/+70/-0. On exact reconciled head: Definition-of-Done SUCCESS, DFCM SUCCESS, ALIVE_002 SUCCESS; R80 real-GGEN construction is still IN_PROGRESS at constructor build, with exact-head admission already successful. No merge performed. MID Project operation executed with error=null. No unselected forced target was mutated.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "cell": "REALIZE_QUALIFY_FANOUT",
+      "authority": "SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "consequential_do": false,
+      "forced_top25_U": 14,
+      "forced_top25_M": 9,
+      "open_fanout_obligations": 5,
+      "forced_top25_R_lower_bound": 10,
+      "forced_top25_Q_lower_bound": 9,
+      "F_R_wave": 1,
+      "F_C_wave": 1,
+      "F_A_wave": 0,
+      "F_Q_wave": 0,
+      "Coverage_wave": 1.0,
+      "F_effective": "PARTIAL_ALIVE[EXACT_R80_PENDING]",
+      "upstream_unique_commits_wave": 0,
+      "downstream_unique_commits_wave": 1,
+      "T_M": 0,
+      "T_A": 1,
+      "selected_repo": "process-intelligence",
+      "pr": 9,
+      "selected_head": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+      "reconciled_head": "57ae94e594dd29319683bb890077482bc8715a5f",
+      "current_main": "88556e8d0265936d430606cca848dda3e2b1dd8f",
+      "mergeable": true,
+      "draft": false,
+      "merge_performed": false,
+      "producer": "seanchatmangpt/ggen-marketplace@92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+      "constructor": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "qualification": {
+        "definition_of_done": "SUCCESS",
+        "dfcm": "SUCCESS",
+        "alive_002": "SUCCESS",
+        "r80": "IN_PROGRESS[BUILD_EXACT_GGEN_CONSTRUCTOR]"
+      },
+      "mid_request_commit": "610acf23475081ab9c98c7beb77d53d1dc60fc48",
+      "mid_project_operation": "ALIVE[ERROR_NULL]"
+    }
+  }
+}
