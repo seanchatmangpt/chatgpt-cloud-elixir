@@ -41,6 +41,53 @@ mkdir -p "$STAGE/subjects"
 SUBJECT_ROWS="$WORK/subjects.ndjson"
 : > "$SUBJECT_ROWS"
 
+# ex4pm contains a lawful path dependency on wasm4pm-compat/bindings/elixir.
+# Materialize that dependency as an identity-bound sibling before any subject
+# build so the capsule is dependency-closed instead of relying on ambient disk.
+DEPENDENCY_REPOSITORY="$(python3 - "$CFG" <<'PY'
+import sys, tomllib
+cfg = tomllib.load(open(sys.argv[1], "rb"))
+print(cfg["dependencies"]["wasm4pm_compat"]["repository"])
+PY
+)"
+DEPENDENCY_SHA="$(python3 - "$CFG" <<'PY'
+import sys, tomllib
+cfg = tomllib.load(open(sys.argv[1], "rb"))
+print(cfg["dependencies"]["wasm4pm_compat"]["sha"])
+PY
+)"
+DEPENDENCY_TREE_SHA="$(python3 - "$CFG" <<'PY'
+import sys, tomllib
+cfg = tomllib.load(open(sys.argv[1], "rb"))
+print(cfg["dependencies"]["wasm4pm_compat"]["tree_sha"])
+PY
+)"
+DEPENDENCY_NAME="$(python3 - "$CFG" <<'PY'
+import sys, tomllib
+cfg = tomllib.load(open(sys.argv[1], "rb"))
+print(cfg["dependencies"]["wasm4pm_compat"]["materialize_as"])
+PY
+)"
+[[ "$DEPENDENCY_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid wasm4pm-compat SHA" >&2; exit 65; }
+[[ "$DEPENDENCY_TREE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "BUILD_BROKEN: invalid wasm4pm-compat tree SHA" >&2; exit 65; }
+[[ "$DEPENDENCY_REPOSITORY" == https://github.com/*.git ]] || {
+  echo "UNSUPPORTED: dependency repository must be public github.com git URL" >&2; exit 64;
+}
+DEPENDENCY_GIT="$WORK/git-wasm4pm-compat"
+DEPENDENCY_SOURCE="$STAGE/subjects/$DEPENDENCY_NAME"
+git init -q "$DEPENDENCY_GIT"
+git -C "$DEPENDENCY_GIT" remote add origin "$DEPENDENCY_REPOSITORY"
+git -C "$DEPENDENCY_GIT" fetch -q --depth=1 origin "$DEPENDENCY_SHA"
+git -C "$DEPENDENCY_GIT" checkout -q --detach FETCH_HEAD
+[[ "$(git -C "$DEPENDENCY_GIT" rev-parse HEAD)" == "$DEPENDENCY_SHA" ]] || {
+  echo "BUILD_BROKEN: wasm4pm-compat commit identity mismatch" >&2; exit 65;
+}
+[[ "$(git -C "$DEPENDENCY_GIT" rev-parse 'HEAD^{tree}')" == "$DEPENDENCY_TREE_SHA" ]] || {
+  echo "BUILD_BROKEN: wasm4pm-compat tree identity mismatch" >&2; exit 65;
+}
+mkdir -p "$DEPENDENCY_SOURCE"
+git -C "$DEPENDENCY_GIT" archive HEAD | tar -x -C "$DEPENDENCY_SOURCE"
+
 for SUBJECT in ash_r2rml ex4pm; do
   REPOSITORY="$(python3 - "$CFG" "$SUBJECT" <<'PY'
 import sys, tomllib
@@ -131,9 +178,10 @@ manifest["required_modules"] = cfg.get("required_modules", [])
 manifest["requires_services"] = cfg.get("requires_services", [])
 manifest["acceptance"] = cfg.get("acceptance", [])
 manifest["subjects"] = subjects
+manifest["dependencies"] = cfg.get("dependencies", {})
 manifest["process_lab"] = cfg.get("process_lab", {})
 manifest["identity_fields"] = [
-    "source_sha", "capsule_name", "platform", "runtime", "subjects"
+    "source_sha", "capsule_name", "platform", "runtime", "subjects", "dependencies"
 ]
 with open(manifest_path, "w") as f:
     json.dump(manifest, f, indent=2, sort_keys=True)
