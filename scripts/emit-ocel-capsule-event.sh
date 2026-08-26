@@ -67,16 +67,26 @@ if ! command -v curl >/dev/null 2>&1 || ! command -v python3 >/dev/null 2>&1; th
   exit 0
 fi
 
-PAYLOAD_JSON="{}"
+# Resolve to a real, always-readable payload file: never pass payload via
+# stdin to a `python3 -` invocation below, since `-` reads its own PROGRAM
+# text from stdin -- a heredoc script there consumes stdin for the program
+# itself, leaving nothing for a later sys.stdin.read() inside that program to
+# see (confirmed empirically: this was a real bug here, not a hypothetical).
+EMPTY_PAYLOAD_FILE="$(mktemp)"
+printf '{}' > "$EMPTY_PAYLOAD_FILE"
+RESOLVED_PAYLOAD_FILE="$EMPTY_PAYLOAD_FILE"
 if [[ -n "$PAYLOAD_FILE" && -f "$PAYLOAD_FILE" ]]; then
-  PAYLOAD_JSON="$(cat "$PAYLOAD_FILE")"
+  RESOLVED_PAYLOAD_FILE="$PAYLOAD_FILE"
 fi
 
 ENVELOPE="$(python3 - "$AGENT_ID" "$RUN_ID" "$ACTIVITY" "$STANDING" "$OCCURRED_AT" \
-  "$SUBJECT_REPO" "$SUBJECT_SHA" <<'PY'
+  "$SUBJECT_REPO" "$SUBJECT_SHA" "$RESOLVED_PAYLOAD_FILE" <<'PY'
 import json, sys
-agent_id, run_id, activity, standing, occurred_at, subject_repo, subject_sha = sys.argv[1:8]
-payload = json.loads(sys.stdin.read() or "{}") if not sys.stdin.isatty() else {}
+agent_id, run_id, activity, standing, occurred_at, subject_repo, subject_sha, payload_file = sys.argv[1:9]
+try:
+    payload = json.load(open(payload_file))
+except (OSError, json.JSONDecodeError):
+    payload = {}
 envelope = {
     "schema": "chatgpt-cloud-ocel/1",
     "producer": {
@@ -104,7 +114,8 @@ envelope = {
 }
 print(json.dumps(envelope))
 PY
-<<<"$PAYLOAD_JSON")"
+)"
+rm -f "$EMPTY_PAYLOAD_FILE"
 
 set +e
 HTTP_STATUS="$(
