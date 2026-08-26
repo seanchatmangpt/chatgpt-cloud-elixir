@@ -1,0 +1,53 @@
+{
+  "request_id": "20260826T145200Z-cell5-handoff",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/cell5/handoff",
+    "title": "CELL5 complete closure inventory after R88 CELL4",
+    "summary": "All 25 forced targets are preserved. CELL4 consumed exactly chatman-ecosystem#217@911f1ff9713fa305a6df762ecb14a27a8e0b90db and unrdf#107@4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb. Both are distinct R88 canonical GGEN consumers, zero behind their admitted defaults, owning court ALIVE, but remain REPAIR_REQUIRED because inherited broad repo qualification is red. Ten inherited compatible consumers are default-lineage assimilated. Four inherited compatible realized consumers remain behind prior qualification/repair debt. cargo-cicd remains typed authority-refused. Eight forced targets remain target-specific compatibility/admission incomplete. No discovered extra consumers, no duplicate lineage, no superseded R88 branch, no unmerged upstream repair from this CELL4, no merge/release/deploy.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "forced_top25": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+      "targets": {
+        "ex4pm": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "gymact": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "autofde-lab": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "autofde": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "xaas": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "chatgpt-cloud-elixir": {"class":"REPAIR_REQUIRED","reason":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_CAUSALITY_NOT_CLOSED; CONTROL_ONLY_EXCLUDED_FROM_TRUE_FANOUT"},
+        "process-intelligence": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "ash_r2rml": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "wasm4pm": {"class":"REPAIR_REQUIRED","reason":"INHERITED_COMPATIBLE_REALIZED_QUALIFICATION_DEBT"},
+        "pm4wasm": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "mfact": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "mfact-command-center": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "mfw": {"class":"REPAIR_REQUIRED","reason":"INHERITED_COMPATIBLE_REALIZED_QUALIFICATION_DEBT"},
+        "SREGym": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "fdegym": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "revops": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "chatman-ecosystem": {"class":"REPAIR_REQUIRED","pr":217,"branch":"fanout/r88-r86-qualification-capsule","base":"ffe93f68a81fc46ccf60594a9615167bd36031a4","head":"911f1ff9713fa305a6df762ecb14a27a8e0b90db","ahead":4,"behind":0,"owning_r88":"ALIVE","failed_checks":["Fast constitutional gates: Cargo.lock update required under --locked","Dependency license and source policy"],"reason":"INHERITED_BROAD_CARGO_LOCK_AND_POLICY_DEBT","draft":true,"mergeable":true,"HUMAN_VALUE":"UNKNOWN"},
+        "POWL": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "swarmsh-v2": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"},
+        "cargo-cicd": {"class":"REFUSED_TYPED","reason":"REPO_MUTATION_BOUNDARY:AGENT_MUTATION_REQUIRES_CARGO_CICD"},
+        "clap-noun-verb": {"class":"REPAIR_REQUIRED","reason":"INHERITED_COMPATIBLE_REALIZED_QUALIFICATION_DEBT"},
+        "unrdf": {"class":"REPAIR_REQUIRED","pr":107,"branch":"fanout/r88-r86-qualification-capsule","base":"dcc6ada4df196fd23cb96885f018cb5c1c89386e","head":"4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb","ahead":5,"behind":0,"owning_r88":"ALIVE","failed_checks":["autofix: ESLint 9 missing eslint.config in graph-analytics/kgc-cli","checks","validate","Quality Gate 20.x","quality","dependency/code-complexity/bundle/JSDoc analyses"],"pending_checks":["verify-packages observed IN_PROGRESS at final qualification census"],"reason":"INHERITED_BROAD_ESLINT_AND_QUALITY_DEBT","draft":true,"mergeable":true,"HUMAN_VALUE":"UNKNOWN"},
+        "dspygen": {"class":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED"},
+        "yawl": {"class":"REPAIR_REQUIRED","reason":"INHERITED_COMPATIBLE_REALIZED_QUALIFICATION_DEBT"},
+        "a2a-rs": {"class":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_COMPATIBILITY_ADMISSION_NOT_CLOSED"}
+      },
+      "discovered_targets": [],
+      "open_prs": ["seanchatmangpt/chatman-ecosystem#217@911f1ff9713fa305a6df762ecb14a27a8e0b90db","seanchatmangpt/unrdf#107@4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb"],
+      "unmerged_upstream_repairs": [],
+      "downstream_consumers_selected": ["chatman-ecosystem","unrdf"],
+      "selected_downstream_commits": 9,
+      "new_downstream_commits_cell4": 0,
+      "superseded_work": [],
+      "duplicate_lineages": [],
+      "partial_fanout": ["chatman-ecosystem","unrdf","wasm4pm","mfw","clap-noun-verb","yawl"],
+      "Project_memory_requests": ["20260826T144100Z-cell4-read-select","20260826T144300Z-cell4-query-selected-workstreams","20260826T145000Z-cell4-mid","20260826T145100Z-cell4-fanout-post","20260826T145200Z-cell5-handoff"],
+      "U_lower_bound":17,"R_lower_bound":16,"Q_lower_bound":12,"M_lower_bound":10,"OpenFanoutObligations_lower_bound":7,
+      "authority":"VERIFY|CONSTRUCT|PROJECT_MEMORY; NO_MERGE|NO_RELEASE|NO_DEPLOY"
+    }
+  }
+}
