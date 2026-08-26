@@ -91,7 +91,7 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
     assert projection.autonomy_envelope.status == "OPEN"
     assert projection.autonomy_envelope.structural_phase == "ASSEMBLY_IN_PROGRESS"
     assert "UNRESOLVED_DEPENDENCIES" in projection.autonomy_envelope.falsifiers
-    assert projection.maximalist_frontier != []
+    assert projection.maximalist_frontier == []
   end
 
   test "minimum evidence makes capability admission explicit instead of implied" do
@@ -127,6 +127,8 @@ defmodule ChatGPTCloud.DfcmMemory.Vision2030Test do
     assert semantic.status == "GAP"
     assert "EVIDENCE_SHORTFALL" in semantic.falsifiers
     assert Enum.any?(projection.capability_coverage.gaps, &(&1.id == "semantic-interoperability"))
+    assert projection.maximalist_frontier != []
+    assert Enum.any?(projection.maximalist_frontier, &(&1.id == "semantic-interoperability"))
   end
 
   test "domain diversity prevents a single evidence domain from Goodharting a pillar" do
