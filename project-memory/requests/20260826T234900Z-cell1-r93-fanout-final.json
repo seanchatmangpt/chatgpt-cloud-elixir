@@ -1,0 +1,38 @@
+{
+  "request_id": "20260826T234900Z-cell1-r93-fanout-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current",
+      "kind": "ggen.fanout.current",
+      "cell": "CELL1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "cell1", "forced-top25", "ocel"],
+      "body": "CELL1 R93 manufactured 60 new semantic observation/qualification closure gates in the canonical ggen-ecosystem-ocel-pack. Frozen semantic base e88f3ad0d19223cec64e58998aceb21676661ffa. First 50-commit semantic head a3e2fd3f681b3f944eec8b77f5d116d7b3a7746a. Concurrent CELL5 advanced main to 630da1b9f8371d4ec444cca917800b53025cba7f; branch was reconciled non-force with one composition-only merge fd340163b1423fd4c6598cde40b245d279f9f201. Post-floor expansion added 10 more semantic gates; final head 537562dc8799234b92d9c7d0a06c68a8019a6be1. Draft PR #340. ForcedTop25 exact default heads re-resolved 25/25. Gates enforce O/Q/M evidence, U>=G>=O>=Q>=M, U-M/G-O obligation arithmetic, run/digest/event/object identity, typed refusal/falsifier integrity, partial-order integrity, causal provenance, SHA-40 head admission, and nonnegative counters. Exact-head qualification remains pending on final head. Canonical OCEL POST was typed REFUSED because the attempted request was not pack-generated; no bypass was attempted. No generated output hand edits. Consequential external DO=false.",
+      "metadata": {
+        "run_id": "cell1-r93-observation-closure-20260826T2327Z",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "semantic_base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "first_50_semantic_head_sha": "a3e2fd3f681b3f944eec8b77f5d116d7b3a7746a",
+        "concurrent_current_base_sha": "630da1b9f8371d4ec444cca917800b53025cba7f",
+        "composition_reconciliation_sha": "fd340163b1423fd4c6598cde40b245d279f9f201",
+        "final_head_sha": "537562dc8799234b92d9c7d0a06c68a8019a6be1",
+        "semantic_commits": 60,
+        "composition_commits_excluded": 1,
+        "forced_top25_observed": 25,
+        "pr": 340,
+        "new_G": 0,
+        "new_O": 0,
+        "new_Q": 0,
+        "new_M": 0,
+        "qualification": "PENDING_FINAL_EXACT_HEAD",
+        "canonical_ocel_post": "REFUSED[INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT:GGEN_FIRST_REQUIRED]",
+        "ggen_first": true,
+        "generated_outputs_edited": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}
