@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T023258Z-select-frontier-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "structural manufacturing revenue throughput consumer fanout generalizable refinement regeneration pack factory meta-pack phase change weak multiplier", "max_items": 100}
+}
