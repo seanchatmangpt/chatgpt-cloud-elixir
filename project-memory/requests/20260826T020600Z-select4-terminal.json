@@ -1,0 +1,36 @@
+{
+  "request_id": "20260826T020600Z-select4-terminal",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run-control/select/current",
+    "title": "SELECT+DEVELOP run control",
+    "kind": "run-control",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["run-control", "ggen", "structural-manufacturing"],
+    "body": "Run manufactured 54 new meaningful repository commits, including 50 independent R73 semantic courts. R73 exact candidate 4db0e87d is REQUALIFYING with newest owning/broad CI queued; R74 c1153cd1 repaired obsolete ggen schema and is REQUALIFYING. Zero merges because exact-head crowns are nonterminal. Project POST requests issued for select, throughput, ledger, frontier, structural-manufacturing, dual RevOps and terminal control. Consequential DO=0.",
+    "metadata": {
+      "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP",
+      "prompt_digest": "8419fc64af11a2fa5b81fe786aad6591a0e7a8f8c8a7ca6f90324238dbef8de2",
+      "project_id": "PVT_kwHOCCCFfc4BhZKe",
+      "project_items_pre": 384,
+      "meaningful_repo_commits": 54,
+      "new_semantic_courts": 50,
+      "project_request_commits_post": 6,
+      "merge_count": 0,
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "commits_per_hour_active": 391.94,
+      "G": 1.0,
+      "D": "PENDING",
+      "F": "UNCHANGED",
+      "U": "PROMOTED_REGEN_PENDING",
+      "Y": "UNKNOWN",
+      "M": ">=2",
+      "weakest_multiplier": "qualified structural displacement and consumer regeneration",
+      "1000X": "NOT_ADMITTED",
+      "standing": "PARTIAL_ALIVE"
+    }
+  }}
+}
