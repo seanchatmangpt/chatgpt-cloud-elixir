@@ -1,0 +1,92 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T03:30:11Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/explore/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T032954Z-select4-read-explore"
+  },
+  "request_id": "20260826T032954Z-select4-read-explore",
+  "request_path": "project-memory/requests/20260826T032954Z-select4-read-explore.json",
+  "request_sha256": "sha256:1b6ff1a90ae0ea1dec2f3243c1c9ae53fa07c4a93092741827b31ca664ac3be7",
+  "request_transport_sha256": "sha256:19690489f581176444a444ac1ad4e62a7dc24c59e1712ad6f6e67b304f7bc878",
+  "result": {
+    "body": "R74 frontier preserved while qualification failures were converted into durable topology. Falsifiers learned: Turtle vocab must declare rdf; generated SPARQL must share the canonical pack namespace; ggen Tera generation context is results rows, not ad-hoc candidates; all executable workflows require bounded timeout-minutes; strict-mode structural census SELECT requires explicit ORDER BY. R74 exact head bf12a25429f612031e746715a07042e99ff31836; PR301 remains draft. Current-main repair PR312 exact head 74bf06395d8a92b680a3abf81d2823dec1c3f88b has R75 and R76 owning workflows successful plus vacuity success; generic CI had not reached ALIVE at capture. SELECT handoff: after repair-main containment, reconcile R74 onto current main, rerun exact ggen qualification, then fan out generated Ash/Reactor/OCEL RevOps structures into independent consumers and measure D/F/U rather than structural cardinality.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_nbw",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg37MNs",
+    "metadata": {
+      "D": "UNKNOWN",
+      "E2": 23,
+      "F": "UNKNOWN",
+      "G": 1.0,
+      "M": 1.8,
+      "U": "UNKNOWN",
+      "actuation_performed": false,
+      "authority": "SELECT",
+      "base_sha": "1bce7b3aa9cc74675126a6f2b9778a2331226824",
+      "branching_factor_after_lower_bound": 9,
+      "branching_factor_before_lower_bound": 5,
+      "candidate_families": 9,
+      "candidate_surfaces": 23,
+      "cell": "EXPLORE",
+      "changed_files": 54,
+      "composition_operators": 25,
+      "created_at": "2026-08-25T10:40:06Z",
+      "feature_head": "bf12a25429f612031e746715a07042e99ff31836",
+      "feature_pr": 301,
+      "frontier_after_lower_bound": 18,
+      "frontier_before": 9,
+      "gates": 10,
+      "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+      "key": "dfcm/explore/latest",
+      "kind": "dfcm.explore",
+      "meaningful_commits": 53,
+      "merge_sha": "cc96804052f9d94e60c0bddbd45c1ef4fe72031d",
+      "next": "current-main repair containment -> R74 reconciliation -> exact ggen qualification -> consumer fanout",
+      "pr": 305,
+      "repair_head": "74bf06395d8a92b680a3abf81d2823dec1c3f88b",
+      "repair_pr": 312,
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "run_id": "SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "structural_consumer_variants": 3375,
+      "structural_plans_per_consumer": 1125,
+      "tags": [
+        "dfcm",
+        "explore",
+        "falsifier",
+        "ggen",
+        "revops",
+        "vision-2030"
+      ],
+      "thousand_x": "UNSUPPORTED_AS_OBSERVED_MULTIPLIER",
+      "updated_at": "2026-08-26T03:07:20Z",
+      "verifier_courts": 5,
+      "workflow_run": 32839966414
+    },
+    "title": "DfCM EXPLORE latest — R74 qualification repair frontier"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
