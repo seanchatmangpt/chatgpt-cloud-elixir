@@ -38,7 +38,8 @@ The MCP surface earns control-plane standing only through the repository's
 normal qualification sequence: canonical formatting, strict compile, test DB
 migration, Ash ecosystem verification, application tests, production release,
 and Docker-image construction. A successful projection fixture or Project-bus
-receipt cannot substitute for those runtime gates.
+receipt cannot substitute for those runtime gates. Both `feat/**` and
+`feature/**` control-plane pushes enter those exact-head courts.
 
 The Python Project-memory verifier is an independent projection-law gate; its
 success transfers only while its Python source, tests, and workflow inputs are
