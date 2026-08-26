@@ -1,0 +1,1 @@
+{"request_id":"20260826T082709Z-cell5-query-cell4","operation":"memory.query","project":{"owner":"seanchatmangpt","number":2},"payload":{"filters":{"text":"CELL4","limit":100,"include_archived":true}}}
