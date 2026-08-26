@@ -22,7 +22,7 @@ jobs:
     env:
       SUBJECT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
       GGEN_SHA: 88358691bd36c8736e391a5e5c50ad67c665cf97
-      MARKETPLACE_SHA: 65f6fc702bbd1548c19532c7c2617a47f2605ecb
+      MARKETPLACE_SHA: 8f881772256de00cbfbc1e410324f6c4a1ec7134
     steps:
       - name: Checkout exact consumer subject
         uses: actions/checkout@v4
