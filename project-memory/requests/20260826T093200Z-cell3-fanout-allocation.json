@@ -1,0 +1,77 @@
+{
+  "request_id": "20260826T093200Z-cell3-fanout-allocation",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN legal ready-set allocation current",
+      "kind": "ggen.fanout",
+      "cell": "CELL3_LEGAL_READY_SET_ALLOCATION",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "forced-top25", "ready-set", "tcps", "exact-head"],
+      "body": "CELL3 consumed the authoritative ForcedTop25 without reranking. dspygen PR #36 exact head 4f70719dfef0d7fa4c9db93c280e5c80961aa9be completed exact-head checks and merged at 8d9c2fa7f867e317c3fc4fba06903d88b3543180, promoting dspygen to default-lineage assimilation. New independent GGEN-caused consumer realizations exist for autofde-lab PR #88@d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a, autofde PR #33@bf753d1dfdc137a6fce04008a2841752216654bb, and xaas PR #32@35b6b49f8d63580d4d94d5fd938753d32509cc86. Each remains COMPATIBLE_NOT_READY because its owning construct court is exact-head FAILURE, even where narrower qualification/crown checks are green. No lower-ranked target is silently discarded; 19 remaining forced targets stay UNKNOWN_WITH_REASON until exact target-specific admissibility identity is available. The prior Project record states U>=17 but does not bind all inherited compatible identities to names, so this record separates exact named U=6 from inherited U_lower_bound>=17 rather than fabricating target identities. Consequential DO=false; no merge, release, deploy, external publish, or commerce actuation performed by CELL3.",
+      "metadata": {
+        "forced_top25": [
+          {"rank":1,"repo":"ex4pm","state":"COMPATIBLE_NOT_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED","M":true},
+          {"rank":2,"repo":"gymact","state":"COMPATIBLE_NOT_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT","M":true},
+          {"rank":3,"repo":"autofde-lab","state":"COMPATIBLE_NOT_READY","reason":"OWNING_CONSTRUCT_EXACT_HEAD_FAILURE","head":"d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a","pr":88,"R":true,"Q":false},
+          {"rank":4,"repo":"autofde","state":"COMPATIBLE_NOT_READY","reason":"OWNING_CONSTRUCT_EXACT_HEAD_FAILURE","head":"bf753d1dfdc137a6fce04008a2841752216654bb","pr":33,"R":true,"Q":false},
+          {"rank":5,"repo":"xaas","state":"COMPATIBLE_NOT_READY","reason":"OWNING_CONSTRUCT_AND_NATIVE_CI_EXACT_HEAD_FAILURE","head":"35b6b49f8d63580d4d94d5fd938753d32509cc86","pr":32,"R":true,"Q":false},
+          {"rank":6,"repo":"chatgpt-cloud-elixir","state":"UNKNOWN_WITH_REASON","reason":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND_TO_CURRENT_FANOUT"},
+          {"rank":7,"repo":"process-intelligence","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":8,"repo":"ash_r2rml","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":9,"repo":"wasm4pm","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":10,"repo":"pm4wasm","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":11,"repo":"mfact","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":12,"repo":"mfact-command-center","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":13,"repo":"mfw","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":14,"repo":"SREGym","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":15,"repo":"fdegym","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":16,"repo":"revops","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":17,"repo":"chatman-ecosystem","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":18,"repo":"POWL","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":19,"repo":"swarmsh-v2","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":20,"repo":"cargo-cicd","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":21,"repo":"clap-noun-verb","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":22,"repo":"unrdf","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":23,"repo":"dspygen","state":"COMPATIBLE_NOT_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED","head":"4f70719dfef0d7fa4c9db93c280e5c80961aa9be","merge_commit":"8d9c2fa7f867e317c3fc4fba06903d88b3543180","R":true,"Q":true,"M":true},
+          {"rank":24,"repo":"yawl","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"},
+          {"rank":25,"repo":"a2a-rs","state":"UNKNOWN_WITH_REASON","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"}
+        ],
+        "selected_workstreams": [],
+        "preserved_alternatives": ["autofde-lab#88 repair owning construct court","autofde#33 repair owning construct court","xaas#32 repair owning construct plus native CI courts","identity-bind inherited compatible targets from U>=17 Project evidence"],
+        "ready_set": [],
+        "nonready_set": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+        "partial_order_edges": [
+          "canonical factory -> target-specific admission",
+          "target-specific admission -> consumer realization",
+          "consumer realization -> owning exact-head construct court",
+          "owning exact-head construct court -> Q",
+          "Q -> default-lineage assimilation M"
+        ],
+        "U_exact_named": 6,
+        "U_inherited_lower_bound": 17,
+        "R_exact_named": 6,
+        "Q_exact_named": 3,
+        "M_exact_named": 3,
+        "OpenFanoutObligations_exact_named": 3,
+        "OpenFanoutObligations_exact_repos": ["autofde-lab","autofde","xaas"],
+        "OpenFanoutObligations_inherited_lower_bound": 14,
+        "unresolved_compatible_identity_debt_min": 11,
+        "expected_fanout": "next legal gain comes from repairing three already-realized consumer construct courts, then binding inherited U identities; no new READY consumer is evidenced at this boundary",
+        "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY",
+        "consequential_do": false,
+        "qualification_plan": {
+          "autofde-lab":"repair failing construct boundary at d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a then rerun exact-head owning court",
+          "autofde":"repair failing construct boundary at bf753d1dfdc137a6fce04008a2841752216654bb then rerun exact-head owning court",
+          "xaas":"repair failing construct and native CI boundaries at 35b6b49f8d63580d4d94d5fd938753d32509cc86 then rerun exact-head courts"
+        },
+        "muda":"no universe rerank; only changed exact-head evidence was consumed",
+        "mura":"no READY starvation; ready_set is empty after dspygen assimilation and three new consumers failed owning construct",
+        "muri":"WIP preserved as three repair-gated realized consumers plus identity-binding debt; no speculative new consumer branches allocated",
+        "wip_budget":{"cell4_repair_streams":3,"cell5_closure_streams":3,"new_speculative_streams":0}
+      }
+    }
+  }
+}
