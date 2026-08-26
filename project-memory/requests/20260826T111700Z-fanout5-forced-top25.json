@@ -1,0 +1,20 @@
+{
+  "request_id":"20260826T111700Z-fanout5-forced-top25",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/forced-top25/current",
+    "title":"Forced Top25 fanout census",
+    "summary":"25/25 forced repositories exact default heads observed this cycle. Compatible lower bound U>=17 from exact-head contract/receipt evidence. Newly assimilated/default-lineage current consumers include ex4pm, gymact, autofde-lab, autofde, xaas, dspygen. New R85 WIP opened in SREGym, fdegym, mfact, mfw, yawl; prior process-intelligence, wasm4pm, clap-noun-verb WIP refreshed to current producer.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "count":25,
+      "compatible_lower_bound":17,
+      "new_wip":["seanchatmangpt/SREGym","seanchatmangpt/fdegym","seanchatmangpt/mfact","seanchatmangpt/mfw","seanchatmangpt/yawl"],
+      "refreshed_wip":["seanchatmangpt/process-intelligence","seanchatmangpt/wasm4pm","seanchatmangpt/clap-noun-verb"],
+      "qualified_new":["seanchatmangpt/SREGym","seanchatmangpt/fdegym","seanchatmangpt/mfact"],
+      "blocked_new":{"seanchatmangpt/mfw":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]","seanchatmangpt/yawl":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"},
+      "producer":"seanchatmangpt/ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75"
+    }
+  }
+}
