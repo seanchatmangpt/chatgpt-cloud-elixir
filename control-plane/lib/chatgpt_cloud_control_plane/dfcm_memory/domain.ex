@@ -79,6 +79,11 @@ defmodule ChatGPTCloud.DfcmMemory do
       description:
         "Bounded adjacency-aware Project #2 context optimized for LLMs: focused records, semantic neighbors, evidence-bearing identities, and truncated bodies."
     )
+
+    tool(:project_vision_2030, ChatGPTCloud.DfcmMemory.MemoryRecord, :vision_2030,
+      description:
+        "Deterministic Vision 2030 read model over Project #2: autonomous software-manufacturing capability coverage, evidence density, dependency closure, frontier ranking, and explicit gaps. It never grants standing or actuation authority."
+    )
   end
 
   resources do
