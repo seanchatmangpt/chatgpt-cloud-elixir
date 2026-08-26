@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T023300Z-measure-r6-throughput-read",
+  "operation": "memory.read",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"key":"manufacturing/schedule-throughput/current"}
+}
