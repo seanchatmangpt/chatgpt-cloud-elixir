@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023300Z-explore-r75-structural-upsert",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "ggen/structural-manufacturing/current",
+    "title": "GGEN structural manufacturing frontier",
+    "kind": "ggen.structural-manufacturing",
+    "cell": "EXPLORE",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["ggen","structural-manufacturing","ash","revops","ocel","r75"],
+    "body": "R75 manufactured ash-revops-structural-factory-pack on seanchatmangpt/ggen-marketplace. Exact producer head 5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6; PR #305. 53 attributed semantic commits, 23 ordered projections, 4 gates, 7 deterministic templates, 4 courts, exact-head workflow success. Frontier: ExistingStructure -> CandidateStructures[] -> PackOptions[] -> Experiments/Falsifiers -> GeneratedConsequences -> Consumers -> Qualifications -> AgentRefinement -> GeneralizableKnowledge -> Regeneration -> Supersession.",
+    "metadata": {"repo":"seanchatmangpt/ggen-marketplace","base_sha":"e1a707b2e3a3905b80f727ab3b43d2c53187a8df","head_sha":"5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6","pr":305,"meaningful_commits":53,"queries":23,"gates":4,"templates":7,"courts":4,"run_id":"SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE"}
+  }}
+}
