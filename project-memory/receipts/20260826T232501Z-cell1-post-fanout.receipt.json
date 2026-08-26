@@ -1,0 +1,1228 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T23:20:52Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL1 manufactured 60 new semantic commits in the canonical ggen-ecosystem-ocel-pack from exact base e88f3ad0d19223cec64e58998aceb21676661ffa to exact head de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. The first 50 independently bind each ForcedTop25 repository to exact-subject and explicit-standing admission; 10 higher-order gates enforce complete population, unique identity, non-conflicting heads/standings, event traceability, exact observed subjects, immutable SHA form, nonempty standing, U-M arithmetic, and G-O arithmetic. Fresh exact default heads were observed for all 25 forced repositories. No new downstream GGEN consumer realization or OCEL artifact was generated in this cell; current-run G/O/Q/M deltas remain 0. Vacuity Audit succeeded; general exact-head CI remains in progress. Project/control commits are excluded from the 60 semantic commits.",
+        "cell": "CELL1",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.current",
+        "metadata": {
+          "G_delta": 0,
+          "M_delta": 0,
+          "M_lower_bound_preserved": 10,
+          "O_delta": 0,
+          "OpenFanoutObligations_lower_bound_preserved": 7,
+          "OpenObservationObligations": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+          "Q_delta": 0,
+          "U_lower_bound_preserved": 17,
+          "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+          "branch": "cell1/r92-forced25-currentness-20260826",
+          "commit_floor": 50,
+          "consequential_external_do": false,
+          "forced_top25_observed": 25,
+          "general_ci": "IN_PROGRESS",
+          "generated_outputs_edited": 0,
+          "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+          "pr": 337,
+          "project_control_commits_excluded": true,
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+          "semantic_commits": 60,
+          "vacuity": "ALIVE"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "fanout",
+          "cell1",
+          "forced-top25",
+          "ocel"
+        ],
+        "title": "GGEN fanout current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T232501Z-cell1-post-fanout"
+  },
+  "request_id": "20260826T232501Z-cell1-post-fanout",
+  "request_path": "project-memory/requests/20260826T232501Z-cell1-post-fanout.json",
+  "request_sha256": "sha256:3fc080a868caeb17f75387e77a49a322e2fc7c411011c4489fc334d55a8fb2b5",
+  "request_transport_sha256": "sha256:0738af2f80cacf50f52262e1c6b311cdbb3705205df8f7bcf1511a394a4eb122",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL1 manufactured 60 new semantic commits in the canonical ggen-ecosystem-ocel-pack from exact base e88f3ad0d19223cec64e58998aceb21676661ffa to exact head de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. The first 50 independently bind each ForcedTop25 repository to exact-subject and explicit-standing admission; 10 higher-order gates enforce complete population, unique identity, non-conflicting heads/standings, event traceability, exact observed subjects, immutable SHA form, nonempty standing, U-M arithmetic, and G-O arithmetic. Fresh exact default heads were observed for all 25 forced repositories. No new downstream GGEN consumer realization or OCEL artifact was generated in this cell; current-run G/O/Q/M deltas remain 0. Vacuity Audit succeeded; general exact-head CI remains in progress. Project/control commits are excluded from the 60 semantic commits.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5zE",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DD80",
+      "metadata": {
+        "B": 3,
+        "B_new": 1,
+        "Coverage": 1.0,
+        "Coverage_named": 1.0,
+        "Coverage_new": 0.1764705882,
+        "Coverage_qualified_lower_bound": 0.48,
+        "Coverage_realized_lower_bound": 0.64,
+        "Coverage_selected": 1.0,
+        "Coverage_wave": 1.0,
+        "F_A": 1,
+        "F_A_delta": 0,
+        "F_A_selected": 0,
+        "F_A_wave": 0,
+        "F_C": 4,
+        "F_C_downstream_commits": 9,
+        "F_C_portfolio": "UNKNOWN",
+        "F_C_post_cell3_handoff": 26,
+        "F_C_selected": 9,
+        "F_C_wave": 1,
+        "F_Q": 1,
+        "F_Q_delta": 2,
+        "F_Q_lower_bound": 8,
+        "F_Q_selected_scoped": 2,
+        "F_Q_wave": 0,
+        "F_R": 1,
+        "F_R_named": 6,
+        "F_R_potential_lower_bound": 17,
+        "F_R_potential_this_run": 3,
+        "F_R_realized_lower_bound": 3,
+        "F_R_realized_this_run": 2,
+        "F_R_selected": 2,
+        "F_R_wave": 1,
+        "F_effective": 1,
+        "F_effective_delta": 2,
+        "F_effective_new": 1.0,
+        "F_effective_selected": 2.0,
+        "G": "UNKNOWN",
+        "G_delta": 0,
+        "G_lower_bound": 16,
+        "HUMAN_VALUE": "UNKNOWN",
+        "M": 4,
+        "MUDA": "no universe rediscovery or reranking; only fresh exact-head dspygen court changed allocation",
+        "MURA": "all observed READY ForcedTop25 work allocated; no ready target starved",
+        "MURI": "WIP=1 active READY consumer; repair-gated and unknown alternatives preserved outside active WIP",
+        "M_delta": 0,
+        "M_exact": 12,
+        "M_exact_named": 3,
+        "M_lower_bound": 10,
+        "M_lower_bound_preserved": 10,
+        "M_named": 3,
+        "O": "UNKNOWN",
+        "O_delta": 0,
+        "OpenFanoutObligations": ">=13",
+        "OpenFanoutObligations_confirmed": [
+          "xaas"
+        ],
+        "OpenFanoutObligations_exact_confirmed": [
+          "dspygen",
+          "xaas"
+        ],
+        "OpenFanoutObligations_exact_named": 3,
+        "OpenFanoutObligations_exact_repos": [
+          "autofde-lab",
+          "autofde",
+          "xaas"
+        ],
+        "OpenFanoutObligations_global": "UNKNOWN[INHERITED_U_IDENTITIES_UNBOUND]",
+        "OpenFanoutObligations_inherited_lower_bound": 14,
+        "OpenFanoutObligations_lower_bound": 7,
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenFanoutObligations_named": 3,
+        "OpenObservationObligations": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "Q": 1,
+        "Q_delta": 0,
+        "Q_exact": "UNKNOWN[EX4PM_GYMACT_Q_NOT_BOUND_IN_CURRENT_CELL3_RECORD]",
+        "Q_exact_named": 3,
+        "Q_explicit_min": 1,
+        "Q_lower_bound": 12,
+        "Q_scoped": 4,
+        "Q_strict": 3,
+        "Q_strict_full_repo": 1,
+        "R": 4,
+        "R_exact_named": 6,
+        "R_lower_bound": 3,
+        "R_named": 6,
+        "T_A": 0,
+        "T_A_new": 0,
+        "T_M": 0,
+        "T_M_downstream": 12,
+        "T_M_semantic": 3,
+        "U": ">=17",
+        "U_exact_named": 6,
+        "U_global_lower_bound": 17,
+        "U_inherited_lower_bound": 17,
+        "U_lower_bound": 17,
+        "U_lower_bound_preserved": 17,
+        "U_named": 6,
+        "WIP_budget": 1,
+        "WIP_remaining": ">=13 fanout obligations by inherited U lower bound",
+        "WIP_remaining_selected": 0,
+        "admissible_assimilated_new": [
+          "process-intelligence"
+        ],
+        "admissible_candidates": [
+          "chatman-ecosystem",
+          "cargo-cicd",
+          "unrdf"
+        ],
+        "admissible_candidates_lower_bound": 17,
+        "andon": [
+          "GGEN_CONFIG_SCHEMA_CORRESPONDENCE_REPAIRED",
+          "GGEN_VALUES_EXTERNAL_QUERY_REPAIRED",
+          "CANONICAL_OCEL_POST_REQUIRES_GGEN_GENERATED_REQUEST"
+        ],
+        "authority": "SELECT|CONSTRUCT",
+        "autofde": {
+          "base": "6c21cda73f7cc8873ea429f79f49c5b4b615c1fe",
+          "head": "adf9e840874bd0f3f2f0037b23b676ecf56c86f2",
+          "post_handoff_commits": 8,
+          "pr": 33,
+          "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;CROWN_SUCCESS]"
+        },
+        "autofde_lab": {
+          "base": "0b968955f69698fee50e9a132a87de287f15a0e7",
+          "head": "1e34d1cfddbd90c86769f114e621584c0025bd55",
+          "post_handoff_commits": 10,
+          "pr": 88,
+          "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;EXACT_HEAD_QUALIFICATION_SUCCESS]"
+        },
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "blocked_causes": [
+          "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:mfw",
+          "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:yawl",
+          "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+        ],
+        "blocked_set": {
+          "mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+          "unrdf": "BUILD_BROKEN[CHECKOUT_BOUNDARY]",
+          "yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+        },
+        "blockers": [
+          "chatman-ecosystem inherited Crown Admission: cargo clippy --locked failure; cargo deny failure"
+        ],
+        "branch": "cell1/r92-forced25-currentness-20260826",
+        "canonical_change": "generated artifact closure qualification",
+        "canonical_commits_this_run": 2,
+        "canonical_ocel": {
+          "fabricated": false,
+          "ocel_digest": null,
+          "read": "BUILD_BROKEN[OPERATION_RECEIPT_ABSENT]",
+          "write": "BUILD_BROKEN[GENUINE_OCEL_DIGEST_UNAVAILABLE]"
+        },
+        "canonical_ocel_read": {
+          "receipt_commit": "c6c31abbeaba215eb7e3f39792a3e6f3c4c3203f",
+          "request_id": "20260826T182801Z-cell1-ocel-current",
+          "standing": "BUILD_BROKEN[MEMORY_NOT_FOUND]"
+        },
+        "canonical_pack": "forced-top25-admissibility-factory-pack",
+        "canonical_path": "ExistingPackReuse:R86_FORCED_TOP25_QUALIFICATION_CAPSULE",
+        "canonical_paths": [
+          "forced-top25-standard-consumer-factory-pack",
+          "epistemic-sensor-factory-pack:r75",
+          "forced-top25-r75-realization-composition-pack"
+        ],
+        "canonical_pr": 323,
+        "canonical_producer": {
+          "head": "18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+          "pack": "forced-top25-qualification-capsule-pack",
+          "repo": "seanchatmangpt/ggen-marketplace"
+        },
+        "canonical_producer_head": "92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+        "canonical_producer_repo": "seanchatmangpt/ggen-marketplace",
+        "cell": "CELL1",
+        "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+        "cell3_handoff": {
+          "admissible_candidates": [
+            "chatman-ecosystem",
+            "cargo-cicd",
+            "unrdf"
+          ],
+          "authority_fenced": [
+            "cargo-cicd"
+          ],
+          "consumer_ready_set": [],
+          "dependencies": {
+            "cargo-cicd": "requires lawful cargo cicd * mutation executor/toolchain capsule"
+          },
+          "falsifiers": [
+            "FOREIGN_CONSUMER",
+            "FOREIGN_PRODUCER",
+            "FOREIGN_PACK",
+            "FOREIGN_CAPABILITY",
+            "GGEN_CONTRACT",
+            "AUTHORITY_FENCE",
+            "SUBJECT_NOT_ADMITTED"
+          ],
+          "fanout_candidate_set": [
+            "chatman-ecosystem",
+            "cargo-cicd",
+            "unrdf"
+          ],
+          "forced_top25": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "qualified_this_run": [
+            "chatman-ecosystem",
+            "unrdf"
+          ]
+        },
+        "cell3_semantic_commits": 56,
+        "cell5_handoff": "REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPTS]",
+        "changed_files": 50,
+        "classification_delta": {
+          "SREGym": "COMPATIBLE_READY[#6@9cdcaa79c871ffd8e6205e3830af23198f934bc9]",
+          "cargo-cicd": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]",
+          "chatman-ecosystem": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]",
+          "fdegym": "COMPATIBLE_READY[#7@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c]",
+          "mfact": "COMPATIBLE_READY[#10@836be06b4fd290089ada8a926d62b9b67a4cb5ad]",
+          "process-intelligence": "COMPATIBLE_NOT_READY[ALIVE_DEFAULT_LINEAGE@c1ed9f0393f4782c48e4b0f71aff9c28930d9b44]",
+          "unrdf": "COMPATIBLE_NOT_READY[ROOT_GGEN_CONTRACT_OBSERVED;TARGET_SPECIFIC_R87_REALIZATION_NOT_PRESENT]"
+        },
+        "close_ready": [
+          "ex4pm",
+          "gymact"
+        ],
+        "commit_count": 50,
+        "commit_floor": 50,
+        "compatible_lower_bound": 17,
+        "consequential_do": false,
+        "consequential_external_do": false,
+        "constructor": "seanchatmangpt/ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "consumer_andon": [
+          {
+            "head": "d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a",
+            "pr": 88,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA",
+            "repo": "autofde-lab"
+          },
+          {
+            "head": "bf753d1dfdc137a6fce04008a2841752216654bb",
+            "pr": 33,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA",
+            "repo": "autofde"
+          },
+          {
+            "head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+            "pr": 32,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL",
+            "repo": "xaas"
+          }
+        ],
+        "consumer_heads": {
+          "autofde": "adf9e840874bd0f3f2f0037b23b676ecf56c86f2",
+          "autofde-lab": "1e34d1cfddbd90c86769f114e621584c0025bd55",
+          "xaas": "6b87b222a9d9fad6c4802939562d35f5845b6812"
+        },
+        "consumer_ready_set": [],
+        "consumer_regeneration_required": [
+          "autofde-lab#88",
+          "autofde#33",
+          "xaas#32"
+        ],
+        "consumer_repo_commits": 0,
+        "consumers_unlocked_by_canonical_change": [
+          "mfw",
+          "yawl"
+        ],
+        "control_commits": 6,
+        "control_commits_count_as_G_or_O": false,
+        "control_commits_excluded": true,
+        "control_commits_excluded_from_true_fanout": true,
+        "created_at": "2026-08-26T04:36:39Z",
+        "current_main": "88556e8d0265936d430606cca848dda3e2b1dd8f",
+        "deep_scan_pending": [
+          "chatgpt-cloud-elixir",
+          "ash_r2rml",
+          "pm4wasm",
+          "mfact-command-center",
+          "revops",
+          "POWL",
+          "swarmsh-v2",
+          "a2a-rs"
+        ],
+        "delta_M": 0,
+        "delta_Q": 3,
+        "delta_R": 3,
+        "dependencies": {
+          "clap-noun-verb": "repair repository CI/test/license failures before READY",
+          "mfw": "repair owning qualify failure",
+          "process-intelligence": "none beyond exact producer/consumer correspondence already qualified",
+          "wasm4pm": "repair or classify exact-subject Rust/WASM/TypeScript/CLI failure",
+          "yawl": "repair owning qualify and aggregate-test failures"
+        },
+        "discovered_consumers": [],
+        "downstream_commits_this_run": 9,
+        "downstream_heads": {
+          "dspygen_pr36": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+          "ex4pm_main": "06d326f59d05afdcd39637f42fe277a474095dda",
+          "gymact_main": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+          "xaas_main": "2207203b1bef612cc55a52676b8e607f930640e7"
+        },
+        "downstream_repositories_touched": [
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact",
+          "seanchatmangpt/xaas"
+        ],
+        "downstream_unique_commits_new": 0,
+        "downstream_unique_commits_post_handoff": 26,
+        "downstream_unique_commits_realized_total": 11,
+        "downstream_unique_commits_selected": 9,
+        "downstream_unique_commits_this_wave": 0,
+        "downstream_unique_commits_wave": 1,
+        "draft": false,
+        "draft_prs": [
+          "seanchatmangpt/ex4pm#34",
+          "seanchatmangpt/gymact#126",
+          "seanchatmangpt/xaas#31"
+        ],
+        "dspygen_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "dspygen_main": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+        "dspygen_qualification": "PARTIAL_ALIVE[OWNING_COURT_IN_PROGRESS]",
+        "duplicate_lineages": [],
+        "evidence": {
+          "gymact_r79_conclusion": "success",
+          "gymact_r79_run": 32933652655,
+          "xaas_compile": "success",
+          "xaas_native_run": 32940830647,
+          "xaas_r79_conclusion": "success",
+          "xaas_r79_run": 32940830643,
+          "xaas_tests": "failure"
+        },
+        "ex4pm": {
+          "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "standing": "ALIVE[SCOPED_R79_COURT]"
+        },
+        "exact_cell3_control_commit": "2b8e3d6326b853e30b02589c452b2e44f86a78a2",
+        "exact_downstream_heads": {
+          "cargo-cicd": "e64f8224c23771e8c4e5d1d22fb939f812b04e1b",
+          "chatman-ecosystem": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+          "unrdf": "4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb"
+        },
+        "exact_heads": {
+          "clap-noun-verb": "efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd",
+          "mfw": "f3bc48b7863ddf4474bf0c3abe1aaf8b94425074",
+          "process-intelligence": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+          "wasm4pm": "cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4",
+          "yawl": "9ca41b5a896795cc88c9a3e2b769233bfc0223e5"
+        },
+        "exact_upstream_head": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+        "expected_downstream_ready_commits": 22,
+        "expected_fanout": {
+          "F_R_potential": 17,
+          "external_consumers_touched_this_run": 4,
+          "new_downstream_commits": 6
+        },
+        "factory_reuse": "ExistingPackReuse",
+        "falsifiers": [
+          "HEAD_MOVED",
+          "BASE_MOVED",
+          "OWNING_R88_COURT_NOT_SUCCESS",
+          "PRODUCER_IDENTITY_MISMATCH",
+          "PACK_IDENTITY_MISMATCH",
+          "AUTHORITY_CHANGED",
+          "DEPENDENCY_NOT_READY"
+        ],
+        "fanout_candidate_set": [
+          "ex4pm",
+          "gymact",
+          "dspygen",
+          "xaas"
+        ],
+        "fanout_targets": {
+          "POWL": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "SREGym": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "a2a-rs": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "ash_r2rml": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "autofde": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "autofde-lab": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "cargo-cicd": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "chatgpt-cloud-elixir": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TRUE_FANOUT_PRODUCT_RUNTIME_ADMISSIBILITY_NOT_BOUND; CONTROL_COMMITS_EXCLUDED"
+          },
+          "chatman-ecosystem": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "clap-noun-verb": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "dspygen": {
+            "classification": "CLOSE_READY",
+            "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "human_value": "UNKNOWN",
+            "merge": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+            "reason": "EXACT_HEAD_QUALIFIED_AND_DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "ex4pm": {
+            "classification": "CLOSE_READY",
+            "human_value": "UNKNOWN",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "fdegym": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "gymact": {
+            "classification": "CLOSE_READY",
+            "human_value": "UNKNOWN",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "mfact": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "mfact-command-center": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "mfw": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "pm4wasm": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "process-intelligence": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "revops": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "swarmsh-v2": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "unrdf": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "wasm4pm": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "xaas": {
+            "classification": "REPAIR_REQUIRED",
+            "head": "853350027eb3d8e37162687d65c0ff51090b5c81",
+            "human_value": "UNKNOWN",
+            "merge": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+            "reason": "MERGED_WITH_BROAD_CI_FAILURE; R79_AND_R81_SCOPED_SUCCESS"
+          },
+          "yawl": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          }
+        },
+        "forced_observed": 25,
+        "forced_top25": [
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "ex4pm"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "gymact"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "autofde-lab"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "HISTORICAL_Q_REQUIRES_EXACT_CURRENT_SUBJECT_REBIND",
+            "repo": "autofde"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "xaas"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "CURRENT_GGEN_OCEL_SEMANTIC_REQUALIFICATION",
+            "repo": "chatgpt-cloud-elixir"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "process-intelligence"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "OWNING_R84_COURT_GREEN_BROAD_CI_REUSE_DEBT",
+            "repo": "ash_r2rml"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "QUALIFICATION_NATIVE_RUST_WASM_TS_CLI_DEBT",
+            "repo": "wasm4pm"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "HOSTED_STARTUP_QUALIFICATION_DEBT",
+            "repo": "pm4wasm"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "mfact"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "mfact-command-center"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "OWNING_QUALIFICATION_WORKFLOW_DEBT",
+            "repo": "mfw"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "HISTORICAL_Q_REQUIRES_EXACT_CURRENT_SUBJECT_REBIND",
+            "repo": "SREGym"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "HISTORICAL_Q_REQUIRES_EXACT_CURRENT_SUBJECT_REBIND",
+            "repo": "fdegym"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "EXACT_GGEN_OCEL_CROWN_FAILURE",
+            "repo": "revops"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "chatman-ecosystem"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "REALIZED_OR_ASSIMILATED_NO_CURRENT_READY_STREAM",
+            "repo": "POWL"
+          },
+          {
+            "classification": "UNKNOWN_WITH_REASON",
+            "reason": "TARGET_SPECIFIC_GGEN_OCEL_COMPATIBILITY_RECEIPT_MISSING; PRODUCT_COMPLETION_GATE_RED",
+            "repo": "swarmsh-v2"
+          },
+          {
+            "classification": "REFUSED_TYPED",
+            "reason": "REFUSED[REPO_MUTATION_BOUNDARY:AGENT_MUTATION_REQUIRES_CARGO_CICD]",
+            "repo": "cargo-cicd"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "SELF_DOGFOOD_REPOSITORY_RAIL_DEBT",
+            "repo": "clap-noun-verb"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "unrdf"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "ALREADY_ASSIMILATED_NO_CURRENT_CLOSURE_STREAM",
+            "repo": "dspygen"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "OWNING_QUALIFICATION_TEST_DEBT",
+            "repo": "yawl"
+          },
+          {
+            "classification": "COMPATIBLE_NOT_READY",
+            "reason": "HOSTED_STARTUP_QUALIFICATION_DEBT",
+            "repo": "a2a-rs"
+          }
+        ],
+        "forced_top25_M": 9,
+        "forced_top25_Q_lower_bound": 9,
+        "forced_top25_R_lower_bound": 10,
+        "forced_top25_U": 14,
+        "forced_top25_count": 25,
+        "forced_top25_observed": 25,
+        "general_ci": "IN_PROGRESS",
+        "generated_outputs_edited": 0,
+        "generated_outputs_hand_edited": false,
+        "genuine_ocel_digest": null,
+        "ggen_first": true,
+        "global_RQM": "PARTIAL_ALIVE[HETEROGENEOUS_PROJECT_METADATA_REQUIRES_RECONCILIATION]",
+        "global_U_standing": "UNKNOWN_UNTIL_UPSTREAM_ADMISSIBILITY_RECEIPTS",
+        "gymact": {
+          "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+        },
+        "handoff": "CELL4 exclusively via Project2; CELL3 performed no merges",
+        "handoff_cell4": "Consume gymact#126 exact head first as the sole READY consumer; preserve xaas behind its observed failure; admit further ForcedTop25 targets only from exact target-specific receipts generated from canonical factory capital.",
+        "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.current",
+        "known_U_lower_bound": 2,
+        "known_metrics": {
+          "M_lower_bound": 2,
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U_lower_bound": 2
+        },
+        "mandatory_reads_alive": [
+          "ggen/fanout/forced-top25/current",
+          "dfcm/frontier/current",
+          "manufacturing/schedule-throughput/current"
+        ],
+        "mandatory_reads_pending_receipt": [
+          "ggen/fanout/current",
+          "dfcm/ledger/current",
+          "tcps/muda-mura-muri/current"
+        ],
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "marketplace_base": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "marketplace_head": "7cb0e0214581118fedee1f4e901d59cdeaa68e45",
+        "marketplace_pack": "forced-top25-cell3-allocation-pack",
+        "marketplace_pr": 336,
+        "memory_loop": "BUILD_BROKEN[PRE_READ_SET_INCOMPLETE]",
+        "merge_performed": false,
+        "merge_ready": [],
+        "merge_ready_new": 0,
+        "merge_ready_repos": 0,
+        "merge_ready_selected": 0,
+        "mergeable": true,
+        "merges": 0,
+        "metrics": {
+          "CONTROL_commits_excluded": true,
+          "M_lower_bound": 10,
+          "OpenFanoutObligations_lower_bound": 7,
+          "Q_lower_bound": 12,
+          "R_lower_bound": 16,
+          "TRUE_FANOUT_new_commits_cell3": 0,
+          "U_lower_bound": 17,
+          "current_ready_count": 2,
+          "exact_open_obligations": [
+            "wasm4pm",
+            "mfw",
+            "chatman-ecosystem",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "yawl"
+          ],
+          "expected_cell4_delta_Q": 0,
+          "expected_cell4_delta_R": 0,
+          "expected_future_assimilation_delta_M": 2
+        },
+        "mid_project_operation": "ALIVE[ERROR_NULL]",
+        "mid_request_commit": "610acf23475081ab9c98c7beb77d53d1dc60fc48",
+        "muda": "zero duplicate upstream pack creation; zero generated-output edits",
+        "mura": "equal downstream commit distribution [4,4,4]",
+        "muri": [
+          "GLOBAL_CODE_SEARCH_502",
+          "PROJECT_PROXY_CONCURRENCY",
+          "PRE_READ_SEQUENCE_INCOMPLETE_BEFORE_FIRST_DOWNSTREAM_COMMIT"
+        ],
+        "new_canonical_commits": 6,
+        "new_canonical_pack": "ash-reactor-domain-error-contract-pack",
+        "new_cell2_semantic_commits": 53,
+        "new_consumer_repos": 5,
+        "new_default_assimilations": [
+          "autofde-lab",
+          "autofde"
+        ],
+        "new_downstream_commits": 26,
+        "new_downstream_commits_wave": 0,
+        "new_downstream_consumer_commits": 0,
+        "new_downstream_repositories": 0,
+        "new_downstream_semantic_commits": 12,
+        "new_downstream_unique_commits_cell4": 0,
+        "new_upstream_commits": 0,
+        "next_frontier": [
+          "qualify exact PR332 head",
+          "consume frontier sensors across compatible ForcedTop25 consumers",
+          "close remaining Project PRE read coverage next run",
+          "materialize currentness deltas into OCEL through canonical pack"
+        ],
+        "nonready_set": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "ocel_current_run_standing": "PARTIAL_ALIVE[PUBLISHED;EXECUTION_NOT_YET_OBSERVED]",
+        "ocel_current_run_subject": "b8e881f03e52493ba6c8bb3b8adeb7f2bbefc1db",
+        "ocel_digest": "UNKNOWN[CURRENT_RUN_NOT_GENERATED]",
+        "ocel_post": "UNKNOWN[NO_ADMITTED_PACK_GENERATED_REQUEST]",
+        "open_fanout_obligation_repos": [
+          "xaas"
+        ],
+        "open_fanout_obligations": 5,
+        "open_fanout_obligations_lower_bound": 13,
+        "open_repos": [
+          "gymact",
+          "xaas"
+        ],
+        "pack": "forced-top25-generated-closure-pack",
+        "pack_composition_depth": 4,
+        "pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+        "parallel_branches": 3,
+        "partial_order_edges": [
+          "canonical_current_run_ocel_repair->exact_ggen_requalification",
+          "exact_ggen_requalification->canonical_ocel_generated_request",
+          "canonical_ocel_generated_request->independent_project2_ocel_read",
+          "mandatory_project2_read_receipts->hard_admissibility_rescore",
+          "hard_admissibility_rescore->ready_set",
+          "ready_set->CELL4_handoff"
+        ],
+        "per_target": {
+          "SREGym": {
+            "ahead": 4,
+            "base": "4f6757c758521a359f1091d17d37ae5a9b1fb962",
+            "behind": 0,
+            "class": "CLOSE_READY",
+            "commits": 4,
+            "draft": false,
+            "head": "9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+            "mergeable": true,
+            "pr": 6,
+            "qualification": "SUCCESS"
+          },
+          "fdegym": {
+            "ahead": 4,
+            "base": "dbd9ac3a7107737366e643c362fd3aab0e4125d3",
+            "behind": 0,
+            "broad_ci": "SUCCESS",
+            "class": "CLOSE_READY",
+            "commits": 4,
+            "draft": false,
+            "head": "04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+            "mergeable": true,
+            "pr": 7,
+            "qualification": "SUCCESS"
+          },
+          "mfact": {
+            "ahead": 4,
+            "base": "79643f87f35cb59514ebce096ad067b713a47db3",
+            "behind": 0,
+            "broad_ci": "SUCCESS",
+            "class": "CLOSE_READY",
+            "commits": 4,
+            "draft": false,
+            "head": "836be06b4fd290089ada8a926d62b9b67a4cb5ad",
+            "mergeable": true,
+            "pr": 10,
+            "qualification": "SUCCESS"
+          }
+        },
+        "pr": 337,
+        "pr_number": 335,
+        "pr_state": "OPEN_DRAFT",
+        "pre_forced_receipt": "20260826T210206Z-cell1-read-forced",
+        "pre_ocel_receipt": "20260826T210205Z-cell1-read-ocel",
+        "preserved_alternatives": [
+          "exact-current rebind: autofde,SREGym,fdegym",
+          "causal repair: ash_r2rml,wasm4pm,pm4wasm,mfw,revops,clap-noun-verb,yawl,a2a-rs",
+          "compatibility evidence: swarmsh-v2",
+          "native authority path: cargo-cicd"
+        ],
+        "preserved_parallel_options": true,
+        "previous_project_receipt": {
+          "actuation_performed": true,
+          "receipt_commit": "aed1fb252d2de71e3cf21279eefed7de09172456",
+          "request_id": "20260826T093200Z-cell3-fanout-allocation"
+        },
+        "prior_M_lower_bound": 10,
+        "prior_Q_lower_bound": 12,
+        "prior_R_lower_bound": 16,
+        "prior_U_lower_bound": 17,
+        "prior_open_fanout_lower_bound": 7,
+        "process_analysis_owner": "wasm4pm",
+        "producer": {
+          "head": "18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+          "pack": "forced-top25-qualification-capsule-pack",
+          "repo": "seanchatmangpt/ggen-marketplace"
+        },
+        "producer_base": "f75bdb35c2e9104679325c6772194005cc6fef67",
+        "producer_branch": "cell2/r90-top25-ocel-composition-20260826",
+        "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+        "producer_ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+        "producer_head": "764a7fe76c54ba0069a5bc441b0fa43cfa9d3473",
+        "producer_main": "seanchatmangpt/ggen-marketplace@93c99170cad21e5914934837dbd01bb9e9f83d92",
+        "producer_marketplace": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+        "producer_pack": "forced-top25-ocel-fanout-meta-pack",
+        "producer_pr": 333,
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "producer_standing": "CLOSE_READY[EXACT_HEAD_CI_GREEN;DRAFT_UNMERGED]",
+        "project_control_commits_excluded": true,
+        "project_memory_loop": "BUILD_BROKEN[PRE_ACTUATION_SEQUENCE_VIOLATION]",
+        "project_snapshot_items": 397,
+        "project_transport_head": "fc0fa3dc9498e5f59e4af653b458b5eb97a2f730",
+        "qualification": "PENDING",
+        "qualification_latency": "CELL4 observed already-terminal exact R88 qualification; assimilation observed at 2026-08-26T15:52:44Z",
+        "qualification_plan": {
+          "SREGym": "re-observe PR head==9cdcaa79c871ffd8e6205e3830af23198f934bc9 and owning run 32972465629 success; inspect mergeability/protections; assimilate only on unchanged subject",
+          "fdegym": "re-observe PR head==04b61a3edc52f14157f12e93fa5213c7cb1a2f3c and owning run 32972571869 success; inspect mergeability/protections; assimilate only on unchanged subject",
+          "mfact": "re-observe PR head==836be06b4fd290089ada8a926d62b9b67a4cb5ad and owning run 32972975422 success; inspect mergeability/protections; assimilate only on unchanged subject"
+        },
+        "qualification_state": {
+          "autofde": "REQUALIFYING",
+          "autofde-lab": "REQUALIFYING",
+          "xaas": "REQUALIFYING"
+        },
+        "qualified": [
+          "SREGym@9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+          "fdegym@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+          "mfact@836be06b4fd290089ada8a926d62b9b67a4cb5ad"
+        ],
+        "qualified_subjects": {
+          "mfw": "f3bc48b7863ddf4474bf0c3abe1aaf8b94425074",
+          "yawl": "9ca41b5a896795cc88c9a3e2b769233bfc0223e5"
+        },
+        "r86_candidate": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+        "r86_pr": 325,
+        "ready_set": [],
+        "realized_this_run": [
+          "chatman-ecosystem",
+          "unrdf"
+        ],
+        "receipt_heads": {
+          "mfw": "d8043aafff7892201c5217b01d1ef6c3f28a779e",
+          "yawl": "5e46db6e997bf59140265246099125490c4ca177"
+        },
+        "reconciled_head": "57ae94e594dd29319683bb890077482bc8715a5f",
+        "refreshed_consumer_repos": 3,
+        "regenerations": 0,
+        "regenerations_new": 0,
+        "regenerations_wave": 0,
+        "repair_gated": [
+          "xaas"
+        ],
+        "repair_ready_set": [
+          "xaas"
+        ],
+        "repair_required": [
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+        "scale_envelopes_searched": [
+          100,
+          250,
+          500
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_head": "39a8240be54dba1cbdea1ee9ca849a06ce6403c9",
+        "selected_ready": [
+          "autofde-lab",
+          "autofde",
+          "xaas"
+        ],
+        "selected_ready_coverage": 1.0,
+        "selected_repo": "process-intelligence",
+        "selected_result": {
+          "M": true,
+          "Q": true,
+          "R": true,
+          "default_head": "2ba68907d42a63133a760dd842d87420fc3597fa",
+          "head": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+          "pr": 217,
+          "repo": "chatman-ecosystem",
+          "standing": "PARTIAL_ALIVE[DEFAULT_ASSIMILATED;INHERITED_BROAD_CI_DEBT]",
+          "tree": "a2f5b491fc6e57d08c51c3c3cfd876b6754507c6"
+        },
+        "selected_workstreams": [],
+        "semantic_commits": 60,
+        "sensor_count": 50,
+        "shared_andon": {
+          "command": "ggen sync run",
+          "declared_templates_dir": "fanout/r80/templates",
+          "failed_transition": "Manufacture consumer subject",
+          "head": "49c55a70937763966795d41485ff35554700ee93",
+          "observed": "No such file or directory",
+          "observed_repo": "autofde",
+          "type": "BUILD_BROKEN[FM_CONFIG_004_MISSING_CONSUMER_TEMPLATE_DIR]",
+          "upstream_owner": "canonical ForcedTop25 consumer bootstrap/generator contract"
+        },
+        "source_cell3_head": "26dedf79df44bdd1ba710b336bcedcaec07b5503",
+        "standing": "PARTIAL_ALIVE",
+        "superseded": [],
+        "superseded_work": [],
+        "supersedes": "20260826T132650Z-cell3-r87-legal-ready-set",
+        "tags": [
+          "cell1",
+          "fanout",
+          "forced-top25",
+          "ggen",
+          "ocel"
+        ],
+        "targets": {
+          "autofde": {
+            "head": "49c55a70937763966795d41485ff35554700ee93",
+            "pr": 33,
+            "state": "REPAIR_REQUIRED"
+          },
+          "autofde-lab": {
+            "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+            "pr": 88,
+            "state": "REQUALIFYING"
+          },
+          "xaas": {
+            "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+            "pr": 32,
+            "state": "REPAIR_REQUIRED"
+          }
+        },
+        "tcps": {
+          "MUDA": "bounded:no universe rediscovery; reusable selector capital manufactured",
+          "MURA": "not measurable until hard admission completes",
+          "MURI": "0 downstream closure streams + 1 canonical OCEL repair edge"
+        },
+        "transport_head": "7ff6b299baf215585e0511a71da9f9c0c6fb5292",
+        "true_fanout": {
+          "control_commits_excluded": true,
+          "new_consumer_commits_this_cell3": 0,
+          "new_merges_observed_since_prior_cell3": 3
+        },
+        "true_fanout_accounting": {
+          "control_commits_excluded": true,
+          "new_consumer_commits_this_cell": 0,
+          "new_consumer_merges_this_cell": 0
+        },
+        "true_fanout_new": 0,
+        "true_fanout_standing": "PARTIAL_ALIVE",
+        "true_fanout_this_cell3": 0,
+        "typed_stops": {
+          "cargo-cicd": "REFUSED[REPO_MUTATION_BOUNDARY:AGENT_MUTATION_REQUIRES_CARGO_CICD]"
+        },
+        "unchanged_retry": false,
+        "unknown_count": 22,
+        "unknown_targets": 22,
+        "unresolved_compatible_identity_debt_min": 11,
+        "unresolved_forced_targets": [
+          "autofde-lab",
+          "autofde",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "updated_at": "2026-08-26T23:21:09Z",
+        "upstream": {
+          "owning_compose_court": "SUCCESS",
+          "r80_admitted_producer_head": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+          "r81_r82_head": "c08da479e0e6f77880c576f1b388ef7be4298564",
+          "r81_r82_pr": 318,
+          "vacuity_audit": "FAILURE"
+        },
+        "upstream_downstream_heads": {
+          "chatgpt-cloud-elixir-main": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+          "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "xaas": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+        },
+        "upstream_heads": {
+          "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "ggen-marketplace": "f75bdb35c2e9104679325c6772194005cc6fef67"
+        },
+        "upstream_repair": {
+          "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+          "ci_run": 32954476907,
+          "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+          "merged": false,
+          "pr": 321,
+          "repo": "ggen-marketplace",
+          "standing": "ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]",
+          "vacuity_run": 32954476949
+        },
+        "upstream_return": {
+          "head": "d958cd7f7b687a244fbd7a125df00737d5b04f65",
+          "pack": "ash-reactor-domain-error-contract-pack",
+          "pr": 324,
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "source_consumer": "seanchatmangpt/xaas#32",
+          "standing": "PARTIAL_ALIVE[CI_NOT_OBSERVED]"
+        },
+        "upstream_returns": 0,
+        "upstream_returns_new": 0,
+        "upstream_returns_wave": 1,
+        "upstream_unique_commits": 0,
+        "upstream_unique_commits_cell4": 0,
+        "upstream_unique_commits_this_wave": 0,
+        "upstream_unique_commits_wave": 0,
+        "vacuity": "ALIVE",
+        "wip": [
+          "SREGym#6@9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+          "fdegym#7@04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+          "mfact#10@836be06b4fd290089ada8a926d62b9b67a4cb5ad"
+        ],
+        "wip_budget": {
+          "active_ready": 1,
+          "assimilated": 9,
+          "repair_preserved": 4,
+          "unknown_preserved": 11
+        },
+        "wip_budget_used": 0,
+        "xaas": {
+          "base": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+          "head": "6b87b222a9d9fad6c4802939562d35f5845b6812",
+          "post_handoff_commits": 8,
+          "pr": 32,
+          "qualification": "PARTIAL_ALIVE[R80_IN_PROGRESS;NATIVE_CI_IN_PROGRESS]"
+        },
+        "xaas_blocker": "CI_CD_ELIXIR_FAILURE"
+      },
+      "title": "GGEN fanout current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
