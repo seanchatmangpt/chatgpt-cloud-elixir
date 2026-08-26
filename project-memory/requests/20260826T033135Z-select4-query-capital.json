@@ -1,0 +1,11 @@
+{
+  "request_id": "20260826T033135Z-select4-query-capital",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "include_archived": false,
+    "limit": 50,
+    "max_scan": 1000,
+    "text": "selection preserved alternatives dependency unlock consumers failed investment reusable primitive capital yield phase change weak multiplier structural manufacturing revenue throughput TCPS ready set"
+  }
+}
