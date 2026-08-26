@@ -1,0 +1,378 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T00:37:15Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|GITHUB_PR_MERGE|PROJECT_MEMORY",
+        "body": "R73 converts R72 temporal truth into an explicit capital-allocation and deterministic manufacturing-plan substrate. The repository subject is REQUALIFYING, so no merge or ALIVE standing is inferred.",
+        "cell": "SELECT_DEVELOP",
+        "generation": "R73",
+        "head_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+        "key": "dfcm/select/latest",
+        "kind": "dfcm.select",
+        "metadata": {
+          "1000X": "NOT_ADMITTED",
+          "M": ">=2",
+          "Y": "UNKNOWN",
+          "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+          "changed_files": 63,
+          "consumers_unlocked": [
+            "ggen",
+            "ex4pm",
+            "chatgpt-cloud-elixir",
+            "marketplace revalidation",
+            "GymAct repair/revalidation"
+          ],
+          "errc": {
+            "create": [
+              "51-court revalidation capital family",
+              "ggen manufacturing-plan projection",
+              "reference court",
+              "exact-head qualification rail"
+            ],
+            "eliminate": [
+              "stale-head standing inheritance",
+              "manual revalidation triage",
+              "ambient-DO planning"
+            ],
+            "raise": [
+              "exact-subject currentness",
+              "reversibility",
+              "yield/unlock visibility",
+              "deterministic manufacture"
+            ],
+            "reduce": [
+              "authority ambiguity",
+              "candidate-to-qualified latency",
+              "context reconstruction"
+            ]
+          },
+          "handoff": [
+            "qualify exact PR300 head",
+            "merge only if exact-head ALIVE",
+            "execute deterministic plan against current consumer subjects",
+            "return receipts into R61",
+            "measure realized Y through R63/R65"
+          ],
+          "meaningful_commits": 64,
+          "merge_count": 0,
+          "pr": 300,
+          "preserved_alternatives": [
+            "R71 orthogonal consumer allocator",
+            "R61 receipt assimilation",
+            "R63/R65 causal yield",
+            "R72 temporal truth observability"
+          ],
+          "qualification": "REQUALIFYING",
+          "reusable_primitive": "revalidation-manufacturing-capital-pack",
+          "selected_portfolio": [
+            "R73 revalidation-manufacturing-capital-pack",
+            "R71 orthogonal consumer plan as downstream input",
+            "R61/R63/R65 receipt-yield calibration as preserved downstream"
+          ],
+          "semantic_courts": 51,
+          "weakest_multiplier": "qualified consumer manufacture from current exact-subject plans"
+        },
+        "ref": "develop/r73-revalidation-manufacturing-capital-20260825",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "select",
+          "develop",
+          "r73",
+          "revalidation",
+          "manufacturing-capital",
+          "1000x"
+        ],
+        "title": "SELECT R73 revalidation manufacturing capital"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T0037Z-select4-select-latest"
+  },
+  "request_id": "20260826T0037Z-select4-select-latest",
+  "request_path": "project-memory/requests/20260826T0037Z-select4-select-latest.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R73 converts R72 temporal truth into an explicit capital-allocation and deterministic manufacturing-plan substrate. The repository subject is REQUALIFYING, so no merge or ALIVE standing is inferred.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_loo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36oR4",
+      "metadata": {
+        "1000X": "NOT_ADMITTED",
+        "1000x": "NOT_ADMITTED",
+        "ERRC": {
+          "create": [
+            "50-court R69 causal family",
+            "current Project adversarial fixture",
+            "executable verifier",
+            "exact-head CI",
+            "R67+R68+R69 composition"
+          ],
+          "eliminate": [
+            "stale PR #291 as implementation substrate",
+            "raw workflow fanout as M/Y evidence",
+            "false refusal of actuation falsifier query text"
+          ],
+          "raise": [
+            "exact-subject causality",
+            "public ontology alignment",
+            "falsifier quality",
+            "deterministic qualification",
+            "causal evidence for M/Y"
+          ],
+          "reduce": [
+            "request-receipt identity/currentness/provenance ambiguity",
+            "workflow path/concurrency/latency ambiguity",
+            "correlated evidence inflation"
+          ]
+        },
+        "M": ">=2",
+        "M_lower_bound": 2,
+        "Y": "UNKNOWN",
+        "Y_basis": "one downstream exact R55 subject qualified through the reusable court / five new semantic investments",
+        "Y_future": "UNKNOWN",
+        "Y_observed": 0.2,
+        "Y_qualified_observed": 0,
+        "Y_structural_lower_bound": 0.033,
+        "admitted_in_fixture": 1,
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|GITHUB_PR_MERGE|PROJECT_MEMORY",
+        "base": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+        "base_sha": "a9a63586918acb680331c09bad3ad81b3723523c",
+        "baseline": 50,
+        "bootstrap_candidate": "1df94088d7d8b5fc256be94befe00936befade1f",
+        "bootstrap_merge": "33c7de1a72a4e92f746a6919edba7bb7f985db6a",
+        "bootstrap_pr": 271,
+        "branch_commits": 56,
+        "broad_ci": "ALIVE",
+        "broad_ci_run": 32860889422,
+        "bus_head": "a5bcf391d5a20365fa3d8de02bf974fa68d9ef0b",
+        "bus_head_before_request": "fe6aec45b65ae004d3ffa106908bcfe372f96c16",
+        "candidate": "231826736a1aa5ebb9eea0c93f0ffaaced5241f2",
+        "candidate_sha": "c5a973bf14e582c005bd4ce0cc39828c194f4249",
+        "cell": "SELECT_DEVELOP",
+        "changed_files": 63,
+        "clean_independent": 3,
+        "clean_independent_fixture": 3,
+        "consequential_do": false,
+        "construction_base": "2469a38d0e7af8225bbd44693ad7256bc9efbf63",
+        "consumer_final_head": "e7bc695976bba37d1abf73a266da1b2267ca2a1d",
+        "consumer_previous_head": "729a69eb4d4b03fe21887a0ba8093e74342799eb",
+        "consumer_ready": 2,
+        "consumer_ready_before": 2,
+        "consumer_ready_structural_after_candidate": 4,
+        "consumer_shortfall": 7,
+        "consumer_shortfall_to_10x": 7,
+        "consumer_target": 10,
+        "consumers_admitted": 3,
+        "consumers_developed": [
+          "seanchatmangpt/ggen"
+        ],
+        "consumers_grounded": 4,
+        "consumers_independently_ready": 1,
+        "consumers_observed": 4,
+        "consumers_preserved": [
+          "seanchatmangpt/chatgpt-cloud-elixir"
+        ],
+        "consumers_profiled": 4,
+        "consumers_unlocked": [
+          "ggen",
+          "ex4pm",
+          "chatgpt-cloud-elixir",
+          "marketplace revalidation",
+          "GymAct repair/revalidation"
+        ],
+        "created_at": "2026-08-25T09:28:23Z",
+        "current_base": "0377678f4741aadd5a40c5729ed016e163e3d4b2",
+        "current_marketplace_main": "97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
+        "default_head": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+        "defects_repaired": [
+          "new pull_request court bootstrap dead-zone",
+          "non-deterministic evidence-return SELECT",
+          "causal propagation template context ABI mismatch"
+        ],
+        "direct_semantic_commits_authored_this_cell": 0,
+        "errc": {
+          "create": [
+            "51-court revalidation capital family",
+            "ggen manufacturing-plan projection",
+            "reference court",
+            "exact-head qualification rail"
+          ],
+          "eliminate": [
+            "stale-head standing inheritance",
+            "manual revalidation triage",
+            "ambient-DO planning"
+          ],
+          "raise": [
+            "exact-subject currentness",
+            "reversibility",
+            "yield/unlock visibility",
+            "deterministic manufacture"
+          ],
+          "reduce": [
+            "authority ambiguity",
+            "candidate-to-qualified latency",
+            "context reconstruction"
+          ]
+        },
+        "ex4pm_base": "e12fccb42a67bc4496cac91c86bff2b856cc463d",
+        "ex4pm_broad_ci": "IN_PROGRESS",
+        "ex4pm_candidate": "40e62701976a0c4555ffc00530b71c6acae515f2",
+        "ex4pm_head": "40e62701976a0c4555ffc00530b71c6acae515f2",
+        "ex4pm_merge": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+        "ex4pm_r58": "ALIVE",
+        "ex4pm_r58_run": 32869939214,
+        "exact_bus_head_before_request": "cdf5b1978171ee84773984c640789a7eb891fb56",
+        "exact_head_rails": {
+          "broad_ci": "IN_PROGRESS",
+          "r56_combinatorial": "ALIVE",
+          "r56_replication": "ALIVE",
+          "r57": "ALIVE",
+          "vacuity": "ALIVE"
+        },
+        "falsifier": "R52 exact-head qualification pending",
+        "falsifiers": [
+          "exact-50 sensor-count assumption is invalid for cumulative sensor families",
+          "executable workflow without timeout-minutes is refused by repository CI law"
+        ],
+        "full_replication_ready": 2,
+        "fully_orthogonal_pairs": 5,
+        "generation": "R73",
+        "gymact_base": "b40df62bbb1f6d5661eb1dbeb332476c90faa470",
+        "gymact_broad_ci": "IN_PROGRESS",
+        "gymact_candidate": "b072261ee48a792445394115df5a1d8600baf886",
+        "gymact_head": "b072261ee48a792445394115df5a1d8600baf886",
+        "gymact_merge": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+        "gymact_r58": "ALIVE",
+        "gymact_r58_run": 32870489499,
+        "gymact_world_crown": "ALIVE",
+        "gymact_world_crown_run": 32870489559,
+        "handoff": [
+          "qualify exact PR300 head",
+          "merge only if exact-head ALIVE",
+          "execute deterministic plan against current consumer subjects",
+          "return receipts into R61",
+          "measure realized Y through R63/R65"
+        ],
+        "head_after": "c7731659694a111bdffe3f958a40a86c1e430f44",
+        "head_before": "61f4b9932d34c857081ce7759eca8c89f0845e3c",
+        "head_sha": "55dd14000140ba0188239fd9c96fdda0ad36fa10",
+        "implement_handoff": [
+          "finish exact-head broad CI and merge #296 only if ALIVE",
+          "project real request/receipt and downstream qualification events into R70 evidence",
+          "select orthogonal consumers using R67 independence",
+          "assimilate returned receipts through R61 then calibrate relief/yield through R63/R65"
+        ],
+        "independent_executed_consumer_lower_bound": 3,
+        "key": "dfcm/select/latest",
+        "kind": "dfcm.select",
+        "marketplace_base": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "marketplace_base_initial": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+        "marketplace_default": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "marketplace_main": "d1ed42b25421b659821b75287fee45ee94b19489",
+        "meaningful_commits": 64,
+        "merge_count": 0,
+        "merge_sha": "33dae58b9b74b23ea74fbeacbd6295a4e82f676a",
+        "merges": 2,
+        "new_meaningful_commits": 60,
+        "new_semantic_commits": 2,
+        "new_semantic_courts": 50,
+        "owning_court": "ALIVE",
+        "owning_court_run": 32860889375,
+        "owning_r70": "ALIVE",
+        "partial_in_fixture": 3,
+        "pr": 300,
+        "pre_bus_head": "a49aebb8461aa499f5b2e7f4320019de09712325",
+        "preserved_alternatives": [
+          "R71 orthogonal consumer allocator",
+          "R61 receipt assimilation",
+          "R63/R65 causal yield",
+          "R72 temporal truth observability"
+        ],
+        "producer_head": "8bd29043a2818a5fb6a4de65cc403eff8e495b58",
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count_pre": 372,
+        "project_snapshot_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_snapshot_items": 373,
+        "qualification": "REQUALIFYING",
+        "qualification_runs": {
+          "broad_ci": 32907803468,
+          "r69": 32907803426,
+          "vacuity": 32907803508
+        },
+        "qualified_head": "6d13be8a7ae6d9430d77ce342c659121f7dd15d2",
+        "r55_candidate": "0e9ac9f0bab55d9c3ec8a7a2807997d4ea7cf5bf",
+        "r55_merge": "e6810f8e36ef81b567d2c60f892b6f11eea5b89f",
+        "r55_pr": 270,
+        "readiness_count": 2,
+        "readiness_shortfall": 8,
+        "real_ggen_shards": "4/4_ALIVE",
+        "ref": "develop/r73-revalidation-manufacturing-capital-20260825",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "reusable_primitive": "revalidation-manufacturing-capital-pack",
+        "reusable_primitives": [
+          "orthogonal-consumer-capital-pack"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_head": "203fc7fe67ce6756ced1f68ba52bc883304cfc64",
+        "selected_portfolio": [
+          "R73 revalidation-manufacturing-capital-pack",
+          "R71 orthogonal consumer plan as downstream input",
+          "R61/R63/R65 receipt-yield calibration as preserved downstream"
+        ],
+        "selected_pr": 272,
+        "selected_preexisting_commits": 65,
+        "selected_repo": "seanchatmangpt/ggen",
+        "semantic_capital_contained": 55,
+        "semantic_commits": 52,
+        "semantic_commits_contained": 54,
+        "semantic_courts": 51,
+        "semantic_query_commits": 50,
+        "shortfall": 49,
+        "snapshot_item_count": 366,
+        "snapshot_project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "standing": "PARTIAL_ALIVE",
+        "strong_orthogonal_pairs": 1,
+        "tags": [
+          "1000x",
+          "develop",
+          "manufacturing-capital",
+          "r73",
+          "revalidation",
+          "select"
+        ],
+        "thousand_x": "NOT_ADMITTED",
+        "total_commits": 66,
+        "total_pr_commits": 55,
+        "updated_at": "2026-08-26T00:37:26Z",
+        "vacuity": "ALIVE",
+        "vacuity_run": 32860889543,
+        "weakest_multiplier": "qualified consumer manufacture from current exact-subject plans",
+        "weakest_multiplier_after": "independent consumer breadth plus empirical ALIVE-to-dependency-relief conversion",
+        "workflow_commits_excluded": 2
+      },
+      "title": "SELECT R73 revalidation manufacturing capital"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
