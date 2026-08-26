@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023303Z-explore-r75-latest-upsert",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/explore/latest",
+    "title": "DfCM EXPLORE latest",
+    "kind": "dfcm.explore",
+    "cell": "EXPLORE",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","explore","ash","revops","ocel","r75"],
+    "body": "R75 non-dominated frontier adds an Ash/OCEL dual-RevOps structural factory with independent candidate surfaces for Domains, Resources, Relationships, Identities, Actions, Policies, Calculations, Aggregates, Validations, Reactor, LiveView, APIs, migrations, value calculators, opportunity/offer workspaces, OCEL evidence, consumer qualification, agent refinement, regeneration, and supersession. Exact-head factory workflow ALIVE; broader CI/vacuity pending at write time. Handoff SELECT: exercise generated consequences against exact external consumer heads and measure displacement/fanout/regeneration rather than inferring from structural cardinality.",
+    "metadata": {"repo":"seanchatmangpt/ggen-marketplace","head_sha":"5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6","pr":305,"meaningful_commits":53,"candidate_surfaces":23,"E2":23,"G":1.0,"D":"UNKNOWN","F":"UNKNOWN","U":"UNKNOWN","standing":"PARTIAL_ALIVE","run_id":"SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE"}
+  }}
+}
