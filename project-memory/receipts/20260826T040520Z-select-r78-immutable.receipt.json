@@ -1,0 +1,87 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T04:05:44Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Durable novel learning: strict GGEN determinism is a quality-at-source manufacturing law. A downstream real-ggen shard first exposed unordered R77 repository-universe projection; after repair it advanced and exposed unordered R78 allocation projection. Correct response is upstream pack repair plus permanent guard, not consumer workaround. TCPS correspondence: preserve partial order through admissibility/ready-set; only the generated execution edge chooses a deterministic linear extension, here ORDER BY DESC(selectionScore), candidate. Compatible concurrent cells may merge exact qualified capital while this cell validates; attribute merge actuation separately from authored capital and prove containment by merge parents. Exact contained subject f96dc9a5 -> merge/default aef231ce.",
+        "cell": "SELECT_DEVELOP",
+        "key": "dfcm/run/select/20260826T035217Z/aef231ce",
+        "kind": "dfcm.run-learning",
+        "metadata": {
+          "candidate": "f96dc9a5f76783fd7d041392027cd61c5be5e566",
+          "merge": "aef231ceb3e27150366a11b547dd115720230880",
+          "merge_actuated_by_this_cell": 0,
+          "new_meaningful_commits": 4,
+          "quality_at_source_repairs": 2,
+          "standard_work_promotions": 2
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "tcps",
+          "r78",
+          "ggen",
+          "durable-learning"
+        ],
+        "title": "R78 TCPS ready-set capital durable learning"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T040520Z-select-r78-immutable"
+  },
+  "request_id": "20260826T040520Z-select-r78-immutable",
+  "request_path": "project-memory/requests/20260826T040520Z-select-r78-immutable.json",
+  "request_sha256": "sha256:85307b6ae125a9c4819165c4571092160c4609f21724fdea54a51e2f12976188",
+  "request_transport_sha256": "sha256:f3d412e45217dcda826fdff787ba2cc50dee638d899028acd67167f0db4746f1",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Durable novel learning: strict GGEN determinism is a quality-at-source manufacturing law. A downstream real-ggen shard first exposed unordered R77 repository-universe projection; after repair it advanced and exposed unordered R78 allocation projection. Correct response is upstream pack repair plus permanent guard, not consumer workaround. TCPS correspondence: preserve partial order through admissibility/ready-set; only the generated execution edge chooses a deterministic linear extension, here ORDER BY DESC(selectionScore), candidate. Compatible concurrent cells may merge exact qualified capital while this cell validates; attribute merge actuation separately from authored capital and prove containment by merge parents. Exact contained subject f96dc9a5 -> merge/default aef231ce.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5kM",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4C5K0",
+      "metadata": {
+        "candidate": "f96dc9a5f76783fd7d041392027cd61c5be5e566",
+        "cell": "SELECT_DEVELOP",
+        "created_at": "2026-08-26T04:05:57Z",
+        "key": "dfcm/run/select/20260826T035217Z/aef231ce",
+        "kind": "dfcm.run-learning",
+        "merge": "aef231ceb3e27150366a11b547dd115720230880",
+        "merge_actuated_by_this_cell": 0,
+        "new_meaningful_commits": 4,
+        "quality_at_source_repairs": 2,
+        "schema": "chatgpt-project-memory/v1",
+        "standard_work_promotions": 2,
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "durable-learning",
+          "ggen",
+          "r78",
+          "tcps"
+        ],
+        "updated_at": "2026-08-26T04:05:57Z"
+      },
+      "title": "R78 TCPS ready-set capital durable learning"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
