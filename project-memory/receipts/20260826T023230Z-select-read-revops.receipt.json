@@ -1,0 +1,86 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:32:26Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ocel/v2/revops/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T023230Z-select-read-revops"
+  },
+  "request_id": "20260826T023230Z-select-read-revops",
+  "request_path": "project-memory/requests/20260826T023230Z-select-read-revops.json",
+  "request_sha256": "sha256:a26db0a35cc4df3b4a606c952f69abf443a1ead6d236debbc4c5669f88f9f40e",
+  "request_transport_sha256": "sha256:3a63358b289d557d7a0f80d6983b931a865b4ba92290d33250e56dec99a9b692",
+  "result": {
+    "body": "R73 now independently falsifies missing payer, beneficiary, causal capability, receipt, exact head, time window, attribution confidence, retention and expansion evidence while preserving RevenueFROMCustomer != RevenueFORCustomer. R74 provides the compatible deterministic structural-option factory after ggen schema repair. Next value path is qualified R73 evidence -> R74 option manufacture -> consumer regeneration -> qualification -> observed value/revenue outcomes.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_2nU",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4ByJo",
+    "metadata": {
+      "canonical_project": "seanchatmangpt/2",
+      "case_centric_views": "projection-only",
+      "cell": "SELECT_DEVELOP",
+      "correction": "metadata counts reconciled to explicit object/event lists",
+      "created_at": "2026-08-26T00:41:26Z",
+      "customer_revenue_yield": "UNKNOWN",
+      "dual_revenue_flows": true,
+      "event_type_count": 39,
+      "git_commits": "immutable manufacturing receipts",
+      "key": "ocel/v2/revops/current",
+      "kind": "measurement",
+      "object_type_count": 26,
+      "objective": "maximize commit manufacturing throughput, hyperdimensional information density, portfolio revenue, and customer revenue generation",
+      "project_memory": "canonical current object/process/economic control state",
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "revenue_for_customer": "DISTINCT",
+      "revenue_from_customer": "DISTINCT",
+      "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "standing_model": [
+        "UNKNOWN",
+        "PARTIAL_ALIVE",
+        "ALIVE",
+        "BUILD_BROKEN",
+        "UNSUPPORTED",
+        "REFUSED"
+      ],
+      "supersedes_request": "20260825T174013-ocel-v2-revops-hypergraph",
+      "tags": [
+        "ocel",
+        "revenue-for",
+        "revenue-from",
+        "revops"
+      ],
+      "transport": "chatgpt-cloud-elixir/project-memory-bus",
+      "ui_runtime": [
+        "Elixir",
+        "Ash Framework",
+        "Reactor",
+        "Phoenix/LiveView"
+      ],
+      "updated_at": "2026-08-26T02:17:56Z"
+    },
+    "title": "Dual RevOps structural evidence"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
