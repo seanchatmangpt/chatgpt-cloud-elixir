@@ -1,0 +1,30 @@
+{
+  "request_id": "20260826T025400Z-measure-r6-throughput-current",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"manufacturing/schedule-throughput/current",
+    "title":"Manufacturing schedule throughput current",
+    "kind":"manufacturing.throughput",
+    "standing":"PARTIAL_ALIVE",
+    "tags":["manufacturing","throughput","measure","r75","r76"],
+    "body":"Exact same-run attribution binds 108 semantic marketplace commits across R75 PR #304 and R76 PR #309 using Schedule-Run/Schedule-Cell trailers. Merge commits are tracked separately: e11e19ba and 04cd8add. First exact attributed commit was 2026-08-26T02:14:15Z; R76 merge completed 2026-08-26T02:47:14Z, yielding ~196.46 semantic commits/hour over elapsed manufacturing interval. Two exact commit-active windows total ~17.98 minutes, yielding ~360.33 commits/active-hour. Previous-hour, previous-same-cell and 24h mean remain UNKNOWN because no exact canonical comparable PRE rates were admitted; R76 now instruments those gaps instead of fabricating deltas.",
+    "metadata": {
+      "run_id":"6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+      "semantic_commits":108,
+      "r75_commits":46,
+      "r76_commits":62,
+      "merge_commits":2,
+      "first_attributed_commit_utc":"2026-08-26T02:14:15Z",
+      "final_merge_utc":"2026-08-26T02:47:14Z",
+      "T_elapsed_per_hour":196.46,
+      "active_window_minutes":17.98,
+      "T_active_per_hour":360.33,
+      "previous_hour_total":"UNKNOWN[NO_CANONICAL_EXACT_PRE_RATE]",
+      "previous_same_cell":"UNKNOWN[NO_CANONICAL_EXACT_PRE_RATE]",
+      "mean_24h":"UNKNOWN[NO_CANONICAL_EXACT_PRE_RATE]",
+      "attribution":"EXACT_TRAILER_BOUND",
+      "standing":"PARTIAL_ALIVE"
+    }
+  }}
+}
