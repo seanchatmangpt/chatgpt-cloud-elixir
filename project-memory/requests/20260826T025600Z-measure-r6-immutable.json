@@ -1,0 +1,20 @@
+{
+  "request_id": "20260826T025600Z-measure-r6-immutable",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"dfcm/run/measure/20260826T025600Z/04cd8add33e732c556a916a8182d25f8849ec557",
+    "title":"MEASURE R75-R76 immutable learning",
+    "kind":"dfcm.run.measure",
+    "standing":"ALIVE",
+    "tags":["dfcm","measure","immutable","r75","r76"],
+    "body":"Durable novel learning: attributable event-level throughput is insufficient without a complete portfolio production topology. Compose exact schedule attribution with repository exact-subject census and ExistingStructure->DesiredStructure->Ontology->Pack/Composition->Generator->Artifact->Consumer->Qualification->Standing. Falling T with an open displacement frontier is a constraint observation. High T with low G is observable structural debt. Generalizable downstream verifier failure must become upstream repair and requalification, as demonstrated by the inherited R34 missing-RDF dependency discovered by R76. Dual RevenueFROMCustomer and RevenueFORCustomer must remain semantically distinct until independently evidenced.",
+    "metadata": {
+      "run_id":"6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+      "qualified_head":"dd3951607c814c0cfa98a53ea9fb0f4dbaf38c9b",
+      "merge_sha":"04cd8add33e732c556a916a8182d25f8849ec557",
+      "semantic_commits":108,
+      "standing":"ALIVE"
+    }
+  }}
+}
