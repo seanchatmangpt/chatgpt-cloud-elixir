@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023600Z-implement-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/implement/latest",
+    "title": "IMPLEMENT+QUALIFY structural realization R75",
+    "kind": "dfcm.implement",
+    "cell": "IMPLEMENT_QUALIFY",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ggen","structural-manufacturing","r75","revops"],
+    "body": "R75 manufactured structural realization capital on ggen-marketplace. Exact base e1a707b2e3a3905b80f727ab3b43d2c53187a8df; PR #306 current head 4c48f2d447e5e388a69e187126a2dc81a4dbcb8b. 55 run-attributed meaningful commits: ontology + grounded fixture + 50 executable SPARQL courts + RDFLib verifier + exact-head workflow + upstream timeout repair. Initial exact head 4cddc76c239fd4c9d2e195a9c933a1599fc609cd executed R75 court SUCCESS; broad CI exposed concurrent measure-r75-throughput-learning workflow missing timeout-minutes, repaired upstream in 4c48f2d4. New head awaiting exact-head requalification. RevenueFROMCustomer and RevenueFORCustomer remain distinct. No consequential DO.",
+    "metadata": {"repository":"seanchatmangpt/ggen-marketplace","base_sha":"e1a707b2e3a3905b80f727ab3b43d2c53187a8df","head_sha":"4c48f2d447e5e388a69e187126a2dc81a4dbcb8b","pr":306,"meaningful_commits":55,"G":1.0,"D":1,"F":0,"U":1,"R":50,"Q":50,"M":1,"project_snapshot_items":385,"run_id":"6a6d460091948191ae8945277d01b467+20260826T013800Z+IMPLEMENT_QUALIFY"}
+  }}
+}
