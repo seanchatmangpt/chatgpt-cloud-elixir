@@ -1,0 +1,81 @@
+{
+  "request_id": "project-two-semantic-capability-upsert-20260826",
+  "operation": "memory.upsert",
+  "project": {
+    "owner": "seanchatmangpt",
+    "number": 2
+  },
+  "payload": {
+    "record": {
+      "key": "project-two/semantic-paas/v1",
+      "title": "Project Two semantic PaaS v1",
+      "kind": "project.semantic.capability",
+      "cell": "SYSTEM",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "project2",
+        "semantic",
+        "paas",
+        "saas",
+        "graph",
+        "jsonld",
+        "ocel-v2",
+        "mcp",
+        "ash",
+        "llm",
+        "virtualization",
+        "shared-memory"
+      ],
+      "body": "Project Two is the canonical operational subject and is virtualized as a semantic PaaS rather than copied into a second authoritative database. The same admitted Project items can be inspected as memory KV, full-fidelity Project objects, a property graph, bounded graph neighborhoods, relational node/edge/fact tables, RDF-shaped triples, JSON-LD, a service/capability catalog, OCEL-2-shaped process evidence, and bounded adjacency-aware LLM context. ChatGPT uses the bounded request/receipt bus; MCP-capable LLMs use the AshAi junction; humans use the GitHub Project UI. Semantic projections are read-only; graph edges require explicit Project fields or admitted relation-bearing metadata; arbitrary prose remains literal evidence. Live project.services execution is ALIVE. Cross-LLM standing remains PARTIAL_ALIVE until the Ash/MCP exact-head qualification completes.",
+      "metadata": {
+        "schema": "project-two-semantic/v1",
+        "canonical_subject": "GitHub Project v2 #2",
+        "model": "virtual-semantic-paas",
+        "source_repo": "seanchatmangpt/chatgpt-cloud-elixir",
+        "base_sha": "2e595d940fcbd8cd7f3dcde03590df3cb83d544e",
+        "implementation_sha": "d765d5c3c363951a6942832ef29df7aad95eb5e5",
+        "live_request_sha": "698cae40c4ba0dced4a67aa7eed3fe8f230f5d54",
+        "live_receipt_sha": "6ba647dd7be3d9a818ffcb0e1670b7da0e36cd6c",
+        "draft_pr": 14,
+        "live_projection_standing": "ALIVE",
+        "cross_llm_standing": "PARTIAL_ALIVE",
+        "semantic_authority": "READ_ONLY_VIRTUAL_PROJECTION",
+        "mutation_authority": "BOUNDED_STABLE_KEY_ONLY",
+        "projection_operations": [
+          "project.semantic",
+          "project.graph",
+          "project.graph.query",
+          "project.tables",
+          "project.triples",
+          "project.jsonld",
+          "project.services",
+          "project.ocel",
+          "project.context"
+        ],
+        "mcp_tools": [
+          "inspect_project_semantics",
+          "project_property_graph",
+          "query_project_graph",
+          "project_relational_tables",
+          "project_semantic_triples",
+          "project_jsonld",
+          "project_service_catalog",
+          "project_ocel",
+          "project_llm_context"
+        ],
+        "public_vocabularies": [
+          "PROV-O",
+          "DCAT",
+          "DCTERMS",
+          "SKOS",
+          "FOAF",
+          "DOAP",
+          "Schema.org"
+        ],
+        "virtualization_law": "one admitted subject, multiple lawful query surfaces",
+        "ocel_conformance": "NOT_CLAIMED_UNTIL_INDEPENDENT_OCEL_VALIDATOR_EXECUTES",
+        "free_prose_edge_inference": "REFUSED"
+      }
+    }
+  }
+}
