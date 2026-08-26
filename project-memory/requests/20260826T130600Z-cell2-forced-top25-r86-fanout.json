@@ -1,0 +1,25 @@
+{
+  "request_id":"20260826T130600Z-cell2-forced-top25-r86-fanout",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/forced-top25/current",
+    "title":"Forced Top25 fanout census after R86 consumer composition",
+    "summary":"Preserve exact mandatory rank order 1..25. U lower bound remains 17. Project receipt established R>=11,Q>=6,M>=9; direct Git receipts now prove process-intelligence exact R80 qualification plus default-lineage assimilation, raising M>=10, while clap-noun-verb and wasm4pm exact current heads passed composed R83/R86 consumer courts. mfw and yawl now carry runner-independent R86 capsule specs/courts while hosted pre-exec remains typed topology.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "forced_order":["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+      "U_lower_bound":17,
+      "R_lower_bound":11,
+      "Q_lower_bound":6,
+      "M_lower_bound":10,
+      "OpenFanoutObligations_lower_bound":7,
+      "new_default_assimilation":{"process-intelligence":"c1ed9f0393f4782c48e4b0f71aff9c28930d9b44"},
+      "new_scoped_qualified":{"clap-noun-verb":"9d8abc59b49be0ee1a4a083255f7310757a786ca","wasm4pm":"e99dbb42c6ed07e4fe025dd87d2b46aac725bc03"},
+      "runner_independent_capsules":{"mfw":"a889bc70328d9da6f24e67e1d9a15040a570a36a","yawl":"e7a97110d4901e37b4f6cb20ffacef29d1a919d8"},
+      "r86":{"producer":"seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564","pack":"forced-top25-qualification-capsule-pack","pr":325,"standing":"ALIVE_SCOPED"},
+      "authority":"OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "consequential_do":false
+    }
+  }
+}
