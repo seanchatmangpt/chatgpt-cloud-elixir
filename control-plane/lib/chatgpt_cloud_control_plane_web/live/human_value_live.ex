@@ -169,7 +169,7 @@ defmodule ChatGPTCloudWeb.HumanValueLive do
     World
     |> Ash.read!()
     |> Enum.filter(&(&1.run_id == run_id))
-    |> Enum.sort_by(& &1.acquired_at, {:desc, DateTime})
+    |> Enum.sort_by(&DateTime.to_unix(&1.acquired_at, :microsecond), :desc)
     |> Ash.load!([:revenue_from_customer_cents, :revenue_for_customer_cents])
   end
 
