@@ -1,0 +1,30 @@
+{
+  "request_id": "20260826T025210Z-select-final-exact",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/select/latest",
+    "title": "SELECT+DEVELOP current structural-capital allocation",
+    "kind": "dfcm.select",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","select","r76","structural-capital","ggen"],
+    "body": "Current exact composition supersedes the earlier provisional R76 selection record. R76 authored lineage contains 62 new meaningful commits: 50 executable structural-capital SPARQL courts plus ontology, adversarial fixture, deterministic GGEN projection, executable verifier, exact-head court, construction receipt, and five generalizable semantic-family identity repairs for R47/R51. Concurrent default advanced from e11e19baf281701339e7fb6da46ccb10d0e790cf to 04cd8add33e732c556a916a8182d25f8849ec557 through independently qualified R76 portfolio structural census. Preserved both by composing on non-default integration branch. Exact composed candidate = 913ef1012c01e99bed6df190e3d79dd7bf974998; replacement draft PR #311. Integration merge is bookkeeping, not semantic manufacture. Y=UNKNOWN; M>=2; G=1.0; D=PENDING; F=PENDING_REGENERATION; U includes R47/R51 family-identity promotion. 1000X=NOT_ADMITTED. Handoff: exact-head qualify composed candidate, merge only if owning R76 + Vacuity + broad real-ggen CI + R47/R51 relevant regressions are ALIVE; then execute R76 plan over current portfolio census and manufacture all admitted consumer populations.",
+    "metadata": {
+      "construction_base": "e11e19baf281701339e7fb6da46ccb10d0e790cf",
+      "current_default_admitted": "04cd8add33e732c556a916a8182d25f8849ec557",
+      "authored_head": "6c0037b2283b4151f5c1e95700de96a29c2eb69c",
+      "composed_candidate": "913ef1012c01e99bed6df190e3d79dd7bf974998",
+      "pr": 311,
+      "meaningful_commits": 62,
+      "semantic_courts": 50,
+      "G": 1.0,
+      "Y": "UNKNOWN",
+      "M_lower_bound": 2,
+      "D": "PENDING",
+      "F": "PENDING_REGENERATION",
+      "U": "R47_R51_SEMANTIC_FAMILY_IDENTITY_PROMOTED",
+      "standing": "PARTIAL_ALIVE"
+    }
+  }}
+}
