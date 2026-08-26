@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T022943Z-select-snapshot-pre",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}
