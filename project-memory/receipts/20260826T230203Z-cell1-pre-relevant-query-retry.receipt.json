@@ -1,0 +1,40 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T23:08:39Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "max_records": 100,
+      "text": "ggen OCEL fanout ForcedTop25 compatibility qualification falsifier repository"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T230203Z-cell1-pre-relevant-query-retry"
+  },
+  "request_id": "20260826T230203Z-cell1-pre-relevant-query-retry",
+  "request_path": "project-memory/requests/20260826T230203Z-cell1-pre-relevant-query-retry.json",
+  "request_sha256": "sha256:61c14c2f940dc31eaea16ab75ba2c9dee660b8df1654d818522b5653ff805d2b",
+  "request_transport_sha256": "sha256:119a6c9a96047e706ed5634f541c64f27bb0d81522f0d99fab95ec21d395cdeb",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 55,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
