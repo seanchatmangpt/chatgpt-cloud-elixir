@@ -1,0 +1,1088 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T10:32:17Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL3 preserved the authoritative ForcedTop25 and admitted the new exact-head evidence without reranking. The prior CELL3 Project mutation is now receipted by Project v2 proxy commit aed1fb252d2de71e3cf21279eefed7de09172456. Three already-realized ForcedTop25 consumers moved from their prior failed exact subjects to new repair heads: autofde-lab#88@3dd9cce318711533b00f0cf36c941b3d15d14d29, autofde#33@49c55a70937763966795d41485ff35554700ee93, xaas#32@a0660ef4f30154e4f0a3b1d509f71628849b46cd. Their owning R80 consumer courts are currently in progress, so none is promoted to COMPATIBLE_READY or Q. autofde-lab general PR CI is SUCCESS; autofde Self-Manufacturing Crown is SUCCESS; xaas native CI/CD Elixir remains FAILURE. The repaired consumers bind admitted R80 producer subject ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75. The broader R81/R82 marketplace PR318 is at c08da479e0e6f77880c576f1b388ef7be4298564 with its owning COMPOSE R81 court SUCCESS but Vacuity Audit FAILURE, so that broader branch is not promoted. No READY ForcedTop25 consumer exists at this observation boundary; all lawful alternatives remain preserved. Consequential DO=false; no merge, release, deployment, external publication, commerce actuation, or security bypass was performed.",
+        "cell": "CELL3_LEGAL_READY_SET_ALLOCATION",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout",
+        "metadata": {
+          "M_exact_named": 3,
+          "OpenFanoutObligations_exact_named": 3,
+          "OpenFanoutObligations_exact_repos": [
+            "autofde-lab",
+            "autofde",
+            "xaas"
+          ],
+          "OpenFanoutObligations_inherited_lower_bound": 14,
+          "Q_exact_named": 3,
+          "R_exact_named": 6,
+          "U_exact_named": 6,
+          "U_inherited_lower_bound": 17,
+          "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY",
+          "consequential_do": false,
+          "expected_fanout": "three realized consumers are requalifying in parallel; promote each independently only when its owning exact-head court succeeds, while XaaS additionally retains native-CI repair debt",
+          "forced_top25": [
+            {
+              "M": true,
+              "Q": true,
+              "R": true,
+              "rank": 1,
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "repo": "ex4pm",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "M": true,
+              "Q": true,
+              "R": true,
+              "rank": 2,
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT",
+              "repo": "gymact",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "Q": false,
+              "R": true,
+              "general_ci": "SUCCESS",
+              "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+              "pr": 88,
+              "rank": 3,
+              "reason": "REQUALIFYING_OWNING_R80_COURT_IN_PROGRESS",
+              "repo": "autofde-lab",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "Q": false,
+              "R": true,
+              "head": "49c55a70937763966795d41485ff35554700ee93",
+              "pr": 33,
+              "rank": 4,
+              "reason": "REQUALIFYING_OWNING_R80_COURT_IN_PROGRESS",
+              "repo": "autofde",
+              "self_manufacturing_crown": "SUCCESS",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "Q": false,
+              "R": true,
+              "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+              "native_ci": "FAILURE",
+              "pr": 32,
+              "rank": 5,
+              "reason": "REQUALIFYING_R80_COURT_IN_PROGRESS_AND_NATIVE_CI_FAILURE",
+              "repo": "xaas",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "rank": 6,
+              "reason": "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND_TO_CURRENT_FANOUT",
+              "repo": "chatgpt-cloud-elixir",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 7,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "process-intelligence",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 8,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "ash_r2rml",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 9,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "wasm4pm",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 10,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "pm4wasm",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 11,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfact",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 12,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfact-command-center",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 13,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "mfw",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 14,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "SREGym",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 15,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "fdegym",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 16,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "revops",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 17,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "chatman-ecosystem",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 18,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "POWL",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 19,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "swarmsh-v2",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 20,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "cargo-cicd",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 21,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "clap-noun-verb",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 22,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "unrdf",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "M": true,
+              "Q": true,
+              "R": true,
+              "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+              "merge_commit": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+              "rank": 23,
+              "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+              "repo": "dspygen",
+              "state": "COMPATIBLE_NOT_READY"
+            },
+            {
+              "rank": 24,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "yawl",
+              "state": "UNKNOWN_WITH_REASON"
+            },
+            {
+              "rank": 25,
+              "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+              "repo": "a2a-rs",
+              "state": "UNKNOWN_WITH_REASON"
+            }
+          ],
+          "muda": "no universe rediscovery/rerank; only exact-head transitions and Project receipt were consumed",
+          "mura": "no READY starvation because ready_set is empty; all three requalifying consumers remain parallel preserved alternatives",
+          "muri": "no speculative new consumer WIP while three already-realized exact-head courts execute; XaaS native failure remains an independent repair edge",
+          "nonready_set": [
+            "ex4pm",
+            "gymact",
+            "autofde-lab",
+            "autofde",
+            "xaas",
+            "chatgpt-cloud-elixir",
+            "process-intelligence",
+            "ash_r2rml",
+            "wasm4pm",
+            "pm4wasm",
+            "mfact",
+            "mfact-command-center",
+            "mfw",
+            "SREGym",
+            "fdegym",
+            "revops",
+            "chatman-ecosystem",
+            "POWL",
+            "swarmsh-v2",
+            "cargo-cicd",
+            "clap-noun-verb",
+            "unrdf",
+            "dspygen",
+            "yawl",
+            "a2a-rs"
+          ],
+          "partial_order_edges": [
+            "R80 admitted producer a658cda7066bba344e481173b5b52a0dc18c5c75 -> consumer exact-head construction",
+            "consumer exact-head construction -> owning R80 court",
+            "owning R80 court SUCCESS -> Q",
+            "Q -> CELL4 closure/default-lineage assimilation M",
+            "shared generated-closure defect -> R82 canonical repair -> future consumer qualification"
+          ],
+          "preserved_alternatives": [
+            "autofde-lab#88@3dd9cce318711533b00f0cf36c941b3d15d14d29 await exact-head R80 court",
+            "autofde#33@49c55a70937763966795d41485ff35554700ee93 await exact-head R80 court",
+            "xaas#32@a0660ef4f30154e4f0a3b1d509f71628849b46cd await exact-head R80 court plus repair native CI",
+            "bind at least 11 inherited compatible identities from authoritative U>=17 evidence"
+          ],
+          "previous_project_receipt": {
+            "actuation_performed": true,
+            "receipt_commit": "aed1fb252d2de71e3cf21279eefed7de09172456",
+            "request_id": "20260826T093200Z-cell3-fanout-allocation"
+          },
+          "qualification_plan": {
+            "autofde": "observe owning R80 court at 49c55a70937763966795d41485ff35554700ee93; if SUCCESS promote READY/Q for CELL4, otherwise return exact defect upstream",
+            "autofde-lab": "observe owning R80 court at 3dd9cce318711533b00f0cf36c941b3d15d14d29; if SUCCESS promote READY/Q for CELL4, otherwise return exact defect upstream",
+            "xaas": "observe owning R80 court at a0660ef4f30154e4f0a3b1d509f71628849b46cd independently of native CI; retain native CI repair edge until exact closure criteria are met"
+          },
+          "ready_set": [],
+          "selected_workstreams": [],
+          "unresolved_compatible_identity_debt_min": 11,
+          "upstream": {
+            "owning_compose_court": "SUCCESS",
+            "r80_admitted_producer_head": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+            "r81_r82_head": "c08da479e0e6f77880c576f1b388ef7be4298564",
+            "r81_r82_pr": 318,
+            "vacuity_audit": "FAILURE"
+          },
+          "wip_budget": {
+            "identity_binding_streams": 1,
+            "new_speculative_streams": 0,
+            "ready_allocation_streams": 0,
+            "requalifying_consumer_streams": 3
+          }
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "forced-top25",
+          "ready-set",
+          "r80",
+          "r82",
+          "exact-head",
+          "tcps"
+        ],
+        "title": "GGEN legal ready-set allocation current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T102700Z-cell3-ready-set-requalification"
+  },
+  "request_id": "20260826T102700Z-cell3-ready-set-requalification",
+  "request_path": "project-memory/requests/20260826T102700Z-cell3-ready-set-requalification.json",
+  "request_sha256": "sha256:b3be1dde5a317be47e68b51f255de677106ad11aec6eb987864a95509c98373a",
+  "request_transport_sha256": "sha256:1d5066083c776d0556e6c51b8ec34792a8e8bba06aa8cb78f6cc87d8683b45b1",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL3 preserved the authoritative ForcedTop25 and admitted the new exact-head evidence without reranking. The prior CELL3 Project mutation is now receipted by Project v2 proxy commit aed1fb252d2de71e3cf21279eefed7de09172456. Three already-realized ForcedTop25 consumers moved from their prior failed exact subjects to new repair heads: autofde-lab#88@3dd9cce318711533b00f0cf36c941b3d15d14d29, autofde#33@49c55a70937763966795d41485ff35554700ee93, xaas#32@a0660ef4f30154e4f0a3b1d509f71628849b46cd. Their owning R80 consumer courts are currently in progress, so none is promoted to COMPATIBLE_READY or Q. autofde-lab general PR CI is SUCCESS; autofde Self-Manufacturing Crown is SUCCESS; xaas native CI/CD Elixir remains FAILURE. The repaired consumers bind admitted R80 producer subject ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75. The broader R81/R82 marketplace PR318 is at c08da479e0e6f77880c576f1b388ef7be4298564 with its owning COMPOSE R81 court SUCCESS but Vacuity Audit FAILURE, so that broader branch is not promoted. No READY ForcedTop25 consumer exists at this observation boundary; all lawful alternatives remain preserved. Consequential DO=false; no merge, release, deployment, external publication, commerce actuation, or security bypass was performed.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5zE",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DD80",
+      "metadata": {
+        "B_new": 1,
+        "Coverage": "<=23.5% against inherited U lower bound; exact U identity mapping unresolved",
+        "Coverage_named": 1.0,
+        "F_A": 3,
+        "F_C": 45,
+        "F_C_portfolio": "UNKNOWN",
+        "F_C_wave": 0,
+        "F_Q": "UNKNOWN",
+        "F_R": 4,
+        "F_R_named": 6,
+        "F_effective": "UNKNOWN",
+        "F_effective_new": 1.0,
+        "M": 4,
+        "MUDA": "no universe rediscovery or reranking; only fresh exact-head dspygen court changed allocation",
+        "MURA": "all observed READY ForcedTop25 work allocated; no ready target starved",
+        "MURI": "WIP=1 active READY consumer; repair-gated and unknown alternatives preserved outside active WIP",
+        "M_exact_named": 3,
+        "M_lower_bound": 2,
+        "M_named": 3,
+        "OpenFanoutObligations": ">=13",
+        "OpenFanoutObligations_confirmed": [
+          "xaas"
+        ],
+        "OpenFanoutObligations_exact_confirmed": [
+          "dspygen",
+          "xaas"
+        ],
+        "OpenFanoutObligations_exact_named": 3,
+        "OpenFanoutObligations_exact_repos": [
+          "autofde-lab",
+          "autofde",
+          "xaas"
+        ],
+        "OpenFanoutObligations_global": "UNKNOWN[INHERITED_U_IDENTITIES_UNBOUND]",
+        "OpenFanoutObligations_inherited_lower_bound": 14,
+        "OpenFanoutObligations_lower_bound": [
+          "xaas"
+        ],
+        "OpenFanoutObligations_named": 3,
+        "Q": 1,
+        "Q_exact": "UNKNOWN[EX4PM_GYMACT_Q_NOT_BOUND_IN_CURRENT_CELL3_RECORD]",
+        "Q_exact_named": 3,
+        "Q_explicit_min": 1,
+        "Q_lower_bound": 2,
+        "Q_scoped": 4,
+        "Q_strict": 3,
+        "Q_strict_full_repo": 1,
+        "R": 4,
+        "R_exact_named": 6,
+        "R_lower_bound": 3,
+        "R_named": 6,
+        "T_A": 0,
+        "T_A_new": 0,
+        "T_M": 0,
+        "T_M_semantic": 3,
+        "U": ">=17",
+        "U_exact_named": 6,
+        "U_global_lower_bound": 17,
+        "U_inherited_lower_bound": 17,
+        "U_lower_bound": 17,
+        "U_named": 6,
+        "WIP_budget": 1,
+        "WIP_remaining": ">=13 fanout obligations by inherited U lower bound",
+        "andon": [
+          "XAAS_CI_CD_ELIXIR_FAILURE",
+          "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+          "M_IDENTITY_NOT_CLOSED"
+        ],
+        "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY",
+        "blockers": [
+          "21 named forced targets lack target-specific admissibility identity mapping",
+          "xaas broad CI/CD Elixir remains failing on merged exact head",
+          "chatgpt-cloud-elixir lacks downstream product/runtime causality receipt"
+        ],
+        "canonical_paths": [
+          "forced-top25-standard-consumer-factory-pack",
+          "epistemic-sensor-factory-pack:r75",
+          "forced-top25-r75-realization-composition-pack"
+        ],
+        "cell": "CELL3_LEGAL_READY_SET_ALLOCATION",
+        "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+        "cell5_handoff": "REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPTS]",
+        "close_ready": [
+          "ex4pm",
+          "gymact"
+        ],
+        "consequential_do": false,
+        "consequential_external_do": false,
+        "consumer_andon": [
+          {
+            "head": "d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a",
+            "pr": 88,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA",
+            "repo": "autofde-lab"
+          },
+          {
+            "head": "bf753d1dfdc137a6fce04008a2841752216654bb",
+            "pr": 33,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA",
+            "repo": "autofde"
+          },
+          {
+            "head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+            "pr": 32,
+            "reason": "UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL",
+            "repo": "xaas"
+          }
+        ],
+        "consumer_ready_set": [
+          "ex4pm",
+          "gymact"
+        ],
+        "consumer_regeneration_required": [
+          "autofde-lab#88",
+          "autofde#33",
+          "xaas#32"
+        ],
+        "consumer_repo_commits": 0,
+        "control_commits": 6,
+        "control_commits_excluded": true,
+        "control_commits_excluded_from_true_fanout": true,
+        "created_at": "2026-08-26T04:36:39Z",
+        "dependencies": {
+          "dspygen": [
+            "CELL4 closure/default-lineage assimilation"
+          ],
+          "unknown21": [
+            "target-specific admissibility identity/receipt"
+          ],
+          "xaas": [
+            "repair exact native test failure without weakening successful compile/admission"
+          ]
+        },
+        "discovered_consumers": [],
+        "downstream_heads": {
+          "dspygen_pr36": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+          "ex4pm_main": "06d326f59d05afdcd39637f42fe277a474095dda",
+          "gymact_main": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+          "xaas_main": "2207203b1bef612cc55a52676b8e607f930640e7"
+        },
+        "downstream_repositories_touched": [
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact",
+          "seanchatmangpt/xaas"
+        ],
+        "downstream_unique_commits_new": 0,
+        "downstream_unique_commits_realized_total": 11,
+        "downstream_unique_commits_this_wave": 0,
+        "downstream_unique_commits_wave": 0,
+        "draft_prs": [
+          "seanchatmangpt/ex4pm#34",
+          "seanchatmangpt/gymact#126",
+          "seanchatmangpt/xaas#31"
+        ],
+        "dspygen_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "dspygen_qualification": "PARTIAL_ALIVE[OWNING_COURT_IN_PROGRESS]",
+        "duplicate_lineages": [],
+        "evidence": {
+          "gymact_r79_conclusion": "success",
+          "gymact_r79_run": 32933652655,
+          "xaas_compile": "success",
+          "xaas_native_run": 32940830647,
+          "xaas_r79_conclusion": "success",
+          "xaas_r79_run": 32940830643,
+          "xaas_tests": "failure"
+        },
+        "ex4pm": {
+          "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "standing": "ALIVE[SCOPED_R79_COURT]"
+        },
+        "expected_downstream_ready_commits": 22,
+        "expected_fanout": "three realized consumers are requalifying in parallel; promote each independently only when its owning exact-head court succeeds, while XaaS additionally retains native-CI repair debt",
+        "fanout_targets": {
+          "POWL": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "SREGym": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "a2a-rs": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "ash_r2rml": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "autofde": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "autofde-lab": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "cargo-cicd": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "chatgpt-cloud-elixir": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TRUE_FANOUT_PRODUCT_RUNTIME_ADMISSIBILITY_NOT_BOUND; CONTROL_COMMITS_EXCLUDED"
+          },
+          "chatman-ecosystem": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "clap-noun-verb": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "dspygen": {
+            "classification": "CLOSE_READY",
+            "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "human_value": "UNKNOWN",
+            "merge": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+            "reason": "EXACT_HEAD_QUALIFIED_AND_DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "ex4pm": {
+            "classification": "CLOSE_READY",
+            "human_value": "UNKNOWN",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "fdegym": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "gymact": {
+            "classification": "CLOSE_READY",
+            "human_value": "UNKNOWN",
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED"
+          },
+          "mfact": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "mfact-command-center": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "mfw": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "pm4wasm": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "process-intelligence": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "revops": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "swarmsh-v2": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "unrdf": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "wasm4pm": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          },
+          "xaas": {
+            "classification": "REPAIR_REQUIRED",
+            "head": "853350027eb3d8e37162687d65c0ff51090b5c81",
+            "human_value": "UNKNOWN",
+            "merge": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+            "reason": "MERGED_WITH_BROAD_CI_FAILURE; R79_AND_R81_SCOPED_SUCCESS"
+          },
+          "yawl": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN",
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING"
+          }
+        },
+        "forced_observed": 25,
+        "forced_top25": [
+          {
+            "M": true,
+            "Q": true,
+            "R": true,
+            "rank": 1,
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "repo": "ex4pm",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "M": true,
+            "Q": true,
+            "R": true,
+            "rank": 2,
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT",
+            "repo": "gymact",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "Q": false,
+            "R": true,
+            "general_ci": "SUCCESS",
+            "head": "3dd9cce318711533b00f0cf36c941b3d15d14d29",
+            "pr": 88,
+            "rank": 3,
+            "reason": "REQUALIFYING_OWNING_R80_COURT_IN_PROGRESS",
+            "repo": "autofde-lab",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "Q": false,
+            "R": true,
+            "head": "49c55a70937763966795d41485ff35554700ee93",
+            "pr": 33,
+            "rank": 4,
+            "reason": "REQUALIFYING_OWNING_R80_COURT_IN_PROGRESS",
+            "repo": "autofde",
+            "self_manufacturing_crown": "SUCCESS",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "Q": false,
+            "R": true,
+            "head": "a0660ef4f30154e4f0a3b1d509f71628849b46cd",
+            "native_ci": "FAILURE",
+            "pr": 32,
+            "rank": 5,
+            "reason": "REQUALIFYING_R80_COURT_IN_PROGRESS_AND_NATIVE_CI_FAILURE",
+            "repo": "xaas",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "rank": 6,
+            "reason": "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND_TO_CURRENT_FANOUT",
+            "repo": "chatgpt-cloud-elixir",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 7,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "process-intelligence",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 8,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "ash_r2rml",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 9,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "wasm4pm",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 10,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "pm4wasm",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 11,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfact",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 12,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfact-command-center",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 13,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "mfw",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 14,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "SREGym",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 15,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "fdegym",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 16,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "revops",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 17,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "chatman-ecosystem",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 18,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "POWL",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 19,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "swarmsh-v2",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 20,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "cargo-cicd",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 21,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "clap-noun-verb",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 22,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "unrdf",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "M": true,
+            "Q": true,
+            "R": true,
+            "head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+            "merge_commit": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+            "rank": 23,
+            "reason": "DEFAULT_LINEAGE_ASSIMILATED",
+            "repo": "dspygen",
+            "state": "COMPATIBLE_NOT_READY"
+          },
+          {
+            "rank": 24,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "yawl",
+            "state": "UNKNOWN_WITH_REASON"
+          },
+          {
+            "rank": 25,
+            "reason": "TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING",
+            "repo": "a2a-rs",
+            "state": "UNKNOWN_WITH_REASON"
+          }
+        ],
+        "forced_top25_count": 25,
+        "global_U_standing": "UNKNOWN_UNTIL_UPSTREAM_ADMISSIBILITY_RECEIPTS",
+        "gymact": {
+          "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+        },
+        "handoff_cell4": "Consume gymact#126 exact head first as the sole READY consumer; preserve xaas behind its observed failure; admit further ForcedTop25 targets only from exact target-specific receipts generated from canonical factory capital.",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout",
+        "known_U_lower_bound": 2,
+        "known_metrics": {
+          "M_lower_bound": 2,
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U_lower_bound": 2
+        },
+        "merge_ready": [],
+        "merge_ready_new": 0,
+        "merge_ready_repos": [
+          "dspygen"
+        ],
+        "merges": 0,
+        "metrics": {
+          "M_r79": 1,
+          "OpenFanoutObligations": 2,
+          "OpenFanoutObligations_repos": [
+            "gymact",
+            "xaas"
+          ],
+          "Q_scoped": 2,
+          "R": 2,
+          "U": 3,
+          "unresolved_forced_targets": 22
+        },
+        "muda": "no universe rediscovery/rerank; only exact-head transitions and Project receipt were consumed",
+        "mura": "no READY starvation because ready_set is empty; all three requalifying consumers remain parallel preserved alternatives",
+        "muri": "no speculative new consumer WIP while three already-realized exact-head courts execute; XaaS native failure remains an independent repair edge",
+        "new_downstream_commits": 3,
+        "new_downstream_semantic_commits": 12,
+        "new_upstream_commits": 16,
+        "nonready_set": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "open_fanout_obligation_repos": [
+          "xaas"
+        ],
+        "open_fanout_obligations": "UNKNOWN_UNTIL_U_CLOSED; forced target IDs 3-25 remain explicit, with xaas now under active admission",
+        "open_fanout_obligations_lower_bound": 15,
+        "open_repos": [
+          "gymact",
+          "xaas"
+        ],
+        "parallel_branches": 3,
+        "partial_order_edges": [
+          "R80 admitted producer a658cda7066bba344e481173b5b52a0dc18c5c75 -> consumer exact-head construction",
+          "consumer exact-head construction -> owning R80 court",
+          "owning R80 court SUCCESS -> Q",
+          "Q -> CELL4 closure/default-lineage assimilation M",
+          "shared generated-closure defect -> R82 canonical repair -> future consumer qualification"
+        ],
+        "per_target": {
+          "POWL": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "SREGym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "a2a-rs": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "ash_r2rml": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "autofde": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "autofde-lab": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "cargo-cicd": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "chatgpt-cloud-elixir": "REPAIR_REQUIRED[TARGET_SPECIFIC_GGEN_ADMISSIBILITY_RECEIPT_MISSING;CONTROL_EXCLUDED]",
+          "chatman-ecosystem": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "clap-noun-verb": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "dspygen": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "ex4pm": "CLOSE_READY[MERGED_DEFAULT_ASSIMILATED]",
+          "fdegym": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "gymact": "CLOSE_READY[MERGED_DEFAULT_ASSIMILATED;INHERITED_BROAD_CI_DEBT_REMAINS_HISTORICAL]",
+          "mfact": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "mfact-command-center": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "mfw": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "pm4wasm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "process-intelligence": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "revops": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "swarmsh-v2": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "unrdf": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "wasm4pm": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]",
+          "xaas": "REPAIR_REQUIRED[R79_ALIVE;R81_ALIVE;BROAD_CI_REQUALIFYING]",
+          "yawl": "REPAIR_REQUIRED[TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING]"
+        },
+        "pr": 318,
+        "preserved_alternatives": [
+          "autofde-lab#88@3dd9cce318711533b00f0cf36c941b3d15d14d29 await exact-head R80 court",
+          "autofde#33@49c55a70937763966795d41485ff35554700ee93 await exact-head R80 court",
+          "xaas#32@a0660ef4f30154e4f0a3b1d509f71628849b46cd await exact-head R80 court plus repair native CI",
+          "bind at least 11 inherited compatible identities from authoritative U>=17 evidence"
+        ],
+        "previous_project_receipt": {
+          "actuation_performed": true,
+          "receipt_commit": "aed1fb252d2de71e3cf21279eefed7de09172456",
+          "request_id": "20260826T093200Z-cell3-fanout-allocation"
+        },
+        "prior_M_lower_bound": 2,
+        "prior_Q_lower_bound": 2,
+        "prior_R_lower_bound": 2,
+        "producer_base": "f75bdb35c2e9104679325c6772194005cc6fef67",
+        "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+        "producer_head": "079a315c02d686fc6baa1166999dded3afb587fe",
+        "producer_pack": "forced-top25-standard-consumer-factory-pack",
+        "producer_pr": 318,
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "project_memory_loop": "BUILD_BROKEN[PRE_ACTUATION_SEQUENCE_VIOLATION]",
+        "project_snapshot_items": 397,
+        "qualification": "exact-head workflow in progress at producer_head",
+        "qualification_latency": "UNKNOWN[CI_IN_PROGRESS]",
+        "qualification_plan": {
+          "autofde": "observe owning R80 court at 49c55a70937763966795d41485ff35554700ee93; if SUCCESS promote READY/Q for CELL4, otherwise return exact defect upstream",
+          "autofde-lab": "observe owning R80 court at 3dd9cce318711533b00f0cf36c941b3d15d14d29; if SUCCESS promote READY/Q for CELL4, otherwise return exact defect upstream",
+          "xaas": "observe owning R80 court at a0660ef4f30154e4f0a3b1d509f71628849b46cd independently of native CI; retain native CI repair edge until exact closure criteria are met"
+        },
+        "ready_set": [],
+        "regenerations": 0,
+        "regenerations_new": 0,
+        "regenerations_wave": 0,
+        "repair_gated": [
+          "xaas"
+        ],
+        "repair_required": [
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_ready_coverage": 1.0,
+        "selected_workstreams": [],
+        "source_cell3_head": "26dedf79df44bdd1ba710b336bcedcaec07b5503",
+        "standing": "PARTIAL_ALIVE",
+        "superseded": [],
+        "superseded_work": [],
+        "tags": [
+          "exact-head",
+          "forced-top25",
+          "ggen",
+          "r80",
+          "r82",
+          "ready-set",
+          "tcps"
+        ],
+        "transport_head": "7ff6b299baf215585e0511a71da9f9c0c6fb5292",
+        "true_fanout_accounting": {
+          "control_commits_excluded": true,
+          "new_consumer_commits_this_cell": 0,
+          "new_consumer_merges_this_cell": 0
+        },
+        "true_fanout_new": 0,
+        "true_fanout_standing": "PARTIAL_ALIVE",
+        "unknown_count": 22,
+        "unknown_targets": 22,
+        "unresolved_compatible_identity_debt_min": 11,
+        "unresolved_forced_targets": [
+          "autofde-lab",
+          "autofde",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "updated_at": "2026-08-26T10:32:30Z",
+        "upstream": {
+          "owning_compose_court": "SUCCESS",
+          "r80_admitted_producer_head": "a658cda7066bba344e481173b5b52a0dc18c5c75",
+          "r81_r82_head": "c08da479e0e6f77880c576f1b388ef7be4298564",
+          "r81_r82_pr": 318,
+          "vacuity_audit": "FAILURE"
+        },
+        "upstream_downstream_heads": {
+          "chatgpt-cloud-elixir-main": "dd043329f055a5e10dbbb76555b21b796fb4f8ad",
+          "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "xaas": "9a7dda3044311e2fbdec5a8d8171e31642dfe2d7"
+        },
+        "upstream_heads": {
+          "ggen": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+          "ggen-marketplace": "f75bdb35c2e9104679325c6772194005cc6fef67"
+        },
+        "upstream_repair": {
+          "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+          "ci_run": 32954476907,
+          "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+          "merged": false,
+          "pr": 321,
+          "repo": "ggen-marketplace",
+          "standing": "ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]",
+          "vacuity_run": 32954476949
+        },
+        "upstream_returns": 0,
+        "upstream_returns_new": 0,
+        "upstream_returns_wave": 1,
+        "upstream_unique_commits": 0,
+        "upstream_unique_commits_this_wave": 0,
+        "upstream_unique_commits_wave": 2,
+        "wip_budget": {
+          "identity_binding_streams": 1,
+          "new_speculative_streams": 0,
+          "ready_allocation_streams": 0,
+          "requalifying_consumer_streams": 3
+        },
+        "wip_budget_used": 0,
+        "xaas": {
+          "ahead_by": 31,
+          "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+          "behind_by": 0,
+          "branch": "fanout/r79-tcps-admission",
+          "broad_ci": "IN_PROGRESS",
+          "broad_ci_run": 32946813480,
+          "head": "e8120b10cfd30c911ac710eb7ba9411943ab41da",
+          "human_value": "HUMAN_VALUE_UNKNOWN",
+          "pr": 31,
+          "r79": "ALIVE",
+          "r79_run": 32946813432,
+          "r81": "ALIVE",
+          "r81_run": 32946813512
+        }
+      },
+      "title": "GGEN legal ready-set allocation current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
