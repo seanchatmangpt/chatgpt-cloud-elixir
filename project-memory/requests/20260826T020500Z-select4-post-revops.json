@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T020500Z-select4-post-revops",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "ocel/v2/revops/current",
+    "title": "Dual RevOps structural evidence",
+    "kind": "measurement",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["revops", "revenue-from", "revenue-for", "ocel"],
+    "body": "R73 now independently falsifies missing payer, beneficiary, causal capability, receipt, exact head, time window, attribution confidence, retention and expansion evidence while preserving RevenueFROMCustomer != RevenueFORCustomer. R74 provides the compatible deterministic structural-option factory after ggen schema repair. Next value path is qualified R73 evidence -> R74 option manufacture -> consumer regeneration -> qualification -> observed value/revenue outcomes.",
+    "metadata": {"run_id":"6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP","revenue_from_customer":"DISTINCT","revenue_for_customer":"DISTINCT","r73_head":"4db0e87d419e6acd27d0b5c98537c8d669f2fc05","r74_head":"c1153cd1d5da92b8e0c4da7e5636547a3a209d8f","customer_revenue_yield":"UNKNOWN"}
+  }}
+}
