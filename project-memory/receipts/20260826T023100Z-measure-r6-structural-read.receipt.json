@@ -1,0 +1,61 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:30:52Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/structural-manufacturing/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T023100Z-measure-r6-structural-read"
+  },
+  "request_id": "20260826T023100Z-measure-r6-structural-read",
+  "request_path": "project-memory/requests/20260826T023100Z-measure-r6-structural-read.json",
+  "request_sha256": "sha256:f2eaa507da2687095ab6d24620fab6dc67e93d106f632021e08a98bf65664c76",
+  "request_transport_sha256": "sha256:fd4d72dcbb1e0558369c55a1a9b901f17edaa1dc66683fe1934f454199127a4f",
+  "result": {
+    "body": "Canonical R73 sensor family now has 132 structural/RevOps/throughput courts on exact candidate 4db0e87d. R74 revenue-structural-option-factory ggen.toml was migrated from obsolete projection/gate tables to admitted [generation] + [[generation.rules]] schema at c1153cd1. Desired flow: ExistingStructure -> DisplacementDecision -> DesiredStructure -> public ontology -> pack/composition -> generator -> GeneratedStructure -> consumers -> qualification -> agent refinement -> upstream promotion -> regeneration -> supersession -> throughput/value evidence.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_4I0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CS_E",
+    "metadata": {
+      "D": "PENDING_EXACT_QUALIFICATION",
+      "F": "UNCHANGED",
+      "G": 1.0,
+      "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+      "cell": "SELECT_DEVELOP",
+      "created_at": "2026-08-26T02:17:42Z",
+      "key": "ggen/structural-manufacturing/current",
+      "kind": "capability",
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "factory",
+        "ggen",
+        "structural-displacement"
+      ],
+      "updated_at": "2026-08-26T02:17:42Z"
+    },
+    "title": "GGEN structural manufacturing capital"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
