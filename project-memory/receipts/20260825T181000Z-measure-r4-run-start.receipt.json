@@ -1,6 +1,8 @@
 {
+  "actuation_performed": true,
   "error": null,
-  "observed_at": "2026-08-25T18:08:41Z",
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-25T18:22:14Z",
   "operation": "memory.upsert",
   "project": {
     "id": "PVT_kwHOCCCFfc4BhZKe",
@@ -52,6 +54,8 @@
   },
   "request_id": "20260825T181000Z-measure-r4-run-start",
   "request_path": "project-memory/requests/20260825T181000Z-measure-r4-run-start.json",
+  "request_sha256": "sha256:b740fc13f556fcdadaf8a2e07cfdd3781f9e5d049241e5cb9775cb0fb8223571",
+  "request_transport_sha256": "sha256:b444033fd404d63139d085faff5eaa3e1e2af789125123ec02a2c8d3225da3a2",
   "result": {
     "action": "updated",
     "record": {
@@ -150,7 +154,7 @@
         ],
         "thousand_x": "NOT_ADMITTED",
         "transport_head": "657b4281cd78dcb8ccbb140dc747c34109323ec1",
-        "updated_at": "2026-08-25T18:08:49Z",
+        "updated_at": "2026-08-25T18:22:23Z",
         "utc_end": "2026-08-25T14:01:00Z",
         "utc_start": "2026-08-25T17:58:00Z",
         "vacuity_run": 32841749050

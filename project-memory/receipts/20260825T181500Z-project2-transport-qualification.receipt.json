@@ -1,0 +1,85 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-25T18:13:48Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Qualification request for the Project #2 transport invariant. Exact source base is chatgpt-cloud-elixir main@5cc7eafb8700eb03827992798d5babcf9f79a5cf on branch finish/project2-memory-invariant-20260825. The new gate must admit this exact request, serialize mutation through the single Project #2 concurrency domain, execute the bounded proxy, and commit a digest-bound ALIVE operation receipt. This memory record remains PARTIAL_ALIVE until that receipt is observed; a subsequent crown request may promote the transport standing using the exact receipt as provenance.",
+        "cell": "SYSTEM",
+        "key": "dfcm/system/project2-transport/current",
+        "kind": "dfcm.system.transport",
+        "metadata": {
+          "base_sha": "5cc7eafb8700eb03827992798d5babcf9f79a5cf",
+          "branch": "finish/project2-memory-invariant-20260825",
+          "expected_receipt": "project-memory/receipts/20260825T181500Z-project2-transport-qualification.receipt.json",
+          "gate_schema": "chatgpt-project-memory-gate/v2",
+          "objective": "one-project serialized fail-closed exactly-once transport"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "project2",
+          "shared-memory",
+          "transport-gate",
+          "qualification"
+        ],
+        "title": "Project #2 transport invariant qualification"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T181500Z-project2-transport-qualification"
+  },
+  "request_id": "20260825T181500Z-project2-transport-qualification",
+  "request_path": "project-memory/requests/20260825T181500Z-project2-transport-qualification.json",
+  "request_sha256": "sha256:97c05f003d16058a268a102b54929219d61c24f498b64991541d0be9ea06f70b",
+  "request_transport_sha256": "sha256:080818c1a8a8e4f2a5eba12cfbe07dd91151e7fa7dc85cbec3d983958d896b86",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Qualification request for the Project #2 transport invariant. Exact source base is chatgpt-cloud-elixir main@5cc7eafb8700eb03827992798d5babcf9f79a5cf on branch finish/project2-memory-invariant-20260825. The new gate must admit this exact request, serialize mutation through the single Project #2 concurrency domain, execute the bounded proxy, and commit a digest-bound ALIVE operation receipt. This memory record remains PARTIAL_ALIVE until that receipt is observed; a subsequent crown request may promote the transport standing using the exact receipt as provenance.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_wwQ",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg3_T6A",
+      "metadata": {
+        "base_sha": "5cc7eafb8700eb03827992798d5babcf9f79a5cf",
+        "branch": "finish/project2-memory-invariant-20260825",
+        "cell": "SYSTEM",
+        "created_at": "2026-08-25T18:13:56Z",
+        "expected_receipt": "project-memory/receipts/20260825T181500Z-project2-transport-qualification.receipt.json",
+        "gate_schema": "chatgpt-project-memory-gate/v2",
+        "key": "dfcm/system/project2-transport/current",
+        "kind": "dfcm.system.transport",
+        "objective": "one-project serialized fail-closed exactly-once transport",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "project2",
+          "qualification",
+          "shared-memory",
+          "transport-gate"
+        ],
+        "updated_at": "2026-08-25T18:13:56Z"
+      },
+      "title": "Project #2 transport invariant qualification"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
