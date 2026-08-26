@@ -1,0 +1,30 @@
+{
+  "request_id": "20260826T033145Z-select4-run-control-running",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/select/current",
+      "title": "SELECT+DEVELOP run control",
+      "kind": "dfcm.run_control",
+      "cell": "SELECT_DEVELOP",
+      "standing": "RUNNING",
+      "tags": ["dfcm","select","develop","tcps","capital-allocation"],
+      "body": "UTC start 2026-08-26T03:28:26Z. Project snapshot PVT_kwHOCCCFfc4BhZKe item_count=387. Exact marketplace main=8ecb78504241aef4fb1de1bd4f14bd1e71089a0b. Memory consumed/requested: dfcm/frontier/current, dfcm/ledger/current, dfcm/explore/latest, dfcm/select/latest, dfcm/portfolio/latest, ggen/structural-manufacturing/current, ocel/v2/revops/current, manufacturing/schedule-throughput/current, tcps/schedule-actuation/current, plus capital-frontier query. Admissible portfolio: R78 TCPS ready-set capital compiler on current R77 substrate; preserve/requalify R76 structural-capital compiler and R74 structural-option factory as compatible alternatives. Initial Y=UNKNOWN; M>=2; weakest multiplier=qualified cross-repository consumer fanout. Hard gates: exact-current subject, purpose branch, marketplace-first, public ontology, no ambient DO, exact-head qualification, branch protection/policy.",
+      "metadata": {
+        "run_id": "select4+20260826T032826Z+SELECT_DEVELOP",
+        "started_at": "2026-08-26T03:28:26Z",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_item_count": 387,
+        "transport_head_before_request": "aa9af29eb192da115f0f21ba5f347eafe6009194",
+        "marketplace_head": "8ecb78504241aef4fb1de1bd4f14bd1e71089a0b",
+        "Y": "UNKNOWN",
+        "M": ">=2",
+        "weakest_multiplier": "qualified_cross_repository_consumer_fanout",
+        "tcps_patterns_applied": ["downstream_customer_first","partial_order_preservation","ready_set_only","legality_before_priority","linear_extension_at_execution_edge","parallelism_as_production_space","pull_from_downstream","upstream_return","qualified_novelty_to_standard_work"],
+        "admissible_set": ["R78_TCPS_READY_SET_CAPITAL","R76_STRUCTURAL_CAPITAL_REQUALIFY","R74_STRUCTURAL_OPTION_FACTORY_REQUALIFY"],
+        "ready_set": ["R78_TCPS_READY_SET_CAPITAL"]
+      }
+    }
+  }
+}
