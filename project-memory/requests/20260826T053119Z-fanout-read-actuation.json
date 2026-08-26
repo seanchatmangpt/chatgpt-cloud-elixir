@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T053119Z-fanout-read-actuation",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "tcps/schedule-actuation/current", "include_archived": true}
+}
