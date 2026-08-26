@@ -40,6 +40,10 @@ migration, Ash ecosystem verification, application tests, production release,
 and Docker-image construction. A successful projection fixture or Project-bus
 receipt cannot substitute for those runtime gates.
 
+The Python Project-memory verifier is an independent projection-law gate; its
+success transfers only while its Python source, tests, and workflow inputs are
+unchanged.
+
 See `../project-memory/SEMANTIC_VIRTUALIZATION.md` for the projection law,
 operations, standing boundaries, and OCEL conformance caveat.
 
