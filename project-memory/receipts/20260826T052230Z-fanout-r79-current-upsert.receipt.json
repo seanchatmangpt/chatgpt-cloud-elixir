@@ -1,0 +1,253 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:20:59Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R79 revalidated the forced Top25 contract and consumed the immediately preceding exact closure state. Prior authoritative lower bounds remain U>=2,R>=2,Q>=2,M>=2 with ex4pm and gymact default-assimilated; the other 23 had UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING. This run created downstream R78-bound consumer workstreams for ex4pm and gymact, each with exact subject binding, fail-closed adversarial court and canonical R78 producer-court qualification; ex4pm exact R79 court is ALIVE, GymAct target-local court passed but producer-court invocation exposed consumer pytest-config leakage and was repaired by isolated pytest execution, now requalifying. XaaS was independently revalidated at main@2207203b1bef612cc55a52676b8e607f930640e7; its current ggen.toml explicitly binds to ggen-marketplace/packs/xaas-ash-core-pack/ontology.ttl, so a third draft workstream now manufactures the missing exact admissibility court and R78 composition proof. No merge was performed; consumer branches remain reversible. Project-memory request/receipt commits remain CONTROL, excluded from downstream fanout metrics.",
+        "cell": "MAXIMUM_FANOUT",
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.realization",
+        "metadata": {
+          "control_commits_excluded": true,
+          "downstream_repositories_touched": [
+            "seanchatmangpt/ex4pm",
+            "seanchatmangpt/gymact",
+            "seanchatmangpt/xaas"
+          ],
+          "draft_prs": [
+            "seanchatmangpt/ex4pm#34",
+            "seanchatmangpt/gymact#126",
+            "seanchatmangpt/xaas#31"
+          ],
+          "ex4pm": {
+            "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "standing": "ALIVE[SCOPED_R79_COURT]"
+          },
+          "forced_top25_count": 25,
+          "gymact": {
+            "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+          },
+          "known_U_lower_bound": 2,
+          "merges": 0,
+          "muda": "avoided guessed consumers and same-repo factory-only work",
+          "mura": "reduced by three parallel downstream branches while preserving all unresolved targets",
+          "muri": "GitHub code-search 502 and hosted-CI queue pressure; neither collapsed the graph",
+          "new_downstream_semantic_commits": 12,
+          "open_fanout_obligations": "UNKNOWN_UNTIL_U_CLOSED; forced target IDs 3-25 remain explicit, with xaas now under active admission",
+          "parallel_branches": 3,
+          "prior_M_lower_bound": 2,
+          "prior_Q_lower_bound": 2,
+          "prior_R_lower_bound": 2,
+          "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+          "producer_head": "aef231ceb3e27150366a11b547dd115720230880",
+          "producer_repo": "seanchatmangpt/ggen-marketplace",
+          "true_fanout_standing": "PARTIAL_ALIVE",
+          "xaas": {
+            "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+            "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+            "standing": "REQUALIFYING[STRUCTURAL_ADMISSION]"
+          }
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "fanout",
+          "forced-top25",
+          "r79",
+          "ggen"
+        ],
+        "title": "R79 ForcedTop25 maximum fanout"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T052230Z-fanout-r79-current-upsert"
+  },
+  "request_id": "20260826T052230Z-fanout-r79-current-upsert",
+  "request_path": "project-memory/requests/20260826T052230Z-fanout-r79-current-upsert.json",
+  "request_sha256": "sha256:8dcf96da8857024af92cfc12c941052be862576b1c5d3d127c6808318fe973b6",
+  "request_transport_sha256": "sha256:85323c764a7fa6ce4b6ffd4df448e5108456e8b6577cfa58122b6074487131f6",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R79 revalidated the forced Top25 contract and consumed the immediately preceding exact closure state. Prior authoritative lower bounds remain U>=2,R>=2,Q>=2,M>=2 with ex4pm and gymact default-assimilated; the other 23 had UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING. This run created downstream R78-bound consumer workstreams for ex4pm and gymact, each with exact subject binding, fail-closed adversarial court and canonical R78 producer-court qualification; ex4pm exact R79 court is ALIVE, GymAct target-local court passed but producer-court invocation exposed consumer pytest-config leakage and was repaired by isolated pytest execution, now requalifying. XaaS was independently revalidated at main@2207203b1bef612cc55a52676b8e607f930640e7; its current ggen.toml explicitly binds to ggen-marketplace/packs/xaas-ash-core-pack/ontology.ttl, so a third draft workstream now manufactures the missing exact admissibility court and R78 composition proof. No merge was performed; consumer branches remain reversible. Project-memory request/receipt commits remain CONTROL, excluded from downstream fanout metrics.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_5zE",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DD80",
+      "metadata": {
+        "cell": "MAXIMUM_FANOUT",
+        "cell5_handoff": "REPAIR_REQUIRED[UPSTREAM_ADMISSIBILITY_RECEIPTS]",
+        "close_ready": [
+          "ex4pm",
+          "gymact"
+        ],
+        "consumer_repo_commits": 0,
+        "control_commits": 6,
+        "control_commits_excluded": true,
+        "created_at": "2026-08-26T04:36:39Z",
+        "downstream_repositories_touched": [
+          "seanchatmangpt/ex4pm",
+          "seanchatmangpt/gymact",
+          "seanchatmangpt/xaas"
+        ],
+        "draft_prs": [
+          "seanchatmangpt/ex4pm#34",
+          "seanchatmangpt/gymact#126",
+          "seanchatmangpt/xaas#31"
+        ],
+        "ex4pm": {
+          "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "standing": "ALIVE[SCOPED_R79_COURT]"
+        },
+        "forced_top25": [
+          "ex4pm",
+          "gymact",
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "forced_top25_count": 25,
+        "gymact": {
+          "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "standing": "REQUALIFYING_AFTER_CONSUMER_PYTEST_ISOLATION_REPAIR"
+        },
+        "key": "ggen/fanout/current",
+        "kind": "ggen.fanout.realization",
+        "known_U_lower_bound": 2,
+        "known_metrics": {
+          "M_lower_bound": 2,
+          "Q_lower_bound": 2,
+          "R_lower_bound": 2,
+          "U_lower_bound": 2
+        },
+        "merges": 0,
+        "muda": "avoided guessed consumers and same-repo factory-only work",
+        "mura": "reduced by three parallel downstream branches while preserving all unresolved targets",
+        "muri": "GitHub code-search 502 and hosted-CI queue pressure; neither collapsed the graph",
+        "new_downstream_semantic_commits": 12,
+        "open_fanout_obligations": "UNKNOWN_UNTIL_U_CLOSED; forced target IDs 3-25 remain explicit, with xaas now under active admission",
+        "parallel_branches": 3,
+        "preserved_alternatives": [
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "prior_M_lower_bound": 2,
+        "prior_Q_lower_bound": 2,
+        "prior_R_lower_bound": 2,
+        "producer_capability": "R78_TCPS_READY_SET_CAPITAL",
+        "producer_head": "aef231ceb3e27150366a11b547dd115720230880",
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "ready_set": [],
+        "repair_required": [
+          "autofde-lab",
+          "autofde",
+          "xaas",
+          "chatgpt-cloud-elixir",
+          "process-intelligence",
+          "ash_r2rml",
+          "wasm4pm",
+          "pm4wasm",
+          "mfact",
+          "mfact-command-center",
+          "mfw",
+          "SREGym",
+          "fdegym",
+          "revops",
+          "chatman-ecosystem",
+          "POWL",
+          "swarmsh-v2",
+          "cargo-cicd",
+          "clap-noun-verb",
+          "unrdf",
+          "dspygen",
+          "yawl",
+          "a2a-rs"
+        ],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstreams": [],
+        "source_cell3_head": "26dedf79df44bdd1ba710b336bcedcaec07b5503",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "fanout",
+          "forced-top25",
+          "ggen",
+          "r79"
+        ],
+        "transport_head": "2af28100f12bba093f931e735bc2f11a2c1537c6",
+        "true_fanout_new": 0,
+        "true_fanout_standing": "PARTIAL_ALIVE",
+        "updated_at": "2026-08-26T05:21:11Z",
+        "wip_budget_used": 0,
+        "xaas": {
+          "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+          "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+          "standing": "REQUALIFYING[STRUCTURAL_ADMISSION]"
+        }
+      },
+      "title": "R79 ForcedTop25 maximum fanout"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
