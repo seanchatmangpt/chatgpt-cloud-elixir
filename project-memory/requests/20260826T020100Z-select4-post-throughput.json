@@ -1,0 +1,29 @@
+{
+  "request_id": "20260826T020100Z-select4-post-throughput",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "manufacturing/schedule-throughput/current",
+    "title": "SELECT+DEVELOP manufacturing throughput",
+    "kind": "measurement",
+    "cell": "SELECT_DEVELOP",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["throughput", "schedule-run", "ggen"],
+    "body": "Run-attributed repository manufacture: 54 meaningful commits. First attributed commit 2026-08-26T01:50:36Z; last attributed repository commit 2026-08-26T01:58:52Z; active span 8.2667 minutes; observed active rate ~6.53 commits/minute and ~391.9 commits/hour. 50 commits are new R73 semantic SPARQL courts; remaining four are R73 verifier/CI repairs and R74 admitted-ggen-schema repair. Previous-hour, same-cell, and 24h mean deltas remain UNKNOWN unless retrieved from canonical Project history; no temporal-proximity inference is promoted to attribution.",
+    "metadata": {
+      "run_id": "6a754ff57148819194fbebd50280e528+20260826T012600Z+SELECT_DEVELOP",
+      "prompt_digest": "8419fc64af11a2fa5b81fe786aad6591a0e7a8f8c8a7ca6f90324238dbef8de2",
+      "meaningful_commits": 54,
+      "semantic_courts": 50,
+      "first_commit_at": "2026-08-26T01:50:36Z",
+      "last_commit_at": "2026-08-26T01:58:52Z",
+      "active_minutes": 8.2667,
+      "commits_per_active_minute": 6.532,
+      "commits_per_hour": 391.94,
+      "previous_hour": "UNKNOWN",
+      "previous_same_cell": "UNKNOWN",
+      "rolling_24h_mean": "UNKNOWN",
+      "attribution": "Schedule-Run trailer + exact SHA ledger"
+    }
+  }}
+}
