@@ -20,7 +20,10 @@ defmodule ChatGPTCloud.HumanValue.WorldTest do
 
     qualified =
       world
-      |> Ash.Changeset.for_update(:qualify, %{status: :qualified, qualified_at: DateTime.utc_now()})
+      |> Ash.Changeset.for_update(:qualify, %{
+        status: :qualified,
+        qualified_at: DateTime.utc_now()
+      })
       |> Ash.update!()
 
     assert qualified.status == :qualified
