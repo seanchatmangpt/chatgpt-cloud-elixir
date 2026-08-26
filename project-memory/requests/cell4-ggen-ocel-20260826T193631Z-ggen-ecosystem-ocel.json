@@ -1,0 +1,23 @@
+{
+  "request_id": "cell4-ggen-ocel-20260826T193631Z-ggen-ecosystem-ocel",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL4",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "ocel", "manufacturing", "project2"],
+      "body": "GGEN Ecosystem OCEL run cell4-ggen-ocel-20260826T193631Z. Digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51. Project 2 stores current process state; Git and OCEL remain receipt evidence.",
+      "metadata": {
+        "run_id": "cell4-ggen-ocel-20260826T193631Z",
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "ggen_first": true,
+        "process_analysis_owner": "wasm4pm"
+      }
+    }
+  }
+}
