@@ -1,0 +1,70 @@
+name: One-shot Semantic Compile Repair
+
+on:
+  push:
+    branches:
+      - feature/project-two-semantic-virtualization-20260825
+    paths:
+      - ".github/workflows/semantic-compile-repair.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: feature/project-two-semantic-virtualization-20260825
+          fetch-depth: 0
+
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+        with:
+          otp-version: "29.0"
+          elixir-version: "1.20.2"
+
+      - name: Repair exact compile falsifier
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path("control-plane/lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex")
+          text = path.read_text()
+          old = '''  defp normalize_int(value, default) when is_binary(value), do: case(Integer.parse(value)) do
+              {int, ""} -> int
+              _ -> default
+            end
+          '''
+          new = '''  defp normalize_int(value, default) when is_binary(value) do
+            case Integer.parse(value) do
+              {int, ""} -> int
+              _ -> default
+            end
+          end
+          '''
+          if old not in text:
+              raise SystemExit("REFUSED[EXPECTED_COMPILE_FALSIFIER_NOT_FOUND]")
+          path.write_text(text.replace(old, new, 1))
+
+      - name: Resolve formatter and compiler closure
+        working-directory: control-plane
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get
+          mix format lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex
+          mix format --check-formatted
+          mix compile --warnings-as-errors
+
+      - name: Commit repair and remove one-shot workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm .github/workflows/semantic-compile-repair.yml
+          git config user.name "project-two-compile-repair[bot]"
+          git config user.email "project-two-compile-repair[bot]@users.noreply.github.com"
+          git add control-plane/lib/chatgpt_cloud_control_plane/dfcm_memory/virtual_project.ex
+          git diff --cached --check
+          git commit -m "fix: compile Project Two semantic integer normalization"
+          git push origin HEAD:feature/project-two-semantic-virtualization-20260825
