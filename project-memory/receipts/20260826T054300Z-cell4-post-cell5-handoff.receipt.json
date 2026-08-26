@@ -1,0 +1,435 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T05:43:20Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL4 consumed exactly the two CELL3-selected READY workstreams. ex4pm#34 is CLOSE_READY: exact 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8, all observed exact-head rails SUCCESS, mergeable, non-draft, unmerged. GymAct#126 is REPAIR_REQUIRED: exact bcb14a65b83fc543bb11acaa84709765ac88f42c, R79 consumer court and world crown SUCCESS, but broad CI has 18 failures. The PR changes only four additive R79 files, so failures are classified inherited broad repository debt rather than an R79 regression; it remains draft and unmerged. XaaS#31 remains inherited REPAIR_REQUIRED from CELL3 due CI/CD Elixir failure and was not selected or mutated. The remaining ForcedTop25 targets retain upstream admissibility-receipt obligations and were not guessed, reranked, or mutated. CELL5 owns closure of all open states. No merge, release, deploy, external publication, commerce actuation, credential exposure, or protection bypass occurred.",
+        "cell": "REALIZE_QUALIFY_FANOUT_POST",
+        "key": "ggen/fanout/cell5/handoff/current",
+        "kind": "ggen.fanout.cell5-handoff",
+        "metadata": {
+          "consequential_do": false,
+          "discovered_targets": [],
+          "duplicate_lineages": [],
+          "metrics": {
+            "Coverage_selected_full_qualified": 0.5,
+            "Coverage_selected_realized": 1.0,
+            "F_A": 2,
+            "F_C": 11,
+            "F_Q_scoped": 2,
+            "F_Q_strict": 1,
+            "F_R": 2,
+            "F_effective_closure_ready": 1,
+            "M_inherited_lower_bound": 2,
+            "M_wave_delta": 0,
+            "OpenFanoutObligations_global": "UNKNOWN_UNTIL_U_CLOSED",
+            "OpenFanoutObligations_lower_bound": 1,
+            "Q_scoped": 2,
+            "Q_strict_full_repo": 1,
+            "R": 2,
+            "T_A": "UNKNOWN_NOT_COMPUTED",
+            "T_M": "UNKNOWN_NOT_COMPUTED",
+            "U_lower_bound": 3,
+            "control_commits_excluded": true,
+            "cycle_latency": "UNKNOWN_NOT_COMPUTED",
+            "downstream_unique_commits": 11,
+            "qualification_latency": "UNKNOWN_NOT_COMPUTED",
+            "upstream_unique_commits": 0
+          },
+          "producer": "ggen-marketplace@aef231ceb3e27150366a11b547dd115720230880:R78_TCPS_READY_SET_CAPITAL",
+          "project_memory": {
+            "mid_receipt_commit": "81346f7082a33c4fb284b837b8bb0d196c1fc195",
+            "mid_receipt_standing": "ALIVE",
+            "mid_request_commit": "254ebe6df6c9e20ad2e9bdf25fe112fa9cdb29c7",
+            "post_request_id": "20260826T054300Z-cell4-post-cell5-handoff"
+          },
+          "regenerations": [],
+          "selected_workstreams": [
+            "seanchatmangpt/ex4pm#34@38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c"
+          ],
+          "superseded_work": [],
+          "targets": {
+            "POWL": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "SREGym": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "a2a-rs": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ash_r2rml": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "autofde-lab": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "cargo-cicd": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "chatgpt-cloud-elixir": {
+              "classification": "REPAIR_REQUIRED",
+              "human_value": "UNKNOWN_NOT_SELECTED_THIS_WAVE",
+              "reason": "CONTROL_REPO; DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "chatman-ecosystem": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "clap-noun-verb": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "dspygen": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "ex4pm": {
+              "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+              "branch": "fanout/r79-tcps-ready-set",
+              "classification": "CLOSE_READY",
+              "commits": 5,
+              "draft": false,
+              "failed_checks": [],
+              "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+              "mergeable": true,
+              "merged": false,
+              "open_state": "UNMERGED_CLOSE_READY",
+              "pending_checks": [],
+              "pr": 34,
+              "standing": "ALIVE_EXACT_HEAD_FULL_REPO"
+            },
+            "fdegym": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "gymact": {
+              "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+              "branch": "fanout/r79-tcps-ready-set",
+              "classification": "REPAIR_REQUIRED",
+              "commits": 6,
+              "draft": true,
+              "failed_checks": [
+                "CI Python 3.11 semantic/runtime",
+                "CI Python 3.12 semantic/runtime",
+                "CI Python 3.13 semantic/runtime"
+              ],
+              "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+              "mergeable": true,
+              "merged": false,
+              "open_state": "INHERITED_BROAD_CI_DEBT",
+              "pending_checks": [],
+              "pr": 126,
+              "standing": "PARTIAL_ALIVE[R79_AND_WORLD_CROWN_ALIVE;BROAD_CI_FAILURE_18]"
+            },
+            "mfact": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfact-command-center": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "mfw": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "pm4wasm": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "process-intelligence": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "revops": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "swarmsh-v2": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "unrdf": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "wasm4pm": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            },
+            "xaas": {
+              "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+              "classification": "REPAIR_REQUIRED",
+              "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+              "pr": 31,
+              "reason": "CELL3_CI_CD_ELIXIR_FAILURE; NOT_SELECTED_THIS_WAVE"
+            },
+            "yawl": {
+              "classification": "REPAIR_REQUIRED",
+              "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+            }
+          },
+          "upstream_returns": [],
+          "wip_remaining": {
+            "close_ready": 1,
+            "repair_required_known": 2,
+            "selected_workstreams_remaining": 1,
+            "upstream_admissibility_receipt_missing": 22
+          }
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell4",
+          "cell5",
+          "forced-top25",
+          "r79",
+          "closure"
+        ],
+        "title": "CELL4 POST: ForcedTop25 R79 closure inventory for CELL5"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T054300Z-cell4-post-cell5-handoff"
+  },
+  "request_id": "20260826T054300Z-cell4-post-cell5-handoff",
+  "request_path": "project-memory/requests/20260826T054300Z-cell4-post-cell5-handoff.json",
+  "request_sha256": "sha256:1b871d1e4b1856a3abb72ae5171c536c1ab054fa538d0e425ff944bbe8ebc7ac",
+  "request_transport_sha256": "sha256:71eec42b39082fae27bb907519f2502e2236178b7dd4fa958fb7d1ec8eae5929",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "CELL4 consumed exactly the two CELL3-selected READY workstreams. ex4pm#34 is CLOSE_READY: exact 38b181d4a26aa9cb92f01ac1f898a366c47ae7c8, all observed exact-head rails SUCCESS, mergeable, non-draft, unmerged. GymAct#126 is REPAIR_REQUIRED: exact bcb14a65b83fc543bb11acaa84709765ac88f42c, R79 consumer court and world crown SUCCESS, but broad CI has 18 failures. The PR changes only four additive R79 files, so failures are classified inherited broad repository debt rather than an R79 regression; it remains draft and unmerged. XaaS#31 remains inherited REPAIR_REQUIRED from CELL3 due CI/CD Elixir failure and was not selected or mutated. The remaining ForcedTop25 targets retain upstream admissibility-receipt obligations and were not guessed, reranked, or mutated. CELL5 owns closure of all open states. No merge, release, deploy, external publication, commerce actuation, credential exposure, or protection bypass occurred.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_6XA",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Db78",
+      "metadata": {
+        "cell": "REALIZE_QUALIFY_FANOUT_POST",
+        "consequential_do": false,
+        "created_at": "2026-08-26T05:43:32Z",
+        "discovered_targets": [],
+        "duplicate_lineages": [],
+        "key": "ggen/fanout/cell5/handoff/current",
+        "kind": "ggen.fanout.cell5-handoff",
+        "metrics": {
+          "Coverage_selected_full_qualified": 0.5,
+          "Coverage_selected_realized": 1.0,
+          "F_A": 2,
+          "F_C": 11,
+          "F_Q_scoped": 2,
+          "F_Q_strict": 1,
+          "F_R": 2,
+          "F_effective_closure_ready": 1,
+          "M_inherited_lower_bound": 2,
+          "M_wave_delta": 0,
+          "OpenFanoutObligations_global": "UNKNOWN_UNTIL_U_CLOSED",
+          "OpenFanoutObligations_lower_bound": 1,
+          "Q_scoped": 2,
+          "Q_strict_full_repo": 1,
+          "R": 2,
+          "T_A": "UNKNOWN_NOT_COMPUTED",
+          "T_M": "UNKNOWN_NOT_COMPUTED",
+          "U_lower_bound": 3,
+          "control_commits_excluded": true,
+          "cycle_latency": "UNKNOWN_NOT_COMPUTED",
+          "downstream_unique_commits": 11,
+          "qualification_latency": "UNKNOWN_NOT_COMPUTED",
+          "upstream_unique_commits": 0
+        },
+        "producer": "ggen-marketplace@aef231ceb3e27150366a11b547dd115720230880:R78_TCPS_READY_SET_CAPITAL",
+        "project_memory": {
+          "mid_receipt_commit": "81346f7082a33c4fb284b837b8bb0d196c1fc195",
+          "mid_receipt_standing": "ALIVE",
+          "mid_request_commit": "254ebe6df6c9e20ad2e9bdf25fe112fa9cdb29c7",
+          "post_request_id": "20260826T054300Z-cell4-post-cell5-handoff"
+        },
+        "regenerations": [],
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstreams": [
+          "seanchatmangpt/ex4pm#34@38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "seanchatmangpt/gymact#126@bcb14a65b83fc543bb11acaa84709765ac88f42c"
+        ],
+        "standing": "PARTIAL_ALIVE",
+        "superseded_work": [],
+        "tags": [
+          "cell4",
+          "cell5",
+          "closure",
+          "forced-top25",
+          "r79"
+        ],
+        "targets": {
+          "POWL": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "SREGym": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "a2a-rs": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "ash_r2rml": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "autofde": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "autofde-lab": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "cargo-cicd": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "chatgpt-cloud-elixir": {
+            "classification": "REPAIR_REQUIRED",
+            "human_value": "UNKNOWN_NOT_SELECTED_THIS_WAVE",
+            "reason": "CONTROL_REPO; DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "chatman-ecosystem": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "clap-noun-verb": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "dspygen": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "ex4pm": {
+            "base": "e2e36755f87c9a5297ed1d2727929f6a7031caf2",
+            "branch": "fanout/r79-tcps-ready-set",
+            "classification": "CLOSE_READY",
+            "commits": 5,
+            "draft": false,
+            "failed_checks": [],
+            "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+            "mergeable": true,
+            "merged": false,
+            "open_state": "UNMERGED_CLOSE_READY",
+            "pending_checks": [],
+            "pr": 34,
+            "standing": "ALIVE_EXACT_HEAD_FULL_REPO"
+          },
+          "fdegym": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "gymact": {
+            "base": "f3457bdb8a7878946783d34f402b95774eaf8c4b",
+            "branch": "fanout/r79-tcps-ready-set",
+            "classification": "REPAIR_REQUIRED",
+            "commits": 6,
+            "draft": true,
+            "failed_checks": [
+              "CI Python 3.11 semantic/runtime",
+              "CI Python 3.12 semantic/runtime",
+              "CI Python 3.13 semantic/runtime"
+            ],
+            "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+            "mergeable": true,
+            "merged": false,
+            "open_state": "INHERITED_BROAD_CI_DEBT",
+            "pending_checks": [],
+            "pr": 126,
+            "standing": "PARTIAL_ALIVE[R79_AND_WORLD_CROWN_ALIVE;BROAD_CI_FAILURE_18]"
+          },
+          "mfact": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "mfact-command-center": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "mfw": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "pm4wasm": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "process-intelligence": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "revops": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "swarmsh-v2": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "unrdf": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "wasm4pm": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          },
+          "xaas": {
+            "base": "2207203b1bef612cc55a52676b8e607f930640e7",
+            "classification": "REPAIR_REQUIRED",
+            "head": "3b16d499ca1e39aebdee5316eb3d5cae3941113b",
+            "pr": 31,
+            "reason": "CELL3_CI_CD_ELIXIR_FAILURE; NOT_SELECTED_THIS_WAVE"
+          },
+          "yawl": {
+            "classification": "REPAIR_REQUIRED",
+            "reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING"
+          }
+        },
+        "updated_at": "2026-08-26T05:43:32Z",
+        "upstream_returns": [],
+        "wip_remaining": {
+          "close_ready": 1,
+          "repair_required_known": 2,
+          "selected_workstreams_remaining": 1,
+          "upstream_admissibility_receipt_missing": 22
+        }
+      },
+      "title": "CELL4 POST: ForcedTop25 R79 closure inventory for CELL5"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
