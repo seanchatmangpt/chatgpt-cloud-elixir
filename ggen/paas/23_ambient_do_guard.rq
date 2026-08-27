@@ -1,0 +1,4 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?intent WHERE {
+  ?intent a cce:ConstructedIntent ; cce:ambientExecutionAuthority true .
+}
