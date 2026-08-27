@@ -1,0 +1,41 @@
+{
+  "request_id": "20260827T024502Z-cell4-cell5-r96-handoff",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/cell5/handoff",
+      "title": "CELL4 R96 to CELL5 terminal handoff",
+      "kind": "ggen.fanout.cell5.handoff",
+      "cell": "CELL4_REALIZE_QUALIFY",
+      "standing": "ALIVE",
+      "tags": ["cell4", "cell5", "tps", "ggen", "qualification"],
+      "body": "Terminal-only R96 handoff. Cell3 admitted exactly ggen-marketplace#351@ab5092c053209fcc30113dbfa0e911a43ffabef6 from base main@9ccbd29a2c6aae8bfc98dfb2d95ddf7f718b7d05. Cell4 produced 51 semantic commits and 2 excluded control commits, ending at exact head 8c482326268638d3b70ccc84666d383d903214ee. One LOCAL Andon was repaired: an equality gate conflated active WIP with terminal closure; permanent replacement rejects negative closureCapacity. Exact-head CI 33034041492 and Vacuity 33034041412 are SUCCESS; real GGEN qualifies ggen-ecosystem-ocel-pack ALIVE with 8 consequence files, source sha256:a4943a2dd471f32bafdbb53c4b371bf6f67f8fde3cedcd1313658373fa13d9c8, consequence sha256:91a8115e799c0c96dc4b2c1500f11f47d303080059ce4639ae4c596a049b8a18. PR351 is open, non-draft, mergeable and QUALIFIED_FOR_CLOSE. admitted_count=1 terminal_count=1 spillover=0. There is no remaining current-cycle READY frontier. PR352@8f5e3ed028356941babe478ccd56151a93ef56d4 remains replenishment-only/not READY and is not handed to Cell5 as WIP. No failed/pending qualification checks, conflicts, stale heads, generated-output edits, merge, release, deploy, or external consequential DO.",
+      "metadata": {
+        "cycle_id": "tps-r96-20260826T19",
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "semantic_commits": 51,
+        "git_commits_new": 53,
+        "control_commits_excluded": 2,
+        "open_prs": [{"repo":"ggen-marketplace","pr":351,"branch":"cell2/tps-standard-r95-20260826","base":"9ccbd29a2c6aae8bfc98dfb2d95ddf7f718b7d05","input_head":"ab5092c053209fcc30113dbfa0e911a43ffabef6","head":"8c482326268638d3b70ccc84666d383d903214ee","draft":false,"mergeable":true,"class":"QUALIFIED_FOR_CLOSE","ci_run_id":33034041492,"vacuity_run_id":33034041412}],
+        "andons": ["LOCAL:terminal_equals_admitted conflated active WIP with terminal closure; repaired to negative closure-capacity falsifier"],
+        "failed_checks": [],
+        "pending_checks": [],
+        "conflicts": [],
+        "stale_heads": [],
+        "remaining_ready_frontier": [],
+        "replenishment_not_ready": ["ggen-marketplace#352@8f5e3ed028356941babe478ccd56151a93ef56d4"],
+        "ggen_pack": "ggen-ecosystem-ocel-pack",
+        "ggen_pack_status": "ALIVE",
+        "ggen_source_sha256": "a4943a2dd471f32bafdbb53c4b371bf6f67f8fde3cedcd1313658373fa13d9c8",
+        "ggen_consequence_sha256": "91a8115e799c0c96dc4b2c1500f11f47d303080059ce4639ae4c596a049b8a18",
+        "ggen_consequence_files": 8,
+        "process_analysis_owner": "wasm4pm/wasm4pm-compat",
+        "generated_outputs_hand_edited": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}
