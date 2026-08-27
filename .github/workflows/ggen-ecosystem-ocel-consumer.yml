@@ -68,6 +68,10 @@ jobs:
           OCEL_DIGEST="sha256:$(sha256sum generated/ggen-ecosystem-ocel.json | awk '{print $1}')"
           export OCEL_DIGEST
           sed -i "s#UNKNOWN\[PRE_GENERATION\]#${OCEL_DIGEST}#" ontology/ggen-ecosystem-ocel-run.ttl
+          # The digest is part of extra_ontologies input. Binding it intentionally
+          # changes the pack input hash, so discard only the ephemeral first-pass
+          # lock and let canonical GGEN re-lock against the observed subject.
+          rm -f ggen.lock
           cargo +nightly run --manifest-path "$RUNNER_TEMP/ggen/Cargo.toml" -p ggen-cli-lib --bin ggen -- sync run
           test "$(sha256sum generated/ggen-ecosystem-ocel.json | awk '{print "sha256:"$1}')" = "${OCEL_DIGEST}"
           jq -e --arg digest "${OCEL_DIGEST}" '.payload.record.key == "ggen/ecosystem/ocel/current" and .payload.record.metadata.ocel_digest == $digest and .payload.record.metadata.ggen_first == true and .payload.record.metadata.process_analysis_owner == "wasm4pm" and (.payload.record.metadata.consumer_heads | length) == 25' generated/project2-ggen-ecosystem-ocel-request.json
