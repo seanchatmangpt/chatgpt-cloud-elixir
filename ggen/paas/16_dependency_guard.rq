@@ -1,0 +1,5 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?run WHERE {
+  ?run a cce:PaaSRun ; cce:declaresOffline true .
+  FILTER NOT EXISTS { ?run cce:dependencyClosureDigest ?digest }
+}
