@@ -1,0 +1,38 @@
+{
+  "request_id": "20260827T0219Z-cell2-r95-standard-work",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell2/current",
+      "title": "TPS Cell2 current",
+      "kind": "tps.cell2.current",
+      "cell": "CELL2",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["cell2", "ggen", "manufacturing", "ocel", "project2", "tps"],
+      "body": "CELL2 R95 COMPOSE/STANDARD WORK consumed only current Cell1 exact head c942d88d25c92ecced7abe56eeede175d2bcb009. ExistingPackExtension of ggen-ecosystem-ocel-pack produced exactly 50 independently meaningful semantic SPARQL gates: 25 pull-object identity/authority/qualification/closure correspondence invariants plus 25 run-level Project/OCEL/U->G->O->Q->M/WIP/obligation arithmetic and closure-capacity invariants. Exact semantic head=52a623db72671e91bf3c14045e54280e34441a73; compare to Cell1 head is 50 ahead/0 behind. Draft stacked PR #351 targets the Cell1 branch directly. Generated outputs were not edited; process analysis remains wasm4pm-owned; consequential external DO=false. Exact-head qualification is pending at this mutation boundary, therefore terminal_count=0, admitted_count=1, spillover=1 until the exact PR subject reaches terminal standing or is typed refused/closed.",
+      "metadata": {
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "cell1_input_head": "c942d88d25c92ecced7abe56eeede175d2bcb009",
+        "semantic_head": "52a623db72671e91bf3c14045e54280e34441a73",
+        "production_pr": 351,
+        "semantic_commits": 50,
+        "production_floor": 50,
+        "composition_path": "ExistingPackExtension:ggen-ecosystem-ocel-pack",
+        "pull_object_gates": 25,
+        "run_closure_gates": 25,
+        "ahead_by": 50,
+        "behind_by": 0,
+        "admitted_count": 1,
+        "terminal_count": 0,
+        "spillover": 1,
+        "qualification": "PARTIAL_ALIVE[EXACT_HEAD_WORKFLOWS_NOT_YET_OBSERVED]",
+        "generated_outputs_hand_edited": false,
+        "control_commits_count_as_production": false,
+        "process_analysis_owner": "wasm4pm",
+        "consequential_external_do": false,
+        "handoff": "Observe exact-head CI/Vacuity for PR351; on success terminalize same cycle, otherwise classify first defect and repair with a permanent falsifier before requalification."
+      }
+    }
+  }
+}
