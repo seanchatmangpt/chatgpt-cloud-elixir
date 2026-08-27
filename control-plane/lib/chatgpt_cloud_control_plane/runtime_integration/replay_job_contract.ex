@@ -4,7 +4,9 @@ defmodule ChatGPTCloud.RuntimeIntegration.ReplayJobContract do
   @enforce_keys [:subject_sha, :receipt_id, :replay_key]
   defstruct [:subject_sha, :receipt_id, :replay_key]
 
-  @spec admit(t()) :: :ok | {:error, :invalid_replay_job} when t: %__MODULE__{}
+  @type t :: %__MODULE__{subject_sha: String.t(), receipt_id: String.t(), replay_key: String.t()}
+
+  @spec admit(t()) :: :ok | {:error, :invalid_replay_job}
   def admit(%__MODULE__{subject_sha: sha, receipt_id: receipt_id, replay_key: replay_key})
       when is_binary(sha) and byte_size(sha) == 40 and is_binary(receipt_id) and receipt_id != "" and
              is_binary(replay_key) and replay_key != "",
