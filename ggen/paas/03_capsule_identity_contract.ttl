@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:CapsuleIdentityContract a cce:PaaSCapsuleContract ;
+  cce:requiresCapsuleIdentity true ;
+  cce:requiresCapsuleDigest true ;
+  cce:requiresVersionTuple true ;
+  cce:requiresArchitectureIdentity true .
