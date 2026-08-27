@@ -3,9 +3,11 @@ defmodule ChatGPTCloud.RuntimeIntegration.SparkContractTest do
 
   alias ChatGPTCloud.RuntimeIntegration.SparkContract
 
-  test "compile-time contract requires standing authority and extension wiring" do
-    assert :ok = SparkContract.validate(%{standing: true, authority: true, extensions: true})
-    assert {:error, :missing_standing_contract} = SparkContract.validate(%{standing: false, authority: true, extensions: true})
-    assert {:error, :missing_authority_contract} = SparkContract.validate(%{standing: true, authority: false, extensions: true})
+  test "requires the complete declared Spark extension set" do
+    extensions = [:ash_json_api, :ash_graphql, :ash_ai, :ash_state_machine, :ash_archival]
+    assert :ok = SparkContract.verify(extensions)
+
+    assert {:error, {:missing_extensions, [:ash_ai]}} =
+             SparkContract.verify(List.delete(extensions, :ash_ai))
   end
 end
