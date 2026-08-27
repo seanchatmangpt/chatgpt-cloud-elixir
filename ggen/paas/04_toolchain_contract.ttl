@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:ToolchainContract a cce:PaaSToolchainContract ;
+  cce:requiresOtpIdentity true ;
+  cce:requiresElixirIdentity true ;
+  cce:requiresHexIdentity true ;
+  cce:requiresRebarIdentity true .
