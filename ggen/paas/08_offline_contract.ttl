@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:OfflineContract a cce:PaaSOfflineContract ;
+  cce:networkFailureIsTopology true ;
+  cce:unchangedNetworkRetryAllowed false ;
+  cce:requiresOfflineVariantWhenDeclared true ;
+  cce:requiresFreshConsumerPhase true .
