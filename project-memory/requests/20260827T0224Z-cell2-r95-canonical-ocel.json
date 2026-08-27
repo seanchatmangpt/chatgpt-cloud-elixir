@@ -1,0 +1,44 @@
+{
+  "request_id": "20260827T0224Z-cell2-r95-canonical-ocel",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL2",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["cell2", "ggen", "manufacturing", "ocel", "project2", "tps"],
+      "body": "CELL2 R95 standard-work manufacture is exact-head ALIVE while canonical OCEL observation remains historical-only. Cell2 consumed Cell1 exact qualified subject c942d88d25c92ecced7abe56eeede175d2bcb009 and extended the existing ggen-ecosystem-ocel-pack with 50 semantic gates. Semantic head=52a623db72671e91bf3c14045e54280e34441a73; publication head=ab5092c053209fcc30113dbfa0e911a43ffabef6; PR #351 exact CI and Vacuity SUCCESS. No fresh deterministic OCEL artifact was generated; digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 is preserved only as unchanged prior admitted evidence and is not a Cell2 observation. terminal_count=admitted_count=1; spillover=0; GGEN-first=true; ladder U->G->O->Q->M; process analysis owner=wasm4pm; consequential external DO=false.",
+      "metadata": {
+        "run_id": "TPS-CELL2-R95-20260826T1910-0700",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "cell1_input_head": "c942d88d25c92ecced7abe56eeede175d2bcb009",
+        "semantic_head": "52a623db72671e91bf3c14045e54280e34441a73",
+        "publication_head": "ab5092c053209fcc30113dbfa0e911a43ffabef6",
+        "production_pr": 351,
+        "semantic_commits": 50,
+        "production_floor": 50,
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "ci": "SUCCESS",
+        "ci_run_id": 33032998698,
+        "vacuity": "SUCCESS",
+        "vacuity_run_id": 33032998768,
+        "ggen_first": true,
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "new_ocel_artifact_generated": false,
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "process_analysis_owner": "wasm4pm",
+        "generated_outputs_hand_edited": false,
+        "control_commits_count_as_production": false,
+        "consequential_external_do": false,
+        "qualification": "ALIVE[EXACT_HEAD_CI_AND_VACUITY_SUCCESS]",
+        "next_ready_frontier": "CELL3 may consume PR351 exact ALIVE standard-work capital; a fresh O event requires a genuinely new deterministic OCEL consequence."
+      }
+    }
+  }
+}
