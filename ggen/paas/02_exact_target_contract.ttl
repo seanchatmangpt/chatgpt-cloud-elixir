@@ -1,0 +1,6 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:ExactTargetContract a cce:PaaSTargetContract ;
+  cce:binds "targetRepo,targetRef,targetSha" ;
+  cce:allowsImplicitBaseMovement false ;
+  cce:requiresConsumerIdentity true .
