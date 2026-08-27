@@ -1,0 +1,31 @@
+{
+  "request_id": "20260827T024500Z-project2-backlog-progress-2",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "project2/backlog/current",
+      "title": "Project #2 backlog execution",
+      "kind": "project.backlog",
+      "cell": "BACKLOG",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["project2", "backlog", "execution", "github"],
+      "body": "Wave 1 refreshed after exact-head qualification. Live Project #2 project.items source had 404 items; receipt search exposed 402 Todo text matches, treated only as text-match count. Six stale/completed issue obligations were terminally reconciled after live repository inspection: dspygen#13 completed; dspygen#6 superseded/not_planned; kanban#2 completed; kanban#4 completed; kanban#7 completed; kanban#14 completed. Four repair PRs are active. dspygen PR#48 exact head 9578976365883448283977e997a2dbeb532f34ea has seven semantic commits and exact-head Ngrok Credential Hygiene, Test, Type Check, Lint, MCP, LSP, Docs and Coverage workflows all SUCCESS; merge remains reversible because main-path docs publication would be an external deploy/publish side effect and provider-side token rotation is not repository-observable. kanban PR#17 exact head 7d683fd20743f0c9bb38b6f8168470d57c79cd08 repairs Docker-secret production boundaries; PR#18 exact head fe198a8554916781c45a750edc1c387fca7763a8 repairs the CPU alert threshold to 50 percent with a regression test; PR#19 exact head 5735e58b9f40954e8d0e025de03cc0d14a7db94a activates the unused-dependency CI check. Kanban hosted CI fails before any job step executes (runner_id 0 / no executed steps observed); build-push and deploy remain skipped, so classify BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC], not source-test failure. Merging kanban main would trigger build/push and deploy surfaces, so these PRs remain unmerged pending lawful qualification/actuation authority. kanban#13 has repository evidence for automatic rollback but issue-close mutation was refused by the tool safety gate and remains open. Wave semantic production=14 commits, excluding Project control commits. No external credential rotation, package publication, registry push, deployment, or live infrastructure actuation was performed.",
+      "metadata": {
+        "source_item_count": 404,
+        "observed_todo_text_matches": 402,
+        "terminal_issue_count_this_wave": 6,
+        "active_pr_count": 4,
+        "semantic_commit_count_this_wave": 14,
+        "dspygen_pr48_head": "9578976365883448283977e997a2dbeb532f34ea",
+        "dspygen_pr48_qualification": "ALIVE[EXACT_HEAD_CREDENTIAL_COURT+GENERAL_CI]",
+        "dspygen_pr48_merge": "PARKED[DOCS_DEPLOY_SIDE_EFFECT+EXTERNAL_ROTATION_UNKNOWN]",
+        "kanban_pr17_head": "7d683fd20743f0c9bb38b6f8168470d57c79cd08",
+        "kanban_pr18_head": "fe198a8554916781c45a750edc1c387fca7763a8",
+        "kanban_pr19_head": "5735e58b9f40954e8d0e025de03cc0d14a7db94a",
+        "kanban_qualification": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+        "kanban_merge": "PARKED[DEPLOY_SIDE_EFFECT_AUTHORITY]"
+      }
+    }
+  }
+}
