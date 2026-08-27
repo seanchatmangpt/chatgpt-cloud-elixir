@@ -4,7 +4,9 @@ defmodule ChatGPTCloud.RuntimeIntegration.ArchiveCommand do
   @enforce_keys [:artifact_id, :reason]
   defstruct [:artifact_id, :reason, hard_delete: false]
 
-  @spec admit(t()) :: :ok | {:error, atom()} when t: %__MODULE__{}
+  @type t :: %__MODULE__{artifact_id: String.t(), reason: String.t(), hard_delete: boolean()}
+
+  @spec admit(t()) :: :ok | {:error, atom()}
   def admit(%__MODULE__{artifact_id: id, reason: reason, hard_delete: false})
       when is_binary(id) and id != "" and is_binary(reason) and reason != "",
       do: :ok
