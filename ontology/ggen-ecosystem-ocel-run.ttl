@@ -1,0 +1,155 @@
+@prefix geocel: <https://ggen.dev/ontology/ggen-ecosystem-ocel#> .
+@prefix run: <https://chatgpt-cloud-elixir.dev/run/cell1-20260826T200101Z#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Projection joins are intentionally explicit. Specialized object classes are
+# also admitted as ManufacturingObject because the canonical pack fails closed
+# on unresolved event/object joins without relying on an inference regime.
+run:primitive-marketplace a geocel:ManufacturingObject .
+run:primitive-ggen a geocel:ManufacturingObject .
+run:project-key-refusal a geocel:ManufacturingObject .
+run:project-read-gate a geocel:ManufacturingObject .
+run:config-falsifier a geocel:ManufacturingObject .
+run:cargo-authority-falsifier a geocel:ManufacturingObject .
+run:repo-01 a geocel:ManufacturingObject .
+run:repo-02 a geocel:ManufacturingObject .
+run:repo-03 a geocel:ManufacturingObject .
+run:repo-04 a geocel:ManufacturingObject .
+run:repo-05 a geocel:ManufacturingObject .
+run:repo-06 a geocel:ManufacturingObject .
+run:repo-07 a geocel:ManufacturingObject .
+run:repo-08 a geocel:ManufacturingObject .
+run:repo-09 a geocel:ManufacturingObject .
+run:repo-10 a geocel:ManufacturingObject .
+run:repo-11 a geocel:ManufacturingObject .
+run:repo-12 a geocel:ManufacturingObject .
+run:repo-13 a geocel:ManufacturingObject .
+run:repo-14 a geocel:ManufacturingObject .
+run:repo-15 a geocel:ManufacturingObject .
+run:repo-16 a geocel:ManufacturingObject .
+run:repo-17 a geocel:ManufacturingObject .
+run:repo-18 a geocel:ManufacturingObject .
+run:repo-19 a geocel:ManufacturingObject .
+run:repo-20 a geocel:ManufacturingObject .
+run:repo-21 a geocel:ManufacturingObject .
+run:repo-22 a geocel:ManufacturingObject .
+run:repo-23 a geocel:ManufacturingObject .
+run:repo-24 a geocel:ManufacturingObject .
+run:repo-25 a geocel:ManufacturingObject .
+
+run:manufacturing-run a geocel:ManufacturingRun ;
+  geocel:runId "cell1-20260826T200101Z" ;
+  geocel:cell "MAXIMUM_FANOUT_FRONTIER" ;
+  geocel:projectOwner "seanchatmangpt" ;
+  geocel:projectNumber 2 ;
+  geocel:projectMemoryKey "ggen/ecosystem/ocel/current" ;
+  geocel:ocelDigest "UNKNOWN[PRE_GENERATION]" ;
+  geocel:standing "PARTIAL_ALIVE" ;
+  geocel:uCount 22 ;
+  geocel:gCount 20 ;
+  geocel:oCount 0 ;
+  geocel:qCount 0 ;
+  geocel:mCount 0 ;
+  geocel:openFanoutObligations 22 ;
+  geocel:openObservationObligations 20 ;
+  geocel:expectedFanout 25 .
+
+run:primitive-marketplace a geocel:GgenPrimitiveObject ;
+  geocel:objectId "ggen-marketplace:ggen-ecosystem-ocel-pack@8f881772256de00cbfbc1e410324f6c4a1ec7134" ;
+  geocel:primitive "ggen-ecosystem-ocel-pack" ;
+  geocel:exactHead "8f881772256de00cbfbc1e410324f6c4a1ec7134" .
+
+run:primitive-ggen a geocel:GgenPrimitiveObject ;
+  geocel:objectId "ggen:88358691bd36c8736e391a5e5c50ad67c665cf97" ;
+  geocel:primitive "ggen-cli" ;
+  geocel:exactHead "88358691bd36c8736e391a5e5c50ad67c665cf97" .
+
+run:project-key-refusal a geocel:RefusalObject ;
+  geocel:objectId "project2:ggen/ecosystem/ocel/current" ;
+  geocel:reason "MEMORY_NOT_FOUND at 2026-08-26T20:02:17Z; canonical key must be created by bounded generated request" .
+
+run:project-read-gate a geocel:RefusalObject ;
+  geocel:objectId "project2:remaining-pre-read-set" ;
+  geocel:reason "connector safety gate refused the second bounded read request before mutation; live Git evidence continued without promoting stale Project memories" .
+
+run:config-falsifier a geocel:FalsifierObject ;
+  geocel:objectId "chatgpt-cloud-elixir:ggen-config-schema-ambiguity" ;
+  geocel:reason "FM-CONFIG-101 rejected project.version plus packs-table shape as ambiguous; project.version removed before requalification" .
+
+run:cargo-authority-falsifier a geocel:FalsifierObject ;
+  geocel:objectId "cargo-cicd:agent-mutation-boundary" ;
+  geocel:reason "cargo-cicd is U but agent mutation is REFUSED unless performed through cargo cicd * locked-mode authority" .
+
+run:repo-01 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/ex4pm@06d326f59d05afdcd39637f42fe277a474095dda" ; geocel:repository "seanchatmangpt/ex4pm" ; geocel:exactHead "06d326f59d05afdcd39637f42fe277a474095dda" .
+run:repo-02 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/gymact@d8382cac7dd888a77c8cca8bcd335a04ddb49a15" ; geocel:repository "seanchatmangpt/gymact" ; geocel:exactHead "d8382cac7dd888a77c8cca8bcd335a04ddb49a15" .
+run:repo-03 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/autofde-lab@a004da26bdf2b0cd2bde434b365dade9916b2fe9" ; geocel:repository "seanchatmangpt/autofde-lab" ; geocel:exactHead "a004da26bdf2b0cd2bde434b365dade9916b2fe9" .
+run:repo-04 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/autofde@d803547355f5fa0febda58abe4d14154b5d54e71" ; geocel:repository "seanchatmangpt/autofde" ; geocel:exactHead "d803547355f5fa0febda58abe4d14154b5d54e71" .
+run:repo-05 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/xaas@5b7fb55ffff02d7434c634ce7d80d54f68fd76e7" ; geocel:repository "seanchatmangpt/xaas" ; geocel:exactHead "5b7fb55ffff02d7434c634ce7d80d54f68fd76e7" .
+run:repo-06 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/chatgpt-cloud-elixir@84c6aa56a659576a44930394bc7eb227dcc782e8" ; geocel:repository "seanchatmangpt/chatgpt-cloud-elixir" ; geocel:exactHead "84c6aa56a659576a44930394bc7eb227dcc782e8" .
+run:repo-07 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/process-intelligence@c1ed9f0393f4782c48e4b0f71aff9c28930d9b44" ; geocel:repository "seanchatmangpt/process-intelligence" ; geocel:exactHead "c1ed9f0393f4782c48e4b0f71aff9c28930d9b44" .
+run:repo-08 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/ash_r2rml@067954ad406fd637fd47646bdb10c4580809c79d" ; geocel:repository "seanchatmangpt/ash_r2rml" ; geocel:exactHead "067954ad406fd637fd47646bdb10c4580809c79d" .
+run:repo-09 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/wasm4pm@da48e98cdde83d5b581d3305b7ec3c041a19d77a" ; geocel:repository "seanchatmangpt/wasm4pm" ; geocel:exactHead "da48e98cdde83d5b581d3305b7ec3c041a19d77a" .
+run:repo-10 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/pm4wasm@21f0174994bff401904c7ea58a0099474768a0da" ; geocel:repository "seanchatmangpt/pm4wasm" ; geocel:exactHead "21f0174994bff401904c7ea58a0099474768a0da" .
+run:repo-11 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/mfact@8a62a7c28e935b9afd05c68f455f475423ec0a7a" ; geocel:repository "seanchatmangpt/mfact" ; geocel:exactHead "8a62a7c28e935b9afd05c68f455f475423ec0a7a" .
+run:repo-12 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/mfact-command-center@dda255df10e9037b9fee014d4ef2eccbd846d902" ; geocel:repository "seanchatmangpt/mfact-command-center" ; geocel:exactHead "dda255df10e9037b9fee014d4ef2eccbd846d902" .
+run:repo-13 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/mfw@72d411c06a141162101397830b2fe8cf0386fd10" ; geocel:repository "seanchatmangpt/mfw" ; geocel:exactHead "72d411c06a141162101397830b2fe8cf0386fd10" .
+run:repo-14 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/SREGym@ce95cdb072c8477dc6d7f6d024e424b18acc3d63" ; geocel:repository "seanchatmangpt/SREGym" ; geocel:exactHead "ce95cdb072c8477dc6d7f6d024e424b18acc3d63" .
+run:repo-15 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/fdegym@dbd9ac3a7107737366e643c362fd3aab0e4125d3" ; geocel:repository "seanchatmangpt/fdegym" ; geocel:exactHead "dbd9ac3a7107737366e643c362fd3aab0e4125d3" .
+run:repo-16 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/revops@6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94" ; geocel:repository "seanchatmangpt/revops" ; geocel:exactHead "6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94" .
+run:repo-17 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/chatman-ecosystem@2ba68907d42a63133a760dd842d87420fc3597fa" ; geocel:repository "seanchatmangpt/chatman-ecosystem" ; geocel:exactHead "2ba68907d42a63133a760dd842d87420fc3597fa" .
+run:repo-18 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/POWL@8701c8a8ed3f07f75b865b292a31009bab6daa54" ; geocel:repository "seanchatmangpt/POWL" ; geocel:exactHead "8701c8a8ed3f07f75b865b292a31009bab6daa54" .
+run:repo-19 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/swarmsh-v2@02e5eaae14bd03a832c0f031acc56c6d4db3845e" ; geocel:repository "seanchatmangpt/swarmsh-v2" ; geocel:exactHead "02e5eaae14bd03a832c0f031acc56c6d4db3845e" .
+run:repo-20 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/cargo-cicd@e64f8224c23771e8c4e5d1d22fb939f812b04e1b" ; geocel:repository "seanchatmangpt/cargo-cicd" ; geocel:exactHead "e64f8224c23771e8c4e5d1d22fb939f812b04e1b" .
+run:repo-21 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/clap-noun-verb@747f1dd4506892c218da4d739c256bcfcf941e50" ; geocel:repository "seanchatmangpt/clap-noun-verb" ; geocel:exactHead "747f1dd4506892c218da4d739c256bcfcf941e50" .
+run:repo-22 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/unrdf@5c1635469be61d0cb01d1e44737d53fc2239a02e" ; geocel:repository "seanchatmangpt/unrdf" ; geocel:exactHead "5c1635469be61d0cb01d1e44737d53fc2239a02e" .
+run:repo-23 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/dspygen@8d9c2fa7f867e317c3fc4fba06903d88b3543180" ; geocel:repository "seanchatmangpt/dspygen" ; geocel:exactHead "8d9c2fa7f867e317c3fc4fba06903d88b3543180" .
+run:repo-24 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/yawl@0db10d6085575ec1d7e98502e99fd53a4493072b" ; geocel:repository "seanchatmangpt/yawl" ; geocel:exactHead "0db10d6085575ec1d7e98502e99fd53a4493072b" .
+run:repo-25 a geocel:RepositoryObject ; geocel:objectId "repo:seanchatmangpt/a2a-rs@4d00bdc917fce87f92706b54f45b643c06494585" ; geocel:repository "seanchatmangpt/a2a-rs" ; geocel:exactHead "4d00bdc917fce87f92706b54f45b643c06494585" .
+
+run:event-read-ocel-refused a geocel:ManufacturingEvent ;
+  geocel:eventId "read-ocel-current-refused" ; geocel:eventType geocel:Refuse ;
+  geocel:eventTime "2026-08-26T20:02:17Z"^^xsd:dateTime ; geocel:sequence 1 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:project-key-refusal ;
+  geocel:standing "REFUSED[MEMORY_NOT_FOUND]" .
+
+run:event-pre-read-gate a geocel:ManufacturingEvent ;
+  geocel:eventId "refuse-remaining-project-pre-read" ; geocel:eventType geocel:Refuse ;
+  geocel:eventTime "2026-08-26T20:03:00Z"^^xsd:dateTime ; geocel:sequence 2 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:project-read-gate ;
+  geocel:standing "REFUSED[PROJECT_TRANSPORT_WRITE_GATE]" .
+
+run:event-admit-pack a geocel:ManufacturingEvent ;
+  geocel:eventId "admit-current-ocel-pack" ; geocel:eventType geocel:Admit ;
+  geocel:eventTime "2026-08-26T20:08:56Z"^^xsd:dateTime ; geocel:sequence 3 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:primitive-marketplace ;
+  geocel:standing "ALIVE" .
+
+run:event-observe-forced-set a geocel:ManufacturingEvent ;
+  geocel:eventId "observe-forced-top25-exact-heads" ; geocel:eventType geocel:Observe ;
+  geocel:eventTime "2026-08-26T20:15:00Z"^^xsd:dateTime ; geocel:sequence 4 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:repo-06 ;
+  geocel:standing "OBSERVED[25_OF_25]" .
+
+run:event-refuse-config a geocel:ManufacturingEvent ;
+  geocel:eventId "refuse-ambiguous-ggen-config" ; geocel:eventType geocel:Refuse ;
+  geocel:eventTime "2026-08-26T20:16:00Z"^^xsd:dateTime ; geocel:sequence 5 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:config-falsifier ;
+  geocel:standing "BUILD_BROKEN[FM-CONFIG-101]" .
+
+run:event-repair-config a geocel:ManufacturingEvent ;
+  geocel:eventId "realize-ggen-config-repair" ; geocel:eventType geocel:Realize ;
+  geocel:eventTime "2026-08-26T20:17:00Z"^^xsd:dateTime ; geocel:sequence 6 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:repo-06 ;
+  geocel:standing "PARTIAL_ALIVE[REQUALIFYING]" .
+
+run:event-generate-pending a geocel:ManufacturingEvent ;
+  geocel:eventId "generate-ocel-project-request" ; geocel:eventType geocel:Generate ;
+  geocel:eventTime "2026-08-26T20:18:00Z"^^xsd:dateTime ; geocel:sequence 7 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:primitive-ggen ;
+  geocel:standing "UNKNOWN[PENDING_EXACT_HEAD_GGEN_EXECUTION]" .
+
+run:event-refuse-cargo a geocel:ManufacturingEvent ;
+  geocel:eventId "refuse-cargo-direct-mutation" ; geocel:eventType geocel:Refuse ;
+  geocel:eventTime "2026-08-26T20:19:00Z"^^xsd:dateTime ; geocel:sequence 8 ;
+  geocel:inRun run:manufacturing-run ; geocel:relatesTo run:cargo-authority-falsifier ;
+  geocel:standing "REFUSED[REPOSITORY_AGENT_AUTHORITY]" .

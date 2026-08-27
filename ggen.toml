@@ -1,0 +1,23 @@
+[project]
+name = "chatgpt-cloud-elixir-ocel"
+
+[ontology]
+source = "ontology/ggen-ecosystem-ocel-run.ttl"
+
+[ontology.prefixes]
+geocel = "https://ggen.dev/ontology/ggen-ecosystem-ocel#"
+prov = "http://www.w3.org/ns/prov#"
+dcterms = "http://purl.org/dc/terms/"
+skos = "http://www.w3.org/2004/02/skos/core#"
+xsd = "http://www.w3.org/2001/XMLSchema#"
+
+# The marketplace pack owns OCEL and Project2 request projections. This
+# consumer supplies only admitted RDF facts. CI materializes this exact
+# marketplace subject into vendor/ggen-marketplace before running GGEN.
+[packs]
+ggen-ecosystem-ocel-pack = { path = "vendor/ggen-marketplace/packs/ggen-ecosystem-ocel-pack", extra_ontologies = ["ontology/ggen-ecosystem-ocel-run.ttl"] }
+
+# Consumer-owned templates are intentionally empty; all projections come from
+# ggen-ecosystem-ocel-pack.
+[templates]
+dir = "templates/ggen-ecosystem-ocel"
