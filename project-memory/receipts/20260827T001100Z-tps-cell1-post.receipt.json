@@ -1,0 +1,27 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": {
+      "column": 1927,
+      "line": 1,
+      "message": "Extra data",
+      "offset": 1926,
+      "reason": "INVALID_REQUEST_JSON"
+    },
+    "message": "Extra data",
+    "type": "TransportAdmissionError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-27T00:10:59Z",
+  "operation": null,
+  "reason": "INVALID_REQUEST_JSON",
+  "request_digest_basis": {},
+  "request_id": null,
+  "request_path": "project-memory/requests/20260827T001100Z-tps-cell1-post.json",
+  "request_sha256": null,
+  "request_transport_sha256": "sha256:37c901c87e6210d38db4f3fd60b8be05050a9983b1738d2fa8abc934787abe0e",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
