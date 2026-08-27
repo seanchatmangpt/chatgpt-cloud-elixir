@@ -1,0 +1,9 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:ConsumerManifest a cce:PaaSConsumerManifest ;
+  cce:projectNumber 2 ;
+  cce:repo "seanchatmangpt/chatgpt-cloud-elixir" ;
+  cce:ggenPrimitive "governed-paas-consumer" ;
+  cce:ocelPath "ggen/ecosystem/ocel/current" ;
+  cce:requiresCapsuleDigest true ;
+  cce:requiresObservedConsumerExecution true .
