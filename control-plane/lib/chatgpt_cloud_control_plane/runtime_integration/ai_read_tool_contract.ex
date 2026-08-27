@@ -4,7 +4,9 @@ defmodule ChatGPTCloud.RuntimeIntegration.AiReadToolContract do
   @enforce_keys [:name, :resource, :action]
   defstruct [:name, :resource, :action, authority: :select]
 
-  @spec admit(t()) :: :ok | {:error, atom()} when t: %__MODULE__{}
+  @type t :: %__MODULE__{name: atom(), resource: atom(), action: atom(), authority: atom()}
+
+  @spec admit(t()) :: :ok | {:error, atom()}
   def admit(%__MODULE__{name: name, resource: resource, action: action, authority: :select})
       when is_atom(name) and is_atom(resource) and action in [:read, :list, :query],
       do: :ok
