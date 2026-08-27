@@ -1,0 +1,27 @@
+{
+  "request_id": "20260827T024000Z-project2-backlog-progress-1",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "project2/backlog/current",
+      "title": "Project #2 backlog execution",
+      "kind": "project.backlog",
+      "cell": "BACKLOG",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["project2", "backlog", "execution", "github"],
+      "body": "Backlog execution started from live Project #2 project.items snapshot (404 items; 402 observed Todo text matches in the receipt search, treated as a match count rather than a fabricated distinct-item count). Terminal stale issues closed after live repository revalidation: dspygen#13 completed; dspygen#6 superseded/not_planned; kanban#2 completed; kanban#4 completed; kanban#7 completed; kanban#14 completed. Active repair workstreams: dspygen PR#48 secret-hygiene exact head 1bab047866ef7052e247e7ec8e727be932939fa4 after two verification-created repairs; kanban PR#17 Docker secrets head 7d683fd20743f0c9bb38b6f8168470d57c79cd08; kanban PR#18 CPU alert threshold head fe198a8554916781c45a750edc1c387fca7763a8; kanban PR#19 unused-dependency CI head 5735e58b9f40954e8d0e025de03cc0d14a7db94a. Kanban hosted PR CI currently fails before executing steps across these independent heads, classified BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]; build/push and deploy jobs were skipped. kanban#13 repository evidence shows rollback configuration exists, but issue-state mutation was refused by the tool safety gate and remains open. No external credential rotation, package publication, deployment, or live infrastructure actuation was performed.",
+      "metadata": {
+        "source_item_count": 404,
+        "observed_todo_text_matches": 402,
+        "terminal_issue_count_this_wave": 6,
+        "active_pr_count": 4,
+        "semantic_commit_count_this_wave": 13,
+        "dspygen_pr48_head": "1bab047866ef7052e247e7ec8e727be932939fa4",
+        "kanban_pr17_head": "7d683fd20743f0c9bb38b6f8168470d57c79cd08",
+        "kanban_pr18_head": "fe198a8554916781c45a750edc1c387fca7763a8",
+        "kanban_pr19_head": "5735e58b9f40954e8d0e025de03cc0d14a7db94a"
+      }
+    }
+  }
+}
