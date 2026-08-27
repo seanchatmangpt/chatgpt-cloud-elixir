@@ -1,0 +1,45 @@
+{
+  "request_id": "20260827T004600Z-cell5-handoff",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell5/handoff",
+      "title": "TPS Cell 5 close handoff",
+      "kind": "tps.cell5.handoff",
+      "cell": "CELL4_TO_CELL5",
+      "standing": "ALIVE",
+      "tags": ["tps", "cell4", "cell5", "ggen", "jidoka", "closure"],
+      "body": "Terminal handoff only; no red/unknown WIP. Card 1: ggen-marketplace PR342 admitted at 6aa3bedd0ee2e87b6331c99211b6a829b5189d0d, Cell4 semantic head a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b, excluded manifest head b0944ff4da41567f116664646dccb24ba8a6400b, 50 new semantic commits (25 Observe->Receipt courts + 25 Merge->Receipt+Replay courts), mergeable but final exact-head CI/Vacuity remained queued with zero jobs; terminal REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE], converted to draft, do not close/merge as qualified. Card 2 replenishment: ggen-marketplace PR343@cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4, base main@5e6d9f00ebb0472dc1f20dac58d01ad3069b06bf, mergeable, non-draft, exact-head CI SUCCESS and Vacuity Audit SUCCESS, QUALIFIED_FOR_CLOSE. Upstream causes: ggen-ecosystem-ocel-pack for PR342 and tps-cell3-heijunka-kanban-pack for PR343. Canonical OCEL remains prior digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 with no fresh Cell4 O claim; wasm4pm remains process-analysis owner. terminal_count=admitted_count=2; spillover=0. No merge/release/deploy/external DO performed.",
+      "metadata": {
+        "admitted_count": 2,
+        "terminal_count": 2,
+        "spillover": 0,
+        "semantic_commits": 50,
+        "pr342": 342,
+        "pr342_base": "5e6d9f00ebb0472dc1f20dac58d01ad3069b06bf",
+        "pr342_admitted_head": "6aa3bedd0ee2e87b6331c99211b6a829b5189d0d",
+        "pr342_semantic_head": "a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b",
+        "pr342_manifest_head": "b0944ff4da41567f116664646dccb24ba8a6400b",
+        "pr342_terminal": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE]",
+        "pr342_mergeable": true,
+        "pr342_draft": true,
+        "pr343": 343,
+        "pr343_base": "5e6d9f00ebb0472dc1f20dac58d01ad3069b06bf",
+        "pr343_head": "cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4",
+        "pr343_terminal": "QUALIFIED_FOR_CLOSE",
+        "pr343_ci": "SUCCESS",
+        "pr343_vacuity": "SUCCESS",
+        "pr343_mergeable": true,
+        "pr343_draft": false,
+        "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "canonical_ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "process_analysis_owner": "wasm4pm",
+        "generated_outputs_hand_edited": false,
+        "consequential_external_do": false,
+        "merge_performed": false,
+        "ready_frontier_remaining": 0
+      }
+    }
+  }
+}
