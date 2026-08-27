@@ -4,7 +4,14 @@ defmodule ChatGPTCloud.RuntimeIntegration.CostEstimate do
   @enforce_keys [:amount_minor, :currency, :kind]
   defstruct [:amount_minor, :currency, :kind, authority: :observe]
 
-  @spec admit(t()) :: :ok | {:error, atom()} when t: %__MODULE__{}
+  @type t :: %__MODULE__{
+          amount_minor: non_neg_integer(),
+          currency: String.t(),
+          kind: :metered | :estimated,
+          authority: :observe | atom()
+        }
+
+  @spec admit(t()) :: :ok | {:error, atom()}
   def admit(%__MODULE__{amount_minor: amount, currency: currency, kind: kind, authority: :observe})
       when is_integer(amount) and amount >= 0 and is_binary(currency) and byte_size(currency) == 3 and kind in [:metered, :estimated],
       do: :ok
