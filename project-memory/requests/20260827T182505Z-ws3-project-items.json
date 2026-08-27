@@ -1,0 +1,6 @@
+{
+  "request_id": "20260827T182505Z-ws3-project-items",
+  "operation": "project.items",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"types": ["ISSUE", "PULL_REQUEST", "DRAFT_ISSUE"], "include_archived": false, "max_items": 500}
+}
