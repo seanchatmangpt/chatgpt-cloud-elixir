@@ -4,7 +4,14 @@ defmodule ChatGPTCloud.RuntimeIntegration.OcelIngestionContract do
   @enforce_keys [:protocol_version, :producer, :event_id]
   defstruct [:protocol_version, :producer, :event_id, authority: :observe]
 
-  @spec admit(t()) :: :ok | {:error, atom()} when t: %__MODULE__{}
+  @type t :: %__MODULE__{
+          protocol_version: String.t(),
+          producer: String.t(),
+          event_id: String.t(),
+          authority: atom()
+        }
+
+  @spec admit(t()) :: :ok | {:error, atom()}
   def admit(%__MODULE__{protocol_version: version, producer: producer, event_id: event_id, authority: :observe})
       when is_binary(version) and version != "" and producer in ["ex4pm", "ash_r2rml", "wasm4pm"] and
              is_binary(event_id) and event_id != "",
