@@ -11,6 +11,9 @@ defmodule ChatGPTCloud.RuntimeIntegration.Redaction do
   end
 
   defp secret_name?(key) when is_atom(key), do: key |> Atom.to_string() |> secret_name?()
-  defp secret_name?(key) when is_binary(key), do: MapSet.member?(@secret_names, String.downcase(key))
+
+  defp secret_name?(key) when is_binary(key),
+    do: MapSet.member?(@secret_names, String.downcase(key))
+
   defp secret_name?(_), do: false
 end

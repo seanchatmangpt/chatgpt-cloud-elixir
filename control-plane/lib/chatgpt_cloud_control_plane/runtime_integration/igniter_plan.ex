@@ -19,6 +19,9 @@ defmodule ChatGPTCloud.RuntimeIntegration.IgniterPlan do
 
   @spec fingerprint() :: String.t()
   def fingerprint do
-    @extensions |> Enum.map_join("\n", &Atom.to_string/1) |> then(&:crypto.hash(:sha256, &1)) |> Base.encode16(case: :lower)
+    @extensions
+    |> Enum.map_join("\n", &Atom.to_string/1)
+    |> then(&:crypto.hash(:sha256, &1))
+    |> Base.encode16(case: :lower)
   end
 end

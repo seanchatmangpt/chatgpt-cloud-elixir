@@ -6,6 +6,8 @@ defmodule ChatGPTCloud.RuntimeIntegration.CostAuthorityTest do
     assert {:ok, observation} = CostObservation.new(1.25, "USD", "runtime-estimate")
     assert observation.amount == 1.25
     assert :ok = CostAuthority.admit(%{billing_authority: false})
-    assert {:error, :billing_authority_forbidden} = CostAuthority.admit(%{billing_authority: true})
+
+    assert {:error, :billing_authority_forbidden} =
+             CostAuthority.admit(%{billing_authority: true})
   end
 end

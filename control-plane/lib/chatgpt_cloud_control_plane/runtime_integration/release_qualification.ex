@@ -3,5 +3,6 @@ defmodule ChatGPTCloud.RuntimeIntegration.ReleaseQualification do
   @required [:compile, :migrate, :tests, :release, :image]
 
   @spec complete?(map()) :: boolean()
-  def complete?(results) when is_map(results), do: Enum.all?(@required, &(Map.get(results, &1) == :ok))
+  def complete?(results) when is_map(results),
+    do: Enum.all?(@required, &(Map.get(results, &1) == :ok))
 end

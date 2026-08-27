@@ -4,5 +4,6 @@ defmodule ChatGPTCloud.RuntimeIntegration.EnvironmentObservation do
   defstruct [:platform, :architecture, :otp, :elixir, services: %{}, network: :unknown]
 
   @spec supports?(struct(), atom()) :: boolean()
-  def supports?(%__MODULE__{services: services}, service), do: Map.get(services, service, false) == true
+  def supports?(%__MODULE__{services: services}, service),
+    do: Map.get(services, service, false) == true
 end

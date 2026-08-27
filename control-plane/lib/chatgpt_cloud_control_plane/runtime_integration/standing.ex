@@ -7,7 +7,8 @@ defmodule ChatGPTCloud.RuntimeIntegration.Standing do
   def values, do: @values
 
   @spec terminal?(atom()) :: boolean()
-  def terminal?(standing), do: standing in [:alive, :blocked, :build_broken, :unsupported, :refused]
+  def terminal?(standing),
+    do: standing in [:alive, :blocked, :build_broken, :unsupported, :refused]
 
   @spec valid?(atom()) :: boolean()
   def valid?(standing), do: standing in @values

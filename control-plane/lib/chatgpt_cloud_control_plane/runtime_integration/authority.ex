@@ -7,5 +7,6 @@ defmodule ChatGPTCloud.RuntimeIntegration.Authority do
     do: Map.get(authority, domain, false) == true
 
   @spec require_do(map()) :: :ok | {:error, :do_authority_required}
-  def require_do(authority), do: if(granted?(authority, :do), do: :ok, else: {:error, :do_authority_required})
+  def require_do(authority),
+    do: if(granted?(authority, :do), do: :ok, else: {:error, :do_authority_required})
 end
