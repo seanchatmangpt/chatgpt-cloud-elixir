@@ -3,12 +3,25 @@ defmodule ChatGPTCloud.RuntimeIntegration.RuntimeManifestTest do
 
   alias ChatGPTCloud.RuntimeIntegration.RuntimeManifest
 
-  test "manifest requires the admitted runtime roles and PI ownership fence" do
-    manifest = RuntimeManifest.current()
-    assert :reactor in manifest.extensions
-    assert :ash_oban in manifest.extensions
-    assert :ash_state_machine in manifest.extensions
-    assert manifest.process_intelligence_owner in ["wasm4pm", "wasm4pm-compat"]
-    assert RuntimeManifest.closed?(manifest)
+  test "complete runtime role closure admits and missing orchestration is explicit" do
+    roles = [
+      :compile_time_contracts,
+      :orchestration,
+      :reproducible_manufacture,
+      :machine_projection,
+      :operator_identity,
+      :durable_work,
+      :lifecycle,
+      :evidence_retention,
+      :cost_evidence,
+      :secret_storage,
+      :query_projection,
+      :bounded_ai_queries
+    ]
+
+    assert :ok = RuntimeManifest.verify_roles(roles)
+
+    assert {:error, {:missing_runtime_roles, [:orchestration]}} =
+             RuntimeManifest.verify_roles(List.delete(roles, :orchestration))
   end
 end
