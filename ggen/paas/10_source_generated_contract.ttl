@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:SourceGeneratedContract a cce:OwnershipContract ;
+  cce:sourceOwner "versions/capsule/build/verifier sources" ;
+  cce:generatedArtifactsAreProjections true ;
+  cce:generatedArtifactsEditable false ;
+  cce:requiresRegeneration true .

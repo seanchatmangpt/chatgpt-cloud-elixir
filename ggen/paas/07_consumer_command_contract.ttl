@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:ConsumerCommandContract a cce:PaaSExecutionContract ;
+  cce:requiresExactCommand true ;
+  cce:requiresExitStatus true ;
+  cce:requiresRelevantTestResult true ;
+  cce:inspectionIsExecution false .

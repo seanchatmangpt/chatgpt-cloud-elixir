@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:ProjectEvidenceContract a cce:PaaSEvidenceContract ;
+  cce:projectNumber 2 ;
+  cce:ocelPath "ggen/ecosystem/ocel/current" ;
+  cce:requiresExactDispatchIdentity true ;
+  cce:ambientExecutionAuthority false .
