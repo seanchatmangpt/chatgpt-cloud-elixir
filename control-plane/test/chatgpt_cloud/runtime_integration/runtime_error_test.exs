@@ -3,10 +3,11 @@ defmodule ChatGPTCloud.RuntimeIntegration.RuntimeErrorTest do
 
   alias ChatGPTCloud.RuntimeIntegration.RuntimeError
 
-  test "normalizes errors into typed runtime evidence" do
-    error = RuntimeError.new(:dependency_unavailable, %{dependency: :postgres})
-    assert error.kind == :dependency_unavailable
+  test "preserves typed build-broken reason and details" do
+    error = RuntimeError.new(:build_broken, :dependency_unavailable, %{dependency: :postgres})
+    assert error.type == :build_broken
+    assert error.reason == :dependency_unavailable
     assert error.details == %{dependency: :postgres}
-    assert RuntimeError.standing(error) == :build_broken
+    assert Exception.message(error) == "build_broken:dependency_unavailable"
   end
 end
