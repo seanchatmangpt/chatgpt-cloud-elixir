@@ -12,7 +12,7 @@
     "type": "TransportAdmissionError"
   },
   "gate_schema": "chatgpt-project-memory-gate/v2",
-  "observed_at": "2026-08-26T23:21:22Z",
+  "observed_at": "2026-08-27T22:13:23Z",
   "operation": null,
   "reason": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT",
   "request_digest_basis": {},
