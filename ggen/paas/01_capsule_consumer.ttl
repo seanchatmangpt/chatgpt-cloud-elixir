@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:CapsuleConsumer a cce:PaaSConsumer ;
+  cce:repo "seanchatmangpt/chatgpt-cloud-elixir" ;
+  cce:consumerMode "restricted-cloud-capsule" ;
+  cce:requiresExactTarget true ;
+  cce:requiresObservedConsumerExecution true .
