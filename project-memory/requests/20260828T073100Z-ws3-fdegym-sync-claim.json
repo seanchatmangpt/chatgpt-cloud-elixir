@@ -1,0 +1,15 @@
+{
+  "request_id": "20260828T073100Z-ws3-fdegym-sync-claim",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "plant/ws3/claim/seanchatmangpt-fdegym/ggen-sync-20260828-00",
+    "title": "WS3 ACTIVE claim — fdegym ggen-sync realization",
+    "kind": "plant.claim",
+    "cell": "WS3",
+    "standing": "ALIVE",
+    "tags": ["ws3","claim","ggen-sync","fdegym","2026-08-28T00"],
+    "body": "ACTIVE exact-lineage claim for seanchatmangpt/fdegym sync-only consumer realization. work_key=seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization; workstation=3; base=c7b51338fd7659540bfb1f559b02f426a61c460f; branch=ggen-sync/ws3-20260828-00; status=ACTIVE.",
+    "metadata": {"claim_id":"ws3-fdegym-sync-20260828-00","work_key":"seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization","workstation":3,"cycle_id":"2026-08-28T00","repo":"seanchatmangpt/fdegym","default":"main","base":"c7b51338fd7659540bfb1f559b02f426a61c460f","head":"c7b51338fd7659540bfb1f559b02f426a61c460f","branch":"ggen-sync/ws3-20260828-00","status":"ACTIVE"}
+  }}
+}
