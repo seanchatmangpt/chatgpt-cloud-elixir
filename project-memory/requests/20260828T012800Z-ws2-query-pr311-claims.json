@@ -1,0 +1,6 @@
+{
+  "request_id": "20260828T012800Z-ws2-query-pr311-claims",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "seanchatmangpt/ggen-marketplace#pr:311", "limit": 100}
+}
