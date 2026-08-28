@@ -1,0 +1,18 @@
+{
+  "type": "project2.work_claim",
+  "version": 1,
+  "status": "ACTIVE",
+  "workstation": "WS2",
+  "lane": 2,
+  "claimed_at": "2026-08-28T03:19:00Z",
+  "work_key": "ash_r2rml:ws2:semantic-contract-guards:v26.8.27",
+  "repo": "seanchatmangpt/ash_r2rml",
+  "base_ref": "main",
+  "purpose": "50 independently meaningful semantic contract/falsifier commits guarding AshR2RML correspondence, refusals, security, normalized IR, Reactor, ontology-first, GGen, and receipt/replay boundaries",
+  "semantic_fingerprint_prefix": "ash_r2rml|ws2|v26.8.27|contract-guard|",
+  "primary_count": 50,
+  "reserve_count": 25,
+  "reserve_repo": "seanchatmangpt/ex4pm",
+  "pi_algorithm_work": false,
+  "generated_output_work": false
+}
