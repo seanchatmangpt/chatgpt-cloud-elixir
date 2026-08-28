@@ -1,0 +1,99 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T02:18:41Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "claim_id=ws1-20260827T1900-0700-ocel-gate-court\nwork_key=seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression\nworkstation=1\ncycle_id=ws1-20260827T1900-0700\nrepo=seanchatmangpt/ggen\ndefault=main\nobserved_default=d345aff981bcdfadc9f9f04c8bfb4be6d99e641a\nsemantic_unit_count=50\nstatus=ACTIVE\nlease_until=2026-08-28T03:00:00Z\n",
+        "cell": "WS1",
+        "key": "plant/claims/ggen/ocel-gate-court-regression/ws1-20260827T1900-0700",
+        "kind": "tps.workstream.claim",
+        "metadata": {
+          "claim_id": "ws1-20260827T1900-0700-ocel-gate-court",
+          "claimed_at": "2026-08-28T02:18:30Z",
+          "cycle_id": "ws1-20260827T1900-0700",
+          "default": "main",
+          "lease_until": "2026-08-28T03:00:00Z",
+          "observed_default": "d345aff981bcdfadc9f9f04c8bfb4be6d99e641a",
+          "repo": "seanchatmangpt/ggen",
+          "semantic_unit_count": 50,
+          "status": "ACTIVE",
+          "work_key": "seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression",
+          "workstation": 1
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws1",
+          "claim",
+          "active",
+          "ggen",
+          "ocel"
+        ],
+        "title": "WS1 claim GGen OCEL gate court regression"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T021830Z-ws1-claim-ggen-ocel-gate-court"
+  },
+  "request_id": "20260828T021830Z-ws1-claim-ggen-ocel-gate-court",
+  "request_path": "project-memory/requests/20260828T021830Z-ws1-claim-ggen-ocel-gate-court.json",
+  "request_sha256": "sha256:a5ab3a9b7b39734b1db6495f78bb550b9ba8f5af41a34d05e8e56962316276d0",
+  "request_transport_sha256": "sha256:a501d584a9cbf92a9531747ba57e925968e76f7e6705266b0d3ccd5f153590ce",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "claim_id=ws1-20260827T1900-0700-ocel-gate-court\nwork_key=seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression\nworkstation=1\ncycle_id=ws1-20260827T1900-0700\nrepo=seanchatmangpt/ggen\ndefault=main\nobserved_default=d345aff981bcdfadc9f9f04c8bfb4be6d99e641a\nsemantic_unit_count=50\nstatus=ACTIVE\nlease_until=2026-08-28T03:00:00Z",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLArqU",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4XF6g",
+      "metadata": {
+        "cell": "WS1",
+        "claim_id": "ws1-20260827T1900-0700-ocel-gate-court",
+        "claimed_at": "2026-08-28T02:18:30Z",
+        "created_at": "2026-08-28T02:18:58Z",
+        "cycle_id": "ws1-20260827T1900-0700",
+        "default": "main",
+        "key": "plant/claims/ggen/ocel-gate-court-regression/ws1-20260827T1900-0700",
+        "kind": "tps.workstream.claim",
+        "lease_until": "2026-08-28T03:00:00Z",
+        "observed_default": "d345aff981bcdfadc9f9f04c8bfb4be6d99e641a",
+        "repo": "seanchatmangpt/ggen",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_unit_count": 50,
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "active",
+          "claim",
+          "ggen",
+          "ocel",
+          "tps",
+          "ws1"
+        ],
+        "updated_at": "2026-08-28T02:18:58Z",
+        "work_key": "seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression",
+        "workstation": 1
+      },
+      "title": "WS1 claim GGen OCEL gate court regression"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
