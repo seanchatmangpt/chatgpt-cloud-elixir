@@ -1,0 +1,79 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:31:55Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 100,
+      "text": "seanchatmangpt/chatgpt-cloud-elixir|project2:runtime-learning-factory|edge:ggen-shacl-runtime-admission-r1"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T033002Z-ws3-query-runtime-shacl-conflicts"
+  },
+  "request_id": "20260828T033002Z-ws3-query-runtime-shacl-conflicts",
+  "request_path": "project-memory/requests/20260828T033002Z-ws3-query-runtime-shacl-conflicts.json",
+  "request_sha256": "sha256:51c8d52f0b76ddf23c84de679e8fd265065208ed717ab7a16bc1b64f43cd9a9c",
+  "request_transport_sha256": "sha256:21d55ce04bbb14d5a7ef507379cdfd503d11eac3ed353e90283d9953a0e7f739",
+  "result": {
+    "matched": 1,
+    "records": [
+      {
+        "body": "claim_id=ws3-20260827T2000-0700-runtime-shacl-r1\nwork_key=seanchatmangpt/chatgpt-cloud-elixir|project2:runtime-learning-factory|edge:ggen-shacl-runtime-admission-r1\nworkstation=3\ncycle_id=ws3-20260827T2000-0700\nrepo=seanchatmangpt/chatgpt-cloud-elixir\ndefault=main\nbase=8a9111dbb8edf6416bbdb0d1346af4da44acd59a\nhead=8a9111dbb8edf6416bbdb0d1346af4da44acd59a\nbranch=ws3/runtime-learning-shacl-20260827-20\nsemantic_unit_count=50\nstatus=ACTIVE\nlease_until=2026-08-28T04:24:00Z",
+        "content_id": "DI_lAHOCCCFfc4BhZKezgLAsfk",
+        "is_archived": false,
+        "item_id": "PVTI_lAHOCCCFfc4BhZKezg4XdEE",
+        "metadata": {
+          "base": "8a9111dbb8edf6416bbdb0d1346af4da44acd59a",
+          "branch": "ws3/runtime-learning-shacl-20260827-20",
+          "cell": "WS3",
+          "claim_id": "ws3-20260827T2000-0700-runtime-shacl-r1",
+          "claimed_at": "2026-08-28T03:28:40Z",
+          "created_at": "2026-08-28T03:29:53Z",
+          "cycle_id": "ws3-20260827T2000-0700",
+          "default": "main",
+          "head": "8a9111dbb8edf6416bbdb0d1346af4da44acd59a",
+          "key": "plant/claims/chatgpt-cloud-elixir/runtime-shacl-r1/ws3-20260827T2000-0700",
+          "kind": "tps.workstream.claim",
+          "lease_until": "2026-08-28T04:24:00Z",
+          "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+          "schema": "chatgpt-project-memory/v1",
+          "semantic_unit_count": 50,
+          "standing": "ALIVE",
+          "status": "ACTIVE",
+          "tags": [
+            "active",
+            "claim",
+            "ggen",
+            "runtime",
+            "shacl",
+            "tps",
+            "ws3"
+          ],
+          "updated_at": "2026-08-28T03:29:53Z",
+          "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:runtime-learning-factory|edge:ggen-shacl-runtime-admission-r1",
+          "workstation": 3
+        },
+        "title": "WS3 claim runtime SHACL admission contracts R1"
+      }
+    ],
+    "scanned": 69,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
