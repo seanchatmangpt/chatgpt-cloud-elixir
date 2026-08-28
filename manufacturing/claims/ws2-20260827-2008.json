@@ -1,0 +1,13 @@
+{
+  "workstation": "WS2",
+  "lane": 2,
+  "status": "ACTIVE",
+  "work_key": "ash_r2rml:project2-composition-standard-work-guards",
+  "repo": "seanchatmangpt/ash_r2rml",
+  "base": "09922a31222bcfbd93cd76b1d497023b8b178cfe",
+  "scope": "50 independent Project #2 composition/standard-work executable guards",
+  "semantic_fingerprint_prefix": "ash_r2rml|project2-guard|",
+  "pi_algorithm_implementation": false,
+  "authority": "CONSTRUCT",
+  "actuation": "GitHub branch commits only"
+}
