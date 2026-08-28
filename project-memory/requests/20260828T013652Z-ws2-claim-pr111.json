@@ -1,0 +1,15 @@
+{
+  "request_id": "20260828T013652Z-ws2-claim-pr111",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"plant/claims/ggen-marketplace/pr-111/ws2-20260827T1827-0700",
+    "title":"WS2 claim ggen-marketplace PR 111",
+    "kind":"tps.workstream.claim",
+    "cell":"WS2",
+    "standing":"ALIVE",
+    "tags":["tps","ws2","claim","active","ggen-marketplace","pr-111"],
+    "body":"claim_id=ws2-20260827T1827-0700-pr111\nwork_key=seanchatmangpt/ggen-marketplace#pr:111\nworkstation=2\ncycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\ndefault=main\nobserved_default=59dd438f320525001bf24444911a885b480b1c9c\nobserved_pr_head=101d3e54eff9229cb8195e567686c0e811550ecf\nsource_semantic_head=05914406db5d2ba165692be909d3a95c1784ba36\nsource_qualified_head=52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9\nsemantic_unit_count=33\nstatus=ACTIVE\nlease_until=2026-08-28T02:10:00Z\n",
+    "metadata":{"claim_id":"ws2-20260827T1827-0700-pr111","work_key":"seanchatmangpt/ggen-marketplace#pr:111","workstation":2,"cycle_id":"ws2-20260827T1827-0700","repo":"seanchatmangpt/ggen-marketplace","default":"main","observed_default":"59dd438f320525001bf24444911a885b480b1c9c","observed_pr_head":"101d3e54eff9229cb8195e567686c0e811550ecf","source_semantic_head":"05914406db5d2ba165692be909d3a95c1784ba36","source_qualified_head":"52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9","semantic_unit_count":33,"status":"ACTIVE","claimed_at":"2026-08-28T01:36:52Z","lease_until":"2026-08-28T02:10:00Z"}
+  }}
+}
