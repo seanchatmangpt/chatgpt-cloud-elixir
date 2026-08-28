@@ -1,0 +1,13 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+cce:CancellationTokenShape a sh:NodeShape ;
+  sh:targetClass cce:RuntimeInvocation ;
+  dcterms:description "Require explicit cancellation token identity" ;
+  cce:projectNumber 2 ; cce:ocelPath "ggen/ecosystem/ocel/current" ;
+  cce:acceptanceEdge "cancellation_token" ;
+  cce:semanticFingerprint "sha256:98c4a3313d81a2eb2b89f2920b28e868c3dfa3ed795d09ed85bb77554960cfa9" ;
+  cce:ambientExecutionAuthority false ;
+  sh:property [ sh:path cce:cancellationToken ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ; sh:pattern "^[A-Za-z0-9._:-]+$" ; sh:severity sh:Violation ; sh:message "Require explicit cancellation token identity" ] .
