@@ -1,0 +1,6 @@
+{
+  "request_id": "20260828T074100Z-ws3-fdegym-sync-claim-reread",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "plant/ws3/claim/seanchatmangpt-fdegym/ggen-sync-20260828-00"}
+}
