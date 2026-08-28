@@ -1,0 +1,27 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": {
+      "column": 1,
+      "line": 1,
+      "message": "Expecting value",
+      "offset": 0,
+      "reason": "INVALID_REQUEST_JSON"
+    },
+    "message": "Expecting value",
+    "type": "TransportAdmissionError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T04:20:12Z",
+  "operation": null,
+  "reason": "INVALID_REQUEST_JSON",
+  "request_digest_basis": {},
+  "request_id": null,
+  "request_path": "project-memory/requests/20260828T041400Z-ws2-mfact-paas-qualification-claim.json",
+  "request_sha256": null,
+  "request_transport_sha256": "sha256:83acce8cff053ecb1dd5f36bf2fad7bc51ee4720e1d17b0c43afa1b029264ec3",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
