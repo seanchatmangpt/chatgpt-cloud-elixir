@@ -1,0 +1,6 @@
+{
+  "request_id":"20260828T021911Z-ws1-query-ggen-ocel-claim-conflicts",
+  "operation":"memory.query",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"text":"seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression","limit":100}
+}
