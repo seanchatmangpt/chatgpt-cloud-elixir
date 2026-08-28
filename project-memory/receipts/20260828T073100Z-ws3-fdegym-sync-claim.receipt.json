@@ -1,0 +1,95 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T07:40:11Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "ACTIVE exact-lineage claim for seanchatmangpt/fdegym sync-only consumer realization. work_key=seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization; workstation=3; base=c7b51338fd7659540bfb1f559b02f426a61c460f; branch=ggen-sync/ws3-20260828-00; status=ACTIVE.",
+        "cell": "WS3",
+        "key": "plant/ws3/claim/seanchatmangpt-fdegym/ggen-sync-20260828-00",
+        "kind": "plant.claim",
+        "metadata": {
+          "base": "c7b51338fd7659540bfb1f559b02f426a61c460f",
+          "branch": "ggen-sync/ws3-20260828-00",
+          "claim_id": "ws3-fdegym-sync-20260828-00",
+          "cycle_id": "2026-08-28T00",
+          "default": "main",
+          "head": "c7b51338fd7659540bfb1f559b02f426a61c460f",
+          "repo": "seanchatmangpt/fdegym",
+          "status": "ACTIVE",
+          "work_key": "seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization",
+          "workstation": 3
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "ws3",
+          "claim",
+          "ggen-sync",
+          "fdegym",
+          "2026-08-28T00"
+        ],
+        "title": "WS3 ACTIVE claim — fdegym ggen-sync realization"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T073100Z-ws3-fdegym-sync-claim"
+  },
+  "request_id": "20260828T073100Z-ws3-fdegym-sync-claim",
+  "request_path": "project-memory/requests/20260828T073100Z-ws3-fdegym-sync-claim.json",
+  "request_sha256": "sha256:1629667fc236514aec0e36952fdd5d60d48b8b27132842f19d774c55303a1ea1",
+  "request_transport_sha256": "sha256:088105f6d380045085278044489798d56544b8b8c567dacaa068a77c82dcbbb3",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "ACTIVE exact-lineage claim for seanchatmangpt/fdegym sync-only consumer realization. work_key=seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization; workstation=3; base=c7b51338fd7659540bfb1f559b02f426a61c460f; branch=ggen-sync/ws3-20260828-00; status=ACTIVE.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAxZA",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Y2lM",
+      "metadata": {
+        "base": "c7b51338fd7659540bfb1f559b02f426a61c460f",
+        "branch": "ggen-sync/ws3-20260828-00",
+        "cell": "WS3",
+        "claim_id": "ws3-fdegym-sync-20260828-00",
+        "created_at": "2026-08-28T07:40:27Z",
+        "cycle_id": "2026-08-28T00",
+        "default": "main",
+        "head": "c7b51338fd7659540bfb1f559b02f426a61c460f",
+        "key": "plant/ws3/claim/seanchatmangpt-fdegym/ggen-sync-20260828-00",
+        "kind": "plant.claim",
+        "repo": "seanchatmangpt/fdegym",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "2026-08-28T00",
+          "claim",
+          "fdegym",
+          "ggen-sync",
+          "ws3"
+        ],
+        "updated_at": "2026-08-28T07:40:27Z",
+        "work_key": "seanchatmangpt/fdegym|project2:ForcedTop25|edge:ggen-sync-existing-pack-realization",
+        "workstation": 3
+      },
+      "title": "WS3 ACTIVE claim — fdegym ggen-sync realization"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
