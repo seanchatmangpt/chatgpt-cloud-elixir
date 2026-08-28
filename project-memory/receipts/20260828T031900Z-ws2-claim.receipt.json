@@ -1,0 +1,38 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "request_id is required",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:27:40Z",
+  "operation": null,
+  "reason": "INVALID_REQUEST",
+  "request_digest_basis": {
+    "base_ref": "main",
+    "claimed_at": "2026-08-28T03:19:00Z",
+    "generated_output_work": false,
+    "lane": 2,
+    "pi_algorithm_work": false,
+    "primary_count": 50,
+    "purpose": "50 independently meaningful semantic contract/falsifier commits guarding AshR2RML correspondence, refusals, security, normalized IR, Reactor, ontology-first, GGen, and receipt/replay boundaries",
+    "repo": "seanchatmangpt/ash_r2rml",
+    "reserve_count": 25,
+    "reserve_repo": "seanchatmangpt/ex4pm",
+    "semantic_fingerprint_prefix": "ash_r2rml|ws2|v26.8.27|contract-guard|",
+    "status": "ACTIVE",
+    "type": "project2.work_claim",
+    "version": 1,
+    "work_key": "ash_r2rml:ws2:semantic-contract-guards:v26.8.27",
+    "workstation": "WS2"
+  },
+  "request_id": null,
+  "request_path": "project-memory/requests/20260828T031900Z-ws2-claim.json",
+  "request_sha256": "sha256:96d3349ddea0d040893b15a8a570777adda756d1fa2e084046400b51f6745b85",
+  "request_transport_sha256": "sha256:9a6179c04a35951d7788f2124dfba742c6c9b3ee484cd4fd0d92185ad7269ce5",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
