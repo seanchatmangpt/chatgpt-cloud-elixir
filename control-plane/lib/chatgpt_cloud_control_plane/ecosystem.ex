@@ -29,6 +29,21 @@ defmodule ChatGPTCloud.Ecosystem do
     {Cloak, :vault_implementation}
   ]
 
+  @runtime_extensions [
+    :spark,
+    :reactor,
+    :igniter,
+    :ash_json_api,
+    :ash_authentication,
+    :ash_oban,
+    :ash_state_machine,
+    :ash_archival,
+    :ash_money,
+    :ash_cloak,
+    :ash_graphql,
+    :ash_ai
+  ]
+
   @required_states [:pending, :running, :qualified, :degraded, :blocked, :failed, :retrying]
 
   def receipt do
@@ -63,15 +78,30 @@ defmodule ChatGPTCloud.Ecosystem do
     missing_states = @required_states -- states
     missing_schedules = [:reconcile_pending] -- schedules
 
+    runtime_roles =
+      Enum.map(@runtime_extensions, fn extension ->
+        {:ok, role} = ChatGPTCloud.RuntimeIntegration.ExtensionManifest.role(extension)
+        role
+      end)
+
+    runtime_contract = ChatGPTCloud.RuntimeIntegration.RuntimeManifest.verify_roles(runtime_roles)
+
     %{
-      schema_version: 1,
+      schema_version: 2,
       subject: "chatgpt-cloud-control-plane",
       components: modules,
       state_machine: %{states: states, missing: missing_states},
       durable_work: %{schedules: schedules, missing: missing_schedules},
+      runtime_integration: %{
+        extensions: @runtime_extensions,
+        roles: runtime_roles,
+        verification: runtime_contract
+      },
       missing_modules: missing_modules,
       standing:
-        if(missing_modules == [] and missing_states == [] and missing_schedules == [],
+        if(
+          missing_modules == [] and missing_states == [] and missing_schedules == [] and
+            runtime_contract == :ok,
           do: "ALIVE",
           else: "BUILD_BROKEN"
         )
