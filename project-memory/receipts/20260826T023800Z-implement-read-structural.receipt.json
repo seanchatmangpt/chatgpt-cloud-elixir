@@ -1,0 +1,73 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:47:33Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/structural-manufacturing/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T023800Z-implement-read-structural"
+  },
+  "request_id": "20260826T023800Z-implement-read-structural",
+  "request_path": "project-memory/requests/20260826T023800Z-implement-read-structural.json",
+  "request_sha256": "sha256:fc2abf9dcb5f9c5cbe69e4fed930af395333cd491242a1a80b87b9030454f0e5",
+  "request_transport_sha256": "sha256:55736404ef6f7c32b97518da5cf683eaa962ee6093e428e6df275573bc3d8143",
+  "result": {
+    "body": "R75 manufactured ash-revops-structural-factory-pack on seanchatmangpt/ggen-marketplace. Exact producer head 5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6; PR #305. 53 attributed semantic commits, 23 ordered projections, 4 gates, 7 deterministic templates, 4 courts, exact-head workflow success. Frontier: ExistingStructure -> CandidateStructures[] -> PackOptions[] -> Experiments/Falsifiers -> GeneratedConsequences -> Consumers -> Qualifications -> AgentRefinement -> GeneralizableKnowledge -> Regeneration -> Supersession.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_4I0",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4CS_E",
+    "metadata": {
+      "D": "PENDING_EXACT_QUALIFICATION",
+      "F": "UNCHANGED",
+      "G": 1.0,
+      "U": "GENERALIZABLE_VERIFIER_REPAIR_PROMOTED_REGEN_PENDING",
+      "base_sha": "e1a707b2e3a3905b80f727ab3b43d2c53187a8df",
+      "cell": "EXPLORE",
+      "courts": 4,
+      "created_at": "2026-08-26T02:17:42Z",
+      "gates": 4,
+      "head_sha": "5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6",
+      "key": "ggen/structural-manufacturing/current",
+      "kind": "ggen.structural-manufacturing",
+      "meaningful_commits": 53,
+      "pr": 305,
+      "queries": 23,
+      "r73_head": "4db0e87d419e6acd27d0b5c98537c8d669f2fc05",
+      "r74_head": "c1153cd1d5da92b8e0c4da7e5636547a3a209d8f",
+      "repo": "seanchatmangpt/ggen-marketplace",
+      "run_id": "SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "ash",
+        "ggen",
+        "ocel",
+        "r75",
+        "revops",
+        "structural-manufacturing"
+      ],
+      "templates": 7,
+      "updated_at": "2026-08-26T02:33:41Z"
+    },
+    "title": "GGEN structural manufacturing frontier"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
