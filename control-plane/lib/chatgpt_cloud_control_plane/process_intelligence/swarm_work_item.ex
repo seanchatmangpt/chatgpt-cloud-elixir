@@ -32,7 +32,12 @@ defmodule ChatGPTCloud.ProcessIntelligence.SwarmWorkItem do
     extensions: [AshStateMachine]
 
   postgres do
-    table "swarm_work_items"
+    # Named process_intelligence_swarm_work_items, not swarm_work_items, to avoid
+    # colliding with ChatGPTCloud.SwarmCoordination.WorkItem's plain-Ecto schema
+    # of the same shorter name (independently developed, backs the raw HTTP
+    # SwarmSH JSON API) -- both landed on "swarm_work_items" during a branch
+    # merge; see the migration's @moduledoc and docs/errc-tracker.md "Critical".
+    table "process_intelligence_swarm_work_items"
     repo ChatGPTCloud.Repo
   end
 

@@ -2,10 +2,8 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # shellcheck disable=SC1091
-source "$ROOT/activate"
-LOG="$ROOT/verification.log"
+source "$ROOT/scripts/lib/verify-capsule-common.sh"
 NETWORK_MODE="${CAPSULE_NETWORK_MODE:-hex_offline}"
-ARCHIVE_DIGEST="${CAPSULE_ARCHIVE_DIGEST:-external-not-supplied}"
 CFG="$ROOT/source/capsule.toml"
 VERSIONS="$ROOT/source/versions.toml"
 
@@ -34,34 +32,26 @@ PY
   done
 }
 
-set +e
-(
-  set -e
-  elixir "$ROOT/verifier/verify_manifest.exs" "$ROOT/manifest.json"
-  elixir "$ROOT/verifier/verify_runtime.exs" "$ROOT/manifest.json"
+verification_body() {
+  capsule_verify_manifest_and_runtime
   run_subject_acceptance ash_r2rml
   run_subject_acceptance ex4pm
   cd "$ROOT"
   bash "$ROOT/harness/verify.sh"
-) 2>&1 | tee "$LOG"
-STATUS=${PIPESTATUS[0]}
-set -e
+}
+capsule_run_logged verification_body
 
-if [[ "$STATUS" -eq 0 ]]; then
-  STANDING="ALIVE"
-else
-  STANDING="BUILD_BROKEN"
-fi
-MANIFEST_SHA="$(sha256sum "$ROOT/manifest.json" | awk '{print $1}')"
+STANDING="$(capsule_standing_from_status "$STATUS")"
+MANIFEST_SHA="$(capsule_manifest_sha)"
 PROCESS_RECEIPT_SHA="missing"
 [[ -f "$ROOT/harness/process-lab-receipt.json" ]] && PROCESS_RECEIPT_SHA="$(sha256sum "$ROOT/harness/process-lab-receipt.json" | awk '{print $1}')"
-SOURCE_SHA="$(sed -n 's/.*"source_sha": "\([^"]*\)".*/\1/p' "$ROOT/manifest.json" | head -1)"
+SOURCE_SHA="$(capsule_source_sha)"
 RELEASE_VERSION="$(python3 - "$VERSIONS" <<'PY'
 import sys, tomllib
 print(tomllib.load(open(sys.argv[1], "rb"))["release"]["version"])
 PY
 )"
-VERIFIED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+VERIFIED_AT="$(capsule_verified_at)"
 
 cat > "$ROOT/receipt.json" <<EOF2
 {

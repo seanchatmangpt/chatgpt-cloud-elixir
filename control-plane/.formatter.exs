@@ -2,7 +2,6 @@
   import_deps: [
     :ash,
     :ash_archival,
-    :ash_authentication,
     :ash_cloak,
     :ash_graphql,
     :ash_json_api,

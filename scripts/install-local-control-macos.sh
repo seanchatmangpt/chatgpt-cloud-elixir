@@ -37,6 +37,12 @@ else
   git -C "$checkout" reset --hard "origin/$branch"
 fi
 
+agent_py="$checkout/scripts/local_control_agent.py"
+if ! grep -q "class ApprovalStore" "$agent_py" 2>/dev/null || ! grep -q "def requires_approval" "$agent_py" 2>/dev/null; then
+  echo "REFUSED[MISSING_APPROVAL_GATE]: $agent_py (branch '$branch') has no ApprovalStore/requires_approval -- installing it would run every admitted operation with zero local human confirmation, contradicting local-control/AGENTS.md's Requirement 9. This branch is stale relative to the mandatory approval-gate feature. Sync '$branch' from a ref that has the gate, or set CHATGPT_LOCAL_CONTROL_BRANCH to one that does, then re-run this installer." >&2
+  exit 4
+fi
+
 if [[ ! -f "$policy" ]]; then
   cp "$checkout/local-control/policy.example.json" "$policy"
   echo "Created $policy from example policy. Edit machine_id, roots, executables, apps, and optional named AppleScripts before relying on consequential actuation." >&2

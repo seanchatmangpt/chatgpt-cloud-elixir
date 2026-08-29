@@ -12,13 +12,14 @@ defmodule ChatGPTCloud.EcosystemTest do
     assert receipt.durable_work.schedules == [:reconcile_pending]
     assert receipt.runtime_integration.verification == :ok
 
+    # :ash_authentication removed 2026-08-29 -- see
+    # ChatGPTCloud.RuntimeIntegration.ExtensionManifest's @moduledoc.
     assert Enum.sort(receipt.runtime_integration.extensions) ==
              Enum.sort([
                :spark,
                :reactor,
                :igniter,
                :ash_json_api,
-               :ash_authentication,
                :ash_oban,
                :ash_state_machine,
                :ash_archival,

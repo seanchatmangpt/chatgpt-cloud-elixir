@@ -8,32 +8,44 @@ Standing ERRC (Eliminate/Reduce/Raise/Create) backlog for this repo, in the form
 - **Misdiagnosed** — claims that turned out false on inspection; kept so nobody re-files them.
 - **Parked** — genuinely ambiguous; needs a decision, not more auditing.
 
-Two sweeps have fed this list: the original 2026-08-26 domain review (5 parallel
-agents + an innovation-explorer pass), and a 2026-08-29 reverify + second audit run
-after this branch merged ~28 independent feature/automation branches (2700+
-commits) into one tree. Every item below reflects the 2026-08-29 state unless noted.
-**No Elixir/OTP toolchain has been available in the environment either sweep ran
-in** — Elixir-only findings are verified by reading/cross-referencing source, not by
-`mix compile`/`mix test`; treat those as `PARTIAL_ALIVE`, not `ALIVE`, until replayed
-in an environment with the toolchain.
+Three sweeps have fed this list: the original 2026-08-26 domain review (5 parallel
+agents + an innovation-explorer pass); a 2026-08-29 reverify + 7-agent audit run
+right after this branch merged ~28 independent feature/automation branches (2700+
+commits) into one tree; and a second, larger 2026-08-29 pass (8 parallel agents
+plus direct fixes) closing most of what the second sweep left Open. Every item
+below reflects the latest 2026-08-29 state unless noted. **No Elixir/OTP toolchain
+has been available in the environment any sweep ran in** — Elixir-only findings
+are verified by reading/cross-referencing source (exhaustive grep, paren/bracket
+balance, hand-traced control flow, sometimes a Python shadow implementation run
+against constructed fixtures), not by `mix compile`/`mix test`; treat those as
+`PARTIAL_ALIVE`, not `ALIVE`, until replayed in an environment with the toolchain.
+Pure-Python/RDF fixes (rdflib/pyshacl are pip-installable in this sandbox and were
+actually used) are real `ALIVE` results, not `PARTIAL_ALIVE` — noted per item.
 
-## Critical — fix before anything else here
+## Critical
 
-1. **`mix ecto.migrate` fails on a fresh database.** Two migrations both
-   `create table(:swarm_work_items, ...)` with incompatible column sets:
-   `control-plane/priv/repo/migrations/20260826000000_create_swarm_coordination_tables.exs`
-   (plain-Ecto schema `ChatGPTCloud.SwarmCoordination.WorkItem`, backs the raw HTTP
-   SwarmSH JSON API) and `20260826173302_add_swarm_resources.exs` (Ash resource
-   `ChatGPTCloud.ProcessIntelligence.SwarmWorkItem`, generated via
+1. ~~**`mix ecto.migrate` fails on a fresh database.**~~ **FIXED, pending toolchain
+   verification (2026-08-29).** Two migrations both `create table(:swarm_work_items,
+   ...)` with incompatible column sets — the plain-Ecto
+   `ChatGPTCloud.SwarmCoordination.WorkItem` schema
+   (`20260826000000_create_swarm_coordination_tables.exs`, backs the raw HTTP
+   SwarmSH JSON API) and the Ash resource
+   `ChatGPTCloud.ProcessIntelligence.SwarmWorkItem`
+   (`20260826173302_add_swarm_resources.exs`, generated via
    `mix ash_postgres.generate_migrations`, tested by
-   `test/chatgpt_cloud/process_intelligence/swarm_test.exs`). Both run in timestamp
-   order against every fresh database; the second fails with Postgres `42P07`
-   (relation already exists) — two independently-developed "swarm work" features
-   collided on the same table name during the branch merge. **Needs a real decision**
-   (which resource keeps `swarm_work_items`, what the other's table gets renamed to)
-   plus a properly regenerated Ash migration (`mix ash_postgres.generate_migrations`
-   — this repo's own convention is generated migrations are never hand-edited). Not
-   safe to guess at without a compiler to verify against.
+   `test/chatgpt_cloud/process_intelligence/swarm_test.exs`) — collided on the same
+   table name during the branch merge; the second migration failed with Postgres
+   `42P07` on any fresh database. Resolved by renaming the newer, Ash-generated
+   side: `ChatGPTCloud.ProcessIntelligence.SwarmWorkItem`'s `postgres do table` is
+   now `process_intelligence_swarm_work_items`, and
+   `20260826173302_add_swarm_resources.exs` was hand-corrected to match (its own
+   `@moduledoc` documents why this is a targeted correction of an
+   already-broken-as-committed migration, not a routine hand-edit of a working
+   one). The older plain-Ecto schema keeps `swarm_work_items` unchanged. Paren/bracket
+   balance checked on both edited files; **still needs, in an environment with the
+   toolchain**: `mix ash_postgres.generate_migrations` to confirm it reproduces (or
+   no-ops against) this same rename, then `mix ecto.migrate` against a fresh
+   database to confirm `42P07` no longer occurs. Treat as `PARTIAL_ALIVE`.
 2. **`local-control-bus` branch is stale and missing the mandatory approval gate —
    a live security gap, not a doc lag.** `scripts/install-local-control-macos{,-user}.sh`
    clone the `local-control-bus` branch by default
@@ -44,63 +56,36 @@ in an environment with the toolchain.
    (22:12–22:17): no `ApprovalStore`, no `requires_approval`, no
    approve/deny/list-pending, no gating in `process_pending`.
    `local-control/AGENTS.md`'s "Requirement 9 ... deliberately unbypassable"
-   language describes a gate that exists only on `main`/this branch. **Concretely:
-   anyone who runs the installer today gets an agent that executes every admitted
-   operation immediately with zero local human confirmation.** No workflow syncs
-   `main` → `local-control-bus`, so nothing catches this drift automatically. Not
-   fixed here: the remedy is pushing to a branch other than this session's
-   designated one — a decision for whoever owns `local-control-bus`, not a
-   unilateral fix.
+   language describes a gate that exists only on `main`/this branch. No workflow
+   syncs `main` → `local-control-bus`, so nothing catches this drift automatically.
+   **Underlying branch still not fixed here**: the remedy is pushing to a branch
+   other than this session's designated one — a decision for whoever owns
+   `local-control-bus`, not a unilateral fix. **Mitigated (2026-08-29)**: both
+   installer scripts now refuse to proceed (`REFUSED[MISSING_APPROVAL_GATE]`,
+   exit 4) if the cloned branch's `scripts/local_control_agent.py` lacks
+   `class ApprovalStore`/`def requires_approval` — confirmed live against both this
+   branch's agent (passes) and `local-control-bus`'s actual current content
+   (correctly refuses). A fresh install today fails closed instead of silently
+   running unguarded; the branch itself is still stale and still needs syncing.
 
 ## Open
 
 ### ELIMINATE
 
-- `ChatGPTCloud.Ecosystem.receipt/0`
-  (`control-plane/lib/chatgpt_cloud_control_plane/ecosystem.ex`) rolls
-  `AshAuthentication`/`AshAuthentication.Phoenix` into its `standing: "ALIVE"` gate
-  via bare `Code.ensure_loaded?/1`, with zero real `use`/DSL/router usage anywhere
-  in the app outside this checker (real auth is hand-rolled Basic/bearer plugs,
-  `ChatGPTCloudWeb.OcelAuth`) — false confidence, and the two deps are otherwise
-  dead weight in `mix.exs`. Fixing needs an actual `mix test`/`mix dialyzer` run to
-  confirm no regression from dropping them; left for an environment with the
-  toolchain.
-- `capsules/process-intelligence/verify-capsule.sh` is an 85-line copy-paste fork of
-  `scripts/verify-capsule.sh` (72 lines), diverging only in the acceptance-loop
-  body (see REDUCE below for the dedup version of this finding).
-- "RDF/SHACL" framing is false *for `manufacturing/` specifically* — 8 files, no
-  `sh:` constraints anywhere (`find manufacturing -iname "*shacl*"` → nothing).
-  No longer true repo-wide: `ggen/paas/runtime-admission/*.ttl` (100 files, merged
-  from `ws3/runtime-learning-shacl-20260827-20`) does use real SHACL vocabulary for
-  Project2 runtime-admission guards — but see the orphaned-files item below; whether
-  those shapes are consumed by any validator/CI step is unconfirmed.
-- `ggen/paas/` + `ggen/capability-lineage/` (143 files: RDF contracts, numbered
-  guards, ~100 of them SHACL-shaped runtime-admission shapes, plus SPARQL
-  falsifier queries) are entirely orphaned — no script, workflow, or doc anywhere
-  in the repo references any filename or predicate from either tree. Internally
-  well-formed, but nothing executes them.
-- `capsules/process-intelligence/README.md` documents subject commit/tree SHAs for
-  `ash_r2rml`/`ex4pm` that no longer match `capsules/process-intelligence/capsule.toml`'s
-  actual pins — pure doc drift (the build trusts `capsule.toml`, not the README),
-  but misleads anyone checking "what exact commit is admitted" from the README.
-  Likely a merge artifact from the 28-branch consolidation.
+*(none currently open — the three items previously here are all in Resolved below)*
 
 ### REDUCE
 
-- `scripts/` (18 files) flatly mixes three unrelated domains (capsule build/verify,
+- `scripts/` (24 files) flatly mixes three unrelated domains (capsule build/verify,
   manufacturing, project-memory) with no subdirectory grouping.
-- `scripts/verify-capsule.sh` and `capsules/process-intelligence/verify-capsule.sh`
-  share ~70% logic that should be one sourced helper, not two maintained copies.
-- `cc:CapabilitySource` ontology properties (`manufacturing/ontology.ttl`) have zero
-  domain/range/cardinality constraints — informal triples where SHACL would
-  actually earn its keep (relates to the SHACL-framing item above).
-- `ChatGPTCloud.Ecosystem.receipt/0` conflates three unrelated concerns (module-load
-  check, state-machine shape, Oban schedule) in one untyped function.
 - `project-memory/` JSON formatting drifted (minified early → pretty-printed later)
   — pure `git diff`/grep noise across the corpus.
 - `project-memory/` has no size discipline — growing by hundreds of files per day
   of active use, despite the README enforcing "don't explode into one card per
-  commit" on the GitHub Project side but not on local transport files.
+  commit" on the GitHub Project side but not on local transport files. (A pruning
+  tool now exists — see Resolved's CREATE entry — but nothing runs it
+  automatically yet; this item is about the lack of automatic discipline, not the
+  lack of any tool at all.)
 - `docs/` is a near-1:1 doc-to-code ratio for the lib+capsule surface it covers;
   some reference pages (e.g. `docs/reference/r48-independent-consumer.md`, 9 lines)
   are thin single-topic footnotes.
@@ -116,6 +101,22 @@ in an environment with the toolchain.
   `ChatGPTCloud.Repo`) as an inert placeholder, harmless since never invoked.
   Fixing the namespace split is a ~161-file mechanical rename — too large to do
   blind without a compiler to verify; left for an environment with the toolchain.
+- (found 2026-08-29, while fixing the `AshAuthentication` false-ALIVE ELIMINATE
+  item) Five independent modules under
+  `control-plane/lib/chatgpt_cloud_control_plane/runtime_integration/` each
+  maintain their own copy of "the admitted Ash extension list", never
+  cross-checked against each other:
+  `ChatGPTCloud.Ecosystem`/`ExtensionManifest`/`RuntimeManifest` (the group
+  actually gating `ecosystem.ex`'s standing, just fixed to drop
+  `:ash_authentication`) vs. `IgniterPlan`/`RuntimeExtensionWiring`/`RuntimeCapabilitySet`
+  (a separate, self-contained "runtime integration plan" subsystem with its own
+  tautological tests — each calls `.required()` to build its own input and verifies
+  that input against itself). The second group still lists `:ash_authentication`;
+  not touched by the fix above because doing so was outside that fix's scope and
+  the second group isn't actually coupled to `ecosystem.ex` (no compile/runtime
+  break either way — atoms don't require the backing package to exist), but it's
+  now inconsistent with the first group and neither group would catch the other
+  drifting.
 
 ### RAISE
 
@@ -124,16 +125,21 @@ in an environment with the toolchain.
   external writes), `qualification.ex`/`qualification_reactor.ex` (state machine +
   Oban), `admin_auth.ex`/`ocel_auth.ex` (security-critical plugs), most Ash
   resources in `process_intelligence/resources.ex`.
-- "Offline law" is only enforced via `scripts/run-offline.sh` (and, since
-  2026-08-29, `scripts/run-postgres-offline.sh`) — calling `verify-capsule.sh` or
-  `verify-postgres-capsule.sh` *directly* still bypasses the network fencing while
-  still stamping a receipt.
-- `verifier/verify_manifest.exs` validates manifests via `String.contains?`
-  substring search, not real JSON parsing/schema validation.
+- "Offline law" is only enforced via `scripts/run-offline.sh` /
+  `scripts/run-postgres-offline.sh` — calling `verify-capsule.sh` or
+  `verify-postgres-capsule.sh` *directly* still runs unfenced; nothing refuses the
+  direct call. **Partially addressed 2026-08-29**: `verify-capsule.sh` no longer
+  *lies* about it when called directly — its receipt's `network_mode` now defaults
+  to an honest `unfenced_direct_call` sentinel (was `hex_offline`, indistinguishable
+  from a real fenced run) and its `replay` field always points at
+  `run-offline.sh`. The gap this item is actually about — nothing *prevents* the
+  direct call — is unchanged.
 - 8 of `ash-full` capsule's 15 required packages (AshPhoenix/Postgres/JsonApi/
   Authentication/Oban/GraphQL/AI/Money/Cloak/Archival/StateMachine) are verified
   only by `Code.ensure_loaded?`, not one real functional exercise — only
-  `fixtures/ash_ets_smoke` exists as a real fixture.
+  `fixtures/ash_ets_smoke` exists as a real fixture. (Note: `Authentication` here
+  is `AshPostgres`/other packages' own auth concerns, unrelated to the now-removed
+  `ash_authentication` dep — see Resolved.)
 - 180 of 1115 `project-memory/requests/*.json` (16%) have no matching receipt — 52
   of them mutating operations (48 `memory.upsert`, 1 `memory.create`,
   2 `memory.update`, 1 `memory.archive`) whose real effect on the live GitHub
@@ -142,10 +148,15 @@ in an environment with the toolchain.
   combined `git diff-tree` over a merge commit's parents, and by design never
   replays a request file "inherited unchanged from a merged branch" even though
   the merge makes it newly present — exactly what this session's 28-branch merge
-  did to any request whose branch-native CI run never landed a receipt. (Separately,
-  0 of 935 receipts are internally inconsistent, none are mislabeled `ALIVE` over a
-  real failure, and 5 receipts have no matching request in the other direction.)
-  Still no dead-letter/alert mechanism for either direction.
+  did to any request whose branch-native CI run never landed a receipt. **A real,
+  rerunnable detector now exists (2026-08-29)**: `scripts/project_memory_orphan_report.py`
+  (read-only, `--json`/`--output` supported) reproduces these exact numbers on
+  demand and additionally catches the 13 corrupted-JSON and 2 wrong-schema files
+  below in one pass. Not yet wired into CI (the live corpus would fail the default
+  threshold immediately — a human needs to pick a threshold/blocking policy first,
+  see the tool's own `deferred_or_open` notes). The underlying 180 orphans
+  themselves are still unresolved; still no dead-letter/alert mechanism beyond
+  the new detector.
 - 13 `project-memory/requests/*.json` files fail `json.loads` with the identical
   defect (exactly one extra trailing `}`) — a systematic corruption pattern, not 13
   independent typos. All 13 already have matching receipts that correctly recorded
@@ -165,24 +176,19 @@ in an environment with the toolchain.
 
 ### CREATE
 
-- No pruning/archival/rotation policy anywhere for `project-memory/` — unbounded
-  growth by construction at current cadence.
-- `SwarmTeam`/`SwarmWorkItem` velocity aggregate
-  (`control-plane/lib/chatgpt_cloud_control_plane/process_intelligence/swarm_team.ex`)
-  has zero consumers — not in any LiveView, MCP tool, or `docs/reference/mcp-tools.md`.
 - `scripts/project_memory_proxy.py` supports `memory.query`/`memory.archive`/
   `memory.delete` but the MCP tool table only wraps
   `read`/`upsert`/`snapshot`/`list_project_items` — no `archive_dfcm_memory` /
-  `delete_dfcm_memory` / `query_dfcm_memory` MCP tools exist.
+  `delete_dfcm_memory` / `query_dfcm_memory` MCP tools exist. (2026-08-29: a related
+  CREATE item, exposing `ConformanceResult`/`Refusal`/`ProcessVariant`/`SwarmTeam`
+  as MCP tools, is now done — see Resolved — but that was on
+  `ChatGPTCloud.ProcessIntelligence`'s domain; this item is `ChatGPTCloud.DfcmMemory`
+  specifically and needs new backing GraphQL mutations against GitHub Project v2,
+  not just router wiring — a materially bigger, network-logic-writing task that
+  wasn't attempted blind without a way to test real GraphQL calls.)
 - The vendored SwarmSH v2 checkout emits OTEL coordination events that never reach
   control-plane's OCEL ingest endpoint — the vendored coordination layer and the
   OCEL projection service don't talk to each other.
-- `ConformanceResult`/`Refusal`/`ProcessVariant` Ash resources are live-populated by
-  the ingestor but not wired into `domain.ex`'s `tools`/`json_api`/`graphql`
-  blocks — only `Qualification`/`CostObservation` get that exposure. Mirror the
-  existing `list_qualifications` pattern
-  (`control-plane/lib/chatgpt_cloud_control_plane/process_intelligence/resources.ex`,
-  `domain.ex`).
 
 ## Resolved
 
@@ -262,6 +268,144 @@ re-implemented):
   (`scripts/build-autonomic-manufacturing.sh`'s `CAPABILITY_SOURCE_ROOT`), not
   `vendors/` — root `.gitignore`'s `vendors/` entry is currently vestigial,
   referenced by no script or workflow. Documented under the accurate name.
+- `cc:CapabilitySource` ontology properties had zero domain/range/cardinality
+  constraints (`manufacturing/ontology.ttl`). Added a real `sh:` SHACL shapes
+  section (`cc:CapabilitySourceShape`, `@prefix sh: <http://www.w3.org/ns/shacl#>`)
+  requiring exactly one each of `skos:prefLabel` (xsd:string), `dcterms:source`
+  (`sh:nodeKind sh:IRI`), `cc:repository` (`sh:pattern` `"owner/repo"`-shaped),
+  `cc:commitSha` (`sh:pattern` 40-hex), `cc:role`, `cc:capitalClass`,
+  `cc:executionMode`, `cc:requiredStanding` (each `sh:nodeKind sh:Literal`).
+  Added `scripts/verify-manufacturing-shacl.py`, a real rerunnable
+  rdflib+pyshacl validator (shapes graph and data graph are the same file);
+  actually run: `conforms=True` against all 7 real `cc:CapabilitySource`
+  instances (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit,
+  swarmsh, swarmsh-v2), and a negative test against a deliberately malformed
+  instance confirmed the shapes genuinely reject (min/max-count and pattern
+  violations fired, not a vacuous pass). Regression-checked:
+  `manufacturing/queries/sources.rq` and `capability-lock.rq` still return 7
+  rows each via rdflib against the edited file, and the existing
+  regex-based `scripts/verify-autonomic-contract.py` still passes unchanged
+  (`AUTONOMIC_CONTRACT=ALIVE`) — its `SOURCE_RE`/`SHA_RE` patterns don't
+  overlap the new `sh:`-prefixed triples.
+- `ggen/paas/` + `ggen/capability-lineage/` were confirmed-orphaned (no script,
+  workflow, or doc anywhere referenced any filename or predicate from either
+  tree) and, separately, it was unconfirmed whether `ggen/paas/runtime-admission/`'s
+  claimed SHACL shapes were consumed by any validator/CI step at all. Not wired
+  into a functional runtime-admission pipeline (a much larger, riskier
+  undertaking, deliberately out of scope) — instead closed the achievable slice:
+  added `scripts/verify-ggen-paas-shapes.py`, a real rerunnable rdflib+pyshacl
+  validator, wired as a new, non-invasive job in
+  `.github/workflows/ggen-paas-shapes-court.yml` (triggered on changes under
+  either tree or the validator itself). Actually run against the real corpus
+  (the directories hold 138 files total, not the 143 originally estimated —
+  125 under `ggen/paas/` incl. 100 `runtime-admission/*.ttl`, 13 under
+  `ggen/capability-lineage/`): all 112 `.ttl` files parse cleanly with rdflib
+  (`format="turtle"`); rdflib triple-querying (not grep) independently confirms
+  the set of files using `sh:NodeShape`/`sh:property` is *exactly* the 100
+  `runtime-admission/*.ttl` files, no more, no fewer; all 100 load as SHACL
+  shapes graphs with pyshacl and validate against a trivial data graph without
+  erroring, both per-file and as one combined 1612-triple shapes graph (proves
+  well-formed SHACL, not a functional check — there is no real runtime-admission
+  data graph yet); all 26 `.rq` files parse as syntactically valid SPARQL via
+  `rdflib.plugins.sparql.prepareQuery`. Negative-tested the validator itself
+  (malformed Turtle and malformed SPARQL each correctly fail; pyshacl, as
+  expected, does not hard-error on a malformed shape when there's no matching
+  data to trigger the constraint — documented as a known limitation of "well-formed"
+  vs. "functional" in the script's own docstring). Final: `GGEN_PAAS_SHAPES=ALIVE
+  ttl=112/112 shacl=100/100 sparql=26/26`, exit 0.
+
+**Fixed in a second, larger 2026-08-29 swarm pass** (8 parallel agents on the
+remaining Open backlog, plus 4 fixes made directly):
+- **Critical #1** (`swarm_work_items` migration collision) — see Critical section
+  above for full detail; `PARTIAL_ALIVE`, needs toolchain replay.
+- **Critical #2** (`local-control-bus` stale approval gate) — mitigated via a
+  fail-closed installer check; see Critical section above. Underlying branch still
+  needs a human to sync it.
+- `scripts/verify-capsule.sh` and `capsules/process-intelligence/verify-capsule.sh`
+  shared ~70% logic maintained as two copies (ELIMINATE/REDUCE). Extracted the
+  genuinely-identical boilerplate into `scripts/lib/verify-capsule-common.sh`
+  (`capsule_run_logged()` wrapper, manifest/runtime verification, standing
+  computation, sha256/verified_at helpers); both entry scripts now source it and
+  supply their own `verification_body()`. Everything that actually differs between
+  the two capsules (network-mode default, release-version extraction, receipt
+  field sets, the OCEL emission call) was deliberately left unmerged so external
+  behavior is unchanged. `scripts/build-capsule.sh` updated to stage the new
+  shared file. `bash -n` clean on all touched/new files; diffed against
+  pre-refactor content to confirm zero behavior drift; a hand-written harness
+  confirmed the extracted logging/status-capture wrapper's semantics match the
+  original inline pattern exactly. Not run end-to-end (no toolchain) —
+  `PARTIAL_ALIVE`.
+- `capsules/process-intelligence/README.md` documented subject commit/tree SHAs
+  that no longer matched `capsule.toml`'s actual pins. Corrected both SHA pairs
+  (`ash_r2rml`, `ex4pm`) to match `capsule.toml` exactly; confirmed no other stale
+  SHA references remained anywhere in the repo.
+- `verifier/verify_manifest.exs` validated manifests via `String.contains?`
+  substring search. Rewrote to use Elixir's built-in `JSON` module (stdlib since
+  1.18.0, wrapping OTP 27's `:json` — confirmed available at both toolchains this
+  script runs under: 1.20.2/OTP 29.0 and process-intelligence's separate
+  1.18.4/OTP 27.2.4 pin) for real parsing, preserving the exact same required-key
+  set, `versions.toml` regex check, stdout format, and exit codes (byte-for-byte
+  diffed against the pre-edit version for the unchanged parts). Added two new
+  `BUILD_BROKEN` branches (invalid JSON; non-object JSON) that couldn't exist
+  under the old substring approach. Verified via a line-for-line Python shadow of
+  the new control flow run against 5 constructed fixtures (all 5 produced the
+  expected output/exit code) and a real fixture built by replaying
+  `build-capsule.sh`'s own manifest-generation logic. Not run in Elixir itself
+  (no toolchain) — `PARTIAL_ALIVE`.
+- `ChatGPTCloud.Ecosystem.receipt/0` rolled `AshAuthentication`/
+  `AshAuthentication.Phoenix` into its `ALIVE` gate via bare `Code.ensure_loaded?/1`
+  with zero real usage anywhere in the app (confirmed by exhaustive grep before
+  touching anything). Removed both from `ecosystem.ex`'s `@components`/
+  `@runtime_extensions` and both deps from `mix.exs`. The initial pass surfaced a
+  real coupling this closes too: `ChatGPTCloud.RuntimeIntegration.ExtensionManifest`
+  (`@roles`) and `RuntimeManifest` (`@required_roles`) independently required the
+  same `:operator_identity` role that only `ash_authentication` supplied — removing
+  it from `ecosystem.ex` alone would have flipped `receipt/0`'s standing to
+  `BUILD_BROKEN` via `RuntimeManifest.verify_roles/1` (traced by hand: `{:error,
+  {:missing_runtime_roles, [:operator_identity]}}`), breaking the `precommit` alias
+  and `ecosystem_test.exs`'s first test. Removed `:operator_identity`/
+  `ash_authentication: :operator_identity` from both files, updated
+  `ecosystem_test.exs`'s expected extension list, and removed `:ash_authentication`
+  from `control-plane/.formatter.exs`'s `import_deps` (would otherwise error trying
+  to import formatter config from a now-absent dep). `bcrypt_elixir` (flagged
+  Parked, possibly transitive from `ash_authentication`) confirmed zero direct
+  usage but deliberately left untouched — that's still a separate decision.
+  `mix.lock` still carries `ash_authentication`/`ash_authentication_phoenix` and
+  their likely-orphaned transitive deps — needs `mix deps.get`/`mix deps.clean` in
+  a toolchain environment, not hand-edited. Paren/bracket balance checked on every
+  edited file. Not compiled (no toolchain) — `PARTIAL_ALIVE`; the four files this
+  fix touches (`ecosystem.ex`, `extension_manifest.ex`, `runtime_manifest.ex`,
+  `ecosystem_test.exs`, `mix.exs`, `.formatter.exs`) need
+  `cd control-plane && mix deps.get && mix compile --warnings-as-errors && mix test`
+  before this can be called `ALIVE`.
+- `ConformanceResult`/`Refusal`/`ProcessVariant` (live-populated by the ingestor)
+  and `SwarmTeam` (real velocity/completed-work-item-count aggregates, already
+  exercised by `swarm_test.exs`) had zero MCP/API exposure. Added
+  `list_conformance_results`/`list_refusals`/`list_process_variants`/
+  `list_swarm_teams` read-only AshAi tools to `process_intelligence/domain.ex`
+  (mirroring the existing `list_qualifications` pattern exactly) and the matching
+  4 atoms to `router.ex`'s `/mcp` tools list (16 → 20 total, existing 16
+  untouched/unreordered). Deliberately did not add `json_api`/`graphql` exposure
+  (would break `ecosystem_test.exs`'s exact-route/query-count assertions) or touch
+  the separate Ash-native `SwarmWorkItem` resource (not what this item's file
+  pointer asked for — still open, see CREATE above for the related still-open
+  `SwarmWorkItem`/DfcmMemory MCP gaps). Updated `docs/reference/mcp-tools.md`'s
+  tool table (4 new rows) and fixed its stale "exactly 6 tools" framing to the
+  true 20. Verified all 4 new resources are registered in `domain.ex`'s
+  `resources do` block and all 20 router atoms have exactly one matching `tool()`
+  declaration; paren/bracket/do-end balance checked. Not compiled — `PARTIAL_ALIVE`.
+- No pruning/archival/rotation policy existed for `project-memory/`. Added
+  `scripts/project_memory_prune.py`: dry-run by default (reports candidates,
+  makes zero writes), `--apply` moves (never deletes) requests+receipts for
+  superseded "current"/"latest"-pointer keys into
+  `project-memory/archive/<YYYY-MM>/`, always preserving each key's single most
+  recent write. 30 tests, all passing; a real read-only dry-run against the live
+  corpus reported 327 candidates across 27 pointer keys, matching the 13
+  known-corrupted files exactly by name. `--apply` was never run against the real
+  corpus in this pass (verified via `git status`/file-count/checksum diffing
+  before and after) — this closes the "no tool exists" gap; actually running
+  `--apply` against the live corpus is a separate, human-reviewed operational
+  decision, not done here.
 
 ## Misdiagnosed
 
@@ -292,7 +436,7 @@ re-implemented):
 - `SecretCredential` resource omits the JSON:API/GraphQL extension — looks
   correct-by-design (secrets shouldn't be API-exposed) but unconfirmed.
 - `bcrypt_elixir` dep — no direct usage found; possibly transitive from the unused
-  `ash_authentication` deps (see ELIMINATE above).
+  now-removed `ash_authentication` deps (see Resolved above).
 - `capsules/process-intelligence/capsule.toml` pins a different OTP/Elixir runtime
   than root `versions.toml` — may be intentional (pins external subject repos' own
   toolchain) but undocumented.

@@ -60,6 +60,10 @@ defmodule ChatGPTCloudWeb.Router do
       tools: [
         :list_qualifications,
         :list_cost_observations,
+        :list_conformance_results,
+        :list_refusals,
+        :list_process_variants,
+        :list_swarm_teams,
         :read_dfcm_memory,
         :upsert_dfcm_memory,
         :snapshot_dfcm_project,

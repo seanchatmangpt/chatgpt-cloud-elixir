@@ -1,12 +1,13 @@
 defmodule ChatGPTCloud.RuntimeIntegration.RuntimeManifest do
   @moduledoc "Aggregates the runtime integration invariants for exact-head qualification."
 
+  # :operator_identity (ash_authentication) removed 2026-08-29 -- see
+  # ChatGPTCloud.RuntimeIntegration.ExtensionManifest's @moduledoc.
   @required_roles [
     :compile_time_contracts,
     :orchestration,
     :reproducible_manufacture,
     :machine_projection,
-    :operator_identity,
     :durable_work,
     :lifecycle,
     :evidence_retention,

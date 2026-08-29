@@ -15,8 +15,8 @@ This is a distinct lawful capsule variant. Existing ChatGPT cloud capsules conti
 
 The source identities are reviewable in `capsule.toml` and are verified during manufacture before either project is built:
 
-- `seanchatmangpt/ash_r2rml` at `a3445b7b252514880cd0f3c9843c0353b0385af1` / tree `d76b113d16aeecd47d246cac5e18619a8bd4be88`;
-- `seanchatmangpt/ex4pm` at `f4f8776e66af6f0704407827635a446a5df7595b` / tree `3de6002793cdd38e205a710dcb274bfb1dd704c9`.
+- `seanchatmangpt/ash_r2rml` at `7ce5ff63da03fcc3bb661890f51b0c9494147140` / tree `c576f44096b5af0e0ef89094a520de8e99c71819`;
+- `seanchatmangpt/ex4pm` at `542cef83cb8ce5aec6984c84c3234ca0f5ce2b2e` / tree `3ddcb90d49278444143f8af6be16d09603da9527`.
 
 The subjects are built as independent Mix projects with their own lockfiles, `deps`, and `_build` trees. They are deliberately not collapsed into one dependency graph.
 

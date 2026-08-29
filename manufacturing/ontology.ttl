@@ -4,6 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 
 cc:CapabilitySource a prov:Entity .
 cc:ManufacturingCapsule a prov:Entity .
@@ -97,3 +98,83 @@ cc:role a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:capitalClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:executionMode a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:requiredStanding a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+# ---------------------------------------------------------------------------
+# SHACL shapes — real constraints, not just informal triples.
+#
+# cc:CapabilitySourceShape closes the gap the ERRC tracker's REDUCE item names:
+# cc:CapabilitySource properties previously carried zero domain/range/cardinality
+# constraints. Every cc:CapabilitySource instance below (Ggen, GgenMarketplace,
+# GgenCreate, GgenLegacy, GgenSpecKit, SwarmSH, SwarmSHV2) must conform.
+# Validate with `python3 scripts/verify-manufacturing-shacl.py`.
+# ---------------------------------------------------------------------------
+
+cc:CapabilitySourceShape
+  a sh:NodeShape ;
+  sh:targetClass cc:CapabilitySource ;
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:name "preferred label" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one skos:prefLabel string." ;
+  ] ;
+  sh:property [
+    sh:path dcterms:source ;
+    sh:name "source IRI" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one dcterms:source IRI." ;
+  ] ;
+  sh:property [
+    sh:path cc:repository ;
+    sh:name "repository" ;
+    sh:datatype xsd:string ;
+    sh:pattern "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$" ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:repository must be exactly one \"owner/repo\"-shaped string." ;
+  ] ;
+  sh:property [
+    sh:path cc:commitSha ;
+    sh:name "commit SHA" ;
+    sh:datatype xsd:string ;
+    sh:pattern "^[0-9a-f]{40}$" ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:commitSha must be exactly one 40-hex-character full commit SHA." ;
+  ] ;
+  sh:property [
+    sh:path cc:role ;
+    sh:name "role" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one cc:role literal." ;
+  ] ;
+  sh:property [
+    sh:path cc:capitalClass ;
+    sh:name "capital class" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one cc:capitalClass literal." ;
+  ] ;
+  sh:property [
+    sh:path cc:executionMode ;
+    sh:name "execution mode" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one cc:executionMode literal." ;
+  ] ;
+  sh:property [
+    sh:path cc:requiredStanding ;
+    sh:name "required standing" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "cc:CapabilitySource requires exactly one cc:requiredStanding literal." ;
+  ] .

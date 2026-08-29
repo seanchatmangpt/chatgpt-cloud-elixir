@@ -40,6 +40,26 @@ defmodule ChatGPTCloud.ProcessIntelligence do
     tool(:list_cost_observations, ChatGPTCloud.ProcessIntelligence.CostObservation, :read,
       description: "Read metering observations. Values are evidence, not billing authority."
     )
+
+    tool(:list_conformance_results, ChatGPTCloud.ProcessIntelligence.ConformanceResult, :read,
+      description:
+        "Read process-conformance fitness evidence against declared process models. This tool cannot actuate deployments."
+    )
+
+    tool(:list_refusals, ChatGPTCloud.ProcessIntelligence.Refusal, :read,
+      description:
+        "Read typed REFUSED_* evidence recorded against runs. This tool cannot actuate deployments."
+    )
+
+    tool(:list_process_variants, ChatGPTCloud.ProcessIntelligence.ProcessVariant, :read,
+      description:
+        "Read discovered/declared process-model variants. This tool cannot actuate deployments."
+    )
+
+    tool(:list_swarm_teams, ChatGPTCloud.ProcessIntelligence.SwarmTeam, :read,
+      description:
+        "Read swarm coordination teams and their completed-work-item velocity aggregate. This tool cannot actuate deployments."
+    )
   end
 
   resources do

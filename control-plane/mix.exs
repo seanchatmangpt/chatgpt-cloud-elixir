@@ -39,8 +39,6 @@ defmodule ChatGPTCloud.MixProject do
       {:ash_postgres, "2.12.0"},
       {:ash_phoenix, "2.3.24"},
       {:ash_json_api, "1.7.1"},
-      {:ash_authentication, "5.0.0-rc.12"},
-      {:ash_authentication_phoenix, "3.0.0-rc.9"},
       {:ash_oban, "0.8.13"},
       {:ash_state_machine, "0.2.13"},
       {:ash_archival, "2.0.3"},

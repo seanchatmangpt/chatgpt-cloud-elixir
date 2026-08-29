@@ -12,6 +12,27 @@ defmodule ChatGPTCloud.Repo.Migrations.AddSwarmResources do
   `secret_credentials` — their resources existed before this change but no
   migration was ever generated for them), plus the three new
   swarmsh-derived tables.
+
+  Second hand-correction (2026-08-29, docs/errc-tracker.md "Critical" item):
+  this migration's `swarm_work_items` table name collided with the
+  independently-developed plain-Ecto `ChatGPTCloud.SwarmCoordination.WorkItem`
+  schema's own `swarm_work_items` table (created earlier by
+  `20260826000000_create_swarm_coordination_tables.exs`) — two unrelated
+  "swarm work" features landed on the same table name during a branch
+  merge. `mix ecto.migrate` on a fresh database failed with Postgres 42P07
+  (relation already exists) as originally committed. Renamed this
+  migration's table (and its unique index) to
+  `process_intelligence_swarm_work_items`, matching a corresponding rename
+  in `ChatGPTCloud.ProcessIntelligence.SwarmWorkItem`'s `postgres do table`
+  declaration — the newer, ash_postgres-generated resource yields the name
+  to the older, already-consumed-elsewhere plain-Ecto one. This is a
+  targeted hand-correction of an already-broken-as-committed migration, not
+  a routine hand-edit of a working one; the properly-generated fix is still
+  to run `mix ash_postgres.generate_migrations` in an environment with the
+  Elixir/Postgres toolchain and confirm it reproduces this same rename (or
+  a no-op if it already matches), then `mix ecto.migrate` against a fresh
+  database to confirm 42P07 no longer occurs. Neither step has been run —
+  no toolchain was available in the environment this fix was made in.
   """
 
   use Ecto.Migration
@@ -141,7 +162,7 @@ defmodule ChatGPTCloud.Repo.Migrations.AddSwarmResources do
 
     create unique_index(:swarm_teams, [:team_key], name: "swarm_teams_unique_team_key_index")
 
-    create table(:swarm_work_items, primary_key: false) do
+    create table(:process_intelligence_swarm_work_items, primary_key: false) do
       add :id, :uuid, null: false, default: fragment("gen_random_uuid()"), primary_key: true
       add :work_item_id, :text, null: false
       add :work_type, :text
@@ -165,17 +186,17 @@ defmodule ChatGPTCloud.Repo.Migrations.AddSwarmResources do
       add :state, :text, null: false, default: "pending"
     end
 
-    create unique_index(:swarm_work_items, [:work_item_id],
-             name: "swarm_work_items_unique_work_item_id_index"
+    create unique_index(:process_intelligence_swarm_work_items, [:work_item_id],
+             name: "process_intelligence_swarm_work_items_unique_work_item_id_index"
            )
   end
 
   def down do
-    drop_if_exists unique_index(:swarm_work_items, [:work_item_id],
-                     name: "swarm_work_items_unique_work_item_id_index"
+    drop_if_exists unique_index(:process_intelligence_swarm_work_items, [:work_item_id],
+                     name: "process_intelligence_swarm_work_items_unique_work_item_id_index"
                    )
 
-    drop table(:swarm_work_items)
+    drop table(:process_intelligence_swarm_work_items)
 
     drop_if_exists unique_index(:swarm_teams, [:team_key],
                      name: "swarm_teams_unique_team_key_index"
