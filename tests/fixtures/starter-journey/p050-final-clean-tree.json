@@ -1,0 +1,12 @@
+{
+  "id": "P050",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P050",
+  "edge": "final-clean-tree",
+  "hypothesis": "Starter journey must independently falsify final-clean-tree.",
+  "semantic_fingerprint": "770fdb914b2f8493",
+  "invalid": {
+    "final_tree_clean": false
+  },
+  "expected": "REFUSED[UNEXPECTED_WORKTREE_CHANGE]",
+  "control": {}
+}
