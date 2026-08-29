@@ -1,0 +1,12 @@
+{
+  "id": "P021",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P021",
+  "edge": "os-support",
+  "hypothesis": "Starter journey must independently falsify os-support.",
+  "semantic_fingerprint": "4f418da2de11efca",
+  "invalid": {
+    "os_supported": false
+  },
+  "expected": "UNSUPPORTED[OPERATING_SYSTEM]",
+  "control": {}
+}
