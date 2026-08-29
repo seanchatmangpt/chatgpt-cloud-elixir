@@ -1,0 +1,12 @@
+{
+  "id": "P037",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P037",
+  "edge": "fork-permissions",
+  "hypothesis": "Starter journey must independently falsify fork-permissions.",
+  "semantic_fingerprint": "8114eace46a34f74",
+  "invalid": {
+    "fork_permissions_sufficient": false
+  },
+  "expected": "REFUSED[FORK_PERMISSION_CEILING]",
+  "control": {}
+}
