@@ -1,0 +1,286 @@
+{
+  "error": null,
+  "observed_at": "2026-08-26T01:08:21Z",
+  "operation": "project.services",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "project.services",
+    "payload": {
+      "include_archived": false,
+      "include_bodies": false,
+      "max_items": 5000
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "project-two-semantic-services-live-20260826"
+  },
+  "request_id": "project-two-semantic-services-live-20260826",
+  "request_path": "project-memory/requests/20260826-project-two-semantic-services-live.json",
+  "result": {
+    "authority": "READ_ONLY_VIRTUAL_PROJECTION",
+    "canonical_subject": "GitHub Project v2 #2",
+    "capabilities": [
+      {
+        "authority": "BOUNDED_PROJECT_MEMORY_MUTATION",
+        "id": "urn:project-two:capability:memory-kv",
+        "name": "memory-kv",
+        "operations": [
+          "memory.create",
+          "memory.read",
+          "memory.update",
+          "memory.upsert",
+          "memory.query",
+          "memory.archive",
+          "memory.delete"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:project-object-store",
+        "name": "project-object-store",
+        "operations": [
+          "project.snapshot",
+          "project.items"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:property-graph",
+        "name": "property-graph",
+        "operations": [
+          "project.graph",
+          "project.graph.query"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:semantic-facts",
+        "name": "semantic-facts",
+        "operations": [
+          "project.triples"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:json-ld",
+        "name": "json-ld",
+        "operations": [
+          "project.jsonld"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:relational-projection",
+        "name": "relational-projection",
+        "operations": [
+          "project.tables"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:service-catalog",
+        "name": "service-catalog",
+        "operations": [
+          "project.services"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:process-evidence",
+        "name": "process-evidence",
+        "operations": [
+          "project.ocel"
+        ],
+        "type": "dcat:DataService"
+      },
+      {
+        "authority": "READ_ONLY_PROJECTION",
+        "id": "urn:project-two:capability:llm-context",
+        "name": "llm-context",
+        "operations": [
+          "project.context"
+        ],
+        "type": "dcat:DataService"
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "ChatGPT request bus",
+        "protocol": "bounded JSON request + receipt"
+      },
+      {
+        "name": "LLM MCP junction",
+        "protocol": "AshAi/MCP"
+      },
+      {
+        "name": "GitHub Project UI",
+        "protocol": "human inspection"
+      }
+    ],
+    "model": "virtual-semantic-paas",
+    "observed_at": "2026-08-26T01:08:26Z",
+    "project": {
+      "id": "PVT_kwHOCCCFfc4BhZKe",
+      "number": 2,
+      "owner": "seanchatmangpt",
+      "title": "@seanchatmangpt's post-agi project",
+      "url": "https://github.com/users/seanchatmangpt/projects/2"
+    },
+    "resource_facets": {
+      "cells": {
+        "EXPLORE": 3,
+        "IMPLEMENT_QUALIFY": 3,
+        "MEASURE": 7,
+        "PORTFOLIO": 8,
+        "SELECT_DEVELOP": 15,
+        "SYSTEM": 1
+      },
+      "kinds": {
+        "dfcm.explore": 1,
+        "dfcm.frontier": 1,
+        "dfcm.implement": 1,
+        "dfcm.learning": 2,
+        "dfcm.ledger": 1,
+        "dfcm.measure": 1,
+        "dfcm.portfolio": 1,
+        "dfcm.run": 9,
+        "dfcm.run-control": 4,
+        "dfcm.run-learning": 5,
+        "dfcm.run.learning": 4,
+        "dfcm.run.portfolio": 1,
+        "dfcm.run.select": 2,
+        "dfcm.run_control": 1,
+        "dfcm.run_learning": 1,
+        "dfcm.select": 1,
+        "dfcm.system.transport": 1,
+        "ocel.v2.revops.hypergraph": 1,
+        "ocel.v2.schedule-throughput.control": 1
+      },
+      "repositories": {
+        "seanchatmangpt/ash_swarm": 6,
+        "seanchatmangpt/autofde-lab": 11,
+        "seanchatmangpt/autotel": 1,
+        "seanchatmangpt/chatgpt-cloud-elixir": 2,
+        "seanchatmangpt/chatman-ecosystem": 1,
+        "seanchatmangpt/clnrm": 13,
+        "seanchatmangpt/dspygen": 3,
+        "seanchatmangpt/frozen-duckdb": 1,
+        "seanchatmangpt/gymact": 1,
+        "seanchatmangpt/kanban": 14,
+        "seanchatmangpt/ranchr": 4,
+        "seanchatmangpt/unjucks": 266,
+        "seanchatmangpt/xaas": 21
+      },
+      "standings": {
+        "ALIVE": 25,
+        "COMPLETE": 2,
+        "PARTIAL_ALIVE": 11,
+        "RUNNING": 1
+      },
+      "tags": {
+        "1000x": 3,
+        "alive": 1,
+        "ash": 1,
+        "autocatalytic": 1,
+        "autocatalytic-capital": 2,
+        "capital": 1,
+        "capital-allocation": 1,
+        "capital-yield": 1,
+        "causal-attribution": 1,
+        "causality": 1,
+        "commits-per-hour": 1,
+        "complete": 2,
+        "consumer": 3,
+        "consumer-admission": 1,
+        "consumer-evidence-return": 1,
+        "consumer-fanout": 1,
+        "consumer-manufacture": 1,
+        "consumer-realization": 1,
+        "contained": 3,
+        "currentness": 1,
+        "dependency-relief": 1,
+        "develop": 2,
+        "dfcm": 30,
+        "durable-learning": 7,
+        "elixir": 1,
+        "epistemic-capital": 1,
+        "exact-subject": 1,
+        "explore": 3,
+        "frontier": 1,
+        "ggen": 2,
+        "human-ui": 1,
+        "hypergraph": 1,
+        "immutable": 4,
+        "implement": 3,
+        "learning": 10,
+        "ledger": 1,
+        "manufacturing-capital": 1,
+        "measure": 7,
+        "merged": 1,
+        "novel-learning": 1,
+        "ocel-v2": 2,
+        "option-capital": 1,
+        "orthogonality": 1,
+        "portfolio": 6,
+        "project-memory": 3,
+        "project2": 1,
+        "provenance": 1,
+        "qualification": 2,
+        "r44": 1,
+        "r45": 2,
+        "r45b": 1,
+        "r46": 1,
+        "r48": 2,
+        "r49": 3,
+        "r50": 1,
+        "r51": 1,
+        "r56": 2,
+        "r62": 3,
+        "r63": 1,
+        "r67": 1,
+        "r69": 1,
+        "r70": 1,
+        "r71": 2,
+        "r72": 3,
+        "r73": 5,
+        "replication": 1,
+        "replication-compiler": 1,
+        "reuse": 1,
+        "revalidation": 2,
+        "revenue": 1,
+        "revops": 1,
+        "run": 4,
+        "run-control": 3,
+        "schedule-run": 1,
+        "select": 4,
+        "shared-memory": 1,
+        "temporal-truth": 3,
+        "throughput": 1,
+        "transport-gate": 1,
+        "value-generation": 1,
+        "verification": 1
+      }
+    },
+    "schema": "project-two-semantic/v1",
+    "source_truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

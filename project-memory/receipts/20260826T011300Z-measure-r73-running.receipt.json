@@ -1,6 +1,8 @@
 {
+  "actuation_performed": true,
   "error": null,
-  "observed_at": "2026-08-26T01:12:53Z",
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:16:15Z",
   "operation": "memory.upsert",
   "project": {
     "id": "PVT_kwHOCCCFfc4BhZKe",
@@ -52,6 +54,8 @@
   },
   "request_id": "20260826T011300Z-measure-r73-running",
   "request_path": "project-memory/requests/20260826T011300Z-measure-r73-running.json",
+  "request_sha256": "sha256:d85ee0335ca1acc65ffde963a11dbbd09c453af1741db23a8b06fad475c0d58c",
+  "request_transport_sha256": "sha256:3efd13734c281d697589ad4e61fb1c30915a9d3a96d375ad40a15fb5ec437e16",
   "result": {
     "action": "updated",
     "record": {
@@ -102,6 +106,7 @@
         "final_marketplace_head": "b116088d8b6c6daf6595c3e9b30eb6bb58572f4b",
         "generation": "R72",
         "head_sha": "6a775d0bc5c2c12b995ef2d736f6501d7a3549b4",
+        "initial_frontier": "PENDING_PRE_RECEIPTS",
         "initial_frontier_size": 6,
         "initial_weakest_multiplier": "qualified_structural_displacement_fanout_and_dual_revenue_observability",
         "key": "dfcm/run-control/measure/current",
@@ -146,6 +151,7 @@
         "project_pre_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
         "project_snapshot_request": "20260825T110507Z-measure-r47-snapshot-pre2",
         "project_title": "@seanchatmangpt's post-agi project",
+        "prompt_digest": "UNKNOWN[SCHEDULER_RAW_PROMPT_BYTES_NOT_EXPORTED]",
         "qualified_head": "4e4562c955de1efef26dce8b6013f63bbb42df33",
         "query_literal_match_count": 0,
         "query_receipt": "20260825T192906Z-r52-query-relevant",
@@ -154,6 +160,8 @@
         "reference_shortfall": 840,
         "remembered_marketplace_main": "97b5f8fc5a63187d88f0daf56a7a50d5337ae825",
         "repo": "seanchatmangpt/ggen-marketplace",
+        "run_id": "6a754fe0a72c819191520a0826a1398c+20260826T020200Z+MEASURE",
+        "scheduled_at_utc": "2026-08-26T02:02:00Z",
         "schema": "chatgpt-project-memory/v1",
         "sensor_count": 50,
         "sensors": 50,
@@ -175,8 +183,10 @@
           "structural-manufacturing"
         ],
         "thousand_x": "NOT_ADMITTED",
+        "transport_branch": "automation/measure-20260826-0202",
         "transport_head": "fe3abeeaa2f0cf65d916263a688eca9721021368",
-        "updated_at": "2026-08-26T01:13:05Z",
+        "transport_head_before_request": "3951e81206dce370f6c9de629859ab057c29ce01",
+        "updated_at": "2026-08-26T02:16:29Z",
         "utc_end": "2026-08-25T23:37:00Z",
         "utc_start": "2026-08-26T01:13:00Z",
         "vacuity_run": 32911351767,

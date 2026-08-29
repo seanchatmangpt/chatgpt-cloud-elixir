@@ -112,6 +112,22 @@ class AdmissionTests(unittest.TestCase):
             data = json.loads(receipt.read_text(encoding="utf-8"))
             self.assertEqual("INVALID_REQUEST_ROOT", data["reason"])
 
+    def test_bus_admits_semantic_and_vision_2030_operations(self):
+        proxy = bus.load_proxy()
+        self.assertIn("project.semantic", proxy.ALLOWED_OPERATIONS)
+        self.assertIn("project.vision2030", proxy.ALLOWED_OPERATIONS)
+
+        request = {
+            "request_id": "vision-2030-admission",
+            "operation": "project.vision2030",
+            "project": {"owner": "seanchatmangpt", "number": 2},
+            "payload": {"query": {"minimum_evidence": 2}},
+        }
+        request_id, operation = proxy.validate_request(request, "seanchatmangpt", 2)
+        self.assertEqual("vision-2030-admission", request_id)
+        self.assertEqual("project.vision2030", operation)
+        self.assertEqual("project_memory_semantic_proxy", proxy.execute_request.__module__)
+
 
 class ReplayTests(unittest.TestCase):
     def test_exact_alive_receipt_short_circuits_replay_without_token(self):

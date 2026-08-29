@@ -1,0 +1,13 @@
+{
+  "request_id": "project-two-semantic-services-live-20260826",
+  "operation": "project.services",
+  "project": {
+    "owner": "seanchatmangpt",
+    "number": 2
+  },
+  "payload": {
+    "max_items": 5000,
+    "include_archived": false,
+    "include_bodies": false
+  }
+}

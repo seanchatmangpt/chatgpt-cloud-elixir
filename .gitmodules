@@ -1,0 +1,7 @@
+[submodule "control-plane/deps/daisyui"]
+	path = control-plane/deps/daisyui
+	url = https://github.com/saadeghi/daisyui.git
+
+[submodule "control-plane/deps/heroicons"]
+	path = control-plane/deps/heroicons
+	url = https://github.com/tailwindlabs/heroicons.git
