@@ -1,0 +1,29 @@
+{
+  "request_id": "20260825T231100Z-portfolio-mid-r46-repair",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "portfolio", "r70", "r46-repair"],
+      "body": "R70 PR #295 advanced to exact head 649f5368680c40729237b6e128c45858c2149a47 after an inherited R46 falsifier. Exact failure: historical R46 court counted all files in reused ordinal slots 186..235 and found 100 instead of 50. Canonical repair preserves immutable fifty ordinal identities while allowing later semantic variants; R46 permanent court and R45 composition court now both SUCCESS on changed head. R70 own court is SUCCESS; broad CI/Vacuity still requalifying.",
+      "metadata": {
+        "bus_head_before_request": "36e6fb5bc062c4644fe1daa539ae24ad127a65df",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "pr": 295,
+        "head_sha": "649f5368680c40729237b6e128c45858c2149a47",
+        "meaningful_commits": 61,
+        "repair_commits": 3,
+        "defect": "R46 historical file-cardinality selector conflated immutable ordinal identity with later query variants",
+        "permanent_falsifier": "R46 exact ordinal slot coverage 186..235 plus SELECT-only authority for all slot variants",
+        "r46_contract": "ALIVE",
+        "r45_composition": "ALIVE",
+        "r70": "ALIVE[owning court]",
+        "aggregate": "REQUALIFYING"
+      }
+    }
+  }
+}

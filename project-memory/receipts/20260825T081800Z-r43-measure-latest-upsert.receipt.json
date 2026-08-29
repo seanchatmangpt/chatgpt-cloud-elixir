@@ -1,0 +1,95 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T08:18:23Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R43 exact subject: seanchatmangpt/ggen-marketplace base a2e0eca7516df44738a7b41b2c4e7498d00ef919; qualified head 4baf32dd33112236c301906bea2df631e6c188cd; merged main aaad22568fdb4fee537ce663d4b640585bd5c194. Observed: R42 merged 50 replication courts; Project #2 canonical DfCM query scanned 0 records. Manufactured: 50 executable SPARQL sensors, PROV/DQV/DCAT/DCTERMS/ODRL ontology model, ggen projections, fixture, contract court, SPARQL execution adapter, Diataxis, receipt, exact-head CI. Verified: owning run 32825762824 SUCCESS; Vacuity 32825762894 SUCCESS; merge containment is direct second-parent. Defects repaired: noncanonical top-level pack staging path; ambient-DO falsifier self-match. E_design=4.0 from 2 seeds/8 typed opportunity classes. M_design=4.0 from one consumed memory-state receipt/4 memory-specific instrument classes. 1000X not admitted; sensors 046-050 require and measure evidence/shortfall. Next-cell handoff: execute R43 sensors over enumerated live repository/replication subjects and populate exact fanout/relief/precision/recall evidence.",
+        "cell": "MEASURE",
+        "key": "dfcm/measure/latest",
+        "kind": "dfcm.measure",
+        "metadata": {
+          "E": 4.0,
+          "M": 4.0,
+          "actuation_performed": false,
+          "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+          "meaningful_commits": 66,
+          "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+          "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+          "owning_run": 32825762824,
+          "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "sensors": 50,
+          "vacuity_run": 32825762894
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "replication",
+          "better-eyes",
+          "shared-memory"
+        ],
+        "title": "DfCM MEASURE latest — R43 replication epistemic observability"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T081800Z-r43-measure-latest-upsert"
+  },
+  "request_id": "20260825T081800Z-r43-measure-latest-upsert",
+  "request_path": "project-memory/requests/20260825T081800Z-r43-measure-latest-upsert.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "R43 exact subject: seanchatmangpt/ggen-marketplace base a2e0eca7516df44738a7b41b2c4e7498d00ef919; qualified head 4baf32dd33112236c301906bea2df631e6c188cd; merged main aaad22568fdb4fee537ce663d4b640585bd5c194. Observed: R42 merged 50 replication courts; Project #2 canonical DfCM query scanned 0 records. Manufactured: 50 executable SPARQL sensors, PROV/DQV/DCAT/DCTERMS/ODRL ontology model, ggen projections, fixture, contract court, SPARQL execution adapter, Diataxis, receipt, exact-head CI. Verified: owning run 32825762824 SUCCESS; Vacuity 32825762894 SUCCESS; merge containment is direct second-parent. Defects repaired: noncanonical top-level pack staging path; ambient-DO falsifier self-match. E_design=4.0 from 2 seeds/8 typed opportunity classes. M_design=4.0 from one consumed memory-state receipt/4 memory-specific instrument classes. 1000X not admitted; sensors 046-050 require and measure evidence/shortfall. Next-cell handoff: execute R43 sensors over enumerated live repository/replication subjects and populate exact fanout/relief/precision/recall evidence.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_jyY",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36CJE",
+      "metadata": {
+        "E": 4.0,
+        "M": 4.0,
+        "actuation_performed": false,
+        "base_sha": "a2e0eca7516df44738a7b41b2c4e7498d00ef919",
+        "cell": "MEASURE",
+        "created_at": "2026-08-25T08:18:30Z",
+        "key": "dfcm/measure/latest",
+        "kind": "dfcm.measure",
+        "meaningful_commits": 66,
+        "memory_query_receipt": "20260825T080200Z-measure-dfcm-query",
+        "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "owning_run": 32825762824,
+        "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "sensors": 50,
+        "standing": "ALIVE",
+        "tags": [
+          "better-eyes",
+          "dfcm",
+          "measure",
+          "replication",
+          "shared-memory"
+        ],
+        "updated_at": "2026-08-25T08:18:30Z",
+        "vacuity_run": 32825762894
+      },
+      "title": "DfCM MEASURE latest — R43 replication epistemic observability"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

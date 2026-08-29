@@ -1,0 +1,21 @@
+{
+  "request_id":"20260826T125100Z-cell2-forced-top25-r86",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{
+    "key":"ggen/fanout/forced-top25/current",
+    "title":"Forced Top25 fanout census after R86 composition",
+    "summary":"Preserve exact mandatory rank order 1..25. CELL1 compatible lower bound remains U>=17. Direct Git receipts now prove default-lineage assimilation for SREGym@4f6757c758521a359f1091d17d37ae5a9b1fb962, fdegym via PR6 merge f493d2bf5e093d8430b7e39b56d8222e95192dbe, and mfact via PR9 merge 79643f87f35cb59514ebce096ad067b713a47db3, in addition to prior assimilated ex4pm,gymact,autofde-lab,autofde,xaas,dspygen. Conservative M>=9, R>=11, Q>=6. mfw and yawl remain parallel BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC] observations; their consumer subjects are not refused. R86 qualification-capsule composition is draft PR325 at exact head 18a88bddb5ed39c8fec8685adfdabfb9952cb564 over ggen-marketplace main@93c99170cad21e5914934837dbd01bb9e9f83d92.",
+    "standing":"PARTIAL_ALIVE",
+    "metadata":{
+      "forced_order":["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+      "U_lower_bound":17,
+      "R_lower_bound":11,
+      "Q_lower_bound":6,
+      "M_lower_bound":9,
+      "assimilated_new":{"SREGym":"4f6757c758521a359f1091d17d37ae5a9b1fb962","fdegym":"f493d2bf5e093d8430b7e39b56d8222e95192dbe","mfact":"79643f87f35cb59514ebce096ad067b713a47db3"},
+      "blocked":{"mfw":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]","yawl":"BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"},
+      "r86":{"producer":"seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564","pack":"forced-top25-qualification-capsule-pack","pr":325,"standing":"PARTIAL_ALIVE"}
+    }
+  }
+}

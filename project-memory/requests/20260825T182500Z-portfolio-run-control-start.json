@@ -1,0 +1,42 @@
+{
+  "request_id": "20260825T182500Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "1000x", "autocatalytic"],
+      "body": "PORTFOLIO recurrence started from exact Project #2 snapshot PVT_kwHOCCCFfc4BhZKe with 371 items. Current live default is ggen-marketplace@e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb containing R62 dependency-relief replication capital. Persistent memory revalidated R62 as merged/contained, identifies independent ALIVE writable-consumer breadth plus positive realized dependency relief as the weakest multiplier, and provides durable bootstrap/falsifier topology. Initial seeds: post-R62 realization/capacity measurement, cross-repository consumer qualification/receipt return, current marketplace stale-lineage reconciliation, and reusable Project-memory/qualification topology. standing=RUNNING; consequential DO remains limited to authorized GitHub branch/PR repair-and-merge and bounded Project proxy.",
+      "metadata": {
+        "schema": "chatgpt-project-memory/v1",
+        "utc_start": "2026-08-25T18:19:33Z",
+        "cell": "PORTFOLIO",
+        "bus_head": "1039a5cc4917723b4f9d652e551036843b9d5611",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count": 371,
+        "snapshot_receipt": "20260825T181920Z-portfolio-pre-snapshot",
+        "memory_query_receipt": "20260825T182330Z-portfolio-pre-dfcm-query",
+        "memory_keys_consumed": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "memory_records_matched": 27,
+        "initial_frontier_size_lower_bound": 8,
+        "E_initial": 2,
+        "E2_initial": 2,
+        "Y_initial": 50,
+        "R_initial": 1,
+        "C_initial_lower_bound": 2.5,
+        "M_initial_lower_bound": 1,
+        "weakest_multiplier": "independent ALIVE writable-consumer breadth + positive realized dependency relief",
+        "seed_opportunities": ["post-R62 dependency-relief realization/capacity capital", "independent ggen consumer receipt/dependency-relief requalification", "chatgpt-cloud-elixir consumer realization/receipt return", "reconcile current reusable marketplace lineages against exact main", "extract repeated default-owned exact-head court bootstrap topology"],
+        "ggen_marketplace_main": "e073a31ae8f5eb9c696eaac2c098e2ac7517f3fb",
+        "authority": "OBSERVE|VERIFY|SELECT|CONSTRUCT|GitHub_PR_MERGE|PROJECT_PROXY",
+        "consequential_do": false,
+        "actuation_performed": false
+      }
+    }
+  }
+}

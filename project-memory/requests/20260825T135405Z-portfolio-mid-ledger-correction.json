@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T135405Z-portfolio-mid-ledger-correction",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM capability ledger",
+      "kind": "dfcm.ledger",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "ledger", "portfolio", "current"],
+      "body": "Durable graph delta: marketplace epistemic-sensor-factory-pack -> ggen consumer PR #670 qualified -> merged main a9967f98...; same producer contract -> ex4pm consumer PR #32 qualified -> merged main e12fccb4.... These two independent default-contained consumers raise observed qualified consumer breadth beyond the prior single-consumer memory. R53 #264 now measures causal downstream propagation but remains BUILD_BROKEN at real-ggen shard 0/4; no standing transferred.",
+      "metadata": {
+        "observed_at": "2026-08-25T13:54:05Z",
+        "edges_added": [
+          "epistemic-sensor-factory-pack->ggen#670->main@a9967f98df05f7a1f0c54376b2a35508bacb935d",
+          "epistemic-sensor-factory-pack->ex4pm#32->main@e12fccb42a67bc4496cac91c86bff2b856cc463d",
+          "consumer-replication->R53 causal propagation measurement"
+        ],
+        "R_consumer_observed_lower_bound": 2,
+        "next_repair": "ggen-marketplace#264 real-ggen shard0"
+      }
+    }
+  }
+}

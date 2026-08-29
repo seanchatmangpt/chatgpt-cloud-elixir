@@ -1,0 +1,54 @@
+{
+  "request_id": "20260826T095600Z-cell4-cell5-handoff-qualified-upstream",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/cell5/handoff",
+      "title": "CELL4 complete ForcedTop25 closure handoff — qualified upstream repair",
+      "kind": "ggen.fanout.cell5.handoff",
+      "cell": "CELL4_REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "forced-top25", "cell5", "closure", "qualified-upstream", "exact-head"],
+      "body": "Supersedes the earlier CELL4 handoff with exact qualification evidence for the shared producer repair. CELL3 allocation 1077b0dcb1f947d7dc05a1af56dda2cc15fa6671 selected no READY workstreams. CELL4 performed zero downstream mutations, but exact requalification proved one shared ggen pack-schema defect across autofde-lab#88, autofde#33, and xaas#32. ggen-marketplace PR #321 head 2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253 repairs that defect with two upstream commits and a permanent falsifier. Exact-head CI 32954476907 and Vacuity Audit 32954476949 are SUCCESS, including all four real-ggen qualification shards and aggregate every-pack coverage. PR #321 remains draft/unmerged, so consumers must not inherit ALIVE; after canonical admission they require regeneration and exact-head re-execution. XaaS separately retains a native-CI target seam: ExUnit 1.18.4 rejects setup {:skip, reason} when cnv-deploy is unavailable. All ForcedTop25 members remain explicitly classified below. No target was dropped or guessed; no merge, release, deploy, external publish, commerce actuation, or security bypass occurred.",
+      "metadata": {
+        "upstream_repair": {"repo":"ggen-marketplace","pr":321,"branch":"repair/r80-pack-schema-admission-20260826","base":"9bba137bf2ceb43c4694ac8c580c459782e09643","head":"2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253","classification":"CLOSE_READY","standing":"ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]","merged":false,"ci_run":32954476907,"vacuity_run":32954476949,"commits":2,"regenerate_after_admission":["autofde-lab#88","autofde#33","xaas#32"]},
+        "forced_top25": [
+          {"rank":1,"repo":"ex4pm","classification":"CLOSE_READY","reason":"DEFAULT_LINEAGE_ASSIMILATED","M":true,"human_value":"UNKNOWN"},
+          {"rank":2,"repo":"gymact","classification":"REPAIR_REQUIRED","reason":"DEFAULT_LINEAGE_ASSIMILATED_WITH_INHERITED_BROAD_CI_DEBT","M":true,"human_value":"UNKNOWN"},
+          {"rank":3,"repo":"autofde-lab","classification":"REPAIR_REQUIRED","reason":"REGENERATE_AFTER_UPSTREAM_PR321_ADMISSION","pr":88,"base":"0b968955f69698fee50e9a132a87de287f15a0e7","head":"d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a","human_value":"UNKNOWN"},
+          {"rank":4,"repo":"autofde","classification":"REPAIR_REQUIRED","reason":"REGENERATE_AFTER_UPSTREAM_PR321_ADMISSION","pr":33,"base":"6c21cda73f7cc8873ea429f79f49c5b4b615c1fe","head":"bf753d1dfdc137a6fce04008a2841752216654bb","human_value":"UNKNOWN"},
+          {"rank":5,"repo":"xaas","classification":"REPAIR_REQUIRED","reason":"REGENERATE_AFTER_UPSTREAM_PR321_ADMISSION+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL","pr":32,"base":"62c8f83a15db69e003960a5cf4eacb74070e835a","head":"35b6b49f8d63580d4d94d5fd938753d32509cc86","failed_checks":["R80 ForcedTop25 Construct","CI/CD Elixir"],"human_value":"UNKNOWN"},
+          {"rank":6,"repo":"chatgpt-cloud-elixir","classification":"REPAIR_REQUIRED","reason":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_NOT_BOUND_TO_CURRENT_FANOUT","human_value":"UNKNOWN"},
+          {"rank":7,"repo":"process-intelligence","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":8,"repo":"ash_r2rml","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":9,"repo":"wasm4pm","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":10,"repo":"pm4wasm","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":11,"repo":"mfact","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":12,"repo":"mfact-command-center","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":13,"repo":"mfw","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":14,"repo":"SREGym","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":15,"repo":"fdegym","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":16,"repo":"revops","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":17,"repo":"chatman-ecosystem","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":18,"repo":"POWL","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":19,"repo":"swarmsh-v2","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":20,"repo":"cargo-cicd","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":21,"repo":"clap-noun-verb","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":22,"repo":"unrdf","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":23,"repo":"dspygen","classification":"CLOSE_READY","reason":"EXACT_HEAD_QUALIFIED_AND_DEFAULT_LINEAGE_ASSIMILATED","head":"4f70719dfef0d7fa4c9db93c280e5c80961aa9be","merge_commit":"8d9c2fa7f867e317c3fc4fba06903d88b3543180","R":true,"Q":true,"M":true,"human_value":"UNKNOWN"},
+          {"rank":24,"repo":"yawl","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"},
+          {"rank":25,"repo":"a2a-rs","classification":"REPAIR_REQUIRED","reason":"TARGET_SPECIFIC_ADMISSIBILITY_IDENTITY_MISSING","human_value":"UNKNOWN"}
+        ],
+        "discovered_targets": [],
+        "superseded_work": ["20260826T095000Z-cell4-cell5-handoff superseded only for PR321 qualification standing"],
+        "duplicate_lineages": [],
+        "partial_fanout": ["autofde-lab#88","autofde#33","xaas#32"],
+        "metrics": {"U_named":6,"U_global_lower_bound":17,"R_named":6,"M_named":3,"OpenFanoutObligations_named":3,"OpenFanoutObligations_global":"UNKNOWN","F_R_named":6,"F_C_wave":0,"F_C_portfolio":"UNKNOWN","F_A":3,"F_Q":"UNKNOWN","Coverage_named":1.0,"F_effective":"UNKNOWN","upstream_unique_commits_wave":2,"downstream_unique_commits_wave":0,"upstream_returns_wave":1,"regenerations_wave":0,"merge_ready_repos":["ggen-marketplace#321 producer repair (draft, not merged)","ex4pm","dspygen"],"WIP":"PR321 admission/merge by closure authority; regenerate 3 R80 consumers; XaaS local test seam; 19 target identity gaps; chatgpt-cloud-elixir product/runtime binding; gymact inherited CI debt"},
+        "project_memory_requests": ["20260826T094800Z-cell4-fanout-mid","20260826T094900Z-cell4-fanout-post","20260826T095000Z-cell4-cell5-handoff","20260826T095400Z-cell4-fanout-qualified-upstream","20260826T095600Z-cell4-cell5-handoff-qualified-upstream"],
+        "project_operation_receipts": "UNKNOWN[PENDING_RECEIPTS]",
+        "consequential_do": false
+      }
+    }
+  }
+}

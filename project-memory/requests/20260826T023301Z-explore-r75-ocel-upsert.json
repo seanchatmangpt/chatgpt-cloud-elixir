@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023301Z-explore-r75-ocel-upsert",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "ocel/v2/revops/current",
+    "title": "OCEL v2 dual-RevOps frontier",
+    "kind": "ocel.revops",
+    "cell": "EXPLORE",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["ocel","revops","revenue-from","revenue-for","value-evidence","r75"],
+    "body": "R75 preserves RevenueFROMCustomer and RevenueFORCustomer as distinct semantic/evidence paths and adds deterministic OCEL value-evidence projection plus regeneration/requalification topology. No observed revenue multiplier is claimed; economic leverage remains evidence-bounded until exact consumers execute.",
+    "metadata": {"repo":"seanchatmangpt/ggen-marketplace","head_sha":"5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6","pr":305,"dual_revops":true,"ocel_projection":true,"observed_revenue_multiplier":"UNKNOWN","run_id":"SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE"}
+  }}
+}

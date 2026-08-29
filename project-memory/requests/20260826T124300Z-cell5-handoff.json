@@ -1,0 +1,68 @@
+{
+  "request_id": "20260826T124300Z-cell5-handoff",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "key": "ggen/fanout/cell5/handoff",
+    "title": "CELL5 complete ForcedTop25 closure handoff",
+    "summary": "CELL4 consumed exact CELL3 allocation and did not restart SELECT. Sole selected READY stream process-intelligence#9 was reconciled non-force with current main and is exact-head requalifying. Three repository-native checks are SUCCESS; R80 real-GGEN construction remains IN_PROGRESS. All 25 forced targets and inherited repair edges are enumerated below. No unselected target was mutated and no merge/release/deploy/external actuation occurred.",
+    "standing": "PARTIAL_ALIVE",
+    "metadata": {
+      "cell": "CELL5_CLOSURE_HANDOFF",
+      "authority": "VERIFY|PROJECT_MEMORY",
+      "consequential_do": false,
+      "forced_top25": [
+        {"rank":1,"repo":"ex4pm","state":"CLOSE_READY","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":2,"repo":"gymact","state":"CLOSE_READY","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":3,"repo":"autofde-lab","state":"CLOSE_READY","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":4,"repo":"autofde","state":"CLOSE_READY","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":5,"repo":"xaas","state":"REPAIR_REQUIRED","evidence":"ALIVE_DEFAULT_LINEAGE_WITH_REMAINING_NATIVE_DEBT_OUTSIDE_CURRENT_FANOUT_COURT"},
+        {"rank":6,"repo":"chatgpt-cloud-elixir","state":"REPAIR_REQUIRED","evidence":"DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING; PROJECT2_CONTROL_COMMITS_EXCLUDED_FROM_TRUE_FANOUT","human_value":"UNKNOWN"},
+        {"rank":7,"repo":"process-intelligence","state":"REPAIR_REQUIRED","pr":9,"base":"88556e8d0265936d430606cca848dda3e2b1dd8f","selected_head":"39a8240be54dba1cbdea1ee9ca849a06ce6403c9","head":"57ae94e594dd29319683bb890077482bc8715a5f","branch":"fanout/r80-forced-top25","mergeable":true,"draft":false,"checks":{"definition_of_done":"SUCCESS","dfcm":"SUCCESS","alive_002":"SUCCESS","r80":"IN_PROGRESS[BUILD_EXACT_GGEN_CONSTRUCTOR]"},"evidence":"NON_FORCE_TWO_PARENT_RECONCILIATION; EXACT_HEAD_REQUALIFYING","human_value":"UNKNOWN"},
+        {"rank":8,"repo":"ash_r2rml","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":9,"repo":"wasm4pm","state":"REPAIR_REQUIRED","pr":616,"head":"cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4","evidence":"OWNING_QUALIFY_SUCCESS_BUT_EXACT_SUBJECT_RUST_WASM_TYPESCRIPT_CLI_FAILURE"},
+        {"rank":10,"repo":"pm4wasm","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":11,"repo":"mfact","state":"CLOSE_READY","merge":"79643f87f35cb59514ebce096ad067b713a47db3","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":12,"repo":"mfact-command-center","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":13,"repo":"mfw","state":"REPAIR_REQUIRED","pr":82,"head":"f3bc48b7863ddf4474bf0c3abe1aaf8b94425074","evidence":"BUILD_BROKEN[QUALIFY_FAILURE]"},
+        {"rank":14,"repo":"SREGym","state":"CLOSE_READY","merge":"4f6757c758521a359f1091d17d37ae5a9b1fb962","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":15,"repo":"fdegym","state":"CLOSE_READY","merge":"f493d2bf5e093d8430b7e39b56d8222e95192dbe","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":16,"repo":"revops","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":17,"repo":"chatman-ecosystem","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":18,"repo":"POWL","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":19,"repo":"swarmsh-v2","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":20,"repo":"cargo-cicd","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":21,"repo":"clap-noun-verb","state":"REPAIR_REQUIRED","pr":43,"head":"efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd","evidence":"BUILD_BROKEN[CI_SUMMARY_TEST_STABLE_TEST_BETA_LICENSE_FAILURES]"},
+        {"rank":22,"repo":"unrdf","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"},
+        {"rank":23,"repo":"dspygen","state":"CLOSE_READY","evidence":"ALIVE_DEFAULT_LINEAGE"},
+        {"rank":24,"repo":"yawl","state":"REPAIR_REQUIRED","pr":240,"head":"9ca41b5a896795cc88c9a3e2b769233bfc0223e5","evidence":"BUILD_BROKEN[QUALIFY_AND_AGGREGATE_TEST_FAILURE]"},
+        {"rank":25,"repo":"a2a-rs","state":"REPAIR_REQUIRED","evidence":"TARGET_SPECIFIC_ADMISSIBILITY_RECEIPT_MISSING"}
+      ],
+      "discovered_targets": [],
+      "open_prs_branches": [
+        {"repo":"process-intelligence","pr":9,"branch":"fanout/r80-forced-top25","head":"57ae94e594dd29319683bb890077482bc8715a5f","base":"88556e8d0265936d430606cca848dda3e2b1dd8f","mergeable":true,"draft":false},
+        {"repo":"wasm4pm","pr":616,"head":"cbc1ef522408bbeae535c22bbbca5c5d21e5a7b4"},
+        {"repo":"mfw","pr":82,"head":"f3bc48b7863ddf4474bf0c3abe1aaf8b94425074"},
+        {"repo":"clap-noun-verb","pr":43,"head":"efd52496ac5bfdd795c14c4f1195e6f7ae54c1dd"},
+        {"repo":"yawl","pr":240,"head":"9ca41b5a896795cc88c9a3e2b769233bfc0223e5"}
+      ],
+      "pending_checks": [{"repo":"process-intelligence","pr":9,"check":"R80 ForcedTop25 GGEN Consumer","state":"IN_PROGRESS","stage":"BUILD_EXACT_GGEN_CONSTRUCTOR"}],
+      "failed_checks": [
+        {"repo":"wasm4pm","reason":"EXACT_SUBJECT_RUST_WASM_TYPESCRIPT_CLI_FAILURE"},
+        {"repo":"mfw","reason":"QUALIFY_FAILURE"},
+        {"repo":"clap-noun-verb","reason":"CI_SUMMARY_TEST_STABLE_TEST_BETA_LICENSE_FAILURES"},
+        {"repo":"yawl","reason":"QUALIFY_AND_AGGREGATE_TEST_FAILURE"}
+      ],
+      "conflicts": [],
+      "stale_heads": [{"repo":"process-intelligence","old":"39a8240be54dba1cbdea1ee9ca849a06ce6403c9","resolution":"RECONCILED_TO_57ae94e594dd29319683bb890077482bc8715a5f"}],
+      "unmerged_upstream_repairs": [],
+      "downstream_consumers": ["process-intelligence#9"],
+      "project_memory": {"mid_request_commit":"610acf23475081ab9c98c7beb77d53d1dc60fc48","mid_receipt":"ALIVE[ERROR_NULL]","post_request_commit":"ba64b34ee38fe90f5f539ab528c2cde5902a827c"},
+      "superseded_work": [],
+      "duplicate_lineages": [],
+      "partial_fanout": ["process-intelligence#9 exact R80 pending"],
+      "metrics": {"U":14,"R_lower_bound":10,"Q_lower_bound":9,"M":9,"OpenFanoutObligations":5,"F_R_wave":1,"F_C_wave":1,"F_A_wave":0,"F_Q_wave":0,"Coverage_wave":1.0,"T_M":0,"T_A":1,"WIP_remaining":16},
+      "human_value":"HUMAN_VALUE_UNKNOWN_FOR_OPEN_TARGETS"
+    }
+  }
+}

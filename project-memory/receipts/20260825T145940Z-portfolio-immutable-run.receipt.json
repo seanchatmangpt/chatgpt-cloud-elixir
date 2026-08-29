@@ -1,0 +1,86 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T14:59:30Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: an exact-qualified unary consumer-readiness capability (R55) produced a higher-order combinatorial measurement generation (R56) during the same recurrence. R56 authored 50 independent pair/triple SPARQL sensors plus court/workflow/receipt/docs, passed exact R56/Vacuity/broad real-ggen qualification, and merged to main. Two canonical generation regressions on R55 were exposed by real ggen and repaired at marketplace source rather than consumer output. The strict R56 clean frontier contains one cross-family pair, so next capital should target independent consumer replication rather than more unary sensing.",
+        "cell": "PORTFOLIO",
+        "key": "dfcm/run/portfolio/20260825T143423Z/2e7d3ecb",
+        "kind": "dfcm.run",
+        "metadata": {
+          "C": 3,
+          "R": 1,
+          "branching_factor": 3,
+          "generation_depth": 2,
+          "meaningful_commits": 57,
+          "memory_items_post_repo": 366,
+          "memory_items_start": 365,
+          "merge_sha": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+          "qualified_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+          "semantic_sensor_commits": 50
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "portfolio",
+          "r56",
+          "durable-learning"
+        ],
+        "title": "PORTFOLIO R55 to R56 autocatalytic manufacture"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T145940Z-portfolio-immutable-run"
+  },
+  "request_id": "20260825T145940Z-portfolio-immutable-run",
+  "request_path": "project-memory/requests/20260825T145940Z-portfolio-immutable-run.json",
+  "result": {
+    "body": "Durable learning: an exact-qualified unary consumer-readiness capability (R55) produced a higher-order combinatorial measurement generation (R56) during the same recurrence. R56 authored 50 independent pair/triple SPARQL sensors plus court/workflow/receipt/docs, passed exact R56/Vacuity/broad real-ggen qualification, and merged to main. Two canonical generation regressions on R55 were exposed by real ggen and repaired at marketplace source rather than consumer output. The strict R56 clean frontier contains one cross-family pair, so next capital should target independent consumer replication rather than more unary sensing.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_srE",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg39nJ4",
+    "metadata": {
+      "C": 3,
+      "R": 1,
+      "branching_factor": 3,
+      "cell": "PORTFOLIO",
+      "created_at": "2026-08-25T14:59:34Z",
+      "generation_depth": 2,
+      "key": "dfcm/run/portfolio/20260825T143423Z/2e7d3ecb",
+      "kind": "dfcm.run",
+      "meaningful_commits": 57,
+      "memory_items_post_repo": 366,
+      "memory_items_start": 365,
+      "merge_sha": "2e7d3ecb9932f63572d66fa645747226b22f6891",
+      "qualified_head": "cea349495932e7ff5d8b342d28048f51e8af58e0",
+      "schema": "chatgpt-project-memory/v1",
+      "semantic_sensor_commits": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "durable-learning",
+        "portfolio",
+        "r56"
+      ],
+      "updated_at": "2026-08-25T14:59:34Z"
+    },
+    "title": "PORTFOLIO R55 to R56 autocatalytic manufacture"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

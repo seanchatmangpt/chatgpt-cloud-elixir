@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T140330Z-portfolio-mid-meta-factory",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM capability ledger",
+      "kind": "dfcm.ledger",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "ledger", "portfolio", "factory-for-factories"],
+      "body": "Repeated strict ggen failures across epistemic-sensor-factory-pack and consumer-realization-frontier-pack triggered factory-for-factories extraction. PR #267 now contains a corpus-level generation-contract preflight, unit falsifiers, and an exact PR workflow that rejects unordered SELECT generation inputs and legacy `rows` template context before sharded real-ggen qualification. This converts sequential defect discovery into reusable pre-admission capital. Current exact repair head 8d625826fb86f02c085fa4f33fe309ace261af94 is REQUALIFYING after six pack repair/falsifier commits plus three meta-factory commits.",
+      "metadata": {
+        "observed_at": "2026-08-25T14:03:30Z",
+        "bus_head": "6199202c26d6c50b3c996af941edd80668898835",
+        "factory_for_factories": "generation-contract-preflight",
+        "semantic_commits_direct": 9,
+        "generation_depth": 3,
+        "branching_factor_lower_bound": 2,
+        "defect_classes": ["SELECT generation lacks ORDER BY", "legacy rows template context"],
+        "next": ["execute corpus preflight", "repair all newly enumerated contracts", "merge PR #267 when exact-green"]
+      }
+    }
+  }
+}

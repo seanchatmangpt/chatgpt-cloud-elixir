@@ -1,0 +1,36 @@
+{
+  "request_id": "20260825T160404Z-portfolio-run-control-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run-control/portfolio/current",
+    "title": "DfCM PORTFOLIO run control",
+    "kind": "dfcm.run-control",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","portfolio","run-control","autocatalytic"],
+    "body": "PORTFOLIO recurrence closed PARTIAL_ALIVE: two lawful recursive chatman-ecosystem merges completed with exact-head qualification and containment; generation 3 (#142) remains REQUALIFYING with only GALL pending. Marketplace R57 #275 remains technical BUILD_BROKEN/PARTIAL_ALIVE on real-ggen shard0 and inherited R56 compatibility and was not merged. Direct meaningful semantic commits=0/50; no vacuous commits manufactured. Persistent Project memory was actively mutated PRE/MID/POST and remains ALIVE.",
+    "metadata": {
+      "ended_at": "2026-08-25T16:04:04Z",
+      "standing": "PARTIAL_ALIVE",
+      "merge_count": 2,
+      "merge_shas": ["15c63419a3a2a4f883ba304a442e7cd19687fc3b","ac6d52ed027e32d854ab9e119a39977542262c51"],
+      "semantic_commits": 0,
+      "commit_floor": 50,
+      "generation_depth": 3,
+      "branching_factor_lower_bound": 5,
+      "E": 2,
+      "E2": 2,
+      "Y": 1,
+      "R": 1,
+      "C": 2.5,
+      "M": 4,
+      "H6_proxy": 40,
+      "H6_causal": "UNSUPPORTED",
+      "weakest_multiplier": "R_consumer_replication",
+      "final_chatman_head": "ac6d52ed027e32d854ab9e119a39977542262c51",
+      "final_marketplace_main": "8bd29043a2818a5fb6a4de65cc403eff8e495b58",
+      "next_seed_count": 5
+    }
+  }}
+}

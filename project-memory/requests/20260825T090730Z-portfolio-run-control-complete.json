@@ -1,0 +1,39 @@
+{
+  "request_id": "20260825T090730Z-portfolio-run-control-complete",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run-control/portfolio/current",
+    "title": "DfCM PORTFOLIO run control",
+    "kind": "dfcm.run-control.portfolio",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","portfolio","run-control","complete","r44"],
+    "body": "PORTFOLIO recurrence completed its bounded R44 crown and left a validated nonempty frontier. Exact marketplace default head=8c05c4252264fb0cfd60585657d9776ff2c9de29. 54 unique meaningful semantic commits were observed in the recurrence against the 50 floor; 2 semantic + 1 CI-integration commit were directly authored by PORTFOLIO, with equivalent concurrent repair semantics deduplicated rather than double-counted. PORTFOLIO completed 3 merges (#246, #248, #249), all 3 exact containment; concurrent #247 merge was observed and incorporated as graph state. Generation depth=3; immediate branching factor>=5. Project #2 pre snapshot=347 items, post-repo snapshot=349; Project mutations corrected stale R43 identity, created run-control/frontier/portfolio state, updated ledger/frontier after material merges, archived contradicted immutable R43 run identity, and wrote next MEASURE seeds. Weakest multiplier is independent consumer replication R=1. Naive bounded proxy multiplication E>=4 × E2>=3 × Y>=50 × R=1 × C>=5 × M>=1.33 exceeds 1000, but causal H6 crown remains UNSUPPORTED because E/E2/Y/C are not yet proven independent counterfactual multipliers and R has not exceeded 1. Exact remaining highest-value edges are in dfcm/frontier/current.",
+    "metadata": {
+      "utc_start": "2026-08-25T08:48:43Z",
+      "utc_end": "2026-08-25T09:07:30Z",
+      "final_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "meaningful_semantic_commits": 54,
+      "semantic_floor": 50,
+      "portfolio_authored_semantic_commits": 2,
+      "portfolio_authored_ci_commits": 1,
+      "portfolio_merges": 3,
+      "concurrent_merges_observed": 1,
+      "generation_depth": 3,
+      "branching_factor_lower_bound": 5,
+      "E_observed_lower_bound": 4.0,
+      "E2_observed_lower_bound": 3.0,
+      "Y_observed_lower_bound": 50.0,
+      "R_observed": 1.0,
+      "C_observed_lower_bound": 5.0,
+      "M_observed_lower_bound": 1.33,
+      "H6_naive_proxy_lower_bound": 3990.0,
+      "H6_standing": "UNSUPPORTED[FACTOR_INDEPENDENCE_AND_R_GT_1]",
+      "weakest_multiplier": "R_consumer_replication",
+      "pre_project_items": 347,
+      "post_repo_project_items": 349,
+      "receipt_ids": ["20260825T084843Z-portfolio-snapshot", "20260825T084930Z-portfolio-read-dfcm", "20260825T085000Z-portfolio-run-control-start", "20260825T085200Z-correct-r43-identity", "20260825T085230Z-portfolio-frontier-bootstrap", "20260825T085500Z-portfolio-mid-r44-frontier", "20260825T085530Z-portfolio-mid-r44-ledger", "20260825T085800Z-portfolio-run-control-bottleneck", "20260825T090250Z-portfolio-mid-r43-repair-merge", "20260825T090400Z-portfolio-mid-r44-composition", "20260825T090500Z-portfolio-post-snapshot", "20260825T090530Z-archive-stale-r43-run", "20260825T090600Z-portfolio-latest", "20260825T090630Z-portfolio-ledger-final", "20260825T090700Z-portfolio-frontier-final"]
+    }
+  }}
+}

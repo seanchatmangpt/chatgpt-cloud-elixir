@@ -1,0 +1,101 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T10:47:14Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "EXPLORE consuming R46/R47 evidence. Seed opportunities: independently realize compiled consumer plans in ggen and chatgpt-cloud-elixir; manufacture per-consumer receipt/falsifier machinery; dependency-relief conversion; expand exact-repository census; N-way recombination planner; compatibility tensor; memory-driven candidate synthesis; verifier-fanout generation; calibrated multiplier benchmark courts. Weakest multiplier is independent external-consumer realization. Preserve failed query/refusal edges and prior falsifiers.",
+        "cell": "EXPLORE",
+        "key": "dfcm/run-control/explore/current",
+        "kind": "dfcm.run-control",
+        "metadata": {
+          "branching_factor_lower_bound": 5,
+          "bus_head": "248eac92751dbba17a51f23b694fc5ec97da0a4f",
+          "initial_frontier_size": 9,
+          "memory_keys_consumed": [
+            "dfcm/frontier/current",
+            "dfcm/ledger/current",
+            "dfcm/measure/latest",
+            "dfcm/explore/latest",
+            "dfcm/portfolio/latest"
+          ],
+          "project_id": "PVT_kwHOCCCFfc4BhZKe",
+          "project_number": 2,
+          "query_receipt": "20260825T104314Z-explore-dfcm-query",
+          "seed_opportunity_count": 9,
+          "utc_start": "2026-08-25T10:43:08Z",
+          "weakest_multiplier": "independent external-consumer realization"
+        },
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "explore",
+          "run-control"
+        ],
+        "title": "DfCM EXPLORE run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T104315Z-explore-run-control-start"
+  },
+  "request_id": "20260825T104315Z-explore-run-control-start",
+  "request_path": "project-memory/requests/20260825T104315Z-explore-run-control-start.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "EXPLORE consuming R46/R47 evidence. Seed opportunities: independently realize compiled consumer plans in ggen and chatgpt-cloud-elixir; manufacture per-consumer receipt/falsifier machinery; dependency-relief conversion; expand exact-repository census; N-way recombination planner; compatibility tensor; memory-driven candidate synthesis; verifier-fanout generation; calibrated multiplier benchmark courts. Weakest multiplier is independent external-consumer realization. Preserve failed query/refusal edges and prior falsifiers.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_nRc",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg37Fo4",
+      "metadata": {
+        "authority": "SELECT",
+        "branching_factor_lower_bound": 5,
+        "bus_head": "248eac92751dbba17a51f23b694fc5ec97da0a4f",
+        "cell": "EXPLORE",
+        "created_at": "2026-08-25T10:26:54Z",
+        "head_sha": "f7296b637436aca0ef6c7adcfe1a11c212a4c0e0",
+        "initial_frontier_size": 9,
+        "key": "dfcm/run-control/explore/current",
+        "kind": "dfcm.run-control",
+        "memory_keys_consumed": [
+          "dfcm/frontier/current",
+          "dfcm/ledger/current",
+          "dfcm/measure/latest",
+          "dfcm/explore/latest",
+          "dfcm/portfolio/latest"
+        ],
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_number": 2,
+        "query_receipt": "20260825T104314Z-explore-dfcm-query",
+        "schema": "chatgpt-project-memory/v1",
+        "seed_opportunity_count": 9,
+        "standing": "RUNNING",
+        "tags": [
+          "dfcm",
+          "explore",
+          "run-control"
+        ],
+        "updated_at": "2026-08-25T10:47:22Z",
+        "utc_start": "2026-08-25T10:43:08Z",
+        "weakest_multiplier": "independent external-consumer realization"
+      },
+      "title": "DfCM EXPLORE run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

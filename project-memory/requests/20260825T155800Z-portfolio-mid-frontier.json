@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T155800Z-portfolio-mid-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm","frontier","shared-memory","autocatalytic"],
+      "body": "Current validated frontier after chatman-ecosystem #148 merge: #145 changed to exact head 15c63419a3a2a4f883ba304a442e7cd19687fc3b and is freshly requalifying; 22 of 23 observed current-head rails are SUCCESS with GALL still IN_PROGRESS. R57 marketplace #275 exact 302fe0be67a89c58665e14f059524f0b0615e6ba has owning R57 court SUCCESS, Vacuity SUCCESS, and CI shards 1/2/3 SUCCESS; shard 0 fails real-ggen qualification. Inherited R56 50-court qualification and R56 combinatorial portfolio also fail, creating a shared R56/R57 compatibility repair frontier. Consumer replication remains the weakest multiplier.",
+      "metadata": {
+        "observed_at": "2026-08-25T15:58:00Z",
+        "chatman_merge_pr": 148,
+        "chatman_merge_sha": "15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+        "chatman_next_pr": 145,
+        "chatman_next_head": "15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+        "chatman_next_success_rails": 22,
+        "chatman_next_pending_rails": 1,
+        "marketplace_pr": 275,
+        "marketplace_head": "302fe0be67a89c58665e14f059524f0b0615e6ba",
+        "r57_owning_court": "ALIVE",
+        "vacuity": "ALIVE",
+        "ci_shards_success": [1,2,3],
+        "ci_shards_failed": [0],
+        "r56_consumer_court": "BUILD_BROKEN",
+        "weakest_multiplier": "R_consumer_replication",
+        "new_frontier_edges": ["chatman#145 changed-head crown","R56/R57 real-ggen shard0 compatibility","R56 50-court compatibility","R56 combinatorial portfolio compatibility","R57 post-repair merge"]
+      }
+    }
+  }
+}

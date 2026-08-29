@@ -1,0 +1,38 @@
+{
+  "request_id": "20260826T094800Z-cell4-fanout-mid",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/implement/latest",
+      "title": "CELL4 ForcedTop25 realization and qualification MID",
+      "kind": "ggen.fanout.cell4.mid",
+      "cell": "CELL4_REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "forced-top25", "cell4", "tcps", "andon", "exact-head"],
+      "body": "CELL4 consumed exact CELL3 allocation commit 1077b0dcb1f947d7dc05a1af56dda2cc15fa6671 without restarting SELECT. CELL3 selected_workstreams=[] and ready_set=[], so no downstream repository mutation was lawful this wave. Exact requalification of autofde-lab#88@d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a, autofde#33@bf753d1dfdc137a6fce04008a2841752216654bb, and xaas#32@35b6b49f8d63580d4d94d5fd938753d32509cc86 proved one shared producer defect: ggen@ddfa602bfbab57b7ed5150f61b0acac7a41e3020 refuses forced-top25-admissibility-factory-pack/pack.toml because top-level [qualification] is outside the admitted schema (expected only pack). CELL4 returned that defect upstream once on ggen-marketplace PR #321, exact base 9bba137bf2ceb43c4694ac8c580c459782e09643, head 2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253, with two unique upstream commits: remove the unsupported namespace and add a permanent minimal-manifest schema court. Consumers remain non-ready until the repaired producer is admitted and regeneration/re-execution occurs. XaaS also has an independent target-local native-CI Andon: compile succeeds, then ExUnit 1.18.4 rejects setup return {:skip, ...} in AutofdePlannerCrossProductTest when cnv-deploy is absent. Consequential DO=false; no merge/release/deploy/external actuation.",
+      "metadata": {
+        "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+        "selected_workstreams": [],
+        "ready_set": [],
+        "downstream_unique_commits_wave": 0,
+        "upstream_unique_commits_wave": 2,
+        "upstream_repair": {
+          "repo": "ggen-marketplace",
+          "pr": 321,
+          "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+          "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+          "state": "REPAIR_REQUIRED[EXACT_HEAD_QUALIFICATION_PENDING]",
+          "reason": "GGEN_PACK_TOML_UNSUPPORTED_QUALIFICATION_NAMESPACE"
+        },
+        "affected_consumers": [
+          {"repo":"autofde-lab","pr":88,"head":"d1a27aec3cf7c86d56e7e67e2fa781a7e94d6d5a","state":"REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA]"},
+          {"repo":"autofde","pr":33,"head":"bf753d1dfdc137a6fce04008a2841752216654bb","state":"REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA]"},
+          {"repo":"xaas","pr":32,"head":"35b6b49f8d63580d4d94d5fd938753d32509cc86","state":"REPAIR_REQUIRED[UPSTREAM_R80_PACK_SCHEMA+LOCAL_CNV_DEPLOY_TEST_SKIP_PROTOCOL]"}
+        ],
+        "regenerations_wave": 0,
+        "consequential_do": false
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T090835Z-portfolio-final-snapshot",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}

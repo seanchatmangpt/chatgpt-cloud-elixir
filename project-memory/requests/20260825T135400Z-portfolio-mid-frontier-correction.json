@@ -1,0 +1,23 @@
+{
+  "request_id": "20260825T135400Z-portfolio-mid-frontier-correction",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "portfolio", "current"],
+      "body": "Live revalidation invalidated two stale next-merge memories: ggen#670 is merged at a9967f98df05f7a1f0c54376b2a35508bacb935d and ex4pm#32 is merged/default-contained at e12fccb42a67bc4496cac91c86bff2b856cc463d. Current marketplace frontier: R53 #264 exact b4012a45ccc4f8ce9e3cc03f9d14b337822eb7c9 has owning court + Vacuity green but real-ggen shard 0/4 red; R52 #265 exact head moved to 6796853ef134056b0587c4cd456757fa1d70b6e6 and is requalifying/conflicted. Weakest multiplier remains independent qualified consumer replication.",
+      "metadata": {
+        "observed_at": "2026-08-25T13:54:00Z",
+        "bus_head": "7f230c6c39e717141aa9c150366d83f935bf80fb",
+        "completed_edges": ["ggen#670->main@a9967f98df05f7a1f0c54376b2a35508bacb935d", "ex4pm#32->main@e12fccb42a67bc4496cac91c86bff2b856cc463d"],
+        "active_edges": ["ggen-marketplace#264 real-ggen shard0 repair", "ggen-marketplace#265 current-head requalification"],
+        "weakest_multiplier": "R_consumer_replication"
+      }
+    }
+  }
+}

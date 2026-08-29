@@ -1,0 +1,12 @@
+{
+  "request_id": "20260825T134915Z-portfolio-pre-dfcm-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "tags": ["dfcm"],
+    "match_all_tags": true,
+    "include_archived": false,
+    "limit": 100,
+    "max_scan": 5000
+  }
+}

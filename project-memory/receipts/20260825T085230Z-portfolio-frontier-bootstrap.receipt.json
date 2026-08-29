@@ -1,0 +1,91 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T08:52:52Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Bootstrapped from Project memory + exact live GitHub evidence. Current ggen-marketplace/main=aaad22568fdb4fee537ce663d4b640585bd5c194 from merged R43 PR #244. Highest live frontier: R44 IMPLEMENT PR #246 at 7741dca8a70cbf7b849f8292c1651af0d7f22444, mergeable/draft, containing 50 independently meaningful executable frontier-derivative qualification/falsifier courts; full qualification is currently executing. EXPLORE producer #245 remains open at 0c7cc2ba485cb2c3586f86db48464b057feedc72. Secondary fronts: exact consumer fanout/reproduction, current-memory continuity repair, stale large marketplace branches requiring current-main reconciliation, and cross-repository consumer adoption. Old memory identity mapping R43 to PR #246 is contradicted and corrected to PR #244.",
+        "cell": "PORTFOLIO",
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "metadata": {
+          "E_observed": 4.0,
+          "M_observed": 4.0,
+          "frontier_size": 8,
+          "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+          "r43_pr": 244,
+          "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+          "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+          "r44_pr": 246,
+          "r44_semantic_commit_floor": 50,
+          "standing_reason": "R44 exact-head qualification in progress"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "portfolio",
+          "shared-memory",
+          "r44"
+        ],
+        "title": "DfCM current portfolio frontier"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T085230Z-portfolio-frontier-bootstrap"
+  },
+  "request_id": "20260825T085230Z-portfolio-frontier-bootstrap",
+  "request_path": "project-memory/requests/20260825T085230Z-portfolio-frontier-bootstrap.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Bootstrapped from Project memory + exact live GitHub evidence. Current ggen-marketplace/main=aaad22568fdb4fee537ce663d4b640585bd5c194 from merged R43 PR #244. Highest live frontier: R44 IMPLEMENT PR #246 at 7741dca8a70cbf7b849f8292c1651af0d7f22444, mergeable/draft, containing 50 independently meaningful executable frontier-derivative qualification/falsifier courts; full qualification is currently executing. EXPLORE producer #245 remains open at 0c7cc2ba485cb2c3586f86db48464b057feedc72. Secondary fronts: exact consumer fanout/reproduction, current-memory continuity repair, stale large marketplace branches requiring current-main reconciliation, and cross-repository consumer adoption. Old memory identity mapping R43 to PR #246 is contradicted and corrected to PR #244.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgK_kvo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg36UP8",
+      "metadata": {
+        "E_observed": 4.0,
+        "M_observed": 4.0,
+        "cell": "PORTFOLIO",
+        "created_at": "2026-08-25T08:52:58Z",
+        "frontier_size": 8,
+        "key": "dfcm/frontier/current",
+        "kind": "dfcm.frontier",
+        "main_head": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "r43_pr": 244,
+        "r43_qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+        "r44_head": "7741dca8a70cbf7b849f8292c1651af0d7f22444",
+        "r44_pr": 246,
+        "r44_semantic_commit_floor": 50,
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "standing_reason": "R44 exact-head qualification in progress",
+        "tags": [
+          "dfcm",
+          "frontier",
+          "portfolio",
+          "r44",
+          "shared-memory"
+        ],
+        "updated_at": "2026-08-25T08:52:58Z"
+      },
+      "title": "DfCM current portfolio frontier"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

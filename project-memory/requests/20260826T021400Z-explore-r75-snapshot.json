@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T021400Z-explore-r75-snapshot",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}

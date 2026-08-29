@@ -1,0 +1,27 @@
+{
+  "request_id": "20260826T071501Z-cell2-r81-r75-forced-top25",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "operation": "memory.upsert",
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/forced-top25/current",
+      "title": "ForcedTop25 canonical demand — R81×R75",
+      "kind": "ggen.fanout.forced-top25",
+      "cell": "COMPOSE",
+      "standing": "PARTIAL_ALIVE",
+      "body": "ForcedTop25 order is preserved exactly. R81 consumer planning now composes with current-main R75 structural realization. Only ex4pm and gymact are consumer-ready from admitted Project state; XaaS remains repair-gated; all other forced targets remain UNKNOWN and preserved pending CELL1 admissibility receipts.",
+      "metadata": {
+        "authority": "SELECT|CONSTRUCT",
+        "consequential_do": false,
+        "forced_top25": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+        "exact_known_heads": {"ex4pm":"38b181d4a26aa9cb92f01ac1f898a366c47ae7c8","gymact":"bcb14a65b83fc543bb11acaa84709765ac88f42c","xaas":"3b16d499ca1e39aebdee5316eb3d5cae3941113b"},
+        "consumer_ready_set": ["ex4pm","gymact"],
+        "repair_gated": [{"repo":"xaas","blocker":"CI_CD_ELIXIR_FAILURE"}],
+        "unknown_count": 22,
+        "unknown_reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+        "canonical_composition": {"repo":"seanchatmangpt/ggen-marketplace","pr":318,"head":"079a315c02d686fc6baa1166999dded3afb587fe","pack":"forced-top25-r75-realization-composition-pack"}
+      },
+      "tags": ["forced-top25","cell2","r81","r75"]
+    }
+  }
+}

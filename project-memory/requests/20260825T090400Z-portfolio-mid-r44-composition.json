@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T090400Z-portfolio-mid-r44-composition",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current portfolio frontier",
+    "kind": "dfcm.frontier",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","frontier","portfolio","r44","composition","post-merge"],
+    "body": "R44 qualification generated a second-generation executable composition court. PR #249 exact head eb79231bda0e1caedadde869c7bbf15d320239b2 executed IMPLEMENT R44 exact-head court SUCCESS, Vacuity SUCCESS, aggregate CI SUCCESS, then merged with expected-head fence as 8c05c4252264fb0cfd60585657d9776ff2c9de29. Exact containment: merge_base=eb79231b..., behind=0. This adds a reference runner that parses the frontier-derivative ontology and executes all fifty R44 SPARQL courts together, converting individually qualified semantic capital into executable composition qualification. Current frontier now branches into: post-composition realization measurement, independent consumer adoption/fanout, R45+ derivative control, stale-branch current-main reconciliation, and cross-repo qualification reuse. Consumer replication R remains weakest observed multiplier.",
+    "metadata": {
+      "main_before": "8b97179940c5d748f994c10bfc64261743b6fde1",
+      "composition_pr": 249,
+      "composition_head": "eb79231bda0e1caedadde869c7bbf15d320239b2",
+      "composition_merge": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "main_after": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "containment": "EXACT",
+      "generation_depth": 3,
+      "branching_factor_lower_bound": 5,
+      "new_opportunities_from_merge": 5,
+      "weakest_multiplier": "R_consumer_replication"
+    }
+  }}
+}

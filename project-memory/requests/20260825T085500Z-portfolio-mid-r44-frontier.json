@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T085500Z-portfolio-mid-r44-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current portfolio frontier",
+    "kind": "dfcm.frontier",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","frontier","portfolio","shared-memory","r44","post-merge"],
+    "body": "R44 IMPLEMENT #246 reached exact ALIVE on head 2db35c65e30511b688f379228e9b90474e56864e: aggregate marketplace CI SUCCESS, real-ggen qualification shards 0/4..3/4 SUCCESS, no failed/running check remained, PR mergeable, expected-head fenced. Merged to ggen-marketplace/main as 9e7586bea4e4a39ea1df3c3d7a457b5b940f0950. Exact containment proved: merge_base=2db35c65..., behind_by=0. This capitalizes the R44 frontier-derivative-pack qualification family, including 50 independently meaningful SPARQL qualification/falsifier courts. New frontier must now be recomputed from main@9e7586be: inspect producer #245 and all newly generated R45+/consumer-adoption/replication edges; invalidate any integration standing based on prior main@aaad2256.",
+    "metadata": {
+      "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "r44_pr": 246,
+      "r44_qualified_head": "2db35c65e30511b688f379228e9b90474e56864e",
+      "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "main_after": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "r44_semantic_commit_floor": 50,
+      "containment": "EXACT",
+      "generation_depth": 2,
+      "new_unlock_classes": ["R45+ derivative measurement/control", "producer #245 changed integration standing", "consumer adoption of frontier-derivative-pack", "postmerge replication realization measurement", "cross-repo qualification reuse"],
+      "weakest_multiplier": "R_consumer_replication"
+    }
+  }}
+}

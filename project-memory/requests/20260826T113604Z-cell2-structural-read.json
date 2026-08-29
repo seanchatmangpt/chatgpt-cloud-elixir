@@ -1,0 +1,1 @@
+{"request_id":"20260826T113604Z-cell2-structural-read","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"ggen/structural-manufacturing/current","include_archived":true}}

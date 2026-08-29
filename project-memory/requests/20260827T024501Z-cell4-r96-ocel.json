@@ -1,0 +1,45 @@
+{
+  "request_id": "20260827T024501Z-cell4-r96-ocel",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL4",
+      "standing": "ALIVE",
+      "tags": ["ggen", "ocel", "tps", "cell4", "qualification"],
+      "body": "CELL4 R96 realization/qualification event. Project #2 admitted ggen-marketplace#351@ab5092c053209fcc30113dbfa0e911a43ffabef6. CELL4 produced 51 semantic commits plus 2 excluded control commits, ending at exact head 8c482326268638d3b70ccc84666d383d903214ee. Exact-head CI and Vacuity Audit are SUCCESS. Real GGEN qualified ggen-ecosystem-ocel-pack as ALIVE and generated 8 consequence files with consequence sha256:91a8115e799c0c96dc4b2c1500f11f47d303080059ce4639ae4c596a049b8a18 from source sha256:a4943a2dd471f32bafdbb53c4b371bf6f67f8fde3cedcd1313658373fa13d9c8. The historical canonical OCEL file digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 is preserved strictly as PRIOR_ADMITTED_OCEL_ARTIFACT, not claimed as a fresh per-file digest for this run. Fresh evidence is the real-GGEN pack consequence digest and qualification artifact from CI run 33034041492. Process analysis remains wasm4pm/wasm4pm-compat. admitted_count=1 terminal_count=1 spillover=0; no external consequential DO.",
+      "metadata": {
+        "run_id": "tps-cell4-r96-20260827T0245Z",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "ggen_first": true,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "pr": 351,
+        "input_head": "ab5092c053209fcc30113dbfa0e911a43ffabef6",
+        "head_sha": "8c482326268638d3b70ccc84666d383d903214ee",
+        "base_sha": "9ccbd29a2c6aae8bfc98dfb2d95ddf7f718b7d05",
+        "semantic_commits": 51,
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "qualification": "ALIVE[EXACT_HEAD_CI_AND_VACUITY_SUCCESS]",
+        "ci_run_id": 33034041492,
+        "vacuity_run_id": 33034041412,
+        "ggen_pack": "ggen-ecosystem-ocel-pack",
+        "ggen_pack_status": "ALIVE",
+        "ggen_source_sha256": "a4943a2dd471f32bafdbb53c4b371bf6f67f8fde3cedcd1313658373fa13d9c8",
+        "ggen_consequence_sha256": "91a8115e799c0c96dc4b2c1500f11f47d303080059ce4639ae4c596a049b8a18",
+        "ggen_consequence_files": 8,
+        "ggen_qualification_artifact_id": 9631350622,
+        "prior_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "prior_ocel_digest_scope": "PRIOR_ADMITTED_OCEL_ARTIFACT_NOT_CURRENT_RUN_FILE_DIGEST",
+        "O": "ALIVE[REAL_GGEN_OCEL_PACK_CONSEQUENCE_BOUND]",
+        "process_analysis_owner": "wasm4pm/wasm4pm-compat",
+        "generated_outputs_hand_edited": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}
