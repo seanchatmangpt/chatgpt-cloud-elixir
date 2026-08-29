@@ -1,0 +1,17 @@
+{
+  "id": "P002",
+  "edge": "missing-release-tag",
+  "semantic_fingerprint": "9bdb72e2e447806e",
+  "rule": {
+    "kind": "nonempty",
+    "failure_standing": "REFUSED_RELEASE_TAG_MISSING"
+  },
+  "probe": {
+    "value": "",
+    "expected_standing": "REFUSED_RELEASE_TAG_MISSING"
+  },
+  "control": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}
