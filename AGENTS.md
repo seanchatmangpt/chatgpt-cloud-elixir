@@ -26,13 +26,27 @@ Import through the connected GitHub artifact path only after verifying the exact
 
 For target execution, prefer the target's exact acceptance command. Typical proof expands from BEAM/Mix version checks → offline dependency closure → compile → focused tests → full tests → required integration/e2e/service checks. Do not substitute unit proof for a requested database/browser/protocol boundary.
 
+## Local computer actuation
+
+`local-control/` extends this repository from cloud execution transport to a bounded user-host actuation transport. It does **not** grant ChatGPT ambient control of a machine.
+
+The only admitted local path is:
+
+`typed request on local-control-bus -> exact machine scope/expiry/replay checks -> local policy admission -> bounded operation -> typed local receipt`.
+
+The active local policy lives outside Git and is controlled by the machine owner. Remote requests cannot widen readable/writable roots, executable allowlists, destructive-operation permission, allowed applications, timeout/output ceilings, or named AppleScripts. Do not add a raw-shell request operation, arbitrary remote AppleScript body, secret/environment injection, or an implicit self-hosted-runner authority shortcut without an explicit new authority decision.
+
+Use a specific `machine.id` for consequential requests and an expiry whenever practical. A GitHub request commit is an intent, not proof of local execution. Only the exact local receipt promotes the requested host operation to `ALIVE`.
+
+Preserve replay state and receipts across revocation. A stopped local agent is a hard authority boundary: cloud-side state must not claim it can restart a stopped local agent by itself.
+
 ## Offline law
 
 Assume package-network access may fail even while the GitHub connector works. Do not rerun an unchanged failed `apt`, `curl`, Hex, DNS, or dependency-fetch operation without a new hypothesis. An admitted offline capsule that unexpectedly fetches from Hex is `BUILD_BROKEN` unless the target explicitly requires a dependency outside that capsule's declared closure.
 
 ## Canonical surfaces
 
-The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, and construction/consumer workflows. Generated archives, manifests, and receipts are projections; edit their owning version/capsule/build/verifier sources and regenerate rather than hand-editing outputs.
+The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, construction/consumer workflows, Project-memory transport, and local-control policy/executor protocol. Generated archives, manifests, checksums, request/receipt traffic, and local service state are projections/evidence; edit their owning canonical source/policy surfaces rather than hand-editing generated consequences.
 
 ## Change / verification discipline
 
@@ -40,6 +54,8 @@ Preserve compatibility and receipts before convenience. Prefer deterministic con
 
 `chatgpt-cloud-elixir` is `ALIVE` for a capsule tuple only when the exact source manufactures the artifact, digest/identity is recorded, a fresh consuming environment extracts it, the capsule verifier passes, the relevant ordinary Mix/Ash commands execute, and replay does not depend on hidden build-workspace state. Lesser evidence is typed accordingly.
 
+Local control is separately `ALIVE` for an operation only when the exact request is admitted by the exact enrolled machine policy, executed on that machine, replay-protected, and its typed receipt is persisted to the transport branch.
+
 ## GitHub / receipt
 
-Unless explicitly instructed otherwise: purpose branch from exact base, intentional commit, non-force push, draft PR, no merge. Final receipt exposes repo/base/tree, target identity, capsule tuple/digest, transports/failures, changes/generated status, commands/exits, verification ladder, replay, branch/SHA/PR, scoped standing, and falsifiers.
+Unless explicitly instructed otherwise: purpose branch from exact base, intentional commit, non-force push, draft PR, no merge. Final receipt exposes repo/base/tree, target identity, capsule tuple/digest or local machine/request identity as applicable, transports/failures, changes/generated status, commands/exits, verification ladder, replay, branch/SHA/PR, scoped standing, and falsifiers.
