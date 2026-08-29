@@ -1,0 +1,12 @@
+{
+  "id": "P007",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P007",
+  "edge": "target-path-no-traversal",
+  "hypothesis": "Starter journey must independently falsify target-path-no-traversal.",
+  "semantic_fingerprint": "8ea12cc07515f51a",
+  "invalid": {
+    "target_path_safe": false
+  },
+  "expected": "REFUSED[TARGET_PATH_TRAVERSAL]",
+  "control": {}
+}
