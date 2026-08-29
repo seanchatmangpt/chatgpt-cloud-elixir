@@ -35,6 +35,7 @@ defmodule ChatGPTCloud.MixProject do
       {:spark, "2.7.2"},
       {:reactor, "1.0.6"},
       {:igniter, "0.8.3", only: [:dev, :test]},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ash_postgres, "2.12.0"},
       {:ash_phoenix, "2.3.24"},
       {:ash_json_api, "1.7.1"},
@@ -43,7 +44,13 @@ defmodule ChatGPTCloud.MixProject do
       {:ash_oban, "0.8.13"},
       {:ash_state_machine, "0.2.13"},
       {:ash_archival, "2.0.3"},
+      {:ash_paper_trail, "0.6.0"},
       {:ash_money, "0.2.6"},
+      # Required for AshMoney.Types.Money's Postgres `storage_type: :map` support
+      # (Money.Ecto.Map.Type) -- pre-existing gap found live: CostObservation
+      # already declared this attribute type but nothing had ever actually
+      # created/updated one before this session's real paper_trail test.
+      {:ex_money_sql, "~> 2.0"},
       {:ash_cloak, "0.3.1"},
       {:cloak, "~> 1.1"},
       {:ash_graphql, "1.10.1"},
@@ -101,7 +108,8 @@ defmodule ChatGPTCloud.MixProject do
         "format --check-formatted",
         "compile --warnings-as-errors",
         "chatgpt_cloud.ecosystem.verify",
-        "test"
+        "test --cover",
+        "dialyzer"
       ]
     ]
   end

@@ -2,7 +2,7 @@ defmodule ChatGPTCloud.ProcessIntelligence do
   @moduledoc "Ash-native control and projection domain for process-intelligence evidence."
 
   use Ash.Domain,
-    extensions: [AshAdmin.Domain, AshJsonApi.Domain, AshGraphql.Domain, AshAi]
+    extensions: [AshAdmin.Domain, AshJsonApi.Domain, AshGraphql.Domain, AshAi, AshPaperTrail.Domain]
 
   admin do
     show?(true)
@@ -55,6 +55,14 @@ defmodule ChatGPTCloud.ProcessIntelligence do
     resource ChatGPTCloud.ProcessIntelligence.ProcessVariant
     resource ChatGPTCloud.ProcessIntelligence.Qualification
     resource ChatGPTCloud.ProcessIntelligence.CostObservation
+    # AshPaperTrail auto-generates this Version resource but does not
+    # auto-register it in the domain's resources list -- without this line,
+    # `mix ash.codegen`/`mix ash_postgres.generate_migrations` silently skip
+    # it (confirmed live: it reported "no changes detected" before this fix).
+    resource ChatGPTCloud.ProcessIntelligence.CostObservation.Version
     resource ChatGPTCloud.ProcessIntelligence.SecretCredential
+    resource ChatGPTCloud.ProcessIntelligence.SwarmAgent
+    resource ChatGPTCloud.ProcessIntelligence.SwarmWorkItem
+    resource ChatGPTCloud.ProcessIntelligence.SwarmTeam
   end
 end

@@ -8,3 +8,6 @@ erl_crash.dump
 *.beam
 /config/*.secret.exs
 .elixir_ls/
+
+# vendored reference repos (external, not part of this repo's history)
+vendors/

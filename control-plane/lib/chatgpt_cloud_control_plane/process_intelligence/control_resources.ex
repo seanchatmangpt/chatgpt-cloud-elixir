@@ -5,11 +5,23 @@ defmodule ChatGPTCloud.ProcessIntelligence.CostObservation do
     otp_app: :chatgpt_cloud_control_plane,
     domain: ChatGPTCloud.ProcessIntelligence,
     data_layer: AshPostgres.DataLayer,
-    extensions: [AshArchival.Resource, AshJsonApi.Resource, AshGraphql.Resource]
+    extensions: [
+      AshArchival.Resource,
+      AshJsonApi.Resource,
+      AshGraphql.Resource,
+      AshPaperTrail.Resource
+    ]
 
   postgres do
     table "cost_observations"
     repo ChatGPTCloud.Repo
+  end
+
+  # Real version history -- previously CostObservation was archival-only (soft-delete
+  # marks a row gone but never recorded intermediate updates), a real gap against this
+  # domain's own "evidence" framing (see moduledoc: "this records cost evidence").
+  paper_trail do
+    change_tracking_mode :full_diff
   end
 
   json_api do
