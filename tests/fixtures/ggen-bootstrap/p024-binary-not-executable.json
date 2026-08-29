@@ -1,0 +1,18 @@
+{
+  "id": "P024",
+  "edge": "binary-not-executable",
+  "semantic_fingerprint": "1b7afa9b1ab04d3b",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "BUILD_BROKEN_GGEN_NOT_EXECUTABLE"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "BUILD_BROKEN_GGEN_NOT_EXECUTABLE"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "P026",
+  "edge": "binary-hash-missing",
+  "semantic_fingerprint": "bc936af472de50d2",
+  "rule": {
+    "kind": "nonempty",
+    "failure_standing": "REFUSED_BINARY_DIGEST_MISSING"
+  },
+  "probe": {
+    "value": "",
+    "expected_standing": "REFUSED_BINARY_DIGEST_MISSING"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}

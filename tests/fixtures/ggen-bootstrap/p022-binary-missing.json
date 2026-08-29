@@ -1,0 +1,17 @@
+{
+  "id": "P022",
+  "edge": "binary-missing",
+  "semantic_fingerprint": "33d82b2b40f87f8d",
+  "rule": {
+    "kind": "nonempty",
+    "failure_standing": "UNSUPPORTED_GGEN_BINARY_MISSING"
+  },
+  "probe": {
+    "value": "",
+    "expected_standing": "UNSUPPORTED_GGEN_BINARY_MISSING"
+  },
+  "control": {
+    "value": "ggen",
+    "expected_standing": "ALIVE"
+  }
+}

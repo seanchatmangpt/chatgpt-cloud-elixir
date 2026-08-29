@@ -1,0 +1,17 @@
+{
+  "id": "P038",
+  "edge": "pack-subdir-traversal",
+  "semantic_fingerprint": "d1dcd328815a0de2",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_PACK_SUBDIR_TRAVERSAL"
+  },
+  "probe": {
+    "value": "packs/../secret",
+    "expected_standing": "REFUSED_PACK_SUBDIR_TRAVERSAL"
+  },
+  "control": {
+    "value": "packs/example",
+    "expected_standing": "ALIVE"
+  }
+}

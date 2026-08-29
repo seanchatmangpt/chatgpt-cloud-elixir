@@ -1,0 +1,17 @@
+{
+  "id": "P037",
+  "edge": "pack-subdir-absolute",
+  "semantic_fingerprint": "99fd95d0d6bc9068",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_PACK_SUBDIR_ABSOLUTE"
+  },
+  "probe": {
+    "value": "/packs/example",
+    "expected_standing": "REFUSED_PACK_SUBDIR_ABSOLUTE"
+  },
+  "control": {
+    "value": "packs/example",
+    "expected_standing": "ALIVE"
+  }
+}

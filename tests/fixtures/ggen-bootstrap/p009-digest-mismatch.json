@@ -1,0 +1,18 @@
+{
+  "id": "P009",
+  "edge": "digest-mismatch",
+  "semantic_fingerprint": "2cfff1a9437fdc49",
+  "rule": {
+    "kind": "exact",
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "failure_standing": "BUILD_BROKEN_ASSET_DIGEST_MISMATCH"
+  },
+  "probe": {
+    "value": "0000000000000000000000000000000000000000000000000000000000000000",
+    "expected_standing": "BUILD_BROKEN_ASSET_DIGEST_MISMATCH"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}

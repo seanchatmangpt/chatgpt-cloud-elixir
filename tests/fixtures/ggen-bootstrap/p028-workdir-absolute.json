@@ -1,0 +1,17 @@
+{
+  "id": "P028",
+  "edge": "workdir-absolute",
+  "semantic_fingerprint": "f59b117bf3debf2d",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_WORKDIR_ABSOLUTE"
+  },
+  "probe": {
+    "value": "/workspace",
+    "expected_standing": "REFUSED_WORKDIR_ABSOLUTE"
+  },
+  "control": {
+    "value": "manufacturing",
+    "expected_standing": "ALIVE"
+  }
+}

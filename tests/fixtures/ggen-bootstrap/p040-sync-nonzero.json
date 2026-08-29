@@ -1,0 +1,17 @@
+{
+  "id": "P040",
+  "edge": "sync-nonzero",
+  "semantic_fingerprint": "6bdc3704fec69394",
+  "rule": {
+    "kind": "zero",
+    "failure_standing": "BUILD_BROKEN_SYNC_EXIT"
+  },
+  "probe": {
+    "value": 1,
+    "expected_standing": "BUILD_BROKEN_SYNC_EXIT"
+  },
+  "control": {
+    "value": 0,
+    "expected_standing": "ALIVE"
+  }
+}

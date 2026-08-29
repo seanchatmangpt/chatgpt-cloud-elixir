@@ -1,0 +1,18 @@
+{
+  "id": "P044",
+  "edge": "receipt-release-mismatch",
+  "semantic_fingerprint": "5ca18114e437b0de",
+  "rule": {
+    "kind": "exact",
+    "value": "v26.8.28",
+    "failure_standing": "BUILD_BROKEN_RECEIPT_RELEASE"
+  },
+  "probe": {
+    "value": "v26.8.27",
+    "expected_standing": "BUILD_BROKEN_RECEIPT_RELEASE"
+  },
+  "control": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}
