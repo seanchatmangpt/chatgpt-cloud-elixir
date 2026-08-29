@@ -1,0 +1,12 @@
+{
+  "id": "P014",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P014",
+  "edge": "gitignore-preserved",
+  "hypothesis": "Starter journey must independently falsify gitignore-preserved.",
+  "semantic_fingerprint": "a2f6856503b9357d",
+  "invalid": {
+    "gitignore_preserved": false
+  },
+  "expected": "REFUSED[GITIGNORE_OVERWRITE]",
+  "control": {}
+}
