@@ -1,0 +1,12 @@
+{
+  "id": "P033",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P033",
+  "edge": "receipt",
+  "hypothesis": "Starter journey must independently falsify receipt.",
+  "semantic_fingerprint": "ca672971bfc4591b",
+  "invalid": {
+    "receipt_valid": false
+  },
+  "expected": "REFUSED[RECEIPT_INVALID]",
+  "control": {}
+}
