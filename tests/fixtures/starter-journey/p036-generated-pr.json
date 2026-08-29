@@ -1,0 +1,12 @@
+{
+  "id": "P036",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P036",
+  "edge": "generated-pr",
+  "hypothesis": "Starter journey must independently falsify generated-pr.",
+  "semantic_fingerprint": "6b8dc86c59553ba0",
+  "invalid": {
+    "generated_pr_routable": false
+  },
+  "expected": "REFUSED[GENERATED_PR_UNROUTABLE]",
+  "control": {}
+}
