@@ -11,3 +11,4 @@ erl_crash.dump
 
 # vendored reference repos (external, not part of this repo's history)
 vendors/
+__pycache__/
