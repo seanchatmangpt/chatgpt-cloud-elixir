@@ -1,0 +1,44 @@
+name: Repo Hygiene
+
+# Fast, dependency-free guards that don't need OTP/Elixir/ggen. Fails in seconds,
+# before any expensive manufacturing workflow spends minutes building a capsule.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repo-hygiene-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  no-generated-artifacts-committed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Verify no build projection is tracked in git
+        run: |
+          chmod +x scripts/verify-no-generated-artifacts-committed.sh
+          scripts/verify-no-generated-artifacts-committed.sh
+
+  branch-noise-budget:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Report substantive-vs-template commit ratio
+        run: |
+          python3 scripts/branch-commit-ratio.py \
+            --base "origin/${{ github.event.pull_request.base.ref }}" \
+            --ref "HEAD"
+        # Informational for now (see docs/swarm-noise-budget.md for the rollout
+        # plan to --enforce). A ratio warning must never block a PR by surprise
+        # on a repo whose existing automation already generates high commit
+        # volume; --enforce flips this to a real gate once tuned.

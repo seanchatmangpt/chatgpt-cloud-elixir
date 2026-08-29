@@ -122,7 +122,13 @@ jobs:
           git config user.email "chatgpt-project-memory[bot]@users.noreply.github.com"
           git add project-memory/receipts/
           git diff --cached --quiet && exit 0
-          git commit -m "receipt: Project v2 memory proxy"
+          # A content-free "receipt: Project v2 memory proxy" subject on every run is
+          # indistinguishable from every other run in git log/blame — see
+          # docs/swarm-noise-budget.md. Embed what this commit actually carries.
+          receipt_count="$(git diff --cached --name-only -- project-memory/receipts/ | grep -c . || true)"
+          receipt_names="$(git diff --cached --name-only -- project-memory/receipts/ \
+            | xargs -n1 basename | sed 's/\.receipt\.json$//' | paste -sd, - | cut -c1-200)"
+          git commit -m "receipt: Project v2 memory proxy (${receipt_count}: ${receipt_names})"
           for attempt in 1 2 3 4 5; do
             git fetch origin "${GITHUB_REF_NAME}"
             if ! git rebase "origin/${GITHUB_REF_NAME}"; then

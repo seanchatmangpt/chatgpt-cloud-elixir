@@ -12,3 +12,19 @@ erl_crash.dump
 # vendored reference repos (external, not part of this repo's history)
 vendors/
 __pycache__/
+
+# Build projections (CLAUDE.md: "never hand-edit them" — they are manufactured,
+# not authored). scripts/verify-no-generated-artifacts-committed.sh enforces this
+# mechanically in CI for anything that slips past this file.
+/dist/
+/.capsule-build/
+/.capability-sources/
+/consumer/
+/transported/
+/manufacturing/generated/
+/verification-state/
+/state/
+/verification.log
+/receipt.json
+/build-receipt.json
+.project-memory-runtime/

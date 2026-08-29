@@ -6,3 +6,25 @@ packages = ["ash", "spark", "reactor", "igniter", "ash_postgres"]
 required_modules = ["Ash", "AshPostgres"]
 requires_services = ["postgresql"]
 acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]
+
+# The primary `acceptance` above stays scoped to what scripts/run-offline.sh can prove:
+# it runs the acceptance command inside a zero-network namespace (`unshare -n`) to prove
+# the capsule needs no network to pass. A real PostgreSQL-backed test would always fail
+# under that isolation regardless of correctness, so it is not folded into `acceptance` —
+# doing so would make this capsule permanently BUILD_BROKEN under its own offline replay.
+#
+# Instead, following the same honesty pattern process-intelligence already uses
+# (capsules/process-intelligence/capsule.toml's [process_lab] standing_scope /
+# external_crowns), real Postgres connectivity is proven by a separate, explicitly
+# network-and-service-dependent tier: fixtures/ash_postgres_integration/ run via
+# scripts/verify-ash-postgres-integration.sh, wired into CI by
+# .github/workflows/ash-postgres-integration.yml (a real PostgreSQL 17 service
+# container). That tier's outcome does not gate this capsule's offline ALIVE standing.
+standing_scope = "offline_dependency_closure"
+external_crowns = ["postgresql"]
+integration_fixture = "ash_postgres_integration"
+integration_acceptance = [
+  "MIX_ENV=test mix ecto.create --quiet",
+  "MIX_ENV=test mix ecto.migrate --quiet",
+  "MIX_ENV=test mix test",
+]

@@ -21,18 +21,19 @@ than this file for *how* to work here.
 command — not "workflow exists," "artifact uploaded," or "a file named receipt.json is
 present." Never claim `ALIVE` without that replay evidence.
 
-## Repository layout (four independent manufacturing surfaces)
+## Repository layout (five independent manufacturing surfaces)
 
 ```
 capsules/<name>/capsule.toml   — capsule contracts (requirements + acceptance commands)
 scripts/                       — build-*.sh / verify-*.sh / install-capsule.sh / run-offline.sh
 verifier/                      — verify_manifest.exs, verify_runtime.exs (Elixir-side checks)
-fixtures/                      — mix_smoke/, ash_ets_smoke/ real acceptance fixtures
+fixtures/                      — mix_smoke/, ash_ets_smoke/, ash_phoenix_smoke/, ... real acceptance fixtures
 versions.toml                  — canonical version-selection surface (OTP/Elixir/Ash/... pins)
 
 manufacturing/                 — ggen-driven RDF→capability-lock pipeline (see below)
 control-plane/                 — Phoenix/Ash app: persistent OCEL projection service (Fly-deployed)
 project-memory/                — GitHub Project v2 used as a bounded persistent memory proxy
+local-control/                 — bounded local-computer actuation transport (see below)
 .github/workflows/              — one workflow per manufacturing/verification surface
 ```
 
@@ -94,6 +95,21 @@ project `2`; raw GraphQL is rejected. Operations: `project.snapshot`, `memory.cr
 `memory.delete`. Missing/unauthorized `PROJECTS_TOKEN` → receipt records
 `BLOCKED[IRREDUCIBLE_AUTHORITY]`, never a faked success.
 
+### `local-control/` — bounded local-computer actuation transport
+
+Lets an authorized ChatGPT session manufacture a typed request in GitHub, have a
+user-controlled local agent execute it on a specific enrolled computer, and return an
+evidence-bearing receipt — **without** a self-hosted Actions runner (which would collapse
+`SELECT`/`CONSTRUCT`/`DO` into one execution authority). Flow: write a request to
+`local-control/requests/<request-id>.json` on the persistent `local-control-bus` branch →
+`scripts/local_control_agent.py` polls that exact branch on the enrolled machine → local
+policy admission (repository/branch/request-id/target/expiry/replay-ledger/allowlist/path
+checks, **plus mandatory explicit human approval** recorded in `ApprovalStore` for every
+operation except `system.snapshot`) → bounded action → typed receipt written to
+`local-control/receipts/<request-id>.receipt.json`. The local machine is the authority
+boundary; GitHub only transports intents and receipts. See `local-control/README.md` and
+`local-control/AGENTS.md` (governing contract for this surface) for the full protocol.
+
 ## Commands
 
 ### Capsule build/verify (root)
@@ -142,6 +158,16 @@ mix precommit                                           # preferred_envs: precom
 ```bash
 python3 -m pytest tests/test_project_memory_proxy.py
 python3 -m py_compile scripts/project_memory_proxy.py
+```
+
+### `local-control/` (local actuation agent)
+
+```bash
+python3 -m py_compile scripts/local_control_agent.py
+scripts/local_control_agent.py validate-policy --policy <policy.json>
+scripts/local_control_agent.py serve --policy <policy.json> --once   # one poll cycle
+scripts/local_control_agent.py list-pending --policy <policy.json>
+scripts/local_control_agent.py approve <request-id> --policy <policy.json>   # required before most operations
 ```
 
 ## Working conventions

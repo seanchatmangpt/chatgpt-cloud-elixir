@@ -75,6 +75,26 @@ For user-project write authority, configure an Actions secret named **`PROJECTS_
 
 Secrets are never written into receipts or logs. Receipts record only the token *source class*.
 
+## Commit hygiene
+
+The proxy workflow commits `project-memory/receipts/` once per run (see "Commit receipts
+to transport branch" in `.github/workflows/project-memory-proxy.yml`) — that one-commit-
+per-run discipline is load-bearing, not incidental: Project #2 is one shared mutable
+control plane, and the workflow's `concurrency` group plus rebase-retry loop depend on
+each run landing as exactly one commit to stay race-free. It is not going away.
+
+What changed: the commit subject used to be the literal, content-free string `receipt:
+Project v2 memory proxy` on every run, indistinguishable from every other run in `git
+log`. At the automation cadence this proxy actually runs at, that produced hundreds of
+identical-looking subjects per branch (see `docs/swarm-noise-budget.md` for the full
+accounting). The subject is now data-bearing — `receipt: Project v2 memory proxy (<N>:
+<request-basenames>)` — so the commit says what it carries without needing `git show`.
+
+For an already-landed run of the old-style commits on a branch you control,
+`scripts/compact_project_memory_receipts.py --apply` squashes a trailing run into one
+commit (dry-run by default; never touches a shared branch without `--force`-equivalent
+intent from you — it's a local history rewrite, push it with care).
+
 ## Operations
 
 The bounded protocol is:

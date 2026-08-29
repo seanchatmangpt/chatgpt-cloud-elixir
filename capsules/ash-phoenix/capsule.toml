@@ -1,8 +1,8 @@
 schema_version = 1
 name = "ash-phoenix"
-description = "Phoenix/Ash integration dependency closure with ordinary Mix acceptance."
-fixture = "ash_ets_smoke"
+description = "Phoenix/Ash integration dependency closure, validated by a real AshPhoenix.Form create/validate/submit cycle (not just the shared ETS smoke)."
+fixture = "ash_phoenix_smoke"
 packages = ["ash", "spark", "reactor", "igniter", "ash_phoenix"]
-required_modules = ["Ash", "AshPhoenix"]
+required_modules = ["Ash", "AshPhoenix", "AshPhoenix.Form"]
 requires_services = []
 acceptance = ["MIX_ENV=test mix compile --warnings-as-errors", "MIX_ENV=test mix test"]

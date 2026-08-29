@@ -1,0 +1,74 @@
+name: AshPostgres Integration
+
+# Proves the `external_crowns = ["postgresql"]` half of the ash-postgres capsule
+# contract (capsules/ash-postgres/capsule.toml) against a real PostgreSQL 17 server.
+# Deliberately separate from build-capsules.yml / verify-capsules.yml: those prove
+# the capsule needs zero network via scripts/run-offline.sh's namespace isolation,
+# which a live DB connection would always fail regardless of correctness. This
+# workflow's outcome does not gate this capsule's offline ALIVE standing.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "capsules/ash-postgres/capsule.toml"
+      - "fixtures/ash_postgres_integration/**"
+      - "scripts/verify-ash-postgres-integration.sh"
+      - "versions.toml"
+      - ".github/workflows/ash-postgres-integration.yml"
+  pull_request:
+    paths:
+      - "capsules/ash-postgres/capsule.toml"
+      - "fixtures/ash_postgres_integration/**"
+      - "scripts/verify-ash-postgres-integration.sh"
+      - "versions.toml"
+      - ".github/workflows/ash-postgres-integration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ash-postgres-integration-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 55432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # observed v1
+        with:
+          otp-version: "29.0"
+          elixir-version: "1.20.2"
+
+      - name: Verify ash-postgres against a live PostgreSQL 17 server
+        env:
+          PGHOST: 127.0.0.1
+          PGPORT: "55432"
+          PGUSER: postgres
+        run: |
+          export GITHUB_SHA="${{ github.event.pull_request.head.sha || github.sha }}"
+          chmod +x scripts/verify-ash-postgres-integration.sh
+          scripts/verify-ash-postgres-integration.sh
+
+      - name: Upload integration receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: ash-postgres-integration-receipt-${{ github.run_id }}
+          path: ash-postgres-integration-receipt.json
+          if-no-files-found: warn
+          retention-days: 14
