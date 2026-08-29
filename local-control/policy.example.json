@@ -1,0 +1,11 @@
+{
+  "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+  "branch": "local-control-bus",
+  "machine_id": "replace-with-stable-local-machine-id",
+  "repo_root": "~/Projects/chatgpt-cloud-elixir",
+  "allowed_operations": ["process.run"],
+  "required_platform": "Darwin",
+  "colima_executable": "colima",
+  "max_timeout_seconds": 3600,
+  "max_output_bytes": 1000000
+}
