@@ -1,0 +1,12 @@
+{
+  "id": "P035",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P035",
+  "edge": "second-generation",
+  "hypothesis": "Starter journey must independently falsify second-generation.",
+  "semantic_fingerprint": "5dffbc6240342a14",
+  "invalid": {
+    "second_generation_identical": false
+  },
+  "expected": "REFUSED[SECOND_GENERATION_DRIFT]",
+  "control": {}
+}
