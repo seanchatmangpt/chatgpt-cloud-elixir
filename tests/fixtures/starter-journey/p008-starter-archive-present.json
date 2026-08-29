@@ -1,0 +1,12 @@
+{
+  "id": "P008",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P008",
+  "edge": "starter-archive-present",
+  "hypothesis": "Starter journey must independently falsify starter-archive-present.",
+  "semantic_fingerprint": "91d95cad4d91a9b5",
+  "invalid": {
+    "starter_archive_present": false
+  },
+  "expected": "REFUSED[STARTER_ARCHIVE_MISSING]",
+  "control": {}
+}
