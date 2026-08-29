@@ -1,0 +1,12 @@
+{
+  "id": "P047",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P047",
+  "edge": "support-intake",
+  "hypothesis": "Starter journey must independently falsify support-intake.",
+  "semantic_fingerprint": "8954829c10f3fb96",
+  "invalid": {
+    "support_route_present": false
+  },
+  "expected": "REFUSED[SUPPORT_ROUTE_MISSING]",
+  "control": {}
+}
