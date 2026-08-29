@@ -110,4 +110,13 @@ cat > "$ROOT/receipt.json" <<EOF
 }
 EOF
 
+"$(dirname "${BASH_SOURCE[0]}")/emit-ocel-capsule-event.sh" \
+  --agent-id "capsule-verify:autonomic-manufacturing" \
+  --run-id "autonomic-manufacturing:${MANIFEST_SHA}" \
+  --activity "capsule.verify" \
+  --standing "ALIVE" \
+  --occurred-at "$VERIFIED_AT" \
+  --subject-sha "$GGEN_SHA" \
+  --payload-file "$ROOT/receipt.json" || true
+
 echo "AUTONOMIC_MANUFACTURING=ALIVE ggen=$second worktree_fanout=ALIVE swarmsh_v2=PARTIAL_ALIVE"

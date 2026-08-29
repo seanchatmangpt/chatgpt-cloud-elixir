@@ -59,4 +59,14 @@ cat > "$ROOT/receipt.json" <<EOF
 }
 EOF
 cat "$ROOT/receipt.json"
+
+"$(dirname "${BASH_SOURCE[0]}")/emit-ocel-capsule-event.sh" \
+  --agent-id "capsule-verify:${CAPSULE_NAME:-unknown}" \
+  --run-id "${CAPSULE_NAME:-unknown}:${MANIFEST_SHA}" \
+  --activity "capsule.verify" \
+  --standing "$STANDING" \
+  --occurred-at "$VERIFIED_AT" \
+  --subject-sha "$SOURCE_SHA" \
+  --payload-file "$ROOT/receipt.json" || true
+
 exit "$STATUS"
