@@ -32,7 +32,7 @@ assert_expected_runtime_writes() {
   while IFS= read -r line; do
     case "$line" in
       "?? manufacturing/generated/"*) ;;
-      "?? manufacturing/.ggen-v2/receipt-log.jsonl"|"?? manufacturing/.ggen-v2/receipt.json") ;;
+      "?? manufacturing/.ggen-v2/receipt-log.jsonl"|"?? manufacturing/.ggen-v2/receipt.json"|"?? manufacturing/.ggen/keys/signing.key") ;;
       *) echo "unexpected worktree mutation: $line" >&2; return 1 ;;
     esac
   done <<< "$status"
