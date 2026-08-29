@@ -1,0 +1,12 @@
+{
+  "id": "P049",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P049",
+  "edge": "attestation",
+  "hypothesis": "Starter journey must independently falsify attestation.",
+  "semantic_fingerprint": "657906d6394592f6",
+  "invalid": {
+    "attestation_subject_match": false
+  },
+  "expected": "REFUSED[ATTESTATION_SUBJECT_MISMATCH]",
+  "control": {}
+}
