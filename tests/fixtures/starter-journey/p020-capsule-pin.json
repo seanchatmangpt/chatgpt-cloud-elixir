@@ -1,0 +1,12 @@
+{
+  "id": "P020",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P020",
+  "edge": "capsule-pin",
+  "hypothesis": "Starter journey must independently falsify capsule-pin.",
+  "semantic_fingerprint": "391c17dc3a7ffae0",
+  "invalid": {
+    "capsule_exact_pin": false
+  },
+  "expected": "REFUSED[MUTABLE_CAPSULE_IDENTITY]",
+  "control": {}
+}
