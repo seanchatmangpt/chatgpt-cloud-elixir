@@ -1,1 +1,0 @@
-{application,nimble_totp,[{modules,['Elixir.NimbleTOTP']},{optional_applications,[]},{applications,[kernel,stdlib,elixir,crypto]},{description,"A tiny library for time-based one time passwords (TOTP)"},{registered,[]},{vsn,"1.0.0"}]}.

@@ -1,0 +1,32 @@
+# The directory Mix downloads your dependencies sources to.
+/deps/*
+!/deps/daisyui
+!/deps/heroicons
+
+# Where third-party dependencies like ExDoc output generated docs.
+/doc/
+
+# Ignore the release directory
+/rel/
+
+# Compiled artifacts
+/_build/
+*.beam
+*.ez
+
+# Generated on crash by the VM
+erl_crash.dump
+
+# Ignore secrets and env-specific config
+/config/*.secret.exs
+.env
+.env.*
+
+# Ignore assets that are produced by build tools
+/priv/static/assets/
+/priv/static/cache_manifest.json
+
+# In case you use Node.js/npm, you want to ignore these
+/assets/node_modules/
+
+.elixir_ls/
