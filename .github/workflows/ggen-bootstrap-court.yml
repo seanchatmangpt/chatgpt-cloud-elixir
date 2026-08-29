@@ -1,0 +1,96 @@
+name: GGen bootstrap court
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/verify-ggen-bootstrap-court.py"
+      - "tests/fixtures/ggen-bootstrap/**"
+      - ".github/workflows/ggen-bootstrap-court.yml"
+      - "manufacturing/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ggen-bootstrap-court-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  court:
+    name: Exact Release → typed court → dry-run replay
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact subject
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Execute bootstrap admission court
+        run: python3 scripts/verify-ggen-bootstrap-court.py
+
+      - name: Install exact GGen Release asset
+        id: ggen
+        env:
+          GGEN_RELEASE: v26.8.28
+          GGEN_ASSET_SHA256: ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313
+        run: |
+          set -euo pipefail
+          asset=ggen-x86_64-unknown-linux-gnu.tar.gz
+          archive="$RUNNER_TEMP/$asset"
+          extract="$RUNNER_TEMP/ggen-release"
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 1 \
+            --proto '=https' --tlsv1.2 \
+            --output "$archive" \
+            "https://github.com/seanchatmangpt/ggen/releases/download/$GGEN_RELEASE/$asset"
+          printf '%s  %s\n' "$GGEN_ASSET_SHA256" "$archive" | sha256sum --check --strict
+          mkdir -p "$extract"
+          tar -xzf "$archive" -C "$extract"
+          mapfile -t candidates < <(find "$extract" -type f -name ggen -print)
+          test "${#candidates[@]}" -eq 1
+          install -m 0755 "${candidates[0]}" "$RUNNER_TEMP/ggen"
+          "$RUNNER_TEMP/ggen" --version | tee "$RUNNER_TEMP/ggen-version.txt"
+          echo "bin=$RUNNER_TEMP/ggen" >> "$GITHUB_OUTPUT"
+
+      - name: Execute deterministic dry-run and replay
+        env:
+          GGEN_BIN: ${{ steps.ggen.outputs.bin }}
+        working-directory: manufacturing
+        run: |
+          set -euo pipefail
+          before="$(git -C .. status --porcelain=v1 --untracked-files=all)"
+          timeout 120s "$GGEN_BIN" sync run --dry-run | tee "$RUNNER_TEMP/first-sync.log"
+          timeout 120s "$GGEN_BIN" sync run --dry-run | tee "$RUNNER_TEMP/replay-sync.log"
+          after="$(git -C .. status --porcelain=v1 --untracked-files=all)"
+          test "$before" = "$after"
+
+      - name: Preserve exact-subject receipt
+        if: always()
+        env:
+          GGEN_RELEASE: v26.8.28
+          GGEN_ASSET_SHA256: ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ggen-bootstrap-receipt"
+          cp "$RUNNER_TEMP"/*-sync.log "$RUNNER_TEMP/ggen-bootstrap-receipt/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/ggen-version.txt" "$RUNNER_TEMP/ggen-bootstrap-receipt/" 2>/dev/null || true
+          jq -n \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg source_sha "$(git rev-parse HEAD)" \
+            --arg release "$GGEN_RELEASE" \
+            --arg asset_sha256 "$GGEN_ASSET_SHA256" \
+            '{repository:$repository,source_sha:$source_sha,ggen:{release:$release,asset_sha256:$asset_sha256}}' \
+            > "$RUNNER_TEMP/ggen-bootstrap-receipt/receipt.json"
+
+      - name: Upload replay evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: ggen-bootstrap-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ggen-bootstrap-receipt
+          if-no-files-found: error
+          retention-days: 30
