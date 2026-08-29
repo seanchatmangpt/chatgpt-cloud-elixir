@@ -1,0 +1,12 @@
+{
+  "id": "P015",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P015",
+  "edge": "file-permissions",
+  "hypothesis": "Starter journey must independently falsify file-permissions.",
+  "semantic_fingerprint": "b9293ca8b15459f2",
+  "invalid": {
+    "permissions_preserved": false
+  },
+  "expected": "REFUSED[EXECUTABLE_BIT_DRIFT]",
+  "control": {}
+}
