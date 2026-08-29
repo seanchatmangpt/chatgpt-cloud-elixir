@@ -1,0 +1,12 @@
+{
+  "id": "P002",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P002",
+  "edge": "shallow-clone",
+  "hypothesis": "Starter journey must independently falsify shallow-clone.",
+  "semantic_fingerprint": "bd175f8ddcbffab1",
+  "invalid": {
+    "shallow_clone_supported": false
+  },
+  "expected": "REFUSED[SHALLOW_CLONE_UNSUPPORTED]",
+  "control": {}
+}
