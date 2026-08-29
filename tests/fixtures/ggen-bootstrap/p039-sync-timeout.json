@@ -1,0 +1,18 @@
+{
+  "id": "P039",
+  "edge": "sync-timeout",
+  "semantic_fingerprint": "9ff5ea029778d17e",
+  "rule": {
+    "kind": "exact",
+    "value": "completed",
+    "failure_standing": "BLOCKED_SYNC_TIMEOUT"
+  },
+  "probe": {
+    "value": "timeout",
+    "expected_standing": "BLOCKED_SYNC_TIMEOUT"
+  },
+  "control": {
+    "value": "completed",
+    "expected_standing": "ALIVE"
+  }
+}
