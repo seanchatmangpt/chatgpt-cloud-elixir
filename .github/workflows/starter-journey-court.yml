@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "scripts/starter_journey_chicago.sh"
+      - "scripts/chicago/**"
       - ".github/workflows/starter-journey-court.yml"
       - "manufacturing/**"
       - "versions.toml"
