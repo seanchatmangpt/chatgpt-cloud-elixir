@@ -1,0 +1,12 @@
+{
+  "id": "P006",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P006",
+  "edge": "target-path-relative",
+  "hypothesis": "Starter journey must independently falsify target-path-relative.",
+  "semantic_fingerprint": "646eabbd37824c0f",
+  "invalid": {
+    "target_path_relative": false
+  },
+  "expected": "REFUSED[ABSOLUTE_TARGET_PATH]",
+  "control": {}
+}
