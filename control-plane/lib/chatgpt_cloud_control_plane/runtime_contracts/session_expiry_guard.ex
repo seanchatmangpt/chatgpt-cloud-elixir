@@ -1,7 +1,9 @@
 defmodule ChatGPTCloudControlPlane.RuntimeContracts.SessionExpiryGuard do
   @moduledoc "Rejects expired operator sessions before runtime actions are admitted."
 
-  def admit(%{expires_at: %DateTime{} = expires_at}, now \\ DateTime.utc_now()) do
+  def admit(subject, now \\ DateTime.utc_now())
+
+  def admit(%{expires_at: %DateTime{} = expires_at}, now) do
     if DateTime.compare(expires_at, now) == :gt, do: :ok, else: {:error, :operator_session_expired}
   end
 

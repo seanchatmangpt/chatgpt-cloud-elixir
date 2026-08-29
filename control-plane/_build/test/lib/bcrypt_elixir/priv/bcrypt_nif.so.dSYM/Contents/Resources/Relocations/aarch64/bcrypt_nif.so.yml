@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/private/tmp/integrate6-ws3r10/control-plane/_build/test/lib/bcrypt_elixir/priv/bcrypt_nif.so'
+relocations:     []
+...
