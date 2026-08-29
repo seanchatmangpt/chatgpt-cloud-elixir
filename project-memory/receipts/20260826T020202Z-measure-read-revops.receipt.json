@@ -1,0 +1,86 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T02:03:55Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ocel/v2/revops/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T020202Z-measure-read-revops"
+  },
+  "request_id": "20260826T020202Z-measure-read-revops",
+  "request_path": "project-memory/requests/20260826T020202Z-measure-read-revops.json",
+  "request_sha256": "sha256:a1da90f7db3b8d51c55c1410d96a69c607419cf047d7b70eb75c7fb9856708b4",
+  "request_transport_sha256": "sha256:f5efaa8b7418aab4bfab92726550a559b2b630858e0ea9fbb0e3ec1162915360",
+  "result": {
+    "body": "# OCEL v2 RevOps hyperdimensional control graph\n\nProject #2 is the canonical object-centric economic/process memory for the five-cell manufacturing system. This record is intentionally dense: events are never reduced to one case id when they relate to multiple economic, software, human, repository, capability, and revenue objects. Case-centric/XES/CSV views are projections only.\n\n## OCEL v2 truth surface\n\nRepresent object types, event types, event-object relations, object-object relations, qualifiers, dynamic attributes, timelines, provenance, standing, authority, receipts, and value attribution. Every material observation/manufacture/qualification/value event SHOULD connect every known relevant object rather than copying the event into multiple siloed cards.\n\n### Core object types (26)\n\nRepository; Commit; PullRequest; Capability; Primitive; Consumer; Human; Organization; Product; Offer; Opportunity; RevenueStream; Contract; Invoice; Payment; ValueOutcome; CustomerRevenueOutcome; DistributionSurface; UI; AshResource; AshAction; Process; Evidence; Memory; ScheduleRun; Falsifier.\n\n### Core event types (39)\n\nrepository.observed; capability.discovered; capability.composed; capability.selected; capability.manufactured; capability.qualified; capability.replicated; commit.created; pr.created; pr.qualified; pr.merged; primitive.created; primitive.reused; consumer.discovered; consumer.qualified; distribution.created; ui.exposed; human.interacted; value.hypothesized; value.proved; opportunity.discovered; offer.composed; revenue.capacity_created; revenue.attributed; revenue.realized; customer_revenue.capacity_created; customer_revenue.attributed; customer_revenue.realized; invoice.created; payment.received; retention.signal_observed; expansion.opportunity_discovered; renewal.opportunity_discovered; schedule.started; schedule.completed; memory.read; memory.updated; falsifier.triggered; authority.refused.\n\n### Relation qualifiers\n\nmanufactured_by; source_of; generated_from; qualifies; consumes; unlocks; composes_with; depends_on; supersedes; observed_in; evidenced_by; offered_to; paid_by; benefits; generates_revenue_for; generates_revenue_from; attributed_to; distributed_through; interacted_through; implemented_by; exposed_by; authorized_by; falsified_by; remembered_by; caused; enabled; retained_by; expanded_by.\n\n### Dynamic attributes\n\nstanding; head_sha; semantic_commit_count; commits_per_hour; consumer_count; qualified_consumer_count; E; E2; Y; R; Q; C; M; V; expected_value; realized_revenue; customer_generated_revenue; pipeline_value; conversion_evidence; distribution_readiness; qualification_strength; evidence_strength; authority_state; currentness; supersession; replay_receipt.\n\n## Dual RevOps objective\n\n1. Revenue FROM users/customers: capability -> product/offer -> organization/human -> contract/invoice/payment -> realized revenue -> reinvestment.\n2. Revenue FOR users/customers: capability -> human/Ash UI interaction -> customer process -> value outcome -> customer revenue capacity -> customer realized revenue/retention/expansion -> proof -> stronger offer/adoption.\n\nNever collapse payer, beneficiary, revenue producer, causal capability, evidence, amount/currency when observed, time window, and attribution confidence into one field.\n\n## Ash/Elixir human interaction projection\n\nManufacture an Elixir/Ash application surface over this graph so humans interact with the same canonical objects instead of a separate CRM truth. Ash Resources project OCEL objects and relations; Ash Actions express bounded transitions; Reactor orchestrates multi-hop revenue/value workflows; Phoenix/LiveView/Ash-oriented UI surfaces expose role-appropriate views.\n\nRequired human lenses: Make us revenue; Help them make revenue; Manufacturing telemetry; Object-centric process intelligence.\n\n## Hyperdimensional information-density law\n\nMaximize useful relations and dimensions per canonical memory object rather than card count. One event retains all valid object relations, qualifiers, temporal changes, evidence roots, standing, authority, economic attribution, manufacturing lineage, and process context. Measure density as a vector: object types/event; qualified relations/event; independent evidence roots/event; temporal attributes/object; cross-repo edges; consumer edges; economic/value edges; causal edges; replayable receipts; actionable adjacencies created per memory read.\n\n## Five-cell use\n\nMEASURE emits observations/value signals as OCEL events. EXPLORE emits candidate/composition/value-hypothesis events. SELECT/DEVELOP emits capital-allocation and productization events. IMPLEMENT/QUALIFY emits manufacture/replication/qualification/value-proof events. PORTFOLIO emits merge, attribution, revenue-capacity, reinvestment, supersession, and next-frontier events. All five cells read and update this same object-centric graph through the bounded project-memory-bus.\n\nPreserve UNKNOWN | PARTIAL_ALIVE | ALIVE | BUILD_BROKEN | UNSUPPORTED | typed REFUSED; distinguish observed revenue, qualified revenue capacity, bounded-inferred revenue opportunity, customer-generated revenue evidence, and unsupported claims; zero unreceipted consequential actuation.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_2nU",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4ByJo",
+    "metadata": {
+      "canonical_project": "seanchatmangpt/2",
+      "case_centric_views": "projection-only",
+      "cell": "PORTFOLIO",
+      "correction": "metadata counts reconciled to explicit object/event lists",
+      "created_at": "2026-08-26T00:41:26Z",
+      "dual_revenue_flows": true,
+      "event_type_count": 39,
+      "git_commits": "immutable manufacturing receipts",
+      "key": "ocel/v2/revops/current",
+      "kind": "ocel.v2.revops.hypergraph",
+      "object_type_count": 26,
+      "objective": "maximize commit manufacturing throughput, hyperdimensional information density, portfolio revenue, and customer revenue generation",
+      "project_memory": "canonical current object/process/economic control state",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "standing_model": [
+        "UNKNOWN",
+        "PARTIAL_ALIVE",
+        "ALIVE",
+        "BUILD_BROKEN",
+        "UNSUPPORTED",
+        "REFUSED"
+      ],
+      "supersedes_request": "20260825T174013-ocel-v2-revops-hypergraph",
+      "tags": [
+        "ash",
+        "dfcm",
+        "elixir",
+        "human-ui",
+        "hypergraph",
+        "ocel-v2",
+        "project-memory",
+        "revenue",
+        "revops",
+        "value-generation"
+      ],
+      "transport": "chatgpt-cloud-elixir/project-memory-bus",
+      "ui_runtime": [
+        "Elixir",
+        "Ash Framework",
+        "Reactor",
+        "Phoenix/LiveView"
+      ],
+      "updated_at": "2026-08-26T00:43:39Z"
+    },
+    "title": "OCEL v2 RevOps hyperdimensional control graph"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
