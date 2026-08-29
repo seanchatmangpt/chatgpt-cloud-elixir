@@ -10,6 +10,23 @@ defmodule ChatGPTCloud.EcosystemTest do
     assert receipt.missing_modules == []
     assert receipt.state_machine.missing == []
     assert receipt.durable_work.schedules == [:reconcile_pending]
+    assert receipt.runtime_integration.verification == :ok
+
+    assert Enum.sort(receipt.runtime_integration.extensions) ==
+             Enum.sort([
+               :spark,
+               :reactor,
+               :igniter,
+               :ash_json_api,
+               :ash_authentication,
+               :ash_oban,
+               :ash_state_machine,
+               :ash_archival,
+               :ash_money,
+               :ash_cloak,
+               :ash_graphql,
+               :ash_ai
+             ])
 
     assert Enum.sort(AshStateMachine.Info.state_machine_all_states(Qualification)) ==
              Enum.sort([:pending, :running, :qualified, :degraded, :blocked, :failed, :retrying])
