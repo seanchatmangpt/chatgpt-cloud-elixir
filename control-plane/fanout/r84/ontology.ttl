@@ -1,0 +1,7 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<urn:chatgpt-cloud-elixir:r84-consumer> a prov:Entity ;
+  dcterms:identifier "seanchatmangpt/chatgpt-cloud-elixir:control-plane" ;
+  prov:wasDerivedFrom <https://github.com/seanchatmangpt/ggen-marketplace/commit/6b7fb4af7b4ef3a6330ad61ca833b98902300332> ;
+  dcterms:description "Ash 3.32.0 + Reactor 1.0.6 control-plane consumer of the canonical R84 typed Reactor domain-error contract." .
