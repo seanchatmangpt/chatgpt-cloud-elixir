@@ -1,0 +1,19 @@
+name: Starter Journey Court
+on:
+  pull_request:
+    paths:
+      - "scripts/starter_journey_court.py"
+      - "tests/fixtures/starter-journey/**"
+      - ".github/workflows/starter-journey-court.yml"
+permissions:
+  contents: read
+jobs:
+  court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m py_compile scripts/starter_journey_court.py
+      - run: python3 scripts/starter_journey_court.py --min-cases 50
