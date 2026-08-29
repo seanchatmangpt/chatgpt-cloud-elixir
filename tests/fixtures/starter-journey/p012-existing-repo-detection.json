@@ -1,0 +1,12 @@
+{
+  "id": "P012",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P012",
+  "edge": "existing-repo-detection",
+  "hypothesis": "Starter journey must independently falsify existing-repo-detection.",
+  "semantic_fingerprint": "04ff919abf4a8216",
+  "invalid": {
+    "existing_repo_detected": false
+  },
+  "expected": "REFUSED[EXISTING_REPO_UNDETECTED]",
+  "control": {}
+}
