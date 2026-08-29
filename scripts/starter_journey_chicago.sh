@@ -142,6 +142,31 @@ stale_exit=$?
 set -e
 test "$stale_exit" -ne 0
 
+export CHICAGO_ROOT="$work_root"
+export CONSUMER_A="$work_root/consumer-a"
+export CONSUMER_B="$work_root/consumer-b"
+export GGEN_DIR="$ggen_dir"
+export GGEN_BIN="$ggen_bin"
+export GGEN_REPOSITORY="$ggen_repository"
+export GGEN_SHA="$ggen_sha"
+export RUST_TOOLCHAIN="$rust_toolchain"
+export DIGEST_FIRST="$digest_first"
+export DIGEST_REPLAY="$digest_replay"
+export DIGEST_INDEPENDENT="$digest_independent"
+export RECEIPT_LINES_FIRST="$receipt_lines_first"
+export RECEIPT_LINES_REPLAY="$receipt_lines_replay"
+export RECEIPT_LINES_INDEPENDENT="$receipt_lines_independent"
+export MALFORMED_EXIT="$malformed_exit"
+export STALE_EXIT="$stale_exit"
+
+probe_count=0
+for probe in "$work_root/consumer-a/scripts/chicago/"*.sh; do
+  test -f "$probe"
+  bash "$probe"
+  probe_count=$((probe_count + 1))
+done
+test "$probe_count" -ge 48
+
 os="$(uname -s)"
 arch="$(uname -m)"
 receipt="$work_root/receipt.json"
