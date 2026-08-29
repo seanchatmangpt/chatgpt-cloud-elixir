@@ -1,0 +1,12 @@
+{
+  "id": "P011",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P011",
+  "edge": "safe-extraction",
+  "hypothesis": "Starter journey must independently falsify safe-extraction.",
+  "semantic_fingerprint": "83c2a28472af1a9c",
+  "invalid": {
+    "safe_extraction": false
+  },
+  "expected": "REFUSED[UNSAFE_ARCHIVE_ENTRY]",
+  "control": {}
+}
