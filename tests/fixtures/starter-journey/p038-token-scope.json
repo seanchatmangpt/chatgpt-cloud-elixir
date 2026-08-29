@@ -1,0 +1,12 @@
+{
+  "id": "P038",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P038",
+  "edge": "token-scope",
+  "hypothesis": "Starter journey must independently falsify token-scope.",
+  "semantic_fingerprint": "0a105a482e99d0fa",
+  "invalid": {
+    "token_scope_minimal": false
+  },
+  "expected": "REFUSED[TOKEN_SCOPE_EXCESS]",
+  "control": {}
+}
