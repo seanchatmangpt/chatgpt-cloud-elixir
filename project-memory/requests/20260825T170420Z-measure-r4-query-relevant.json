@@ -1,0 +1,1 @@
+{"request_id":"20260825T170420Z-measure-r4-query-relevant","operation":"memory.query","project":{"owner":"seanchatmangpt","number":2},"payload":{"text":"consumer","tags":["dfcm"],"match_all_tags":false,"limit":50,"max_scan":500}}

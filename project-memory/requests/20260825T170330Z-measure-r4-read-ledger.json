@@ -1,0 +1,1 @@
+{"request_id":"20260825T170330Z-measure-r4-read-ledger","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"dfcm/ledger/current"}}
