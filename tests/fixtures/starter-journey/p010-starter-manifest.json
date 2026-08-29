@@ -1,0 +1,12 @@
+{
+  "id": "P010",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P010",
+  "edge": "starter-manifest",
+  "hypothesis": "Starter journey must independently falsify starter-manifest.",
+  "semantic_fingerprint": "e6f98ded01dedf17",
+  "invalid": {
+    "starter_manifest_valid": false
+  },
+  "expected": "REFUSED[STARTER_MANIFEST_INVALID]",
+  "control": {}
+}
