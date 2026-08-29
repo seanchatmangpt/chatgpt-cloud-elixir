@@ -68,7 +68,7 @@ OBSERVED_VERSION="$($BUILD_ROOT/install/bin/postgres --version | awk '{print $3}
 STAGE="$BUILD_ROOT/capsule"
 mkdir -p "$STAGE/runtime/postgres" "$STAGE/scripts" "$STAGE/source"
 cp -a "$BUILD_ROOT/install/." "$STAGE/runtime/postgres/"
-cp "$ROOT/scripts/postgres-server.sh" "$ROOT/scripts/verify-postgres-capsule.sh" "$STAGE/scripts/"
+cp "$ROOT/scripts/postgres-server.sh" "$ROOT/scripts/verify-postgres-capsule.sh" "$ROOT/scripts/run-postgres-offline.sh" "$STAGE/scripts/"
 cp "$CAPSULE_CONFIG" "$STAGE/source/capsule.toml"
 cp "$VERSIONS" "$STAGE/source/versions.toml"
 chmod +x "$STAGE/scripts/"*.sh

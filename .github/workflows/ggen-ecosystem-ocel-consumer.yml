@@ -3,7 +3,12 @@ name: GGEN Ecosystem OCEL Consumer
 on:
   push:
     branches:
-      - "fanout/cell1-ggen-ocel-consumer-20260826"
+      - main
+    paths:
+      - "ggen.toml"
+      - "ontology/ggen-ecosystem-ocel-run.ttl"
+      - "templates/ggen-ecosystem-ocel/**"
+      - ".github/workflows/ggen-ecosystem-ocel-consumer.yml"
   pull_request:
     paths:
       - "ggen.toml"

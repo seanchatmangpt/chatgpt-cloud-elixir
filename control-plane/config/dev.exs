@@ -24,3 +24,9 @@ config :chatgpt_cloud_control_plane, ChatGPTCloudWeb.Endpoint,
 config :chatgpt_cloud_control_plane,
        :ocel_ingest_token,
        System.get_env("OCEL_INGEST_TOKEN", "dev-ocel-token")
+
+# config.exs defaults browser_auth_required: true, but admin_username/admin_password
+# are only ever set in config/runtime.exs under `if config_env() == :prod`. Without
+# this, ChatGPTCloudWeb.AdminAuth's Application.fetch_env! crashes on every browser
+# route in :dev. Mirror config/test.exs's local-dev pattern and disable browser auth.
+config :chatgpt_cloud_control_plane, browser_auth_required: false

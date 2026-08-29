@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "release": "26.8.25",
-  "authority_ceiling": "CONSTRUCT_VERIFY",
+  "release": {{ results[0].release | json_encode }},
+  "authority_ceiling": {{ results[0].authorityCeiling | json_encode }},
   "sources": [
 {% for s in results %}    {"name":{{ s.name | json_encode }},"repository":{{ s.repository | json_encode }},"sha":{{ s.sha | json_encode }},"role":{{ s.role | json_encode }},"capital_class":{{ s.capitalClass | json_encode }},"execution_mode":{{ s.executionMode | json_encode }},"required_standing":{{ s.standing | json_encode }}}{% if not loop.last %},{% endif %}
 {% endfor %}  ]

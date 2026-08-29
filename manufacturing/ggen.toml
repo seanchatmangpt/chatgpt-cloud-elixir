@@ -21,7 +21,7 @@ output_dir = "generated"
 
 [[generation.rules]]
 name = "capability-lock"
-query = { file = "queries/sources.rq" }
+query = { file = "queries/capability-lock.rq" }
 template = { file = "templates/capability-lock.json.tera" }
 output_file = "capability-lock.json"
 mode = "Overwrite"

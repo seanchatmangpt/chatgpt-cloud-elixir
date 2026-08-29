@@ -34,6 +34,8 @@ Assume package-network access may fail even while the GitHub connector works. Do
 
 The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, and construction/consumer workflows. Generated archives, manifests, and receipts are projections; edit their owning version/capsule/build/verifier sources and regenerate rather than hand-editing outputs.
 
+Deeper `AGENTS.md` files narrow this contract for specific subtrees: `manufacturing/AGENTS.md` (the ggen/RDF capability-closure pipeline) and `local-control/AGENTS.md` (the bounded local-actuation transport). `control-plane/` and `project-memory/` are separate live/transport subsystems governed by this same evidence discipline but with their own README.md operating notes (`control-plane/README.md`; `project-memory/README.md`).
+
 ## Change / verification discipline
 
 Preserve compatibility and receipts before convenience. Prefer deterministic configuration to runner ambient state. Preserve alternate compatible variants instead of deleting possibilities to make one graph solve. Do not weaken tests or fake offline proof. Hosted CI supplements consumer execution; it does not replace it.

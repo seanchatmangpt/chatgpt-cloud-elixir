@@ -44,8 +44,8 @@ cp "$LOCK" "$STAGE/contract/capability-lock.json"
 cp "$ROOT/manufacturing/generated/autonomic-manufacturing.mmd" "$STAGE/contract/autonomic-manufacturing.mmd"
 cp "$CAPSULE_CONFIG" "$STAGE/contract/capsule.toml"
 cp "$VERSIONS" "$STAGE/contract/versions.toml"
-cp "$ROOT/scripts/verify-autonomic-manufacturing.sh" "$STAGE/scripts/"
-chmod +x "$STAGE/scripts/verify-autonomic-manufacturing.sh"
+cp "$ROOT/scripts/verify-autonomic-manufacturing.sh" "$ROOT/scripts/emit-ocel-capsule-event.sh" "$STAGE/scripts/"
+chmod +x "$STAGE/scripts/"*.sh
 
 # Marketplace capital is included in executable form, not only as a source receipt.
 mkdir -p "$STAGE/capital/ggen-marketplace/packs" "$STAGE/capital/ggen-marketplace/packages"

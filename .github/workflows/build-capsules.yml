@@ -15,8 +15,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validate-contracts:
+    name: validate capsule contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Cross-validate capsule.toml package sets
+        run: python3 scripts/verify-capsule-package-consistency.py
+
   build:
     name: ${{ matrix.variant }}
+    needs: validate-contracts
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:

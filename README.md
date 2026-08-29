@@ -119,6 +119,11 @@ For a project with database-backed integration tests, specify the repo's real se
 
 ## Repository layout
 
+This tree covers only the original capsule-manufacturing core. `CLAUDE.md`'s "Repository
+layout" section and `docs/README.md` are the current, fuller maps of the whole repo
+(manufacturing/, control-plane/, project-memory/, ggen/, ontology/+templates/+ggen.toml,
+local-control/, verification/, tests/, docs/ — see those for what each one is).
+
 ```text
 .
 ├── AGENTS.md
@@ -129,7 +134,10 @@ For a project with database-backed integration tests, specify the repo's real se
 │   ├── ash-core/capsule.toml
 │   ├── ash-postgres/capsule.toml
 │   ├── ash-phoenix/capsule.toml
-│   └── ash-full/capsule.toml
+│   ├── ash-full/capsule.toml
+│   ├── postgres17/capsule.toml
+│   ├── process-intelligence/capsule.toml
+│   └── autonomic-manufacturing/capsule.toml
 ├── fixtures/
 │   ├── mix_smoke/
 │   └── ash_ets_smoke/
@@ -144,7 +152,10 @@ For a project with database-backed integration tests, specify the repo's real se
 │   └── verify_runtime.exs
 └── .github/workflows/
     ├── build-capsules.yml
-    └── verify-capsules.yml
+    ├── verify-capsules.yml
+    └── ... 16 more — capsule/service builds, control-plane CI/format/deploy, the two
+        ggen pipelines (autonomic-manufacturing + GGEN Ecosystem OCEL), local-control CI,
+        project-memory proxy, release integrity, and standing court/qualification checks
 ```
 
 Generated capsule archives, manifests, checksums and receipts are build projections and should not be hand-maintained in the source tree.

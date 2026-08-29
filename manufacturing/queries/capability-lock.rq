@@ -1,0 +1,18 @@
+PREFIX cc: <https://chatman.ai/chatgpt-cloud/capability#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?release ?authorityCeiling ?requiresExternalExecution ?name ?repository ?sha ?role ?capitalClass ?executionMode ?standing WHERE {
+  cc:AutonomicManufacturingCapsule cc:releaseVersion ?release ;
+                                    cc:authorityCeiling ?authorityCeilingResource ;
+                                    cc:requiresExternalExecution ?requiresExternalExecution ;
+                                    cc:includesSource ?source .
+  ?authorityCeilingResource skos:prefLabel ?authorityCeiling .
+  ?source a cc:CapabilitySource ;
+          skos:prefLabel ?name ;
+          cc:repository ?repository ;
+          cc:commitSha ?sha ;
+          cc:role ?role ;
+          cc:capitalClass ?capitalClass ;
+          cc:executionMode ?executionMode ;
+          cc:requiredStanding ?standing .
+}
+ORDER BY ?name

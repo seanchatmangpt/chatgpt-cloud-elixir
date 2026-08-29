@@ -665,6 +665,12 @@ def process_pending(
                 reason=exc.reason,
                 error=exc.detail,
             )
+            # run_request raises before reaching its own ledger.record() call
+            # for REQUEST_ID_PATH_MISMATCH and REPLAY_DETECTED (both checked
+            # ahead of its internal try/except). Record here too so every
+            # terminal receipt -- not just executor-reached ones -- is also
+            # remembered by the replay ledger.
+            ledger.record(request_id, raw["_request_sha256"], "REFUSED")
         receipt_path.write_text(
             json.dumps(receipt, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
