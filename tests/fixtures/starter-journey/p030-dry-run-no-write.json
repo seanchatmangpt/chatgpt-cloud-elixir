@@ -1,0 +1,12 @@
+{
+  "id": "P030",
+  "work_key": "seanchatmangpt/chatgpt-cloud-elixir|project2:2|edge:ws3-starter-journey-court-v1|P030",
+  "edge": "dry-run-no-write",
+  "hypothesis": "Starter journey must independently falsify dry-run-no-write.",
+  "semantic_fingerprint": "3f03c2d97cd1c38b",
+  "invalid": {
+    "dry_run_no_write": false
+  },
+  "expected": "BUILD_BROKEN[DRY_RUN_WROTE]",
+  "control": {}
+}
