@@ -1,0 +1,18 @@
+{
+  "id": "P046",
+  "edge": "receipt-command-mismatch",
+  "semantic_fingerprint": "a42dc7a21c6bdb28",
+  "rule": {
+    "kind": "exact",
+    "value": "ggen sync run --dry-run",
+    "failure_standing": "BUILD_BROKEN_RECEIPT_COMMAND"
+  },
+  "probe": {
+    "value": "ggen sync run",
+    "expected_standing": "BUILD_BROKEN_RECEIPT_COMMAND"
+  },
+  "control": {
+    "value": "ggen sync run --dry-run",
+    "expected_standing": "ALIVE"
+  }
+}
