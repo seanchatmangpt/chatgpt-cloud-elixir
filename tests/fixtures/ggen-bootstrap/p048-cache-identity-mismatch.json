@@ -1,0 +1,18 @@
+{
+  "id": "P048",
+  "edge": "cache-identity-mismatch",
+  "semantic_fingerprint": "c31619b333e8d47b",
+  "rule": {
+    "kind": "exact",
+    "value": "v26.8.28:ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "failure_standing": "REFUSED_CACHE_IDENTITY"
+  },
+  "probe": {
+    "value": "v26.8.27:ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "REFUSED_CACHE_IDENTITY"
+  },
+  "control": {
+    "value": "v26.8.28:ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}
