@@ -78,7 +78,7 @@ ontology.ttl → pinned ggen bootstrap → ggen sync run → capability-lock.jso
 A separate, standing Phoenix/Ash app (`chatgpt_cloud_control_plane`, Elixir `~> 1.20`,
 `compilers: [:phoenix_live_view]`) that continuously observes/projects admitted OCEL events
 from agents/CI/producers. It does **not** replace the offline capsule crown — it is a live
-service, deployed to Fly (`fly.toml`, `scripts/bootstrap-fly.sh`,
+service, deployed to Fly (`control-plane/fly.toml`, `control-plane/scripts/bootstrap-fly.sh`,
 `.github/workflows/deploy-fly.yml`, credential-gated on `FLY_API_TOKEN`).
 
 Key surfaces: `/process-intelligence/live` (LiveView OCEL feed), `/admin` (AshAdmin),

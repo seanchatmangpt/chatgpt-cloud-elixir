@@ -125,9 +125,14 @@ jobs:
           # A content-free "receipt: Project v2 memory proxy" subject on every run is
           # indistinguishable from every other run in git log/blame — see
           # docs/swarm-noise-budget.md. Embed what this commit actually carries.
-          receipt_count="$(git diff --cached --name-only -- project-memory/receipts/ | grep -c . || true)"
-          receipt_names="$(git diff --cached --name-only -- project-memory/receipts/ \
-            | xargs -n1 basename | sed 's/\.receipt\.json$//' | paste -sd, - | cut -c1-200)"
+          # NUL-delimited (-z) throughout: request/receipt basenames are not guaranteed
+          # to be free of spaces or shell-special characters, and newline-delimited
+          # `xargs -n1` word-splits or hard-fails on those (verified: a space in a
+          # filename desyncs the count from the names; an unbalanced quote aborts the
+          # step under `set -euo pipefail` after receipts are already staged).
+          receipt_count="$(git diff --cached --name-only -z -- project-memory/receipts/ | grep -zc . || true)"
+          receipt_names="$(git diff --cached --name-only -z -- project-memory/receipts/ \
+            | xargs -0 -n1 basename | sed 's/\.receipt\.json$//' | paste -sd, - | cut -c1-200)"
           git commit -m "receipt: Project v2 memory proxy (${receipt_count}: ${receipt_names})"
           for attempt in 1 2 3 4 5; do
             git fetch origin "${GITHUB_REF_NAME}"

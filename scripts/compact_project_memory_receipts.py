@@ -47,21 +47,30 @@ def git(*args: str, check: bool = True) -> str:
 
 
 def find_trailing_run(max_lookback: int) -> list[str]:
-    """Return SHAs (oldest first) of the contiguous run of receipt commits at HEAD."""
-    log = git(
-        "log",
-        "--format=%H\t%s",
-        "--no-merges",
-        f"-n{max_lookback}",
-    ).splitlines()
+    """Return SHAs (oldest first) of the contiguous single-parent run of receipt
+    commits at HEAD.
 
+    Walks the actual parent chain one hop at a time (not `git log`'s printed
+    order) and stops at the first commit that isn't a receipt commit OR has more
+    than one parent. `git log`'s default order is commit-date order across the
+    *whole* reachable graph, not ancestry order — on a history with merged
+    branches (this repo's included: HEAD is a chain of merge commits), two
+    same-subject commits can print adjacently without one being the other's
+    parent. Squashing on that false assumption would silently fold unrelated
+    commits — from a different branch, on the other side of a merge — into the
+    result and drop them from reachable history.
+    """
     run: list[str] = []
-    for line in log:
-        sha, _, subject = line.partition("\t")
-        if subject.startswith(SUBJECT_PREFIX):
-            run.append(sha)
-        else:
+    sha = git("rev-parse", "HEAD").strip()
+    for _ in range(max_lookback):
+        line = git("log", "-1", "--format=%H\t%P\t%s", sha).strip()
+        commit_sha, _, rest = line.partition("\t")
+        parents, _, subject = rest.partition("\t")
+        parent_list = parents.split()
+        if len(parent_list) != 1 or not subject.startswith(SUBJECT_PREFIX):
             break
+        run.append(commit_sha)
+        sha = parent_list[0]
     run.reverse()
     return run
 
