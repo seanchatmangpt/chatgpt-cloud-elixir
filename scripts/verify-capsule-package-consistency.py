@@ -2,11 +2,10 @@
 """Cross-validate capsules/*/capsule.toml package sets against versions.toml and
 each other.
 
-This closes ERRC backlog item 28 (docs/errc-tracker.md CREATE #28 /
-docs/errc-8020-vital-few.md §2 CREATE): "No script cross-validates
-capsules/*/capsule.toml package sets stay consistent with each other or with
-versions.toml." Static, offline, no Elixir/network required -- only reads
-already-committed TOML.
+This closes a CREATE item in docs/errc-tracker.md's Resolved section: "No script
+cross-validates capsules/*/capsule.toml package sets stay consistent with each
+other or with versions.toml." Static, offline, no Elixir/network required -- only
+reads already-committed TOML.
 
 Checks (each capsule.toml under capsules/*/capsule.toml):
   1. Every name in `packages` is a key under versions.toml's [packages] table.
