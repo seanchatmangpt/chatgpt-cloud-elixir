@@ -1,0 +1,105 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T13:36:25Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "include_archived": true,
+      "key": "tcps/muda-mura-muri/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T130200Z-fanout-read-tcps"
+  },
+  "request_id": "20260826T130200Z-fanout-read-tcps",
+  "request_path": "project-memory/requests/20260826T130200Z-fanout-read-tcps.json",
+  "request_sha256": "sha256:ab8355f6ae700b3dbb080bc02ecd89077845d8ba5ac8aa8f05d03e720f28e859",
+  "request_transport_sha256": "sha256:1ea06cb5c4011c06434ca2ba38e88cf53f2e7e6fac1732d91925c0fad1c7fdeb",
+  "result": {
+    "body": "次工程は顧客: XaaS native runtime contract pulled the next work. The R80 consumer path itself is green; the failed downstream shape is typed BRCE refusal preservation across an Ash/Reactor boundary. Cognitive WIP was converted immediately into executable R84 pack+court capital. No new repository was guessed or serialized ahead of legality. autofde-lab and autofde were closed as successful standard work by exact-head qualification plus default-lineage assimilation. The XaaS failure remains topology until R84 is qualified and realized downstream.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+    "metadata": {
+      "andon": [
+        "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:mfw",
+        "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]:yawl",
+        "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+      ],
+      "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "cell": "COMPOSE_EXPAND_FANOUT",
+      "cognitive_wip": 0,
+      "consequential_do": false,
+      "created_at": "2026-08-26T05:40:44Z",
+      "downstream_customer": "CELL3 assimilation path for already-admitted mfw/yawl subjects",
+      "downstream_shape": "exact semantic qualification receipt independent of hosted workflow wrapper",
+      "key": "tcps/muda-mura-muri/current",
+      "kind": "tcps.muda_mura_muri",
+      "muda": "one upstream normalizer replaces repeated bespoke unwrap logic",
+      "muda_reduced": [
+        "unchanged hosted retries",
+        "hosted-wrapper-as-semantic-standing interpretation"
+      ],
+      "mura": "successful consumers assimilated before additional WIP",
+      "mura_reduced": [
+        "unequal qualification ability across consumers whose hosted runners fail before execution"
+      ],
+      "muri": "one active repair customer; unresolved identities remain outside WIP",
+      "muri_reduced": [
+        "dependence on unavailable hosted pre-execution for runner-independent semantic courts"
+      ],
+      "partial_order_edges": [
+        "PROJECT_READY_SET_EMPTY->NO_NEW_ALLOCATION",
+        "R86_CONSTRUCTED->R85_EXECUTED->QUALIFIED",
+        "HOSTED_PREEXEC_FAILURE||SEMANTIC_QUALIFICATION"
+      ],
+      "preserved_parallel_options": [
+        "mfw",
+        "yawl"
+      ],
+      "pull_edges": [
+        "mfw:R86_CONSTRUCTED->mfw:R85_LOCAL_EXECUTION",
+        "yawl:R86_CONSTRUCTED->yawl:R85_LOCAL_EXECUTION"
+      ],
+      "ready_set": [],
+      "receipts": [
+        "mfw@d8043aafff7892201c5217b01d1ef6c3f28a779e:R85_R86_ALIVE",
+        "yawl@5e46db6e997bf59140265246099125490c4ca177:R85_R86_ALIVE"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "standard_work_candidates": [
+        "runner-independent capsule execution closes semantic standing without erasing hosted wrapper failure",
+        "receipt commit binds admitted subject digest and authority fence"
+      ],
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "andon",
+        "fanout",
+        "ggen",
+        "r84",
+        "tcps"
+      ],
+      "updated_at": "2026-08-26T13:22:42Z",
+      "upstream_returns": [
+        "forced-top25-qualification-capsule-pack:R86"
+      ]
+    },
+    "title": "CELL2 TCPS after runner-independent R86 qualification"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

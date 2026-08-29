@@ -1,0 +1,67 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T13:40:05Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "run_id=6a754fe0a72c819191520a0826a1398c+20260826T130200Z+FANOUT\ncell=MAXIMUM_FANOUT\nstanding=RUNNING\nstarted_at_utc=2026-08-26T13:02:00Z\ntransport_base=16431c24bfa7bf3429fbf792e2100d840fa7a435\nforced_top25_count=25\ncontrol_commits_do_not_count_as_downstream_fanout=true\nobjective=maximize lawful distinct downstream GGEN consumer realization and qualification\n",
+        "key": "ggen/fanout/run-control/current",
+        "kind": "ggen.fanout.run-control",
+        "tags": [
+          "dfcm",
+          "fanout",
+          "cell1",
+          "running"
+        ],
+        "title": "CELL1 maximum fanout run control"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T130200Z-fanout-control-running"
+  },
+  "request_id": "20260826T130200Z-fanout-control-running",
+  "request_path": "project-memory/requests/20260826T130200Z-fanout-control-running.json",
+  "request_sha256": "sha256:1b95f6652e41fb3eb715be5787e8cb7b447e6e727f0d1bac99843679ef56f261",
+  "request_transport_sha256": "sha256:018c250380b46edba4dd26b4bac9c806dc594de16cd28cf6cb2abd7979ce1ce9",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "run_id=6a754fe0a72c819191520a0826a1398c+20260826T130200Z+FANOUT\ncell=MAXIMUM_FANOUT\nstanding=RUNNING\nstarted_at_utc=2026-08-26T13:02:00Z\ntransport_base=16431c24bfa7bf3429fbf792e2100d840fa7a435\nforced_top25_count=25\ncontrol_commits_do_not_count_as_downstream_fanout=true\nobjective=maximize lawful distinct downstream GGEN consumer realization and qualification",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAE5o",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4HW5U",
+      "metadata": {
+        "created_at": "2026-08-26T13:40:18Z",
+        "key": "ggen/fanout/run-control/current",
+        "kind": "ggen.fanout.run-control",
+        "schema": "chatgpt-project-memory/v1",
+        "tags": [
+          "cell1",
+          "dfcm",
+          "fanout",
+          "running"
+        ],
+        "updated_at": "2026-08-26T13:40:18Z"
+      },
+      "title": "CELL1 maximum fanout run control"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
