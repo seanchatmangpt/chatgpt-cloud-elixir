@@ -1,0 +1,27 @@
+{
+  "error": {
+    "details": null,
+    "message": "Memory key not found: dfcm/portfolio/latest",
+    "type": "ProxyError"
+  },
+  "observed_at": "2026-08-25T09:04:05Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "dfcm/portfolio/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T090300Z-r44-read-portfolio"
+  },
+  "request_id": "20260825T090300Z-r44-read-portfolio",
+  "request_path": "project-memory/requests/20260825T090300Z-r44-read-portfolio.json",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}

@@ -1,0 +1,30 @@
+{
+  "request_id": "20260825T090500Z-r44-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/measure/current",
+      "title": "DfCM MEASURE run control",
+      "kind": "dfcm.run-control.measure",
+      "cell": "MEASURE",
+      "standing": "RUNNING",
+      "tags": ["dfcm","measure","run-control","phase-change"],
+      "body": "R44/R45 transition MEASURE phase-change pass. Canonical Project memory consumed, current marketplace live head revalidated, and the weakest observed multiplier is consumer replication. Objective: manufacture observability that turns qualification capital into portfolio-wide adoption/replication evidence and creates multiplicative follow-on opportunity.",
+      "metadata": {
+        "utc_start": "2026-08-25T09:05:00Z",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count": 349,
+        "bus_head": "d72f4a30704519108743f23e0fd0363b828d3044",
+        "consumed_memory_keys": ["dfcm/frontier/current","dfcm/ledger/current","dfcm/measure/latest","dfcm/portfolio/latest","dfcm query: ggen marketplace measure epistemic sensors falsifiers stale standing ontology pack dependency phase-change 1000x"],
+        "candidate_repositories": ["seanchatmangpt/ggen-marketplace","seanchatmangpt/ggen","seanchatmangpt/chatgpt-cloud-elixir"],
+        "initial_frontier_size": 8,
+        "initial_weakest_multiplier": "R_consumer_replication",
+        "live_marketplace_head": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+        "portfolio_latest_read_standing": "REFUSED[MEMORY_NOT_FOUND]",
+        "standing": "RUNNING"
+      }
+    }
+  }
+}
