@@ -1,0 +1,32 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: ggen/ecosystem/ocel/current",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T19:38:19Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "include_archived": true,
+      "key": "ggen/ecosystem/ocel/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T193700Z-cell4-read-ocel"
+  },
+  "request_id": "20260826T193700Z-cell4-read-ocel",
+  "request_path": "project-memory/requests/20260826T193700Z-cell4-read-ocel.json",
+  "request_sha256": "sha256:1c13239d69a1ad8c1361946347fb95be96d41b4d3ecfc4898cda9e8f70e595b3",
+  "request_transport_sha256": "sha256:9daf249a578af1ebf1d227821abf21e259671e966321c57df75578122d0cb836",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}
