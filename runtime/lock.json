@@ -1,5 +1,83 @@
 {
   "artifacts": {
+    "affidavit": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "affidavit-68f4265-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "098e02994fe72fe4e8ea16f1a053ab773465585d078db580bb18b799fef8dc1f",
+        "size": 3066011
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "affi",
+          "affi-shell"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/affidavit/affidavit-68f4265-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "098e02994fe72fe4e8ea16f1a053ab773465585d078db580bb18b799fef8dc1f",
+          "size": 3066011
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:47Z",
+        "builder": "local-container",
+        "note": "cargo build --release, nightly-2026-08-12; affi (default features) + affi-shell (--features shell); --locked refused (stale upstream lock: wasm4pm-compat =26.8.7 pin). Stripped. Needs glibc >= 2.34.",
+        "origin_url": null
+      },
+      "smoke": [
+        "affi --version",
+        "affi-shell --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/affidavit",
+        "sha": "68f4265c3a84dd2b673bd54daa4c339805f018ef"
+      },
+      "version": "26.6.22"
+    },
+    "anti-llm-cheat-lsp": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "anti-llm-cheat-lsp-b432843-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "a5f73ad7846cb3c75d7a01e3813fe058c2572a1c5d9e8841ea5c366b7a225374",
+        "size": 3820648
+      },
+      "default": false,
+      "install": {
+        "bin": [
+          "anti-llm-cheat-lsp"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/anti-llm-cheat-lsp/anti-llm-cheat-lsp-b432843-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "a5f73ad7846cb3c75d7a01e3813fe058c2572a1c5d9e8841ea5c366b7a225374",
+          "size": 3820648
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:48Z",
+        "builder": "local-container",
+        "note": "NOT reproducible from this repo alone: path deps/[patch] on sibling dirs. Built with star-toml 26.6.30 crates.io source (GitHub main is 26.6.28; release commit db18ff8 not fetchable), lsp-max a5e7bda, wasm4pm da48e98, wasm4pm-compat c4fadd8, lsp-types-max 1bdc84b (unused). nightly-2026-04-15 + llvm-tools; stripped. Needs glibc >= 2.39.",
+        "origin_url": null
+      },
+      "smoke": [
+        "anti-llm-cheat-lsp --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/anti-llm-cheat-lsp",
+        "sha": "b4328439ac128f2ad62f229edb0944d54af803fd"
+      },
+      "version": "26.9.1"
+    },
     "ash-full": {
       "admission_evidence": {
         "acceptance_command": "MIX_ENV=test mix compile --warnings-as-errors && MIX_ENV=test mix test",
@@ -125,6 +203,125 @@
       },
       "version": "26.9.23-identity"
     },
+    "cargo-cicd": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "cargo-cicd-7375116-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "d52d0e910a8dfc2a44650aeafea9d0feb29893ff3ef6d5c131326ba6911f7661",
+        "size": 6820223
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "cargo-cicd",
+          "cicd-evidence-gen",
+          "cargo-cicd-lsp"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/cargo-cicd/cargo-cicd-7375116-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "d52d0e910a8dfc2a44650aeafea9d0feb29893ff3ef6d5c131326ba6911f7661",
+          "size": 6820223
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:48Z",
+        "builder": "local-container",
+        "note": "cargo build --release --locked, nightly-2026-06-22; bins cargo-cicd, cicd-evidence-gen, cargo-cicd-lsp; stripped. Needs glibc >= 2.39.",
+        "origin_url": null
+      },
+      "smoke": [
+        "cargo-cicd --version",
+        "cicd-evidence-gen my-crate 1.0.0 >/dev/null"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/cargo-cicd",
+        "sha": "7375116f23b0ed378d883f4b6cab7aff280b661e"
+      },
+      "version": "26.8.20"
+    },
+    "clap-noun-verb": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "clap-noun-verb-747f1dd-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "612ec332415263665b0f012ccae75af02eeb28d61ec5c340b3c02ee04894b996",
+        "size": 549682
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "clap-noun-verb-gen"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/clap-noun-verb/clap-noun-verb-747f1dd-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "612ec332415263665b0f012ccae75af02eeb28d61ec5c340b3c02ee04894b996",
+          "size": 549682
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:48Z",
+        "builder": "local-container",
+        "note": "cargo build --release, stable 1.94.1; upstream Cargo.lock is gitignored so deps resolved fresh (resolved lock saved). bin clap-noun-verb-gen; stripped. Needs glibc >= 2.39.",
+        "origin_url": null
+      },
+      "smoke": [
+        "clap-noun-verb-gen --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/clap-noun-verb",
+        "sha": "747f1dd4506892c218da4d739c256bcfcf941e50"
+      },
+      "version": "26.7.62"
+    },
+    "clnrm": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "clnrm-15d2687-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "1b15f131d025f70e5c88182b435bd910ed56a60065e8bda75f27db2a11114690",
+        "size": 11428581
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "clnrm",
+          "clnrm-lsp"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/clnrm/clnrm-15d2687-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "1b15f131d025f70e5c88182b435bd910ed56a60065e8bda75f27db2a11114690",
+          "size": 11428581
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:47Z",
+        "builder": "local-container",
+        "note": "cargo build --release --locked, nightly-2026-04-15; bins clnrm + clnrm-lsp; stripped. clnrm links libssl.so.3/libcrypto.so.3 (OpenSSL 3). Needs glibc >= 2.39. --version prints the clap-noun-verb framework version (cli 26.6.2).",
+        "origin_url": null
+      },
+      "smoke": [
+        "clnrm --version",
+        "clnrm-lsp --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/clnrm",
+        "sha": "15d26873d7a0c9e32bffc456a4a90bd7ce355225"
+      },
+      "version": "26.5.28"
+    },
     "ggen": {
       "admission_evidence": null,
       "archive": {
@@ -163,6 +360,125 @@
         "sha": "233e23bfc894fe9da8bfabbaedad7277ef485362"
       },
       "version": "26.9.21"
+    },
+    "lsp-max": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "lsp-max-a5e7bda-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "11d47c71411fd076a60f2595ed0d778ec359b19da0f4beb59a03138bcba9536a",
+        "size": 10804769
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "lsp-max-cli",
+          "lsp-max-specgen",
+          "lsp-max-mcp",
+          "lsp-max-lsif"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/lsp-max/lsp-max-a5e7bda-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "11d47c71411fd076a60f2595ed0d778ec359b19da0f4beb59a03138bcba9536a",
+          "size": 10804769
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:48Z",
+        "builder": "local-container",
+        "note": "cargo build --release, nightly-2026-04-15; upstream Cargo.lock is gitignored so deps resolved fresh at build (resolved lock saved). bins lsp-max-cli, lsp-max-specgen, lsp-max-mcp, lsp-max-lsif; stripped. cli/mcp need glibc >= 2.39.",
+        "origin_url": null
+      },
+      "smoke": [
+        "lsp-max-cli --version",
+        "lsp-max-specgen --version",
+        "lsp-max-lsif --help >/dev/null"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/lsp-max",
+        "sha": "a5e7bdaf3189c19a3fb480663c5c9d0898e5e4f5"
+      },
+      "version": "26.7.3"
+    },
+    "swarmsh-v2-cli": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "swarmsh-v2-02e5eaa-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "290aaf829d64a3a90a15b0d1f3947ccf5251eb0221dd1b6a1a9a255985a43c7d",
+        "size": 2880502
+      },
+      "default": false,
+      "install": {
+        "bin": [
+          "swarmsh_cli"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/swarmsh-v2-cli/swarmsh-v2-02e5eaa-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "290aaf829d64a3a90a15b0d1f3947ccf5251eb0221dd1b6a1a9a255985a43c7d",
+          "size": 2880502
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:48Z",
+        "builder": "local-container",
+        "note": "PARTIAL: only src/bin/swarmsh_cli.rs compiles; the declared swarmsh-coordinator/agent/exporter/worktree binaries fail upstream (E0423 DefaultSwarmTelemetry, E0308, E0599 AgentId::generate, E0282). SwarmSH v2 stays source-bound typed ancestry. stable 1.94.1; links libssl.so.3/libcrypto.so.3.",
+        "origin_url": null
+      },
+      "smoke": [
+        "swarmsh_cli --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/swarmsh-v2",
+        "sha": "02e5eaae14bd03a832c0f031acc56c6d4db3845e"
+      },
+      "version": "2.0.0"
+    },
+    "wasm4pm-cli": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "wasm4pm-da48e98-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "c29ce0de3aa47b6d4e58db8943a85d683571224ba45d1073395ec1c97a18b2b7",
+        "size": 1608889
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "wpm"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/wasm4pm-cli/wasm4pm-da48e98-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "c29ce0de3aa47b6d4e58db8943a85d683571224ba45d1073395ec1c97a18b2b7",
+          "size": 1608889
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:54:47Z",
+        "builder": "local-container",
+        "note": "Rust crates/wasm4pm-cli (the smaller Rust dev surface; the public TypeScript wpm CLI in apps/wasm4pm is NOT this binary). cargo build --release -p wasm4pm-cli --bin wpm, nightly-2026-04-15; --locked refused (stale upstream Cargo.lock: bcinr-cmca git pin + wasm4pm-cmca member), resolved lock saved at build. Stripped. Needs glibc >= 2.39.",
+        "origin_url": null
+      },
+      "smoke": [
+        "wpm --version"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/wasm4pm",
+        "sha": "da48e98cdde83d5b581d3305b7ec3c041a19d77a"
+      },
+      "version": "26.7.23"
     }
   },
   "part_size_bytes": 47185920,

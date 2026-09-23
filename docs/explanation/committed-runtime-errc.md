@@ -30,6 +30,7 @@ source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
 | Duplicate BEAM runtimes | One default OTP 29.1.1 / Elixir 1.20.4 runtime (`ash-full`, a superset of `beam-core`). |
 | Committed file size | Parts of at most 45 MiB (GitHub hard-rejects files over 100 MB; connector-friendly). |
 | Autonomic capsule | 408 MB full profile (CI artifact) → 16 MB identity profile (committed). |
+| Host floor | Everything is built on Ubuntu 24.04: glibc ≥ 2.39 for most binaries, OpenSSL 3 for OTP crypto, `clnrm`, and `swarmsh_cli`. The floor is recorded, not hidden. |
 
 ## Raise
 
@@ -57,9 +58,10 @@ summarizes it.
 
 Backlog, in priority order:
 
-1. Ecosystem Rust CLIs (`wasm4pm`'s `wpm`, `clnrm`, `affidavit`, `cargo-cicd`,
-   `anti-llm-cheat-lsp`, …). None publish Linux release assets today, so they must be
-   manufactured and admitted.
+1. ~~Ecosystem Rust CLIs~~: done. `wasm4pm-cli`, `clnrm`, `affidavit`, `cargo-cicd`,
+   `lsp-max`, and `clap-noun-verb` are committed and default. `anti-llm-cheat-lsp` and
+   `swarmsh-v2-cli` are opt-in. Remaining: the public TypeScript `wpm`, and a
+   musl/older-glibc rebuild if hosts older than glibc 2.39 matter.
 2. `process-intelligence` (OTP 27.2.4 / Elixir 1.18.4 variant with `ash_r2rml` + `ex4pm`
    compiled closures). It was re-qualified ALIVE at its current pins on 2026-09-23 (250 MB). It is
    not committed because it would add 250 MB to every clone for a specialist lab. It should

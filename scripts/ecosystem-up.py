@@ -147,8 +147,11 @@ def main() -> int:
             )
         results = []
         for command in checks:
-            proc = subprocess.run(["bash", "-c", f"source {shlex.quote(str(env_path))} >/dev/null 2>&1; {command}"],
-                                  capture_output=True, text=True)
+            # Each check runs in a scratch directory with stdin closed, so tools that
+            # write files or open a REPL never touch the checkout.
+            with tempfile.TemporaryDirectory() as scratch:
+                proc = subprocess.run(["bash", "-c", f"source {shlex.quote(str(env_path))} >/dev/null 2>&1; {command}"],
+                                      capture_output=True, text=True, cwd=scratch, stdin=subprocess.DEVNULL)
             results.append({"command": command, "exit": proc.returncode,
                             "output": (proc.stdout.strip() or proc.stderr.strip()).splitlines()[-1:] })
         row["checks"] = results

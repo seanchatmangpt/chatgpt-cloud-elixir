@@ -29,6 +29,19 @@ python3 scripts/ecosystem-up.py --verify   # also run each capsule's own offline
 | `ggen` | ggen 26.9.21 manufacturing engine (`ggen sync run`, packs, receipts) | upstream release asset, byte-identical to `seanchatmangpt/ggen` v26.9.21 |
 | `autonomic-manufacturing` | ggen, DfCM + Vision 2030 marketplace capital, SwarmSH v1 shell runtime, SwarmSH v2 typed source, and the 58-source capability lock bound by commit + tree SHA (identity profile) | `scripts/build-autonomic-manufacturing.sh` |
 | `ash-full` | Erlang/OTP + Elixir + Mix + Hex + Rebar3, plus the compiled maximal Ash closure and its Hex package cache | `scripts/build-capsule.sh ash-full` |
+| `wasm4pm-cli` | `wpm` 26.7.23: the **Rust** `crates/wasm4pm-cli` development surface (the public TypeScript `wpm` is not this) | cargo, exact SHA |
+| `clnrm` | `clnrm`, `clnrm-lsp`: hermetic integration testing (needs OpenSSL 3) | cargo `--locked`, exact SHA |
+| `affidavit` | `affi`, `affi-shell`: provenance receipt engine | cargo, exact SHA |
+| `cargo-cicd` | `cargo-cicd`, `cicd-evidence-gen`, `cargo-cicd-lsp` | cargo `--locked`, exact SHA |
+| `lsp-max` | `lsp-max-cli`, `lsp-max-specgen`, `lsp-max-mcp`, `lsp-max-lsif` | cargo, exact SHA |
+| `clap-noun-verb` | `clap-noun-verb-gen` | cargo, exact SHA |
+| `anti-llm-cheat-lsp` (opt-in) | admissibility canary LSP. Built with sibling sources outside its repo; see `lock.json` | cargo, exact SHA + recorded siblings |
+| `swarmsh-v2-cli` (opt-in) | `swarmsh_cli` only. The declared v2 coordinator/agent binaries do not compile upstream | cargo, exact SHA |
+
+Opt-in artifacts install with `--only <name>`. Host floor: built on Ubuntu 24.04. Most
+binaries need glibc ≥ 2.39, and OTP crypto, `clnrm`, and `swarmsh_cli` need OpenSSL 3
+(`libssl.so.3`). An older host reports `BUILD_BROKEN` at the smoke step rather than
+failing silently.
 
 Exact versions, source commits, digests, and admission-time consumer receipts are in
 `lock.json`.
