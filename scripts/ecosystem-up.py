@@ -22,6 +22,7 @@ import datetime as dt
 import hashlib
 import json
 import os
+import re
 import shlex
 import shutil
 import subprocess
@@ -76,12 +77,19 @@ def install(name: str, spec: dict, prefix: Path) -> tuple[str, str]:
     return "INSTALLED", "extracted"
 
 
+def root_var(name: str) -> str:
+    return "CHATGPT_CLOUD_" + re.sub(r"[^A-Z0-9]", "_", name.upper()) + "_ROOT"
+
+
 def env_lines(name: str, spec: dict, prefix: Path) -> list[str]:
+    # Capsule activate scripts all export CAPSULE_ROOT (last one wins), so every
+    # artifact also gets a stable, unambiguous root variable.
     target = prefix / name
+    lines = [f"export {root_var(name)}={shlex.quote(str(target))}"]
     if spec["install"]["layout"] == "capsule":
-        return [f"source {shlex.quote(str(target / 'activate'))}"]
+        return lines + [f"source {shlex.quote(str(target / 'activate'))}"]
     dirs = sorted({str((target / b).parent) for b in spec["install"]["bin"]})
-    return [f'export PATH={shlex.quote(d)}:"$PATH"' for d in dirs]
+    return lines + [f'export PATH={shlex.quote(d)}:"$PATH"' for d in dirs]
 
 
 def main() -> int:

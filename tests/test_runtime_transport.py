@@ -87,6 +87,7 @@ class RuntimeTransportTests(unittest.TestCase):
         self.assertEqual(self.up(), 0)
         self.assertEqual(self.receipt()["artifacts"]["hello-tool"]["install"], "already current")
         self.assertIn("hello-tool/bin", (self.prefix / "env.sh").read_text())
+        self.assertIn("export CHATGPT_CLOUD_HELLO_TOOL_ROOT=", (self.prefix / "env.sh").read_text())
 
     def test_tampered_part_is_build_broken(self):
         spec = self.admit_tool()
