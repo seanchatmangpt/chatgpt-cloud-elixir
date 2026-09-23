@@ -57,7 +57,10 @@ Each capsule's contract lives in its `capsule.toml`; version pins come from
 ### `manufacturing/` — ggen-driven capability closure
 
 RDF ontology (`ontology.ttl`) is the authoritative source of the external capability-source
-set (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit, swarmsh, swarmsh-v2).
+set: the manufacturing core (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit,
+swarmsh, swarmsh-v2) plus 51 more public seanchatmangpt ecosystem repos pinned at exact SHAs
+(ecosystem hubs, BEAM/Ash, process intelligence, gyms, verification). Re-pin with
+`python3 scripts/refresh-capability-sources.py --write`. It never adds or drops sources.
 `versions.toml`'s `[bootstrap]` holds only the minimal ggen trust anchor needed to build the
 compiler; `manufacturing/queries/*.rq` + `manufacturing/templates/*.tera` project the full
 `capability-lock.json` and topology diagram via `ggen sync run`. Pipeline:

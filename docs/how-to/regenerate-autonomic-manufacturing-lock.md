@@ -9,8 +9,14 @@ query/template) and regenerate.
 
 1. Edit the source of truth, not the generated output:
    - `manufacturing/ontology.ttl` for the capability-source semantics
-     (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit,
-     SwarmSH, SwarmSH-v2).
+     (the manufacturing core plus every other admitted ecosystem member).
+     Adding or removing a source also means editing
+     `capsules/autonomic-manufacturing/capsule.toml` `required_sources`.
+     The court refuses any difference between the two.
+   - To re-pin already-admitted sources to their live HEADs, run
+     `python3 scripts/refresh-capability-sources.py --write`. It rewrites
+     only `cc:commitSha` values, plus `versions.toml` `ggen_sha` when ggen
+     moves.
    - `manufacturing/ggen.toml` or `manufacturing/queries/`/`manufacturing/templates/`
      for the projection law.
    - `versions.toml [bootstrap]` only for the pinned ggen compiler revision
@@ -64,7 +70,8 @@ query/template) and regenerate.
    ```
 
    The consumer verify step re-checks source identity/authority against the
-   embedded capability lock, runs `ggen sync run` twice on the bundled
+   embedded capability lock, checks the SHA-256 of every
+   `sources/<name>.tar.gz` against `manifest.json`, runs `ggen sync run` twice on the bundled
    Vision 2030 package and diffs the generated-file digest for
    determinism, and separately proves concurrent git-worktree fan-out (two
    branches, two worktrees, two parallel commits) as a live SwarmSH

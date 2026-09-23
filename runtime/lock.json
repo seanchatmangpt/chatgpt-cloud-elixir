@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "ggen": {
+      "admission_evidence": null,
+      "archive": {
+        "format": "tar.gz",
+        "name": "ggen-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "c8fbeeb6779e2e21d08809101268bb4c031dd3a6655bf9a3cb8d300dc2351aeb",
+        "size": 12187176
+      },
+      "default": true,
+      "install": {
+        "bin": [
+          "ggen"
+        ],
+        "layout": "bin",
+        "verify": null
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/ggen/ggen-x86_64-unknown-linux-gnu.tar.gz",
+          "sha256": "c8fbeeb6779e2e21d08809101268bb4c031dd3a6655bf9a3cb8d300dc2351aeb",
+          "size": 12187176
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T22:47:19Z",
+        "builder": "upstream-release",
+        "note": "ggen release v26.9.21 asset, byte-identical; tag v26.9.21 -> 233e23bf (= versions.toml bootstrap ggen_sha)",
+        "origin_url": "https://github.com/seanchatmangpt/ggen/releases/download/v26.9.21/ggen-x86_64-unknown-linux-gnu.tar.gz"
+      },
+      "smoke": [
+        "ggen --version",
+        "ggen --help >/dev/null"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/ggen",
+        "sha": "233e23bfc894fe9da8bfabbaedad7277ef485362"
+      },
+      "version": "26.9.21"
+    }
+  },
+  "part_size_bytes": 47185920,
+  "platform": {
+    "arch": "x86_64",
+    "built_on": "ubuntu-24.04 (glibc 2.39)",
+    "os": "linux"
+  },
+  "schema_version": 1
+}

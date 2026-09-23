@@ -1,6 +1,6 @@
 [project]
 name = "chatgpt-cloud-autonomic-manufacturing"
-version = "26.8.25"
+version = "26.9.23"
 description = "Deterministic capability-lock compiler for the ggen + SwarmSH cloud manufacturing substrate."
 
 [ontology]

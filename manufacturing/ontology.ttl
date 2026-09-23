@@ -7,35 +7,60 @@
 
 cc:CapabilitySource a prov:Entity .
 cc:ManufacturingCapsule a prov:Entity .
+cc:ObservationScope a prov:Entity .
 cc:CONSTRUCT_VERIFY a odrl:Permission ; skos:prefLabel "CONSTRUCT_VERIFY" .
 
 cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
   dcterms:title "ChatGPT Cloud Autonomic Manufacturing Capsule" ;
   dcterms:identifier "autonomic-manufacturing" ;
-  cc:releaseVersion "26.8.25" ;
+  cc:releaseVersion "26.9.23" ;
   cc:authorityCeiling cc:CONSTRUCT_VERIFY ;
   cc:requiresExternalExecution true ;
-  cc:includesSource cc:Ggen, cc:GgenMarketplace, cc:GgenCreate, cc:GgenLegacy, cc:GgenSpecKit, cc:SwarmSH, cc:SwarmSHV2 .
+  cc:observationScope cc:OwnerPublicCatalog ;
+  cc:includesSource cc:Ggen, cc:GgenMarketplace, cc:GgenCreate, cc:GgenLegacy, cc:GgenSpecKit, cc:SwarmSH,
+    cc:SwarmSHV2, cc:GgenEcosystem, cc:ChatmanEcosystem, cc:GymEcosystem, cc:GgenIgniter, cc:GgenSkills,
+    cc:AgileProtocolSpecification, cc:ClapNounVerb, cc:Unjucks, cc:Gitvan, cc:Dspygen, cc:OpenOntologies,
+    cc:Unrdf, cc:Xaas, cc:AshSurface, cc:AshA2a, cc:AshPplan, cc:AshExpo,
+    cc:AshPlanningCenter, cc:AshSupabase, cc:AshEx4pm, cc:AshR2rml, cc:Beam4pm, cc:Ex4pm,
+    cc:Wasm4pm, cc:Wasm4pmCompat, cc:Pm4wasm, cc:ProcessIntelligence, cc:Mfact, cc:Autotel,
+    cc:Gymact, cc:AutofdeLab, cc:Autofde, cc:Ferroplan, cc:Fdegym, cc:Sregym,
+    cc:Lifegym, cc:Ww3gym, cc:Rrgym, cc:Biblegym, cc:Chatgptgym, cc:Claudecodegym,
+    cc:AwesomeAiGyms, cc:Affidavit, cc:Truex, cc:Clnrm, cc:ChicagoTddTools, cc:LspMax,
+    cc:AntiLlmCheatLsp, cc:CargoCicd, cc:Bcinr, cc:FrozenDuckdb .
+
+# Admission is a subset of observation. Every public repository owned by
+# seanchatmangpt is in observation scope; only the enumerated cc:CapabilitySource
+# members below are admitted into the capsule at exact SHAs. Private repositories
+# are deliberately never named here: observation authority is not publication
+# authority. Refresh admitted SHAs with scripts/refresh-capability-sources.py.
+cc:OwnerPublicCatalog a cc:ObservationScope ;
+  dcterms:title "Public GitHub repository catalog for seanchatmangpt" ;
+  cc:repositoryPredicate "owner=seanchatmangpt AND visibility=public" ;
+  cc:admissionRule "observation-not-admission" ;
+  cc:privateIdentityProjection false ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-ecosystem/blob/main/ontology/github-catalog.ttl> .
 
 cc:Ggen a cc:CapabilitySource ;
   skos:prefLabel "ggen" ;
   dcterms:source <https://github.com/seanchatmangpt/ggen> ;
   cc:repository "seanchatmangpt/ggen" ;
-  cc:commitSha "f4e1bce1efdcdc4f6c2531be9f66070950f7ec93" ;
+  cc:commitSha "233e23bfc894fe9da8bfabbaedad7277ef485362" ;
   cc:role "deterministic semantic manufacturing engine" ;
   cc:capitalClass "manufacturing-runtime" ;
   cc:executionMode "compiled-binary" ;
-  cc:requiredStanding "exact-source-build-and-replay" .
+  cc:requiredStanding "exact-source-build-and-replay" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:GgenMarketplace a cc:CapabilitySource ;
   skos:prefLabel "ggen-marketplace" ;
   dcterms:source <https://github.com/seanchatmangpt/ggen-marketplace> ;
   cc:repository "seanchatmangpt/ggen-marketplace" ;
-  cc:commitSha "5710efa0fec47242f5709790803f0129f3b29999" ;
+  cc:commitSha "420bc91e7c1e291be73ab749b7e443252bc7bab8" ;
   cc:role "accumulated executable manufacturing knowledge" ;
   cc:capitalClass "manufacturing-capital" ;
   cc:executionMode "source-snapshot" ;
-  cc:requiredStanding "exact-source-present" .
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:GgenCreate a cc:CapabilitySource ;
   skos:prefLabel "ggen-create" ;
@@ -45,17 +70,19 @@ cc:GgenCreate a cc:CapabilitySource ;
   cc:role "working-example to reusable manufacturing-function capitalizer" ;
   cc:capitalClass "capitalization-runtime" ;
   cc:executionMode "source-snapshot" ;
-  cc:requiredStanding "exact-source-present" .
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:GgenLegacy a cc:CapabilitySource ;
   skos:prefLabel "ggen-legacy" ;
   dcterms:source <https://github.com/seanchatmangpt/ggen-legacy> ;
   cc:repository "seanchatmangpt/ggen-legacy" ;
-  cc:commitSha "93d2ecd18147acaff659bf1d9cc2d4313628305b" ;
+  cc:commitSha "16a5c4f1051ecb0a98b06897e89e4e956be4d9b0" ;
   cc:role "legacy contract reconstruction and repository reconstitution" ;
   cc:capitalClass "acquisition-runtime" ;
   cc:executionMode "source-snapshot" ;
-  cc:requiredStanding "exact-source-present" .
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:GgenSpecKit a cc:CapabilitySource ;
   skos:prefLabel "ggen-spec-kit" ;
@@ -65,7 +92,8 @@ cc:GgenSpecKit a cc:CapabilitySource ;
   cc:role "RDF-first specification and intent admission surface" ;
   cc:capitalClass "semantic-intake" ;
   cc:executionMode "source-snapshot" ;
-  cc:requiredStanding "exact-source-present" .
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:SwarmSH a cc:CapabilitySource ;
   skos:prefLabel "swarmsh" ;
@@ -75,7 +103,8 @@ cc:SwarmSH a cc:CapabilitySource ;
   cc:role "working Unix process, worktree, claim, PID, and telemetry execution ancestry" ;
   cc:capitalClass "execution-runtime" ;
   cc:executionMode "shell-source" ;
-  cc:requiredStanding "exact-source-shell-qualification" .
+  cc:requiredStanding "exact-source-shell-qualification" ;
+  cc:admissionBasis "manufacturing-core" .
 
 cc:SwarmSHV2 a cc:CapabilitySource ;
   skos:prefLabel "swarmsh-v2" ;
@@ -85,15 +114,584 @@ cc:SwarmSHV2 a cc:CapabilitySource ;
   cc:role "typed coordination, worktree, and shell-export architecture ancestry" ;
   cc:capitalClass "execution-kernel-source" ;
   cc:executionMode "typed-source" ;
-  cc:requiredStanding "source-bound-not-runtime-promoted" .
+  cc:requiredStanding "source-bound-not-runtime-promoted" ;
+  cc:admissionBasis "manufacturing-core" .
+
+cc:GgenEcosystem a cc:CapabilitySource ;
+  skos:prefLabel "ggen-ecosystem" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-ecosystem> ;
+  cc:repository "seanchatmangpt/ggen-ecosystem" ;
+  cc:commitSha "ee528a1bbfd4263232cefe6903b0df4f8b618502" ;
+  cc:role "consumer composition boundary over ggen, ggen-marketplace, ggen_igniter, beam4pm, autofde-lab, and wasm4pm" ;
+  cc:capitalClass "ecosystem-composition" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-hub" .
+
+cc:ChatmanEcosystem a cc:CapabilitySource ;
+  skos:prefLabel "chatman-ecosystem" ;
+  dcterms:source <https://github.com/seanchatmangpt/chatman-ecosystem> ;
+  cc:repository "seanchatmangpt/chatman-ecosystem" ;
+  cc:commitSha "c59596f5506e7a00ca4ed6b909ebf6d6659b74c1" ;
+  cc:role "Chatman ecosystem actuation-authority composition and public portfolio" ;
+  cc:capitalClass "ecosystem-composition" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-hub" .
+
+cc:GymEcosystem a cc:CapabilitySource ;
+  skos:prefLabel "gym-ecosystem" ;
+  dcterms:source <https://github.com/seanchatmangpt/gym-ecosystem> ;
+  cc:repository "seanchatmangpt/gym-ecosystem" ;
+  cc:commitSha "b1d3f2978475afae16c85733b477bd2788291de0" ;
+  cc:role "gym composition boundary over GymAct, AutoFDE Lab, ggen-ecosystem, beam4pm, and the reference gyms" ;
+  cc:capitalClass "ecosystem-composition" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-hub" .
+
+cc:GgenIgniter a cc:CapabilitySource ;
+  skos:prefLabel "ggen_igniter" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen_igniter> ;
+  cc:repository "seanchatmangpt/ggen_igniter" ;
+  cc:commitSha "d84da1419a6945c6a8a64b8f6cdca9d0b2c9e0f3" ;
+  cc:role "BEAM-native reconciliation, Reactor coordination, Igniter actuation, OCEL emission, planning boundary, receipts and replay" ;
+  cc:capitalClass "beam-control-plane" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:ggen-ecosystem" .
+
+cc:GgenSkills a cc:CapabilitySource ;
+  skos:prefLabel "ggen-skills" ;
+  dcterms:source <https://github.com/seanchatmangpt/ggen-skills> ;
+  cc:repository "seanchatmangpt/ggen-skills" ;
+  cc:commitSha "68168b0dddae8b1e80d5e76e538e4308694fe5f5" ;
+  cc:role "DfCM-maximal Agent Skills reconstituted from the Agile Protocol Specification" ;
+  cc:capitalClass "manufacturing-extension" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:AgileProtocolSpecification a cc:CapabilitySource ;
+  skos:prefLabel "agile-protocol-specification" ;
+  dcterms:source <https://github.com/seanchatmangpt/agile-protocol-specification> ;
+  cc:repository "seanchatmangpt/agile-protocol-specification" ;
+  cc:commitSha "5c31d9d05fe36dc1eca3a26c9eb5cd267a2cf625" ;
+  cc:role "executable constitution for knowledge-work reconstitution and autonomic manufacturing" ;
+  cc:capitalClass "constitutional-specification" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:ClapNounVerb a cc:CapabilitySource ;
+  skos:prefLabel "clap-noun-verb" ;
+  dcterms:source <https://github.com/seanchatmangpt/clap-noun-verb> ;
+  cc:repository "seanchatmangpt/clap-noun-verb" ;
+  cc:commitSha "747f1dd4506892c218da4d739c256bcfcf941e50" ;
+  cc:role "ontology-first declarative noun-verb CLI framework for agent-ready command registration" ;
+  cc:capitalClass "manufacturing-extension" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Unjucks a cc:CapabilitySource ;
+  skos:prefLabel "unjucks" ;
+  dcterms:source <https://github.com/seanchatmangpt/unjucks> ;
+  cc:repository "seanchatmangpt/unjucks" ;
+  cc:commitSha "5ecffdee7b02a407951db5918b3dafd28184d7b2" ;
+  cc:role "ontology-driven Nunjucks template generation ancestry" ;
+  cc:capitalClass "generation-ancestry" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Gitvan a cc:CapabilitySource ;
+  skos:prefLabel "gitvan" ;
+  dcterms:source <https://github.com/seanchatmangpt/gitvan> ;
+  cc:repository "seanchatmangpt/gitvan" ;
+  cc:commitSha "2e2e658c91c9d7e37a01b0d242f35e6b2aab27b5" ;
+  cc:role "Git-native semantic workflow automation" ;
+  cc:capitalClass "generation-ancestry" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:Dspygen a cc:CapabilitySource ;
+  skos:prefLabel "dspygen" ;
+  dcterms:source <https://github.com/seanchatmangpt/dspygen> ;
+  cc:repository "seanchatmangpt/dspygen" ;
+  cc:commitSha "de3176e3a8839673af3f8a857629c84dd80bbd49" ;
+  cc:role "DSPy module CLI generation ancestry" ;
+  cc:capitalClass "generation-ancestry" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:OpenOntologies a cc:CapabilitySource ;
+  skos:prefLabel "open-ontologies" ;
+  dcterms:source <https://github.com/seanchatmangpt/open-ontologies> ;
+  cc:repository "seanchatmangpt/open-ontologies" ;
+  cc:commitSha "19110557537ffdbc7590a4243c36b1e5bfc1e58e" ;
+  cc:role "receipt-bound recursive admission for AI-manufactured software" ;
+  cc:capitalClass "semantic-admission" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Unrdf a cc:CapabilitySource ;
+  skos:prefLabel "unrdf" ;
+  dcterms:source <https://github.com/seanchatmangpt/unrdf> ;
+  cc:repository "seanchatmangpt/unrdf" ;
+  cc:commitSha "62aaa803948de69a89a081e0cb055cc32fa858f3" ;
+  cc:role "RDF, SPARQL, and SHACL knowledge-graph platform" ;
+  cc:capitalClass "semantic-admission" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:chatman-ecosystem" .
+
+cc:Xaas a cc:CapabilitySource ;
+  skos:prefLabel "xaas" ;
+  dcterms:source <https://github.com/seanchatmangpt/xaas> ;
+  cc:repository "seanchatmangpt/xaas" ;
+  cc:commitSha "2fb10156c00a821a6915f239ace517bd860c1479" ;
+  cc:role "Elixir/Phoenix/Ash platform with public-ontology projections and Reactor-fenced provider lifecycle" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:AshSurface a cc:CapabilitySource ;
+  skos:prefLabel "ash_surface" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_surface> ;
+  cc:repository "seanchatmangpt/ash_surface" ;
+  cc:commitSha "7d5492795d9b9a0956f51545ed1ad1932768b77e" ;
+  cc:role "manifest-first consumer projection and runtime layer for Ash applications" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshA2a a cc:CapabilitySource ;
+  skos:prefLabel "ash_a2a" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_a2a> ;
+  cc:repository "seanchatmangpt/ash_a2a" ;
+  cc:commitSha "85e57381d4adaf4cec6698965051ece8eb888049" ;
+  cc:role "Spark DSL extension exposing Ash actions as A2A protocol agent skills" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshPplan a cc:CapabilitySource ;
+  skos:prefLabel "ash_pplan" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_pplan> ;
+  cc:repository "seanchatmangpt/ash_pplan" ;
+  cc:commitSha "d35f6298e8bd4683c36018180afac1b17dfeaa97" ;
+  cc:role "P-PLAN and PROV-O semantics projected into an Ash-native process control plane" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshExpo a cc:CapabilitySource ;
+  skos:prefLabel "ash_expo" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_expo> ;
+  cc:repository "seanchatmangpt/ash_expo" ;
+  cc:commitSha "3430fbd862555b598befe7b0f72b9afc1a7bfa12" ;
+  cc:role "projection of admitted Ash public actions into an Expo TypeScript runtime" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshPlanningCenter a cc:CapabilitySource ;
+  skos:prefLabel "ash_planning_center" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_planning_center> ;
+  cc:repository "seanchatmangpt/ash_planning_center" ;
+  cc:commitSha "5ee26cbdc8fef26c92c7691355c76f5aed2e7b2c" ;
+  cc:role "Ash resources and actions over the Planning Center API" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshSupabase a cc:CapabilitySource ;
+  skos:prefLabel "ash_supabase" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_supabase> ;
+  cc:repository "seanchatmangpt/ash_supabase" ;
+  cc:commitSha "94039c19d95d14e9a1c81270c4889e7c48258aca" ;
+  cc:role "ggen-manufactured Ash and Supabase integration" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshEx4pm a cc:CapabilitySource ;
+  skos:prefLabel "ash_ex4pm" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_ex4pm> ;
+  cc:repository "seanchatmangpt/ash_ex4pm" ;
+  cc:commitSha "d4ffb71d40dd8317e78c488e0f591508579886fa" ;
+  cc:role "Ash extension emitting OCEL 2.0 events through ex4pm" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:AshR2rml a cc:CapabilitySource ;
+  skos:prefLabel "ash_r2rml" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_r2rml> ;
+  cc:repository "seanchatmangpt/ash_r2rml" ;
+  cc:commitSha "241342a9661a01ebc931e1ed7d3c7e96c5d76e0a" ;
+  cc:role "Ash R2RML relational-to-RDF mapping and OCEL reconstruction" ;
+  cc:capitalClass "beam-ash-source" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Beam4pm a cc:CapabilitySource ;
+  skos:prefLabel "beam4pm" ;
+  dcterms:source <https://github.com/seanchatmangpt/beam4pm> ;
+  cc:repository "seanchatmangpt/beam4pm" ;
+  cc:commitSha "574368706e6afd804c7a13771bed3cf03da33ce0" ;
+  cc:role "BEAM-first process mining and process intelligence runtime manufactured by ggen" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:ggen-ecosystem" .
+
+cc:Ex4pm a cc:CapabilitySource ;
+  skos:prefLabel "ex4pm" ;
+  dcterms:source <https://github.com/seanchatmangpt/ex4pm> ;
+  cc:repository "seanchatmangpt/ex4pm" ;
+  cc:commitSha "426455b6dfaf3931f85cc05b612ff73759766267" ;
+  cc:role "BEAM-native evidence-oriented process-intelligence system" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Wasm4pm a cc:CapabilitySource ;
+  skos:prefLabel "wasm4pm" ;
+  dcterms:source <https://github.com/seanchatmangpt/wasm4pm> ;
+  cc:repository "seanchatmangpt/wasm4pm" ;
+  cc:commitSha "da48e98cdde83d5b581d3305b7ec3c041a19d77a" ;
+  cc:role "evidence-oriented process-mining platform with POWL execution and replayable WASM evidence" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:ggen-ecosystem" .
+
+cc:Wasm4pmCompat a cc:CapabilitySource ;
+  skos:prefLabel "wasm4pm-compat" ;
+  dcterms:source <https://github.com/seanchatmangpt/wasm4pm-compat> ;
+  cc:repository "seanchatmangpt/wasm4pm-compat" ;
+  cc:commitSha "c4fadd8e7d56a853632b740ff903ff6181150480" ;
+  cc:role "process-intelligence compatibility core" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:Pm4wasm a cc:CapabilitySource ;
+  skos:prefLabel "pm4wasm" ;
+  dcterms:source <https://github.com/seanchatmangpt/pm4wasm> ;
+  cc:repository "seanchatmangpt/pm4wasm" ;
+  cc:commitSha "acdf79d846c1265c552c943cc7f4cd1b9d411c1d" ;
+  cc:role "POWL v2 Rust and WebAssembly process mining" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:ProcessIntelligence a cc:CapabilitySource ;
+  skos:prefLabel "process-intelligence" ;
+  dcterms:source <https://github.com/seanchatmangpt/process-intelligence> ;
+  cc:repository "seanchatmangpt/process-intelligence" ;
+  cc:commitSha "4c6d448eedeeae928e617437ae26151d21c0b40a" ;
+  cc:role "full-lifecycle process-intelligence research foundry" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Mfact a cc:CapabilitySource ;
+  skos:prefLabel "mfact" ;
+  dcterms:source <https://github.com/seanchatmangpt/mfact> ;
+  cc:repository "seanchatmangpt/mfact" ;
+  cc:commitSha "8a62a7c28e935b9afd05c68f455f475423ec0a7a" ;
+  cc:role "receipted Lean 4 mathematical manufacturing and certification pipeline" ;
+  cc:capitalClass "certification" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:chatman-ecosystem" .
+
+cc:Autotel a cc:CapabilitySource ;
+  skos:prefLabel "autotel" ;
+  dcterms:source <https://github.com/seanchatmangpt/autotel> ;
+  cc:repository "seanchatmangpt/autotel" ;
+  cc:commitSha "f091da60b28f9338c49ab7b8472d3759ded3c4ae" ;
+  cc:role "BPMN 2.0 orchestration with semantic validation and telemetry ancestry" ;
+  cc:capitalClass "process-orchestration-ancestry" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Gymact a cc:CapabilitySource ;
+  skos:prefLabel "gymact" ;
+  dcterms:source <https://github.com/seanchatmangpt/gymact> ;
+  cc:repository "seanchatmangpt/gymact" ;
+  cc:commitSha "5141f88e5049cf1265cd847a86090c35852200cd" ;
+  cc:role "execution physics, providers, authority boundaries, receipts, verification and scoring" ;
+  cc:capitalClass "gym-kernel" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+# autofde-lab carries ~530 MB of research-paper PDFs (docs/papers, archive/) around
+# ~30 MB of code, so it is bound by exact commit + tree identity instead of shipped.
+cc:AutofdeLab a cc:CapabilitySource ;
+  skos:prefLabel "autofde-lab" ;
+  dcterms:source <https://github.com/seanchatmangpt/autofde-lab> ;
+  cc:repository "seanchatmangpt/autofde-lab" ;
+  cc:commitSha "ae255ad123dfdcef9b3de82395006834abb20a28" ;
+  cc:role "planners, policies, search, history-to-plan replay compilation and counterfactual experiment logic" ;
+  cc:capitalClass "planning" ;
+  cc:executionMode "source-reference" ;
+  cc:requiredStanding "exact-source-identified" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Autofde a cc:CapabilitySource ;
+  skos:prefLabel "autofde" ;
+  dcterms:source <https://github.com/seanchatmangpt/autofde> ;
+  cc:repository "seanchatmangpt/autofde" ;
+  cc:commitSha "f8e2d477dcb3e5084c341779f275505debd49c00" ;
+  cc:role "Forward Deployment OS canonical ontology and ggen generation contract" ;
+  cc:capitalClass "planning" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:Ferroplan a cc:CapabilitySource ;
+  skos:prefLabel "ferroplan" ;
+  dcterms:source <https://github.com/seanchatmangpt/ferroplan> ;
+  cc:repository "seanchatmangpt/ferroplan" ;
+  cc:commitSha "9c872ceef75d03e33a323fbd0bac5ae22ece725c" ;
+  cc:role "planner" ;
+  cc:capitalClass "planning" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:chatman-ecosystem" .
+
+cc:Fdegym a cc:CapabilitySource ;
+  skos:prefLabel "fdegym" ;
+  dcterms:source <https://github.com/seanchatmangpt/fdegym> ;
+  cc:repository "seanchatmangpt/fdegym" ;
+  cc:commitSha "c7b51338fd7659540bfb1f559b02f426a61c460f" ;
+  cc:role "Forward Deployed Engineering environments and benchmarks" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Sregym a cc:CapabilitySource ;
+  skos:prefLabel "SREGym" ;
+  dcterms:source <https://github.com/seanchatmangpt/SREGym> ;
+  cc:repository "seanchatmangpt/SREGym" ;
+  cc:commitSha "98147f396db0aaa622c7586d4bec5bdcb4cff20f" ;
+  cc:role "SRE and operations environments, failure worlds and benchmarks" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Lifegym a cc:CapabilitySource ;
+  skos:prefLabel "lifegym" ;
+  dcterms:source <https://github.com/seanchatmangpt/lifegym> ;
+  cc:repository "seanchatmangpt/lifegym" ;
+  cc:commitSha "4dffff1f81b83593220c787c08cb6622e3c749ee" ;
+  cc:role "life-domain planning and environment reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Ww3gym a cc:CapabilitySource ;
+  skos:prefLabel "ww3gym" ;
+  dcterms:source <https://github.com/seanchatmangpt/ww3gym> ;
+  cc:repository "seanchatmangpt/ww3gym" ;
+  cc:commitSha "0f539e75c772978fe8d1ebd897789649f5785bf2" ;
+  cc:role "synthetic 2030 capability-planning reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Rrgym a cc:CapabilitySource ;
+  skos:prefLabel "rrgym" ;
+  dcterms:source <https://github.com/seanchatmangpt/rrgym> ;
+  cc:repository "seanchatmangpt/rrgym" ;
+  cc:commitSha "9f3128ae2b5b752c0f5bb091b433231d226a3585" ;
+  cc:role "institutional and relational-reasoning reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Biblegym a cc:CapabilitySource ;
+  skos:prefLabel "biblegym" ;
+  dcterms:source <https://github.com/seanchatmangpt/biblegym> ;
+  cc:repository "seanchatmangpt/biblegym" ;
+  cc:commitSha "c0a13ea67e6a9e31c2d07f06565ea2b8acfcd8f7" ;
+  cc:role "formation-domain reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Chatgptgym a cc:CapabilitySource ;
+  skos:prefLabel "chatgptgym" ;
+  dcterms:source <https://github.com/seanchatmangpt/chatgptgym> ;
+  cc:repository "seanchatmangpt/chatgptgym" ;
+  cc:commitSha "6037963bf825316be977ba08ed416ec85162738d" ;
+  cc:role "ChatGPT cloud-agent reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Claudecodegym a cc:CapabilitySource ;
+  skos:prefLabel "claudecodegym" ;
+  dcterms:source <https://github.com/seanchatmangpt/claudecodegym> ;
+  cc:repository "seanchatmangpt/claudecodegym" ;
+  cc:commitSha "449ff3597c96bac2c04c5d1bef970ff802d2154b" ;
+  cc:role "Claude Code reference gym" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:AwesomeAiGyms a cc:CapabilitySource ;
+  skos:prefLabel "awesome-ai-gyms" ;
+  dcterms:source <https://github.com/seanchatmangpt/awesome-ai-gyms> ;
+  cc:repository "seanchatmangpt/awesome-ai-gyms" ;
+  cc:commitSha "d32f01854fbc9bae52960f85e3c2a170113103b4" ;
+  cc:role "DfCM discovery and preservation registry for the wider environment frontier" ;
+  cc:capitalClass "gym-environment" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:gym-ecosystem" .
+
+cc:Affidavit a cc:CapabilitySource ;
+  skos:prefLabel "affidavit" ;
+  dcterms:source <https://github.com/seanchatmangpt/affidavit> ;
+  cc:repository "seanchatmangpt/affidavit" ;
+  cc:commitSha "68f4265c3a84dd2b673bd54daa4c339805f018ef" ;
+  cc:role "BLAKE3 content-addressed provenance receipt engine" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:Truex a cc:CapabilitySource ;
+  skos:prefLabel "truex" ;
+  dcterms:source <https://github.com/seanchatmangpt/truex> ;
+  cc:repository "seanchatmangpt/truex" ;
+  cc:commitSha "9a487fa786d61bd520ad91b15613be3571f1071f" ;
+  cc:role "receipt reference substrate" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "ecosystem-lock:chatman-ecosystem" .
+
+cc:Clnrm a cc:CapabilitySource ;
+  skos:prefLabel "clnrm" ;
+  dcterms:source <https://github.com/seanchatmangpt/clnrm> ;
+  cc:repository "seanchatmangpt/clnrm" ;
+  cc:commitSha "15d26873d7a0c9e32bffc456a4a90bd7ce355225" ;
+  cc:role "hermetic gVisor-backed integration testing framework" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:ChicagoTddTools a cc:CapabilitySource ;
+  skos:prefLabel "chicago-tdd-tools" ;
+  dcterms:source <https://github.com/seanchatmangpt/chicago-tdd-tools> ;
+  cc:repository "seanchatmangpt/chicago-tdd-tools" ;
+  cc:commitSha "a3443514512135fd29dbaa358a3417d48c546083" ;
+  cc:role "Rust Chicago-style TDD framework with compile-time guarantees" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:LspMax a cc:CapabilitySource ;
+  skos:prefLabel "lsp-max" ;
+  dcterms:source <https://github.com/seanchatmangpt/lsp-max> ;
+  cc:repository "seanchatmangpt/lsp-max" ;
+  cc:commitSha "a5e7bdaf3189c19a3fb480663c5c9d0898e5e4f5" ;
+  cc:role "LSP 3.18 server framework" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:AntiLlmCheatLsp a cc:CapabilitySource ;
+  skos:prefLabel "anti-llm-cheat-lsp" ;
+  dcterms:source <https://github.com/seanchatmangpt/anti-llm-cheat-lsp> ;
+  cc:repository "seanchatmangpt/anti-llm-cheat-lsp" ;
+  cc:commitSha "b4328439ac128f2ad62f229edb0944d54af803fd" ;
+  cc:role "admissibility canary LSP built on lsp-max" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:CargoCicd a cc:CapabilitySource ;
+  skos:prefLabel "cargo-cicd" ;
+  dcterms:source <https://github.com/seanchatmangpt/cargo-cicd> ;
+  cc:repository "seanchatmangpt/cargo-cicd" ;
+  cc:commitSha "7375116f23b0ed378d883f4b6cab7aff280b661e" ;
+  cc:role "Rust workspace health, affected-test selection, and evidence-gated publishing" ;
+  cc:capitalClass "verification-evidence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:Bcinr a cc:CapabilitySource ;
+  skos:prefLabel "bcinr" ;
+  dcterms:source <https://github.com/seanchatmangpt/bcinr> ;
+  cc:repository "seanchatmangpt/bcinr" ;
+  cc:commitSha "b76dcb377b297cb8826a5256b55f8b57a6b76462" ;
+  cc:role "branchless deterministic-latency systems library" ;
+  cc:capitalClass "systems-runtime" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:FrozenDuckdb a cc:CapabilitySource ;
+  skos:prefLabel "frozen-duckdb" ;
+  dcterms:source <https://github.com/seanchatmangpt/frozen-duckdb> ;
+  cc:repository "seanchatmangpt/frozen-duckdb" ;
+  cc:commitSha "6f565c1020852945b9ecad0464bc91758f853e67" ;
+  cc:role "prebuilt DuckDB binary via builder sub-crate" ;
+  cc:capitalClass "systems-runtime" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
 
 cc:releaseVersion a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:authorityCeiling a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:requiresExternalExecution a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:includesSource a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:observationScope a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:repositoryPredicate a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:admissionRule a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:privateIdentityProjection a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:repository a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:commitSha a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:role a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:capitalClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:executionMode a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:requiredStanding a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+cc:admissionBasis a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .

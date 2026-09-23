@@ -9,6 +9,10 @@ LOCK="$ROOT/manufacturing/generated/capability-lock.json"
 CAPSULE_CONFIG="$ROOT/capsules/autonomic-manufacturing/capsule.toml"
 VERSIONS="$ROOT/versions.toml"
 GGEN_BIN="${GGEN_BIN:-$SOURCE_ROOT/ggen/target/release/ggen}"
+# full: ship every source-snapshot member as an archive (maximal offline closure).
+# identity: bind every member by commit + tree SHA only; git transports the sources.
+PROFILE="${AUTONOMIC_SOURCE_PROFILE:-full}"
+[[ "$PROFILE" == full || "$PROFILE" == identity ]] || { echo "UNSUPPORTED: AUTONOMIC_SOURCE_PROFILE=$PROFILE" >&2; exit 64; }
 
 for cmd in bash python3 git tar gzip sha256sum; do
   command -v "$cmd" >/dev/null || { echo "BLOCKED: required build command '$cmd' missing" >&2; exit 69; }
@@ -19,10 +23,13 @@ done
 python3 "$ROOT/scripts/verify-autonomic-contract.py"
 
 # The generated lock is authoritative after the bootstrap court and real ggen projection.
-python3 - "$LOCK" "$SOURCE_ROOT" <<'PY'
+rm -rf "$BUILD_ROOT"
+mkdir -p "$BUILD_ROOT"
+python3 - "$LOCK" "$SOURCE_ROOT" "$BUILD_ROOT/source-identities.json" <<'PY'
 import json, pathlib, subprocess, sys
 lock = json.load(open(sys.argv[1]))
 root = pathlib.Path(sys.argv[2])
+identities = {}
 for src in lock["sources"]:
     path = root / src["name"]
     if not path.is_dir():
@@ -30,10 +37,12 @@ for src in lock["sources"]:
     got = subprocess.check_output(["git", "-C", str(path), "rev-parse", "HEAD"], text=True).strip()
     if got != src["sha"]:
         raise SystemExit(f"BUILD_BROKEN: {src['name']} expected {src['sha']} observed {got}")
+    tree = subprocess.check_output(["git", "-C", str(path), "rev-parse", "HEAD^{tree}"], text=True).strip()
+    identities[src["name"]] = {"sha": got, "tree_sha": tree, "execution_mode": src["execution_mode"]}
+json.dump(identities, open(sys.argv[3], "w"), indent=2, sort_keys=True)
 print(f"SOURCE_IDENTITY=ALIVE count={len(lock['sources'])}")
 PY
 
-rm -rf "$BUILD_ROOT"
 mkdir -p "$BUILD_ROOT/capsule/bin" "$BUILD_ROOT/capsule/capital" "$BUILD_ROOT/capsule/sources" \
   "$BUILD_ROOT/capsule/scripts" "$BUILD_ROOT/capsule/contract" "$OUTPUT_DIR"
 STAGE="$BUILD_ROOT/capsule"
@@ -59,10 +68,20 @@ mkdir -p "$STAGE/swarmsh" "$STAGE/swarmsh-v2"
 git -C "$SOURCE_ROOT/swarmsh" archive HEAD | tar -x -C "$STAGE/swarmsh"
 git -C "$SOURCE_ROOT/swarmsh-v2" archive HEAD | tar -x -C "$STAGE/swarmsh-v2"
 
-# Preserve acquisition/capitalization/specification members of the ggen ecosystem as exact source capsules.
-for name in ggen-create ggen-legacy ggen-spec-kit; do
+# Every other source-snapshot member of the admitted ecosystem ships as an exact source
+# archive. The marketplace is excluded because its capital is staged above in executable form.
+python3 - "$LOCK" > "$BUILD_ROOT/source-snapshots.txt" <<'PY'
+import json, sys
+for src in json.load(open(sys.argv[1]))["sources"]:
+    if src["execution_mode"] == "source-snapshot" and src["name"] != "ggen-marketplace":
+        print(src["name"])
+PY
+[[ "$PROFILE" == full ]] || : > "$BUILD_ROOT/source-snapshots.txt"
+: > "$BUILD_ROOT/source-archives.tsv"
+while IFS= read -r name; do
   git -C "$SOURCE_ROOT/$name" archive --format=tar HEAD | gzip -n > "$STAGE/sources/$name.tar.gz"
-done
+  printf '%s\t%s\n' "$name" "$(sha256sum "$STAGE/sources/$name.tar.gz" | awk '{print $1}')" >> "$BUILD_ROOT/source-archives.tsv"
+done < "$BUILD_ROOT/source-snapshots.txt"
 
 cat > "$STAGE/activate" <<'EOF'
 #!/usr/bin/env bash
@@ -80,10 +99,12 @@ RELEASE_VERSION="$(python3 -c 'import tomllib; print(tomllib.load(open("'"$VERSI
 LOCK_SHA="$(sha256sum "$LOCK" | awk '{print $1}')"
 GGEN_SHA="$(sha256sum "$STAGE/bin/ggen" | awk '{print $1}')"
 BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-export SOURCE_SHA RELEASE_VERSION LOCK_SHA GGEN_SHA BUILT_AT
-python3 - "$STAGE/manifest.json" "$LOCK" <<'PY'
+export SOURCE_SHA RELEASE_VERSION LOCK_SHA GGEN_SHA BUILT_AT PROFILE
+python3 - "$STAGE/manifest.json" "$LOCK" "$BUILD_ROOT/source-archives.tsv" "$BUILD_ROOT/source-identities.json" <<'PY'
 import json, os, sys
 lock = json.load(open(sys.argv[2]))
+source_archives = dict(line.rstrip("\n").split("\t") for line in open(sys.argv[3]) if line.strip())
+source_identities = json.load(open(sys.argv[4]))
 manifest = {
     "schema_version": 1,
     "capsule_name": "autonomic-manufacturing",
@@ -97,8 +118,14 @@ manifest = {
     "capability_lock_sha256": os.environ["LOCK_SHA"],
     "ggen_binary_sha256": os.environ["GGEN_SHA"],
     "sources": lock["sources"],
+    "source_profile": os.environ["PROFILE"],
+    "source_identities": source_identities,
+    "source_archives": {
+        name: {"path": f"sources/{name}.tar.gz", "sha256": digest}
+        for name, digest in sorted(source_archives.items())
+    },
     "standing": "PARTIAL_ALIVE",
-    "standing_note": "Construction is observed; fresh consumer replay is required for ALIVE. SwarmSH v2 remains source-bound typed ancestry."
+    "standing_note": "Construction is observed; fresh consumer replay is required for ALIVE. Source archives prove exact-source presence only. SwarmSH v2 remains source-bound typed ancestry."
 }
 with open(sys.argv[1], "w") as f:
     json.dump(manifest, f, indent=2, sort_keys=True)
@@ -122,6 +149,7 @@ cat > "$STAGE/build-receipt.json" <<EOF
 EOF
 
 NAME="chatgpt-cloud-autonomic-manufacturing-${RELEASE_VERSION}-linux-x86_64"
+[[ "$PROFILE" == full ]] || NAME="chatgpt-cloud-autonomic-manufacturing-${RELEASE_VERSION}-${PROFILE}-linux-x86_64"
 ARCHIVE="$OUTPUT_DIR/$NAME.tar.gz"
 (
   cd "$STAGE"
