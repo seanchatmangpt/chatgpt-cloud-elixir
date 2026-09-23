@@ -99,6 +99,17 @@ project `2`; raw GraphQL is rejected. Operations: `project.snapshot`, `memory.cr
 
 ## Commands
 
+### Committed runtime (fastest path)
+
+```bash
+python3 scripts/ecosystem-up.py [--only a,b] [--verify] [--env-file FILE]   # offline install of runtime/lock.json
+source ~/.chatgpt-cloud/runtime/env.sh
+python3 scripts/runtime-admit.py <name> <archive> --version ... --source-repo ... --source-sha ... \
+  --builder ... --layout capsule|bin --smoke "..."                            # producer: admit a binary
+python3 scripts/refresh-capability-sources.py [--write]                       # drift check for all 58 sources
+python3 -m unittest tests/test_runtime_transport.py tests/test_autonomic_contract.py
+```
+
 ### Capsule build/verify (root)
 
 ```bash

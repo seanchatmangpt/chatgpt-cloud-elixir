@@ -34,6 +34,10 @@ Assume package-network access may fail even while the GitHub connector works. Do
 
 The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, and construction/consumer workflows. Generated archives, manifests, and receipts are projections; edit their owning version/capsule/build/verifier sources and regenerate rather than hand-editing outputs.
 
+## Committed runtime
+
+`runtime/` is a committed binary projection. Only `scripts/runtime-admit.py` writes it (parts of at most 45 MiB, archive + part SHA-256, exact source commit, builder, and admission-time consumer evidence in `runtime/lock.json`). Never hand-edit it. `scripts/ecosystem-up.py` is the offline consumer: an artifact is `ALIVE` there only when its digests verify and its smoke commands exit 0 in the consuming container. That is still not a target repository's crown.
+
 ## Change / verification discipline
 
 Preserve compatibility and receipts before convenience. Prefer deterministic configuration to runner ambient state. Preserve alternate compatible variants instead of deleting possibilities to make one graph solve. Do not weaken tests or fake offline proof. Hosted CI supplements consumer execution; it does not replace it.

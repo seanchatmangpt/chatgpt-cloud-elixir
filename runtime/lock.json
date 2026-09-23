@@ -1,5 +1,130 @@
 {
   "artifacts": {
+    "ash-full": {
+      "admission_evidence": {
+        "acceptance_command": "MIX_ENV=test mix compile --warnings-as-errors && MIX_ENV=test mix test",
+        "acceptance_exit_code": 0,
+        "capsule_archive_sha256": "b39eb84abd5f0a292f7ed4c64a55fb7cf104e8459a4d0ee9b66e42af810c4939",
+        "capsule_name": "ash-full",
+        "manifest_sha256": "bbd5099895ff7b7636e705a5ccb245e632c5a0e85fb6e2938472d76ff54adf53",
+        "network_mode": "namespace_offline",
+        "phase": "consumer_replay",
+        "release_version": "26.9.23",
+        "replay": "CAPSULE_NETWORK_MODE=namespace_offline bash scripts/verify-capsule.sh",
+        "schema_version": 1,
+        "source_sha": "da45512c469691e3435f41d4845a3e4ae895bc95",
+        "standing": "ALIVE",
+        "verified_at": "2026-09-23T23:13:05Z"
+      },
+      "archive": {
+        "format": "tar.gz",
+        "name": "chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64.tar.gz",
+        "sha256": "b39eb84abd5f0a292f7ed4c64a55fb7cf104e8459a4d0ee9b66e42af810c4939",
+        "size": 151914902
+      },
+      "default": true,
+      "install": {
+        "bin": [],
+        "layout": "capsule",
+        "verify": "bash scripts/run-offline.sh"
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/ash-full/chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64.tar.gz.part00",
+          "sha256": "e9d74f8a111b30a0ef22d3dca4a48a7bc0a03d2403846cdab740f25225391172",
+          "size": 47185920
+        },
+        {
+          "path": "runtime/linux-x86_64/ash-full/chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64.tar.gz.part01",
+          "sha256": "4d56a741e10a5c1067e63b102e10ed07134aae31d2057cc40d83367ddd6ef5d4",
+          "size": 47185920
+        },
+        {
+          "path": "runtime/linux-x86_64/ash-full/chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64.tar.gz.part02",
+          "sha256": "1024726962b069037f8a8df7d2ce67bba2f06dcfaf7fdfdba1ff67dcb7200197",
+          "size": 47185920
+        },
+        {
+          "path": "runtime/linux-x86_64/ash-full/chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64.tar.gz.part03",
+          "sha256": "bd945f5d957ce4a9b85f96570c421abd6cf292c383396a3da25a0f8a3a607b5a",
+          "size": 10357142
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:20:09Z",
+        "builder": "local-container",
+        "note": "scripts/build-capsule.sh ash-full at da45512c469691e3435f41d4845a3e4ae895bc95; OTP-29.1.1 builds.hex.pm ubuntu-24.04 (sha256 35186bda...); Elixir v1.20.4 elixir-otp-29.zip (sha256 7863c546...); Ubuntu 24.04 glibc 2.39; all versions.toml package pins OSV-advisory-clean 2026-09-23; fresh consumer run-offline.sh exit 0 (namespace_offline)",
+        "origin_url": null
+      },
+      "smoke": [
+        "elixir --version | tail -1",
+        "mix --version | tail -1",
+        "mix hex.info >/dev/null"
+      ],
+      "source": {
+        "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+        "sha": "da45512c469691e3435f41d4845a3e4ae895bc95"
+      },
+      "version": "otp29.1.1-elixir1.20.4-ash3.33.9"
+    },
+    "autonomic-manufacturing": {
+      "admission_evidence": {
+        "authority_ceiling": "CONSTRUCT_VERIFY",
+        "capability_lock_sha256": "a56d4c9a066c7aa74a7a1440c363edea42acf6b77822458971e99cb6269e429f",
+        "capability_sources": 58,
+        "capsule_name": "autonomic-manufacturing",
+        "do_authority": false,
+        "ggen_binary_sha256": "3279794acb2ebffccac5b85130e3fe529ba23e04092d1441e8b469ff53dfb032",
+        "ggen_manufacture": "ALIVE",
+        "manifest_sha256": "2710be5854ede020f4214e311f18142ebc32bfc927b063165c5aefd30d24facc",
+        "phase": "consumer-replay",
+        "release_version": "26.9.23",
+        "replay": "bash scripts/verify-autonomic-manufacturing.sh",
+        "schema_version": 1,
+        "source_identities_verified": "ALIVE",
+        "source_profile": "identity",
+        "standing": "ALIVE",
+        "swarmsh_process_worktree_substrate": "ALIVE",
+        "swarmsh_v1_shell_source": "ALIVE",
+        "swarmsh_v2_typed_source": "PARTIAL_ALIVE",
+        "verified_at": "2026-09-23T23:10:19Z",
+        "vision2030_generated_digest": "32a24117a2512f5e3106db706c2e69d08828e261f303c6eb5e9402ccc05ce2e6"
+      },
+      "archive": {
+        "format": "tar.gz",
+        "name": "chatgpt-cloud-autonomic-manufacturing-26.9.23-identity-linux-x86_64.tar.gz",
+        "sha256": "03b7dd875fcfddfd5f5a382958b9fb6f1baa65565907d10583949a1c631ec205",
+        "size": 16068432
+      },
+      "default": true,
+      "install": {
+        "bin": [],
+        "layout": "capsule",
+        "verify": "bash scripts/verify-autonomic-manufacturing.sh"
+      },
+      "parts": [
+        {
+          "path": "runtime/linux-x86_64/autonomic-manufacturing/chatgpt-cloud-autonomic-manufacturing-26.9.23-identity-linux-x86_64.tar.gz",
+          "sha256": "03b7dd875fcfddfd5f5a382958b9fb6f1baa65565907d10583949a1c631ec205",
+          "size": 16068432
+        }
+      ],
+      "provenance": {
+        "admitted_at": "2026-09-23T23:20:09Z",
+        "builder": "local-container",
+        "note": "scripts/build-autonomic-manufacturing.sh AUTONOMIC_SOURCE_PROFILE=identity at da45512c469691e3435f41d4845a3e4ae895bc95; ggen = release v26.9.21 asset binary (sha256 3279794a...); 58 sources fetched at exact SHAs, commit+tree bound; fresh consumer verify exit 0",
+        "origin_url": null
+      },
+      "smoke": [
+        "ggen --version",
+        "test -f \"$SWARMSH_ROOT/coordination_helper.sh\""
+      ],
+      "source": {
+        "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+        "sha": "da45512c469691e3435f41d4845a3e4ae895bc95"
+      },
+      "version": "26.9.23-identity"
+    },
     "ggen": {
       "admission_evidence": null,
       "archive": {

@@ -28,6 +28,19 @@ ALIVE receipt
 
 GitHub Actions is used for **construction and transport**. It is not the final test oracle. The final proof is local execution against the exact admitted subject.
 
+## Fastest path: committed runtime
+
+The ecosystem runtime is committed to this repository in binary form: the ggen manufacturing engine, and an OTP 29.1.1 / Elixir 1.20.4 / Mix / Hex / Rebar runtime with the admitted Ash closure. It is digest-pinned in `runtime/lock.json`. A fresh container needs no build, no Hex, and no artifact import:
+
+```bash
+git clone --depth 1 https://github.com/seanchatmangpt/chatgpt-cloud-elixir
+cd chatgpt-cloud-elixir
+python3 scripts/ecosystem-up.py          # offline: verify every part digest, install, smoke-execute
+source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
+```
+
+`ecosystem-up.py` writes `~/.chatgpt-cloud/runtime/ecosystem-up-receipt.json` with a per-artifact standing. Add `--verify` to also run each capsule's own offline verifier. See [the ERRC grid](docs/explanation/committed-runtime-errc.md) for the design and `runtime/README.md` for what is committed.
+
 ## Status model
 
 This repository uses a small explicit standing vocabulary:
