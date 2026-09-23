@@ -40,31 +40,31 @@ against this file's defaults).
 
 | Field | Type | Meaning |
 |---|---|---|
-| `otp` | string | Default OTP version (e.g. `"29.0"`) |
-| `elixir` | string | Default Elixir version (e.g. `"1.20.2"`) |
+| `otp` | string | Default OTP version (e.g. `"29.1.1"`) |
+| `elixir` | string | Default Elixir version (e.g. `"1.20.4"`) |
 
 ## `[packages]`
 
 Exact pinned versions for every Ash-ecosystem package a `capsule.toml`'s `packages`
 list can reference by name.
 
-| Key | Example pin |
+| Key | Pin at release 26.9.23 (every pin advisory-clean on OSV at admission) |
 |---|---|
-| `ash` | `"3.32.0"` |
-| `spark` | `"2.7.2"` |
-| `reactor` | `"1.0.6"` |
-| `igniter` | `"0.8.3"` |
-| `ash_postgres` | `"2.12.0"` |
-| `ash_phoenix` | `"2.3.24"` |
+| `ash` | `"3.33.9"` |
+| `spark` | `"2.7.3"` |
+| `reactor` | `"1.0.7"` |
+| `igniter` | `"0.8.4"` |
+| `ash_postgres` | `"2.13.1"` |
+| `ash_phoenix` | `"2.3.25"` |
 | `ash_json_api` | `"1.7.1"` |
-| `ash_authentication` | `"5.0.0-rc.12"` |
-| `ash_oban` | `"0.8.13"` |
+| `ash_authentication` | `"5.0.0-rc.14"` |
+| `ash_oban` | `"0.8.14"` |
 | `ash_state_machine` | `"0.2.13"` |
 | `ash_archival` | `"2.0.3"` |
 | `ash_money` | `"0.2.6"` |
-| `ash_cloak` | `"0.3.1"` |
-| `ash_graphql` | `"1.10.1"` |
-| `ash_ai` | `"0.8.2"` |
+| `ash_cloak` | `"0.4.0"` |
+| `ash_graphql` | `"1.12.0"` |
+| `ash_ai` | `"1.1.1"` |
 
 ## `[services]`
 
