@@ -1,0 +1,6 @@
+{
+  "schema": "chatgpt-cloud.xaas-runtime-request/1",
+  "request_id": "20260924T225200Z-claude-cloud-probe-postfix",
+  "operation": "fabric.probe",
+  "payload": {}
+}
