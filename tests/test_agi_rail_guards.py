@@ -103,6 +103,25 @@ class ExactSubjectTests(unittest.TestCase):
             self.assertNotEqual(proc.returncode, 0)
             self.assertIn("REFUSED", proc.stderr)
 
+    def run_fetcher(self, access_class):
+        tmp = pathlib.Path(tempfile.mkdtemp())
+        lock = tmp / "lock.json"
+        lock.write_text(json.dumps({"sources": [{"name": "x", "repository": "o/unreachable", "sha": "a" * 40, "access_class": access_class}]}))
+        env = {"PATH": "/usr/bin:/bin", "HOME": str(tmp), "CAPABILITY_SOURCES_BASE_URL": f"file://{tmp}/no-such-remote"}
+        proc = subprocess.run(["bash", str(ROOT / "scripts/fetch-capability-sources.sh"), str(lock), str(tmp / "d")],
+                              capture_output=True, text=True, env=env)
+        return proc, tmp
+
+    def test_private_source_without_credential_is_typed_blocked(self):
+        proc, tmp = self.run_fetcher("private")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertIn("blocked_private=1", proc.stdout)
+        self.assertIn("BLOCKED[IRREDUCIBLE_AUTHORITY]", (tmp / "d/.blocked-sources.tsv").read_text())
+
+    def test_public_source_fetch_failure_is_fatal(self):
+        proc, _ = self.run_fetcher("public")
+        self.assertNotEqual(proc.returncode, 0)
+
     def test_committed_runtime_binds_exact_sources_and_builders(self):
         lock = json.loads((ROOT / "runtime/lock.json").read_text())
         for name, spec in lock["artifacts"].items():

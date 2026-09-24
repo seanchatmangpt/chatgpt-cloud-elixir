@@ -45,10 +45,20 @@ if sources["ggen"]["sha"] != versions["bootstrap"]["ggen_sha"]:
 identities = manifest.get("source_identities", {})
 if set(identities) != set(sources):
     raise SystemExit("BUILD_BROKEN: manifest source identity set drift")
+blocked = []
 for name, source in sources.items():
     ident = identities[name]
-    if ident.get("sha") != source["sha"] or not re.fullmatch(r"[0-9a-f]{40}", ident.get("tree_sha", "")):
-        raise SystemExit(f"BUILD_BROKEN: construction identity missing or drifted for {name}")
+    if ident.get("sha") != source["sha"]:
+        raise SystemExit(f"BUILD_BROKEN: construction identity drifted for {name}")
+    if ident.get("standing") == "BLOCKED":
+        # Only a declared-private, never-shipped source may be blocked, and only for authority.
+        if source.get("access_class") != "private" or source["execution_mode"] != "source-reference" \
+                or "IRREDUCIBLE_AUTHORITY" not in ident.get("reason", ""):
+            raise SystemExit(f"BUILD_BROKEN: {name} is blocked but not a declared private source-reference")
+        blocked.append(name)
+        continue
+    if not re.fullmatch(r"[0-9a-f]{40}", ident.get("tree_sha") or ""):
+        raise SystemExit(f"BUILD_BROKEN: construction identity missing for {name}")
 # Every source-snapshot member except the staged marketplace capital must ship as an
 # archive whose digest was bound into the manifest at construction.
 profile = manifest.get("source_profile", "full")
@@ -71,12 +81,17 @@ for name in sorted(snapshots):
 v2 = tomllib.load(open(root / "swarmsh-v2/Cargo.toml", "rb"))
 if v2.get("package", {}).get("name") != "swarmsh-v2" or v2.get("package", {}).get("version") != "2.1.0":
     raise SystemExit("BUILD_BROKEN: SwarmSH v2 source identity drift")
+open(root / ".blocked-sources", "w").write("\n".join(sorted(blocked)))
 print(len(sources))
 PY
 )"
+BLOCKED_SOURCES="$(tr '\n' ' ' < "$ROOT/.blocked-sources" | sed 's/ *$//')"
+rm -f "$ROOT/.blocked-sources"
+IDENTITY_STANDING=ALIVE
+[[ -z "$BLOCKED_SOURCES" ]] || IDENTITY_STANDING=PARTIAL_ALIVE
 RELEASE_VERSION="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["release"])' "$ROOT/contract/capability-lock.json")"
 SOURCE_PROFILE="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("source_profile", "full"))' "$ROOT/manifest.json")"
-echo "CAPABILITY_LOCK=ALIVE sources=$SOURCE_COUNT authority=CONSTRUCT_VERIFY"
+echo "CAPABILITY_LOCK=ALIVE sources=$SOURCE_COUNT source_identities=$IDENTITY_STANDING blocked_private=[${BLOCKED_SOURCES}] authority=CONSTRUCT_VERIFY"
 
 # Prove the imported ggen runtime can manufacture a real marketplace package twice.
 TMP="$(mktemp -d)"
@@ -139,7 +154,8 @@ cat > "$ROOT/receipt.json" <<EOF
   "manifest_sha256": "$MANIFEST_SHA",
   "capability_sources": $SOURCE_COUNT,
   "source_profile": "$SOURCE_PROFILE",
-  "source_identities_verified": "ALIVE",
+  "source_identities_verified": "$IDENTITY_STANDING",
+  "blocked_private_sources": "$BLOCKED_SOURCES",
   "capability_lock_sha256": "$LOCK_SHA",
   "ggen_binary_sha256": "$GGEN_SHA",
   "vision2030_generated_digest": "$second",

@@ -105,6 +105,10 @@ jobs:
 
       - name: Fetch exact ecosystem source closure
         shell: bash
+        env:
+          # Optional read credential for sources the ontology types cc:accessClass "private".
+          # Absent -> those sources are typed BLOCKED[IRREDUCIBLE_AUTHORITY]; public ones never need it.
+          CAPABILITY_SOURCES_TOKEN: ${{ secrets.CAPABILITY_SOURCES_TOKEN }}
         # One canonical fetcher (also used by docs and local replays). It enforces the
         # ontology's Git LFS law: LFS files are bound by pointer identity, never downloaded.
         run: bash scripts/fetch-capability-sources.sh manufacturing/generated/capability-lock.json .capability-sources --exclude ggen

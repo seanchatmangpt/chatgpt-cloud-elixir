@@ -32,9 +32,12 @@ cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
 
 # Admission is a subset of observation. Every public repository owned by
 # seanchatmangpt is in observation scope; only the enumerated cc:CapabilitySource
-# members below are admitted into the capsule at exact SHAs. Private repositories
-# are deliberately never named here: observation authority is not publication
-# authority. Refresh admitted SHAs with scripts/refresh-capability-sources.py.
+# members below are admitted into the capsule at exact SHAs. Observation authority
+# is not publication authority: a private repository appears here only when its owner
+# explicitly admits it, typed cc:accessClass "private". Such a source is always
+# source-reference (never shipped in a capsule or public artifact). Without a read
+# credential it is recorded as BLOCKED[IRREDUCIBLE_AUTHORITY], never silently skipped.
+# Refresh admitted SHAs with scripts/refresh-capability-sources.py.
 cc:OwnerPublicCatalog a cc:ObservationScope ;
   dcterms:title "Public GitHub repository catalog for seanchatmangpt" ;
   cc:repositoryPredicate "owner=seanchatmangpt AND visibility=public" ;
@@ -722,9 +725,10 @@ cc:AshKudzu a cc:CapabilitySource ;
   cc:commitSha "dd182bba9ed5ce252fe997b987415ed69742208a" ;
   cc:role "Ash-native ontology extraction, reconstruction, public alignment, and SHACL admission compiler" ;
   cc:capitalClass "semantic-admission" ;
-  cc:executionMode "source-snapshot" ;
-  cc:requiredStanding "exact-source-present" ;
-  cc:admissionBasis "beam-ash-family" .
+  cc:executionMode "source-reference" ;
+  cc:requiredStanding "exact-source-identified" ;
+  cc:admissionBasis "beam-ash-family" ;
+  cc:accessClass "private" .
 
 cc:KoalaPlanner a cc:CapabilitySource ;
   skos:prefLabel "koala-planner" ;
@@ -746,7 +750,8 @@ cc:Zoela a cc:CapabilitySource ;
   cc:capitalClass "product-projection" ;
   cc:executionMode "source-reference" ;
   cc:requiredStanding "exact-source-identified" ;
-  cc:admissionBasis "project-memory-workstream" .
+  cc:admissionBasis "project-memory-workstream" ;
+  cc:accessClass "private" .
 
 cc:Mmdio a cc:CapabilitySource ;
   skos:prefLabel "mmdio" ;
@@ -778,3 +783,6 @@ cc:admissionBasis a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 # already bound by each source's commit and tree SHA, and are never downloaded, so the
 # closure never depends on an LFS endpoint, quota, or credentials.
 cc:lfsObjectPolicy a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+# public (default when absent) | private: private sources are source-reference only and
+# are fetched only with CAPABILITY_SOURCES_TOKEN, otherwise typed BLOCKED.
+cc:accessClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .

@@ -46,7 +46,9 @@ def admitted_sources(ontology: str) -> list[dict[str, str]]:
         sha = SHA_RE.search(body)
         if not (name and repository and sha):
             raise SystemExit(f"REFUSED: source cc:{match.group(1)} lacks label/repository/commitSha")
-        rows.append({"local": match.group(1), "name": name.group(1), "repository": repository.group(1), "admitted_sha": sha.group(2)})
+        access = re.search(r'cc:accessClass\s+"([^"]+)"', body)
+        rows.append({"local": match.group(1), "name": name.group(1), "repository": repository.group(1),
+                     "admitted_sha": sha.group(2), "access_class": access.group(1) if access else "public"})
     return rows
 
 
@@ -63,10 +65,15 @@ def repin(ontology: str, local: str, new_sha: str) -> str:
     raise SystemExit(f"REFUSED: cc:{local} not found")
 
 
-def live_head(repository: str, timeout: int) -> tuple[str | None, str]:
+def live_head(repository: str, timeout: int, private: bool = False) -> tuple[str | None, str]:
+    token = os.environ.get("CAPABILITY_SOURCES_TOKEN")
+    auth = []
+    if private and token:
+        auth = ["-c", "http.extraHeader=AUTHORIZATION: basic "
+                + __import__("base64").b64encode(f"x-access-token:{token}".encode()).decode()]
     try:
         proc = subprocess.run(
-            ["git", "ls-remote", f"https://github.com/{repository}.git", "HEAD"],
+            ["git", *auth, "ls-remote", f"https://github.com/{repository}.git", "HEAD"],
             capture_output=True, text=True, timeout=timeout,
             env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},
         )
@@ -102,10 +109,13 @@ def main() -> int:
     ontology = ONTOLOGY.read_text()
     rows = admitted_sources(ontology)
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
-        heads = list(pool.map(lambda r: live_head(r["repository"], args.timeout), rows))
+        heads = list(pool.map(lambda r: live_head(r["repository"], args.timeout, r["access_class"] == "private"), rows))
     for row, (live, error) in zip(rows, heads):
         row["live_sha"] = live
-        if live is None:
+        if live is None and row["access_class"] == "private":
+            # Declared private and unreadable without a credential: expected, typed, not a failure.
+            row["standing"], row["error"] = "PRIVATE", "BLOCKED[IRREDUCIBLE_AUTHORITY]: set CAPABILITY_SOURCES_TOKEN to observe"
+        elif live is None:
             row["standing"], row["error"] = "BLOCKED", error
         else:
             row["standing"] = "CURRENT" if live == row["admitted_sha"] else "DRIFT"
@@ -128,7 +138,9 @@ def main() -> int:
         print(f"{row['standing']:<8} {row['name']:<{width}} {row['admitted_sha'][:12]} {detail}".rstrip())
     drift = [r for r in rows if r["standing"] == "DRIFT"]
     blocked = [r for r in rows if r["standing"] == "BLOCKED"]
-    print(f"sources={len(rows)} current={len(rows) - len(drift) - len(blocked)} drift={len(drift)} blocked={len(blocked)}")
+    private = [r for r in rows if r["standing"] == "PRIVATE"]
+    print(f"sources={len(rows)} current={len(rows) - len(drift) - len(blocked) - len(private)} drift={len(drift)} "
+          f"blocked={len(blocked)} private_unobserved={len(private)}")
 
     if args.write and drift:
         for row in drift:

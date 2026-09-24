@@ -121,6 +121,12 @@ def main() -> int:
             refuse(f"duplicate source repository: {fields['repository']}")
         if fields["mode"] not in EXECUTION_MODES:
             refuse(f"source {name} has unknown executionMode {fields['mode']}")
+        access = literal(body, "cc:accessClass") or "public"
+        if access not in ("public", "private"):
+            refuse(f"source {name} has unknown accessClass {access}")
+        if access == "private" and fields["mode"] != "source-reference":
+            # A shipped snapshot would leak private source into capsules and public CI artifacts.
+            refuse(f"private source {name} must be source-reference, never {fields['mode']}")
         repositories.add(fields["repository"])
         locals_[local] = name
         found[name] = fields

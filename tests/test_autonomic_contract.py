@@ -61,7 +61,8 @@ class BootstrapCourtTests(unittest.TestCase):
         self.assertIn(f"sources={count} ", result.stdout)
 
     def test_capsule_source_set_drift_is_refused(self):
-        self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "frozen-duckdb",\n', "")
+        required = tomllib.loads((self.tmp / "capsules/autonomic-manufacturing/capsule.toml").read_text())["required_sources"]
+        self.edit("capsules/autonomic-manufacturing/capsule.toml", f'  "{required[-1]}",\n', "")
         self.assertRefused("source set drift between ontology and capsule.toml")
 
     def test_dropping_manufacturing_core_is_refused(self):
@@ -107,6 +108,16 @@ class BootstrapCourtTests(unittest.TestCase):
         sha = re.search(r'skos:prefLabel "truex" ;.*?cc:commitSha "([0-9a-f]{40})"', ontology, re.S).group(1)
         self.edit("manufacturing/ontology.ttl", sha, sha[:12])
         self.assertRefused("truex commitSha is not an exact 40-hex SHA")
+
+    def test_private_source_cannot_be_shipped(self):
+        self.edit("manufacturing/ontology.ttl", 'cc:capitalClass "semantic-admission" ;\n  cc:executionMode "source-reference" ;\n  cc:requiredStanding "exact-source-identified" ;\n  cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"',
+                  'cc:capitalClass "semantic-admission" ;\n  cc:executionMode "source-snapshot" ;\n  cc:requiredStanding "exact-source-identified" ;\n  cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"')
+        self.assertRefused("private source ash_kudzu must be source-reference")
+
+    def test_unknown_access_class_is_refused(self):
+        self.edit("manufacturing/ontology.ttl", 'cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"',
+                  'cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "secret"')
+        self.assertRefused("unknown accessClass secret")
 
     def test_missing_lfs_law_is_refused(self):
         self.edit("manufacturing/ontology.ttl", '  cc:lfsObjectPolicy "pointer-identity" ;\n', "")

@@ -44,6 +44,10 @@ The portable capsule includes the real ggen binary, the DfCM and Vision 2030 mar
 
 A `source-reference` member (currently only `autofde-lab`, whose tree is ~530 MB of research-paper PDFs around ~30 MB of code) is fetched and identity-checked at construction but not shipped. Its commit and tree SHA are bound into `manifest.json` `source_identities`, which records construction identity for every admitted source.
 
+## Private sources
+
+The owner may admit a private repository only as `cc:accessClass "private"`. The court then requires `source-reference`, so private code is never shipped in a capsule or a public CI artifact. With `CAPABILITY_SOURCES_TOKEN` (a read credential, set as a repository secret for CI) the source is fetched and its identity verified like any other. Without it, the source is recorded as `BLOCKED[IRREDUCIBLE_AUTHORITY]` in the manifest and the consumer receipt, and the rest of the closure continues. A public source that fails to fetch is always fatal.
+
 ## Keeping the graph current
 
 ```bash
