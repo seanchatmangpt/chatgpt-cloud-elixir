@@ -16,6 +16,7 @@ cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
   cc:releaseVersion "26.9.23" ;
   cc:authorityCeiling cc:CONSTRUCT_VERIFY ;
   cc:requiresExternalExecution true ;
+  cc:lfsObjectPolicy "pointer-identity" ;
   cc:observationScope cc:OwnerPublicCatalog ;
   cc:includesSource cc:Ggen, cc:GgenMarketplace, cc:GgenCreate, cc:GgenLegacy, cc:GgenSpecKit, cc:SwarmSH,
     cc:SwarmSHV2, cc:GgenEcosystem, cc:ChatmanEcosystem, cc:GymEcosystem, cc:GgenIgniter, cc:GgenSkills,
@@ -695,3 +696,7 @@ cc:capitalClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:executionMode a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:requiredStanding a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 cc:admissionBasis a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+# pointer-identity: Git LFS files are admitted by their pointer blob (sha256 oid + size),
+# already bound by each source's commit and tree SHA, and are never downloaded, so the
+# closure never depends on an LFS endpoint, quota, or credentials.
+cc:lfsObjectPolicy a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .

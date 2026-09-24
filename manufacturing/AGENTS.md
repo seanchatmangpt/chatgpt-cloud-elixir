@@ -15,7 +15,7 @@ Admission is a subset of observation: only enumerated `cc:CapabilitySource` memb
 3. Build the exact admitted ggen revision.
 4. Run real `ggen sync run` from `manufacturing/`.
 5. Never manually repair generated projections.
-6. Fetch external ecosystem sources only at the exact SHAs emitted by the generated lock.
+6. Fetch external ecosystem sources only at the exact SHAs emitted by the generated lock, and only through `scripts/fetch-capability-sources.sh`. It enforces the Git LFS law (`cc:lfsObjectPolicy "pointer-identity"`): LFS objects are identity-bound by pointer and never downloaded.
 7. Manufacture and fresh-consumer replay the capsule.
 8. Report standing from observed execution, not file existence.
 

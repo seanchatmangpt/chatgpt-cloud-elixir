@@ -38,7 +38,11 @@ for src in lock["sources"]:
     if got != src["sha"]:
         raise SystemExit(f"BUILD_BROKEN: {src['name']} expected {src['sha']} observed {got}")
     tree = subprocess.check_output(["git", "-C", str(path), "rev-parse", "HEAD^{tree}"], text=True).strip()
-    identities[src["name"]] = {"sha": got, "tree_sha": tree, "execution_mode": src["execution_mode"]}
+    # LFS-tracked files are bound by their pointer blob (cc:lfsObjectPolicy "pointer-identity").
+    lfs = subprocess.run(["git", "-C", str(path), "grep", "-l", "-e", "^version https://git-lfs.github.com/spec/v1$", "HEAD"],
+                         capture_output=True, text=True).stdout.splitlines()
+    identities[src["name"]] = {"sha": got, "tree_sha": tree, "execution_mode": src["execution_mode"],
+                               "lfs_pointer_files": len(lfs)}
 json.dump(identities, open(sys.argv[3], "w"), indent=2, sort_keys=True)
 print(f"SOURCE_IDENTITY=ALIVE count={len(lock['sources'])}")
 PY
@@ -82,6 +86,14 @@ while IFS= read -r name; do
   git -C "$SOURCE_ROOT/$name" archive --format=tar HEAD | gzip -n > "$STAGE/sources/$name.tar.gz"
   printf '%s\t%s\n' "$name" "$(sha256sum "$STAGE/sources/$name.tar.gz" | awk '{print $1}')" >> "$BUILD_ROOT/source-archives.tsv"
 done < "$BUILD_ROOT/source-snapshots.txt"
+
+# Shipped content must be real bytes, never an unmaterialized LFS pointer.
+LFS_IN_STAGE="$(grep -rlx --binary-files=without-match 'version https://git-lfs.github.com/spec/v1' "$STAGE" || true)"
+if [[ -n "$LFS_IN_STAGE" ]]; then
+  echo "BUILD_BROKEN: Git LFS pointer staged into shipped content (content would be a stub):" >&2
+  printf '%s\n' "$LFS_IN_STAGE" | sed "s#^$STAGE/#  #" >&2
+  exit 65
+fi
 
 cat > "$STAGE/activate" <<'EOF'
 #!/usr/bin/env bash

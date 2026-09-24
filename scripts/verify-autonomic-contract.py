@@ -71,6 +71,8 @@ def main() -> int:
         refuse("external execution boundary is missing")
     if "cc:privateIdentityProjection false" not in ontology:
         refuse("private identity projection fence is missing")
+    if 'cc:lfsObjectPolicy "pointer-identity"' not in ontology:
+        refuse('Git LFS law missing: capsule must declare cc:lfsObjectPolicy "pointer-identity"')
     for forbidden in ("DO_AUTHORITY", "AMBIENT_DO", "doAuthority true", "selfCertificationAllowed true"):
         if forbidden in ontology:
             refuse(f"forbidden authority token present: {forbidden}")

@@ -36,7 +36,7 @@ The live repository defines version/compatibility selection, per-capsule require
 
 ## Committed runtime
 
-`runtime/` is a committed binary projection. Only `scripts/runtime-admit.py` writes it (parts of at most 45 MiB, archive + part SHA-256, exact source commit, builder, and admission-time consumer evidence in `runtime/lock.json`). Never hand-edit it. `scripts/ecosystem-up.py` is the offline consumer: an artifact is `ALIVE` there only when its digests verify and its smoke commands exit 0 in the consuming container. That is still not a target repository's crown.
+`runtime/` is a committed binary projection. Only `scripts/runtime-admit.py` writes it (parts of at most 45 MiB, archive + part SHA-256, exact source commit, builder, and admission-time consumer evidence in `runtime/lock.json`). Never hand-edit it, and never route it through Git LFS (the anonymous git lane and the GitHub connector do not serve LFS, and LFS quotas can be exhausted). `runtime-admit.py` refuses LFS-routed parts. `scripts/ecosystem-up.py` is the offline consumer: an artifact is `ALIVE` there only when its digests verify and its smoke commands exit 0 in the consuming container. That is still not a target repository's crown.
 
 ## Change / verification discipline
 

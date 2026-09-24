@@ -21,6 +21,7 @@ source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
 | The connector artifact-import hop as a precondition for execution | `ecosystem-up.py` reads the parts straight out of the checkout. |
 | Re-shipping sources git already transports | The autonomic capsule's `identity` profile binds all 58 sources by commit + tree SHA instead of carrying 395 MB of source archives. |
 | Ambient "latest" | Every artifact is pinned by archive SHA-256, part SHA-256, and exact source commit. |
+| Dependence on Git LFS endpoints and quotas | Capability sources are LFS pointer-identity only (`cc:lfsObjectPolicy`). Committed runtime parts are plain blobs, and admission refuses LFS routing. `ggen-marketplace` exhausting its LFS budget on 2026-09-24 broke CI until this became law. |
 
 ## Reduce
 

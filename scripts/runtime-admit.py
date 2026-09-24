@@ -22,6 +22,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -93,6 +94,15 @@ def main() -> int:
                 "size": len(chunk),
             })
             index += 1
+
+    # Committed binaries must be plain git blobs: the anonymous git lane and the GitHub
+    # connector do not serve Git LFS, and LFS quotas can be exhausted.
+    for part in parts:
+        attr = subprocess.run(["git", "-C", str(ROOT), "check-attr", "filter", "--", part["path"]],
+                              capture_output=True, text=True).stdout
+        if attr.strip().endswith(": lfs"):
+            shutil.rmtree(dest)
+            raise SystemExit(f"REFUSED: {part['path']} would be stored in Git LFS; committed runtime parts must be plain blobs")
 
     lock = json.loads(LOCK.read_text()) if LOCK.exists() else {
         "schema_version": 1,

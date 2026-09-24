@@ -96,6 +96,10 @@ class BootstrapCourtTests(unittest.TestCase):
         self.edit("manufacturing/ontology.ttl", sha, sha[:12])
         self.assertRefused("truex commitSha is not an exact 40-hex SHA")
 
+    def test_missing_lfs_law_is_refused(self):
+        self.edit("manufacturing/ontology.ttl", '  cc:lfsObjectPolicy "pointer-identity" ;\n', "")
+        self.assertRefused("Git LFS law missing")
+
     def test_ambient_do_token_is_refused(self):
         self.edit("manufacturing/ontology.ttl", "cc:requiresExternalExecution true ;", "cc:requiresExternalExecution true ;\n  cc:doAuthority true ;")
         self.assertRefused("forbidden authority token")

@@ -13,6 +13,7 @@ on:
       - "scripts/verify-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-contract.py"
       - "scripts/refresh-capability-sources.py"
+      - "scripts/fetch-capability-sources.sh"
       - "tests/test_autonomic_contract.py"
       - "versions.toml"
       - ".github/workflows/autonomic-manufacturing.yml"
@@ -24,6 +25,7 @@ on:
       - "scripts/verify-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-contract.py"
       - "scripts/refresh-capability-sources.py"
+      - "scripts/fetch-capability-sources.sh"
       - "tests/test_autonomic_contract.py"
       - "versions.toml"
       - ".github/workflows/autonomic-manufacturing.yml"
@@ -46,6 +48,7 @@ jobs:
           python3 scripts/verify-autonomic-contract.py
           python3 -m py_compile scripts/refresh-capability-sources.py
           python3 -m unittest tests/test_autonomic_contract.py
+          bash -n scripts/fetch-capability-sources.sh
           bash -n scripts/build-autonomic-manufacturing.sh
           bash -n scripts/verify-autonomic-manufacturing.sh
 
@@ -100,24 +103,9 @@ jobs:
 
       - name: Fetch exact ecosystem source closure
         shell: bash
-        run: |
-          python3 - <<'PY' > /tmp/capability-sources.tsv
-          import json
-          lock = json.load(open("manufacturing/generated/capability-lock.json"))
-          for s in lock["sources"]:
-              if s["name"] != "ggen":
-                  print(f"{s['name']}\t{s['repository']}\t{s['sha']}")
-          PY
-          while IFS=$'\t' read -r name repository sha; do
-            dir=".capability-sources/$name"
-            mkdir -p "$dir"
-            git -C "$dir" init -q
-            git -C "$dir" remote add origin "https://github.com/$repository.git"
-            git -C "$dir" fetch -q --depth 1 origin "$sha"
-            git -C "$dir" checkout -q --detach FETCH_HEAD
-            test "$(git -C "$dir" rev-parse HEAD)" = "$sha"
-          done < /tmp/capability-sources.tsv
-          echo "fetched $(wc -l < /tmp/capability-sources.tsv) ecosystem sources plus the ggen bootstrap"
+        # One canonical fetcher (also used by docs and local replays). It enforces the
+        # ontology's Git LFS law: LFS files are bound by pointer identity, never downloaded.
+        run: bash scripts/fetch-capability-sources.sh manufacturing/generated/capability-lock.json .capability-sources --exclude ggen
 
       - name: Manufacture portable autonomy capsule
         shell: bash
