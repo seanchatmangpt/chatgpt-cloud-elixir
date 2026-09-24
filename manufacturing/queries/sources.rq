@@ -1,6 +1,8 @@
 PREFIX cc: <https://chatman.ai/chatgpt-cloud/capability#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT ?name ?repository ?sha ?role ?capitalClass ?executionMode ?standing WHERE {
+SELECT ?release ?name ?repository ?sha ?role ?capitalClass ?executionMode ?standing ?admissionBasis WHERE {
+  cc:AutonomicManufacturingCapsule cc:releaseVersion ?release ;
+                                   cc:includesSource ?source .
   ?source a cc:CapabilitySource ;
           skos:prefLabel ?name ;
           cc:repository ?repository ;
@@ -8,6 +10,7 @@ SELECT ?name ?repository ?sha ?role ?capitalClass ?executionMode ?standing WHERE
           cc:role ?role ;
           cc:capitalClass ?capitalClass ;
           cc:executionMode ?executionMode ;
-          cc:requiredStanding ?standing .
+          cc:requiredStanding ?standing ;
+          cc:admissionBasis ?admissionBasis .
 }
 ORDER BY ?name

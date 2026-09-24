@@ -68,6 +68,7 @@ Dry, exhaustive, tabular. What you check mid-task for an exact detail.
 
 Understanding-oriented. Read these to know *why*, not just *how*.
 
+- [Committed runtime: the ERRC grid](explanation/committed-runtime-errc.md): why the ecosystem ships as committed, digest-pinned binaries, and the tranche backlog
 - [Architecture overview](explanation/architecture-overview.md)
 - [Authority model](explanation/authority-model.md) — SELECT/CONSTRUCT/DO, the offline law, evidence discipline
 - [This repo as a substrate for other repos](explanation/repo-as-substrate.md)

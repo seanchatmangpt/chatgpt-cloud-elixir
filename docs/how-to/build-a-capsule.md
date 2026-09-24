@@ -39,7 +39,7 @@ extracted consumer** — never the build workspace.
    `MIX_ENV=test mix compile --warnings-as-errors` and `MIX_ENV=test mix test`
    against it, then copies the real OTP/Elixir/Mix/Hex/Rebar tree, the built
    project, scripts, verifier, and `source/{capsule,versions}.toml` into
-   `dist/chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.2-linux-x86_64.tar.gz`
+   `dist/chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.4-linux-x86_64.tar.gz`
    plus a `.sha256` sidecar. The archive path is printed on stdout.
 
 4. Verify a **fresh extracted consumer** — this is the step that actually

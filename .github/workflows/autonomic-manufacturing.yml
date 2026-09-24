@@ -12,6 +12,8 @@ on:
       - "scripts/build-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-contract.py"
+      - "scripts/refresh-capability-sources.py"
+      - "tests/test_autonomic_contract.py"
       - "versions.toml"
       - ".github/workflows/autonomic-manufacturing.yml"
   pull_request:
@@ -21,6 +23,8 @@ on:
       - "scripts/build-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-manufacturing.sh"
       - "scripts/verify-autonomic-contract.py"
+      - "scripts/refresh-capability-sources.py"
+      - "tests/test_autonomic_contract.py"
       - "versions.toml"
       - ".github/workflows/autonomic-manufacturing.yml"
   workflow_dispatch:
@@ -40,6 +44,8 @@ jobs:
         run: |
           python3 -m py_compile scripts/verify-autonomic-contract.py
           python3 scripts/verify-autonomic-contract.py
+          python3 -m py_compile scripts/refresh-capability-sources.py
+          python3 -m unittest tests/test_autonomic_contract.py
           bash -n scripts/build-autonomic-manufacturing.sh
           bash -n scripts/verify-autonomic-manufacturing.sh
 
@@ -49,7 +55,9 @@ jobs:
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import tomllib
-          v = tomllib.load(open("versions.toml", "rb"))["bootstrap"]
+          versions = tomllib.load(open("versions.toml", "rb"))
+          v = versions["bootstrap"]
+          print(f"release={versions['release']['version']}")
           print(f"repository={v['ggen_repository']}")
           print(f"sha={v['ggen_sha']}")
           print(f"toolchain={v['rust_toolchain']}")
@@ -73,11 +81,16 @@ jobs:
             --manifest-path .capability-sources/ggen/Cargo.toml \
             --locked --release -p ggen-cli-lib --bin ggen
           .capability-sources/ggen/target/release/ggen --help >/dev/null
+          # Keep the binary, drop the multi-GB build tree: the admitted source closure is
+          # fetched next and needs the runner's disk headroom.
+          install -D -m 0755 .capability-sources/ggen/target/release/ggen "$RUNNER_TEMP/ggen-bin/ggen"
+          rm -rf .capability-sources/ggen/target
+          df -h .
 
       - name: Manufacture capability lock from ontology
         shell: bash
         run: |
-          GGEN_BIN="$PWD/.capability-sources/ggen/target/release/ggen"
+          GGEN_BIN="$RUNNER_TEMP/ggen-bin/ggen"
           (
             cd manufacturing
             "$GGEN_BIN" sync run
@@ -104,12 +117,13 @@ jobs:
             git -C "$dir" checkout -q --detach FETCH_HEAD
             test "$(git -C "$dir" rev-parse HEAD)" = "$sha"
           done < /tmp/capability-sources.tsv
+          echo "fetched $(wc -l < /tmp/capability-sources.tsv) ecosystem sources plus the ggen bootstrap"
 
       - name: Manufacture portable autonomy capsule
         shell: bash
         run: |
           export GITHUB_SHA="${{ github.event.pull_request.head.sha || github.sha }}"
-          export GGEN_BIN="$PWD/.capability-sources/ggen/target/release/ggen"
+          export GGEN_BIN="$RUNNER_TEMP/ggen-bin/ggen"
           export CAPABILITY_SOURCE_ROOT="$PWD/.capability-sources"
           chmod +x scripts/build-autonomic-manufacturing.sh scripts/verify-autonomic-manufacturing.sh
           scripts/build-autonomic-manufacturing.sh
@@ -130,7 +144,7 @@ jobs:
       - name: Upload capsule and receipts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: chatgpt-cloud-autonomic-manufacturing-v26.8.25-linux-x86_64
+          name: chatgpt-cloud-autonomic-manufacturing-v${{ steps.bootstrap.outputs.release }}-linux-x86_64
           path: |
             dist/chatgpt-cloud-autonomic-manufacturing-*.tar.gz
             dist/chatgpt-cloud-autonomic-manufacturing-*.tar.gz.sha256

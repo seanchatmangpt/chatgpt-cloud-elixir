@@ -4,6 +4,8 @@
 
 `ontology.ttl` is the canonical external capability graph. Generated files under `manufacturing/generated/` are projections and must never be hand-maintained.
 
+Admission is a subset of observation: only enumerated `cc:CapabilitySource` members are admitted, `capsules/autonomic-manufacturing/capsule.toml` `required_sources` must list exactly the same labels, and private repositories are never named in this public graph. Re-pin SHAs with `scripts/refresh-capability-sources.py`. It never adds or drops a source.
+
 `versions.toml [bootstrap]` is a deliberately minimal bootstrap exception: it pins the exact ggen compiler revision/toolchain required before the ontology can project the complete capability lock. `scripts/verify-autonomic-contract.py` must refuse any bootstrap/ontology identity drift.
 
 ## Required implementation path
@@ -27,4 +29,4 @@ This surface is SELECT / CONSTRUCT / VERIFY only. `CONSTRUCT_VERIFY` is the maxi
 
 ## Gall / Rice discipline
 
-Use the exact working ggen, marketplace, ggen-create, ggen-legacy, ggen-spec-kit, SwarmSH, and SwarmSH-v2 revisions as ancestry. Do not replace them with newly invented facsimiles. A generated artifact is not evidence of arbitrary semantic correctness; standing requires the named falsifiers and exact-subject replay.
+Use the exact working ggen, marketplace, ggen-create, ggen-legacy, ggen-spec-kit, SwarmSH, and SwarmSH-v2 revisions as ancestry, together with every other admitted ecosystem member at the exact SHA the ontology binds. Do not replace them with newly invented facsimiles. A generated artifact is not evidence of arbitrary semantic correctness; standing requires the named falsifiers and exact-subject replay.

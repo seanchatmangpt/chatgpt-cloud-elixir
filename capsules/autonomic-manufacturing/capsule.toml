@@ -1,14 +1,80 @@
 schema_version = 1
 name = "autonomic-manufacturing"
-description = "Portable ggen manufacturing capital plus SwarmSH execution ancestry for restricted ChatGPT Linux containers."
+description = "Portable ggen manufacturing capital, SwarmSH execution ancestry, and exact-SHA source snapshots of the admitted seanchatmangpt ecosystem for restricted ChatGPT Linux containers."
 authority_ceiling = "CONSTRUCT_VERIFY"
 source_project = "manufacturing"
 generated_contract = "manufacturing/generated/capability-lock.json"
-required_sources = ["ggen", "ggen-marketplace", "ggen-create", "ggen-legacy", "ggen-spec-kit", "swarmsh", "swarmsh-v2"]
+required_sources = [
+  # manufacturing core
+  "ggen",
+  "ggen-marketplace",
+  "ggen-create",
+  "ggen-legacy",
+  "ggen-spec-kit",
+  "swarmsh",
+  "swarmsh-v2",
+  # ecosystem composition hubs
+  "ggen-ecosystem",
+  "chatman-ecosystem",
+  "gym-ecosystem",
+  # manufacturing extensions and semantic substrate
+  "ggen_igniter",
+  "ggen-skills",
+  "agile-protocol-specification",
+  "clap-noun-verb",
+  "unjucks",
+  "gitvan",
+  "dspygen",
+  "open-ontologies",
+  "unrdf",
+  # BEAM / Ash family
+  "xaas",
+  "ash_surface",
+  "ash_a2a",
+  "ash_pplan",
+  "ash_expo",
+  "ash_planning_center",
+  "ash_supabase",
+  "ash_ex4pm",
+  "ash_r2rml",
+  # process intelligence
+  "beam4pm",
+  "ex4pm",
+  "wasm4pm",
+  "wasm4pm-compat",
+  "pm4wasm",
+  "process-intelligence",
+  "mfact",
+  "autotel",
+  # gyms, forward deployment, planning
+  "gymact",
+  "autofde-lab",
+  "autofde",
+  "ferroplan",
+  "fdegym",
+  "SREGym",
+  "lifegym",
+  "ww3gym",
+  "rrgym",
+  "biblegym",
+  "chatgptgym",
+  "claudecodegym",
+  "awesome-ai-gyms",
+  # verification, provenance, systems
+  "affidavit",
+  "truex",
+  "clnrm",
+  "chicago-tdd-tools",
+  "lsp-max",
+  "anti-llm-cheat-lsp",
+  "cargo-cicd",
+  "bcinr",
+  "frozen-duckdb",
+]
 required_host_commands = ["bash", "python3", "git", "tar", "gzip", "sha256sum"]
 acceptance = [
   "bin/ggen --help",
   "bash scripts/verify-autonomic-manufacturing.sh"
 ]
 standing = "UNKNOWN"
-notes = "SwarmSH v1 is executable ancestry; SwarmSH v2 is source-bound typed ancestry and is not promoted to runtime ALIVE by this capsule. Consequential DO remains external and separately authorized."
+notes = "Every source-snapshot member ships as sources/<name>.tar.gz with its digest bound in manifest.json; presence proves exact-source identity, not that member's runtime crown. SwarmSH v1 is executable ancestry; SwarmSH v2 is source-bound typed ancestry and is not promoted to runtime ALIVE by this capsule. Consequential DO remains external and separately authorized."
