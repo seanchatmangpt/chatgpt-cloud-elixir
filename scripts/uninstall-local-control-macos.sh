@@ -9,6 +9,11 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 2
 fi
 
+if [[ "$(id -u)" -eq 0 ]]; then
+  echo "REFUSED[ROOT_EXECUTION]: run this uninstaller as the enrolled macOS user; sudo is neither required nor admitted" >&2
+  exit 2
+fi
+
 launchctl bootout "gui/$(id -u)/$label" >/dev/null 2>&1 || true
 rm -f "$plist"
 

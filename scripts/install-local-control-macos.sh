@@ -6,6 +6,11 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 2
 fi
 
+if [[ "$(id -u)" -eq 0 ]]; then
+  echo "REFUSED[ROOT_EXECUTION]: run this installer as your normal macOS user; sudo is neither required nor admitted" >&2
+  exit 2
+fi
+
 repo="${CHATGPT_LOCAL_CONTROL_REPO:-seanchatmangpt/chatgpt-cloud-elixir}"
 branch="${CHATGPT_LOCAL_CONTROL_BRANCH:-local-control-bus}"
 base="${CHATGPT_LOCAL_CONTROL_HOME:-$HOME/.local/share/chatgpt-local-control}"
@@ -14,10 +19,24 @@ config_dir="${CHATGPT_LOCAL_CONTROL_CONFIG_DIR:-$HOME/.config/chatgpt-local-cont
 state_dir="${CHATGPT_LOCAL_CONTROL_STATE_DIR:-$HOME/.local/state/chatgpt-local-control}"
 policy="$config_dir/policy.json"
 label="com.openai.chatgpt-local-control"
-plist="$HOME/Library/LaunchAgents/$label.plist"
+launch_agents="$HOME/Library/LaunchAgents"
+plist="$launch_agents/$label.plist"
 log_dir="$HOME/Library/Logs/chatgpt-local-control"
 
-for cmd in git gh python3; do
+# Fail closed if an override attempts to escape the user home directory.
+python3 - "$HOME" "$base" "$config_dir" "$state_dir" "$launch_agents" "$log_dir" <<'PY'
+from pathlib import Path
+import sys
+home = Path(sys.argv[1]).expanduser().resolve()
+for raw in sys.argv[2:]:
+    path = Path(raw).expanduser().resolve()
+    try:
+        path.relative_to(home)
+    except ValueError:
+        raise SystemExit(f"REFUSED[NON_USERSPACE_PATH]: {path} is outside {home}")
+PY
+
+for cmd in git gh python3 launchctl; do
   command -v "$cmd" >/dev/null 2>&1 || {
     echo "BLOCKED[MISSING_EXECUTABLE]: $cmd" >&2
     exit 3
@@ -27,7 +46,7 @@ done
 gh auth status >/dev/null
 gh auth setup-git >/dev/null
 
-mkdir -p "$base" "$config_dir" "$state_dir" "$log_dir" "$HOME/Library/LaunchAgents"
+mkdir -p "$base" "$config_dir" "$state_dir" "$log_dir" "$launch_agents"
 
 if [[ ! -d "$checkout/.git" ]]; then
   git clone --single-branch --branch "$branch" "https://github.com/$repo.git" "$checkout"
