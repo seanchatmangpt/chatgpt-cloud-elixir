@@ -36,6 +36,17 @@ CORE_SOURCES = {
     "swarmsh",
     "swarmsh-v2",
 }
+# Current strategic portfolio closure. These are not manufacturing bootstrap roots, but
+# they carry live ecosystem semantics that this rail must preserve once admitted.
+STRATEGIC_SOURCES = {
+    "engineering-standards",
+    "zcode-cli",
+    "rust4pm",
+    "ash_kudzu",
+    "koala-planner",
+    "zoela",
+    "mmdio",
+}
 # source-snapshot ships as an archive; source-reference is bound by exact commit + tree
 # identity only (for members whose tree is dominated by non-executable corpora).
 EXECUTION_MODES = {"compiled-binary", "source-snapshot", "source-reference", "shell-source", "typed-source"}
@@ -139,6 +150,8 @@ def main() -> int:
         )
     if not CORE_SOURCES <= set(found):
         refuse(f"manufacturing core dropped: {sorted(CORE_SOURCES - set(found))}")
+    if not STRATEGIC_SOURCES <= set(found):
+        refuse(f"strategic portfolio source dropped: {sorted(STRATEGIC_SOURCES - set(found))}")
     if found["ggen"]["mode"] != "compiled-binary":
         refuse("ggen must remain the compiled-binary manufacturing runtime")
 
