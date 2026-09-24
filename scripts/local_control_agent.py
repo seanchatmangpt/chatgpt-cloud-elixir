@@ -10,18 +10,28 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+from contextlib import contextmanager
 import hashlib
 import json
 import os
 from pathlib import Path
 import platform
 import shutil
+import signal
 import socket
 import subprocess
 import sys
 import tempfile
+import threading
 import time
-from typing import Any, Dict, Iterable, Mapping, Optional
+from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Tuple
+
+try:
+    import fcntl
+except ImportError:  # pragma: no cover - non-POSIX fallback
+    fcntl = None  # type: ignore[assignment]
+
+HAS_PROCESS_GROUP = hasattr(os, "setsid") and hasattr(os, "killpg") and hasattr(signal, "SIGKILL")
 
 DEFAULT_OPERATIONS = {
     "system.snapshot",
@@ -78,11 +88,35 @@ def within(path: Path, roots: Iterable[Path]) -> bool:
     return False
 
 
-def truncate_text(value: str, limit: int) -> tuple[str, bool]:
+def truncate_text(value: str, limit: int) -> Tuple[str, bool]:
     encoded = value.encode("utf-8", errors="replace")
     if len(encoded) <= limit:
         return value, False
     return encoded[:limit].decode("utf-8", errors="replace"), True
+
+
+def read_capped(handle: Any, limit: int) -> Tuple[bytes, bool]:
+    """Drain a binary pipe keeping at most ``limit`` bytes.
+
+    The pipe is always drained to EOF (so the child never blocks on a full
+    pipe); only what is retained is bounded.
+    """
+    parts = []
+    kept = 0
+    total = 0
+    truncated = False
+    while True:
+        chunk = handle.read(65536)
+        if not chunk:
+            break
+        total += len(chunk)
+        if kept < limit:
+            take = chunk[: limit - kept]
+            parts.append(take)
+            kept += len(take)
+        if total > limit:
+            truncated = True
+    return b"".join(parts), truncated
 
 
 class Policy:
@@ -151,8 +185,13 @@ class LocalExecutor:
                 f"target={target_machine!r}, local={self.policy.machine_id!r}",
             )
         expires_at = request.get("expires_at")
-        if expires_at and parse_utc(str(expires_at)) < dt.datetime.now(dt.timezone.utc):
-            raise Refused("REQUEST_EXPIRED", str(expires_at))
+        if expires_at:
+            try:
+                expires = parse_utc(str(expires_at))
+            except (TypeError, ValueError) as exc:
+                raise Refused("INVALID_EXPIRES_AT", str(expires_at)) from exc
+            if expires < dt.datetime.now(dt.timezone.utc):
+                raise Refused("REQUEST_EXPIRED", str(expires_at))
         self.policy.require_operation(operation)
 
         handler_name = "op_" + operation.replace(".", "_")
@@ -194,19 +233,29 @@ class LocalExecutor:
     def op_filesystem_read(self, payload: Mapping[str, Any]) -> Dict[str, Any]:
         path = expand_path(str(payload["path"]))
         self.policy.require_read_path(path)
-        max_bytes = min(
-            int(payload.get("max_bytes", self.policy.max_output_bytes)),
-            self.policy.max_output_bytes,
-        )
-        original = path.read_bytes()
-        clipped = len(original) > max_bytes
-        data = original[:max_bytes]
+        try:
+            requested_bytes = int(payload.get("max_bytes", self.policy.max_output_bytes))
+        except (TypeError, ValueError):
+            requested_bytes = self.policy.max_output_bytes
+        max_bytes = max(1, min(requested_bytes, self.policy.max_output_bytes))
+        digest = hashlib.sha256()
+        with path.open("rb") as handle:
+            data = handle.read(max_bytes)
+            digest.update(data)
+            # Stream the remainder only to hash the full file; memory stays bounded.
+            leftover = 0
+            while True:
+                chunk = handle.read(65536)
+                if not chunk:
+                    break
+                digest.update(chunk)
+                leftover += len(chunk)
         return {
             "path": str(path),
             "content": data.decode("utf-8", errors="replace"),
             "bytes_returned": len(data),
-            "truncated": clipped,
-            "sha256": hashlib.sha256(original).hexdigest(),
+            "truncated": leftover > 0,
+            "sha256": digest.hexdigest(),
         }
 
     def op_filesystem_write(self, payload: Mapping[str, Any]) -> Dict[str, Any]:
@@ -268,30 +317,84 @@ class LocalExecutor:
             self.policy.max_timeout_seconds,
         )
         started = time.monotonic()
-        completed = subprocess.run(
+        returncode, out_bytes, out_truncated, err_bytes, err_truncated = self._run_capped(
             [executable, *argv[1:]],
             cwd=str(cwd),
-            shell=False,
-            stdin=subprocess.DEVNULL,
-            capture_output=True,
-            text=True,
             timeout=timeout,
-            env=self._safe_env(),
+            cap=self.policy.max_output_bytes,
         )
         duration_ms = round((time.monotonic() - started) * 1000)
-        stdout, stdout_truncated = truncate_text(completed.stdout, self.policy.max_output_bytes)
-        stderr, stderr_truncated = truncate_text(completed.stderr, self.policy.max_output_bytes)
         return {
             "argv": list(argv),
             "resolved_executable": executable,
             "cwd": str(cwd),
-            "exit_code": completed.returncode,
-            "stdout": stdout,
-            "stderr": stderr,
-            "stdout_truncated": stdout_truncated,
-            "stderr_truncated": stderr_truncated,
+            "exit_code": returncode,
+            "stdout": out_bytes.decode("utf-8", errors="replace"),
+            "stderr": err_bytes.decode("utf-8", errors="replace"),
+            "stdout_truncated": out_truncated,
+            "stderr_truncated": err_truncated,
             "duration_ms": duration_ms,
         }
+
+    def _run_capped(
+        self, argv: list, cwd: Optional[str], timeout: int, cap: int
+    ) -> Tuple[int, bytes, bool, bytes, bool]:
+        """Run ``argv`` with byte-capped pipes and a hard timeout.
+
+        Output is capped at the pipe (memory stays bounded even if the child
+        writes without limit) and a timeout kills the whole process group so
+        grandchildren cannot outlive the request.
+        """
+        process = subprocess.Popen(
+            argv,
+            cwd=cwd,
+            shell=False,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=self._safe_env(),
+            start_new_session=HAS_PROCESS_GROUP,
+        )
+        timed_out = threading.Event()
+
+        def _kill_group() -> None:
+            timed_out.set()
+            try:
+                if HAS_PROCESS_GROUP:
+                    os.killpg(process.pid, signal.SIGKILL)
+                else:  # pragma: no cover - non-POSIX fallback
+                    process.kill()
+            except OSError:
+                try:
+                    process.kill()
+                except OSError:
+                    pass
+
+        results: Dict[str, Tuple[bytes, bool]] = {}
+
+        def _drain(name: str, handle: Any) -> None:
+            with handle:
+                results[name] = read_capped(handle, cap)
+
+        readers = [
+            threading.Thread(target=_drain, args=("stdout", process.stdout)),
+            threading.Thread(target=_drain, args=("stderr", process.stderr)),
+        ]
+        timer = threading.Timer(timeout, _kill_group)
+        timer.start()
+        try:
+            for reader in readers:
+                reader.start()
+            for reader in readers:
+                reader.join()
+            returncode = process.wait()
+        finally:
+            timer.cancel()
+        out_bytes, out_truncated = results["stdout"]
+        err_bytes, err_truncated = results["stderr"]
+        if timed_out.is_set():
+            raise subprocess.TimeoutExpired(argv, timeout, out_bytes + err_bytes)
+        return returncode, out_bytes, out_truncated, err_bytes, err_truncated
 
     def _safe_env(self) -> Dict[str, str]:
         keep = ("HOME", "PATH", "LANG", "LC_ALL", "TMPDIR", "USER", "SHELL")
@@ -328,6 +431,8 @@ class LocalExecutor:
             stdout=subprocess.DEVNULL,
             stderr=subprocess.PIPE,
             text=True,
+            timeout=self.policy.max_timeout_seconds,
+            env=self._safe_env(),
         )
         return {"mode": mode, "value": value, "opened": True}
 
@@ -342,6 +447,8 @@ class LocalExecutor:
             stdin=subprocess.DEVNULL,
             capture_output=True,
             text=True,
+            timeout=self.policy.max_timeout_seconds,
+            env=self._safe_env(),
         )
         return {"notified": True, "title": title}
 
@@ -351,47 +458,82 @@ class LocalExecutor:
         script = self.policy.named_applescripts.get(script_id)
         if not script:
             raise Refused("APPLESCRIPT_NOT_ALLOWED", script_id)
-        completed = subprocess.run(
+        returncode, out_bytes, out_trunc, err_bytes, err_trunc = self._run_capped(
             ["/usr/bin/osascript", "-e", script],
-            check=False,
-            stdin=subprocess.DEVNULL,
-            capture_output=True,
-            text=True,
+            cwd=None,
             timeout=self.policy.max_timeout_seconds,
+            cap=self.policy.max_output_bytes,
         )
-        stdout, stdout_truncated = truncate_text(completed.stdout, self.policy.max_output_bytes)
-        stderr, stderr_truncated = truncate_text(completed.stderr, self.policy.max_output_bytes)
         return {
             "script_id": script_id,
-            "exit_code": completed.returncode,
-            "stdout": stdout,
-            "stderr": stderr,
-            "stdout_truncated": stdout_truncated,
-            "stderr_truncated": stderr_truncated,
+            "exit_code": returncode,
+            "stdout": out_bytes.decode("utf-8", errors="replace"),
+            "stderr": err_bytes.decode("utf-8", errors="replace"),
+            "stdout_truncated": out_trunc,
+            "stderr_truncated": err_trunc,
         }
 
 
 class ReplayLedger:
+    """Replay ledger that is safe against concurrent agent processes.
+
+    State is never cached across operations: every read and write takes an
+    advisory lock on a sibling lock file and re-reads the on-disk state, so
+    concurrent recorders merge their entries instead of clobbering each
+    other. Writes go through a unique temp file and ``os.replace`` for
+    atomicity.
+    """
+
     def __init__(self, path: Path):
         self.path = path
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.lock_path = self.path.with_name(self.path.name + ".lock")
+
+    @contextmanager
+    def _lock(self, exclusive: bool) -> Iterator[None]:
+        handle = open(self.lock_path, "a+")
+        try:
+            if fcntl is not None:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH)
+            yield
+        finally:
+            handle.close()
+
+    def _read_state(self) -> Dict[str, Any]:
         if self.path.exists():
-            self.data = json.loads(self.path.read_text(encoding="utf-8"))
+            data = json.loads(self.path.read_text(encoding="utf-8"))
         else:
-            self.data = {"executed": {}}
+            data = {}
+        if not isinstance(data, dict) or not isinstance(data.get("executed", {}), dict):
+            raise ValueError("replay ledger is corrupt: %s" % self.path)
+        data.setdefault("executed", {})
+        return data
 
     def seen(self, request_id: str) -> bool:
-        return request_id in self.data["executed"]
+        with self._lock(exclusive=False):
+            return request_id in self._read_state()["executed"]
 
     def record(self, request_id: str, request_sha256: str, standing: str) -> None:
-        self.data["executed"][request_id] = {
+        entry = {
             "request_sha256": request_sha256,
             "standing": standing,
             "recorded_at": utc_now(),
         }
-        temp = self.path.with_suffix(".tmp")
-        temp.write_text(json.dumps(self.data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        os.replace(temp, self.path)
+        with self._lock(exclusive=True):
+            data = self._read_state()
+            data["executed"][request_id] = entry
+            fd, temp_name = tempfile.mkstemp(
+                prefix="." + self.path.name + ".", suffix=".tmp", dir=str(self.path.parent)
+            )
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as handle:
+                    handle.write(json.dumps(data, indent=2, sort_keys=True) + "\n")
+                    handle.flush()
+                    os.fsync(handle.fileno())
+                os.replace(temp_name, self.path)
+            finally:
+                if os.path.exists(temp_name):
+                    os.unlink(temp_name)
 
 
 def make_receipt(
@@ -430,7 +572,8 @@ def run_request(path: Path, policy: Policy, ledger: ReplayLedger) -> Dict[str, A
         )
     if ledger.seen(request_id):
         raise Refused("REPLAY_DETECTED", request_id)
-    request["_request_sha256"] = sha256_json(request)
+    request_sha256 = sha256_json(request)
+    request["_request_sha256"] = request_sha256
     request["_started_at"] = utc_now()
     executor = LocalExecutor(policy)
     try:
@@ -553,17 +696,21 @@ def serve(args: argparse.Namespace) -> int:
     state_dir = expand_path(args.state_dir)
     ledger = ReplayLedger(state_dir / "executed.json")
     ensure_checkout(checkout, policy)
+    poll_seconds = max(1, int(args.poll_seconds))
     while True:
         try:
             sync_checkout(checkout, policy)
             process_pending(checkout, policy, ledger)
+            if args.once:
+                return 0
+            time.sleep(poll_seconds)
         except KeyboardInterrupt:
             return 0
         except Exception as exc:
             print(f"[local-control] {type(exc).__name__}: {exc}", file=sys.stderr)
-        if args.once:
-            return 0
-        time.sleep(args.poll_seconds)
+            if args.once:
+                return 0
+            time.sleep(poll_seconds)
 
 
 def validate(args: argparse.Namespace) -> int:
