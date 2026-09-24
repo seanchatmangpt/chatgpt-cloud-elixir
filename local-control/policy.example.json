@@ -1,0 +1,44 @@
+{
+  "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+  "branch": "local-control-bus",
+  "machine_id": "replace-with-stable-local-machine-id",
+  "allowed_operations": [
+    "system.snapshot",
+    "filesystem.list",
+    "filesystem.read",
+    "filesystem.write",
+    "filesystem.mkdir",
+    "process.run",
+    "macos.open",
+    "macos.notify",
+    "macos.applescript.named"
+  ],
+  "read_roots": [
+    "~/Projects",
+    "~/Downloads",
+    "/tmp"
+  ],
+  "write_roots": [
+    "~/Projects",
+    "/tmp"
+  ],
+  "allowed_executables": [
+    "git",
+    "gh",
+    "python3",
+    "elixir",
+    "mix"
+  ],
+  "allowed_apps": [
+    "Terminal",
+    "Visual Studio Code",
+    "Google Chrome"
+  ],
+  "allow_open_urls": false,
+  "allow_destructive": false,
+  "max_timeout_seconds": 600,
+  "max_output_bytes": 100000,
+  "named_applescripts": {
+    "finder.front": "tell application \"Finder\" to activate"
+  }
+}

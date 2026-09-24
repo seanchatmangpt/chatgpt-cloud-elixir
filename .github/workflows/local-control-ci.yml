@@ -1,0 +1,50 @@
+name: Local Control CI
+
+on:
+  pull_request:
+    paths:
+      - "scripts/local_control_agent.py"
+      - "scripts/install-local-control-macos*.sh"
+      - "scripts/uninstall-local-control-macos*.sh"
+      - "tests/test_local_control_agent.py"
+      - "tests/test_local_control_no_sudo.py"
+      - "local-control/**"
+      - ".github/workflows/local-control-ci.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/local_control_agent.py"
+      - "scripts/install-local-control-macos*.sh"
+      - "scripts/uninstall-local-control-macos*.sh"
+      - "tests/test_local_control_agent.py"
+      - "tests/test_local_control_no_sudo.py"
+      - "local-control/**"
+      - ".github/workflows/local-control-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-local-control:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Compile agent
+        run: python3 -m py_compile scripts/local_control_agent.py
+      - name: Parse macOS installer scripts
+        run: |
+          bash -n scripts/install-local-control-macos.sh
+          bash -n scripts/uninstall-local-control-macos.sh
+          bash -n scripts/install-local-control-macos-user.sh
+          bash -n scripts/uninstall-local-control-macos-user.sh
+      - name: Run local-control policy tests
+        run: python3 -m unittest -v tests/test_local_control_agent.py
+      - name: Enforce no-sudo user installer contract
+        run: python3 -m unittest -v tests/test_local_control_no_sudo.py
+      - name: Validate example policy
+        run: python3 scripts/local_control_agent.py validate-policy --policy local-control/policy.example.json
