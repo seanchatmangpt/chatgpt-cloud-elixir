@@ -1,0 +1,24 @@
+{
+  "branch": "local-control-bus",
+  "completed_at": "2026-09-24T06:24:12Z",
+  "error": null,
+  "machine_id": "Mac.lan",
+  "operation": "system.snapshot",
+  "reason": null,
+  "receipt_version": 1,
+  "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+  "request_id": "system.snapshot.20260924T062408Z.98d5",
+  "request_sha256": "f9b5a31168c2110bc0fb561e72f30e4ecbb3857604b3ad283a94d29d5f901775",
+  "result": {
+    "cwd": "/Users/sac/wt/lc26923/integrate",
+    "hostname": "Mac.lan",
+    "machine": "arm64",
+    "machine_id": "Mac.lan",
+    "platform": "macOS-26.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.3",
+    "release": "25.2.0",
+    "system": "Darwin"
+  },
+  "standing": "ALIVE",
+  "started_at": "2026-09-24T06:24:12Z"
+}
