@@ -110,10 +110,11 @@ class BootstrapCourtTests(unittest.TestCase):
         self.assertRefused("truex commitSha is not an exact 40-hex SHA")
 
     def test_private_identity_projection_is_refused(self):
+        # Anchor inside the engineering-standards block; several blocks share the admissionBasis line.
         self.edit(
             "manufacturing/ontology.ttl",
-            'cc:admissionBasis "project-memory-workstream" .',
-            'cc:admissionBasis "project-memory-workstream" ;\n  cc:accessClass "private" .',
+            'skos:prefLabel "engineering-standards" ;',
+            'skos:prefLabel "engineering-standards" ;\n  cc:accessClass "private" ;',
         )
         self.assertRefused("private source engineering-standards forbidden by private identity projection fence")
 
