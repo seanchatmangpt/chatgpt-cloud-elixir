@@ -83,6 +83,12 @@ class ExactSubjectTests(unittest.TestCase):
         self.assertIn("scripts/fetch-capability-sources.sh", autonomic)
         self.assertNotIn('while IFS=$\'\\t\' read -r name repository sha', autonomic)
 
+    def test_pr_courts_checkout_exact_head_subject(self):
+        exact_ref = "ref: ${{ github.event.pull_request.head.sha || github.sha }}"
+        for name in ("autonomic-manufacturing.yml", "agi-conformance.yml"):
+            workflow = (WORKFLOWS / name).read_text()
+            self.assertIn(exact_ref, workflow, name)
+
     def test_fetcher_refuses_a_malformed_subject(self):
         with tempfile.TemporaryDirectory() as tmp:
             lock = pathlib.Path(tmp) / "lock.json"
