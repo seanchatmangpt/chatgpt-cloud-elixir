@@ -73,6 +73,18 @@ def naive_replayer_would_actuate(envelope):
     return isinstance(envelope, dict) and bool(str(envelope.get("request_id", "")).strip())
 
 
+
+def _ledger_executed(ledger):
+    """Executed-entry snapshot via the public on-disk contract.
+
+    An absent ledger file is the empty executed set (no admitted request
+    has ever been recorded), not a missing court surface.
+    """
+    if not ledger.path.exists():
+        return {}
+    return json.loads(ledger.path.read_text(encoding="utf-8"))["executed"]
+
+
 class LocalControlFalsifierCourt(unittest.TestCase):
     maxDiff = None
 
@@ -224,7 +236,7 @@ class LocalControlFalsifierCourt(unittest.TestCase):
         self.assertEqual(ctx.exception.reason, "UNSUPPORTED_OPERATION")
         receipt = self.run_envelope(envelope, policy=loose)
         self.assertRefusedReceipt(receipt, "UNSUPPORTED_OPERATION")
-        self.assertEqual(self._ledger.data["executed"]["fals-04-ghost"]["standing"], "REFUSED")
+        self.assertEqual(_ledger_executed(self._ledger)["fals-04-ghost"]["standing"], "REFUSED")
 
     # --- 4. REPLAY_DETECTED ----------------------------------------------------
 
@@ -238,13 +250,13 @@ class LocalControlFalsifierCourt(unittest.TestCase):
         first = self.run_envelope(envelope)
         self.assertEqual(first["standing"], "ALIVE")
         self.assertEqual(target.read_text(encoding="utf-8"), "first-and-only")
-        self.assertEqual(len(self._ledger.data["executed"]), 1)
+        self.assertEqual(len(_ledger_executed(self._ledger)), 1)
         # Same request file again: typed refusal, and the world did not move.
         with self.assertRaises(mod.Refused) as ctx:
             self.run_envelope(envelope)
         self.assertEqual(ctx.exception.reason, "REPLAY_DETECTED")
         self.assertEqual(target.read_text(encoding="utf-8"), "first-and-only")
-        self.assertEqual(len(self._ledger.data["executed"]), 1)
+        self.assertEqual(len(_ledger_executed(self._ledger)), 1)
 
     def test_replayed_id_with_mutated_content_is_refused(self):
         # Same request_id, different payload: a replayer keyed only on content
@@ -266,7 +278,7 @@ class LocalControlFalsifierCourt(unittest.TestCase):
             self.run_envelope(second_env)
         self.assertEqual(ctx.exception.reason, "REPLAY_DETECTED")
         self.assertEqual(target.read_text(encoding="utf-8"), "v1")
-        self.assertEqual(len(self._ledger.data["executed"]), 1)
+        self.assertEqual(len(_ledger_executed(self._ledger)), 1)
 
     # --- 5. REQUEST_ID_PATH_MISMATCH -------------------------------------------
 
@@ -286,7 +298,7 @@ class LocalControlFalsifierCourt(unittest.TestCase):
         self.assertEqual(ctx.exception.reason, "REQUEST_ID_PATH_MISMATCH")
         self.assertAbsent(target)
         # The mismatched request never entered the ledger either.
-        self.assertEqual(ledger.data["executed"], {})
+        self.assertEqual(_ledger_executed(ledger), {})
 
     # --- 6. DESTRUCTIVE_OPERATION_DISABLED -------------------------------------
 
