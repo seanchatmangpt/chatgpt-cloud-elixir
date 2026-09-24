@@ -1,0 +1,55 @@
+{
+  "branch": "local-control-bus",
+  "completed_at": "2026-09-24T06:26:42Z",
+  "error": null,
+  "machine_id": "Mac.lan",
+  "operation": "filesystem.list",
+  "reason": null,
+  "receipt_version": 1,
+  "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+  "request_id": "filesystem.list.20260924T062624Z.948e",
+  "request_sha256": "0072ee5deae2cbf7dc03a76af70cc3bae8304e7b992d9faef24c2628e80fd2f1",
+  "result": {
+    "entries": [
+      {
+        "mtime_ns": 1787971377909179876,
+        "name": "GGEN-ECOSYSTEM-OCEL.md",
+        "size": 2834,
+        "type": "file"
+      },
+      {
+        "mtime_ns": 1787691107426550703,
+        "name": "README.md",
+        "size": 12477,
+        "type": "file"
+      },
+      {
+        "mtime_ns": 1787971377909291961,
+        "name": "TRANSPORT-INVARIANTS.md",
+        "size": 3742,
+        "type": "file"
+      },
+      {
+        "mtime_ns": 1787644859284328775,
+        "name": "examples",
+        "size": 96,
+        "type": "dir"
+      },
+      {
+        "mtime_ns": 1787971380999868202,
+        "name": "receipts",
+        "size": 29920,
+        "type": "dir"
+      },
+      {
+        "mtime_ns": 1787971381028680171,
+        "name": "requests",
+        "size": 42272,
+        "type": "dir"
+      }
+    ],
+    "path": "/Users/sac/chatgpt-cloud-elixir/project-memory"
+  },
+  "standing": "ALIVE",
+  "started_at": "2026-09-24T06:26:41Z"
+}
