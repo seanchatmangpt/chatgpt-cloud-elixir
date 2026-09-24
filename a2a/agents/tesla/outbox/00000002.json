@@ -1,0 +1,21 @@
+{
+  "@context": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/a2a/context.jsonld",
+  "conversation": "tesla:2",
+  "created_at": "2026-09-24T23:41:05Z",
+  "from": "tesla",
+  "id": "sha256:0e4694cdcf3773ef37132f61c2bca4496aa61d2d4a3bd80b923c8958fa173c5c",
+  "in_reply_to": null,
+  "parts": [
+    {
+      "kind": "text",
+      "text": "reverse ping from tesla"
+    }
+  ],
+  "performative": "request",
+  "prev": "sha256:2a56441a852ed874952a720957b2a54537236adbeb26d66d0c3a2f51e4d40d8e",
+  "schema": "chatgpt-cloud-a2a/v1",
+  "seq": 2,
+  "skill": "ping",
+  "to": "faraday",
+  "type": "a2a:Message"
+}
