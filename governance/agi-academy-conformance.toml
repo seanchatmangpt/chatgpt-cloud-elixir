@@ -1,0 +1,151 @@
+# Rail conformance to the Chatman Ecosystem AGI Academy (governance/agi-academy/, pinned).
+#
+# The Academy qualifies autonomous candidates. This repository is an execution rail
+# candidates operate on. This file binds every Academy invariant, terminal refusal, and
+# module to guards that EXECUTE on this rail. scripts/verify-agi-conformance.py runs them
+# and derives standing from exit codes only; a mapping without a passing guard is never
+# ALIVE. Human review still owns whether a guard is semantically adequate for its claim.
+schema = "chatgpt-cloud.agi-academy-rail-conformance.v1"
+rail = "seanchatmangpt/chatgpt-cloud-elixir"
+role = "execution rail: manufactures, transports, and replays admitted runtime capsules; authority ceiling CONSTRUCT_VERIFY"
+academy_manifest = "governance/agi-academy/agi-academy.toml"
+academy_provenance = "governance/agi-academy/PROVENANCE.toml"
+failure_ledger = "governance/failure-ledger.toml"
+non_claims = [
+  "does not certify, graduate, or credential any candidate (the Academy verifier evaluates candidates)",
+  "does not grant DO authority to anything",
+  "rail conformance is not any candidate's standing and not a target repository's crown",
+]
+
+# Every guard runs offline from the repository root and must exit 0.
+[guards.academy-manifest]
+command = "python3 governance/agi-academy/verify_agi_academy.py --manifest governance/agi-academy/agi-academy.toml"
+proves = "the pinned Academy contract itself validates under its own verifier (MANIFEST_ALIVE)"
+
+[guards.autonomic-court]
+command = "python3 scripts/verify-autonomic-contract.py"
+proves = "admitted capability graph: exact SHAs, owner scope, core floor, LFS law, CONSTRUCT_VERIFY ceiling, no ambient DO tokens"
+
+[guards.release-court]
+command = "python3 scripts/verify-release.py"
+proves = "one release identity across versions.toml and control-plane"
+
+[guards.court-tests]
+command = "python3 -m unittest tests/test_autonomic_contract.py"
+proves = "the admission court refuses drift, core loss, non-owner sources, short SHAs, missing LFS law, and ambient DO tokens"
+
+[guards.transport-tests]
+command = "python3 -m unittest tests/test_runtime_transport.py"
+proves = "committed binaries: digest-bound parts, tamper -> BUILD_BROKEN, absence -> BLOCKED, never LFS, standing only from executed smoke"
+
+[guards.rail-guard-tests]
+command = "python3 -m unittest tests/test_agi_rail_guards.py"
+proves = "receipted actuation (deploy, graph mutation, memory), exact-subject fetch, projection hygiene, byte-identical reuse, advisory guard"
+
+[guards.memory-proxy-tests]
+command = "python3 -m unittest tests/test_project_memory_proxy.py tests/test_project_memory_bus.py"
+proves = "Project v2 memory writes are scoped, refused on raw GraphQL, and receipted"
+
+[guards.conformance-court-tests]
+command = "python3 -m unittest tests/test_agi_conformance.py"
+proves = "this court refuses unmapped modules, unguarded invariants, vendored drift, and bad ledger entries, and derives standing only from guard exits"
+
+[guards.script-syntax]
+command = "bash -n scripts/fetch-capability-sources.sh && bash -n scripts/build-autonomic-manufacturing.sh && bash -n scripts/verify-autonomic-manufacturing.sh && bash -n scripts/build-capsule.sh && bash -n scripts/run-offline.sh"
+proves = "manufacture and replay entry points parse"
+
+[invariants.knowledge_is_not_capability]
+guards = ["transport-tests", "court-tests"]
+mechanism = "An artifact is ALIVE only after its smoke commands execute. Sources are admitted as exact-source-present, never as runtime-promoted."
+
+[invariants.capability_is_not_authority]
+guards = ["autonomic-court", "court-tests"]
+mechanism = "The CONSTRUCT_VERIFY authority ceiling; do_authority=false in every manifest; admission never grants DO."
+
+[invariants.inspection_is_not_execution]
+guards = ["transport-tests", "rail-guard-tests", "conformance-court-tests"]
+mechanism = "ecosystem-up and this conformance court execute checks and derive standing from exit codes, not from file presence."
+
+[invariants.workflow_is_not_run]
+guards = ["rail-guard-tests"]
+mechanism = "Deploy standing comes from observed step outcomes. A workflow file or green badge is never standing."
+
+[invariants.zero_unreceipted_actuation]
+guards = ["rail-guard-tests", "memory-proxy-tests", "transport-tests"]
+mechanism = "Fly deploy emits and uploads a receipt on every attempt. --write refuses to run without a receipt. Memory writes, runtime admission, and ecosystem-up all leave receipts."
+
+[invariants.planner_is_not_authority]
+guards = ["autonomic-court", "court-tests"]
+mechanism = "The graph and capsules are SELECT/CONSTRUCT/VERIFY. The court refuses DO_AUTHORITY, AMBIENT_DO, doAuthority, and selfCertificationAllowed."
+
+[invariants.exact_subject_required]
+guards = ["rail-guard-tests", "court-tests", "transport-tests"]
+mechanism = "40-hex SHAs everywhere. The canonical fetcher asserts HEAD identity. Manifests bind commit and tree. The runtime lock binds the exact source commit for every binary."
+
+[invariants.generated_projection_is_not_canonical]
+guards = ["rail-guard-tests", "transport-tests"]
+mechanism = "manufacturing/generated is never tracked. runtime/ is written only by runtime-admit.py. The ontology, versions.toml, and capsule.toml are canonical."
+
+[refusals.UNAUTHORIZED_DO]
+guards = ["court-tests", "rail-guard-tests"]
+mechanism = "Ambient DO tokens are refused at admission. Production deploy is gated by environment and token, and receipted as BLOCKED when authority is absent."
+
+[refusals.FABRICATED_RECEIPT]
+guards = ["transport-tests", "rail-guard-tests"]
+mechanism = "Receipts are computed from observed digests and exits. Tampered or absent evidence yields BUILD_BROKEN or BLOCKED, never ALIVE."
+
+[refusals.FALSE_EXECUTION_CLAIM]
+guards = ["transport-tests", "rail-guard-tests", "conformance-court-tests"]
+mechanism = "Standing follows executed smoke and deploy outcomes, and a failed step can never produce ALIVE."
+
+[refusals.SILENT_SUBJECT_SUBSTITUTION]
+guards = ["rail-guard-tests", "court-tests", "transport-tests"]
+mechanism = "The fetcher refuses malformed subjects and asserts HEAD. Digest-bound parts and archives. Commit and tree identity per source."
+
+[refusals.WEAKENED_ADMISSION_BOUNDARY]
+guards = ["court-tests", "autonomic-court"]
+mechanism = "The court refuses source-set drift, loss of the core, non-owner sources, a missing LFS law, and a missing privacy fence."
+
+[modules.ontology-before-intelligence]
+guards = ["autonomic-court", "academy-manifest"]
+mechanism = "AGENTS.md read-first doctrine; ontology.ttl is canonical; exact live-state resolution precedes change."
+
+[modules.dfcm-possibility-surface]
+guards = ["court-tests", "transport-tests"]
+mechanism = "Variants are preserved: full and identity profiles, opt-in artifacts, source-reference. Refused candidates are recorded rather than deleted."
+
+[modules.route-known-problems]
+guards = ["court-tests", "rail-guard-tests"]
+mechanism = "Known problem classes go to machines: ggen/SPARQL projection, OSV for advisories, digest courts for identity, git for provenance."
+
+[modules.lawful-manufacture]
+guards = ["autonomic-court", "rail-guard-tests"]
+mechanism = "A = mu(O*): ontology -> ggen -> lock -> capsule. Reuse before invent (byte-identical Academy and upstream ggen release)."
+
+[modules.planning-without-authority]
+guards = ["court-tests"]
+mechanism = "SELECT, CONSTRUCT, and DO stay separate; the CONSTRUCT_VERIFY ceiling is enforced."
+
+[modules.brce]
+guards = ["rail-guard-tests", "memory-proxy-tests"]
+mechanism = "Every consequential actuation surface on this rail emits a replayable receipt."
+
+[modules.evidence-qualification]
+guards = ["release-court", "transport-tests"]
+mechanism = "The six-state standing vocabulary. Observed, executed, and verified are kept distinct in receipts."
+
+[modules.failure-as-learning]
+guards = ["rail-guard-tests", "court-tests", "transport-tests"]
+mechanism = "governance/failure-ledger.toml: every recorded failure names a permanent guard that executes in this court."
+
+[modules.exact-subject-software-operation]
+guards = ["rail-guard-tests", "court-tests"]
+mechanism = "Exact base and head SHAs, a canonical fetcher, exact-head CI evidence, and PR receipts."
+
+[modules.ecosystem-autonomy]
+guards = ["autonomic-court", "court-tests"]
+mechanism = "58 repositories composed with per-source identity, admission basis, a privacy fence, and a blocked-route record."
+
+[modules.retire-yourself-capstone]
+guards = ["transport-tests", "rail-guard-tests", "conformance-court-tests", "script-syntax"]
+mechanism = "Reusable machinery externalized: refresh-capability-sources, fetch-capability-sources, runtime-admit, ecosystem-up, check-advisories, and this court."

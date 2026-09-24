@@ -41,6 +41,10 @@ source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
 
 `ecosystem-up.py` writes `~/.chatgpt-cloud/runtime/ecosystem-up-receipt.json` with a per-artifact standing. Add `--verify` to also run each capsule's own offline verifier. See [the ERRC grid](docs/explanation/committed-runtime-errc.md) for the design and `runtime/README.md` for what is committed.
 
+## AGI Academy conformance
+
+This repository conforms, as an execution rail, to the Chatman Ecosystem AGI Academy (v26.9.8, pinned in `governance/agi-academy/`). `python3 scripts/verify-agi-conformance.py` runs every mapped guard and reports `ALIVE` only when all 8 invariants, 5 terminal refusals, 11 modules, and every failure-ledger entry hold. See [the conformance note](docs/explanation/agi-academy-conformance.md).
+
 ## Status model
 
 This repository uses a small explicit standing vocabulary:

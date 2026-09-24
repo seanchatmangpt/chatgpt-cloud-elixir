@@ -48,7 +48,7 @@ A `source-reference` member (currently only `autofde-lab`, whose tree is ~530 MB
 
 ```bash
 python3 scripts/refresh-capability-sources.py            # CURRENT / DRIFT / BLOCKED per source; exit 1 on drift
-python3 scripts/refresh-capability-sources.py --write    # re-pin drifted SHAs (and versions.toml bootstrap for ggen)
+python3 scripts/refresh-capability-sources.py --write --receipt r.json   # re-pin drifted SHAs (+ versions.toml ggen); receipt mandatory
 python3 scripts/verify-autonomic-contract.py             # bootstrap court
 ```
 

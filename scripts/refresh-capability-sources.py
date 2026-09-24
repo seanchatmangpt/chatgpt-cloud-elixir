@@ -7,7 +7,7 @@ reviewed edit of ontology.ttl + capsules/autonomic-manufacturing/capsule.toml); 
 reports and, with --write, re-pins the exact SHAs of already-admitted sources.
 
     python3 scripts/refresh-capability-sources.py            # report drift, exit 1 if any
-    python3 scripts/refresh-capability-sources.py --write    # re-pin drifted sources
+    python3 scripts/refresh-capability-sources.py --write --receipt refresh-receipt.json   # re-pin drifted sources
     python3 scripts/refresh-capability-sources.py --receipt refresh-receipt.json
 
 Standing per source: CURRENT | DRIFT | BLOCKED. BLOCKED means the anonymous git read
@@ -94,6 +94,10 @@ def main() -> int:
     parser.add_argument("--jobs", type=int, default=8)
     parser.add_argument("--timeout", type=int, default=60)
     args = parser.parse_args()
+    if args.write and not args.receipt:
+        # Academy invariant zero_unreceipted_actuation: re-pinning the admitted graph is a
+        # mutation and must always leave a receipt.
+        parser.error("--write requires --receipt PATH (unreceipted mutation of the admitted graph is refused)")
 
     ontology = ONTOLOGY.read_text()
     rows = admitted_sources(ontology)

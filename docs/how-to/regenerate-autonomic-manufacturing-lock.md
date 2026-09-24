@@ -14,7 +14,7 @@ query/template) and regenerate.
      `capsules/autonomic-manufacturing/capsule.toml` `required_sources`.
      The court refuses any difference between the two.
    - To re-pin already-admitted sources to their live HEADs, run
-     `python3 scripts/refresh-capability-sources.py --write`. It rewrites
+     `python3 scripts/refresh-capability-sources.py --write --receipt <file>`. It rewrites
      only `cc:commitSha` values, plus `versions.toml` `ggen_sha` when ggen
      moves.
    - `manufacturing/ggen.toml` or `manufacturing/queries/`/`manufacturing/templates/`

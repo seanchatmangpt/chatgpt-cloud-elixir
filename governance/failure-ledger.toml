@@ -1,0 +1,59 @@
+# Academy Module 8, Failure as Permanent Learning:
+#   failure -> classification -> failed transition -> new hypothesis -> narrow repair -> permanent guard -> rerun
+# Every entry names guards (ids in agi-academy-conformance.toml) that execute in
+# scripts/verify-agi-conformance.py. An entry whose guard fails makes the ledger PARTIAL_ALIVE.
+schema = "chatgpt-cloud.failure-ledger.v1"
+
+[[failure]]
+id = "lfs-budget-exhausted-2026-09-24"
+observed = "CI `manufacture` exit 128: ggen-marketplace@420bc91e smudge failed, 'This repository exceeded its LFS budget'"
+failed_transition = "source-closure fetch"
+classification = "external quota dependency, plus duplicated fetch logic that drifted (local replay skipped LFS, the workflow did not)"
+repair = "one canonical fetcher; cc:lfsObjectPolicy pointer-identity law; staged-pointer build falsifier; committed parts never LFS"
+guards = ["court-tests", "rail-guard-tests", "transport-tests"]
+refs = ["scripts/fetch-capability-sources.sh", "manufacturing/ontology.ttl"]
+
+[[failure]]
+id = "vulnerable-pins-shipped-2026-09-23"
+observed = "offline replay of the committed Hex cache flagged 9 of 15 versions.toml pins (ash 3.32.0 had 18 advisories)"
+failed_transition = "version selection admitted without an advisory check"
+classification = "missing machine route for a known problem class"
+repair = "re-pinned to OSV-clean releases; scripts/check-advisories.py plus advisory-watch.yml on schedule and on pin changes"
+guards = ["rail-guard-tests"]
+refs = ["scripts/check-advisories.py", ".github/workflows/advisory-watch.yml"]
+
+[[failure]]
+id = "unreceipted-production-deploy-2026-09-24"
+observed = "deploy-fly.yml deployed to Fly with no receipt (Academy audit)"
+failed_transition = "consequential DO without receipt"
+classification = "BRCE violation: zero_unreceipted_actuation"
+repair = "always() receipt step with standing derived from observed step outcomes, uploaded for 90 days"
+guards = ["rail-guard-tests"]
+refs = [".github/workflows/deploy-fly.yml"]
+
+[[failure]]
+id = "unreceipted-graph-mutation-2026-09-24"
+observed = "refresh-capability-sources.py --write could re-pin the admitted graph without a receipt (Academy audit)"
+failed_transition = "admitted-graph mutation"
+classification = "BRCE violation: zero_unreceipted_actuation"
+repair = "--write refuses to run without --receipt"
+guards = ["rail-guard-tests"]
+refs = ["scripts/refresh-capability-sources.py"]
+
+[[failure]]
+id = "ash-3-33-string-length-2026-09-23"
+observed = "Ash 3.33 refused to compile the fixture resource: default_string_length_count not set"
+failed_transition = "capsule acceptance compile"
+classification = "upstream backwards-compatibility config became mandatory"
+repair = "fixture config sets Ash's recommended :codepoints; tests unchanged"
+guards = ["rail-guard-tests"]
+refs = ["fixtures/ash_ets_smoke/config/config.exs"]
+
+[[failure]]
+id = "process-intelligence-pin-prose-drift-2026-09-23"
+observed = "the capsule README cited subject SHAs that differed from the canonical capsule.toml"
+failed_transition = "documentation projection of pins"
+classification = "projection drift from canonical source"
+repair = "README mirrors capsule.toml; the ex4pm 426455b re-pin is recorded as refused (upstream test defects)"
+guards = ["rail-guard-tests"]
+refs = ["capsules/process-intelligence/README.md"]
