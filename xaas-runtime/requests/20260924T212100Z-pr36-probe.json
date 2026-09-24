@@ -1,0 +1,6 @@
+{
+  "schema": "chatgpt-cloud.xaas-runtime-request/1",
+  "request_id": "20260924T212100Z-pr36-probe",
+  "operation": "fabric.probe",
+  "payload": {}
+}
