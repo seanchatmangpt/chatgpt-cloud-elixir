@@ -72,6 +72,14 @@ class BootstrapCourtTests(unittest.TestCase):
         self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "ggen-legacy",\n', "")
         self.assertRefused("manufacturing core dropped")
 
+    def test_dropping_strategic_source_is_refused(self):
+        ontology = (self.tmp / "manufacturing/ontology.ttl").read_text()
+        block = re.search(r"^cc:EngineeringStandards a cc:CapabilitySource ;.*?\s\.\n\n", ontology, re.S | re.M).group(0)
+        ontology = ontology.replace(block, "").replace("cc:EngineeringStandards, ", "")
+        (self.tmp / "manufacturing/ontology.ttl").write_text(ontology)
+        self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "engineering-standards",\n', "")
+        self.assertRefused("strategic portfolio source dropped")
+
     def test_declared_but_not_included_source_is_refused(self):
         self.edit("manufacturing/ontology.ttl", "cc:FrozenDuckdb .", "cc:Bcinr .")
         self.assertRefused("cc:includesSource")
