@@ -109,14 +109,20 @@ class BootstrapCourtTests(unittest.TestCase):
         self.edit("manufacturing/ontology.ttl", sha, sha[:12])
         self.assertRefused("truex commitSha is not an exact 40-hex SHA")
 
-    def test_private_source_cannot_be_shipped(self):
-        self.edit("manufacturing/ontology.ttl", 'cc:capitalClass "semantic-admission" ;\n  cc:executionMode "source-reference" ;\n  cc:requiredStanding "exact-source-identified" ;\n  cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"',
-                  'cc:capitalClass "semantic-admission" ;\n  cc:executionMode "source-snapshot" ;\n  cc:requiredStanding "exact-source-identified" ;\n  cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"')
-        self.assertRefused("private source ash_kudzu must be source-reference")
+    def test_private_identity_projection_is_refused(self):
+        self.edit(
+            "manufacturing/ontology.ttl",
+            'cc:admissionBasis "project-memory-workstream" .',
+            'cc:admissionBasis "project-memory-workstream" ;\n  cc:accessClass "private" .',
+        )
+        self.assertRefused("private source engineering-standards forbidden by private identity projection fence")
 
     def test_unknown_access_class_is_refused(self):
-        self.edit("manufacturing/ontology.ttl", 'cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "private"',
-                  'cc:admissionBasis "beam-ash-family" ;\n  cc:accessClass "secret"')
+        self.edit(
+            "manufacturing/ontology.ttl",
+            'cc:admissionBasis "project-memory-workstream" .',
+            'cc:admissionBasis "project-memory-workstream" ;\n  cc:accessClass "secret" .',
+        )
         self.assertRefused("unknown accessClass secret")
 
     def test_missing_lfs_law_is_refused(self):
