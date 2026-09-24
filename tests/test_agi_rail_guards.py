@@ -84,10 +84,15 @@ class ExactSubjectTests(unittest.TestCase):
         self.assertNotIn('while IFS=$\'\\t\' read -r name repository sha', autonomic)
 
     def test_pr_courts_checkout_exact_head_subject(self):
-        exact_ref = "ref: ${{ github.event.pull_request.head.sha || github.sha }}"
-        for name in ("autonomic-manufacturing.yml", "agi-conformance.yml"):
-            workflow = (WORKFLOWS / name).read_text()
-            self.assertIn(exact_ref, workflow, name)
+        exact_ref = "${{ github.event.pull_request.head.sha || github.sha }}"
+        for name, job_name in (
+            ("autonomic-manufacturing.yml", "manufacture"),
+            ("agi-conformance.yml", "conformance"),
+        ):
+            workflow = yaml.safe_load((WORKFLOWS / name).read_text())
+            steps = workflow["jobs"][job_name]["steps"]
+            checkout = next(step for step in steps if str(step.get("uses", "")).startswith("actions/checkout@"))
+            self.assertEqual(checkout.get("with", {}).get("ref"), exact_ref, name)
 
     def test_fetcher_refuses_a_malformed_subject(self):
         with tempfile.TemporaryDirectory() as tmp:
