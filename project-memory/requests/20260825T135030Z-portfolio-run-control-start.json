@@ -1,0 +1,31 @@
+{
+  "request_id": "20260825T135030Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "autocatalytic"],
+      "body": "PORTFOLIO recurrence started from Project #2 snapshot and current DfCM memory. Snapshot item_count=365. Exact project-memory-bus head observed before pre-actuation: 7066654ae5ab0394bc46e0a2900eddf0d595395e; request transport advanced during PRE writes. Seed objective: maximize lawful merges and recursively expand independent consumer replication/manufacturing frontier.",
+      "metadata": {
+        "started_at": "2026-08-25T13:48:28Z",
+        "snapshot_item_count": 365,
+        "snapshot_project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "memory_keys_requested": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "initial_frontier_size": null,
+        "E": null,
+        "E2": null,
+        "Y": null,
+        "R": 1,
+        "C": null,
+        "M": null,
+        "weakest_multiplier": "R_consumer_replication",
+        "seed_opportunities": ["current marketplace recurrence frontier", "independent consumer fanout", "merge-ready portfolio closure"]
+      }
+    }
+  }
+}

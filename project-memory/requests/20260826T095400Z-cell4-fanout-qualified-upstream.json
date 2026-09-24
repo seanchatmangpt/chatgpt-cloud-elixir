@@ -1,0 +1,50 @@
+{
+  "request_id": "20260826T095400Z-cell4-fanout-qualified-upstream",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current after qualified upstream Andon repair",
+      "kind": "ggen.fanout",
+      "cell": "CELL4_REALIZE_QUALIFY_FANOUT",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "forced-top25", "fanout", "tcps", "qualified-upstream", "cell5"],
+      "body": "CELL4 consumed CELL3 exact allocation 1077b0dcb1f947d7dc05a1af56dda2cc15fa6671 with selected_workstreams=[] and ready_set=[], so no downstream consumer mutation was lawful. Requalification of autofde-lab#88, autofde#33, and xaas#32 identified the same producer-side ggen schema refusal. That shared defect has now been repaired upstream at ggen-marketplace PR #321 exact head 2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253. Exact-head CI run 32954476907 is SUCCESS: fast admission, deterministic catalog/archive, timeout guard, all four real-ggen qualification shards, and aggregate every-pack-exactly-once coverage all pass. Vacuity Audit run 32954476949 is SUCCESS. Therefore the producer repair is ALIVE at its exact PR head, but it is unmerged and consumer standing does not transfer. The three affected consumers remain REPAIR_REQUIRED until the repaired producer is admitted to the canonical lineage and each consumer is regenerated/re-executed. XaaS additionally retains independent local native-CI debt: ExUnit rejects a setup {:skip, reason} return when cnv-deploy is absent. U_named=6, R_named=6, M_named=3, OpenFanoutObligations_named=3; global U/Open remain UNKNOWN because inherited U>=17 identities are not name-bound. No exact global Q/F_C is fabricated. Consequential DO=false.",
+      "metadata": {
+        "cell3_allocation_commit": "1077b0dcb1f947d7dc05a1af56dda2cc15fa6671",
+        "selected_workstreams": [],
+        "ready_set": [],
+        "U_named": 6,
+        "U_global_lower_bound": 17,
+        "R_named": 6,
+        "M_named": 3,
+        "OpenFanoutObligations_named": 3,
+        "OpenFanoutObligations_global": "UNKNOWN[INHERITED_U_IDENTITIES_UNBOUND]",
+        "F_R_named": 6,
+        "F_C_wave": 0,
+        "F_C_portfolio": "UNKNOWN",
+        "F_A": 3,
+        "F_Q": "UNKNOWN",
+        "Coverage_named": 1.0,
+        "F_effective": "UNKNOWN",
+        "upstream_unique_commits_wave": 2,
+        "downstream_unique_commits_wave": 0,
+        "upstream_returns_wave": 1,
+        "regenerations_wave": 0,
+        "upstream_repair": {
+          "repo": "ggen-marketplace",
+          "pr": 321,
+          "base": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+          "head": "2b3d6a9cc86ee6fe7b4ce267fb01433ce9201253",
+          "standing": "ALIVE[EXACT_HEAD_CI+REAL_GGEN+VACUITY]",
+          "ci_run": 32954476907,
+          "vacuity_run": 32954476949,
+          "merged": false
+        },
+        "consumer_regeneration_required": ["autofde-lab#88", "autofde#33", "xaas#32"],
+        "consequential_do": false
+      }
+    }
+  }
+}

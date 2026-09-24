@@ -1,0 +1,27 @@
+{
+  "request_id": "20260825T160402Z-portfolio-final-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM capability ledger",
+    "kind": "dfcm.ledger",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","autocatalytic"],
+    "body": "Run ledger: chatman-ecosystem #148 exact 768ff64290ed30d1f38b2b4f5238e779c7da3868 qualified 22/22 and merged as 15c63419a3a2a4f883ba304a442e7cd19687fc3b; this moved #145 to exact 15c63419..., which freshly qualified 23/23 and merged as ac6d52ed027e32d854ab9e119a39977542262c51; this moved #142 to exact ac6d52ed..., spawning 24 fresh workflows, currently 23 SUCCESS + GALL IN_PROGRESS. Marketplace R57 #275 reduced broad failure to real-ggen shard0 plus inherited R56 qualification/combinatorial compatibility; current main includes #274 repair capital, making current-main reconciliation the canonical next edge.",
+    "metadata": {
+      "edges": [
+        {"from":"chatman#148@768ff64290ed30d1f38b2b4f5238e779c7da3868","relation":"merged_as","to":"15c63419a3a2a4f883ba304a442e7cd19687fc3b"},
+        {"from":"15c63419a3a2a4f883ba304a442e7cd19687fc3b","relation":"changed_parent","to":"chatman#145@15c63419a3a2a4f883ba304a442e7cd19687fc3b"},
+        {"from":"chatman#145@15c63419a3a2a4f883ba304a442e7cd19687fc3b","relation":"merged_as","to":"ac6d52ed027e32d854ab9e119a39977542262c51"},
+        {"from":"ac6d52ed027e32d854ab9e119a39977542262c51","relation":"changed_parent","to":"chatman#142@ac6d52ed027e32d854ab9e119a39977542262c51"},
+        {"from":"ggen-marketplace#275@302fe0be67a89c58665e14f059524f0b0615e6ba","relation":"repair_requires","to":"current-main@8bd29043a2818a5fb6a4de65cc403eff8e495b58"}
+      ],
+      "merge_count": 2,
+      "containment_proofs": 2,
+      "unlock_edges": 5,
+      "durable_falsifiers": ["exact-head invalidation after child merge","real-ggen shard0 R56/R57 compatibility","R56 50-court changed-subject failure"]
+    }
+  }}
+}

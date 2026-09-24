@@ -1,0 +1,144 @@
+{
+  "error": null,
+  "observed_at": "2026-08-27T01:40:08Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "R93 Cell2 canonical correspondence repair. The immediately prior ALIVE upsert correctly bound semantic_head=53e4d44d7c08a28a61a8d8d963ede0f61b126807 and publication_head=2be2370ef659ecb7ef5baa353b5336da5a125c36, but Project-memory metadata merge retained legacy alias fields from the predecessor Cell2 record. This upsert normalizes those aliases to the same exact R93 subject and qualification. Production remains 50 semantic commits, CI SUCCESS, Vacuity SUCCESS, terminal_count=1, admitted_count=1, spillover=0. No new semantic manufacture, consumer G/O, OCEL artifact, merge, or consequential external DO is claimed by this CONTROL repair.",
+        "cell": "CELL2_COMPOSE_STANDARD_WORK",
+        "key": "tps/cell2/current",
+        "kind": "tps.cell2",
+        "metadata": {
+          "admitted_count": 1,
+          "authority_admission_selectors": 25,
+          "base": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+          "base_sha": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+          "blocker_return_selectors": 25,
+          "ci": "SUCCESS",
+          "consequential_external_do": false,
+          "control_transport_commits_counted": 0,
+          "downstream_handoff": "authority-admitted exact targets flow to existing ready/regenerate lifecycle; blocked targets return upstream through typed blocker-return selectors",
+          "generated_only_commits_counted": 0,
+          "handoff": "Consume R93 authority-admission and typed blocker-return standard work: authority-admitted exact targets flow into existing ready/regenerate lifecycle; blocked targets return upstream as typed work. Do not overwrite fresher Cell3 allocation or canonical OCEL state.",
+          "new_cell2_ocel_artifact_generated": false,
+          "process_analysis_owner": "wasm4pm",
+          "project_metadata_correspondence_andon": "REPAIRED[LEGACY_ALIAS_FIELDS_NORMALIZED]",
+          "publication_head": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+          "publication_head_sha": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+          "qualification": "ALIVE[CI_AND_VACUITY_SUCCESS]",
+          "semantic_commits": 50,
+          "semantic_head": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+          "semantic_head_sha": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+          "spillover": 0,
+          "terminal_count": 1,
+          "vacuity": "SUCCESS"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "cell2",
+          "compose",
+          "ggen",
+          "forced-top25",
+          "ocel"
+        ],
+        "title": "TPS Cell 2 compose and standard work"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260827T014015Z-tps-cell2-r93-metadata-correspondence"
+  },
+  "request_id": "20260827T014015Z-tps-cell2-r93-metadata-correspondence",
+  "request_path": "project-memory/requests/20260827T014015Z-tps-cell2-r93-metadata-correspondence.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "R93 Cell2 canonical correspondence repair. The immediately prior ALIVE upsert correctly bound semantic_head=53e4d44d7c08a28a61a8d8d963ede0f61b126807 and publication_head=2be2370ef659ecb7ef5baa353b5336da5a125c36, but Project-memory metadata merge retained legacy alias fields from the predecessor Cell2 record. This upsert normalizes those aliases to the same exact R93 subject and qualification. Production remains 50 semantic commits, CI SUCCESS, Vacuity SUCCESS, terminal_count=1, admitted_count=1, spillover=0. No new semantic manufacture, consumer G/O, OCEL artifact, merge, or consequential external DO is claimed by this CONTROL repair.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAO5k",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4MIb4",
+      "metadata": {
+        "admitted_count": 1,
+        "authority_admission_selectors": 25,
+        "base": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+        "base_sha": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+        "blocker_return_selectors": 25,
+        "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "canonical_ocel_source_commit": "c5bf6710c9d03a46d501062edff8dd70bde38eea",
+        "capacity_envelopes_searched": [
+          100,
+          250,
+          500
+        ],
+        "cell": "CELL2_COMPOSE_STANDARD_WORK",
+        "cell1_project_receipt_commit": "2c734fdb937b2d2d708e0915720e50ca61786f55",
+        "ci": "SUCCESS",
+        "consequential_external_do": false,
+        "control_transport_commits_counted": 0,
+        "created_at": "2026-08-27T00:18:02Z",
+        "cycle_id": "tps-cell2-20260826T1710-0700",
+        "downstream_handoff": "authority-admitted exact targets flow to existing ready/regenerate lifecycle; blocked targets return upstream through typed blocker-return selectors",
+        "forced_population": 25,
+        "g_to_o_selectors": 25,
+        "generated_only_commits_counted": 0,
+        "ggen_first": true,
+        "handoff": "Consume R93 authority-admission and typed blocker-return standard work: authority-admitted exact targets flow into existing ready/regenerate lifecycle; blocked targets return upstream as typed work. Do not overwrite fresher Cell3 allocation or canonical OCEL state.",
+        "held_frontier": [
+          "per-target receipt identity selectors",
+          "source/generated ownership selectors",
+          "qualification-court selectors",
+          "integration-seam selectors",
+          "containment selectors",
+          "exact-head-drift selectors"
+        ],
+        "key": "tps/cell2/current",
+        "kind": "tps.cell2",
+        "local_materialization": "REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]",
+        "new_cell2_ocel_artifact_generated": false,
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "pr": 346,
+        "process_analysis_owner": "wasm4pm",
+        "project_metadata_correspondence_andon": "REPAIRED[LEGACY_ALIAS_FIELDS_NORMALIZED]",
+        "publication_head": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+        "publication_head_sha": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+        "q_to_m_selectors": 25,
+        "qualification": "ALIVE[CI_AND_VACUITY_SUCCESS]",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commits": 50,
+        "semantic_head": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+        "semantic_head_sha": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+        "spillover": 0,
+        "standing": "ALIVE",
+        "tags": [
+          "cell2",
+          "compose",
+          "forced-top25",
+          "ggen",
+          "ocel",
+          "tps"
+        ],
+        "terminal_count": 1,
+        "updated_at": "2026-08-27T01:40:15Z",
+        "vacuity": "SUCCESS"
+      },
+      "title": "TPS Cell 2 compose and standard work"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

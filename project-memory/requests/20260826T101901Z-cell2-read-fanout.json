@@ -1,0 +1,1 @@
+{"request_id":"20260826T101901Z-cell2-read-fanout","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"ggen/fanout/current"}}

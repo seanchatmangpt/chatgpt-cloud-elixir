@@ -1,0 +1,26 @@
+{
+  "request_id": "20260825T085530Z-portfolio-mid-r44-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM Current Ledger",
+    "kind": "dfcm.ledger",
+    "cell": "PORTFOLIO",
+    "standing": "ALIVE",
+    "tags": ["dfcm","ledger","portfolio","r44","merge","unlock"],
+    "body": "Durable graph delta: R43 MEASURE #244 qualified replication epistemic observability -> EXPLORE #245 frontier-derivative producer -> IMPLEMENT R44 #246 exact 50-court qualification/falsifier family -> merged ggen-marketplace/main@9e7586bea4e4a39ea1df3c3d7a457b5b940f0950. R44 exact qualified head=2db35c65e30511b688f379228e9b90474e56864e; aggregate CI + all four real-ggen shards SUCCESS; expected-head merge; containment exact. New adjacency edges: main@9e7586be -> R45+ derivative measurement/control; main@9e7586be -> producer #245 changed-integration requalification; frontier-derivative-pack -> compatible consumer qualification/adoption; R44 qualification capital -> postmerge realization/reproduction measurement; memory identity correction -> avoided stale-R43 rediscovery. Any integration evidence rooted in prior main@aaad2256 is stale until requalified.",
+    "metadata": {
+      "main_before": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "r44_pr": 246,
+      "r44_head": "2db35c65e30511b688f379228e9b90474e56864e",
+      "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "semantic_commits": 50,
+      "containment": "EXACT",
+      "new_adjacency_count": 5,
+      "C_observed_lower_bound": 5.0,
+      "memory_avoided_rediscovery_edges": 1,
+      "weakest_multiplier": "R_consumer_replication"
+    }
+  }}
+}

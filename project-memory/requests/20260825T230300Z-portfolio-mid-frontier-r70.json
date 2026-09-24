@@ -1,0 +1,27 @@
+{
+  "request_id": "20260825T230300Z-portfolio-mid-frontier-r70",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "portfolio", "r70"],
+      "body": "R70 causal independent manufacturing-capital yield is now published as ggen-marketplace PR #295 at exact head d6431b2a91b88d5196e9b90b58b043d68b726d9f. It contains 58 meaningful commits including 50 independent SPARQL courts and a deterministic ggen projection. Next edges: exact-head hosted qualification; reconcile if main moves; merge when qualified; after merge use R70 metrics to rank independent consumer replication and causal downstream-yield manufacture.",
+      "metadata": {
+        "bus_head_before_request": "c3f936872656608bc0143a80666d4c241c16f1ae",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "pr": 295,
+        "base_sha": "d92e65b761788c8ec18562d3d1183bce29c341f7",
+        "head_sha": "d6431b2a91b88d5196e9b90b58b043d68b726d9f",
+        "meaningful_commits": 58,
+        "semantic_courts": 50,
+        "generation": "R70",
+        "standing": "REQUALIFYING",
+        "weakest_multiplier": "independent qualified consumer replication and causally attributed downstream yield"
+      }
+    }
+  }
+}

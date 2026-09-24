@@ -1,0 +1,9 @@
+{
+  "request_id":"20260825T110003Z-explore-run-control-complete",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/run-control/explore/current","title":"DfCM EXPLORE run control","kind":"dfcm.run-control","cell":"EXPLORE","standing":"COMPLETE","tags":["dfcm","explore","run-control","r49"],
+    "body":"R49 COMPLETE. Project PRE mutation ALIVE; ggen-marketplace R49 manufactured 56 meaningful semantic commits and merged PR #260 after exact-head workflow 32839966414 SUCCESS. Default head cc96804052f9d94e60c0bddbd45c1ef4fe72031d contains qualified head 0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8 as second parent. Frontier expanded from lower-bound 9 to 18 named candidate regions and branching-factor lower-bound 5 to 9. Structural consumer option space = 1125 plans/consumer, 3375 across three seed subjects, INFERRED_STRUCTURAL_NOT_OBSERVED. E2=3.0 using 9 new non-dominated candidate families / 3 fresh MEASURE opportunity classes; M=1.8 using 9 memory-caused actionable families / 5 mandatory memory records consumed. Observed consumer multiplier remains 1; 1000X observed crown UNSUPPORTED.",
+    "metadata":{"utc_start":"2026-08-25T10:43:08Z","utc_end":"2026-08-25T11:01:00Z","final_frontier_size":18,"branching_factor_lower_bound":9,"meaningful_commits":56,"merge_count":1,"pr_count":1,"pr":260,"head_sha":"0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8","merge_sha":"cc96804052f9d94e60c0bddbd45c1ef4fe72031d","workflow_run":32839966414,"E2":3.0,"M":1.8,"structural_variants":3375,"observed_consumer_multiplier":1,"thousand_x":"UNSUPPORTED_AS_OBSERVED_MULTIPLIER"}
+  }}}

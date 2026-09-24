@@ -1,0 +1,34 @@
+{
+  "request_id": "20260825T155700Z-portfolio-run-control-running",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm","portfolio","run-control","autocatalytic"],
+      "body": "PORTFOLIO recurrence is RUNNING. Pre-query matched 24 current DfCM records. Live evidence invalidated stale chatman-ecosystem #148 standing and qualified exact head 768ff64290ed30d1f38b2b4f5238e779c7da3868 across 22 observed successful rails; merge 15c63419a3a2a4f883ba304a442e7cd19687fc3b completed and generated the next parent requalification edge. R57 marketplace #275 is exact-head owning-court ALIVE but broad CI/R56 inherited rails remain red and are technical repair edges, not merge authority.",
+      "metadata": {
+        "started_at": "2026-08-25T15:53:00Z",
+        "bus_head_at_pre": "57d29d30dfbbfe2380946cafebb4b7010ae61841",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "memory_records_matched": 24,
+        "memory_keys_consumed": ["dfcm/frontier/current","dfcm/ledger/current","dfcm/measure/latest","dfcm/explore/latest","dfcm/select/latest","dfcm/implement/latest","dfcm/portfolio/latest"],
+        "seed_opportunities": ["chatman-ecosystem#148","ggen-marketplace#275","ggen-marketplace#265","ggen-marketplace#263"],
+        "merges_so_far": 1,
+        "latest_merge_sha": "15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+        "weakest_multiplier": "R_consumer_replication",
+        "E": 4,
+        "E2": 2,
+        "Y": 50,
+        "R": 1,
+        "C": 1,
+        "M": 4
+      }
+    }
+  }
+}

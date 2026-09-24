@@ -1,0 +1,33 @@
+{
+  "request_id": "20260827T004500Z-cell4-ocel-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL4_REALIZE_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "ocel", "cell4", "forced-top25", "project2"],
+      "body": "Cell4 consumed current Project2 Cell3 READY card PR342 and manufactured 50 new GGEN-first semantic closure courts in ggen-ecosystem-ocel-pack. This run did not manufacture a fresh OCEL projection, so the prior admitted OCEL digest is preserved only as unchanged-prior-artifact evidence and is not promoted to current-run O. Process analysis ownership remains wasm4pm. PR342 final exact-head qualification could not start within takt and was terminally refused/drafted; replacement PR343 exact head cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4 is QUALIFIED_FOR_CLOSE with CI and Vacuity SUCCESS. No generated OCEL edited and no consequential external DO.",
+      "metadata": {
+        "run_id": "tps-cell4-20260826T1730-0700",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "semantic_commits": 50,
+        "semantic_head": "a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b",
+        "manifest_head": "b0944ff4da41567f116664646dccb24ba8a6400b",
+        "new_ocel_artifact_generated": false,
+        "O": "UNKNOWN[NO_FRESH_OCEL_ARTIFACT_THIS_CELL4]",
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "process_analysis_owner": "wasm4pm",
+        "ggen_first": true,
+        "pr342_terminal": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE]",
+        "pr343_terminal": "QUALIFIED_FOR_CLOSE",
+        "generated_outputs_hand_edited": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

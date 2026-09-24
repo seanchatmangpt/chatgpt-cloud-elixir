@@ -1,0 +1,6 @@
+{
+  "request_id": "20260825T090530Z-archive-stale-r43-run",
+  "operation": "memory.archive",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/run/measure/20260825T081733Z/aaad22568fdb4fee537ce663d4b640585bd5c194"}
+}

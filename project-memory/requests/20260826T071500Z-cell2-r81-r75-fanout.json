@@ -1,0 +1,45 @@
+{
+  "request_id": "20260826T071500Z-cell2-r81-r75-fanout",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "operation": "memory.upsert",
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "CELL2 R81×R75 canonical fanout composition",
+      "kind": "ggen.fanout.current",
+      "cell": "COMPOSE",
+      "standing": "PARTIAL_ALIVE",
+      "body": "R81 was reconciled without force onto current ggen-marketplace main containing R75 structural realization. ExistingPackComposition now maps the lawful ForcedTop25 ready-set into deterministic exact-head structural realization plans. ex4pm and gymact remain realized seed consumers; XaaS remains repair-gated; 22 targets remain UNKNOWN pending upstream admissibility evidence. No target was reranked or evicted and no downstream realization was fabricated.",
+      "metadata": {
+        "authority": "SELECT|CONSTRUCT",
+        "consequential_do": false,
+        "producer_repo": "seanchatmangpt/ggen-marketplace",
+        "producer_base": "f75bdb35c2e9104679325c6772194005cc6fef67",
+        "producer_head": "079a315c02d686fc6baa1166999dded3afb587fe",
+        "pr": 318,
+        "canonical_paths": [
+          "forced-top25-standard-consumer-factory-pack",
+          "epistemic-sensor-factory-pack:r75",
+          "forced-top25-r75-realization-composition-pack"
+        ],
+        "consumer_ready_set": ["ex4pm", "gymact"],
+        "repair_gated": ["xaas"],
+        "unknown_count": 22,
+        "partial_order_edges": [
+          "admission -> consumer-ready-set",
+          "consumer-ready-set -> structural-realization-plan",
+          "structural-realization-plan -> downstream-qualification",
+          "downstream-qualification -> default-lineage-assimilation"
+        ],
+        "U_lower_bound": 3,
+        "R": 2,
+        "Q_scoped": 2,
+        "Q_strict_full_repo": 1,
+        "M": "UNKNOWN_UNTIL_M_IDENTITY_CLOSED",
+        "andon": ["XAAS_CI_CD_ELIXIR_FAILURE", "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING", "M_IDENTITY_NOT_CLOSED"],
+        "qualification": "exact-head workflow in progress at producer_head"
+      },
+      "tags": ["cell2", "forced-top25", "r81", "r75", "fanout-composition"]
+    }
+  }
+}

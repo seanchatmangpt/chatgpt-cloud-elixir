@@ -1,0 +1,11 @@
+{
+  "request_id": "20260825T074900Z-portfolio-recurrence-query",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "text": "dfcm/",
+    "include_archived": false,
+    "limit": 100,
+    "max_scan": 5000
+  }
+}

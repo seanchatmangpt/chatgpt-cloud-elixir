@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T090630Z-portfolio-ledger-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM Current Ledger",
+    "kind": "dfcm.ledger",
+    "cell": "PORTFOLIO",
+    "standing": "ALIVE",
+    "tags": ["dfcm","ledger","portfolio","r44","autocatalytic","final"],
+    "body": "Final durable graph for this recurrence: corrected R43 PR identity (#244 exact 4baf32dd... -> aaad2256...) -> EXPLORE frontier derivative #245 -> IMPLEMENT R44 #246 exact 2db35c65... -> merge 9e7586be... -> canonical R43 deterministic-order/timeout repair. Concurrent #247 merged equivalent repair semantics as 7d158ef9...; PORTFOLIO #248 reconstructed on current main and added permanent deterministic-order falsifier, exact 8c7a998b... -> merge 8b971799..., with identical resulting tree so duplicate semantic capital is counted once. That postmerge state generated QUALIFY #249 exact eb79231b...: executable reference runner executes all fifty R44 SPARQL courts as a composition; exact R44 court + Vacuity + full CI SUCCESS -> merge 8c05c425.... Every PORTFOLIO merge used expected-head fencing and has merge-base=head, behind=0. Durable falsifiers/lessons: exact Project memory can be stale and must be rebound; deterministic ggen SELECT evidence needs explicit ordering; executable workflows require timeout bounds; concurrent equivalent repairs require tree/capability dedup; individual courts need composition execution before reuse claims; no ambient DO. Remaining strongest edges: independent consumer adoption/fanout, postmerge realization measurement, current-main reconciliation of older useful marketplace capital, dspy-pack Pipeline correspondence, chatgpt-cloud-elixir process-intelligence capsule failure, and memory-control consumer reuse.",
+    "metadata": {
+      "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "portfolio_merges": [
+        {"pr":246,"head":"2db35c65e30511b688f379228e9b90474e56864e","merge":"9e7586bea4e4a39ea1df3c3d7a457b5b940f0950","containment":"EXACT"},
+        {"pr":248,"head":"8c7a998b56ce14434d91023d6d36ccb20adca9e0","merge":"8b97179940c5d748f994c10bfc64261743b6fde1","containment":"EXACT","net_tree_delta":0},
+        {"pr":249,"head":"eb79231bda0e1caedadde869c7bbf15d320239b2","merge":"8c05c4252264fb0cfd60585657d9776ff2c9de29","containment":"EXACT"}
+      ],
+      "concurrent_merge": {"pr":247,"head":"d0545b5ec392aad466969433a915e23359d26e98","merge":"7d158ef97c6f41a67933f501397e29729abef071"},
+      "unique_meaningful_semantic_commits_observed": 54,
+      "generated_outputs_hand_edited": 0,
+      "HANDWRITTEN_IRREDUCIBLE_REASON": null,
+      "durable_unlock_edges": ["consumer fanout", "postmerge realization", "cross-repo qualification reuse", "R45+ control/measurement", "stale-capital reconciliation"],
+      "durable_falsifiers": ["stale Project identity", "unordered deterministic ggen evidence", "missing workflow timeout", "duplicate concurrent repair lineage", "individual-vs-composed qualification", "ambient DO refusal"]
+    }
+  }}
+}

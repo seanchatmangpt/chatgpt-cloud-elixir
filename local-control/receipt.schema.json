@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/local-control/receipt.schema.json",
+  "title": "ChatGPT Local Control Receipt",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "receipt_version",
+    "request_id",
+    "request_sha256",
+    "operation",
+    "machine_id",
+    "repo",
+    "branch",
+    "completed_at",
+    "standing"
+  ],
+  "properties": {
+    "receipt_version": {"const": 1},
+    "request_id": {"type": "string"},
+    "request_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "operation": {"type": "string"},
+    "machine_id": {"type": "string"},
+    "repo": {"type": "string"},
+    "branch": {"type": "string"},
+    "started_at": {"type": ["string", "null"]},
+    "completed_at": {"type": "string"},
+    "standing": {
+      "type": "string",
+      "enum": ["ALIVE", "REFUSED", "BUILD_BROKEN", "UNKNOWN"]
+    },
+    "reason": {"type": ["string", "null"]},
+    "error": {"type": ["string", "null"]},
+    "result": {"type": ["object", "null"]}
+  }
+}

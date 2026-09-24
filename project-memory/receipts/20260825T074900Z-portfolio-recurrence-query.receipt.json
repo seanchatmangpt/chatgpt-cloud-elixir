@@ -1,0 +1,45 @@
+{
+  "error": {
+    "details": [
+      {
+        "locations": [
+          {
+            "column": 13,
+            "line": 4
+          }
+        ],
+        "message": "Could not resolve to a ProjectV2 with the number 2.",
+        "path": [
+          "user",
+          "projectV2"
+        ],
+        "type": "NOT_FOUND"
+      }
+    ],
+    "message": "Could not resolve to a ProjectV2 with the number 2.",
+    "type": "GraphQLError"
+  },
+  "observed_at": "2026-08-25T07:48:58Z",
+  "operation": "memory.query",
+  "reason": "GRAPHQL_ERROR",
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "include_archived": false,
+      "limit": 100,
+      "max_scan": 5000,
+      "text": "dfcm/"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T074900Z-portfolio-recurrence-query"
+  },
+  "request_id": "20260825T074900Z-portfolio-recurrence-query",
+  "request_path": "project-memory/requests/20260825T074900Z-portfolio-recurrence-query.json",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "UNKNOWN",
+  "token_source": "repository GITHUB_TOKEN fallback"
+}

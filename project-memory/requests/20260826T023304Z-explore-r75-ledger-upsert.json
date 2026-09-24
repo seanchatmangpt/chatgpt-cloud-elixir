@@ -1,0 +1,15 @@
+{
+  "request_id": "20260826T023304Z-explore-r75-ledger-upsert",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM capability ledger",
+    "kind": "dfcm.ledger",
+    "cell": "EXPLORE",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","ledger","ggen","ash","ocel","revops","r75"],
+    "body": "Durable R75 edges: exact main e1a707b2 -> branch 5110ec7d; structural factory -> 23 ordered projections -> 4 refusal/admission gates -> 7 deterministic templates -> 4 verifier courts -> PR305 exact-head workflow success. Public semantics PROV-O/SKOS/DQV. Economic edges preserve RevenueFROMCustomer != RevenueFORCustomer. Learning edge: GeneratedBaseline -> AgentExperience -> GeneralizableKnowledge -> Marketplace source -> Regenerate compatible consumers -> Requalify. Failed edge preserved: first manifest write REFUSED by connector safety classifier; narrower manifest admitted. Transient edge preserved: one update transport disconnect, re-read exact blob identity then update admitted.",
+    "metadata": {"repo":"seanchatmangpt/ggen-marketplace","base_sha":"e1a707b2e3a3905b80f727ab3b43d2c53187a8df","head_sha":"5110ec7dbf9b1bac32e5e9dd444dda8e403eb0a6","pr":305,"workflow_run":32923088512,"workflow_standing":"ALIVE","failed_edges":2,"run_id":"SPR-DfCM-Explore-GGEN-Revenue-Max+2026-08-26T02:14:00Z+EXPLORE"}
+  }}
+}

@@ -1,0 +1,156 @@
+{
+  "error": null,
+  "observed_at": "2026-08-27T01:39:05Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Consumed current-cycle Cell1 closure only. Extended the existing forced-top25-ocel-fanout-meta-pack from exact ggen-marketplace base 35aa9e4685473deb5648c4fce0d7796cc622b21a. Manufactured exactly 50 independently meaningful semantic commits: 25 target-local authority-admission selectors requiring COMPATIBLE_READY|COMPATIBLE_ADMITTED, exact consumer and GGEN source heads, VERIFY|CONSTRUCT authority, and no blocker; plus 25 target-local blocker-return selectors converting non-empty blockers into typed upstream-return work. Semantic head 53e4d44d7c08a28a61a8d8d963ede0f61b126807; publication head 2be2370ef659ecb7ef5baa353b5336da5a125c36; draft PR #346. Exact publication head passed full marketplace CI and Vacuity Audit. Local materialization was unavailable because runtime DNS could not resolve github.com; hosted exact-head qualification is therefore the observed execution receipt. Cell2 searched 100/250/500+ envelopes but did not admit additional receipt-identity/source-generated-ownership/qualification-court/integration/containment families before closing the 50-unit subject, preserving terminal_count=admitted_count and spillover=0. Canonical ggen/ecosystem/ocel/current was not rewritten: latest observed Cell3 R94 state reports no new deterministic OCEL artifact and preserves the historical digest only as UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION. Process analysis remains wasm4pm-owned; consequential external DO=false; no merge performed.",
+        "cell": "CELL2_COMPOSE_STANDARD_WORK",
+        "key": "tps/cell2/current",
+        "kind": "tps.cell2",
+        "metadata": {
+          "admitted_count": 1,
+          "authority_admission_selectors": 25,
+          "base": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+          "blocker_return_selectors": 25,
+          "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+          "canonical_ocel_source_commit": "c5bf6710c9d03a46d501062edff8dd70bde38eea",
+          "capacity_envelopes_searched": [
+            100,
+            250,
+            500
+          ],
+          "cell1_project_receipt_commit": "2c734fdb937b2d2d708e0915720e50ca61786f55",
+          "ci": "SUCCESS",
+          "consequential_external_do": false,
+          "downstream_handoff": "authority-admitted targets flow to existing ready/regenerate lifecycle; blocked targets flow upstream through typed blocker-return selectors",
+          "ggen_first": true,
+          "held_frontier": [
+            "per-target receipt identity selectors",
+            "source/generated ownership selectors",
+            "qualification-court selectors",
+            "integration-seam selectors",
+            "containment selectors",
+            "exact-head-drift selectors"
+          ],
+          "local_materialization": "REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]",
+          "new_cell2_ocel_artifact_generated": false,
+          "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+          "pr": 346,
+          "process_analysis_owner": "wasm4pm",
+          "publication_head": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "semantic_commits": 50,
+          "semantic_head": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+          "spillover": 0,
+          "terminal_count": 1,
+          "vacuity": "SUCCESS"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "cell2",
+          "compose",
+          "ggen",
+          "forced-top25",
+          "ocel"
+        ],
+        "title": "TPS Cell 2 compose and standard work"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260827T013850Z-tps-cell2-r93-current"
+  },
+  "request_id": "20260827T013850Z-tps-cell2-r93-current",
+  "request_path": "project-memory/requests/20260827T013850Z-tps-cell2-r93-current.json",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "Consumed current-cycle Cell1 closure only. Extended the existing forced-top25-ocel-fanout-meta-pack from exact ggen-marketplace base 35aa9e4685473deb5648c4fce0d7796cc622b21a. Manufactured exactly 50 independently meaningful semantic commits: 25 target-local authority-admission selectors requiring COMPATIBLE_READY|COMPATIBLE_ADMITTED, exact consumer and GGEN source heads, VERIFY|CONSTRUCT authority, and no blocker; plus 25 target-local blocker-return selectors converting non-empty blockers into typed upstream-return work. Semantic head 53e4d44d7c08a28a61a8d8d963ede0f61b126807; publication head 2be2370ef659ecb7ef5baa353b5336da5a125c36; draft PR #346. Exact publication head passed full marketplace CI and Vacuity Audit. Local materialization was unavailable because runtime DNS could not resolve github.com; hosted exact-head qualification is therefore the observed execution receipt. Cell2 searched 100/250/500+ envelopes but did not admit additional receipt-identity/source-generated-ownership/qualification-court/integration/containment families before closing the 50-unit subject, preserving terminal_count=admitted_count and spillover=0. Canonical ggen/ecosystem/ocel/current was not rewritten: latest observed Cell3 R94 state reports no new deterministic OCEL artifact and preserves the historical digest only as UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION. Process analysis remains wasm4pm-owned; consequential external DO=false; no merge performed.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAO5k",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4MIb4",
+      "metadata": {
+        "admitted_count": 1,
+        "authority_admission_selectors": 25,
+        "base": "35aa9e4685473deb5648c4fce0d7796cc622b21a",
+        "base_sha": "5e6d9f00ebb0472dc1f20dac58d01ad3069b06bf",
+        "blocker_return_selectors": 25,
+        "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "canonical_ocel_source_commit": "c5bf6710c9d03a46d501062edff8dd70bde38eea",
+        "capacity_envelopes_searched": [
+          100,
+          250,
+          500
+        ],
+        "cell": "CELL2_COMPOSE_STANDARD_WORK",
+        "cell1_project_receipt_commit": "2c734fdb937b2d2d708e0915720e50ca61786f55",
+        "ci": "SUCCESS",
+        "consequential_external_do": false,
+        "control_transport_commits_counted": 0,
+        "created_at": "2026-08-27T00:18:02Z",
+        "cycle_id": "tps-cell2-20260826T1710-0700",
+        "downstream_handoff": "authority-admitted targets flow to existing ready/regenerate lifecycle; blocked targets flow upstream through typed blocker-return selectors",
+        "forced_population": 25,
+        "g_to_o_selectors": 25,
+        "generated_only_commits_counted": 0,
+        "ggen_first": true,
+        "handoff": "Exact-head qualify PR342; execute target-local G-O/Q-M selectors against canonical current OCEL; pass only resulting lawful obligations downstream.",
+        "held_frontier": [
+          "per-target receipt identity selectors",
+          "source/generated ownership selectors",
+          "qualification-court selectors",
+          "integration-seam selectors",
+          "containment selectors",
+          "exact-head-drift selectors"
+        ],
+        "key": "tps/cell2/current",
+        "kind": "tps.cell2",
+        "local_materialization": "REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]",
+        "new_cell2_ocel_artifact_generated": false,
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "pr": 346,
+        "process_analysis_owner": "wasm4pm",
+        "publication_head": "2be2370ef659ecb7ef5baa353b5336da5a125c36",
+        "publication_head_sha": "6aa3bedd0ee2e87b6331c99211b6a829b5189d0d",
+        "q_to_m_selectors": 25,
+        "qualification": "NOT_YET_OBSERVED",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commits": 50,
+        "semantic_head": "53e4d44d7c08a28a61a8d8d963ede0f61b126807",
+        "semantic_head_sha": "19b807b2f336c964f809e01a3a68461bf6ef6cdd",
+        "spillover": 0,
+        "standing": "ALIVE",
+        "tags": [
+          "cell2",
+          "compose",
+          "forced-top25",
+          "ggen",
+          "ocel",
+          "tps"
+        ],
+        "terminal_count": 1,
+        "updated_at": "2026-08-27T01:39:11Z",
+        "vacuity": "SUCCESS"
+      },
+      "title": "TPS Cell 2 compose and standard work"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

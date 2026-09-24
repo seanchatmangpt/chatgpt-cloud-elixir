@@ -1,0 +1,94 @@
+{
+  "error": null,
+  "observed_at": "2026-08-25T08:20:27Z",
+  "operation": "memory.create",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.create",
+    "payload": {
+      "record": {
+        "body": "Durable learning: qualification-court existence is option capital, not realized epistemic capital. R43 therefore added executable measurements for exact-subject/currentness, receipt/falsifier coverage, independent evidence roots, consumer and qualification fanout, realized dependency relief, replay, generator/source correspondence, compatibility, CI evidence, uncertainty, memory continuity, ERRC, and explicit multiplier proof/shortfall. Project #2 began with zero canonical DfCM records; that absence itself generated memory observability capital. Verification also falsified two construction assumptions: canonical pack ownership must be under packs/, and a guard must not interpret the source code of a detector as the violation it detects. Both became permanent repairs before merge. Exact merge containment: main aaad22568fdb4fee537ce663d4b640585bd5c194 has qualified head 4baf32dd33112236c301906bea2df631e6c188cd as second parent.",
+        "cell": "MEASURE",
+        "key": "dfcm/run/measure/20260825T081733Z/aaad22568fdb4fee537ce663d4b640585bd5c194",
+        "kind": "dfcm.run.measure",
+        "metadata": {
+          "E": 4.0,
+          "M": 4.0,
+          "ledger_receipt": "20260825T081900Z-r43-ledger-upsert",
+          "meaningful_commits": 66,
+          "measure_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+          "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+          "observed_1000x": false,
+          "owning_run": 32825762824,
+          "pr": 244,
+          "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+          "repository": "seanchatmangpt/ggen-marketplace",
+          "sensors": 50,
+          "vacuity_run": 32825762894
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "dfcm",
+          "measure",
+          "immutable-run",
+          "replication",
+          "learning"
+        ],
+        "title": "MEASURE R43 durable run — replication epistemic observability"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260825T082000Z-r43-immutable-run-create"
+  },
+  "request_id": "20260825T082000Z-r43-immutable-run-create",
+  "request_path": "project-memory/requests/20260825T082000Z-r43-immutable-run-create.json",
+  "result": {
+    "body": "Durable learning: qualification-court existence is option capital, not realized epistemic capital. R43 therefore added executable measurements for exact-subject/currentness, receipt/falsifier coverage, independent evidence roots, consumer and qualification fanout, realized dependency relief, replay, generator/source correspondence, compatibility, CI evidence, uncertainty, memory continuity, ERRC, and explicit multiplier proof/shortfall. Project #2 began with zero canonical DfCM records; that absence itself generated memory observability capital. Verification also falsified two construction assumptions: canonical pack ownership must be under packs/, and a guard must not interpret the source code of a detector as the violation it detects. Both became permanent repairs before merge. Exact merge containment: main aaad22568fdb4fee537ce663d4b640585bd5c194 has qualified head 4baf32dd33112236c301906bea2df631e6c188cd as second parent.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_j00",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg36DPE",
+    "metadata": {
+      "E": 4.0,
+      "M": 4.0,
+      "cell": "MEASURE",
+      "created_at": "2026-08-25T08:20:32Z",
+      "key": "dfcm/run/measure/20260825T081733Z/aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "kind": "dfcm.run.measure",
+      "ledger_receipt": "20260825T081900Z-r43-ledger-upsert",
+      "meaningful_commits": 66,
+      "measure_latest_receipt": "20260825T081800Z-r43-measure-latest-upsert",
+      "merge_sha": "aaad22568fdb4fee537ce663d4b640585bd5c194",
+      "observed_1000x": false,
+      "owning_run": 32825762824,
+      "pr": 244,
+      "qualified_head": "4baf32dd33112236c301906bea2df631e6c188cd",
+      "repository": "seanchatmangpt/ggen-marketplace",
+      "schema": "chatgpt-project-memory/v1",
+      "sensors": 50,
+      "standing": "ALIVE",
+      "tags": [
+        "dfcm",
+        "immutable-run",
+        "learning",
+        "measure",
+        "replication"
+      ],
+      "updated_at": "2026-08-25T08:20:32Z",
+      "vacuity_run": 32825762894
+    },
+    "title": "MEASURE R43 durable run — replication epistemic observability"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

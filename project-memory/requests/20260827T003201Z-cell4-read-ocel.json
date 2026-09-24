@@ -1,0 +1,6 @@
+{
+  "request_id": "20260827T003201Z-cell4-read-ocel",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "ggen/ecosystem/ocel/current"}
+}

@@ -1,0 +1,9 @@
+{
+  "request_id":"20260825T110001Z-explore-ledger-upsert",
+  "operation":"memory.upsert",
+  "project":{"owner":"seanchatmangpt","number":2},
+  "payload":{"record":{
+    "key":"dfcm/ledger/current","title":"DfCM ledger current","kind":"dfcm.ledger","cell":"EXPLORE","standing":"ALIVE","tags":["dfcm","ledger","r49"],
+    "body":"Durable R49 edge: MEASURE weakest multiplier independent-consumer realization -> consumer-realization-frontier-pack -> 25 deterministic composition operators -> 10 admission gates -> 5 verifier courts -> qualified head 0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8 -> PR260 -> merge cc96804052f9d94e60c0bddbd45c1ef4fe72031d. Structural option-space edge: 5 realization surfaces x 5 verifier strategies x 5 dependency-relief strategies x 3 receipt strategies x 3 resilience strategies = 1125 plans/consumer; with 3 seed subjects = 3375 consumer-bound variants. Standing is structural/inferred until exact consumer execution. Preserve falsifiers: zero-unreceipted actuation, SELECT/CONSTRUCT/DO separation, exact consumer identity, public-ontology grounding, deterministic ordering, read-only TensorFlow write refusal, prior pairwise-query connector refusal, and structural-count != observed-leverage rule. Unlock edges: generated ggen adapter family, generated cloud adapter family, compatibility tensor, N-way planner, verifier fanout, receipt fanout, consumer census, dependency-relief selector, calibration benchmark.",
+    "metadata":{"head_sha":"0514483c54a09dc0c2dea0ba1cb3d46bd4cab9c8","merge_sha":"cc96804052f9d94e60c0bddbd45c1ef4fe72031d","pr":260,"meaningful_commits":56,"edges_added":9,"structural_variants":3375,"observed_consumer_multiplier":1,"structural_multiplier_standing":"INFERRED_STRUCTURAL_NOT_OBSERVED","authority":"SELECT"}
+  }}}

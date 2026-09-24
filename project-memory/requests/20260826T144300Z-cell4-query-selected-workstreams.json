@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T144300Z-cell4-query-selected-workstreams",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "selected_workstreams", "limit": 20}
+}

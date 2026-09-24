@@ -1,0 +1,1 @@
+{"request_id":"20260826T212700Z-cell2-r90-read-ocel-current-serial","operation":"memory.read","project":{"owner":"seanchatmangpt","number":2},"payload":{"key":"ggen/ecosystem/ocel/current"}}

@@ -1,0 +1,22 @@
+{
+  "_README": "EXAMPLE ONLY — least-privilege template. The ACTIVE policy lives OUTSIDE Git (e.g. ~/.config/chatgpt-cloud-elixir/local-control/policy.json). Copy this file, replace every REPLACE_WITH_* placeholder, then run: scripts/local_control_agent.py validate-policy --policy <path>. WARNING: an empty or missing allowed_operations list falls back to the agent's FULL default operation set — always list operations explicitly. An empty write_roots list denies ALL writes.",
+  "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+  "branch": "local-control-bus",
+  "machine_id": "REPLACE_WITH_HOSTNAME",
+  "allowed_operations": [
+    "system.snapshot",
+    "filesystem.list",
+    "filesystem.read"
+  ],
+  "read_roots": [
+    "$HOME/REPLACE_WITH_READ_ROOT"
+  ],
+  "write_roots": [],
+  "allowed_executables": [],
+  "allowed_apps": [],
+  "named_applescripts": {},
+  "allow_open_urls": false,
+  "allow_destructive": false,
+  "max_timeout_seconds": 120,
+  "max_output_bytes": 65536
+}

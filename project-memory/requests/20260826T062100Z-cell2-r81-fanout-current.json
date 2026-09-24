@@ -1,0 +1,37 @@
+{
+  "request_id": "20260826T062100Z-cell2-r81-fanout-current",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "kind": "ggen.fanout.compose",
+      "cell": "COMPOSE",
+      "title": "CELL2 R81 standard consumer fanout factory",
+      "body": "Consumed Project2 ready/blocked state without reranking. R80 is assimilated on ggen-marketplace main. R81 composes R80 into a canonical standard consumer factory preserving exact ForcedTop25 order, observed ex4pm/gymact realized seed consumers, XaaS repair gate, and all 22 unresolved targets. No new external consumer is counted realized by marketplace-internal manufacture.",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["cell2","ggen","fanout","r81","forced-top25"],
+      "metadata": {
+        "authority": "SELECT|CONSTRUCT",
+        "consequential_do": false,
+        "producer_base": "seanchatmangpt/ggen-marketplace@bcab3805cbff9c3a00fd1eadb397b04607ec8e07",
+        "producer_head": "39151032b2dd68d482a58db90364cbb8a952090e",
+        "producer_pr": 318,
+        "producer_pack": "forced-top25-standard-consumer-factory-pack",
+        "U_lower_bound": 3,
+        "R": 2,
+        "Q_scoped": 2,
+        "Q_strict": 1,
+        "M_lower_bound": 2,
+        "OpenFanoutObligations_lower_bound": ["xaas"],
+        "consumer_ready_set": ["ex4pm","gymact"],
+        "repair_gated": ["xaas"],
+        "unknown_targets": 22,
+        "partial_order_edges": ["R80_admissibility->R81_consumer_projection","consumer_projection->exact_head_qualification","qualification->default_lineage_assimilation"],
+        "expected_downstream_ready_commits": 22,
+        "new_upstream_commits": 16,
+        "new_downstream_commits": 0
+      }
+    }
+  }
+}

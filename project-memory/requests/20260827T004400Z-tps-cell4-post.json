@@ -1,0 +1,43 @@
+{
+  "request_id": "20260827T004400Z-tps-cell4-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell4/current",
+      "title": "TPS Cell 4 realize qualify",
+      "kind": "tps.cell4",
+      "cell": "CELL4_REALIZE_QUALIFY",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["tps", "cell4", "ggen", "ocel", "forced-top25", "jidoka"],
+      "body": "Consumed Project2 ALIVE Cell3 allocation. Active card PR342@6aa3bedd0ee2e87b6331c99211b6a829b5189d0d was exact-head CI/Vacuity green on admission. Cell4 manufactured exactly 50 NEW semantic commits on that GGEN-first branch: 25 ForcedTop25 Observe->same-run Receipt falsifier courts plus 25 ForcedTop25 Merge->Receipt+Replay closure courts. Semantic head a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b; excluded cycle-manifest head b0944ff4da41567f116664646dccb24ba8a6400b. The final exact head entered CI/Vacuity runner queue with zero jobs allocated, so Jidoka terminalized PR342 REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE] and converted it to draft; no red/unknown WIP is handed to Cell5. Cell3-declared replenishment PR343@cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4 was pulled immediately and revalidated mergeable, non-draft, exact-head CI SUCCESS and Vacuity Audit SUCCESS; it is QUALIFIED_FOR_CLOSE. No merge authority exercised. No generated OCEL edited. No process-intelligence algorithms added outside wasm4pm. Consequential external DO=false.",
+      "metadata": {
+        "cycle_id": "tps-20260826T17-0700",
+        "admitted_count": 2,
+        "terminal_count": 2,
+        "spillover": 0,
+        "semantic_commits": 50,
+        "semantic_start_head": "6aa3bedd0ee2e87b6331c99211b6a829b5189d0d",
+        "semantic_head": "a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b",
+        "manifest_head": "b0944ff4da41567f116664646dccb24ba8a6400b",
+        "observation_receipt_courts": 25,
+        "assimilation_replay_courts": 25,
+        "pr342_terminal": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE]",
+        "pr342_draft": true,
+        "pr343_head": "cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4",
+        "pr343_terminal": "QUALIFIED_FOR_CLOSE",
+        "pr343_ci": "SUCCESS",
+        "pr343_vacuity": "SUCCESS",
+        "pr343_mergeable": true,
+        "ready_frontier_remaining": 0,
+        "ggen_first": true,
+        "process_analysis_owner": "wasm4pm",
+        "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "canonical_ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "generated_outputs_hand_edited": false,
+        "consequential_external_do": false,
+        "merge_performed": false
+      }
+    }
+  }
+}

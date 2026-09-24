@@ -1,0 +1,27 @@
+{
+  "request_id": "20260825T140910Z-portfolio-mid-merge267-frontier",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/frontier/current",
+      "title": "DfCM current frontier",
+      "kind": "dfcm.frontier",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm", "frontier", "portfolio", "current"],
+      "body": "PORTFOLIO merged generation-contract repair/meta-factory PR #267 into ggen-marketplace main. Exact qualified head 8d625826fb86f02c085fa4f33fe309ace261af94 -> merge 7936dcfca63420130ea9c434049fb8a6f32e3f4c, exact containment proven. Newly possible: all future pack-generation PRs receive corpus preflight before sharded real-ggen; next immediate subject is R52 #265, whose integration standing is invalidated by the new main and must be freshly resolved/qualified before merge. Weakest multiplier remains independent qualified consumer breadth; observed lower bound R>=2 from ggen and ex4pm consumers.",
+      "metadata": {
+        "observed_at": "2026-08-25T14:09:10Z",
+        "bus_head": "d79e14cf8fc449e6bbf40a88de71f49cfff9430c",
+        "merge_pr": 267,
+        "qualified_head": "8d625826fb86f02c085fa4f33fe309ace261af94",
+        "merge_sha": "7936dcfca63420130ea9c434049fb8a6f32e3f4c",
+        "containment": true,
+        "direct_semantic_commits": 9,
+        "generation_depth": 3,
+        "next": ["requalify ggen-marketplace#265 against main@7936dcfc", "expand independent consumer fanout"]
+      }
+    }
+  }
+}

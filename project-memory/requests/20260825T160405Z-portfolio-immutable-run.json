@@ -1,0 +1,15 @@
+{
+  "request_id": "20260825T160405Z-portfolio-immutable-run",
+  "operation": "memory.create",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/run/portfolio/20260825T155300Z/ac6d52ed027e32d854ab9e119a39977542262c51",
+    "title": "PORTFOLIO recursive merge learning 2026-08-25T15:53Z",
+    "kind": "dfcm.run",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","portfolio","immutable-run","autocatalytic"],
+    "body": "Durable learning: exact-qualified child merge can immediately create a new parent exact-head qualification subject; do not inherit standing. In this recurrence #148 qualified/merged, creating #145 changed subject; #145 freshly qualified/merged, creating #142 changed subject. Separately, R57 #275 proves owning capability and Vacuity can be ALIVE while broad real-ggen and inherited R56 compatibility remain BUILD_BROKEN; current default already contains relevant #274 repair capital, so reconciliation precedes new repair invention.",
+    "metadata": {"merges":2,"generation_depth":3,"containment":true,"weakest_multiplier":"R_consumer_replication","semantic_commits_direct":0}
+  }}
+}

@@ -1,0 +1,23 @@
+{
+  "request_id": "20260825T090700Z-portfolio-frontier-final",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/frontier/current",
+    "title": "DfCM current portfolio frontier",
+    "kind": "dfcm.frontier",
+    "cell": "PORTFOLIO",
+    "standing": "PARTIAL_ALIVE",
+    "tags": ["dfcm","frontier","portfolio","r44","next-measure"],
+    "body": "Validated reachable frontier after R44 closure. ggen-marketplace/main=8c05c4252264fb0cfd60585657d9776ff2c9de29. R44 50-court frontier-derivative qualification and the executable fifty-court composition runner are on default history with exact containment. No fresh R45 PR existed at final census. Highest lawful next edges: (1) MEASURE independent consumer adoption/fanout of frontier-derivative-pack; (2) MEASURE qualification reuse/reproduction across distinct repositories; (3) measure postmerge realized unlocks versus predicted marginal frontier derivative; (4) calibrate consumer suitability precision/recall and false-positive/false-negative rates; (5) measure Project-memory-to-manufacture latency/avoided rediscovery; (6) reconcile reusable old marketplace capital (#185 observability calibration, #180 hypergraph amplifier, #178 remediation-capital correspondence) onto exact current main only when semantic deltas remain nonduplicative; (7) repair dspygen #36 canonical Pipeline projection correspondence marketplace-first; (8) diagnose chatgpt-cloud-elixir #11 process-intelligence capsule manufacture failure and #10 formatter/control-plane failures. Consumer replication R is the weakest observed multiplier. Stale integration standing rooted before main@8c05c425 is invalid.",
+    "metadata": {
+      "current_marketplace_main": "8c05c4252264fb0cfd60585657d9776ff2c9de29",
+      "frontier_size": 8,
+      "next_measure_seed_count": 5,
+      "generation_depth": 3,
+      "branching_factor_lower_bound": 5,
+      "weakest_multiplier": "R_consumer_replication",
+      "standing_reason": "R44 closure complete; broad portfolio frontier remains and no R45 exact subject yet exists"
+    }
+  }}
+}

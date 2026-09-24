@@ -1,0 +1,123 @@
+{
+  "error": null,
+  "observed_at": "2026-08-27T00:43:36Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Consumed Project2 ALIVE Cell3 allocation. Active card PR342@6aa3bedd0ee2e87b6331c99211b6a829b5189d0d was exact-head CI/Vacuity green on admission. Cell4 manufactured exactly 50 NEW semantic commits on that GGEN-first branch: 25 ForcedTop25 Observe->same-run Receipt falsifier courts plus 25 ForcedTop25 Merge->Receipt+Replay closure courts. Semantic head a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b; excluded cycle-manifest head b0944ff4da41567f116664646dccb24ba8a6400b. The final exact head entered CI/Vacuity runner queue with zero jobs allocated, so Jidoka terminalized PR342 REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE] and converted it to draft; no red/unknown WIP is handed to Cell5. Cell3-declared replenishment PR343@cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4 was pulled immediately and revalidated mergeable, non-draft, exact-head CI SUCCESS and Vacuity Audit SUCCESS; it is QUALIFIED_FOR_CLOSE. No merge authority exercised. No generated OCEL edited. No process-intelligence algorithms added outside wasm4pm. Consequential external DO=false.",
+        "cell": "CELL4_REALIZE_QUALIFY",
+        "key": "tps/cell4/current",
+        "kind": "tps.cell4",
+        "metadata": {
+          "admitted_count": 2,
+          "assimilation_replay_courts": 25,
+          "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+          "canonical_ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+          "consequential_external_do": false,
+          "cycle_id": "tps-20260826T17-0700",
+          "generated_outputs_hand_edited": false,
+          "ggen_first": true,
+          "manifest_head": "b0944ff4da41567f116664646dccb24ba8a6400b",
+          "merge_performed": false,
+          "observation_receipt_courts": 25,
+          "pr342_draft": true,
+          "pr342_terminal": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE]",
+          "pr343_ci": "SUCCESS",
+          "pr343_head": "cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4",
+          "pr343_mergeable": true,
+          "pr343_terminal": "QUALIFIED_FOR_CLOSE",
+          "pr343_vacuity": "SUCCESS",
+          "process_analysis_owner": "wasm4pm",
+          "ready_frontier_remaining": 0,
+          "semantic_commits": 50,
+          "semantic_head": "a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b",
+          "semantic_start_head": "6aa3bedd0ee2e87b6331c99211b6a829b5189d0d",
+          "spillover": 0,
+          "terminal_count": 2
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "tps",
+          "cell4",
+          "ggen",
+          "ocel",
+          "forced-top25",
+          "jidoka"
+        ],
+        "title": "TPS Cell 4 realize qualify"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260827T004400Z-tps-cell4-post"
+  },
+  "request_id": "20260827T004400Z-tps-cell4-post",
+  "request_path": "project-memory/requests/20260827T004400Z-tps-cell4-post.json",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Consumed Project2 ALIVE Cell3 allocation. Active card PR342@6aa3bedd0ee2e87b6331c99211b6a829b5189d0d was exact-head CI/Vacuity green on admission. Cell4 manufactured exactly 50 NEW semantic commits on that GGEN-first branch: 25 ForcedTop25 Observe->same-run Receipt falsifier courts plus 25 ForcedTop25 Merge->Receipt+Replay closure courts. Semantic head a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b; excluded cycle-manifest head b0944ff4da41567f116664646dccb24ba8a6400b. The final exact head entered CI/Vacuity runner queue with zero jobs allocated, so Jidoka terminalized PR342 REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE] and converted it to draft; no red/unknown WIP is handed to Cell5. Cell3-declared replenishment PR343@cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4 was pulled immediately and revalidated mergeable, non-draft, exact-head CI SUCCESS and Vacuity Audit SUCCESS; it is QUALIFIED_FOR_CLOSE. No merge authority exercised. No generated OCEL edited. No process-intelligence algorithms added outside wasm4pm. Consequential external DO=false.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAPNc",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4MQdE",
+      "metadata": {
+        "admitted_count": 2,
+        "assimilation_replay_courts": 25,
+        "canonical_ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "canonical_ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "cell": "CELL4_REALIZE_QUALIFY",
+        "consequential_external_do": false,
+        "created_at": "2026-08-27T00:43:46Z",
+        "cycle_id": "tps-20260826T17-0700",
+        "generated_outputs_hand_edited": false,
+        "ggen_first": true,
+        "key": "tps/cell4/current",
+        "kind": "tps.cell4",
+        "manifest_head": "b0944ff4da41567f116664646dccb24ba8a6400b",
+        "merge_performed": false,
+        "observation_receipt_courts": 25,
+        "pr342_draft": true,
+        "pr342_terminal": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:EXACT_HEAD_CI_QUEUE]",
+        "pr343_ci": "SUCCESS",
+        "pr343_head": "cc67cc091ee9dbc69f44d7b9c77116365b3ccbf4",
+        "pr343_mergeable": true,
+        "pr343_terminal": "QUALIFIED_FOR_CLOSE",
+        "pr343_vacuity": "SUCCESS",
+        "process_analysis_owner": "wasm4pm",
+        "ready_frontier_remaining": 0,
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commits": 50,
+        "semantic_head": "a59ab061b8eccbf7e71d44e4af88fb4baa39ee5b",
+        "semantic_start_head": "6aa3bedd0ee2e87b6331c99211b6a829b5189d0d",
+        "spillover": 0,
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell4",
+          "forced-top25",
+          "ggen",
+          "jidoka",
+          "ocel",
+          "tps"
+        ],
+        "terminal_count": 2,
+        "updated_at": "2026-08-27T00:43:46Z"
+      },
+      "title": "TPS Cell 4 realize qualify"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

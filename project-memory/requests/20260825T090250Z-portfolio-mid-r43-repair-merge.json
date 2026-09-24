@@ -1,0 +1,30 @@
+{
+  "request_id": "20260825T090250Z-portfolio-mid-r43-repair-merge",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"record": {
+    "key": "dfcm/ledger/current",
+    "title": "DfCM Current Ledger",
+    "kind": "dfcm.ledger",
+    "cell": "PORTFOLIO",
+    "standing": "ALIVE",
+    "tags": ["dfcm","ledger","portfolio","r43","repair","merge","dedup"],
+    "body": "Post-R44 graph delta: R44 #246 merged exact 2db35c65... -> main 9e7586be.... The merge exposed two canonical R43 defects: missing deterministic ORDER BY on 1000x-shortfall evidence and missing workflow timeout bound. Stale repair #247 independently evolved to d0545b5e and merged concurrently as 7d158ef97c6f41a67933f501397e29729abef071. PORTFOLIO had already reconstructed the same semantics on exact R44 main in #248 and added a permanent deterministic-order falsifier; exact #248 head 8c7a998b56ce14434d91023d6d36ccb20adca9e0 achieved R43 owning SUCCESS + Vacuity SUCCESS + aggregate CI SUCCESS, then merged with expected-head fence as 8b97179940c5d748f994c10bfc64261743b6fde1. #248 merge tree is identical to parent #247 tree, so it is recorded as topology/containment closure, not additional unique semantic capital. Exact containment holds for #248: merge_base=8c7a998b..., behind=0. Current marketplace default=8b971799.... Durable rule: concurrent equivalent repairs must be deduplicated by resulting tree/capability identity, not double-counted as semantic production.",
+    "metadata": {
+      "r44_merge_sha": "9e7586bea4e4a39ea1df3c3d7a457b5b940f0950",
+      "concurrent_repair_pr": 247,
+      "concurrent_repair_head": "d0545b5ec392aad466969433a915e23359d26e98",
+      "concurrent_repair_merge": "7d158ef97c6f41a67933f501397e29729abef071",
+      "portfolio_repair_pr": 248,
+      "portfolio_repair_head": "8c7a998b56ce14434d91023d6d36ccb20adca9e0",
+      "portfolio_repair_merge": "8b97179940c5d748f994c10bfc64261743b6fde1",
+      "current_main": "8b97179940c5d748f994c10bfc64261743b6fde1",
+      "unique_semantic_repairs": 2,
+      "portfolio_authored_semantic_commits": 2,
+      "portfolio_authored_ci_commits": 1,
+      "duplicate_semantic_capital_counted_twice": false,
+      "containment": "EXACT",
+      "new_rule": "deduplicate concurrent equivalent repair lineages by exact resulting capability/tree"
+    }
+  }}
+}

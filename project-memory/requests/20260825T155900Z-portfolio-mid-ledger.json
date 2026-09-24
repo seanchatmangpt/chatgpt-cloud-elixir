@@ -1,0 +1,28 @@
+{
+  "request_id": "20260825T155900Z-portfolio-mid-ledger",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/ledger/current",
+      "title": "DfCM capability ledger",
+      "kind": "dfcm.ledger",
+      "cell": "PORTFOLIO",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["dfcm","ledger","shared-memory","autocatalytic"],
+      "body": "Durable graph delta: chatman-ecosystem PR #148 exact qualified head 768ff64290ed30d1f38b2b4f5238e779c7da3868 -> merge 15c63419a3a2a4f883ba304a442e7cd19687fc3b -> parent PR #145 exact changed head 15c63419a3a2a4f883ba304a442e7cd19687fc3b -> fresh qualification family. Containment is proven by GitHub merge parents retaining exact qualified head. Marketplace R57 #275 exact 302fe0be67a89c58665e14f059524f0b0615e6ba: R57 owning court and Vacuity ALIVE; general CI failure reduced to real-ggen shard 0/4 while shards 1/2/3 are green; inherited R56 consumer-replication and combinatorial courts independently fail on the same changed subject. These failures are next canonical marketplace repair edges.",
+      "metadata": {
+        "edges": [
+          {"from":"chatman-ecosystem#148@768ff64290ed30d1f38b2b4f5238e779c7da3868","relation":"qualified_then_merged_as","to":"15c63419a3a2a4f883ba304a442e7cd19687fc3b"},
+          {"from":"15c63419a3a2a4f883ba304a442e7cd19687fc3b","relation":"changed_parent_subject","to":"chatman-ecosystem#145@15c63419a3a2a4f883ba304a442e7cd19687fc3b"},
+          {"from":"ggen-marketplace#275@302fe0be67a89c58665e14f059524f0b0615e6ba","relation":"falsified_by","to":"real-ggen-shard-0/4"},
+          {"from":"ggen-marketplace#275@302fe0be67a89c58665e14f059524f0b0615e6ba","relation":"falsified_by","to":"R56-consumer-replication-50-court"}
+        ],
+        "containment": "768ff64290ed30d1f38b2b4f5238e779c7da3868 is merge parent of 15c63419a3a2a4f883ba304a442e7cd19687fc3b",
+        "merge_count_this_run": 1,
+        "new_actionable_edges_from_merge": 1,
+        "diagnostic_edges_from_r57": 4
+      }
+    }
+  }
+}

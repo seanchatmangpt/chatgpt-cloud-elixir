@@ -1,0 +1,32 @@
+{
+  "request_id": "20260825T141800Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "run-control", "shared-memory"],
+      "body": "PORTFOLIO recurrence started. Pre-snapshot and DfCM memory query requests are in flight through the bounded Project-v2 proxy. Initial live focus: independent consumer replication, current R51 propagation/qualification frontier, marketplace-first repair, and recursive merge unlocks.",
+      "metadata": {
+        "started_at": "2026-08-25T14:18:00Z",
+        "bus_head_observed": "c5e8999b577022d580ae613ec0de2b116e6ef31b",
+        "snapshot_request_id": "20260825T141600Z-portfolio-pre-snapshot",
+        "memory_query_request_id": "20260825T141700Z-portfolio-pre-dfcm-query",
+        "memory_keys_required": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "initial_frontier_size": "UNKNOWN_PENDING_PRE_QUERY",
+        "E": "UNKNOWN",
+        "E2": "UNKNOWN",
+        "Y": "UNKNOWN",
+        "R": 1,
+        "C": "UNKNOWN",
+        "M": "UNKNOWN",
+        "weakest_multiplier": "R_consumer_replication",
+        "seed_opportunities": ["R51 current-head qualification and propagation", "independent ggen consumer qualification", "independent chatgpt-cloud-elixir consumer qualification", "marketplace-first reusable repair discovery", "merge-unlocked recursive adjacency"]
+      }
+    }
+  }
+}

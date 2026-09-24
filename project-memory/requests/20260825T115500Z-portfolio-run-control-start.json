@@ -1,0 +1,33 @@
+{
+  "request_id": "20260825T115500Z-portfolio-run-control-start",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "dfcm/run-control/portfolio/current",
+      "title": "DfCM PORTFOLIO run control",
+      "kind": "dfcm.run-control",
+      "cell": "PORTFOLIO",
+      "standing": "RUNNING",
+      "tags": ["dfcm", "portfolio", "autocatalytic", "running"],
+      "body": "PORTFOLIO recurrence started from Project snapshot and current DfCM memory. Live GitHub revalidation is required before actuation. Initial remembered bottleneck is independent qualified consumer breadth: R51 merged a consumer-admission compiler but records 2 structurally admissible candidates versus target 10. Seed frontier includes consumer adapter qualification, R50 receipt return, downstream yield measurement, current-main reconciliation, and cross-repository qualification reuse.",
+      "metadata": {
+        "utc_start": "2026-08-25T11:52:00Z",
+        "bus_head": "9e62a2b4ce695d6ab2b91f06e544ee6f43f85101",
+        "project_id": "PVT_kwHOCCCFfc4BhZKe",
+        "project_title": "@seanchatmangpt's post-agi project",
+        "project_item_count_pre": 365,
+        "memory_keys_consumed": ["dfcm/frontier/current", "dfcm/ledger/current", "dfcm/measure/latest", "dfcm/explore/latest", "dfcm/select/latest", "dfcm/implement/latest", "dfcm/portfolio/latest"],
+        "initial_frontier_size": 18,
+        "E_initial": 4,
+        "E2_initial": "UNKNOWN_PENDING_LIVE_REVALIDATION",
+        "Y_initial": "UNKNOWN_PENDING_LIVE_REVALIDATION",
+        "R_initial": 1,
+        "C_initial": "UNKNOWN",
+        "M_initial": ">=1",
+        "weakest_multiplier": "independent qualified consumer breadth",
+        "seed_opportunities": ["qualify consumer adapters across distinct repositories", "return replay-verified consumer receipts", "measure downstream qualified yield", "reconcile useful stale branches to current defaults", "reuse canonical consumer-admission/qualification factories"]
+      }
+    }
+  }
+}

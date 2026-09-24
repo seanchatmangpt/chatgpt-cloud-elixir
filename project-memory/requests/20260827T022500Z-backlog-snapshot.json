@@ -1,0 +1,6 @@
+{
+  "request_id": "20260827T022500Z-backlog-snapshot",
+  "operation": "project.snapshot",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {}
+}
