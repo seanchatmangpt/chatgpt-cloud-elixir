@@ -57,3 +57,12 @@ classification = "projection drift from canonical source"
 repair = "README mirrors capsule.toml; the ex4pm 426455b re-pin is recorded as refused (upstream test defects)"
 guards = ["rail-guard-tests"]
 refs = ["capsules/process-intelligence/README.md"]
+
+[[failure]]
+id = "position-dependent-source-set-falsifier-2026-09-24"
+observed = "65-source expansion left AUTONOMIC_CONTRACT=ALIVE but court-tests failed because test_declared_but_not_included_source_is_refused assumed frozen-duckdb was the terminal includesSource member"
+failed_transition = "test fixture mutation after lawful capability-graph growth"
+classification = "test encoded list position instead of semantic source-set invariant"
+repair = "remove the selected include token independent of position; keep the declared CapabilitySource block so the court tests the intended set mismatch"
+guards = ["court-tests"]
+refs = ["tests/test_autonomic_contract.py"]
