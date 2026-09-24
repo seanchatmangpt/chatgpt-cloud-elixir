@@ -4,6 +4,7 @@ import json
 import os
 import pathlib
 import threading
+import tempfile
 import unittest
 import sys
 from contextlib import redirect_stdout
@@ -223,6 +224,130 @@ class XaasRuntimeTests(unittest.TestCase):
     def test_base_url_refuses_unknown_mcp_shape(self):
         with self.assertRaises(ValueError):
             _ = bridge.Target("https://example.com/other", None).base_url
+
+
+    def request_file(self, document, *, filename=None, require_config=False):
+        temp = tempfile.TemporaryDirectory()
+        root = pathlib.Path(temp.name)
+        request_id = document.get("request_id", "request") if isinstance(document, dict) else "request"
+        request = root / (filename or f"{request_id}.json")
+        receipt = root / "receipts" / f"{request.stem}.receipt.json"
+        request.write_text(json.dumps(document))
+        args = type("A", (), {
+            "request": request,
+            "receipt": receipt,
+            "timeout": 2,
+            "require_config": require_config,
+        })()
+        return temp, args, receipt
+
+    def test_request_file_probe_round_trip_writes_receipt(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "probe-1",
+            "operation": "fabric.probe",
+            "payload": {},
+        }
+        temp, args, receipt = self.request_file(doc)
+        old = dict(os.environ)
+        os.environ["XAAS_MCP_URL"] = self.url
+        os.environ["XAAS_MCP_TOKEN"] = "secret-value"
+        try:
+            row = bridge.run_request_file(args)
+        finally:
+            os.environ.clear()
+            os.environ.update(old)
+        self.addCleanup(temp.cleanup)
+        self.assertEqual(row["standing"], "ALIVE")
+        self.assertEqual(row["request_id"], "probe-1")
+        self.assertEqual(row["request_document_sha256"], bridge.digest(doc))
+        self.assertEqual(json.loads(receipt.read_text())["standing"], "ALIVE")
+        self.assertNotIn("secret-value", receipt.read_text())
+
+    def test_request_submit_requires_exact_subject_without_network(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "submit-no-subject",
+            "operation": "run.submit",
+            "payload": {"goal": "fix it"},
+        }
+        row = bridge.execute_request_document(doc, self.target, 2)
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "EXACT_SUBJECT_REQUIRED")
+        self.assertEqual(row["request_document_sha256"], bridge.digest(doc))
+        self.assertEqual(Handler.calls, [])
+
+    def test_request_submit_refuses_non_zcode_provider_without_network(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "submit-other-provider",
+            "operation": "run.submit",
+            "payload": {"goal": "fix it", "exact_subject": "repo@sha", "provider": "other"},
+        }
+        row = bridge.execute_request_document(doc, self.target, 2)
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "PROVIDER_UNSUPPORTED")
+        self.assertEqual(Handler.calls, [])
+
+    def test_request_file_filename_mismatch_still_writes_receipt(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "canonical-id",
+            "operation": "fabric.probe",
+            "payload": {},
+        }
+        temp, args, receipt = self.request_file(doc, filename="wrong-name.json")
+        self.addCleanup(temp.cleanup)
+        row = bridge.run_request_file(args)
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "REQUEST_FILENAME_MISMATCH")
+        self.assertEqual(row["request_document_sha256"], bridge.digest(doc))
+        self.assertEqual(json.loads(receipt.read_text())["reason"], "REQUEST_FILENAME_MISMATCH")
+        self.assertEqual(Handler.calls, [])
+
+    def test_request_file_require_config_blocks_without_secrets_and_writes_receipt(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "missing-config",
+            "operation": "fabric.probe",
+            "payload": {},
+        }
+        temp, args, receipt = self.request_file(doc, require_config=True)
+        self.addCleanup(temp.cleanup)
+        old = dict(os.environ)
+        os.environ.pop("XAAS_MCP_URL", None)
+        os.environ.pop("XAAS_MCP_TOKEN", None)
+        try:
+            row = bridge.run_request_file(args)
+        finally:
+            os.environ.clear()
+            os.environ.update(old)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertIn("XAAS_MCP_URL", row["detail"])
+        self.assertIn("XAAS_MCP_TOKEN", row["detail"])
+        self.assertEqual(json.loads(receipt.read_text())["standing"], "BLOCKED")
+        self.assertEqual(Handler.calls, [])
+
+    def test_request_epoch_receipts_validates_uuid_before_network(self):
+        bad = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "bad-epoch",
+            "operation": "epoch.receipts",
+            "payload": {"epoch_id": "not-a-uuid"},
+        }
+        row = bridge.execute_request_document(bad, self.target, 2)
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "EPOCH_ID_INVALID")
+        self.assertEqual(Handler.calls, [])
+
+        good = dict(bad)
+        good["request_id"] = "good-epoch"
+        good["payload"] = {"epoch_id": "11111111-1111-1111-1111-111111111111"}
+        row = bridge.execute_request_document(good, self.target, 2)
+        self.assertEqual(row["standing"], "ALIVE")
+        self.assertEqual(row["response"]["receipts"][0]["outcome"], "alive")
+
 
 
 if __name__ == "__main__":

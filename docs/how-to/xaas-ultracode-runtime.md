@@ -119,6 +119,39 @@ Without `--allow-do`, no network request is sent and the bridge emits
 `REFUSED_AUTHORITY / EXPLICIT_DO_ACK_REQUIRED`. Supplying the flag still grants
 nothing: XaaS must independently admit the lease and registered resource/action.
 
+## GitHub relay for egress-blocked ChatGPT containers
+
+When the current ChatGPT execution container cannot reach XaaS over outbound
+TCP/DNS, direct HTTP is not a lawful substitute for observed connectivity.
+This repository therefore reuses its existing GitHub request/receipt transport
+pattern:
+
+```text
+ChatGPT GitHub connector
+  -> xaas-runtime/requests/<request_id>.json
+  -> .github/workflows/xaas-runtime-proxy.yml
+  -> protected GitHub Environment "xaas-runtime"
+  -> XaaS Ultracode
+  -> xaas-runtime/receipts/<request_id>.receipt.json
+```
+
+Configure `XAAS_MCP_URL` and `XAAS_MCP_TOKEN` as secrets on the
+`xaas-runtime` GitHub Environment. The workflow's secret-bearing surface is
+strictly smaller than the direct client: it accepts only `fabric.probe`,
+`run.submit`, and `epoch.receipts`. Generic `tools/call` and `actuate`
+are not relay operations.
+
+Request documents use schema
+`chatgpt-cloud.xaas-runtime-request/1`; the filename must equal
+`<request_id>.json`. Every parsed request is digest-bound into its operation
+receipt. See [the transport directory](../../xaas-runtime/README.md) for exact
+request examples.
+
+A GitHub workflow run is transport, not standing. `run.submit` remains
+`PARTIAL_ALIVE` with downstream `UNKNOWN` until ZCode actually claims the
+epoch, the configured verifier court passes, XaaS seals a receipt, and replay
+confirms the exact subject.
+
 ## Local court
 
 The bridge has no third-party Python dependencies:
@@ -128,10 +161,11 @@ python3 -m py_compile scripts/xaas-runtime.py
 python3 -m unittest -v tests/test_xaas_runtime.py
 ```
 
-The test court covers contract discovery, missing-tool falsification, Bearer
+The 16-case test court covers contract discovery, missing-tool falsification, Bearer
 propagation without token leakage, ZCode-default submission, receipt reads,
 typed authentication/tool refusals, network blockage, successful
-`PARTIAL_ALIVE` submission exit semantics, and the local `actuate` fence.
+`PARTIAL_ALIVE` submission exit semantics, the local `actuate` fence, and
+GitHub-relay request admission/refusal behavior.
 
 ## Evidence ceiling
 

@@ -56,6 +56,8 @@ python3 scripts/xaas-runtime.py receipts <epoch-uuid>
 
 Run submission defaults to provider `zcode`, making the epoch claimable by the existing Ultracode ↔ ZCode `gall-work` lifecycle. A successful submission is `PARTIAL_ALIVE`, not subject `ALIVE`; the latter still requires real worker execution, verification, receipt sealing, and replay. The `actuate` DO verb additionally requires explicit `--allow-do` before the client will send it. See [XaaS Ultracode runtime bridge](docs/how-to/xaas-ultracode-runtime.md).
 
+When outbound network access is blocked in the ChatGPT container, use the repository-native GitHub relay instead of pretending the direct edge is alive: commit a bounded request under `xaas-runtime/requests/`; `.github/workflows/xaas-runtime-proxy.yml` executes it through the protected `xaas-runtime` GitHub Environment and commits the machine-readable operation receipt under `xaas-runtime/receipts/`. The relay intentionally excludes generic MCP and `actuate`. See [the XaaS runtime transport](xaas-runtime/README.md).
+
 ## Status model
 
 This repository uses a small explicit standing vocabulary:

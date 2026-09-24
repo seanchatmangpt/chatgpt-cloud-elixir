@@ -1,0 +1,180 @@
+name: XaaS Ultracode Runtime Proxy
+
+on:
+  push:
+    paths:
+      - ".github/workflows/xaas-runtime-proxy.yml"
+      - "scripts/xaas-runtime.py"
+      - "tests/test_xaas_runtime.py"
+      - "xaas-runtime/requests/*.json"
+  workflow_dispatch:
+    inputs:
+      request_path:
+        description: "Optional xaas-runtime/requests/*.json request to execute"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: xaas-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      request_count: ${{ steps.requests.outputs.count }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Verify bounded runtime client
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/xaas-runtime.py
+          python3 -m unittest -v tests/test_xaas_runtime.py
+
+      - name: Resolve request set
+        id: requests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .xaas-runtime
+          : > .xaas-runtime/requests.txt
+          dispatch_path="${{ inputs.request_path || '' }}"
+          if [[ -n "$dispatch_path" ]]; then
+            case "$dispatch_path" in
+              xaas-runtime/requests/*.json)
+                test -f "$dispatch_path"
+                printf '%s\n' "$dispatch_path" >> .xaas-runtime/requests.txt
+                ;;
+              *) echo "REFUSED[REQUEST_PATH_OUT_OF_SCOPE] $dispatch_path" >&2; exit 2 ;;
+            esac
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            before="${{ github.event.before }}"
+            after="${{ github.sha }}"
+            if [[ "$before" =~ ^0+$ ]]; then
+              git diff-tree --no-commit-id --name-only -r "$after" -- xaas-runtime/requests/ \
+                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
+            else
+              git diff --name-only --diff-filter=AM "$before" "$after" -- xaas-runtime/requests/ \
+                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
+            fi
+          fi
+          sort -u -o .xaas-runtime/requests.txt .xaas-runtime/requests.txt
+          count="$(grep -c . .xaas-runtime/requests.txt || true)"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Preserve request manifest
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: xaas-runtime-request-manifest-${{ github.run_id }}
+          path: .xaas-runtime/requests.txt
+          if-no-files-found: warn
+          retention-days: 30
+
+  proxy:
+    needs: validate
+    if: needs.validate.outputs.request_count != '0'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: xaas-runtime
+    env:
+      XAAS_MCP_URL: ${{ secrets.XAAS_MCP_URL }}
+      XAAS_MCP_TOKEN: ${{ secrets.XAAS_MCP_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Resolve request set from triggering commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .xaas-runtime xaas-runtime/receipts
+          : > .xaas-runtime/requests.txt
+          dispatch_path="${{ inputs.request_path || '' }}"
+          if [[ -n "$dispatch_path" ]]; then
+            case "$dispatch_path" in
+              xaas-runtime/requests/*.json)
+                test -f "$dispatch_path"
+                printf '%s\n' "$dispatch_path" >> .xaas-runtime/requests.txt
+                ;;
+              *) echo "REFUSED[REQUEST_PATH_OUT_OF_SCOPE] $dispatch_path" >&2; exit 2 ;;
+            esac
+          else
+            before="${{ github.event.before }}"
+            after="${{ github.sha }}"
+            if [[ "$before" =~ ^0+$ ]]; then
+              git diff-tree --no-commit-id --name-only -r "$after" -- xaas-runtime/requests/ \
+                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
+            else
+              git diff --name-only --diff-filter=AM "$before" "$after" -- xaas-runtime/requests/ \
+                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
+            fi
+          fi
+          sort -u -o .xaas-runtime/requests.txt .xaas-runtime/requests.txt
+
+      - name: Execute bounded XaaS requests
+        shell: bash
+        run: |
+          set -uo pipefail
+          failures=0
+          while IFS= read -r request; do
+            [[ -n "$request" ]] || continue
+            base="$(basename "$request" .json)"
+            receipt="xaas-runtime/receipts/${base}.receipt.json"
+            python3 scripts/xaas-runtime.py --timeout 30 request \
+              --request "$request" \
+              --receipt "$receipt" \
+              --require-config || failures=$((failures + 1))
+          done < .xaas-runtime/requests.txt
+          printf '%s\n' "$failures" > .xaas-runtime/failures.txt
+
+      - name: Commit receipts to transport branch
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "chatgpt-xaas-runtime[bot]"
+          git config user.email "chatgpt-xaas-runtime[bot]@users.noreply.github.com"
+          git add xaas-runtime/receipts/
+          git diff --cached --quiet && exit 0
+          git commit -m "receipt: XaaS Ultracode runtime proxy"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "REFUSED[RECEIPT_REBASE_CONFLICT]" >&2
+              exit 2
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep "$attempt"
+          done
+          echo "REFUSED[RECEIPT_PUSH_CONTENTION]" >&2
+          exit 3
+
+      - name: Upload operation receipts
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: xaas-runtime-receipts-${{ github.run_id }}
+          path: |
+            xaas-runtime/receipts/*.receipt.json
+            .xaas-runtime/requests.txt
+            .xaas-runtime/failures.txt
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce operation standing
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          failures="$(cat .xaas-runtime/failures.txt 2>/dev/null || echo 1)"
+          test "$failures" = "0"

@@ -15,10 +15,13 @@ import datetime as dt
 import hashlib
 import json
 import os
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 DEFAULT_MCP_URL = "http://localhost:4000/internal-api/execution/mcp"
@@ -34,6 +37,8 @@ EXPECTED_TOOLS = {
 SCHEMA = "chatgpt-cloud.xaas-runtime-receipt/1"
 EXPECTED_SERVER_NAME = "xaas-ultracode-lease"
 EXPECTED_PROTOCOL = "2025-03-26"
+REQUEST_SCHEMA = "chatgpt-cloud.xaas-runtime-request/1"
+REQUEST_ID = re.compile(r"^[A-Za-z0-9._-]{1,128}$")
 
 
 @dataclass(frozen=True)
@@ -72,7 +77,8 @@ def endpoint_identity(url: str) -> str:
 
 
 def resolve_target(env: dict[str, str] | None = None, url: str | None = None) -> Target:
-    env = env or os.environ
+    if env is None:
+        env = os.environ
     mcp_url = (url or env.get("XAAS_MCP_URL") or DEFAULT_MCP_URL).strip()
     token = (env.get("XAAS_MCP_TOKEN") or "").strip()
     return Target(mcp_url=mcp_url, authorization=f"Bearer {token}" if token else None)
@@ -251,6 +257,145 @@ def read_receipts(target: Target, epoch_id: str, timeout: float) -> dict[str, An
     )
 
 
+
+def local_request_receipt(
+    request_id: str,
+    operation: str,
+    standing: str,
+    reason: str,
+    detail: str | None = None,
+) -> dict[str, Any]:
+    row = {
+        "schema": SCHEMA,
+        "observed_at": utc_now(),
+        "subject": "xaas-ultracode-runtime-transport",
+        "standing_scope": "transport",
+        "action": operation,
+        "endpoint": None,
+        "authenticated": False,
+        "request_sha256": None,
+        "http_status": None,
+        "response": None,
+        "transport_error": None,
+        "standing": standing,
+        "reason": reason,
+        "replay": "python3 scripts/xaas-runtime.py request --request <request.json> --receipt <receipt.json> --require-config",
+        "request_id": request_id,
+        "operation": operation,
+    }
+    if detail:
+        row["detail"] = detail
+    return row
+
+
+def execute_request_document(
+    document: dict[str, Any],
+    target: Target | None,
+    timeout: float,
+    require_config: bool = False,
+) -> dict[str, Any]:
+    request_id = str(document.get("request_id") or "")
+    operation = str(document.get("operation") or "")
+
+    def bound(row: dict[str, Any]) -> dict[str, Any]:
+        row["request_id"] = request_id or "invalid"
+        row["operation"] = operation or "invalid"
+        row["request_document_sha256"] = digest(document)
+        return row
+
+    if document.get("schema") != REQUEST_SCHEMA:
+        return bound(local_request_receipt(request_id or "invalid", operation or "invalid", "REFUSED_REQUEST", "REQUEST_SCHEMA_MISMATCH"))
+    if not REQUEST_ID.fullmatch(request_id):
+        return bound(local_request_receipt(request_id or "invalid", operation or "invalid", "REFUSED_REQUEST", "REQUEST_ID_INVALID"))
+    payload = document.get("payload", {})
+    if not isinstance(payload, dict):
+        return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "PAYLOAD_NOT_OBJECT"))
+
+    if require_config:
+        missing = [name for name in ("XAAS_MCP_URL", "XAAS_MCP_TOKEN") if not os.environ.get(name, "").strip()]
+        if missing:
+            return bound(local_request_receipt(
+                request_id,
+                operation,
+                "BLOCKED",
+                "IRREDUCIBLE_TRANSPORT_CONFIG",
+                "missing environment: " + ",".join(missing),
+            ))
+    if target is None:
+        target = resolve_target()
+
+    if operation == "fabric.probe":
+        row = probe(target, timeout)
+    elif operation == "run.submit":
+        goal = payload.get("goal")
+        exact_subject = payload.get("exact_subject")
+        provider = payload.get("provider", "zcode")
+        if not isinstance(goal, str) or not goal.strip():
+            return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "GOAL_REQUIRED"))
+        if not isinstance(exact_subject, str) or not exact_subject.strip():
+            return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "EXACT_SUBJECT_REQUIRED"))
+        if provider != "zcode":
+            return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "PROVIDER_UNSUPPORTED"))
+        args = argparse.Namespace(
+            goal=goal,
+            provider="zcode",
+            worktree=payload.get("worktree"),
+            exact_subject=exact_subject,
+            verifier_suite=payload.get("verifier_suite"),
+            timeout=timeout,
+        )
+        row = submit_run(target, args)
+    elif operation == "epoch.receipts":
+        epoch_id = payload.get("epoch_id")
+        try:
+            normalized = str(uuid.UUID(str(epoch_id)))
+        except (ValueError, TypeError, AttributeError):
+            return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "EPOCH_ID_INVALID"))
+        row = read_receipts(target, normalized, timeout)
+    else:
+        return bound(local_request_receipt(request_id, operation or "invalid", "REFUSED_REQUEST", "OPERATION_UNSUPPORTED"))
+
+    return bound(row)
+
+
+def run_request_file(args: argparse.Namespace) -> dict[str, Any]:
+    request_path = args.request.resolve()
+    try:
+        document = json.loads(request_path.read_text())
+    except (OSError, json.JSONDecodeError) as error:
+        row = local_request_receipt(
+            request_path.stem or "invalid",
+            "invalid",
+            "BUILD_BROKEN",
+            "REQUEST_UNREADABLE",
+            str(error),
+        )
+    else:
+        if not isinstance(document, dict):
+            row = local_request_receipt(
+                request_path.stem or "invalid",
+                "invalid",
+                "REFUSED_REQUEST",
+                "REQUEST_NOT_OBJECT",
+            )
+            row["request_document_sha256"] = digest(document)
+        else:
+            request_id = str(document.get("request_id") or "")
+            if request_id and request_path.stem != request_id:
+                row = local_request_receipt(
+                    request_id,
+                    str(document.get("operation") or "invalid"),
+                    "REFUSED_REQUEST",
+                    "REQUEST_FILENAME_MISMATCH",
+                )
+                row["request_document_sha256"] = digest(document)
+            else:
+                row = execute_request_document(document, None, args.timeout, args.require_config)
+    args.receipt.parent.mkdir(parents=True, exist_ok=True)
+    args.receipt.write_text(json.dumps(row, indent=2, sort_keys=True) + "\n")
+    return row
+
+
 def parse_json_object(text: str) -> dict[str, Any]:
     value = json.loads(text)
     if not isinstance(value, dict):
@@ -290,6 +435,10 @@ def parser() -> argparse.ArgumentParser:
     submit.add_argument("--verifier-suite")
     receipts = sub.add_parser("receipts", help="read sealed receipts for one epoch")
     receipts.add_argument("epoch_id")
+    request = sub.add_parser("request", help="execute one bounded GitHub-relay request document")
+    request.add_argument("--request", type=Path, required=True)
+    request.add_argument("--receipt", type=Path, required=True)
+    request.add_argument("--require-config", action="store_true")
     return p
 
 
@@ -327,8 +476,10 @@ def main(argv: list[str] | None = None) -> int:
         row = mcp_call(target, args.method, params, args.timeout)
     elif args.command == "submit-run":
         row = submit_run(target, args)
-    else:
+    elif args.command == "receipts":
         row = read_receipts(target, args.epoch_id, args.timeout)
+    else:
+        row = run_request_file(args)
     # Receipts never contain the bearer token; target auth is represented only as a boolean.
     print(json.dumps(row, indent=2, sort_keys=True))
     return exit_code(row)
