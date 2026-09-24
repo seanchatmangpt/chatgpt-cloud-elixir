@@ -47,8 +47,16 @@ in replay commands.
 ## Verify the live fabric contract
 
 ```bash
-python3 scripts/xaas-runtime.py probe
+python3 scripts/xaas-runtime.py --require-config probe
 ```
+
+From a cloud agent (ChatGPT Cloud or Claude Code Cloud) always pass
+`--require-config`. Without it the client falls back to the local-dev default
+`http://localhost:4000/...`, and an unconfigured container would report
+`BLOCKED[NETWORK]` (connection refused) instead of the real edge. With it, a
+missing `XAAS_MCP_URL` / `XAAS_MCP_TOKEN` is reported as
+`BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` before any network call. Every direct
+receipt records `target_source` (`flag`, `env`, or `default`).
 
 `probe` performs MCP `initialize` and `tools/list`, then requires:
 

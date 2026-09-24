@@ -49,7 +49,7 @@ The cloud runtime also includes a stdlib-only client for the existing XaaS execu
 ```bash
 export XAAS_MCP_URL='https://<xaas-host>/internal-api/execution/mcp'
 export XAAS_MCP_TOKEN='<bearer-token>'
-python3 scripts/xaas-runtime.py probe
+python3 scripts/xaas-runtime.py --require-config probe   # cloud agents: never fall back to localhost
 python3 scripts/xaas-runtime.py submit-run --goal '<goal>' --exact-subject '<repo>@<sha>'
 python3 scripts/xaas-runtime.py receipts <epoch-uuid>
 ```

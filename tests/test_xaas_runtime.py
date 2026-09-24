@@ -349,6 +349,65 @@ class XaasRuntimeTests(unittest.TestCase):
         self.assertEqual(row["response"]["receipts"][0]["outcome"], "alive")
 
 
+    def run_main(self, argv, env):
+        old = dict(os.environ)
+        os.environ.pop("XAAS_MCP_URL", None)
+        os.environ.pop("XAAS_MCP_TOKEN", None)
+        os.environ.update(env)
+        out = io.StringIO()
+        try:
+            with redirect_stdout(out):
+                code = bridge.main(argv)
+        finally:
+            os.environ.clear()
+            os.environ.update(old)
+        return code, json.loads(out.getvalue())
+
+    def test_direct_require_config_blocks_before_localhost_default(self):
+        # Observed in Claude Code Cloud: without XAAS_* the direct probe fell
+        # back to localhost:4000 and reported NETWORK, misattributing the edge.
+        for command in (["probe"], ["receipts", "11111111-1111-1111-1111-111111111111"]):
+            code, row = self.run_main(["--require-config", *command], {})
+            self.assertEqual(code, 69)
+            self.assertEqual(row["standing"], "BLOCKED")
+            self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+            self.assertEqual(row["detail"], "missing environment: XAAS_MCP_URL,XAAS_MCP_TOKEN")
+            self.assertEqual(row["target_source"], "default")
+            self.assertIsNone(row["endpoint"])
+            self.assertNotIn("request_id", row)
+        self.assertEqual(Handler.calls, [])
+
+    def test_direct_require_config_blocks_on_missing_token_only(self):
+        code, row = self.run_main(["--require-config", "probe"], {"XAAS_MCP_URL": self.url})
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertEqual(row["detail"], "missing environment: XAAS_MCP_TOKEN")
+        self.assertEqual(Handler.calls, [])
+
+    def test_direct_require_config_passes_through_when_configured(self):
+        code, row = self.run_main(
+            ["--require-config", "probe"],
+            {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
+        )
+        self.assertEqual(code, 0)
+        self.assertEqual(row["standing"], "ALIVE")
+        self.assertEqual(row["target_source"], "env")
+        self.assertNotIn("secret-value", json.dumps(row))
+
+    def test_direct_probe_records_flag_target_source(self):
+        # Local-dev default is preserved, but the receipt names where the target came from.
+        code, row = self.run_main(["--url", self.url, "probe"], {})
+        self.assertEqual(row["target_source"], "flag")
+        self.assertEqual(row["standing"], "ALIVE")
+
+    def test_actuate_do_fence_survives_require_config(self):
+        code, row = self.run_main(
+            ["--require-config", "mcp", "tools/call", "--tool", "actuate", "--arguments", "{}"],
+            {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
+        )
+        self.assertEqual(code, 77)
+        self.assertEqual(row["reason"], "EXPLICIT_DO_ACK_REQUIRED")
+        self.assertEqual(Handler.calls, [])
+
 
 if __name__ == "__main__":
     unittest.main()

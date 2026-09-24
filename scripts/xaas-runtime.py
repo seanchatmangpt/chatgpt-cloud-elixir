@@ -76,6 +76,16 @@ def endpoint_identity(url: str) -> str:
     return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
 
 
+def target_source(url: str | None = None, env: dict[str, str] | None = None) -> str:
+    if env is None:
+        env = os.environ
+    if url:
+        return "flag"
+    if (env.get("XAAS_MCP_URL") or "").strip():
+        return "env"
+    return "default"
+
+
 def resolve_target(env: dict[str, str] | None = None, url: str | None = None) -> Target:
     if env is None:
         env = os.environ
@@ -288,6 +298,17 @@ def local_request_receipt(
     return row
 
 
+def missing_config(url: str | None = None, env: dict[str, str] | None = None) -> list[str]:
+    if env is None:
+        env = os.environ
+    missing = []
+    if not (url or env.get("XAAS_MCP_URL", "")).strip():
+        missing.append("XAAS_MCP_URL")
+    if not env.get("XAAS_MCP_TOKEN", "").strip():
+        missing.append("XAAS_MCP_TOKEN")
+    return missing
+
+
 def execute_request_document(
     document: dict[str, Any],
     target: Target | None,
@@ -312,7 +333,7 @@ def execute_request_document(
         return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "PAYLOAD_NOT_OBJECT"))
 
     if require_config:
-        missing = [name for name in ("XAAS_MCP_URL", "XAAS_MCP_TOKEN") if not os.environ.get(name, "").strip()]
+        missing = missing_config()
         if missing:
             return bound(local_request_receipt(
                 request_id,
@@ -420,6 +441,12 @@ def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--url", help="override XAAS_MCP_URL")
     p.add_argument("--timeout", type=float, default=15.0)
+    p.add_argument(
+        "--require-config",
+        dest="require_config_global",
+        action="store_true",
+        help="refuse to fall back to the localhost default; missing XAAS_MCP_URL/XAAS_MCP_TOKEN is BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]",
+    )
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("probe", help="initialize and verify the seven-tool Ultracode MCP contract")
     mcp = sub.add_parser("mcp", help="call an MCP method or fabric tool")
@@ -446,6 +473,24 @@ def main(argv: list[str] | None = None) -> int:
     p = parser()
     args = p.parse_args(argv)
     target = resolve_target(url=args.url)
+    if args.require_config_global and args.command != "request":
+        # Direct (non-relay) path: an absent target is a configuration edge, not a
+        # network edge. Never let the localhost default masquerade as NETWORK.
+        missing = missing_config(args.url)
+        if missing:
+            row = local_request_receipt(
+                "direct",
+                args.command,
+                "BLOCKED",
+                "IRREDUCIBLE_TRANSPORT_CONFIG",
+                "missing environment: " + ",".join(missing),
+            )
+            row.pop("request_id")
+            row.pop("operation")
+            row["target_source"] = target_source(args.url)
+            row["replay"] = f"python3 scripts/xaas-runtime.py --require-config {args.command}"
+            print(json.dumps(row, indent=2, sort_keys=True))
+            return exit_code(row)
     if args.command == "probe":
         row = probe(target, args.timeout)
     elif args.command == "mcp":
@@ -479,8 +524,11 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "receipts":
         row = read_receipts(target, args.epoch_id, args.timeout)
     else:
+        args.require_config = args.require_config or args.require_config_global
         row = run_request_file(args)
     # Receipts never contain the bearer token; target auth is represented only as a boolean.
+    if args.command != "request":
+        row.setdefault("target_source", target_source(args.url))
     print(json.dumps(row, indent=2, sort_keys=True))
     return exit_code(row)
 
