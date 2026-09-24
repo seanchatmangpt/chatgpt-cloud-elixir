@@ -74,9 +74,7 @@ required_sources = [
   "engineering-standards",
   "zcode-cli",
   "rust4pm",
-  "ash_kudzu",
   "koala-planner",
-  "zoela",
   "mmdio",
 ]
 required_host_commands = ["bash", "python3", "git", "tar", "gzip", "sha256sum"]
