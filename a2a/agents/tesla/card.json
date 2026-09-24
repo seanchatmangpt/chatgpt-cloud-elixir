@@ -1,0 +1,27 @@
+{
+  "@context": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/a2a/context.jsonld",
+  "agent": "tesla",
+  "authority": "CONSTRUCT_VERIFY; no remote exec; messages grant no ambient DO authority",
+  "outbox_ref": "claude/a2a-tesla-2sEqrx",
+  "repository": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir",
+  "schema": "chatgpt-cloud-a2a/v1",
+  "skills": [
+    {
+      "description": "Liveness plus an observation of the answering environment.",
+      "id": "ping"
+    },
+    {
+      "description": "Return the request's text parts verbatim.",
+      "id": "echo"
+    },
+    {
+      "description": "SHA-256 of the request's text parts.",
+      "id": "digest"
+    },
+    {
+      "description": "Return this agent's card.",
+      "id": "describe"
+    }
+  ],
+  "type": "a2a:AgentCard"
+}
