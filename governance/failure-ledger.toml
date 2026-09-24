@@ -78,9 +78,9 @@ refs = [".github/workflows/autonomic-manufacturing.yml", ".github/workflows/agi-
 
 [[failure]]
 id = "private-sources-admitted-2026-09-24"
-observed = "ash_kudzu and zoela (private) were admitted; anonymous CI fetch cannot read them, and ash_kudzu as source-snapshot would ship private code into public capsule artifacts"
-failed_transition = "source-closure fetch and snapshot archival"
-classification = "access-authority boundary not typed in the graph; blocked edge would have failed the whole closure"
-repair = "cc:accessClass private; private => source-reference (court); fetcher types BLOCKED[IRREDUCIBLE_AUTHORITY] without CAPABILITY_SOURCES_TOKEN; public fetch failure stays fatal"
+observed = "two private repository identities were transiently admitted into the public capability graph during portfolio expansion"
+failed_transition = "public observation/admission boundary"
+classification = "privacy-fence violation: observation authority was incorrectly treated as publication authority"
+repair = "remove private repository identities from ontology and capsule; cc:privateIdentityProjection false makes any cc:accessClass private CapabilitySource a terminal refusal"
 guards = ["court-tests", "rail-guard-tests"]
-refs = ["scripts/fetch-capability-sources.sh", "scripts/verify-autonomic-contract.py"]
+refs = ["manufacturing/ontology.ttl", "scripts/verify-autonomic-contract.py", "tests/test_autonomic_contract.py"]
