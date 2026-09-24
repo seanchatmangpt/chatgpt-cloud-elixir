@@ -27,17 +27,14 @@ cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
     cc:Gymact, cc:AutofdeLab, cc:Autofde, cc:Ferroplan, cc:Fdegym, cc:Sregym,
     cc:Lifegym, cc:Ww3gym, cc:Rrgym, cc:Biblegym, cc:Chatgptgym, cc:Claudecodegym,
     cc:AwesomeAiGyms, cc:Affidavit, cc:Truex, cc:Clnrm, cc:ChicagoTddTools, cc:LspMax,
-    cc:AntiLlmCheatLsp, cc:CargoCicd, cc:Bcinr, cc:FrozenDuckdb, cc:EngineeringStandards, cc:ZcodeCli, cc:Rust4pm, cc:AshKudzu,
-    cc:KoalaPlanner, cc:Zoela, cc:Mmdio .
+    cc:AntiLlmCheatLsp, cc:CargoCicd, cc:Bcinr, cc:FrozenDuckdb, cc:EngineeringStandards, cc:ZcodeCli, cc:Rust4pm,
+    cc:KoalaPlanner, cc:Mmdio .
 
 # Admission is a subset of observation. Every public repository owned by
 # seanchatmangpt is in observation scope; only the enumerated cc:CapabilitySource
-# members below are admitted into the capsule at exact SHAs. Observation authority
-# is not publication authority: a private repository appears here only when its owner
-# explicitly admits it, typed cc:accessClass "private". Such a source is always
-# source-reference (never shipped in a capsule or public artifact). Without a read
-# credential it is recorded as BLOCKED[IRREDUCIBLE_AUTHORITY], never silently skipped.
-# Refresh admitted SHAs with scripts/refresh-capability-sources.py.
+# members below are admitted into the capsule at exact SHAs. Private repository
+# identities are deliberately never named here: observation authority is not
+# publication authority. Refresh admitted SHAs with scripts/refresh-capability-sources.py.
 cc:OwnerPublicCatalog a cc:ObservationScope ;
   dcterms:title "Public GitHub repository catalog for seanchatmangpt" ;
   cc:repositoryPredicate "owner=seanchatmangpt AND visibility=public" ;
@@ -718,18 +715,6 @@ cc:Rust4pm a cc:CapabilitySource ;
   cc:requiredStanding "exact-source-present" ;
   cc:admissionBasis "owner-project" .
 
-cc:AshKudzu a cc:CapabilitySource ;
-  skos:prefLabel "ash_kudzu" ;
-  dcterms:source <https://github.com/seanchatmangpt/ash_kudzu> ;
-  cc:repository "seanchatmangpt/ash_kudzu" ;
-  cc:commitSha "dd182bba9ed5ce252fe997b987415ed69742208a" ;
-  cc:role "Ash-native ontology extraction, reconstruction, public alignment, and SHACL admission compiler" ;
-  cc:capitalClass "semantic-admission" ;
-  cc:executionMode "source-reference" ;
-  cc:requiredStanding "exact-source-identified" ;
-  cc:admissionBasis "beam-ash-family" ;
-  cc:accessClass "private" .
-
 cc:KoalaPlanner a cc:CapabilitySource ;
   skos:prefLabel "koala-planner" ;
   dcterms:source <https://github.com/seanchatmangpt/koala-planner> ;
@@ -740,18 +725,6 @@ cc:KoalaPlanner a cc:CapabilitySource ;
   cc:executionMode "source-reference" ;
   cc:requiredStanding "exact-source-identified" ;
   cc:admissionBasis "planning-research" .
-
-cc:Zoela a cc:CapabilitySource ;
-  skos:prefLabel "zoela" ;
-  dcterms:source <https://github.com/seanchatmangpt/zoela> ;
-  cc:repository "seanchatmangpt/zoela" ;
-  cc:commitSha "ddc299048e12557c4b9831b38a6dee5669e8a136" ;
-  cc:role "ZOE tenant and human-surface projection over XaaS with offline state and receipt-backed client intent" ;
-  cc:capitalClass "product-projection" ;
-  cc:executionMode "source-reference" ;
-  cc:requiredStanding "exact-source-identified" ;
-  cc:admissionBasis "project-memory-workstream" ;
-  cc:accessClass "private" .
 
 cc:Mmdio a cc:CapabilitySource ;
   skos:prefLabel "mmdio" ;
@@ -783,6 +756,6 @@ cc:admissionBasis a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
 # already bound by each source's commit and tree SHA, and are never downloaded, so the
 # closure never depends on an LFS endpoint, quota, or credentials.
 cc:lfsObjectPolicy a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-# public (default when absent) | private: private sources are source-reference only and
-# are fetched only with CAPABILITY_SOURCES_TOKEN, otherwise typed BLOCKED.
+# public is the default. While cc:privateIdentityProjection is false, any private
+# CapabilitySource value is refused by the bootstrap court and may not enter this graph.
 cc:accessClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
