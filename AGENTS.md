@@ -34,6 +34,10 @@ Assume package-network access may fail even while the GitHub connector works. Do
 
 The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, and construction/consumer workflows. Generated archives, manifests, and receipts are projections; edit their owning version/capsule/build/verifier sources and regenerate rather than hand-editing outputs.
 
+## Topology law
+
+Repository topology is transport, never ontology. One canonical checkout per repository: development, integration, and verification happen here, on purpose branches. Auxiliary worktrees, shadow clones, and duplicate checkouts are forbidden — alternatives live as refs/branches and in the semantic graph, never as directories. Scratch clones are lawful only as runtime transport fixtures (transport branches, test fixtures, consumer-phase extraction) with zero semantic meaning. Work is routed machinery-first: deterministic scripts, gates, and generators own mechanical classes and carry receipts; LLM agents are reserved for genuinely unknown semantic edges — read-only fan-out and serialized writes in the canonical checkout. Deleting any copy requires a containment guard and a rollback ref, never bare `rm -rf`.
+
 ## Change / verification discipline
 
 Preserve compatibility and receipts before convenience. Prefer deterministic configuration to runner ambient state. Preserve alternate compatible variants instead of deleting possibilities to make one graph solve. Do not weaken tests or fake offline proof. Hosted CI supplements consumer execution; it does not replace it.
