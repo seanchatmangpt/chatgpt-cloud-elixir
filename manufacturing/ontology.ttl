@@ -734,7 +734,7 @@ cc:KoalaPlanner a cc:CapabilitySource ;
   cc:role "FOND HTN planner over extended HDDL using AO-star search and PANDA grounding" ;
   cc:capitalClass "planning-runtime" ;
   cc:executionMode "source-reference" ;
-  cc:requiredStanding "exact-source-present" ;
+  cc:requiredStanding "exact-source-identified" ;
   cc:admissionBasis "planning-research" .
 
 cc:Zoela a cc:CapabilitySource ;
@@ -745,7 +745,7 @@ cc:Zoela a cc:CapabilitySource ;
   cc:role "ZOE tenant and human-surface projection over XaaS with offline state and receipt-backed client intent" ;
   cc:capitalClass "product-projection" ;
   cc:executionMode "source-reference" ;
-  cc:requiredStanding "exact-source-present" ;
+  cc:requiredStanding "exact-source-identified" ;
   cc:admissionBasis "project-memory-workstream" .
 
 cc:Mmdio a cc:CapabilitySource ;
@@ -756,7 +756,7 @@ cc:Mmdio a cc:CapabilitySource ;
   cc:role "Mermaid-diagram universal I/O and semantic case-study representation substrate" ;
   cc:capitalClass "semantic-io" ;
   cc:executionMode "source-reference" ;
-  cc:requiredStanding "exact-source-present" ;
+  cc:requiredStanding "exact-source-identified" ;
   cc:admissionBasis "project-memory-workstream" .
 
 cc:releaseVersion a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
