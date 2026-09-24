@@ -90,3 +90,21 @@ flat `xaas-runtime/requests/*.json` paths, serializes receipt writes per branch,
 and commits machine-readable receipts back to the triggering branch. Workflow
 success is transport evidence only; subject `ALIVE` still requires the real
 Ultracode/ZCode court and replay at the exact admitted subject.
+
+## Qualification court
+
+The relay and direct client are permanently exercised by
+`tests/test_xaas_runtime.py`, including request-path admission, replay
+suppression, redirect refusal, endpoint redaction, protocol-shape validation,
+explicit DO fencing, and missing-config typing. The hardened runtime court is:
+
+```bash
+python3 -m py_compile scripts/xaas-runtime.py
+python3 -m unittest -v tests/test_xaas_runtime.py
+```
+
+The hardened PR court observed 36/36 tests passing. Live XaaS standing remains a
+separate deployment edge: until the protected `xaas-runtime` environment has
+`XAAS_MCP_URL` and `XAAS_MCP_TOKEN`, probes correctly produce
+`BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` without attempting a network request.
+
