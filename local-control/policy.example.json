@@ -1,44 +1,22 @@
 {
+  "_README": "EXAMPLE ONLY — least-privilege template. The ACTIVE policy lives OUTSIDE Git (e.g. ~/.config/chatgpt-cloud-elixir/local-control/policy.json). Copy this file, replace every REPLACE_WITH_* placeholder, then run: scripts/local_control_agent.py validate-policy --policy <path>. WARNING: an empty or missing allowed_operations list falls back to the agent's FULL default operation set — always list operations explicitly. An empty write_roots list denies ALL writes.",
   "repo": "seanchatmangpt/chatgpt-cloud-elixir",
   "branch": "local-control-bus",
-  "machine_id": "replace-with-stable-local-machine-id",
+  "machine_id": "REPLACE_WITH_HOSTNAME",
   "allowed_operations": [
     "system.snapshot",
     "filesystem.list",
-    "filesystem.read",
-    "filesystem.write",
-    "filesystem.mkdir",
-    "process.run",
-    "macos.open",
-    "macos.notify",
-    "macos.applescript.named"
+    "filesystem.read"
   ],
   "read_roots": [
-    "~/Projects",
-    "~/Downloads",
-    "/tmp"
+    "$HOME/REPLACE_WITH_READ_ROOT"
   ],
-  "write_roots": [
-    "~/Projects",
-    "/tmp"
-  ],
-  "allowed_executables": [
-    "git",
-    "gh",
-    "python3",
-    "elixir",
-    "mix"
-  ],
-  "allowed_apps": [
-    "Terminal",
-    "Visual Studio Code",
-    "Google Chrome"
-  ],
+  "write_roots": [],
+  "allowed_executables": [],
+  "allowed_apps": [],
+  "named_applescripts": {},
   "allow_open_urls": false,
   "allow_destructive": false,
-  "max_timeout_seconds": 600,
-  "max_output_bytes": 100000,
-  "named_applescripts": {
-    "finder.front": "tell application \"Finder\" to activate"
-  }
+  "max_timeout_seconds": 120,
+  "max_output_bytes": 65536
 }
