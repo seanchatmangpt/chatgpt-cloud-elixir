@@ -81,7 +81,11 @@ class BootstrapCourtTests(unittest.TestCase):
         self.assertRefused("strategic portfolio source dropped")
 
     def test_declared_but_not_included_source_is_refused(self):
-        self.edit("manufacturing/ontology.ttl", "cc:FrozenDuckdb .", "cc:Bcinr .")
+        ontology = (self.tmp / "manufacturing/ontology.ttl").read_text()
+        self.assertIn("cc:FrozenDuckdb, ", ontology)
+        (self.tmp / "manufacturing/ontology.ttl").write_text(
+            ontology.replace("cc:FrozenDuckdb, ", "", 1)
+        )
         self.assertRefused("cc:includesSource")
 
     def test_bootstrap_sha_drift_is_refused(self):
