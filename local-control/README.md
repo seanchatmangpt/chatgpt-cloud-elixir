@@ -47,7 +47,7 @@ tokens, or secrets in a request — request files are Git history in a public re
 ## Authority boundary
 
 - The **active policy lives outside Git**, installed at
-  `~/.config/chatgpt-cloud-elixir/local-control/policy.json` on enrolled machines.
+  `~/.config/chatgpt-local-control/policy.json` on enrolled machines.
   Git carries `local-control/policy.example.json` only.
 - **Remote requests cannot widen policy.** There is no request field that mutates policy,
   injects environment variables, carries arbitrary AppleScript text, or bypasses
@@ -92,7 +92,7 @@ The service runs, with `KeepAlive`:
 
 ```bash
 python3 scripts/local_control_agent.py serve \
-  --policy ~/.config/chatgpt-cloud-elixir/local-control/policy.json \
+  --policy ~/.config/chatgpt-local-control/policy.json \
   --checkout ~/.local/share/chatgpt-local-control/repo \
   --state-dir ~/.local/state/chatgpt-local-control \
   --poll-seconds 15
@@ -114,7 +114,7 @@ tail -f ~/Library/Logs/chatgpt-local-control/stderr.log
 
 ```bash
 python3 scripts/local_control_agent.py validate-policy \
-  --policy ~/.config/chatgpt-cloud-elixir/local-control/policy.json
+  --policy ~/.config/chatgpt-local-control/policy.json
 ```
 
 Prints the resolved machine ID, allowed operations, roots, and executables. Edit the
