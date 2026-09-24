@@ -27,7 +27,8 @@ cc:AutonomicManufacturingCapsule a cc:ManufacturingCapsule ;
     cc:Gymact, cc:AutofdeLab, cc:Autofde, cc:Ferroplan, cc:Fdegym, cc:Sregym,
     cc:Lifegym, cc:Ww3gym, cc:Rrgym, cc:Biblegym, cc:Chatgptgym, cc:Claudecodegym,
     cc:AwesomeAiGyms, cc:Affidavit, cc:Truex, cc:Clnrm, cc:ChicagoTddTools, cc:LspMax,
-    cc:AntiLlmCheatLsp, cc:CargoCicd, cc:Bcinr, cc:FrozenDuckdb .
+    cc:AntiLlmCheatLsp, cc:CargoCicd, cc:Bcinr, cc:FrozenDuckdb, cc:EngineeringStandards, cc:ZcodeCli, cc:Rust4pm, cc:AshKudzu,
+    cc:KoalaPlanner, cc:Zoela, cc:Mmdio .
 
 # Admission is a subset of observation. Every public repository owned by
 # seanchatmangpt is in observation scope; only the enumerated cc:CapabilitySource
@@ -678,6 +679,83 @@ cc:FrozenDuckdb a cc:CapabilitySource ;
   cc:role "prebuilt DuckDB binary via builder sub-crate" ;
   cc:capitalClass "systems-runtime" ;
   cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:EngineeringStandards a cc:CapabilitySource ;
+  skos:prefLabel "engineering-standards" ;
+  dcterms:source <https://github.com/seanchatmangpt/engineering-standards> ;
+  cc:repository "seanchatmangpt/engineering-standards" ;
+  cc:commitSha "610944c48bce6377291c088a3e07775e9ef2908b" ;
+  cc:role "canonical engineering, SA2A, Semantic Jira, repository process, and AI-assistant standards root" ;
+  cc:capitalClass "constitutional-specification" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:ZcodeCli a cc:CapabilitySource ;
+  skos:prefLabel "zcode-cli" ;
+  dcterms:source <https://github.com/seanchatmangpt/zcode-cli> ;
+  cc:repository "seanchatmangpt/zcode-cli" ;
+  cc:commitSha "32093eafc2f1cc202ace2cded38b72ec1f81e4ba" ;
+  cc:role "receipted agent-worker CLI and exact-head execution substrate for queued GALL work" ;
+  cc:capitalClass "execution-runtime" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Rust4pm a cc:CapabilitySource ;
+  skos:prefLabel "rust4pm" ;
+  dcterms:source <https://github.com/seanchatmangpt/rust4pm> ;
+  cc:repository "seanchatmangpt/rust4pm" ;
+  cc:commitSha "2803959fc801fdc1d70f3be35495026f09194cbd" ;
+  cc:role "Rust process-mining substrate with OCEL/XES structures plus CLI and Python bindings" ;
+  cc:capitalClass "process-intelligence" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "owner-project" .
+
+cc:AshKudzu a cc:CapabilitySource ;
+  skos:prefLabel "ash_kudzu" ;
+  dcterms:source <https://github.com/seanchatmangpt/ash_kudzu> ;
+  cc:repository "seanchatmangpt/ash_kudzu" ;
+  cc:commitSha "dd182bba9ed5ce252fe997b987415ed69742208a" ;
+  cc:role "Ash-native ontology extraction, reconstruction, public alignment, and SHACL admission compiler" ;
+  cc:capitalClass "semantic-admission" ;
+  cc:executionMode "source-snapshot" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "beam-ash-family" .
+
+cc:KoalaPlanner a cc:CapabilitySource ;
+  skos:prefLabel "koala-planner" ;
+  dcterms:source <https://github.com/seanchatmangpt/koala-planner> ;
+  cc:repository "seanchatmangpt/koala-planner" ;
+  cc:commitSha "6623ec265705ca2490c9be01d649235056d78183" ;
+  cc:role "FOND HTN planner over extended HDDL using AO-star search and PANDA grounding" ;
+  cc:capitalClass "planning-runtime" ;
+  cc:executionMode "source-reference" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "planning-research" .
+
+cc:Zoela a cc:CapabilitySource ;
+  skos:prefLabel "zoela" ;
+  dcterms:source <https://github.com/seanchatmangpt/zoela> ;
+  cc:repository "seanchatmangpt/zoela" ;
+  cc:commitSha "ddc299048e12557c4b9831b38a6dee5669e8a136" ;
+  cc:role "ZOE tenant and human-surface projection over XaaS with offline state and receipt-backed client intent" ;
+  cc:capitalClass "product-projection" ;
+  cc:executionMode "source-reference" ;
+  cc:requiredStanding "exact-source-present" ;
+  cc:admissionBasis "project-memory-workstream" .
+
+cc:Mmdio a cc:CapabilitySource ;
+  skos:prefLabel "mmdio" ;
+  dcterms:source <https://github.com/seanchatmangpt/mmdio> ;
+  cc:repository "seanchatmangpt/mmdio" ;
+  cc:commitSha "e7c8165503641aa7118af7ef9dc8265b57bc3016" ;
+  cc:role "Mermaid-diagram universal I/O and semantic case-study representation substrate" ;
+  cc:capitalClass "semantic-io" ;
+  cc:executionMode "source-reference" ;
   cc:requiredStanding "exact-source-present" ;
   cc:admissionBasis "project-memory-workstream" .
 
