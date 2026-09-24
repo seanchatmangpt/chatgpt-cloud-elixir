@@ -144,7 +144,7 @@ mechanism = "Exact base and head SHAs, a canonical fetcher, exact-head CI eviden
 
 [modules.ecosystem-autonomy]
 guards = ["autonomic-court", "court-tests"]
-mechanism = "58 repositories composed with per-source identity, admission basis, a privacy fence, and a blocked-route record."
+mechanism = "65 repositories composed with per-source identity, admission basis, a privacy fence, and a blocked-route record."
 
 [modules.retire-yourself-capstone]
 guards = ["transport-tests", "rail-guard-tests", "conformance-court-tests", "script-syntax"]
