@@ -66,3 +66,12 @@ classification = "test encoded list position instead of semantic source-set inva
 repair = "remove the selected include token independent of position; keep the declared CapabilitySource block so the court tests the intended set mismatch"
 guards = ["court-tests"]
 refs = ["tests/test_autonomic_contract.py"]
+
+[[failure]]
+id = "pull-request-merge-ref-substitution-2026-09-24"
+observed = "AGI conformance receipt on PR #34 reported rail_sha 2f238759... while the branch head was 8aa73f08... because actions/checkout used GitHub's synthetic pull-request merge ref"
+failed_transition = "exact-head verification"
+classification = "silent subject substitution at CI checkout boundary"
+repair = "autonomic-manufacturing and agi-conformance checkout github.event.pull_request.head.sha on PR events, falling back to github.sha for push/workflow_dispatch"
+guards = ["rail-guard-tests"]
+refs = [".github/workflows/autonomic-manufacturing.yml", ".github/workflows/agi-conformance.yml", "tests/test_agi_rail_guards.py"]
