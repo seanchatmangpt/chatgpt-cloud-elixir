@@ -1,0 +1,20 @@
+{
+  "action": "fabric.probe",
+  "authenticated": false,
+  "detail": "missing environment: XAAS_MCP_URL,XAAS_MCP_TOKEN",
+  "endpoint": null,
+  "http_status": null,
+  "observed_at": "2026-09-24T22:43:30Z",
+  "operation": "fabric.probe",
+  "reason": "IRREDUCIBLE_TRANSPORT_CONFIG",
+  "replay": "python3 scripts/xaas-runtime.py request --request <request.json> --receipt <receipt.json> --require-config",
+  "request_document_sha256": "1e2ebf956834cfc123b455d1ec02b5e3356f78895672f2de8f9fc88e903f11e6",
+  "request_id": "20260924T224100Z-chatgpt-probe",
+  "request_sha256": null,
+  "response": null,
+  "schema": "chatgpt-cloud.xaas-runtime-receipt/1",
+  "standing": "BLOCKED",
+  "standing_scope": "transport",
+  "subject": "xaas-ultracode-runtime-transport",
+  "transport_error": null
+}
