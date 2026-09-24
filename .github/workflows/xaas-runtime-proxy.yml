@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/xaas-runtime-proxy.yml"
       - "scripts/xaas-runtime.py"
+      - "scripts/xaas-runtime-requests.sh"
       - "tests/test_xaas_runtime.py"
       - "xaas-runtime/requests/*.json"
   workflow_dispatch:
@@ -41,31 +42,16 @@ jobs:
       - name: Resolve request set
         id: requests
         shell: bash
+        # Untrusted inputs reach bash only through env, never through ${{ }} text.
+        env:
+          DISPATCH_PATH: ${{ inputs.request_path }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
           mkdir -p .xaas-runtime
-          : > .xaas-runtime/requests.txt
-          dispatch_path="${{ inputs.request_path || '' }}"
-          if [[ -n "$dispatch_path" ]]; then
-            case "$dispatch_path" in
-              xaas-runtime/requests/*.json)
-                test -f "$dispatch_path"
-                printf '%s\n' "$dispatch_path" >> .xaas-runtime/requests.txt
-                ;;
-              *) echo "REFUSED[REQUEST_PATH_OUT_OF_SCOPE] $dispatch_path" >&2; exit 2 ;;
-            esac
-          elif [[ "${{ github.event_name }}" == "push" ]]; then
-            before="${{ github.event.before }}"
-            after="${{ github.sha }}"
-            if [[ "$before" =~ ^0+$ ]]; then
-              git diff-tree --no-commit-id --name-only -r "$after" -- xaas-runtime/requests/ \
-                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
-            else
-              git diff --name-only --diff-filter=AM "$before" "$after" -- xaas-runtime/requests/ \
-                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
-            fi
-          fi
-          sort -u -o .xaas-runtime/requests.txt .xaas-runtime/requests.txt
+          bash scripts/xaas-runtime-requests.sh > .xaas-runtime/requests.txt
           count="$(grep -c . .xaas-runtime/requests.txt || true)"
           echo "count=$count" >> "$GITHUB_OUTPUT"
 
@@ -84,9 +70,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     environment: xaas-runtime
-    env:
-      XAAS_MCP_URL: ${{ secrets.XAAS_MCP_URL }}
-      XAAS_MCP_TOKEN: ${{ secrets.XAAS_MCP_TOKEN }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -94,34 +77,22 @@ jobs:
 
       - name: Resolve request set from triggering commit
         shell: bash
+        env:
+          DISPATCH_PATH: ${{ inputs.request_path }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
           mkdir -p .xaas-runtime xaas-runtime/receipts
-          : > .xaas-runtime/requests.txt
-          dispatch_path="${{ inputs.request_path || '' }}"
-          if [[ -n "$dispatch_path" ]]; then
-            case "$dispatch_path" in
-              xaas-runtime/requests/*.json)
-                test -f "$dispatch_path"
-                printf '%s\n' "$dispatch_path" >> .xaas-runtime/requests.txt
-                ;;
-              *) echo "REFUSED[REQUEST_PATH_OUT_OF_SCOPE] $dispatch_path" >&2; exit 2 ;;
-            esac
-          else
-            before="${{ github.event.before }}"
-            after="${{ github.sha }}"
-            if [[ "$before" =~ ^0+$ ]]; then
-              git diff-tree --no-commit-id --name-only -r "$after" -- xaas-runtime/requests/ \
-                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
-            else
-              git diff --name-only --diff-filter=AM "$before" "$after" -- xaas-runtime/requests/ \
-                | grep -E '^xaas-runtime/requests/[^/]+\.json$' >> .xaas-runtime/requests.txt || true
-            fi
-          fi
-          sort -u -o .xaas-runtime/requests.txt .xaas-runtime/requests.txt
+          bash scripts/xaas-runtime-requests.sh > .xaas-runtime/requests.txt
 
       - name: Execute bounded XaaS requests
         shell: bash
+        # The only step that sees the environment secrets.
+        env:
+          XAAS_MCP_URL: ${{ secrets.XAAS_MCP_URL }}
+          XAAS_MCP_TOKEN: ${{ secrets.XAAS_MCP_TOKEN }}
         run: |
           set -uo pipefail
           failures=0

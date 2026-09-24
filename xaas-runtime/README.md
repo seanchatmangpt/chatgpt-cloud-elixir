@@ -72,7 +72,20 @@ worktree and will not manufacture a cloud-container path into server authority.
 }
 ```
 
-The request filename must equal `<request_id>.json`. The workflow is scoped to
+The request filename must equal `<request_id>.json`. Request resolution is
+`scripts/xaas-runtime-requests.sh` (shared by both workflow jobs): paths must be
+flat `xaas-runtime/requests/<id>.json` regular files (no subdirectories, `..`,
+or symlinks), and a request that already has a receipt is **never
+re-executed**. Push re-runs, job re-runs, edits, and re-dispatches are no-ops.
+To retry after a BLOCKED receipt (for example once the environment secrets are
+configured), commit a NEW `request_id`. A new-branch or force-push (unresolvable
+`before`) falls back to every unreceipted request, not to an empty set.
+
+Receipts never carry the XaaS host: `endpoint` is `<scheme>://<redacted-host>/<path>`
+plus `endpoint_sha256` for equality checks. The client refuses URL userinfo and
+never follows redirects (which would replay the bearer). Only the execute step
+receives `XAAS_MCP_URL` / `XAAS_MCP_TOKEN`, and workflow inputs reach bash only
+through `env`. The workflow is scoped to
 flat `xaas-runtime/requests/*.json` paths, serializes receipt writes per branch,
 and commits machine-readable receipts back to the triggering branch. Workflow
 success is transport evidence only; subject `ALIVE` still requires the real

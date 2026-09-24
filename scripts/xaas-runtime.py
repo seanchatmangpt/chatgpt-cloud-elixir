@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import http.client
 import json
 import os
 import re
@@ -72,8 +73,29 @@ def digest(value: Any) -> str:
 
 
 def endpoint_identity(url: str) -> str:
+    """Receipt-safe endpoint: the host of XAAS_MCP_URL is secret-derived and receipts
+    are committed to git, so only scheme + path are kept; userinfo, host, port,
+    query, and fragment never reach a receipt. Equality is checkable via
+    endpoint_sha256."""
     parsed = urllib.parse.urlsplit(url)
-    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
+    return urllib.parse.urlunsplit((parsed.scheme, "<redacted-host>", parsed.path, "", ""))
+
+
+def endpoint_digest(url: str) -> str:
+    parsed = urllib.parse.urlsplit(url)
+    host = (parsed.hostname or "").lower()
+    port = f":{parsed.port}" if parsed.port else ""
+    return hashlib.sha256(f"{parsed.scheme}://{host}{port}{parsed.path}".encode()).hexdigest()
+
+
+class _RefuseRedirect(urllib.request.HTTPRedirectHandler):
+    """Never follow redirects: urllib would replay the bearer to the new location."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: D401
+        return None
+
+
+_OPENER = urllib.request.build_opener(_RefuseRedirect)
 
 
 def target_source(url: str | None = None, env: dict[str, str] | None = None) -> str:
@@ -101,6 +123,12 @@ def request_json(
     body: Any | None = None,
     timeout: float = 15.0,
 ) -> tuple[int, Any, str | None]:
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.username is not None or parsed.password is not None:
+        # Credentials belong in XAAS_MCP_TOKEN only; never hand userinfo to urllib/proxies.
+        return 0, None, "config:url_userinfo_refused"
+    if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+        return 0, None, "config:url_invalid"
     data = None if body is None else canonical_json(body)
     headers = {"accept": "application/json"}
     if data is not None:
@@ -109,14 +137,18 @@ def request_json(
         headers["authorization"] = target.authorization
     req = urllib.request.Request(url, data=data, headers=headers, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as response:
+        with _OPENER.open(req, timeout=timeout) as response:
             raw = response.read()
             status = response.status
     except urllib.error.HTTPError as error:
-        raw = error.read()
         status = error.code
+        if 300 <= status < 400:
+            return status, None, "redirect:refused"
+        raw = error.read()
     except (urllib.error.URLError, TimeoutError, OSError) as error:
         return 0, None, f"network:{error.__class__.__name__}:{error}"
+    except http.client.HTTPException as error:
+        return 0, None, f"protocol:http:{error.__class__.__name__}"
     try:
         payload = json.loads(raw.decode("utf-8")) if raw else None
     except (UnicodeDecodeError, json.JSONDecodeError) as error:
@@ -128,6 +160,10 @@ def classify_http(status: int, transport_error: str | None) -> tuple[str, str | 
     if transport_error:
         if transport_error.startswith("network:"):
             return "BLOCKED", "NETWORK"
+        if transport_error.startswith("config:"):
+            return "BLOCKED", "IRREDUCIBLE_TRANSPORT_CONFIG"
+        if transport_error.startswith("redirect:"):
+            return "BLOCKED", "REDIRECT_REFUSED"
         return "BUILD_BROKEN", "PROTOCOL"
     if 200 <= status < 300:
         return "ALIVE", None
@@ -159,6 +195,7 @@ def receipt(
         "standing_scope": "transport",
         "action": action,
         "endpoint": endpoint_identity(url),
+        "endpoint_sha256": endpoint_digest(url),
         "authenticated": authenticated,
         "request_sha256": digest(request_body) if request_body is not None else None,
         "http_status": status or None,
@@ -176,7 +213,9 @@ def mcp_call(target: Target, method: str, params: dict[str, Any] | None, timeout
         body["params"] = params
     status, payload, error = request_json("POST", target.mcp_url, target, body, timeout)
     standing, reason = classify_http(status, error)
-    if standing == "ALIVE" and isinstance(payload, dict):
+    if standing == "ALIVE" and not (isinstance(payload, dict) and ("result" in payload or payload.get("error"))):
+        standing, reason = "BUILD_BROKEN", "PROTOCOL_SHAPE"
+    elif standing == "ALIVE":
         if payload.get("error"):
             standing, reason = "REFUSED_REQUEST", "JSON_RPC_ERROR"
         result = payload.get("result")
@@ -249,6 +288,8 @@ def submit_run(target: Target, args: argparse.Namespace) -> dict[str, Any]:
         payload=payload, transport_error=error, authenticated=bool(target.authorization),
         replay="python3 scripts/xaas-runtime.py submit-run --goal <goal> [--worktree <xaas-host-path>]",
     )
+    if row["standing"] == "ALIVE" and not isinstance(payload, dict):
+        row["standing"], row["reason"] = "BUILD_BROKEN", "PROTOCOL_SHAPE"
     if row["standing"] == "ALIVE":
         row["standing"] = "PARTIAL_ALIVE"
         row["reason"] = "RUN_SUBMITTED_NOT_VERIFIED"
@@ -260,11 +301,14 @@ def read_receipts(target: Target, epoch_id: str, timeout: float) -> dict[str, An
     quoted = urllib.parse.quote(epoch_id, safe="")
     url = target.base_url + f"/internal-api/execution/epochs/{quoted}/receipts"
     status, payload, error = request_json("GET", url, target, None, timeout)
-    return receipt(
+    row = receipt(
         action="receipts", url=url, request_body=None, status=status,
         payload=payload, transport_error=error, authenticated=bool(target.authorization),
         replay=f"python3 scripts/xaas-runtime.py receipts {epoch_id}",
     )
+    if row["standing"] == "ALIVE" and not isinstance(payload, dict):
+        row["standing"], row["reason"] = "BUILD_BROKEN", "PROTOCOL_SHAPE"
+    return row
 
 
 
@@ -411,7 +455,17 @@ def run_request_file(args: argparse.Namespace) -> dict[str, Any]:
                 )
                 row["request_document_sha256"] = digest(document)
             else:
-                row = execute_request_document(document, None, args.timeout, args.require_config)
+                try:
+                    row = execute_request_document(document, None, args.timeout, args.require_config)
+                except ValueError as error:
+                    row = local_request_receipt(
+                        request_id or "invalid",
+                        str(document.get("operation") or "invalid"),
+                        "BLOCKED",
+                        "IRREDUCIBLE_TRANSPORT_CONFIG",
+                        str(error),
+                    )
+                    row["request_document_sha256"] = digest(document)
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     args.receipt.write_text(json.dumps(row, indent=2, sort_keys=True) + "\n")
     return row
@@ -498,7 +552,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.method == "tools/call":
             if not args.tool:
                 p.error("mcp tools/call requires --tool")
-            if args.tool == "actuate" and not args.allow_do:
+            if args.tool.strip().casefold() == "actuate" and not args.allow_do:
                 row = {
                     "schema": SCHEMA,
                     "observed_at": utc_now(),
@@ -506,6 +560,7 @@ def main(argv: list[str] | None = None) -> int:
                     "standing_scope": "transport",
                     "action": "mcp:tools/call:actuate",
                     "endpoint": endpoint_identity(target.mcp_url),
+                    "endpoint_sha256": endpoint_digest(target.mcp_url),
                     "authenticated": bool(target.authorization),
                     "request_sha256": digest(args.arguments),
                     "http_status": None,
@@ -519,10 +574,18 @@ def main(argv: list[str] | None = None) -> int:
                 return exit_code(row)
             params = {"name": args.tool, "arguments": args.arguments}
         row = mcp_call(target, args.method, params, args.timeout)
-    elif args.command == "submit-run":
-        row = submit_run(target, args)
-    elif args.command == "receipts":
-        row = read_receipts(target, args.epoch_id, args.timeout)
+    elif args.command in {"submit-run", "receipts"}:
+        try:
+            _ = target.base_url
+        except ValueError as error:
+            row = local_request_receipt("direct", args.command, "BLOCKED", "IRREDUCIBLE_TRANSPORT_CONFIG", str(error))
+            row.pop("request_id")
+            row.pop("operation")
+        else:
+            if args.command == "submit-run":
+                row = submit_run(target, args)
+            else:
+                row = read_receipts(target, args.epoch_id, args.timeout)
     else:
         args.require_config = args.require_config or args.require_config_global
         row = run_request_file(args)

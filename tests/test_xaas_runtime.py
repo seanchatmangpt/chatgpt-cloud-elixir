@@ -44,6 +44,14 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         body = self._body()
         type(self).calls.append(("POST", self.path, self.headers.get("authorization"), body))
+        if self.path == "/redirect/internal-api/execution/mcp":
+            self.send_response(307)
+            self.send_header("location", "/stolen")
+            self.send_header("content-length", "0")
+            self.end_headers()
+            return None
+        if self.path == "/plain/internal-api/execution/mcp":
+            return self._json(200, ["not", "json-rpc"])
         if type(self).auth_status != 200:
             return self._json(type(self).auth_status, {"error": "unauthorized"})
         if self.path == "/internal-api/execution/mcp":
@@ -88,6 +96,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         type(self).calls.append(("GET", self.path, self.headers.get("authorization"), None))
+        if self.path.startswith("/plain/"):
+            return self._json(200, ["not", "an", "object"])
         if self.path.startswith("/internal-api/execution/epochs/") and self.path.endswith("/receipts"):
             epoch = self.path.split("/")[4]
             return self._json(200, {
@@ -407,6 +417,223 @@ class XaasRuntimeTests(unittest.TestCase):
         self.assertEqual(code, 77)
         self.assertEqual(row["reason"], "EXPLICIT_DO_ACK_REQUIRED")
         self.assertEqual(Handler.calls, [])
+
+    def test_redirect_is_refused_and_bearer_not_replayed(self):
+        base = self.url.rsplit("/internal-api/", 1)[0]
+        target = bridge.Target(base + "/redirect/internal-api/execution/mcp", "Bearer secret-value")
+        row = bridge.probe(target, 2)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "REDIRECT_REFUSED")
+        self.assertEqual([c[1] for c in Handler.calls], ["/redirect/internal-api/execution/mcp"])
+        self.assertNotIn("secret-value", json.dumps(row))
+
+    def test_url_userinfo_is_refused_before_network_and_never_receipted(self):
+        port = self.url.split(":")[2].split("/")[0]
+        target = bridge.Target(
+            f"http://user:hunter2@127.0.0.1:{port}/internal-api/execution/mcp", "Bearer secret-value"
+        )
+        row = bridge.probe(target, 2)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertEqual(Handler.calls, [])
+        dumped = json.dumps(row)
+        for secret in ("hunter2", "user:", "127.0.0.1", port):
+            self.assertNotIn(secret, dumped)
+
+    def test_receipt_endpoint_redacts_secret_derived_host(self):
+        row = bridge.probe(self.target, 2)
+        self.assertEqual(row["endpoint"], "http://<redacted-host>/internal-api/execution/mcp")
+        self.assertNotIn("127.0.0.1", json.dumps(row))
+        self.assertEqual(len(row["endpoint_sha256"]), 64)
+        self.assertEqual(row["endpoint_sha256"], bridge.endpoint_digest(self.url))
+
+    def test_2xx_without_json_rpc_envelope_is_not_alive(self):
+        base = self.url.rsplit("/internal-api/", 1)[0]
+        target = bridge.Target(base + "/plain/internal-api/execution/mcp", "Bearer secret-value")
+        row = bridge.probe(target, 2)
+        self.assertEqual(row["standing"], "BUILD_BROKEN")
+        self.assertEqual(row["reason"], "PROTOCOL_SHAPE")
+        row = bridge.read_receipts(target, "11111111-1111-1111-1111-111111111111", 2)
+        self.assertEqual(row["standing"], "BUILD_BROKEN")
+        self.assertEqual(row["reason"], "PROTOCOL_SHAPE")
+
+    def test_http_protocol_violation_is_typed_not_crash(self):
+        import socket
+        srv = socket.socket()
+        srv.bind(("127.0.0.1", 0))
+        srv.listen(1)
+        port = srv.getsockname()[1]
+
+        def serve():
+            conn, _ = srv.accept()
+            conn.recv(65536)
+            conn.sendall(b"GARBAGE\r\n\r\n")
+            conn.close()
+
+        t = threading.Thread(target=serve, daemon=True)
+        t.start()
+        target = bridge.Target(f"http://127.0.0.1:{port}/internal-api/execution/mcp", None)
+        row = bridge.probe(target, 2)
+        t.join(timeout=2)
+        srv.close()
+        self.assertEqual(row["standing"], "BUILD_BROKEN")
+        self.assertEqual(row["reason"], "PROTOCOL")
+
+    def test_request_mode_bad_url_shape_still_writes_receipt(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "bad-shape",
+            "operation": "epoch.receipts",
+            "payload": {"epoch_id": "11111111-1111-1111-1111-111111111111"},
+        }
+        temp, args, receipt = self.request_file(doc, require_config=True)
+        self.addCleanup(temp.cleanup)
+        old = dict(os.environ)
+        os.environ["XAAS_MCP_URL"] = "http://127.0.0.1:1/mcp"
+        os.environ["XAAS_MCP_TOKEN"] = "secret-value"
+        try:
+            row = bridge.run_request_file(args)
+        finally:
+            os.environ.clear()
+            os.environ.update(old)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertEqual(json.loads(receipt.read_text())["request_id"], "bad-shape")
+        self.assertNotIn("secret-value", receipt.read_text())
+
+    def test_direct_submit_bad_url_shape_is_typed_not_crash(self):
+        code, row = self.run_main(
+            ["receipts", "11111111-1111-1111-1111-111111111111"],
+            {"XAAS_MCP_URL": "http://127.0.0.1:1/mcp", "XAAS_MCP_TOKEN": "secret-value"},
+        )
+        self.assertEqual(code, 69)
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+
+    def test_actuate_fence_is_case_and_space_insensitive(self):
+        for name in ("Actuate", " ACTUATE ", "actuate"):
+            code, row = self.run_main(
+                ["mcp", "tools/call", "--tool", name, "--arguments", "{}"],
+                {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
+            )
+            self.assertEqual(code, 77, name)
+            self.assertEqual(row["reason"], "EXPLICIT_DO_ACK_REQUIRED")
+        self.assertEqual(Handler.calls, [])
+
+RESOLVER = ROOT / "scripts" / "xaas-runtime-requests.sh"
+WORKFLOW = ROOT / ".github" / "workflows" / "xaas-runtime-proxy.yml"
+
+
+class RelayRequestResolverTests(unittest.TestCase):
+    def setUp(self):
+        import subprocess
+        self.sp = subprocess
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.repo = pathlib.Path(self.temp.name)
+        self.git("init", "-q", "-b", "main")
+        self.git("config", "user.email", "t@example.invalid")
+        self.git("config", "user.name", "t")
+        (self.repo / "xaas-runtime" / "requests").mkdir(parents=True)
+        (self.repo / "xaas-runtime" / "receipts").mkdir(parents=True)
+        (self.repo / "README").write_text("base\n")
+        self.base = self.commit("base")
+
+    def git(self, *args):
+        return self.sp.run(["git", *args], cwd=self.repo, check=True, capture_output=True, text=True).stdout.strip()
+
+    def commit(self, message):
+        self.git("add", "-A")
+        self.git("commit", "-q", "--allow-empty", "-m", message)
+        return self.git("rev-parse", "HEAD")
+
+    def add_request(self, name):
+        (self.repo / "xaas-runtime" / "requests" / name).write_text("{}\n")
+
+    def resolve(self, **env):
+        full = {"PATH": os.environ["PATH"], "EVENT_NAME": "push", **env}
+        proc = self.sp.run(["bash", str(RESOLVER)], cwd=self.repo, env=full, capture_output=True, text=True)
+        return proc.returncode, proc.stdout.split(), proc.stderr
+
+    def test_push_resolves_only_added_requests(self):
+        self.add_request("a.json")
+        after = self.commit("req")
+        code, out, _ = self.resolve(BEFORE_SHA=self.base, AFTER_SHA=after)
+        self.assertEqual((code, out), (0, ["xaas-runtime/requests/a.json"]))
+
+    def test_receipted_request_is_never_re_executed(self):
+        self.add_request("a.json")
+        after = self.commit("req")
+        (self.repo / "xaas-runtime" / "receipts" / "a.receipt.json").write_text("{}\n")
+        code, out, err = self.resolve(BEFORE_SHA=self.base, AFTER_SHA=after)
+        self.assertEqual((code, out), (0, []))
+        self.assertIn("SKIPPED[ALREADY_RECEIPTED]", err)
+        code, out, err = self.resolve(DISPATCH_PATH="xaas-runtime/requests/a.json", AFTER_SHA=after)
+        self.assertEqual((code, out), (0, []))
+
+    def test_unreachable_or_zero_before_falls_back_to_unreceipted_set(self):
+        self.add_request("a.json")
+        self.add_request("b.json")
+        (self.repo / "xaas-runtime" / "receipts" / "a.receipt.json").write_text("{}\n")
+        after = self.commit("reqs")
+        for before in ("0" * 40, "deadbeef" * 5, ""):
+            code, out, err = self.resolve(BEFORE_SHA=before, AFTER_SHA=after)
+            self.assertEqual((code, out), (0, ["xaas-runtime/requests/b.json"]), before)
+            self.assertIn("BEFORE_UNRESOLVABLE", err)
+
+    def test_nested_and_traversal_paths_are_refused(self):
+        nested = self.repo / "xaas-runtime" / "requests" / "sub"
+        nested.mkdir()
+        (nested / "x.json").write_text("{}\n")
+        (self.repo / "versions.json").write_text("{}\n")
+        after = self.commit("nested")
+        code, out, _ = self.resolve(BEFORE_SHA=self.base, AFTER_SHA=after)
+        self.assertEqual(out, [])
+        for bad in (
+            "xaas-runtime/requests/../../versions.json",
+            "xaas-runtime/requests/sub/x.json",
+            "versions.json",
+            'x"; echo PWNED; echo "',
+        ):
+            code, out, err = self.resolve(DISPATCH_PATH=bad, AFTER_SHA=after)
+            self.assertEqual(code, 2, bad)
+            self.assertEqual(out, [], bad)
+            self.assertIn("REFUSED[REQUEST_PATH_OUT_OF_SCOPE]", err)
+            self.assertNotIn("PWNED", err.replace(bad, ""))
+
+    def test_symlinked_request_is_refused(self):
+        (self.repo / "secret.json").write_text("{}\n")
+        (self.repo / "xaas-runtime" / "requests" / "link.json").symlink_to("../../secret.json")
+        after = self.commit("link")
+        code, out, err = self.resolve(BEFORE_SHA=self.base, AFTER_SHA=after)
+        self.assertEqual(out, [])
+        self.assertIn("REFUSED[REQUEST_PATH_SYMLINK]", err)
+
+    def test_workflow_never_interpolates_expressions_into_run_scripts(self):
+        in_run = False
+        run_indent = 0
+        offenders = []
+        for number, line in enumerate(WORKFLOW.read_text().splitlines(), 1):
+            stripped = line.lstrip()
+            indent = len(line) - len(stripped)
+            if in_run and stripped and indent <= run_indent:
+                in_run = False
+            if stripped.startswith("run:"):
+                in_run, run_indent = True, indent
+                if "${{" in stripped:
+                    offenders.append(number)
+                continue
+            if in_run and "${{" in line:
+                offenders.append(number)
+        self.assertEqual(offenders, [])
+
+    def test_secrets_are_scoped_to_the_execute_step_only(self):
+        text = WORKFLOW.read_text()
+        self.assertEqual(text.count("secrets.XAAS_MCP_TOKEN"), 1)
+        self.assertEqual(text.count("secrets.XAAS_MCP_URL"), 1)
+        execute = text.index("- name: Execute bounded XaaS requests")
+        self.assertGreater(text.index("secrets.XAAS_MCP_TOKEN"), execute)
+        self.assertLess(text.index("secrets.XAAS_MCP_TOKEN"), text.index("- name:", execute + 1))
+        self.assertNotIn("actuate", text)
 
 
 if __name__ == "__main__":
