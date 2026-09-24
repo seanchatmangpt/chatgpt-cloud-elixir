@@ -42,9 +42,7 @@ STRATEGIC_SOURCES = {
     "engineering-standards",
     "zcode-cli",
     "rust4pm",
-    "ash_kudzu",
     "koala-planner",
-    "zoela",
     "mmdio",
 }
 # source-snapshot ships as an archive; source-reference is bound by exact commit + tree
@@ -124,9 +122,8 @@ def main() -> int:
         access = literal(body, "cc:accessClass") or "public"
         if access not in ("public", "private"):
             refuse(f"source {name} has unknown accessClass {access}")
-        if access == "private" and fields["mode"] != "source-reference":
-            # A shipped snapshot would leak private source into capsules and public CI artifacts.
-            refuse(f"private source {name} must be source-reference, never {fields['mode']}")
+        if access == "private":
+            refuse(f"private source {name} forbidden by private identity projection fence")
         repositories.add(fields["repository"])
         locals_[local] = name
         found[name] = fields
