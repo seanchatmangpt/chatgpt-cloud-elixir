@@ -106,7 +106,7 @@ python3 scripts/ecosystem-up.py [--only a,b] [--verify] [--env-file FILE]   # of
 source ~/.chatgpt-cloud/runtime/env.sh
 python3 scripts/runtime-admit.py <name> <archive> --version ... --source-repo ... --source-sha ... \
   --builder ... --layout capsule|bin --smoke "..."                            # producer: admit a binary
-python3 scripts/refresh-capability-sources.py [--write --receipt FILE]      # drift check for all 65 sources
+python3 scripts/refresh-capability-sources.py [--write --receipt FILE]      # drift check for all 63 sources
 python3 -m unittest tests/test_runtime_transport.py tests/test_autonomic_contract.py
 ```
 
