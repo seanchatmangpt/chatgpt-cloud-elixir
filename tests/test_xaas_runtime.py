@@ -636,5 +636,24 @@ class RelayRequestResolverTests(unittest.TestCase):
         self.assertNotIn("actuate", text)
 
 
+class FabricReceiptParityTests(unittest.TestCase):
+    """Golden parity: Python canonical_json must digest the fixture shared with the
+    Elixir client (xaas-runtime/elixir) and xaas Xaas.Tunnel.Receipt byte-identically."""
+
+    GOLDEN = ROOT / "xaas-runtime" / "elixir" / "test" / "fixtures" / "receipt_golden.json"
+    EXPECTED = GOLDEN.with_suffix(".sha256")
+
+    def test_golden_receipt_digest_matches_elixir_client(self):
+        value = json.loads(self.GOLDEN.read_text(encoding="utf-8"))
+        expected = self.EXPECTED.read_text().strip()
+        self.assertEqual(bridge.digest(value), expected)
+        self.assertEqual(expected, "7d98905d89388c098e14c63226356f8b4cab61d6422c1017ea77e78162ef2870")
+
+    def test_golden_mutation_changes_digest(self):
+        value = json.loads(self.GOLDEN.read_text(encoding="utf-8"))
+        value["identity"]["idempotency_key"] = "golden-002"
+        self.assertNotEqual(bridge.digest(value), self.EXPECTED.read_text().strip())
+
+
 if __name__ == "__main__":
     unittest.main()
