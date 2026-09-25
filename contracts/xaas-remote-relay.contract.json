@@ -29,6 +29,12 @@
     "task_id": "payload.work_order_iri",
     "local_do_ack": "worker must independently require explicit local allow-do; authority_ref is necessary but not sufficient"
   },
+  "ocel_identity_env": [
+    "XAAS_LEASE_CWD",
+    "XAAS_WORK_ORDER_IRI",
+    "XAAS_EPOCH_ID",
+    "XAAS_BASE_SHA"
+  ],
   "admission_order": [
     "envelope_shape",
     "expiry",
