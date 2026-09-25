@@ -74,6 +74,60 @@ jobs:
         working-directory: cloud
         run: python3 -m unittest tests.test_xaas_relay
 
+      - name: Setup XaaS BEAM
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: "28.5.0.2"
+          elixir-version: "1.20.2"
+
+      - name: Native XaaS relay admission and replay court
+        working-directory: xaas
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/xaas-remote-relay-court.exs <<'ELIXIR'
+          Code.require_file(Path.expand("lib/xaas/ultracode/remote_relay.ex"))
+
+          alias Xaas.Ultracode.RemoteRelay
+          alias Xaas.Ultracode.RemoteRelay.Envelope
+
+          descriptor = %{
+            "schema" => "gall.work-lease/1",
+            "work_order_iri" => "urn:gall:work:chatgpt-roundtrip",
+            "checkpoint_iri" => "urn:gall:checkpoint:chatgpt-roundtrip",
+            "graph_digest" => "sha256:" <> String.duplicate("a", 64),
+            "repository_identity" => "seanchatmangpt/chatgpt-cloud-elixir",
+            "base_sha" => String.duplicate("b", 40),
+            "epoch_id" => "11111111-1111-4111-8111-111111111111",
+            "worker_id" => "chatgpt-roundtrip",
+            "worktree" => "/tmp/chatgpt-roundtrip"
+          }
+
+          envelope = %Envelope{
+            command_id: "cmd-chatgpt-roundtrip-1",
+            epoch_id: descriptor["epoch_id"],
+            task_id: descriptor["work_order_iri"],
+            sequence: 1,
+            intent_digest: descriptor["graph_digest"],
+            exact_subject: descriptor["repository_identity"] <> "@" <> descriptor["base_sha"],
+            verb: :actuate,
+            execution_manifest_digest: "manifest-chatgpt-roundtrip",
+            authority_ref: "court-authority",
+            channel: :control,
+            issued_at: 1,
+            expires_at: 10_000
+          }
+
+          state = RemoteRelay.new_state(execution_manifest_digest: "manifest-chatgpt-roundtrip")
+          {:ok, admitted} = RemoteRelay.admit_gall_work(state, envelope, descriptor, 5)
+          {:ok, bound} = RemoteRelay.bind_actuation_idempotency(envelope, %{})
+          "cmd-chatgpt-roundtrip-1" = bound["idempotency_key"]
+          {:ok, acknowledged} = RemoteRelay.acknowledge(admitted, envelope)
+          {:replay, ^acknowledged} = RemoteRelay.admit_gall_work(acknowledged, envelope, descriptor, 5)
+          IO.puts("XAAS_REMOTE_RELAY_ALIVE")
+          ELIXIR
+          elixir /tmp/xaas-remote-relay-court.exs
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
