@@ -57,6 +57,124 @@ class RelayTests(unittest.TestCase):
             **kwargs,
         )
 
+    def envelope(self, **overrides):
+        descriptor = self.descriptor()
+        value = {
+            "schema": "xaas.remote-relay-envelope/1",
+            "command_id": "cmd-1",
+            "epoch_id": descriptor["epoch_id"],
+            "task_id": descriptor["work_order_iri"],
+            "sequence": 1,
+            "intent_digest": "sha256:" + relay.digest(descriptor),
+            "exact_subject": f"{descriptor['repository_identity']}@{descriptor['base_sha']}",
+            "verb": "actuate",
+            "issued_at": 1,
+            "expires_at": 10_000,
+            "execution_manifest_digest": "manifest-1",
+            "authority_ref": "grant-1",
+            "channel": "control",
+            "payload": descriptor,
+        }
+        value.update(overrides)
+        return value
+
+    def run_envelope(self, envelope=None, **kwargs):
+        env = dict(os.environ)
+        env["COUNTER"] = str(self.counter)
+        return relay.run_envelope(
+            envelope or self.envelope(),
+            state_path=self.state,
+            manifest_digest=kwargs.pop("manifest_digest", "manifest-1"),
+            zcode=str(self.zcode),
+            env=env,
+            now_ms=kwargs.pop("now_ms", 5),
+            **kwargs,
+        )
+
+    def test_relay_envelope_executes_once_then_known_replay(self):
+        first = self.run_envelope(allow_do=True)
+        self.assertEqual(first["standing"], "ALIVE")
+        self.assertEqual(first["reason"], "EXECUTED_RECEIPTED")
+        self.assertTrue(first["executed"])
+        self.assertEqual(first["sequence"], 1)
+        self.assertEqual(first["authority_ref"], "grant-1")
+        self.assertEqual(self.counter.read_text(), "1")
+
+        second = self.run_envelope(allow_do=True)
+        self.assertEqual(second["standing"], "ALIVE")
+        self.assertEqual(second["reason"], "KNOWN_REPLAY")
+        self.assertFalse(second["executed"])
+        self.assertEqual(self.counter.read_text(), "1")
+
+    def test_relay_envelope_preserves_double_authority_gate(self):
+        row = self.run_envelope(allow_do=False)
+        self.assertEqual(row["standing"], "REFUSED_AUTHORITY")
+        self.assertEqual(row["reason"], "EXPLICIT_DO_ACK_REQUIRED")
+        self.assertFalse(row["executed"])
+        self.assertFalse(self.counter.exists())
+
+        missing = self.envelope(authority_ref=None)
+        row = self.run_envelope(missing, allow_do=True)
+        self.assertEqual(row["standing"], "REFUSED")
+        self.assertEqual(row["reason"], "AUTHORITY_REF_REQUIRED")
+        self.assertFalse(row["executed"])
+        self.assertFalse(self.counter.exists())
+
+    def test_relay_envelope_refuses_manifest_drift_expiry_and_sequence_gap(self):
+        drift = self.envelope(execution_manifest_digest="manifest-2")
+        row = self.run_envelope(drift, allow_do=True)
+        self.assertEqual(row["reason"], "EXECUTION_MANIFEST_DRIFT")
+        self.assertFalse(row["executed"])
+
+        expired = self.envelope(expires_at=4)
+        row = self.run_envelope(expired, allow_do=True, now_ms=5)
+        self.assertEqual(row["reason"], "COMMAND_EXPIRED")
+        self.assertFalse(row["executed"])
+
+        gap = self.envelope(command_id="cmd-2", sequence=2)
+        row = self.run_envelope(gap, allow_do=True)
+        self.assertEqual(row["reason"], "SEQUENCE_GAP")
+        self.assertFalse(row["executed"])
+        self.assertFalse(self.counter.exists())
+
+    def test_relay_envelope_binds_semantic_identity(self):
+        descriptor = self.descriptor()
+
+        bad_intent = self.envelope(intent_digest="sha256:" + "0" * 64)
+        self.assertEqual(
+            self.run_envelope(bad_intent, allow_do=True)["reason"],
+            "INTENT_DIGEST_MISMATCH",
+        )
+
+        bad_subject = self.envelope(exact_subject="owner/repo@" + "b" * 40)
+        self.assertEqual(
+            self.run_envelope(bad_subject, allow_do=True)["reason"],
+            "EXACT_SUBJECT_MISMATCH",
+        )
+
+        bad_epoch = self.envelope(epoch_id="22222222-2222-4222-8222-222222222222")
+        self.assertEqual(
+            self.run_envelope(bad_epoch, allow_do=True)["reason"],
+            "EPOCH_MISMATCH",
+        )
+
+        bad_task = self.envelope(task_id="urn:work:other")
+        self.assertEqual(
+            self.run_envelope(bad_task, allow_do=True)["reason"],
+            "TASK_MISMATCH",
+        )
+        self.assertFalse(self.counter.exists())
+        self.assertEqual(descriptor["work_order_iri"], "urn:work:1")
+
+    def test_relay_envelope_requires_control_channel_for_actuation(self):
+        row = self.run_envelope(
+            self.envelope(channel="observe"),
+            allow_do=True,
+        )
+        self.assertEqual(row["reason"], "AUTHORITY_REF_REQUIRED")
+        self.assertFalse(row["executed"])
+        self.assertFalse(self.counter.exists())
+
     def test_requires_explicit_local_do_ack(self):
         row = self.run()
         self.assertEqual(row["standing"], "REFUSED_AUTHORITY")
