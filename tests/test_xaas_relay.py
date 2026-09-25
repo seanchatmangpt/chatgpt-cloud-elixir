@@ -65,7 +65,7 @@ class RelayTests(unittest.TestCase):
             "epoch_id": descriptor["epoch_id"],
             "task_id": descriptor["work_order_iri"],
             "sequence": 1,
-            "intent_digest": "sha256:" + relay.digest(descriptor),
+            "intent_digest": descriptor["graph_digest"],
             "exact_subject": f"{descriptor['repository_identity']}@{descriptor['base_sha']}",
             "verb": "actuate",
             "issued_at": 1,
