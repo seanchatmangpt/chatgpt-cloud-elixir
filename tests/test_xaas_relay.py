@@ -11,6 +11,8 @@ SPEC = importlib.util.spec_from_file_location("xaas_relay", ROOT / "scripts" / "
 relay = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(relay)
 
+CONTRACT = json.loads((ROOT / "contracts" / "xaas-remote-relay.contract.json").read_text())
+
 
 class RelayTests(unittest.TestCase):
     def setUp(self):
@@ -90,6 +92,18 @@ class RelayTests(unittest.TestCase):
             now_ms=kwargs.pop("now_ms", 5),
             **kwargs,
         )
+
+    def test_shared_contract_pins_worker_admission_vocabulary(self):
+        self.assertEqual(CONTRACT["contract"], "xaas-remote-relay")
+        self.assertEqual(CONTRACT["contract_version"], 1)
+        self.assertEqual(CONTRACT["envelope_schema"], relay.ENVELOPE_SCHEMA)
+        self.assertEqual(
+            CONTRACT["gall_work_binding"]["intent_digest"],
+            "payload.graph_digest",
+        )
+        self.assertIn("AUTHORITY_REF_REQUIRED", CONTRACT["refusals"])
+        self.assertIn("SEQUENCE_GAP", CONTRACT["refusals"])
+        self.assertIn("KNOWN_REPLAY", CONTRACT["replay"]["after_ack"])
 
     def test_relay_envelope_executes_once_then_known_replay(self):
         first = self.run_envelope(allow_do=True)
