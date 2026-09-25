@@ -1,0 +1,50 @@
+{
+  "schema": "chatgpt-cloud-a2a-receipt/v1",
+  "subject": "a2a capabilities left UNKNOWN by 20260924T2341Z-faraday-tesla: git-less peer transport + Project v2 discovery index",
+  "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+  "base": "a28e2fd0 (origin/main) + cherry-picked 6c127d3e (a2a bus) and db955558 (first receipt)",
+  "observed_environment": {
+    "session": "cse_012sEqrxKt5JFnoMexvvDaw4",
+    "hostname": "vm",
+    "egress": "agent proxy; REST reads allowed, REST git-data writes refused"
+  },
+  "capabilities": {
+    "api_transport": {
+      "what": "--transport api: HTTPS-only GitHub REST git data API peer (no git binary, no clone); fast-forward-only ref PATCH (force:false), rebuild on 409/422",
+      "tests": "ApiTransportTest (6) against a fake GitHub REST server backed by a real bare repo: api<->git exchange both ways, new ref from default branch, lost race rebuilt (3 PATCHes), 401 -> BLOCKED with no ref created, matching-refs pagination + prune, remote URL parsing",
+      "live_read": {
+        "command": "python3 scripts/a2a.py --transport api --github-repo seanchatmangpt/chatgpt-cloud-elixir --peers 'claude/*' peers",
+        "exit": 0,
+        "result": "faraday ALIVE (db955558, 3 msgs), tesla ALIVE (85675d88, 3 msgs): both hash chains verified over REST only"
+      },
+      "live_write": {
+        "command": "python3 scripts/a2a.py --transport api --github-repo seanchatmangpt/chatgpt-cloud-elixir --agent tesla --ref claude/a2a-tesla-2sEqrx send --to faraday --skill ping --text \"api-transport ping from tesla (no git)\"",
+        "exit": 2,
+        "result": "BLOCKED: POST git/trees 403 'Write access to this GitHub API path is not permitted through this proxy.' Nothing written."
+      }
+    },
+    "project_v2_index": {
+      "what": "index (memory.upsert a2a/agents/<id>, kind a2a.agent_card, standing UNKNOWN, card digest) and discover (memory.query) as request files on the agent's own ref, executed by the existing Project v2 Memory Proxy Action; --use-index adds receipt-named refs to the listen set; the card on its own ref stays the only authority",
+      "tests": "ProjectIndexTest (4): request passes proxy.validate_request/normalize_record; index reaches feature/epsilon outside claude/* and completes a request/reply; spoofed and malformed index entries confer nothing; non-ALIVE receipt contributes no refs; no receipt -> UNKNOWN",
+      "gate_check": {
+        "command": "python3 scripts/project_memory_bus.py --request <a2a-tesla-discover-*.json> --receipt <out>  (no token)",
+        "exit": 3,
+        "result": "BLOCKED IRREDUCIBLE_AUTHORITY after envelope admission (expected without PROJECTS_TOKEN locally)"
+      }
+    }
+  },
+  "fixes_found_by_tests": [
+    "Git.ls used a pathspec (component match); now a string prefix like the API, so receipt-prefix lookups work on both transports",
+    "matching-refs queried without a trailing slash (egress proxy refuses non-canonical paths); fnmatch still filters exactly"
+  ],
+  "tests": "python3 -m unittest discover -s tests -p 'test_*.py' -> 121 OK (tests/test_a2a.py: 16)",
+  "standing": {
+    "api transport (fake GitHub, real git objects)": "ALIVE",
+    "api transport live read": "ALIVE",
+    "api transport live write from this container": "BLOCKED (egress proxy refuses REST writes)",
+    "ChatGPT container as peer": "UNKNOWN (not yet executed from a ChatGPT container; the api transport is the path)",
+    "Project v2 index request/receipt contract": "ALIVE (offline, real proxy validation + gate)",
+    "Project v2 index live round trip": "UNKNOWN (needs the proxy Action with PROJECTS_TOKEN on a pushed index/discover request)"
+  },
+  "replay": "python3 -m unittest tests/test_a2a.py && python3 scripts/a2a.py --transport api --github-repo seanchatmangpt/chatgpt-cloud-elixir peers"
+}

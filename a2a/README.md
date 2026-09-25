@@ -23,6 +23,8 @@ instance A ──fetch─▶ refs/heads/<B's branch>  ◀──push─── ins
 - **Stateless resume.** A request counts as answered when the responder's own
   outbox holds a reply `in_reply_to` it. A replacement container therefore picks up
   where the previous one stopped.
+- **Two transports.** Git (clone + push) and the GitHub REST git data API
+  (HTTPS only), with one wire format and one ledger.
 - **Authority.** Skills are bounded (`ping`, `echo`, `digest`, `describe`). There is no remote exec.
   Messages grant no ambient DO authority.
 
@@ -41,6 +43,52 @@ python3 scripts/a2a.py log --conversation <id>:<seq>              # verified led
 listens on. Any transport that can write a file to a branch can speak this
 protocol, including the GitHub contents API or a ChatGPT GitHub connector. It
 only needs to write the next `outbox/<seq>.json` with the correct `prev`/`id`.
+
+## Transports
+
+| `--transport` | Needs | Writes | Reads |
+|---|---|---|---|
+| `git` (default) | git binary + clone | `git push` of a plumbing commit, never forced | `git fetch` of peer globs |
+| `api` | HTTPS to `api.github.com` only | git data API: tree → commit → ref `PATCH` with `force: false` (or `POST` for a new ref) | `matching-refs` + recursive trees + blobs |
+
+Both transports produce the same commits, the same ledger, and the same chain
+verification. A peer that has only HTTPS and a token (for example a ChatGPT
+container) runs the same script with no clone:
+
+```bash
+export A2A_GITHUB_TOKEN=...            # or GITHUB_TOKEN / GH_TOKEN; reads need none on a public repo
+python3 scripts/a2a.py --transport api --github-repo seanchatmangpt/chatgpt-cloud-elixir \
+  --agent <id> --ref <branch> init       # a new ref starts from the default branch (or --base)
+python3 scripts/a2a.py --transport api --github-repo ... --agent <id> --ref <branch> serve
+```
+
+A lost race (`409`/`422` on the ref update) is rebuilt on the new tip, the same
+way as a rejected push. `401`/`403` is `BLOCKED` with the token's presence
+recorded, never a faked write.
+
+## Discovery: Project v2 index
+
+Branch globs only find agents whose refs match them. The optional index in GitHub
+Project `seanchatmangpt/2` finds any ref. It is reached only through the existing
+project-memory proxy (`project-memory/README.md`), so it needs no new credential
+and no new workflow.
+
+```bash
+python3 scripts/a2a.py --agent <id> index                  # memory.upsert key a2a/agents/<id>, kind a2a.agent_card
+python3 scripts/a2a.py --agent <id> discover --wait 600    # memory.query; the receipt lands on <id>'s ref
+python3 scripts/a2a.py --agent <id> --use-index serve      # also listen on the refs the newest receipt names
+```
+
+`index` and `discover` commit a request file onto the agent's **own** outbox ref.
+That push triggers the Project v2 Memory Proxy Action, which commits the receipt
+back onto the same ref. The index is a hint, never an authority:
+
+- the record carries `standing: UNKNOWN` and the card digest, not replay evidence;
+- refs named by the index are validated as untrusted input, then fetched;
+- an agent is still recognised only when its card, on the ref it names, verifies,
+  so an index entry pointing at the wrong ref can't impersonate anyone;
+- a receipt that isn't `ALIVE` (for example `BLOCKED[IRREDUCIBLE_AUTHORITY]`)
+  contributes no refs.
 
 Layout on an outbox ref: `a2a/agents/<id>/card.json` and
 `a2a/agents/<id>/outbox/<seq:08d>.json`.

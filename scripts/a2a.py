@@ -19,12 +19,26 @@ fetches to GitHub. This module turns that into an agent-to-agent bus:
   responder's own outbox has no message ``in_reply_to`` it, so a replacement
   container resumes without local state.
 
+Two transports speak the same wire format:
+
+- ``git`` (default): git plumbing against a local clone;
+- ``api``: HTTPS-only GitHub REST (git data API), for peers that have no git
+  binary or clone, e.g. a ChatGPT container. Writes are fast-forward-only ref
+  updates, so the one-writer/no-force law is the same on both transports.
+
+Discovery is branch globs (``--peers``) plus, optionally, the GitHub Project v2
+memory index (``index`` / ``discover`` / ``--use-index``): agents upsert their
+card digest into Project #2 through the existing project-memory proxy, and a
+discovering agent fetches the refs the index names. The index is only a hint;
+authority still comes from the card on its own ref.
+
 Skills are bounded and side-effect free (CONSTRUCT/VERIFY only); there is no
 remote-exec skill and a message never grants ambient DO authority.
 """
 from __future__ import annotations
 
 import argparse
+import base64
 import datetime as dt
 import fnmatch
 import hashlib
@@ -37,6 +51,9 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from typing import Any, Callable
 
@@ -50,6 +67,15 @@ REF_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/-]{0,200}$")
 PERFORMATIVES = {"request", "inform", "agree", "refuse", "failure"}
 MAX_MESSAGE_BYTES = 64 * 1024
 PUSH_ATTEMPTS = 6
+PUSH_BACKOFF = 1.0
+GITHUB_API = "https://api.github.com"
+GITHUB_REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
+# Project v2 discovery index, carried by the project-memory proxy
+# (project-memory/README.md). Hard-scoped exactly as the proxy is.
+INDEX_PROJECT = {"owner": "seanchatmangpt", "number": 2}
+INDEX_KIND = "a2a.agent_card"
+REQUESTS_DIR = "project-memory/requests"
+RECEIPTS_DIR = "project-memory/receipts"
 
 
 class A2AError(Exception):
@@ -127,6 +153,9 @@ class Git:
     def out(self, *args: str, **kw: Any) -> str:
         return self.run(*args, **kw).stdout.decode().strip()
 
+    def repository(self) -> str:
+        return self.out("remote", "get-url", self.remote)
+
     def remote_sha(self, ref: str) -> str | None:
         line = self.out("ls-remote", self.remote, f"refs/heads/{ref}")
         return line.split()[0] if line else None
@@ -144,8 +173,12 @@ class Git:
         return refs
 
     def ls(self, commit: str, prefix: str) -> list[str]:
-        proc = self.run("ls-tree", "-r", "--name-only", commit, "--", prefix, check=False)
-        return proc.stdout.decode().splitlines() if proc.returncode == 0 else []
+        """Paths under ``commit`` starting with ``prefix`` (a string prefix, as on the API)."""
+        directory = prefix[:prefix.rfind("/") + 1]
+        proc = self.run("ls-tree", "-r", "--name-only", commit, "--", directory or ".", check=False)
+        if proc.returncode != 0:
+            return []
+        return [p for p in proc.stdout.decode().splitlines() if p.startswith(prefix)]
 
     def show(self, commit: str, path: str) -> bytes | None:
         proc = self.run("cat-file", "blob", f"{commit}:{path}", check=False)
@@ -169,7 +202,7 @@ class Git:
 
     def publish(self, ref: str, agent: str, build: Callable[[str], tuple[dict[str, bytes], str, Any]]) -> Any:
         """Append to ``ref`` without force; rebuild from the new tip on every race."""
-        delay = 1.0
+        delay = PUSH_BACKOFF
         for _ in range(PUSH_ATTEMPTS):
             base = self.remote_sha(ref)
             if base:
@@ -191,11 +224,173 @@ class Git:
         raise A2AError("BLOCKED", f"push to {ref} lost {PUSH_ATTEMPTS} races")
 
 
-def listen_set(globs: list[str], own: str | None) -> list[str]:
-    """Peer globs plus our own ref, without two refspecs targeting one local ref."""
+# --------------------------------------------------------------------------- #
+# GitHub REST transport: the same bus for peers with HTTPS but no git
+
+
+class GitHubApi:
+    """Duck-types ``Git`` over the GitHub git data API (stdlib ``urllib`` only).
+
+    Reads work unauthenticated on public repositories; writes need a token and are
+    fast-forward-only ref updates (``force: false``), rebuilt on every race.
+    """
+
+    def __init__(self, repo: str, token: str | None = None, api: str = GITHUB_API, base: str | None = None):
+        if not GITHUB_REPO.match(repo or ""):
+            raise A2AError("REFUSED_MALFORMED", f"invalid GitHub repository {repo!r}; want owner/name")
+        self.repo = repo
+        self.token = token
+        self.api = api.rstrip("/")
+        self.base = base
+        self._refs: dict[str, str] = {}
+        self._trees: dict[str, dict[str, str]] = {}
+        self._blobs: dict[str, bytes] = {}
+
+    def request(self, method: str, path: str, body: Any = None, missing_ok: bool = False) -> Any:
+        url = f"{self.api}/repos/{self.repo}" + (f"/{path}" if path else "")
+        headers = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
+                   "User-Agent": "chatgpt-cloud-a2a"}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+        data = None
+        if body is not None:
+            data = json.dumps(body).encode()
+            headers["Content-Type"] = "application/json"
+        req = urllib.request.Request(url, data=data, method=method, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                raw = resp.read()
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode(errors="replace")[:300]
+            if exc.code == 404 and missing_ok:
+                return None
+            if exc.code in (409, 422):
+                raise ApiConflict(f"{method} {path}: {exc.code} {detail}") from None
+            if exc.code in (401, 403):
+                raise A2AError("BLOCKED", f"{method} {path}: {exc.code} (GitHub authority: token "
+                                          f"{'present' if self.token else 'absent'}) {detail}") from None
+            raise A2AError("BLOCKED", f"{method} {path}: HTTP {exc.code} {detail}") from None
+        except urllib.error.URLError as exc:
+            raise A2AError("BLOCKED", f"{method} {path}: {exc.reason}") from None
+        return json.loads(raw) if raw else None
+
+    @staticmethod
+    def _q(ref: str) -> str:
+        return urllib.parse.quote(ref, safe="/")
+
+    def repository(self) -> str:
+        return f"https://github.com/{self.repo}"
+
+    def remote_sha(self, ref: str) -> str | None:
+        got = self.request("GET", f"git/ref/heads/{self._q(ref)}", missing_ok=True)
+        # A non-matching prefix query returns a list; only an exact object is the ref.
+        return got["object"]["sha"] if isinstance(got, dict) else None
+
+    def default_base(self) -> str:
+        branch = self.base or self.request("GET", "")["default_branch"]
+        sha = self.remote_sha(branch)
+        if not sha:
+            raise A2AError("BLOCKED", f"base branch {branch!r} not found on {self.repo}")
+        return sha
+
+    def matching(self, prefix: str) -> dict[str, str]:
+        refs: dict[str, str] = {}
+        page = 1
+        while True:
+            # No trailing slash: some egress proxies refuse non-canonical paths, and
+            # the caller re-filters with fnmatch anyway.
+            stem = prefix.rstrip("/")
+            path = "git/matching-refs/heads" + (f"/{self._q(stem)}" if stem else "")
+            rows = self.request("GET", f"{path}?per_page=100&page={page}") or []
+            for row in rows:
+                refs[row["ref"][len("refs/heads/"):]] = row["object"]["sha"]
+            if len(rows) < 100:
+                return refs
+            page += 1
+
+    def fetch_peers(self, globs: list[str]) -> None:
+        refs: dict[str, str] = {}
+        for glob in globs:
+            literal = re.split(r"[*?\[]", glob, maxsplit=1)[0]
+            if literal == glob:  # an exact ref, not a pattern
+                sha = self.remote_sha(glob)
+                if sha:
+                    refs[glob] = sha
+                continue
+            for name, sha in self.matching(literal).items():
+                if fnmatch.fnmatchcase(name, glob):
+                    refs[name] = sha
+        self._refs = refs  # replace, like ``fetch --prune``
+
+    def peer_refs(self) -> dict[str, str]:
+        return dict(self._refs)
+
+    def _tree(self, commit: str) -> dict[str, str]:
+        if commit not in self._trees:
+            tree = self.request("GET", f"git/commits/{commit}")["tree"]["sha"]
+            listing = self.request("GET", f"git/trees/{tree}?recursive=1")
+            if listing.get("truncated"):
+                raise A2AError("BLOCKED", f"tree of {commit[:12]} truncated by the API")
+            self._trees[commit] = {e["path"]: e["sha"] for e in listing["tree"] if e["type"] == "blob"}
+        return self._trees[commit]
+
+    def ls(self, commit: str, prefix: str) -> list[str]:
+        return sorted(p for p in self._tree(commit) if p.startswith(prefix))
+
+    def show(self, commit: str, path: str) -> bytes | None:
+        sha = self._tree(commit).get(path)
+        if sha is None:
+            return None
+        if sha not in self._blobs:
+            blob = self.request("GET", f"git/blobs/{sha}")
+            self._blobs[sha] = base64.b64decode(blob["content"]) if blob.get("encoding") == "base64" \
+                else blob["content"].encode()
+        return self._blobs[sha]
+
+    def publish(self, ref: str, agent: str, build: Callable[[str], tuple[dict[str, bytes], str, Any]]) -> Any:
+        """Same contract as ``Git.publish``: append without force, rebuild on every race."""
+        delay = PUSH_BACKOFF
+        for _ in range(PUSH_ATTEMPTS):
+            base = self.remote_sha(ref)
+            create = base is None
+            if create:
+                base = self.default_base()
+            files, subject, result = build(base)
+            base_tree = self.request("GET", f"git/commits/{base}")["tree"]["sha"]
+            tree = self.request("POST", "git/trees", {
+                "base_tree": base_tree,
+                "tree": [{"path": path, "mode": "100644", "type": "blob", "content": data.decode("utf-8")}
+                         for path, data in sorted(files.items())],
+            })["sha"]
+            ident = {"name": os.environ.get("GIT_AUTHOR_NAME", f"a2a:{agent}"),
+                     "email": os.environ.get("GIT_AUTHOR_EMAIL", f"{agent}@a2a.invalid")}
+            commit = self.request("POST", "git/commits", {"message": subject, "tree": tree, "parents": [base],
+                                                          "author": ident})["sha"]
+            try:
+                if create:
+                    self.request("POST", "git/refs", {"ref": f"refs/heads/{ref}", "sha": commit})
+                else:
+                    self.request("PATCH", f"git/refs/heads/{self._q(ref)}", {"sha": commit, "force": False})
+            except ApiConflict:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            self._refs[ref] = commit
+            return result
+        raise A2AError("BLOCKED", f"update of {ref} lost {PUSH_ATTEMPTS} races")
+
+
+class ApiConflict(Exception):
+    """409/422 from a ref write: someone else advanced the ref first."""
+
+
+def listen_set(globs: list[str], own: str | None, extra: list[str] | None = None) -> list[str]:
+    """Peer globs plus our own ref (and index-discovered refs), without two refspecs
+    targeting one local ref."""
     out = sorted(set(globs))
-    if own and not any(fnmatch.fnmatchcase(own, g) for g in out):
-        out.append(own)
+    for ref in [own, *(extra or [])]:
+        if ref and ref not in out and not any(fnmatch.fnmatchcase(ref, g) for g in out):
+            out.append(ref)
     return out
 
 
@@ -313,11 +508,12 @@ SKILLS: dict[str, tuple[str, Callable[[dict[str, Any], dict[str, Any]], list[dic
 
 
 class Agent:
-    def __init__(self, git: Git, agent: str, ref: str, peers: list[str]):
+    def __init__(self, git: Git | GitHubApi, agent: str, ref: str, peers: list[str], use_index: bool = False):
         self.git = git
         self.agent = check_agent_id(agent)
         self.ref = check_ref(ref)
         self.peers = peers
+        self.use_index = use_index
 
     def card(self, skills: list[str]) -> dict[str, Any]:
         return {
@@ -326,7 +522,7 @@ class Agent:
             "schema": SCHEMA,
             "agent": self.agent,
             "outbox_ref": self.ref,
-            "repository": self.git.out("remote", "get-url", self.git.remote),
+            "repository": self.git.repository(),
             "skills": [{"id": s, "description": SKILLS[s][0]} for s in skills],
             "authority": "CONSTRUCT_VERIFY; no remote exec; messages grant no ambient DO authority",
         }
@@ -383,7 +579,110 @@ class Agent:
 
     def sync(self) -> dict[str, dict[str, Any]]:
         self.git.fetch_peers(listen_set(self.peers, self.ref))
+        if self.use_index:
+            own = self.git.peer_refs().get(self.ref)
+            extra = self.index_refs(own) if own else []
+            if extra:
+                self.git.fetch_peers(listen_set(self.peers, self.ref, extra))
         return ledger(self.git)
+
+    # ---- Project v2 discovery index ------------------------------------- #
+    # The index lives in GitHub Project #2 and is reached only through the
+    # project-memory proxy: we commit a request file onto our own outbox ref, the
+    # push-triggered proxy Action executes it and commits the receipt back onto
+    # the same ref. The index is a *hint* for which refs to fetch; a card is still
+    # authoritative only on the ref it names (``ledger``).
+
+    def _request(self, verb: str, operation: str, payload: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+        stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        request_id = f"a2a-{self.agent}-{verb}-{stamp}"
+        return request_id, {"request_id": request_id, "operation": operation,
+                            "project": dict(INDEX_PROJECT), "payload": payload}
+
+    def announce_index(self) -> dict[str, Any]:
+        """Upsert this agent's card digest into the Project v2 index (via the proxy)."""
+        def build(base: str) -> tuple[dict[str, bytes], str, Any]:
+            card = read_json(self.git, base, card_path(self.agent))
+            if card is None:
+                raise A2AError("BLOCKED", f"agent {self.agent} has no card on {self.ref}; run init first")
+            request_id, request = self._request("index", "memory.upsert", {"record": {
+                "key": f"a2a/agents/{self.agent}",
+                "title": f"A2A agent {self.agent}",
+                "kind": INDEX_KIND,
+                # The record is a pointer, not replay evidence: readers verify the ref.
+                "standing": "UNKNOWN",
+                "repo": card.get("repository"),
+                "ref": self.ref,
+                "head_sha": base,
+                "authority": card.get("authority"),
+                "tags": ["a2a", "agent-card"],
+                "body": f"A2A agent `{self.agent}` answers on ref `{self.ref}`. "
+                        f"Verify its card at `{card_path(self.agent)}` on that ref before trusting it.",
+                "metadata": {"agent": self.agent, "outbox_ref": self.ref, "schema": SCHEMA,
+                             "card_digest": digest(card),
+                             "skills": [sk.get("id") for sk in card.get("skills", [])]},
+            }})
+            return {f"{REQUESTS_DIR}/{request_id}.json": json.dumps(request, indent=2, sort_keys=True).encode()
+                    + b"\n"}, f"a2a({self.agent}): index card in Project v2", request
+
+        return self.git.publish(self.ref, self.agent, build)
+
+    def request_discovery(self) -> dict[str, Any]:
+        """Ask the proxy to query the index; the receipt lands on our own ref."""
+        request_id, request = self._request("discover", "memory.query", {"kind": INDEX_KIND, "limit": 500})
+        raw = json.dumps(request, indent=2, sort_keys=True).encode() + b"\n"
+        return self.git.publish(self.ref, self.agent, lambda base: (
+            {f"{REQUESTS_DIR}/{request_id}.json": raw}, f"a2a({self.agent}): discover via Project v2", request))
+
+    def discovery_receipt(self, commit: str, request_id: str | None = None) -> dict[str, Any] | None:
+        prefix = f"{RECEIPTS_DIR}/a2a-{self.agent}-discover-"
+        names = [n for n in self.git.ls(commit, prefix) if n.endswith(".receipt.json")]
+        if request_id:
+            names = [n for n in names if n == f"{RECEIPTS_DIR}/{request_id}.receipt.json"]
+        for name in sorted(names, reverse=True):
+            raw = self.git.show(commit, name)
+            try:
+                receipt = json.loads(raw) if raw else None
+            except ValueError:
+                continue
+            if isinstance(receipt, dict):
+                return receipt
+        return None
+
+    def index_refs(self, commit: str) -> list[str]:
+        """Outbox refs named by the newest ALIVE discovery receipt on our own ref."""
+        receipt = self.discovery_receipt(commit)
+        if not receipt or receipt.get("standing") != "ALIVE":
+            return []
+        refs = []
+        for record in (receipt.get("result") or {}).get("records") or []:
+            meta = record.get("metadata") if isinstance(record, dict) else None
+            if not isinstance(meta, dict):
+                continue
+            ref = meta.get("outbox_ref")
+            if meta.get("kind") != INDEX_KIND or not isinstance(ref, str):
+                continue
+            try:
+                refs.append(check_ref(ref))  # index content is untrusted input
+            except A2AError:
+                continue
+        return sorted(set(refs) - {self.ref})
+
+    def discover(self, timeout: float, interval: float) -> dict[str, Any]:
+        request = self.request_discovery()
+        deadline = time.monotonic() + timeout
+        while True:
+            self.git.fetch_peers(listen_set(self.peers, self.ref))
+            own = self.git.peer_refs().get(self.ref)
+            receipt = self.discovery_receipt(own, request["request_id"]) if own else None
+            if receipt is not None or time.monotonic() >= deadline:
+                break
+            time.sleep(interval)
+        if receipt is None:
+            return {"request": request["request_id"], "standing": "UNKNOWN",
+                    "detail": "no proxy receipt yet; the Project v2 memory proxy Action has not answered"}
+        return {"request": request["request_id"], "standing": receipt.get("standing"),
+                "reason": receipt.get("reason"), "refs": self.index_refs(own) if own else []}
 
     def serve_once(self) -> list[dict[str, Any]]:
         agents = self.sync()
@@ -437,6 +736,29 @@ def current_branch(git: Git) -> str:
     return git.out("rev-parse", "--abbrev-ref", "HEAD")
 
 
+def github_repo_of(url: str) -> str | None:
+    """owner/name from a GitHub remote URL (https, ssh, or a git proxy path)."""
+    m = re.search(r"github\.com[:/]+([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?)(?:\.git)?/?$", url) \
+        or re.search(r"/git/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?)(?:\.git)?/?$", url)
+    return m.group(1) if m else None
+
+
+def make_transport(args: argparse.Namespace) -> tuple[Git | GitHubApi, Git | None]:
+    git = None
+    top = subprocess.run(["git", "-C", args.repo, "rev-parse", "--show-toplevel"], capture_output=True)
+    if top.returncode == 0:
+        git = Git(Path(top.stdout.decode().strip()), args.remote)
+    if args.transport == "git":
+        if git is None:
+            raise A2AError("BLOCKED", f"{args.repo} is not a git checkout; use --transport api")
+        return git, git
+    repo = args.github_repo or (github_repo_of(git.repository()) if git else None)
+    if not repo:
+        raise A2AError("REFUSED_MALFORMED", "--github-repo owner/name is required for --transport api")
+    token = next((os.environ[k] for k in ("A2A_GITHUB_TOKEN", "GITHUB_TOKEN", "GH_TOKEN") if os.environ.get(k)), None)
+    return GitHubApi(repo, token=token, api=args.github_api, base=args.base), git
+
+
 def emit(obj: Any) -> None:
     print(json.dumps(obj, indent=2, sort_keys=True))
 
@@ -449,6 +771,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--ref", default=os.environ.get("A2A_REF"), help="outbox branch (default: current branch)")
     ap.add_argument("--peers", default=os.environ.get("A2A_PEERS", ",".join(DEFAULT_PEERS)),
                     help="comma-separated branch globs to listen on")
+    ap.add_argument("--transport", choices=("git", "api"), default=os.environ.get("A2A_TRANSPORT", "git"),
+                    help="git: local clone; api: HTTPS-only GitHub REST (no git binary or clone needed)")
+    ap.add_argument("--github-repo", default=os.environ.get("A2A_GITHUB_REPO"),
+                    help="owner/name for --transport api (default: derived from the git remote)")
+    ap.add_argument("--github-api", default=os.environ.get("A2A_GITHUB_API", GITHUB_API))
+    ap.add_argument("--base", default=os.environ.get("A2A_BASE"),
+                    help="--transport api: branch a new outbox ref starts from (default: repo default branch)")
+    ap.add_argument("--use-index", action="store_true", default=os.environ.get("A2A_USE_INDEX") == "1",
+                    help="also listen on refs named by the newest Project v2 discovery receipt")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("init", help="announce this agent's card on its outbox ref")
     p.add_argument("--skills", default=",".join(SKILLS))
@@ -467,16 +798,22 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("peers", help="list verified agents visible on the bus")
     p = sub.add_parser("log", help="dump the verified conversation ledger")
     p.add_argument("--conversation")
+    sub.add_parser("index", help="upsert this agent's card into the Project v2 discovery index")
+    p = sub.add_parser("discover", help="query the Project v2 index; the proxy receipt lands on our ref")
+    p.add_argument("--wait", type=float, default=600, help="seconds to wait for the proxy receipt")
+    p.add_argument("--interval", type=float, default=15)
     args = ap.parse_args(argv)
 
     try:
-        repo = Path(subprocess.run(["git", "-C", args.repo, "rev-parse", "--show-toplevel"],
-                                   capture_output=True, check=True).stdout.decode().strip())
-        git = Git(repo, args.remote)
+        git, local = make_transport(args)
         peers = [g.strip() for g in args.peers.split(",") if g.strip()]
         if args.cmd in ("peers", "log"):
-            git.fetch_peers(listen_set(peers, args.ref))
-            agents = ledger(git)
+            if args.agent and args.use_index:
+                ref = args.ref or (current_branch(local) if local else None)
+                agents = Agent(git, args.agent, check_ref(ref or ""), peers, use_index=True).sync()
+            else:
+                git.fetch_peers(listen_set(peers, args.ref))
+                agents = ledger(git)
             if args.cmd == "peers":
                 emit({a: {"ref": v["ref"], "commit": v["commit"], "standing": v["standing"],
                           "messages": len(v["messages"]),
@@ -489,8 +826,17 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if not args.agent:
             raise A2AError("REFUSED_MALFORMED", "--agent (or A2A_AGENT) is required")
-        agent = Agent(git, args.agent, args.ref or current_branch(git), peers)
-        if args.cmd == "init":
+        ref = args.ref or (current_branch(local) if local and args.transport == "git" else None)
+        if not ref:
+            raise A2AError("REFUSED_MALFORMED", "--ref (or A2A_REF) is required with --transport api")
+        agent = Agent(git, args.agent, ref, peers, use_index=args.use_index)
+        if args.cmd == "index":
+            emit(agent.announce_index())
+        elif args.cmd == "discover":
+            result = agent.discover(args.wait, args.interval)
+            emit(result)
+            return 0 if result["standing"] == "ALIVE" else 3
+        elif args.cmd == "init":
             emit(agent.init([s.strip() for s in args.skills.split(",") if s.strip()]))
         elif args.cmd == "send":
             parts: list[dict[str, Any]] = []
