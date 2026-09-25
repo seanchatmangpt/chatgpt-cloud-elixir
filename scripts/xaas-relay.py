@@ -314,7 +314,7 @@ def validate_envelope(
             raise ValueError("AUTHORITY_REF_REQUIRED")
 
     payload = validate_descriptor(value.get("payload"))
-    expected_intent = "sha256:" + digest(payload)
+    expected_intent = payload["graph_digest"]
     expected_subject = f"{payload['repository_identity']}@{payload['base_sha']}"
 
     if value["intent_digest"] != expected_intent:
