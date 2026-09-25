@@ -25,10 +25,13 @@ def check(
     local_contract: Path,
     xaas_contract: Path,
     zcode_contract: Path,
+    zcode_ocel_source: Path,
 ) -> dict[str, Any]:
     local_raw, local = load_json(local_contract)
     xaas_raw, xaas = load_json(xaas_contract)
     zcode_raw, zcode = load_json(zcode_contract)
+    zcode_ocel_raw = zcode_ocel_source.read_bytes()
+    zcode_ocel_text = zcode_ocel_raw.decode("utf-8")
 
     checks = [
         {
@@ -54,6 +57,21 @@ def check(
             "alive": zcode.get("command", {}).get("argv_lease_form")
             == ["gall-work", "--lease", "<descriptor.json>", "--json"],
             "detail": "the only worker consequence adapter remains the fixed gall-work lease command",
+        },
+        {
+            "id": "OCEL_IDENTITY_ENV_COMPOSES",
+            "alive": all(
+                name in zcode_ocel_text
+                for name in local.get("ocel_identity_env", [])
+            )
+            and local.get("ocel_identity_env")
+            == [
+                "XAAS_LEASE_CWD",
+                "XAAS_WORK_ORDER_IRI",
+                "XAAS_EPOCH_ID",
+                "XAAS_BASE_SHA",
+            ],
+            "detail": "relay exports exactly the identity variables consumed by the zcode OCEL tap",
         },
         {
             "id": "AUTHORITY_CONSERVED",
@@ -87,6 +105,10 @@ def check(
                 "path": str(zcode_contract),
                 "sha256": sha256(zcode_raw),
             },
+            "zcode_ocel_source": {
+                "path": str(zcode_ocel_source),
+                "sha256": sha256(zcode_ocel_raw),
+            },
         },
         "checks": checks,
         "evidence_ceiling": (
@@ -101,6 +123,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--local-contract", type=Path, required=True)
     p.add_argument("--xaas-contract", type=Path, required=True)
     p.add_argument("--zcode-contract", type=Path, required=True)
+    p.add_argument("--zcode-ocel-source", type=Path, required=True)
     p.add_argument("--receipt", type=Path)
     return p
 
@@ -108,7 +131,12 @@ def parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     try:
-        receipt = check(args.local_contract, args.xaas_contract, args.zcode_contract)
+        receipt = check(
+            args.local_contract,
+            args.xaas_contract,
+            args.zcode_contract,
+            args.zcode_ocel_source,
+        )
     except (OSError, ValueError, json.JSONDecodeError) as error:
         receipt = {
             "schema": "xaas.remote-relay-court/1",
