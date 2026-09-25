@@ -1,0 +1,93 @@
+name: Remote Relay Live-Leg Court
+
+on:
+  pull_request:
+    paths:
+      - "contracts/xaas-remote-relay.contract.json"
+      - "scripts/xaas-relay.py"
+      - "scripts/remote-relay-court.py"
+      - "tests/test_xaas_relay.py"
+      - ".github/workflows/remote-relay-live-leg.yml"
+  push:
+    branches:
+      - "feat/v26.9.25-relay-client"
+    paths:
+      - "contracts/xaas-remote-relay.contract.json"
+      - "scripts/xaas-relay.py"
+      - "scripts/remote-relay-court.py"
+      - "tests/test_xaas_relay.py"
+      - ".github/workflows/remote-relay-live-leg.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-leg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout cloud relay subject
+        uses: actions/checkout@v4
+        with:
+          path: cloud
+          persist-credentials: false
+
+      - name: Checkout XaaS relay subject
+        uses: actions/checkout@v4
+        with:
+          repository: seanchatmangpt/xaas
+          ref: feat/v26.9.25-remote-relay
+          path: xaas
+          persist-credentials: false
+
+      - name: Checkout zcode gall-work subject
+        uses: actions/checkout@v4
+        with:
+          repository: seanchatmangpt/zcode-cli
+          ref: fleet/v26.9.25-zcode-ci-fixtures
+          path: zcode-cli
+          persist-credentials: false
+
+      - name: Record exact subjects
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cloud/receipts
+          {
+            echo "cloud=$(git -C cloud rev-parse HEAD)"
+            echo "xaas=$(git -C xaas rev-parse HEAD)"
+            echo "zcode=$(git -C zcode-cli rev-parse HEAD)"
+          } | tee cloud/receipts/remote-relay-subjects.txt
+
+      - name: Cross-repository contract court
+        working-directory: cloud
+        run: |
+          python3 scripts/remote-relay-court.py             --local-contract contracts/xaas-remote-relay.contract.json             --xaas-contract ../xaas/priv/ultracode/remote-relay.contract.json             --zcode-contract ../zcode-cli/test/fixtures/gall-work.contract.json             --receipt receipts/remote-relay-live-leg.json
+
+      - name: Cloud envelope admission and replay court
+        working-directory: cloud
+        run: python3 -m unittest tests.test_xaas_relay
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install zcode dependencies
+        working-directory: zcode-cli
+        run: bun install --frozen-lockfile
+
+      - name: Native zcode gall-work contract court
+        working-directory: zcode-cli
+        run: bun test test/gall-work.test.ts
+
+      - name: Upload live-leg receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: remote-relay-live-leg-receipt
+          path: |
+            cloud/receipts/remote-relay-live-leg.json
+            cloud/receipts/remote-relay-subjects.txt
+          if-no-files-found: warn
