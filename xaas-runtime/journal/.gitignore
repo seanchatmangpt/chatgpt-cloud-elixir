@@ -1,0 +1,3 @@
+# client crash-window journals (idempotency keys, run/epoch ids); local only
+*
+!.gitignore
