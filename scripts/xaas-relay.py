@@ -17,12 +17,14 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from typing import Any, Iterable
 
 STATE_SCHEMA = "chatgpt-cloud.xaas-relay-state/1"
 DESCRIPTOR_SCHEMA = "gall.work-lease/1"
 RESULT_SCHEMA = "gall.work-result/1"
+ENVELOPE_SCHEMA = "xaas.remote-relay-envelope/1"
 SHA256 = re.compile(r"^sha256:[0-9a-f]{64}$")
 GIT_SHA = re.compile(r"^[0-9a-f]{40}$")
 REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
@@ -134,9 +136,12 @@ def run_descriptor(
     allow_do: bool = False,
     dedup_limit: int = 256,
     env: dict[str, str] | None = None,
+    command_id_override: str | None = None,
 ) -> dict[str, Any]:
     descriptor = validate_descriptor(descriptor)
-    command_id = digest(descriptor)
+    command_id = command_id_override or digest(descriptor)
+    if not isinstance(command_id, str) or not command_id.strip():
+        raise ValueError("COMMAND_ID")
     try:
         state = load_state(state_path, manifest_digest)
     except ValueError as error:
@@ -253,6 +258,147 @@ def run_descriptor(
     }
 
 
+def _refused(reason: str, command_id: str | None = None) -> dict[str, Any]:
+    row: dict[str, Any] = {
+        "standing": "REFUSED",
+        "reason": reason,
+        "executed": False,
+    }
+    if command_id:
+        row["command_id"] = command_id
+    return row
+
+
+def validate_envelope(
+    value: Any,
+    *,
+    manifest_digest: str,
+    now_ms: int | None = None,
+) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError("ENVELOPE_SHAPE")
+    if value.get("schema", ENVELOPE_SCHEMA) != ENVELOPE_SCHEMA:
+        raise ValueError("ENVELOPE_SCHEMA")
+
+    required_strings = (
+        "command_id",
+        "epoch_id",
+        "task_id",
+        "intent_digest",
+        "exact_subject",
+        "verb",
+        "execution_manifest_digest",
+        "channel",
+    )
+    for field in required_strings:
+        if not isinstance(value.get(field), str) or not value[field].strip():
+            raise ValueError(f"ENVELOPE_FIELD:{field}")
+
+    sequence = value.get("sequence")
+    if not isinstance(sequence, int) or isinstance(sequence, bool) or sequence < 1:
+        raise ValueError("INVALID_SEQUENCE")
+    if value["channel"] not in {"control", "observe"}:
+        raise ValueError("INVALID_CHANNEL")
+    if value["execution_manifest_digest"] != manifest_digest:
+        raise ValueError("EXECUTION_MANIFEST_DRIFT")
+
+    current = int(time.time() * 1000) if now_ms is None else now_ms
+    expires_at = value.get("expires_at")
+    if expires_at is not None:
+        if not isinstance(expires_at, int) or isinstance(expires_at, bool) or expires_at < current:
+            raise ValueError("COMMAND_EXPIRED")
+
+    if value["verb"] == "actuate":
+        authority_ref = value.get("authority_ref")
+        if value["channel"] != "control" or not isinstance(authority_ref, str) or not authority_ref.strip():
+            raise ValueError("AUTHORITY_REF_REQUIRED")
+
+    payload = validate_descriptor(value.get("payload"))
+    expected_intent = "sha256:" + digest(payload)
+    expected_subject = f"{payload['repository_identity']}@{payload['base_sha']}"
+
+    if value["intent_digest"] != expected_intent:
+        raise ValueError("INTENT_DIGEST_MISMATCH")
+    if value["exact_subject"] != expected_subject:
+        raise ValueError("EXACT_SUBJECT_MISMATCH")
+    if value["epoch_id"] != payload["epoch_id"]:
+        raise ValueError("EPOCH_MISMATCH")
+    if value["task_id"] != payload["work_order_iri"]:
+        raise ValueError("TASK_MISMATCH")
+
+    return value
+
+
+def run_envelope(
+    envelope: dict[str, Any],
+    *,
+    state_path: Path,
+    manifest_digest: str,
+    zcode: str = "zcode",
+    allow_do: bool = False,
+    dedup_limit: int = 256,
+    env: dict[str, str] | None = None,
+    now_ms: int | None = None,
+) -> dict[str, Any]:
+    command_id = envelope.get("command_id") if isinstance(envelope, dict) else None
+    try:
+        envelope = validate_envelope(envelope, manifest_digest=manifest_digest, now_ms=now_ms)
+        state = load_state(state_path, manifest_digest)
+    except ValueError as error:
+        return _refused(str(error), command_id if isinstance(command_id, str) else None)
+
+    command_id = envelope["command_id"]
+    sequence = envelope["sequence"]
+
+    if command_id in state["results"]:
+        cached = state["results"][command_id]
+        return {
+            "standing": "ALIVE",
+            "reason": "KNOWN_REPLAY",
+            "command_id": command_id,
+            "executed": False,
+            "result": cached["result"],
+            "result_digest": cached["result_digest"],
+        }
+
+    if command_id in state["seen_command_ids"] or sequence <= int(state.get("last_acknowledged_sequence", 0)):
+        return {
+            "standing": "ALIVE",
+            "reason": "KNOWN_REPLAY",
+            "command_id": command_id,
+            "executed": False,
+        }
+
+    expected_sequence = int(state.get("last_acknowledged_sequence", 0)) + 1
+    if sequence != expected_sequence:
+        return _refused("SEQUENCE_GAP", command_id)
+
+    row = run_descriptor(
+        envelope["payload"],
+        state_path=state_path,
+        manifest_digest=manifest_digest,
+        zcode=zcode,
+        allow_do=allow_do,
+        dedup_limit=dedup_limit,
+        env=env,
+        command_id_override=command_id,
+    )
+    row["sequence"] = sequence
+    row["authority_ref"] = envelope.get("authority_ref")
+    return row
+
+
+def envelope_stream(
+    lines: Iterable[str],
+    *,
+    manifest_digest: str,
+) -> Iterable[dict[str, Any]]:
+    for line in lines:
+        if not line.strip():
+            continue
+        yield validate_envelope(json.loads(line), manifest_digest=manifest_digest)
+
+
 def descriptor_stream(lines: Iterable[str]) -> Iterable[dict[str, Any]]:
     for line in lines:
         if not line.strip():
@@ -265,6 +411,8 @@ def parser() -> argparse.ArgumentParser:
     mode = p.add_mutually_exclusive_group(required=True)
     mode.add_argument("--descriptor", type=Path)
     mode.add_argument("--stream", action="store_true", help="read one gall.work-lease/1 JSON document per stdin line")
+    mode.add_argument("--envelope", type=Path, help="read one xaas.remote-relay-envelope/1 JSON document")
+    mode.add_argument("--envelope-stream", action="store_true", help="read one relay envelope per stdin line")
     p.add_argument("--state", type=Path, required=True)
     p.add_argument("--manifest-digest", required=True)
     p.add_argument("--zcode", default="zcode")
@@ -276,21 +424,43 @@ def parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     try:
-        descriptors = (
-            descriptor_stream(sys.stdin)
-            if args.stream
-            else [validate_descriptor(json.loads(args.descriptor.read_text()))]
-        )
         exit_status = 0
-        for descriptor in descriptors:
-            row = run_descriptor(
-                descriptor,
-                state_path=args.state,
-                manifest_digest=args.manifest_digest,
-                zcode=args.zcode,
-                allow_do=args.allow_do,
-                dedup_limit=args.dedup_limit,
+        if args.envelope or args.envelope_stream:
+            envelopes = (
+                envelope_stream(sys.stdin, manifest_digest=args.manifest_digest)
+                if args.envelope_stream
+                else [json.loads(args.envelope.read_text())]
             )
+            rows = (
+                run_envelope(
+                    envelope,
+                    state_path=args.state,
+                    manifest_digest=args.manifest_digest,
+                    zcode=args.zcode,
+                    allow_do=args.allow_do,
+                    dedup_limit=args.dedup_limit,
+                )
+                for envelope in envelopes
+            )
+        else:
+            descriptors = (
+                descriptor_stream(sys.stdin)
+                if args.stream
+                else [validate_descriptor(json.loads(args.descriptor.read_text()))]
+            )
+            rows = (
+                run_descriptor(
+                    descriptor,
+                    state_path=args.state,
+                    manifest_digest=args.manifest_digest,
+                    zcode=args.zcode,
+                    allow_do=args.allow_do,
+                    dedup_limit=args.dedup_limit,
+                )
+                for descriptor in descriptors
+            )
+
+        for row in rows:
             print(json.dumps(row, sort_keys=True))
             if row["standing"].startswith("REFUSED"):
                 exit_status = max(exit_status, 77)
