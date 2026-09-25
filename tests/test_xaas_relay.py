@@ -30,7 +30,7 @@ class RelayTests(unittest.TestCase):
             "p=pathlib.Path(os.environ['COUNTER'])\n"
             "n=int(p.read_text())+1 if p.exists() else 1\n"
             "p.write_text(str(n))\n"
-            "print(json.dumps({'schema':'gall.work-result/1','standing':'ALIVE','epoch_id':'11111111-1111-4111-8111-111111111111','outcome':'alive','final_head':'a'*40,'runtime_exit_code':0}))\n"
+            "print(json.dumps({'schema':'gall.work-result/1','standing':'ALIVE','epoch_id':'11111111-1111-4111-8111-111111111111','outcome':'alive','final_head':'a'*40,'runtime_exit_code':0,'work_order_iri':os.environ.get('XAAS_WORK_ORDER_IRI'),'base_sha':os.environ.get('XAAS_BASE_SHA')}))\n"
         )
         self.zcode.chmod(self.zcode.stat().st_mode | stat.S_IXUSR)
 
@@ -112,6 +112,9 @@ class RelayTests(unittest.TestCase):
         self.assertTrue(first["executed"])
         self.assertEqual(first["sequence"], 1)
         self.assertEqual(first["authority_ref"], "grant-1")
+        self.assertEqual(first["result"]["work_order_iri"], "urn:work:1")
+        self.assertEqual(first["result"]["base_sha"], "a" * 40)
+        self.assertEqual(first["result"]["epoch_id"], "11111111-1111-4111-8111-111111111111")
         self.assertEqual(self.counter.read_text(), "1")
 
         second = self.run_envelope(allow_do=True)
