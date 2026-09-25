@@ -34,9 +34,13 @@ Assume package-network access may fail even while the GitHub connector works. Do
 
 The live repository defines version/compatibility selection, per-capsule requirements, manufacture/install/inspect/verify/offline scripts, real acceptance fixtures, semantic verifier logic, and construction/consumer workflows. Generated archives, manifests, and receipts are projections; edit their owning version/capsule/build/verifier sources and regenerate rather than hand-editing outputs.
 
+## AGI Academy conformance
+
+This repository is an execution rail under the Chatman Ecosystem AGI Academy (`governance/agi-academy/`, pinned byte-identical). `python3 scripts/verify-agi-conformance.py` must stay `ALIVE`. Every invariant, terminal refusal, and module is mapped in `governance/agi-academy-conformance.toml` to guards that execute. When a failure teaches something, add a `governance/failure-ledger.toml` entry with a permanent guard instead of narrating it. Every consequential actuation must emit a receipt (`zero_unreceipted_actuation`). The rail never issues candidate credentials.
+
 ## Committed runtime
 
-`runtime/` is a committed binary projection. Only `scripts/runtime-admit.py` writes it (parts of at most 45 MiB, archive + part SHA-256, exact source commit, builder, and admission-time consumer evidence in `runtime/lock.json`). Never hand-edit it. `scripts/ecosystem-up.py` is the offline consumer: an artifact is `ALIVE` there only when its digests verify and its smoke commands exit 0 in the consuming container. That is still not a target repository's crown.
+`runtime/` is a committed binary projection. Only `scripts/runtime-admit.py` writes it (parts of at most 45 MiB, archive + part SHA-256, exact source commit, builder, and admission-time consumer evidence in `runtime/lock.json`). Never hand-edit it, and never route it through Git LFS (the anonymous git lane and the GitHub connector do not serve LFS, and LFS quotas can be exhausted). `runtime-admit.py` refuses LFS-routed parts. `scripts/ecosystem-up.py` is the offline consumer: an artifact is `ALIVE` there only when its digests verify and its smoke commands exit 0 in the consuming container. That is still not a target repository's crown.
 
 ## Change / verification discipline
 

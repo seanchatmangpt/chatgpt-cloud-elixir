@@ -1,0 +1,33 @@
+name: AGI Academy Rail Conformance
+
+# Runs every Academy-mapped guard on the exact head and uploads the conformance receipt.
+# Standing comes only from guard exit codes (governance/agi-academy-conformance.toml).
+on:
+  push:
+    branches: [main, "release/**", "feat/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Ensure PyYAML for workflow-parsing guards
+        run: python3 -c "import yaml" || python3 -m pip install --user --break-system-packages pyyaml==6.0.2
+      - name: Run conformance court
+        run: python3 scripts/verify-agi-conformance.py --receipt agi-conformance-receipt.json
+      - name: Upload conformance receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: agi-conformance-receipt-${{ github.run_id }}
+          path: agi-conformance-receipt.json
+          if-no-files-found: warn
+          retention-days: 90

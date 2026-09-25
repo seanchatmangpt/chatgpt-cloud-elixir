@@ -70,6 +70,12 @@ required_sources = [
   "cargo-cicd",
   "bcinr",
   "frozen-duckdb",
+  # current strategic portfolio additions
+  "engineering-standards",
+  "zcode-cli",
+  "rust4pm",
+  "koala-planner",
+  "mmdio",
 ]
 required_host_commands = ["bash", "python3", "git", "tar", "gzip", "sha256sum"]
 acceptance = [

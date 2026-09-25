@@ -4,6 +4,7 @@ import json
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
 import tarfile
 import tempfile
@@ -102,6 +103,14 @@ class RuntimeTransportTests(unittest.TestCase):
         self.assertEqual(self.up(), 65)
         self.assertEqual(self.receipt()["artifacts"]["hello-tool"]["standing"], "BLOCKED")
 
+    def test_lfs_routed_part_is_refused(self):
+        subprocess.run(["git", "init", "-q", str(self.repo)], check=True)
+        (self.repo / ".gitattributes").write_text("runtime/** filter=lfs diff=lfs merge=lfs -text\n")
+        with self.assertRaises(SystemExit) as refused:
+            self.admit_tool()
+        self.assertIn("Git LFS", str(refused.exception))
+        self.assertFalse((self.repo / "runtime" / "linux-x86_64" / "hello-tool").exists())
+
     def test_env_file_is_appended(self):
         self.admit_tool()
         env_file = self.tmp / "claude-env"
@@ -111,6 +120,16 @@ class RuntimeTransportTests(unittest.TestCase):
 
 
 class CommittedLockTests(unittest.TestCase):
+    def test_committed_parts_are_never_git_lfs(self):
+        lock = json.loads((ROOT / "runtime" / "lock.json").read_text())
+        paths = [p["path"] for spec in lock["artifacts"].values() for p in spec["parts"]]
+        attrs = subprocess.run(["git", "-C", str(ROOT), "check-attr", "filter", "--", *paths],
+                               capture_output=True, text=True, check=True).stdout.splitlines()
+        self.assertEqual([a for a in attrs if a.endswith(": lfs")], [])
+        for path in paths:
+            with (ROOT / path).open("rb") as handle:
+                self.assertNotEqual(handle.read(40), b"version https://git-lfs.github.com/spec/", path)
+
     def test_committed_parts_match_lock(self):
         lock = json.loads((ROOT / "runtime" / "lock.json").read_text())
         for name, spec in lock["artifacts"].items():

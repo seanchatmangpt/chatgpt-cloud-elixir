@@ -61,7 +61,8 @@ class BootstrapCourtTests(unittest.TestCase):
         self.assertIn(f"sources={count} ", result.stdout)
 
     def test_capsule_source_set_drift_is_refused(self):
-        self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "frozen-duckdb",\n', "")
+        required = tomllib.loads((self.tmp / "capsules/autonomic-manufacturing/capsule.toml").read_text())["required_sources"]
+        self.edit("capsules/autonomic-manufacturing/capsule.toml", f'  "{required[-1]}",\n', "")
         self.assertRefused("source set drift between ontology and capsule.toml")
 
     def test_dropping_manufacturing_core_is_refused(self):
@@ -72,8 +73,20 @@ class BootstrapCourtTests(unittest.TestCase):
         self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "ggen-legacy",\n', "")
         self.assertRefused("manufacturing core dropped")
 
+    def test_dropping_strategic_source_is_refused(self):
+        ontology = (self.tmp / "manufacturing/ontology.ttl").read_text()
+        block = re.search(r"^cc:EngineeringStandards a cc:CapabilitySource ;.*?\s\.\n\n", ontology, re.S | re.M).group(0)
+        ontology = ontology.replace(block, "").replace("cc:EngineeringStandards, ", "")
+        (self.tmp / "manufacturing/ontology.ttl").write_text(ontology)
+        self.edit("capsules/autonomic-manufacturing/capsule.toml", '  "engineering-standards",\n', "")
+        self.assertRefused("strategic portfolio source dropped")
+
     def test_declared_but_not_included_source_is_refused(self):
-        self.edit("manufacturing/ontology.ttl", "cc:FrozenDuckdb .", "cc:Bcinr .")
+        ontology = (self.tmp / "manufacturing/ontology.ttl").read_text()
+        self.assertIn("cc:FrozenDuckdb, ", ontology)
+        (self.tmp / "manufacturing/ontology.ttl").write_text(
+            ontology.replace("cc:FrozenDuckdb, ", "", 1)
+        )
         self.assertRefused("cc:includesSource")
 
     def test_bootstrap_sha_drift_is_refused(self):
@@ -95,6 +108,27 @@ class BootstrapCourtTests(unittest.TestCase):
         sha = re.search(r'skos:prefLabel "truex" ;.*?cc:commitSha "([0-9a-f]{40})"', ontology, re.S).group(1)
         self.edit("manufacturing/ontology.ttl", sha, sha[:12])
         self.assertRefused("truex commitSha is not an exact 40-hex SHA")
+
+    def test_private_identity_projection_is_refused(self):
+        # Anchor inside the engineering-standards block; several blocks share the admissionBasis line.
+        self.edit(
+            "manufacturing/ontology.ttl",
+            'skos:prefLabel "engineering-standards" ;',
+            'skos:prefLabel "engineering-standards" ;\n  cc:accessClass "private" ;',
+        )
+        self.assertRefused("private source engineering-standards forbidden by private identity projection fence")
+
+    def test_unknown_access_class_is_refused(self):
+        self.edit(
+            "manufacturing/ontology.ttl",
+            'cc:admissionBasis "project-memory-workstream" .',
+            'cc:admissionBasis "project-memory-workstream" ;\n  cc:accessClass "secret" .',
+        )
+        self.assertRefused("unknown accessClass secret")
+
+    def test_missing_lfs_law_is_refused(self):
+        self.edit("manufacturing/ontology.ttl", '  cc:lfsObjectPolicy "pointer-identity" ;\n', "")
+        self.assertRefused("Git LFS law missing")
 
     def test_ambient_do_token_is_refused(self):
         self.edit("manufacturing/ontology.ttl", "cc:requiresExternalExecution true ;", "cc:requiresExternalExecution true ;\n  cc:doAuthority true ;")

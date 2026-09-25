@@ -41,7 +41,6 @@ source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
 
 `ecosystem-up.py` writes `~/.chatgpt-cloud/runtime/ecosystem-up-receipt.json` with a per-artifact standing. Add `--verify` to also run each capsule's own offline verifier. See [the ERRC grid](docs/explanation/committed-runtime-errc.md) for the design and `runtime/README.md` for what is committed.
 
-
 ### Runtime interaction with XaaS Ultracode / ZCode
 
 The cloud runtime also includes a stdlib-only client for the existing XaaS execution fabric. It reuses the same Bearer-gated JSON-RPC contract as `zcode gall-work`; it does not create a parallel execution API.
@@ -57,6 +56,10 @@ python3 scripts/xaas-runtime.py receipts <epoch-uuid>
 Run submission defaults to provider `zcode`, making the epoch claimable by the existing Ultracode ↔ ZCode `gall-work` lifecycle. A successful submission is `PARTIAL_ALIVE`, not subject `ALIVE`; the latter still requires real worker execution, verification, receipt sealing, and replay. The `actuate` DO verb additionally requires explicit `--allow-do` before the client will send it. See [XaaS Ultracode runtime bridge](docs/how-to/xaas-ultracode-runtime.md).
 
 When outbound network access is blocked in the ChatGPT container, use the repository-native GitHub relay instead of pretending the direct edge is alive: commit a bounded request under `xaas-runtime/requests/`; `.github/workflows/xaas-runtime-proxy.yml` executes it through the protected `xaas-runtime` GitHub Environment and commits the machine-readable operation receipt under `xaas-runtime/receipts/`. The relay intentionally excludes generic MCP and `actuate`. See [the XaaS runtime transport](xaas-runtime/README.md).
+
+## AGI Academy conformance
+
+This repository conforms, as an execution rail, to the Chatman Ecosystem AGI Academy (v26.9.8, pinned in `governance/agi-academy/`). `python3 scripts/verify-agi-conformance.py` runs every mapped guard and reports `ALIVE` only when all 8 invariants, 5 terminal refusals, 11 modules, and every failure-ledger entry hold. See [the conformance note](docs/explanation/agi-academy-conformance.md).
 
 ## Status model
 

@@ -36,6 +36,15 @@ CORE_SOURCES = {
     "swarmsh",
     "swarmsh-v2",
 }
+# Current strategic portfolio closure. These are not manufacturing bootstrap roots, but
+# they carry live ecosystem semantics that this rail must preserve once admitted.
+STRATEGIC_SOURCES = {
+    "engineering-standards",
+    "zcode-cli",
+    "rust4pm",
+    "koala-planner",
+    "mmdio",
+}
 # source-snapshot ships as an archive; source-reference is bound by exact commit + tree
 # identity only (for members whose tree is dominated by non-executable corpora).
 EXECUTION_MODES = {"compiled-binary", "source-snapshot", "source-reference", "shell-source", "typed-source"}
@@ -71,6 +80,8 @@ def main() -> int:
         refuse("external execution boundary is missing")
     if "cc:privateIdentityProjection false" not in ontology:
         refuse("private identity projection fence is missing")
+    if 'cc:lfsObjectPolicy "pointer-identity"' not in ontology:
+        refuse('Git LFS law missing: capsule must declare cc:lfsObjectPolicy "pointer-identity"')
     for forbidden in ("DO_AUTHORITY", "AMBIENT_DO", "doAuthority true", "selfCertificationAllowed true"):
         if forbidden in ontology:
             refuse(f"forbidden authority token present: {forbidden}")
@@ -108,6 +119,11 @@ def main() -> int:
             refuse(f"duplicate source repository: {fields['repository']}")
         if fields["mode"] not in EXECUTION_MODES:
             refuse(f"source {name} has unknown executionMode {fields['mode']}")
+        access = literal(body, "cc:accessClass") or "public"
+        if access not in ("public", "private"):
+            refuse(f"source {name} has unknown accessClass {access}")
+        if access == "private":
+            refuse(f"private source {name} forbidden by private identity projection fence")
         repositories.add(fields["repository"])
         locals_[local] = name
         found[name] = fields
@@ -137,6 +153,8 @@ def main() -> int:
         )
     if not CORE_SOURCES <= set(found):
         refuse(f"manufacturing core dropped: {sorted(CORE_SOURCES - set(found))}")
+    if not STRATEGIC_SOURCES <= set(found):
+        refuse(f"strategic portfolio source dropped: {sorted(STRATEGIC_SOURCES - set(found))}")
     if found["ggen"]["mode"] != "compiled-binary":
         refuse("ggen must remain the compiled-binary manufacturing runtime")
 

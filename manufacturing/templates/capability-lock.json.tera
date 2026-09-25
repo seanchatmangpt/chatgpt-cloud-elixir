@@ -5,6 +5,6 @@
   "observation_scope": "owner=seanchatmangpt AND visibility=public",
   "source_count": {{ results | length }},
   "sources": [
-{% for s in results %}    {"name":{{ s.name | json_encode }},"repository":{{ s.repository | json_encode }},"sha":{{ s.sha | json_encode }},"role":{{ s.role | json_encode }},"capital_class":{{ s.capitalClass | json_encode }},"execution_mode":{{ s.executionMode | json_encode }},"required_standing":{{ s.standing | json_encode }},"admission_basis":{{ s.admissionBasis | json_encode }}}{% if not loop.last %},{% endif %}
+{% for s in results %}    {"name":{{ s.name | json_encode }},"repository":{{ s.repository | json_encode }},"sha":{{ s.sha | json_encode }},"role":{{ s.role | json_encode }},"capital_class":{{ s.capitalClass | json_encode }},"execution_mode":{{ s.executionMode | json_encode }},"required_standing":{{ s.standing | json_encode }},"admission_basis":{{ s.admissionBasis | json_encode }},"access_class":{{ s.accessClass | json_encode }}}{% if not loop.last %},{% endif %}
 {% endfor %}  ]
 }
