@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: seanchatmangpt/zcode-cli
-          ref: f3a037a67c995b2e4bb2ec2e597aa7f87022cc05
+          ref: 1b0c604ee754687cb8b18b4496f54cd464cd0df2
           path: zcode-cli
           persist-credentials: false
 
