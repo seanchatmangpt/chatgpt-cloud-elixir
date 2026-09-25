@@ -104,6 +104,15 @@ class RelayTests(unittest.TestCase):
         self.assertIn("AUTHORITY_REF_REQUIRED", CONTRACT["refusals"])
         self.assertIn("SEQUENCE_GAP", CONTRACT["refusals"])
         self.assertIn("KNOWN_REPLAY", CONTRACT["replay"]["after_ack"])
+        self.assertEqual(
+            CONTRACT["ocel_identity_env"],
+            [
+                "XAAS_LEASE_CWD",
+                "XAAS_WORK_ORDER_IRI",
+                "XAAS_EPOCH_ID",
+                "XAAS_BASE_SHA",
+            ],
+        )
 
     def test_relay_envelope_executes_once_then_known_replay(self):
         first = self.run_envelope(allow_do=True)
