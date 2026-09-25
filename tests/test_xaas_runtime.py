@@ -1,8 +1,11 @@
 import importlib.util
+import base64
+import hashlib
 import io
 import json
 import os
 import pathlib
+import socket
 import threading
 import tempfile
 import unittest
@@ -634,6 +637,351 @@ class RelayRequestResolverTests(unittest.TestCase):
         self.assertGreater(text.index("secrets.XAAS_MCP_TOKEN"), execute)
         self.assertLess(text.index("secrets.XAAS_MCP_TOKEN"), text.index("- name:", execute + 1))
         self.assertNotIn("actuate", text)
+
+
+class MockTunnel:
+    """Stdlib RFC 6455 server-side mock of the Xaas.Tunnel endpoint.
+
+    Accepts the upgrade handshake (validating Sec-WebSocket-Key), then answers
+    one envelope frame per request frame using `responder(envelope) -> dict`.
+    Records connection count and every received envelope for court assertions.
+    """
+
+    GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+
+    def __init__(self, responder=None, auth_status=101):
+        self.responder = responder or self.default_responder
+        self.auth_status = auth_status
+        self.connections = 0
+        self.envelopes = []
+        self.handshake_auth = []
+        self._sock = None
+        self._stop = threading.Event()
+
+    @staticmethod
+    def default_responder(envelope):
+        path, method, body = envelope.get("path"), envelope.get("method"), envelope.get("body")
+        if path == "/internal-api/execution/mcp" and method == "POST":
+            if body.get("method") == "initialize":
+                return {"v": 1, "kind": "http_response", "status": 200, "body": {
+                    "jsonrpc": "2.0", "id": 1,
+                    "result": {
+                        "protocolVersion": "2025-03-26",
+                        "serverInfo": {"name": "xaas-ultracode-lease", "version": "1.0.0"},
+                        "capabilities": {"tools": {}},
+                    },
+                }}
+            if body.get("method") == "tools/list":
+                return {"v": 1, "kind": "http_response", "status": 200, "body": {
+                    "jsonrpc": "2.0", "id": 1,
+                    "result": {"tools": [{"name": n} for n in TOOLS]},
+                }}
+        if path == "/internal-api/execution/runs" and method == "POST":
+            return {"v": 1, "kind": "http_response", "status": 201, "body": {
+                "run_id": "run-1", "epoch_id": "11111111-1111-1111-1111-111111111111",
+            }}
+        if path and path.startswith("/internal-api/execution/epochs/") and path.endswith("/receipts"):
+            epoch = path.split("/")[4]
+            return {"v": 1, "kind": "http_response", "status": 200, "body": {
+                "epoch_id": epoch, "receipts": [{"id": "r1", "outcome": "alive"}],
+            }}
+        return {"v": 1, "kind": "http_response", "status": 404, "body": {"error": "not_found"}}
+
+    def start(self):
+        self._sock = socket.socket()
+        self._sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self._sock.bind(("127.0.0.1", 0))
+        self._sock.listen(4)
+        self._sock.settimeout(0.2)
+        self.port = self._sock.getsockname()[1]
+        self.thread = threading.Thread(target=self._serve, daemon=True)
+        self.thread.start()
+        return self
+
+    def stop(self):
+        self._stop.set()
+        self.thread.join(timeout=2)
+        self._sock.close()
+
+    def _recv_line(self, conn):
+        line = bytearray()
+        while not line.endswith(b"\r\n"):
+            byte = conn.recv(1)
+            if not byte:
+                break
+            line += byte
+        return bytes(line)
+
+    def _serve(self):
+        while not self._stop.is_set():
+            try:
+                conn, _ = self._sock.accept()
+            except socket.timeout:
+                continue
+            except OSError:
+                return
+            self.connections += 1
+            try:
+                self._serve_connection(conn)
+            except (OSError, ValueError):
+                pass
+            finally:
+                try:
+                    conn.close()
+                except OSError:
+                    pass
+
+    def _serve_connection(self, conn):
+        conn.settimeout(5)
+        request_line = self._recv_line(conn)
+        headers = {}
+        while True:
+            line = self._recv_line(conn)
+            if line in (b"\r\n", b""):
+                break
+            key, _, value = line.decode("latin-1").partition(":")
+            headers[key.strip().lower()] = value.strip()
+        self.handshake_auth.append(headers.get("authorization"))
+        if self.auth_status != 101:
+            conn.sendall(f"HTTP/1.1 {self.auth_status} NO\r\ncontent-length: 0\r\n\r\n".encode())
+            return
+        key = headers.get("sec-websocket-key", "")
+        accept = base64.b64encode(hashlib.sha256((key + self.GUID).encode()).digest()).decode()
+        conn.sendall((
+            "HTTP/1.1 101 Switching Protocols\r\n"
+            "upgrade: websocket\r\nconnection: Upgrade\r\n"
+            f"sec-websocket-accept: {accept}\r\n\r\n"
+        ).encode())
+        while True:
+            frame = self._recv_frame(conn)
+            if frame is None:
+                return
+            envelope = json.loads(frame.decode("utf-8"))
+            self.envelopes.append(envelope)
+            response = self.responder(envelope)
+            self._send_frame(conn, json.dumps(response).encode("utf-8"))
+
+    def _recv_frame(self, conn):
+        header = b""
+        while len(header) < 2:
+            chunk = conn.recv(2 - len(header))
+            if not chunk:
+                return None
+            header += chunk
+            if len(header) == 1:
+                continue
+        first, second = header[0], header[1]
+        opcode = first & 0x0F
+        if opcode == 0x8:
+            return None
+        masked = bool(second & 0x80)
+        length = second & 0x7F
+        if length == 126:
+            length = int.from_bytes(self._recv_exact(conn, 2), "big")
+        elif length == 127:
+            length = int.from_bytes(self._recv_exact(conn, 8), "big")
+        mask = self._recv_exact(conn, 4) if masked else None
+        payload = self._recv_exact(conn, length)
+        if mask:
+            payload = bytes(b ^ mask[i % 4] for i, b in enumerate(payload))
+        return payload
+
+    def _recv_exact(self, conn, count):
+        chunks = bytearray()
+        while len(chunks) < count:
+            chunk = conn.recv(count - len(chunks))
+            if not chunk:
+                raise OSError("eof")
+            chunks += chunk
+        return bytes(chunks)
+
+    def _send_frame(self, conn, payload):
+        header = bytearray([0x81])  # FIN + text, server frames are unmasked
+        n = len(payload)
+        if n < 126:
+            header.append(n)
+        elif n < 65536:
+            header.append(126)
+            header += n.to_bytes(2, "big")
+        else:
+            header.append(127)
+            header += n.to_bytes(8, "big")
+        conn.sendall(bytes(header) + payload)
+
+
+class WssTransportTests(unittest.TestCase):
+    """v26.9.25 section 7: direct WSS is the target transport, the bounded trio is
+    the whole external capability, and transport failure is typed (R25-015)."""
+
+    WSS_SECRET = "tunnel-secret-value"
+
+    def setUp(self):
+        self.tunnel = MockTunnel().start()
+        self.addCleanup(self.tunnel.stop)
+
+    def run_main(self, argv, env):
+        old = dict(os.environ)
+        for key in ("XAAS_MCP_URL", "XAAS_MCP_TOKEN", "XAAS_TUNNEL_URL", "XAAS_TUNNEL_TOKEN"):
+            os.environ.pop(key, None)
+        os.environ.update(env)
+        out = io.StringIO()
+        try:
+            with redirect_stdout(out):
+                code = bridge.main(argv)
+        finally:
+            os.environ.clear()
+            os.environ.update(old)
+        return code, json.loads(out.getvalue())
+
+    def tunnel_env(self, port=None):
+        return {
+            "XAAS_TUNNEL_URL": f"ws://127.0.0.1:{port or self.tunnel.port}",
+            "XAAS_TUNNEL_TOKEN": self.WSS_SECRET,
+        }
+
+    def test_wss_probe_succeeds_over_mock_tunnel(self):
+        code, row = self.run_main(["--transport", "wss", "--require-config", "probe"], self.tunnel_env())
+        self.assertEqual(code, 0)
+        self.assertEqual(row["standing"], "ALIVE")
+        self.assertEqual(row["contract"]["missing"], [])
+        # probe = initialize + tools/list; the tunnel contract is one dial per
+        # request envelope (stateless), so two dials for one probe.
+        self.assertEqual(len(self.tunnel.envelopes), 2)
+        self.assertEqual(self.tunnel.connections, 2)
+        for envelope in self.tunnel.envelopes:
+            self.assertEqual(envelope["path"], "/internal-api/execution/mcp")
+            self.assertEqual(envelope["headers"]["authorization"], f"Bearer {self.WSS_SECRET}")
+        self.assertEqual(self.tunnel.handshake_auth, [f"Bearer {self.WSS_SECRET}"] * 2)
+
+    def test_wss_probe_receipt_redacts_host_and_never_leaks_token(self):
+        code, row = self.run_main(["--transport", "wss", "probe"], self.tunnel_env())
+        self.assertEqual(row["endpoint"], "ws://<redacted-host>/internal-api/execution/mcp")
+        self.assertEqual(len(row["endpoint_sha256"]), 64)
+        dumped = json.dumps(row)
+        self.assertNotIn(self.WSS_SECRET, dumped)
+        self.assertNotIn("127.0.0.1", dumped)
+
+    def test_wss_submit_run_is_partial_alive_with_unknown_downstream(self):
+        argv = [
+            "--transport", "wss", "submit-run",
+            "--goal", "implement the admitted work order",
+            "--exact-subject", "seanchatmangpt/example@" + "a" * 40,
+        ]
+        code, row = self.run_main(argv, self.tunnel_env())
+        self.assertEqual(code, 0)
+        self.assertEqual(row["standing"], "PARTIAL_ALIVE")
+        self.assertEqual(row["downstream_standing"], "UNKNOWN")
+        runs = [e for e in self.tunnel.envelopes if e["path"] == "/internal-api/execution/runs"]
+        self.assertEqual(len(runs), 1)
+        self.assertEqual(runs[0]["method"], "POST")
+        self.assertEqual(runs[0]["body"]["provider"], "zcode")
+
+    def test_wss_epoch_receipts_round_trip(self):
+        argv = ["--transport", "wss", "receipts", "11111111-1111-1111-1111-111111111111"]
+        code, row = self.run_main(argv, self.tunnel_env())
+        self.assertEqual(code, 0)
+        self.assertEqual(row["standing"], "ALIVE")
+        self.assertEqual(row["response"]["receipts"][0]["outcome"], "alive")
+
+    def test_wss_trio_fence_refuses_generic_mcp_before_dial(self):
+        connections = self.tunnel.connections
+        code, row = self.run_main(["--transport", "wss", "mcp", "tools/list"], self.tunnel_env())
+        self.assertEqual(code, 77)
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "TRIO_ONLY_TRANSPORT")
+        self.assertEqual(self.tunnel.connections, connections)
+
+    def test_non_trio_operation_refused_before_tunnel_config_or_dial(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "wss-non-trio",
+            "operation": "fabric.actuate",
+            "payload": {},
+        }
+        row = bridge.execute_request_document(doc, None, 2, transport="wss")
+        self.assertEqual(row["standing"], "REFUSED_REQUEST")
+        self.assertEqual(row["reason"], "OPERATION_UNSUPPORTED")
+        self.assertEqual(self.tunnel.connections, 0)
+
+    def test_wss_unreachable_tunnel_is_typed_blocked_not_crash(self):
+        code, row = self.run_main(
+            ["--transport", "wss", "probe"],
+            {"XAAS_TUNNEL_URL": "ws://127.0.0.1:1", "XAAS_TUNNEL_TOKEN": self.WSS_SECRET},
+        )
+        self.assertEqual(code, 69)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "TRANSPORT")
+        self.assertEqual(row["fallback_transport"], "github-actions")
+        self.assertIn("transport:", row["transport_error"])
+
+    def test_wss_missing_tunnel_config_is_blocked_before_network(self):
+        code, row = self.run_main(["--transport", "wss", "--require-config", "probe"], {})
+        self.assertEqual(code, 69)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertEqual(row["detail"], "missing environment: XAAS_TUNNEL_URL,XAAS_TUNNEL_TOKEN")
+        self.assertEqual(row["target_source"], "wss")
+
+    def test_wss_handshake_401_is_typed_auth_refusal(self):
+        rejecting = MockTunnel(auth_status=401).start()
+        self.addCleanup(rejecting.stop)
+        code, row = self.run_main(
+            ["--transport", "wss", "probe"],
+            {"XAAS_TUNNEL_URL": f"ws://127.0.0.1:{rejecting.port}", "XAAS_TUNNEL_TOKEN": self.WSS_SECRET},
+        )
+        self.assertEqual(code, 77)
+        self.assertEqual(row["standing"], "REFUSED_AUTHENTICATION")
+        self.assertEqual(row["reason"], "AUTHENTICATION")
+
+    def test_wss_tunnel_url_userinfo_refused_without_dial(self):
+        code, row = self.run_main(
+            ["--transport", "wss", "--tunnel-url", f"ws://user:hunter2@127.0.0.1:{self.tunnel.port}", "probe"],
+            {"XAAS_TUNNEL_TOKEN": self.WSS_SECRET},
+        )
+        self.assertEqual(code, 69)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
+        self.assertEqual(row["detail"], "config:url_userinfo_refused")
+        self.assertNotIn("hunter2", json.dumps(row))
+        self.assertEqual(self.tunnel.connections, 0)
+
+    def test_github_actions_fallback_mode_is_typed_local_record(self):
+        code, row = self.run_main(["--transport", "github-actions", "probe"], self.tunnel_env())
+        self.assertEqual(code, 69)
+        self.assertEqual(row["standing"], "BLOCKED")
+        self.assertEqual(row["reason"], "TRANSPORT_DELEGATED")
+        self.assertIn("xaas-runtime-proxy.yml", row["detail"])
+        self.assertEqual(self.tunnel.connections, 0)
+
+    def test_request_document_over_wss_writes_receipt(self):
+        doc = {
+            "schema": bridge.REQUEST_SCHEMA,
+            "request_id": "wss-probe-1",
+            "operation": "fabric.probe",
+            "payload": {},
+        }
+        with tempfile.TemporaryDirectory() as name:
+            root = pathlib.Path(name)
+            request = root / "wss-probe-1.json"
+            receipt_path = root / "receipts" / "wss-probe-1.receipt.json"
+            request.write_text(json.dumps(doc))
+            args = type("A", (), {
+                "request": request, "receipt": receipt_path, "timeout": 2,
+                "require_config": True, "transport": "wss", "tunnel_url": None,
+            })()
+            old = dict(os.environ)
+            os.environ.pop("XAAS_MCP_URL", None)
+            os.environ.pop("XAAS_MCP_TOKEN", None)
+            os.environ.update(self.tunnel_env())
+            try:
+                row = bridge.run_request_file(args)
+            finally:
+                os.environ.clear()
+                os.environ.update(old)
+            self.assertEqual(row["standing"], "ALIVE")
+            self.assertEqual(row["transport"], "wss")
+            self.assertEqual(json.loads(receipt_path.read_text())["standing"], "ALIVE")
+            self.assertNotIn(self.WSS_SECRET, receipt_path.read_text())
 
 
 class FabricReceiptParityTests(unittest.TestCase):
