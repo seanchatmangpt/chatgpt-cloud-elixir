@@ -1,6 +1,0 @@
-{
-  "schema": "chatgpt-cloud.xaas-runtime-request/1",
-  "request_id": "20260925T065700Z-chatgpt-roundtrip-probe",
-  "operation": "fabric.probe",
-  "payload": {}
-}
