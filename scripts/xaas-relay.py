@@ -187,6 +187,9 @@ def run_descriptor(
     child_env = dict(os.environ if env is None else env)
     child_env["XAAS_WORKER"] = "1"
     child_env["XAAS_LEASE_CWD"] = descriptor["worktree"]
+    child_env["XAAS_WORK_ORDER_IRI"] = descriptor["work_order_iri"]
+    child_env["XAAS_EPOCH_ID"] = descriptor["epoch_id"]
+    child_env["XAAS_BASE_SHA"] = descriptor["base_sha"]
 
     try:
         proc = subprocess.run(
