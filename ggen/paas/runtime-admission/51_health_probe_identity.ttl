@@ -1,0 +1,13 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+cce:HealthProbeIdentityShape a sh:NodeShape ;
+  sh:targetClass cce:RuntimeInvocation ;
+  dcterms:description "Require health probe identity" ;
+  cce:projectNumber 2 ; cce:ocelPath "ggen/ecosystem/ocel/current" ;
+  cce:acceptanceEdge "health_probe_identity" ;
+  cce:semanticFingerprint "sha256:02673c8b9908a4f3f47552b9edb3ebaf31adf3c0dba46acbe8f26b4a1a7ade1b" ;
+  cce:ambientExecutionAuthority false ;
+  sh:property [ sh:path cce:healthProbeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ; sh:severity sh:Violation ; sh:message "Require health probe identity" ] .
