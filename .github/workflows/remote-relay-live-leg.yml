@@ -11,6 +11,8 @@ on:
       - "tests/test_xaas_relay.py"
       - "tests/test_relay_workflow_court.py"
       - "tests/test_xaas_relay_bench.py"
+      - "tests/test_xaas_relay_hardening.py"
+      - "tests/__init__.py"
       - "scripts/bench_xaas_relay.py"
       - ".github/workflows/remote-relay-live-leg.yml"
   push:
@@ -26,6 +28,8 @@ on:
       - "tests/test_xaas_relay.py"
       - "tests/test_relay_workflow_court.py"
       - "tests/test_xaas_relay_bench.py"
+      - "tests/test_xaas_relay_hardening.py"
+      - "tests/__init__.py"
       - "scripts/bench_xaas_relay.py"
       - ".github/workflows/remote-relay-live-leg.yml"
   workflow_dispatch:
@@ -102,7 +106,7 @@ jobs:
 
       - name: Cloud envelope admission and replay court
         working-directory: cloud
-        run: python3 -m unittest tests.test_xaas_relay tests.test_xaas_relay_bench
+        run: python3 -m unittest tests.test_xaas_relay tests.test_xaas_relay_bench tests.test_xaas_relay_hardening
 
       - name: Setup XaaS BEAM
         uses: erlef/setup-beam@v1

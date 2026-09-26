@@ -198,6 +198,16 @@ class ResultBindingTests(RelayHarness):
         self.assert_not_receipted(row, "GALL_RESULT_EXIT_CONTRADICTION")
         self.assertEqual(row["exit_code"], 3)
 
+    def test_nonzero_exit_lowercase_alive_is_build_broken(self):
+        # Adversarial input A2 (court 3647b357): a non-canonical live token must
+        # not pass through as the standing of a failed gall-work run.
+        for token in ("alive", " Alive ", "partial_alive"):
+            with self.subTest(token=token):
+                self.peer(exit_code=3, standing=token)
+                row = self.deliver(self.envelope())
+                self.assert_not_receipted(row, "GALL_RESULT_EXIT_CONTRADICTION")
+                self.assertEqual(row["exit_code"], 3)
+
     def test_nonzero_exit_partial_alive_is_build_broken(self):
         self.peer(exit_code=1, standing="PARTIAL_ALIVE")
         self.assert_not_receipted(self.deliver(self.envelope()), "GALL_RESULT_EXIT_CONTRADICTION")

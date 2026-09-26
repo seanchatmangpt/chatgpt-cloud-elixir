@@ -157,6 +157,99 @@ class StructPreloadScannerTests(unittest.TestCase):
         self.assertEqual(preloaded_files(run), ["a.ex", "b.ex"])
 
 
+# Relay test modules the live-leg workflow must execute and path-filter. A court
+# file that no workflow runs cannot refuse a regression (PR #44 court 3647b357,
+# broken_term admission_vacuous: tests/test_xaas_relay_hardening.py was run by no
+# workflow, so reverting GALL_RESULT_SUBJECT_MISMATCH/EXIT_CONTRADICTION passed CI).
+RELAY_TEST_GLOB = "test_xaas_relay*.py"
+EXTRA_COURT_MODULES = ("test_relay_workflow_court",)
+GUARDED_SOURCES = ("scripts/xaas-relay.py", "tests/__init__.py")
+UNITTEST_CMD = re.compile(r"\bpython3?\s+-m\s+unittest\b(?P<args>[^\n]*)")
+
+
+def unittest_modules_run(workflow: dict) -> set[str]:
+    """Dotted module names passed to `python -m unittest` in any step."""
+    modules: set[str] = set()
+    for job in workflow["jobs"].values():
+        for step in job["steps"]:
+            for match in UNITTEST_CMD.finditer(step.get("run", "") or ""):
+                modules.update(t for t in match.group("args").split() if not t.startswith("-"))
+    return modules
+
+
+def path_filters(workflow: dict) -> dict[str, set[str]]:
+    # PyYAML (YAML 1.1) reads the bare key `on` as boolean True.
+    triggers = workflow.get("on", workflow.get(True)) or {}
+    return {
+        event: set(spec["paths"])
+        for event, spec in triggers.items()
+        if isinstance(spec, dict) and "paths" in spec
+    }
+
+
+def relay_court_modules(tests_dir: pathlib.Path) -> list[str]:
+    return sorted({p.stem for p in tests_dir.glob(RELAY_TEST_GLOB)} | set(EXTRA_COURT_MODULES))
+
+
+def find_unguarded_relay_modules(workflow: dict, tests_dir: pathlib.Path) -> list[str]:
+    """Findings for relay court modules the workflow never runs or never triggers on."""
+    findings = []
+    run = unittest_modules_run(workflow)
+    filters = path_filters(workflow)
+    if not filters:
+        findings.append("workflow declares no path-filtered triggers")
+    for stem in relay_court_modules(tests_dir):
+        if f"tests.{stem}" not in run:
+            findings.append(f"tests.{stem} is not run by any `python3 -m unittest` step")
+        for event, paths in sorted(filters.items()):
+            if f"tests/{stem}.py" not in paths:
+                findings.append(f"tests/{stem}.py missing from {event} paths")
+    for source in GUARDED_SOURCES:
+        for event, paths in sorted(filters.items()):
+            if source not in paths:
+                findings.append(f"{source} missing from {event} paths")
+    return findings
+
+
+class RelaySuiteCoverageCourt(unittest.TestCase):
+    """Every relay court module is executed and path-triggered by the workflow."""
+
+    def test_workflow_runs_and_triggers_every_relay_court_module(self):
+        self.assertEqual(find_unguarded_relay_modules(load_workflow(), ROOT / "tests"), [])
+
+    def test_hardening_module_is_in_the_inventory(self):
+        self.assertIn("test_xaas_relay_hardening", relay_court_modules(ROOT / "tests"))
+
+    def test_scanner_flags_module_dropped_from_unittest_step(self):
+        workflow = load_workflow()
+        for job in workflow["jobs"].values():
+            for step in job["steps"]:
+                if step.get("run"):
+                    step["run"] = step["run"].replace(" tests.test_xaas_relay_hardening", "")
+        findings = find_unguarded_relay_modules(workflow, ROOT / "tests")
+        self.assertIn(
+            "tests.test_xaas_relay_hardening is not run by any `python3 -m unittest` step", findings
+        )
+
+    def test_scanner_flags_module_dropped_from_one_path_filter(self):
+        workflow = load_workflow()
+        triggers = workflow.get("on", workflow.get(True))
+        triggers["push"]["paths"].remove("tests/test_xaas_relay_hardening.py")
+        self.assertEqual(
+            find_unguarded_relay_modules(workflow, ROOT / "tests"),
+            ["tests/test_xaas_relay_hardening.py missing from push paths"],
+        )
+
+    def test_scanner_flags_new_relay_module_on_disk(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tests_dir = pathlib.Path(tmp)
+            for stem in relay_court_modules(ROOT / "tests") + ["test_xaas_relay_future"]:
+                (tests_dir / f"{stem}.py").write_text("")
+            findings = find_unguarded_relay_modules(load_workflow(), tests_dir)
+        self.assertIn("tests.test_xaas_relay_future is not run by any `python3 -m unittest` step", findings)
+        self.assertIn("tests/test_xaas_relay_future.py missing from pull_request paths", findings)
+
+
 def xaas_subject() -> pathlib.Path | None:
     candidates = [os.environ.get("XAAS_SUBJECT_DIR"), str(ROOT.parent / "xaas")]
     for candidate in candidates:

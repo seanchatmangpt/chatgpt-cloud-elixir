@@ -278,7 +278,9 @@ def run_descriptor(
 
     if proc.returncode != 0:
         standing = result.get("standing", "BLOCKED")
-        if standing in LIVE_STANDINGS:
+        # Case/whitespace variants ("alive", " Alive ") are still live claims:
+        # compare on the normalized token so they cannot slip past as standing.
+        if str(standing).strip().upper() in LIVE_STANDINGS:
             return {
                 "standing": "BUILD_BROKEN",
                 "reason": "GALL_RESULT_EXIT_CONTRADICTION",
