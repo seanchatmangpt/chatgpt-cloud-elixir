@@ -1,0 +1,149 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-09-26T20:44:23Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "Executable Design Science",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "tcps/muda-mura-muri/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T230006Z-cell1-pre-tcps"
+  },
+  "request_id": "20260826T230006Z-cell1-pre-tcps",
+  "request_path": "project-memory/requests/20260826T230006Z-cell1-pre-tcps.json",
+  "request_sha256": "sha256:790eac1cf5f32649410aa92e4578cdbb47302ccc164622aa0a5bedb1e5ef360a",
+  "request_transport_sha256": "sha256:1acb2f8ec196075d4d682f1c117bcccbc9e869fd7037d17acbff529469e26bbc",
+  "result": {
+    "body": "MUDA reduced by refusing duplicate R84 AshR2RML work and excluding Project CONTROL commits from fanout. MURA reduced by opening a distinct R84 product/runtime consumer in chatgpt-cloud-elixir rather than concentrating further in ggen-marketplace. MURI observed as code-search 502, exact Project transport head race 409, and hosted qualification latency. Shared R84 consumer law remains upstream-owned by the canonical marketplace pack; generated consequences are not editing surfaces. Next-process customer pull is qualification of PR22 plus remaining Ash/Reactor consumers and deep-scan unresolved ForcedTop25 targets.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_6VQ",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Da88",
+    "metadata": {
+      "MUDA": [
+        "duplicate WIP avoided",
+        "CONTROL excluded from fanout",
+        "no generated-output edits",
+        "no unchanged failure retry"
+      ],
+      "MURA": [
+        "R84 family distributed across XaaS, AshR2RML, chatgpt-cloud-elixir"
+      ],
+      "MURI": [
+        "CODE_SEARCH_502",
+        "PROJECT_TRANSPORT_HEAD_RACE_409",
+        "HOSTED_QUALIFICATION_LATENCY"
+      ],
+      "M_lower_bound": 2,
+      "U_lower_bound": 17,
+      "andon": [
+        "NEW_R92_EXACT_HEAD_CI_PENDING",
+        "CANONICAL_OCEL_CURRENT_NOT_GGEN_GENERATED_FOR_R92"
+      ],
+      "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "canonical_head": "06b5f524cabb4946b7674c52b9638ce1bec33fe4",
+      "cell": "MAXIMUM_FANOUT",
+      "cognitive_wip": 0,
+      "consequential_do": false,
+      "consequential_external_do": false,
+      "created_at": "2026-08-26T05:40:44Z",
+      "downstream_customer": "CELL3 assimilation path for already-admitted mfw/yawl subjects",
+      "downstream_shape": "exact semantic qualification receipt independent of hosted workflow wrapper",
+      "key": "tcps/muda-mura-muri/current",
+      "kind": "tcps.muda-mura-muri",
+      "limiting_multiplier": "qualified independent consumer fanout and exact-head qualification concurrency",
+      "muda": [
+        "ELIMINATED_DUPLICATE_PACK_CREATION",
+        "ELIMINATED_UNCHANGED_HOSTED_CHECKOUT_RETRY",
+        "ELIMINATED_SPECULATIVE_CARGO_GITHUB_MUTATION"
+      ],
+      "muda_reduced": [
+        "repeated-observation-interpretation",
+        "repeated-assimilation-interpretation"
+      ],
+      "mura": [
+        "PRESERVED_PARALLEL_CHATMAN_AND_UNRDF_CONSUMER_PATHS",
+        "PRESERVED_CARGO_AS_COMPATIBLE_AUTHORITY_FENCED_OPTION"
+      ],
+      "mura_reduced": [
+        "uneven-closure-selector-coverage"
+      ],
+      "muri": [
+        "HOSTED_CHECKOUT_COUPLING_REDUCED_BY_EXACT_SHA_ARCHIVE_MATERIALIZATION",
+        "REPO_LOCAL_AUTHORITY_NOT_OVERRIDDEN"
+      ],
+      "muri_fences": [
+        "no generation from DEMANDED_UNADMITTED",
+        "no regeneration without DOWNSTREAM_REALIZED and exact identities",
+        "blockers preserved"
+      ],
+      "muri_reduced": [
+        "serial-finish-repo-pressure"
+      ],
+      "new_downstream_commits": 3,
+      "next_process_customer": "remaining qualified downstream consumer universe",
+      "open_obligations_lower_bound": 15,
+      "partial_order_edges": [
+        "DOWNSTREAM_REALIZED->OBSERVATION_OBLIGATION",
+        "ALIVE_EXACT_SUBJECT->ASSIMILATION_OBLIGATION"
+      ],
+      "preserved_parallel_options": 25,
+      "process_analysis_owner": "wasm4pm",
+      "pull_edges": [
+        "PROJECT2_ROOT_GGEN_ADMITTED->CHATMAN_R88",
+        "PROJECT2_ROOT_GGEN_ADMITTED->UNRDF_R88",
+        "PROJECT2_ROOT_GGEN_ADMITTED->CARGO_AUTHORITY_FENCE"
+      ],
+      "ready_set": [],
+      "ready_set_policy": "Project2 admission and exact-head evidence only",
+      "receipts": [
+        "chatman-ecosystem:911f1ff9713fa305a6df762ecb14a27a8e0b90db:workflow32979785212:SUCCESS",
+        "unrdf:4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb:workflow32979921297:SUCCESS"
+      ],
+      "schema": "chatgpt-project-memory/v1",
+      "standard_work_candidates": [
+        "per-target legality-first readiness projection",
+        "per-target exact regeneration projection"
+      ],
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "fanout",
+        "muda",
+        "mura",
+        "muri",
+        "tcps"
+      ],
+      "tcps_patterns_applied": [
+        "next-process-is-customer",
+        "downstream-pull",
+        "legality-before-priority",
+        "partial-order-preservation",
+        "cognitive-andon",
+        "upstream-return"
+      ],
+      "updated_at": "2026-09-26T20:40:55Z",
+      "upstream_return": "none required from current downstream semantic execution yet",
+      "upstream_returns": [
+        "candidate: exact-SHA archive materialization for consumers whose git metadata prevents actions/checkout",
+        "candidate: executor-selection contract must honor consumer repository mutation law before allocating write transport"
+      ]
+    },
+    "title": "TCPS Muda Mura Muri current"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}
