@@ -1,0 +1,55 @@
+name: R84 Reactor Domain Error GGEN Consumer
+on:
+  pull_request:
+    paths:
+      - 'control-plane/fanout/r84/**'
+      - '.github/workflows/r84-reactor-domain-error-fanout.yml'
+permissions:
+  contents: read
+jobs:
+  construct:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact consumer head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Admit exact consumer head
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+      - name: Admit native Ash Reactor consumer
+        working-directory: control-plane
+        run: |
+          grep -F '{:ash, "3.32.0"}' mix.exs
+          grep -F '{:reactor, "1.0.6"}' mix.exs
+      - name: Checkout exact ggen constructor
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: seanchatmangpt/ggen
+          ref: ddfa602bfbab57b7ed5150f61b0acac7a41e3020
+          path: .constructor/ggen
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          toolchain: nightly-2026-06-22
+      - name: Build exact ggen constructor
+        run: cargo +nightly-2026-06-22 build --release -p ggen-cli-lib --bin ggen --manifest-path .constructor/ggen/Cargo.toml
+      - name: Manufacture R84 consequence
+        working-directory: control-plane/fanout/r84
+        run: ../../../.constructor/ggen/target/release/ggen sync run
+      - name: Verify exact generated Reactor contract
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('control-plane/fanout/r84/generated/reactor_domain_error_normalizer.ex')
+          text=p.read_text()
+          assert 'Generated.ReactorDomainErrorNormalizer' in text
+          assert 'Reactor.Error.Invalid.RunStepError' in text
+          assert 'error -> error' in text
+          assert '{:reactor_failed, original}' in text
+          assert 'row.' not in text
+          print('R84_CHATGPT_CLOUD_CONTROL_PLANE=ALIVE')
+          PY
+      - name: Prove no generated consequence is committed
+        run: test ! -e control-plane/fanout/r84/generated/reactor_domain_error_normalizer.ex || git diff --exit-code -- control-plane/fanout/r84/generated
