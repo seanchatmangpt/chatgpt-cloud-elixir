@@ -6,7 +6,7 @@
     "type": "ProxyError"
   },
   "gate_schema": "chatgpt-project-memory-gate/v2",
-  "observed_at": "2026-08-28T03:34:40Z",
+  "observed_at": "2026-09-26T20:33:45Z",
   "operation": null,
   "reason": "INVALID_REQUEST",
   "request_digest_basis": {
