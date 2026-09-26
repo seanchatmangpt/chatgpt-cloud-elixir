@@ -1,0 +1,9 @@
+{
+  "schema": "chatgpt-cloud.xaas-runtime-request/1",
+  "request_id": "20260924T233000Z-wss-transport-contract",
+  "operation": "fabric.probe",
+  "payload": {
+    "transport": "wss",
+    "note": "Contract-documentation request for the v26.9.25 direct WSS transport. The client dials XAAS_TUNNEL_URL (ws:// or wss://, XAAS_TUNNEL_TOKEN bearer in the RFC 6455 upgrade handshake) and speaks the bounded trio (fabric.probe, run.submit, epoch.receipts) as one tunnel envelope per request: -> {\"v\":1,\"kind\":\"http\",\"method\",\"path\",\"headers\",\"body\"} <- {\"v\":1,\"kind\":\"http_response\",\"status\",\"body\"}. The probe -> admit -> submit -> execute -> sealedReceipt -> replay sequence is unchanged from the HTTP surface; only the wire changes. Generic MCP and actuate are refused client-side (REFUSED_REQUEST[TRIO_ONLY_TRANSPORT]) before any dial."
+  }
+}

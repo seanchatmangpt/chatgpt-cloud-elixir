@@ -1,0 +1,58 @@
+{
+  "schema": "chatgpt-cloud-a2a-receipt/v1",
+  "subject": "identity-contest + RFC 8259 + HTTPS-base + read-retry hardening of scripts/a2a.py",
+  "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+  "base": "aa99508aff761ef0eb3eae1f4e98bc21bd097b40",
+  "authority": "NONE; ceiling SELECT/CONSTRUCT; no remote exec",
+  "defects_found_by_falsifiers": [
+    {"id": "identity-squat", "severity": "MAJOR",
+     "observed_at_base": "a peer on claude/zzz announcing agent id beta replaced the claude/beta view for every reader, and wait_reply(responder=beta) accepted its FORGED reply",
+     "guard": "ledger(): an id claimed by cards on >1 ref is REFUSED_CONTESTED (no claimant admitted) unless the reader pins it (--pin agent=ref / A2A_PINS); Agent always pins its own id to its own ref",
+     "tests": "tests/test_a2a_hardening.py IdentityContestTest (4)"},
+    {"id": "nan-json", "severity": "MINOR",
+     "observed_at_base": "a sealed message carrying NaN was admitted ALIVE",
+     "guard": "canonical(allow_nan=False) refuses on write and in verify_chain; strict_json parse_constant refuses NaN/Infinity on read (cards too)",
+     "tests": "tests/test_a2a_hardening.py NonStandardJsonTest (3)"},
+    {"id": "serve-guard-untested", "severity": "MINOR",
+     "observed_at_base": "mutant M10 (serve_once standing guard -> if False) survived every test",
+     "guard": "unchanged code; new falsifier: malformed own card with an intact chain",
+     "tests": "tests/test_a2a_hardening.py OwnChainServeTest (2)"},
+    {"id": "http-api-base", "severity": "MINOR",
+     "observed_at_base": "--github-api http://... accepted; bearer token sent in clear",
+     "guard": "check_api_url: https:// only, http:// only on loopback",
+     "tests": "tests/test_a2a.py ApiTransportTest.test_api_base_must_be_https_except_loopback"},
+    {"id": "transient-read-drop", "severity": "MINOR",
+     "observed_at_base": "ConnectionResetError from one dropped GET failed a sync (seen as harness flake at load ~104)",
+     "guard": "GitHubApi.request retries idempotent GETs READ_ATTEMPTS=3 times, then typed BLOCKED; writes are not retried",
+     "tests": "tests/test_a2a.py ApiTransportTest.test_dropped_read_connection_is_retried_to_the_same_state"},
+    {"id": "interaction-assertion", "severity": "MINOR",
+     "guard": "PATCH call-count assertion replaced by state: rival message survives as seq 0",
+     "tests": "tests/test_a2a.py ApiTransportTest.test_api_lost_race_rebuilds_on_new_tip"},
+    {"id": "ontology-no-consumer", "severity": "MINOR",
+     "guard": "tests/test_a2a_ontology.py binds ontology.ttl and context.jsonld to the wire; added terms schema, repository, authority, created_at, agent, parts, ContestedAgent, pinnedTo",
+     "tests": "tests/test_a2a_ontology.py (4)"}
+  ],
+  "anti_vacuity": {
+    "R0_scripts_a2a_reverted_to_aa99508": "killed: FAILED (failures=7, errors=1)",
+    "N1_last_ref_wins": "killed: FAILED (failures=3)",
+    "N2_no_self_pin": "killed: FAILED (failures=1, errors=1)",
+    "N3a_writer_allows_nan": "killed: FAILED (failures=1)",
+    "N3b_reader_allows_nan": "killed after card falsifier added: FAILED (failures=1)",
+    "N4_http_anywhere": "killed: FAILED (failures=1, errors=1)",
+    "N5_no_get_retry": "killed: FAILED (errors=1)",
+    "M10_serve_on_broken_chain": "killed: FAILED (failures=1)"
+  },
+  "benchmark": {
+    "command": "python3 scripts/bench_a2a.py --messages 300 [--module <aa99508 a2a.py>]",
+    "git_processes_cold_warm_incremental": {"aa99508": [8, 3, 7], "this": [8, 3, 7], "bound": [10, 4, 9]},
+    "verify_chain_msgs_per_s": {"aa99508": [98338, 71576, 98784, 50648], "this": [68975, 64882, 78241, 86122],
+                                "note": "host load average 100-160 during runs; ranges overlap; floor 2000"}
+  },
+  "standing": {
+    "identity contest guard": "ALIVE (local, real bare repos)",
+    "honest agent visible without a pin while contested": "REFUSED_CONTESTED by design: no anchor in refs",
+    "live GitHub round trip": "UNKNOWN",
+    "ChatGPT-container peer": "UNKNOWN"
+  },
+  "replay": "python3 -m unittest discover -s tests -p 'test_a2a*.py'"
+}

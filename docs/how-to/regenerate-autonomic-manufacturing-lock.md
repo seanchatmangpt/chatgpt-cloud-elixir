@@ -9,8 +9,14 @@ query/template) and regenerate.
 
 1. Edit the source of truth, not the generated output:
    - `manufacturing/ontology.ttl` for the capability-source semantics
-     (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit,
-     SwarmSH, SwarmSH-v2).
+     (the manufacturing core plus every other admitted ecosystem member).
+     Adding or removing a source also means editing
+     `capsules/autonomic-manufacturing/capsule.toml` `required_sources`.
+     The court refuses any difference between the two.
+   - To re-pin already-admitted sources to their live HEADs, run
+     `python3 scripts/refresh-capability-sources.py --write --receipt <file>`. It rewrites
+     only `cc:commitSha` values, plus `versions.toml` `ggen_sha` when ggen
+     moves.
    - `manufacturing/ggen.toml` or `manufacturing/queries/`/`manufacturing/templates/`
      for the projection law.
    - `versions.toml [bootstrap]` only for the pinned ggen compiler revision
@@ -47,11 +53,20 @@ query/template) and regenerate.
    Assert `generated/capability-lock.json` and the `.mmd` topology diagram
    are non-empty afterward.
 
-6. Parse `capability-lock.json`'s `sources` list and fetch each named
-   ecosystem source (ggen-marketplace, ggen-create, ggen-legacy,
-   ggen-spec-kit, swarmsh, swarmsh-v2, etc.) at its exact SHA — assert
-   checkout identity each time. Never substitute a facsimile source; use
-   the exact ancestry revision the lock emits.
+6. Fetch every source named by `capability-lock.json` at its exact SHA
+   with the canonical fetcher (the same script CI runs):
+
+   ```bash
+   bash scripts/fetch-capability-sources.sh manufacturing/generated/capability-lock.json .capability-sources
+   ```
+
+   It asserts checkout identity for each source and reuses checkouts already
+   at the admitted SHA. It applies the ontology's Git LFS law
+   (`cc:lfsObjectPolicy "pointer-identity"`): LFS files are bound by their
+   pointer blob (sha256 oid + size), which the commit and tree SHA already
+   pin, and are never downloaded. The build refuses to stage an LFS pointer
+   into shipped content. Never hand-roll a fetch loop, and never substitute
+   a facsimile source.
 
 7. Manufacture the capsule and verify a fresh consumer:
 
@@ -64,7 +79,8 @@ query/template) and regenerate.
    ```
 
    The consumer verify step re-checks source identity/authority against the
-   embedded capability lock, runs `ggen sync run` twice on the bundled
+   embedded capability lock, checks the SHA-256 of every
+   `sources/<name>.tar.gz` against `manifest.json`, runs `ggen sync run` twice on the bundled
    Vision 2030 package and diffs the generated-file digest for
    determinism, and separately proves concurrent git-worktree fan-out (two
    branches, two worktrees, two parallel commits) as a live SwarmSH

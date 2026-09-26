@@ -4,6 +4,8 @@
 
 `ontology.ttl` is the canonical external capability graph. Generated files under `manufacturing/generated/` are projections and must never be hand-maintained.
 
+Admission is a subset of observation: only enumerated `cc:CapabilitySource` members are admitted, `capsules/autonomic-manufacturing/capsule.toml` `required_sources` must list exactly the same labels, and private repositories are never named in this public graph. Re-pin SHAs with `scripts/refresh-capability-sources.py`. It never adds or drops a source.
+
 `versions.toml [bootstrap]` is a deliberately minimal bootstrap exception: it pins the exact ggen compiler revision/toolchain required before the ontology can project the complete capability lock. `scripts/verify-autonomic-contract.py` must refuse any bootstrap/ontology identity drift.
 
 ## Required implementation path
@@ -13,7 +15,7 @@
 3. Build the exact admitted ggen revision.
 4. Run real `ggen sync run` from `manufacturing/`.
 5. Never manually repair generated projections.
-6. Fetch external ecosystem sources only at the exact SHAs emitted by the generated lock.
+6. Fetch external ecosystem sources only at the exact SHAs emitted by the generated lock, and only through `scripts/fetch-capability-sources.sh`. It enforces the Git LFS law (`cc:lfsObjectPolicy "pointer-identity"`): LFS objects are identity-bound by pointer and never downloaded.
 7. Manufacture and fresh-consumer replay the capsule.
 8. Report standing from observed execution, not file existence.
 
@@ -27,4 +29,4 @@ This surface is SELECT / CONSTRUCT / VERIFY only. `CONSTRUCT_VERIFY` is the maxi
 
 ## Gall / Rice discipline
 
-Use the exact working ggen, marketplace, ggen-create, ggen-legacy, ggen-spec-kit, SwarmSH, and SwarmSH-v2 revisions as ancestry. Do not replace them with newly invented facsimiles. A generated artifact is not evidence of arbitrary semantic correctness; standing requires the named falsifiers and exact-subject replay.
+Use the exact working ggen, marketplace, ggen-create, ggen-legacy, ggen-spec-kit, SwarmSH, and SwarmSH-v2 revisions as ancestry, together with every other admitted ecosystem member at the exact SHA the ontology binds. Do not replace them with newly invented facsimiles. A generated artifact is not evidence of arbitrary semantic correctness; standing requires the named falsifiers and exact-subject replay.

@@ -1,0 +1,65 @@
+{
+  "schema": "chatgpt-cloud-a2a-receipt/v1",
+  "subject": "cross-instance semantic A2A over git refs",
+  "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+  "base": "a44e2f470fa0dc889b7789f48691afbe8ef95b1c",
+  "instances": {
+    "faraday": {
+      "session": "cse_019TsFBp4MTQMGgYRZZJnFoM",
+      "outbox_ref": "claude/stoic-faraday-tnmd5j",
+      "tip": "c0edd64fb6b7be91ad2011162145dc892d3bcf78"
+    },
+    "tesla": {
+      "session": "cse_012sEqrxKt5JFnoMexvvDaw4",
+      "outbox_ref": "claude/a2a-tesla-2sEqrx",
+      "tip": "85675d88515316ea0762a3be768589e2ed818998"
+    }
+  },
+  "transport": "outbound git push/fetch to github.com only; no inbound listener on either instance",
+  "exchanges": [
+    {
+      "request": "sha256:9b64938d1eb815f3cd71e7951db28df64d3238b4bab3cc854f7ae5bdb897deca",
+      "from": "faraday",
+      "to": "tesla",
+      "skill": "ping",
+      "sent": "2026-09-24T23:32:00Z",
+      "reply": "sha256:4d2216f6a6f580ee5b9915832f7e2fef52ad7d2029097f05a955c1ea68d872ec",
+      "replied": "2026-09-24T23:32:59Z",
+      "performative": "inform"
+    },
+    {
+      "request": "sha256:7b09ee98bef2555eb208a403dd7ce967c13a572e1f867beace213fc1dad03324",
+      "from": "faraday",
+      "to": "tesla",
+      "skill": "digest",
+      "sent": "2026-09-24T23:32:03Z",
+      "reply": "sha256:2a56441a852ed874952a720957b2a54537236adbeb26d66d0c3a2f51e4d40d8e",
+      "replied": "2026-09-24T23:33:02Z",
+      "performative": "inform"
+    },
+    {
+      "request": "sha256:0e4694cdcf3773ef37132f61c2bca4496aa61d2d4a3bd80b923c8958fa173c5c",
+      "from": "tesla",
+      "to": "faraday",
+      "skill": "ping",
+      "sent": "2026-09-24T23:41:05Z",
+      "reply": "sha256:3bbf659ea2a6e6aeb3db3760b80e0b70a3141920806622ba1824a729efcf0bea",
+      "replied": "2026-09-24T23:41:15Z",
+      "performative": "inform"
+    }
+  ],
+  "independent_check": {
+    "digest_of": "A = mu(O)",
+    "expected": "ca1ebebd535f2c389ffa4c3caf52f91d9d8070a145d3176242ef599b624315bc",
+    "observed_from_tesla": "ca1ebebd535f2c389ffa4c3caf52f91d9d8070a145d3176242ef599b624315bc"
+  },
+  "tests": "python3 -m unittest tests/test_a2a.py tests/test_runtime_transport.py -> 12/12 OK",
+  "standing": {
+    "faraday->tesla request/reply": "ALIVE",
+    "tesla->faraday request/reply": "ALIVE",
+    "chain verification both outboxes": "ALIVE",
+    "ChatGPT container as peer": "UNKNOWN (protocol is transport-agnostic; not yet executed from a ChatGPT container)",
+    "GitHub Project v2 discovery index": "UNKNOWN (not wired; branch globs are the discovery surface)"
+  },
+  "replay": "python3 scripts/a2a.py log  # re-fetches both refs and re-verifies every hash chain"
+}

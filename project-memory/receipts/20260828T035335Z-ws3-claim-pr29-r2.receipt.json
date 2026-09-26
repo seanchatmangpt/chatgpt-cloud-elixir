@@ -1,0 +1,105 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:54:12Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "claim_id=ws3-20260827T2000-0700-r2-pr29-runtime-r2\nwork_key=seanchatmangpt/chatgpt-cloud-elixir#pr:29\nworkstation=3\ncycle_id=ws3-20260827T2000-0700-r2\nrepo=seanchatmangpt/chatgpt-cloud-elixir\ndefault=main\nbase=0dc0c9d3daef71de23c58a5634beea62e3700efa\nhead=8c2b3cacbae6fb5cac3fbae692974409913c2a51\nbranch=ws3/runtime-learning-shacl-20260827-20\nPR=29\nsemantic_unit_count=50\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:53:35Z\nlease_until=2026-08-28T04:24:00Z\n",
+        "cell": "WS3",
+        "key": "plant/claims/chatgpt-cloud-elixir/pr29-runtime-r2/ws3-20260827T2000-0700-r2",
+        "kind": "tps.workstream.claim",
+        "metadata": {
+          "base": "0dc0c9d3daef71de23c58a5634beea62e3700efa",
+          "branch": "ws3/runtime-learning-shacl-20260827-20",
+          "claim_id": "ws3-20260827T2000-0700-r2-pr29-runtime-r2",
+          "claimed_at": "2026-08-28T03:53:35Z",
+          "cycle_id": "ws3-20260827T2000-0700-r2",
+          "default": "main",
+          "head": "8c2b3cacbae6fb5cac3fbae692974409913c2a51",
+          "lease_until": "2026-08-28T04:24:00Z",
+          "pr": 29,
+          "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+          "semantic_unit_count": 50,
+          "status": "ACTIVE",
+          "work_key": "seanchatmangpt/chatgpt-cloud-elixir#pr:29",
+          "workstation": 3
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws3",
+          "claim",
+          "active",
+          "runtime",
+          "pr29"
+        ],
+        "title": "WS3 claim PR29 runtime admission R2"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T035335Z-ws3-claim-pr29-r2"
+  },
+  "request_id": "20260828T035335Z-ws3-claim-pr29-r2",
+  "request_path": "project-memory/requests/20260828T035335Z-ws3-claim-pr29-r2.json",
+  "request_sha256": "sha256:08ddaf5d09061a4cb3db82e5d92322cdced41430db1ab9d7267a5e6cd7432688",
+  "request_transport_sha256": "sha256:f0ea8677e2caf465e11e0bb7ee29ca66aa1539432072764a6819f4742ac53745",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "claim_id=ws3-20260827T2000-0700-r2-pr29-runtime-r2\nwork_key=seanchatmangpt/chatgpt-cloud-elixir#pr:29\nworkstation=3\ncycle_id=ws3-20260827T2000-0700-r2\nrepo=seanchatmangpt/chatgpt-cloud-elixir\ndefault=main\nbase=0dc0c9d3daef71de23c58a5634beea62e3700efa\nhead=8c2b3cacbae6fb5cac3fbae692974409913c2a51\nbranch=ws3/runtime-learning-shacl-20260827-20\nPR=29\nsemantic_unit_count=50\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:53:35Z\nlease_until=2026-08-28T04:24:00Z",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAswQ",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4XjXQ",
+      "metadata": {
+        "base": "0dc0c9d3daef71de23c58a5634beea62e3700efa",
+        "branch": "ws3/runtime-learning-shacl-20260827-20",
+        "cell": "WS3",
+        "claim_id": "ws3-20260827T2000-0700-r2-pr29-runtime-r2",
+        "claimed_at": "2026-08-28T03:53:35Z",
+        "created_at": "2026-08-28T03:54:24Z",
+        "cycle_id": "ws3-20260827T2000-0700-r2",
+        "default": "main",
+        "head": "8c2b3cacbae6fb5cac3fbae692974409913c2a51",
+        "key": "plant/claims/chatgpt-cloud-elixir/pr29-runtime-r2/ws3-20260827T2000-0700-r2",
+        "kind": "tps.workstream.claim",
+        "lease_until": "2026-08-28T04:24:00Z",
+        "pr": 29,
+        "repo": "seanchatmangpt/chatgpt-cloud-elixir",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_unit_count": 50,
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "active",
+          "claim",
+          "pr29",
+          "runtime",
+          "tps",
+          "ws3"
+        ],
+        "updated_at": "2026-08-28T03:54:24Z",
+        "work_key": "seanchatmangpt/chatgpt-cloud-elixir#pr:29",
+        "workstation": 3
+      },
+      "title": "WS3 claim PR29 runtime admission R2"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

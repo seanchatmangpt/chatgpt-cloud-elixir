@@ -1,0 +1,54 @@
+{
+  "host": {
+    "machine": "arm64",
+    "platform": "macOS-26.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.3"
+  },
+  "parameters": {
+    "commands": 40,
+    "dedup_limit": 8,
+    "duplicates": 200
+  },
+  "result": {
+    "admission": {
+      "envelopes": 20000,
+      "envelopes_per_second": 159323.51233468097,
+      "seconds": 0.12553075002506375
+    },
+    "duplicate_delivery": {
+      "first_reason": "EXECUTED_RECEIPTED",
+      "first_seconds": 0.34525187499821186,
+      "redeliveries": 200,
+      "replay_median_seconds": 4.350050585344434e-05,
+      "replay_p95_seconds": 5.2040908485651016e-05,
+      "replay_reasons": [
+        "KNOWN_REPLAY"
+      ],
+      "spawns": 1
+    },
+    "ordered_stream": {
+      "commands": 40,
+      "dedup_limit": 8,
+      "execute_median_seconds": 0.06392037554178387,
+      "last_acknowledged_sequence": 40,
+      "reasons": [
+        "EXECUTED_RECEIPTED"
+      ],
+      "result_rows": 8,
+      "seen_ids": 8,
+      "spawns": 40,
+      "state_bytes": 5055
+    },
+    "refusal": {
+      "attempts": 400,
+      "identity_mismatch_median_seconds": 4.554190672934055e-05,
+      "reasons": [
+        "REPLAY_IDENTITY_MISMATCH",
+        "SEQUENCE_GAP"
+      ],
+      "sequence_gap_median_seconds": 3.925000783056021e-05,
+      "spawns_after": 1
+    }
+  },
+  "schema": "chatgpt-cloud.xaas-relay-bench/1"
+}
