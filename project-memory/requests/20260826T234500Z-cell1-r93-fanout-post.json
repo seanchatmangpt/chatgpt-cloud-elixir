@@ -1,0 +1,36 @@
+{
+  "request_id": "20260826T234500Z-cell1-r93-fanout-post",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current",
+      "kind": "ggen.fanout.current",
+      "cell": "CELL1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "cell1", "forced-top25", "ocel"],
+      "body": "CELL1 R93 manufactured 50 new semantic observation/qualification closure gates in the canonical ggen-ecosystem-ocel-pack. Frozen semantic base e88f3ad0d19223cec64e58998aceb21676661ffa, semantic head a3e2fd3f681b3f944eec8b77f5d116d7b3a7746a. Concurrent CELL5 advanced main to 630da1b9f8371d4ec444cca917800b53025cba7f; branch was reconciled non-force with composition-only merge head fd340163b1423fd4c6598cde40b245d279f9f201. Draft PR #340. ForcedTop25 exact default heads were re-resolved 25/25. New gates enforce O/Q/M evidence, U>=G>=O>=Q>=M arithmetic, open obligation arithmetic, run/digest/event/object identity, typed refusal/falsifier integrity, partial-order integrity, and causal provenance. Exact-head CI and Vacuity are in progress. No new downstream G/O/Q/M is claimed by this producer-side gate tranche. No generated output hand edits. Consequential external DO=false.",
+      "metadata": {
+        "run_id": "cell1-r93-observation-closure-20260826T2327Z",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "semantic_base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "semantic_head_sha": "a3e2fd3f681b3f944eec8b77f5d116d7b3a7746a",
+        "current_base_sha": "630da1b9f8371d4ec444cca917800b53025cba7f",
+        "reconciled_head_sha": "fd340163b1423fd4c6598cde40b245d279f9f201",
+        "semantic_commits": 50,
+        "composition_commits_excluded": 1,
+        "forced_top25_observed": 25,
+        "pr": 340,
+        "new_G": 0,
+        "new_O": 0,
+        "new_Q": 0,
+        "new_M": 0,
+        "qualification": "IN_PROGRESS",
+        "ggen_first": true,
+        "generated_outputs_edited": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

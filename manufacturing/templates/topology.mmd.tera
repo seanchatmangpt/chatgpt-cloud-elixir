@@ -7,5 +7,8 @@ flowchart TD
   R --> K[Capitalization candidates]
   K --> M[ggen marketplace]
   M --> G
-{% for s in results %}  SRC{{ loop.index }}[{{ s.name }}\n{{ s.capitalClass }}] --> C
+{% for class, rows in results | group_by(attribute="capitalClass") %}  subgraph CLS{{ loop.index }}[{{ class }}]
+{% for s in rows %}    SRC_{{ s.name | replace(from="-", to="_") }}[{{ s.name }}]
+{% endfor %}  end
+  CLS{{ loop.index }} --> C
 {% endfor %}

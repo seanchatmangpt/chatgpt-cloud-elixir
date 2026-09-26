@@ -1,0 +1,5 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?capability WHERE {
+  ?capability a cce:ProcessIntelligenceCapability .
+  FILTER NOT EXISTS { ?capability cce:implementationOwner "wasm4pm/wasm4pm-compat" }
+}

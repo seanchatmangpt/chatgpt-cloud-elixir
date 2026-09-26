@@ -1,0 +1,4 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?artifact WHERE {
+  ?artifact a cce:GeneratedArtifact ; cce:editedDirectly true .
+}

@@ -1,0 +1,15 @@
+{
+  "request_id": "20260828T021830Z-ws1-claim-ggen-ocel-gate-court",
+  "operation": "memory.upsert",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"record": {
+    "key":"plant/claims/ggen/ocel-gate-court-regression/ws1-20260827T1900-0700",
+    "title":"WS1 claim GGen OCEL gate court regression",
+    "kind":"tps.workstream.claim",
+    "cell":"WS1",
+    "standing":"ALIVE",
+    "tags":["tps","ws1","claim","active","ggen","ocel"],
+    "body":"claim_id=ws1-20260827T1900-0700-ocel-gate-court\nwork_key=seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression\nworkstation=1\ncycle_id=ws1-20260827T1900-0700\nrepo=seanchatmangpt/ggen\ndefault=main\nobserved_default=d345aff981bcdfadc9f9f04c8bfb4be6d99e641a\nsemantic_unit_count=50\nstatus=ACTIVE\nlease_until=2026-08-28T03:00:00Z\n",
+    "metadata":{"claim_id":"ws1-20260827T1900-0700-ocel-gate-court","work_key":"seanchatmangpt/ggen|project2:ggen/ecosystem/ocel/current|edge:ocel-gate-court-witness-pair-regression","workstation":1,"cycle_id":"ws1-20260827T1900-0700","repo":"seanchatmangpt/ggen","default":"main","observed_default":"d345aff981bcdfadc9f9f04c8bfb4be6d99e641a","semantic_unit_count":50,"status":"ACTIVE","claimed_at":"2026-08-28T02:18:30Z","lease_until":"2026-08-28T03:00:00Z"}
+  }}
+}

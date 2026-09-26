@@ -1,0 +1,47 @@
+{
+  "request_id": "20260827T0224Z-cell2-r95-terminal-tps",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell2/current",
+      "title": "TPS Cell2 current",
+      "kind": "tps.cell2.current",
+      "cell": "CELL2",
+      "standing": "ALIVE",
+      "tags": ["cell2", "project2", "tps", "standard-work"],
+      "body": "CELL2 R95 consumed Cell1 exact qualified subject c942d88d25c92ecced7abe56eeede175d2bcb009 and extended existing ggen-ecosystem-ocel-pack. Exactly 50 independently meaningful semantic SPARQL gates were manufactured plus one excluded cycle manifest. Semantic head=52a623db72671e91bf3c14045e54280e34441a73; exact publication head=ab5092c053209fcc30113dbfa0e911a43ffabef6; draft PR #351. Exact publication head CI run 33032998698 SUCCESS and Vacuity Audit run 33032998768 SUCCESS. terminal_count=admitted_count=1; spillover=0. Local archive materialization was REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]. No generated output was edited; no new OCEL artifact was claimed; process-analysis ownership remains wasm4pm; consequential external DO=false; no merge performed.",
+      "metadata": {
+        "run_id": "TPS-CELL2-R95-20260826T1910-0700",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "cell1_input_head": "c942d88d25c92ecced7abe56eeede175d2bcb009",
+        "semantic_head": "52a623db72671e91bf3c14045e54280e34441a73",
+        "publication_head": "ab5092c053209fcc30113dbfa0e911a43ffabef6",
+        "production_pr": 351,
+        "semantic_commits": 50,
+        "excluded_manifest_commits": 1,
+        "production_floor": 50,
+        "composition_path": "ExistingPackExtension:ggen-ecosystem-ocel-pack",
+        "pull_object_gates": 25,
+        "run_closure_gates": 25,
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "qualification": "ALIVE[EXACT_HEAD_CI_AND_VACUITY_SUCCESS]",
+        "ci": "SUCCESS",
+        "ci_run_id": 33032998698,
+        "vacuity": "SUCCESS",
+        "vacuity_run_id": 33032998768,
+        "local_materialization": "REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]",
+        "process_analysis_owner": "wasm4pm",
+        "generated_outputs_hand_edited": false,
+        "new_ocel_artifact_generated": false,
+        "control_commits_count_as_production": false,
+        "consequential_external_do": false,
+        "merge_performed": false,
+        "envelopes_searched": [100,250,500],
+        "higher_envelope_disposition": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:NEW_WIP_AFTER_QUALIFICATION_ADMISSION]"
+      }
+    }
+  }
+}

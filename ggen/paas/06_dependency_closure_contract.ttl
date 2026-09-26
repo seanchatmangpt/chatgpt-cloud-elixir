@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:DependencyClosureContract a cce:PaaSDependencyContract ;
+  cce:requiresDeclaredClosure true ;
+  cce:hiddenWorkspaceDependency false ;
+  cce:unexpectedHexFetchIsBroken true ;
+  cce:requiresOfflineReplay true .

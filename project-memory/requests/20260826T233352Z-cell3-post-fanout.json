@@ -1,0 +1,46 @@
+{
+  "request_id": "20260826T233352Z-cell3-post-fanout",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current",
+      "kind": "ggen.fanout.current",
+      "cell": "CELL3",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "forced-top25", "cell3", "allocation"],
+      "body": "CELL3 consumed current CELL1/CELL2 Project2 state and manufactured 60 new semantic allocation-pack commits. Hard scoring remains fenced because the newest canonical OCEL record explicitly has no fresh grounded ForcedTop25 projection: G/O/Q are unknown and the digest is prior-admitted-artifact scope. Therefore selected_workstreams and ready_set remain empty; alternatives are preserved. PR #339 is also stale against the newly advanced marketplace default and must be re-admitted before pack qualification.",
+      "metadata": {
+        "run_id": "cell3-legal-ready-allocation-20260826T233352Z",
+        "owner": "seanchatmangpt",
+        "forced_top25_count": 25,
+        "selected_workstreams": [],
+        "ready_set": [],
+        "nonready_set": ["ex4pm","gymact","autofde-lab","autofde","xaas","chatgpt-cloud-elixir","process-intelligence","ash_r2rml","wasm4pm","pm4wasm","mfact","mfact-command-center","mfw","SREGym","fdegym","revops","chatman-ecosystem","POWL","swarmsh-v2","cargo-cicd","clap-noun-verb","unrdf","dspygen","yawl","a2a-rs"],
+        "classifications": {
+          "ex4pm":"COMPATIBLE_NOT_READY","gymact":"COMPATIBLE_NOT_READY","autofde-lab":"COMPATIBLE_NOT_READY","autofde":"COMPATIBLE_NOT_READY","xaas":"COMPATIBLE_NOT_READY","chatgpt-cloud-elixir":"COMPATIBLE_NOT_READY","process-intelligence":"COMPATIBLE_NOT_READY","ash_r2rml":"COMPATIBLE_NOT_READY","wasm4pm":"COMPATIBLE_NOT_READY","pm4wasm":"COMPATIBLE_NOT_READY","mfact":"COMPATIBLE_NOT_READY","mfact-command-center":"COMPATIBLE_NOT_READY","mfw":"COMPATIBLE_NOT_READY","SREGym":"COMPATIBLE_NOT_READY","fdegym":"COMPATIBLE_NOT_READY","revops":"COMPATIBLE_NOT_READY","chatman-ecosystem":"COMPATIBLE_NOT_READY","POWL":"COMPATIBLE_NOT_READY","swarmsh-v2":"UNKNOWN_WITH_REASON[TARGET_SPECIFIC_CURRENT_OCEL_ADMISSION_MISSING]","cargo-cicd":"REFUSED_TYPED[REPO_MUTATION_BOUNDARY]","clap-noun-verb":"COMPATIBLE_NOT_READY","unrdf":"COMPATIBLE_NOT_READY","dspygen":"COMPATIBLE_NOT_READY","yawl":"COMPATIBLE_NOT_READY","a2a-rs":"COMPATIBLE_NOT_READY"
+        },
+        "partial_order_edges": [
+          "fresh_grounded_forced25_ocel_projection->hard_admission",
+          "hard_admission->pareto_selection",
+          "marketplace_main_630da1b9->pr339_currentness_readmission",
+          "pr339_currentness_readmission->allocation_pack_qualification",
+          "shared_defect->upstream_pack_extension->requalification"
+        ],
+        "preserved_alternatives": ["all 25 forced targets; no silent omission"],
+        "allocation_pack": {"repo":"seanchatmangpt/ggen-marketplace","base":"e88f3ad0d19223cec64e58998aceb21676661ffa","head":"ae080539319e2c7c95fe8f905e9a64e1576c7f74","pr":339,"semantic_commits":60,"changed_files":60,"current_default_at_pr_open":"630da1b9f8371d4ec444cca917800b53025cba7f"},
+        "U_lower_bound": 17,
+        "G": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "O": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "Q_lower_bound_preserved": 12,
+        "M_lower_bound": 10,
+        "OpenFanoutObligations_lower_bound": 7,
+        "OpenObservationObligations": "UNKNOWN[G_AND_O_NOT_FRESHLY_PROJECTED]",
+        "process_analysis_owner": "wasm4pm",
+        "ggen_first": true,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T232715Z-cell1-tcps-current",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "tcps/muda-mura-muri/current"}
+}

@@ -1,0 +1,64 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:53:31Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "plant/ws3/run_lease"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T035130Z-ws3-reread-run-lease-r2"
+  },
+  "request_id": "20260828T035130Z-ws3-reread-run-lease-r2",
+  "request_path": "project-memory/requests/20260828T035130Z-ws3-reread-run-lease-r2.json",
+  "request_sha256": "sha256:22113001e4941ded67cbec83234182b7b27e38362798489eb08a14b96a4e3915",
+  "request_transport_sha256": "sha256:71ed66c23f0f5e065ef39bc9c96f214d5db95b7738c1a1beca2db5ff88292948",
+  "result": {
+    "body": "workstation=3\ncycle_id=ws3-20260827T2000-0700-r2\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:51:15Z\nlease_until=2026-08-28T04:24:00Z",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgLAsd8",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Xb6U",
+    "metadata": {
+      "cell": "WS3",
+      "claimed_at": "2026-08-28T03:51:15Z",
+      "created_at": "2026-08-28T03:26:04Z",
+      "cycle_id": "ws3-20260827T2000-0700-r2",
+      "head": "8c2b3cacbae6fb5cac3fbae692974409913c2a51",
+      "key": "plant/ws3/run_lease",
+      "kind": "tps.workstation.lease",
+      "lease_until": "2026-08-28T04:24:00Z",
+      "pr": 29,
+      "schema": "chatgpt-project-memory/v1",
+      "semantic_commits": 50,
+      "standing": "ALIVE",
+      "status": "ACTIVE",
+      "tags": [
+        "active",
+        "lease",
+        "runtime",
+        "tps",
+        "ws3"
+      ],
+      "updated_at": "2026-08-28T03:53:20Z",
+      "workstation": 3
+    },
+    "title": "WS3 runtime learning factory run lease"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

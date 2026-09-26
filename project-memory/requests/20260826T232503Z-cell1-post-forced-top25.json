@@ -1,0 +1,50 @@
+{
+  "request_id": "20260826T232503Z-cell1-post-forced-top25",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/forced-top25/current",
+      "title": "GGEN ForcedTop25 current",
+      "kind": "ggen.fanout.forced-top25.current",
+      "cell": "CELL1",
+      "standing": "ALIVE",
+      "tags": ["ggen", "fanout", "forced-top25", "exact-subject", "cell1"],
+      "body": "Fresh CELL1 exact-default-head census completed for all 25 forced repositories. Four defaults are master (autofde-lab, swarmsh-v2, yawl, a2a-rs); the remaining 21 are main. This census is identity/currentness evidence, not automatic compatibility or U/G/O/Q/M promotion.",
+      "metadata": {
+        "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+        "count": 25,
+        "exact_heads": {
+          "ex4pm": "06d326f59d05afdcd39637f42fe277a474095dda",
+          "gymact": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+          "autofde-lab": "a004da26bdf2b0cd2bde434b365dade9916b2fe9",
+          "autofde": "08dfd0834a559a8fc4afb1bed757a18723b64f7a",
+          "xaas": "5b7fb55ffff02d7434c634ce7d80d54f68fd76e7",
+          "chatgpt-cloud-elixir": "bb480e122daf1f9f5ea1d14daa49762b14d8c546",
+          "process-intelligence": "c1ed9f0393f4782c48e4b0f71aff9c28930d9b44",
+          "ash_r2rml": "067954ad9f002a7bb04848fb655473f0b3a92cd1",
+          "wasm4pm": "da48e98cdde83d5b581d3305b7ec3c041a19d77a",
+          "pm4wasm": "21f0174910ecd00436765190412bcdbcd1f9a854",
+          "mfact": "79643f87f35cb59514ebce096ad067b713a47db3",
+          "mfact-command-center": "dda255df10e9037b9fee014d4ef2eccbd846d902",
+          "mfw": "72d411c08731657e9388d334b07737de2731786e",
+          "SREGym": "ce95cdb072c8477dc6d7f6d024e424b18acc3d63",
+          "fdegym": "dbd9ac3a7107737366e643c362fd3aab0e4125d3",
+          "revops": "6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94",
+          "chatman-ecosystem": "2ba689076fc6e72d62fdb835b37b3bfd2b554e19",
+          "POWL": "8701c8a8b9e538ddea88e4166960c76e609358c7",
+          "swarmsh-v2": "02e5eaae14bd03a832c0f031acc56c6d4db3845e",
+          "cargo-cicd": "219f0db35ba7ee3f34e5dca8fd87379c900394ec",
+          "clap-noun-verb": "747f1dd4506892c218da4d739c256bcfcf941e50",
+          "unrdf": "5c1635469be61d0cb01d1e44737d53fc2239a02e",
+          "dspygen": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+          "yawl": "0db10d6085575ec1d7e98502e99fd53a4493072b",
+          "a2a-rs": "4d00bdc917fce87f92706b54f45b643c06494585"
+        },
+        "master_defaults": ["autofde-lab", "swarmsh-v2", "yawl", "a2a-rs"],
+        "compatibility_promotion": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

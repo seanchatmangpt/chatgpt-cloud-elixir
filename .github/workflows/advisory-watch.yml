@@ -1,0 +1,40 @@
+name: Advisory Watch
+
+# Permanent guard (governance/failure-ledger.toml: vulnerable-pins-shipped-2026-09-23).
+# Every versions.toml package pin is checked against OSV on pin changes and weekly, so
+# new advisories against already-committed binaries surface without anyone noticing by hand.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  push:
+    branches: [main, "release/**", "feat/**"]
+    paths:
+      - "versions.toml"
+      - "scripts/check-advisories.py"
+      - ".github/workflows/advisory-watch.yml"
+  pull_request:
+    paths:
+      - "versions.toml"
+      - "scripts/check-advisories.py"
+      - ".github/workflows/advisory-watch.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  osv:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check pins against OSV
+        run: python3 scripts/check-advisories.py --receipt advisory-receipt.json
+      - name: Upload advisory receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: advisory-receipt-${{ github.run_id }}
+          path: advisory-receipt.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T230203Z-cell1-pre-relevant-query-retry",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "ggen OCEL fanout ForcedTop25 compatibility qualification falsifier repository", "max_records": 100}
+}

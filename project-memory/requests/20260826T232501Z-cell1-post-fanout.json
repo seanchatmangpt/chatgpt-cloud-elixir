@@ -1,0 +1,40 @@
+{
+  "request_id": "20260826T232501Z-cell1-post-fanout",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current",
+      "kind": "ggen.fanout.current",
+      "cell": "CELL1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "cell1", "forced-top25", "ocel"],
+      "body": "CELL1 manufactured 60 new semantic commits in the canonical ggen-ecosystem-ocel-pack from exact base e88f3ad0d19223cec64e58998aceb21676661ffa to exact head de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. The first 50 independently bind each ForcedTop25 repository to exact-subject and explicit-standing admission; 10 higher-order gates enforce complete population, unique identity, non-conflicting heads/standings, event traceability, exact observed subjects, immutable SHA form, nonempty standing, U-M arithmetic, and G-O arithmetic. Fresh exact default heads were observed for all 25 forced repositories. No new downstream GGEN consumer realization or OCEL artifact was generated in this cell; current-run G/O/Q/M deltas remain 0. Vacuity Audit succeeded; general exact-head CI remains in progress. Project/control commits are excluded from the 60 semantic commits.",
+      "metadata": {
+        "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+        "branch": "cell1/r92-forced25-currentness-20260826",
+        "pr": 337,
+        "semantic_commits": 60,
+        "commit_floor": 50,
+        "forced_top25_observed": 25,
+        "generated_outputs_edited": 0,
+        "project_control_commits_excluded": true,
+        "vacuity": "ALIVE",
+        "general_ci": "IN_PROGRESS",
+        "U_lower_bound_preserved": 17,
+        "M_lower_bound_preserved": 10,
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenObservationObligations": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "G_delta": 0,
+        "O_delta": 0,
+        "Q_delta": 0,
+        "M_delta": 0,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

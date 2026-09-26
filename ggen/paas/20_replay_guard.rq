@@ -1,0 +1,5 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?receipt WHERE {
+  ?receipt a cce:ExecutionReceipt .
+  FILTER NOT EXISTS { ?receipt cce:replayCommand ?command ; cce:replaySubject ?subject }
+}

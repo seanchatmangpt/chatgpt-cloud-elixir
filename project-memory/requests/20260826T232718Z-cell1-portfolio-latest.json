@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T232718Z-cell1-portfolio-latest",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "dfcm/portfolio/latest"}
+}

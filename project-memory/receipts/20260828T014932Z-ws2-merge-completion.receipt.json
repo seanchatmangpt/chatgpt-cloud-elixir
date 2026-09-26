@@ -1,0 +1,101 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T01:58:00Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "cycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\npr111=MERGED@a1886ea09e6fe446bc0d1edb0f152dbcfe81cd11\npr98=MERGED@4c4232515b43d40cef8288c43eacfab2c31ab485\nfinal_default=4c4232515b43d40cef8288c43eacfab2c31ab485\nfmea=stale divergent PR ancestry risked regression and duplicate obsolete workflows\nrca=semantic packs had already assimilated through later main lineage while original PRs remained open\ndflss=preserve evolved main tree; assimilate stale heads as second parents; reintroduce no superseded artifacts\ntps=eliminate stale WIP with zero semantic-tree regression and exact merge receipts\nmerge_standing=ALIVE\nqualification_standing=UNKNOWN_PENDING\n",
+        "cell": "WS2",
+        "key": "plant/ws2/merge-completion",
+        "kind": "tps.merge.completion",
+        "metadata": {
+          "completed_at": "2026-08-28T01:49:32Z",
+          "cycle_id": "ws2-20260827T1827-0700",
+          "exact_head_checks_observed": "QUEUED",
+          "final_default": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+          "merge_standing": "ALIVE",
+          "pr111_merge": "a1886ea09e6fe446bc0d1edb0f152dbcfe81cd11",
+          "pr98_merge": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+          "qualification_standing": "UNKNOWN_PENDING",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "tree": "270927931a5f4c7a3be9c1cfd89ff3884c4109fd"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "tps",
+          "ws2",
+          "fmea",
+          "rca",
+          "dflss",
+          "merge",
+          "complete",
+          "qualification-pending"
+        ],
+        "title": "WS2 stale PR FMEA RCA DfLSS TPS closure"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T014932Z-ws2-merge-completion"
+  },
+  "request_id": "20260828T014932Z-ws2-merge-completion",
+  "request_path": "project-memory/requests/20260828T014932Z-ws2-merge-completion.json",
+  "request_sha256": "sha256:b7277b8b35e6f46e9a6cf02c68a04ff1233367b4db7a16e418a50231e7165537",
+  "request_transport_sha256": "sha256:0d0f1e6c61076ebced1d01dff3b75e5bfc15d4092eccbc2b56a6e8cbae8e299e",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "cycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\npr111=MERGED@a1886ea09e6fe446bc0d1edb0f152dbcfe81cd11\npr98=MERGED@4c4232515b43d40cef8288c43eacfab2c31ab485\nfinal_default=4c4232515b43d40cef8288c43eacfab2c31ab485\nfmea=stale divergent PR ancestry risked regression and duplicate obsolete workflows\nrca=semantic packs had already assimilated through later main lineage while original PRs remained open\ndflss=preserve evolved main tree; assimilate stale heads as second parents; reintroduce no superseded artifacts\ntps=eliminate stale WIP with zero semantic-tree regression and exact merge receipts\nmerge_standing=ALIVE\nqualification_standing=UNKNOWN_PENDING",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLArUw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4W-C0",
+      "metadata": {
+        "cell": "WS2",
+        "completed_at": "2026-08-28T01:49:32Z",
+        "created_at": "2026-08-28T01:58:12Z",
+        "cycle_id": "ws2-20260827T1827-0700",
+        "exact_head_checks_observed": "QUEUED",
+        "final_default": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+        "key": "plant/ws2/merge-completion",
+        "kind": "tps.merge.completion",
+        "merge_standing": "ALIVE",
+        "pr111_merge": "a1886ea09e6fe446bc0d1edb0f152dbcfe81cd11",
+        "pr98_merge": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+        "qualification_standing": "UNKNOWN_PENDING",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "complete",
+          "dflss",
+          "fmea",
+          "merge",
+          "qualification-pending",
+          "rca",
+          "tps",
+          "ws2"
+        ],
+        "tree": "270927931a5f4c7a3be9c1cfd89ff3884c4109fd",
+        "updated_at": "2026-08-28T01:58:12Z"
+      },
+      "title": "WS2 stale PR FMEA RCA DfLSS TPS closure"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

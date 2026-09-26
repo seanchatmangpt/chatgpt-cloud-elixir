@@ -1,0 +1,6 @@
+{
+  "request_id": "20260828T015706Z-ws1-claims-credits",
+  "operation": "memory.query",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"text": "work_key claim completion_credit workstation", "limit": 200}
+}

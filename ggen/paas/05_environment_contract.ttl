@@ -1,0 +1,7 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+
+cce:EnvironmentContract a cce:PaaSEnvironmentContract ;
+  cce:requiresPlatformIdentity true ;
+  cce:requiresArchitectureIdentity true ;
+  cce:requiresNetworkObservation true ;
+  cce:requiresWritablePathObservation true .

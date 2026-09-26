@@ -1,0 +1,81 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T02:15:55Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "cycle_id=ws1-20260827T1900-0700\nstatus=ACTIVE\nlease_until=2026-08-28T03:00:00Z\n",
+        "cell": "WS1",
+        "key": "plant/ws1/run_lease",
+        "kind": "tps.run.lease",
+        "metadata": {
+          "claimed_at": "2026-08-28T02:15:00Z",
+          "cycle_id": "ws1-20260827T1900-0700",
+          "lease_until": "2026-08-28T03:00:00Z",
+          "status": "ACTIVE"
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws1",
+          "run-lease",
+          "active"
+        ],
+        "title": "TPS Workstation 1 run lease"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T021500Z-ws1-acquire-run-lease"
+  },
+  "request_id": "20260828T021500Z-ws1-acquire-run-lease",
+  "request_path": "project-memory/requests/20260828T021500Z-ws1-acquire-run-lease.json",
+  "request_sha256": "sha256:ec1296dd2f60e4a1e23755d65cd05fdd953e3e4798b51a369d24d34858d72fe4",
+  "request_transport_sha256": "sha256:32306d236bdbf3c7ccd7468398ab473dd2a084d0ea081f4ba4a176cb86cc7b08",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "cycle_id=ws1-20260827T1900-0700\nstatus=ACTIVE\nlease_until=2026-08-28T03:00:00Z",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLArog",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4XE8c",
+      "metadata": {
+        "cell": "WS1",
+        "claimed_at": "2026-08-28T02:15:00Z",
+        "created_at": "2026-08-28T02:16:08Z",
+        "cycle_id": "ws1-20260827T1900-0700",
+        "key": "plant/ws1/run_lease",
+        "kind": "tps.run.lease",
+        "lease_until": "2026-08-28T03:00:00Z",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "active",
+          "run-lease",
+          "tps",
+          "ws1"
+        ],
+        "updated_at": "2026-08-28T02:16:08Z"
+      },
+      "title": "TPS Workstation 1 run lease"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

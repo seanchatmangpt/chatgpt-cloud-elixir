@@ -8,3 +8,11 @@ erl_crash.dump
 *.beam
 /config/*.secret.exs
 .elixir_ls/
+# autonomic-manufacturing projections and build state (never commit; regenerate)
+/manufacturing/generated/
+/manufacturing/.ggen/
+/manufacturing/.ggen-v2/
+/.capability-sources/
+/.capsule-build/
+/dist/
+__pycache__/

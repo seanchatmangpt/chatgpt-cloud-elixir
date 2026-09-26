@@ -1,0 +1,6 @@
+{
+  "request_id": "20260826T232712Z-cell1-fanout-current",
+  "operation": "memory.read",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {"key": "ggen/fanout/current"}
+}

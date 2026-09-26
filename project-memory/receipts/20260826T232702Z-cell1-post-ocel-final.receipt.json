@@ -1,0 +1,124 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T23:23:26Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL1 added 60 canonical ForcedTop25 exact-subject/frontier gates at ggen-marketplace@de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. Vacuity Audit and general exact-head CI succeeded. No new deterministic OCEL artifact was generated, so the canonical artifact remains the previously admitted sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 with unchanged-prior-artifact scope; this run claims no new O/Q/M. A fresh grounded ForcedTop25 OCEL execution of the new gates remains an explicit observation obligation.",
+        "cell": "CELL1",
+        "key": "ggen/ecosystem/ocel/current",
+        "kind": "ggen.ecosystem.ocel.current",
+        "metadata": {
+          "G": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+          "M_lower_bound_preserved": 10,
+          "O": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+          "OpenFanoutObligations_lower_bound_preserved": 7,
+          "OpenObservationObligations": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_GATE_EXECUTION]",
+          "Q": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+          "U_lower_bound_preserved": 17,
+          "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+          "consequential_external_do": false,
+          "forced_top25_observed": 25,
+          "gate_execution": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_FIXTURE]",
+          "general_ci": "ALIVE",
+          "ggen_first": true,
+          "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+          "manufacturing_ladder": "U->G->O->Q->M",
+          "new_ocel_artifact_generated": false,
+          "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+          "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT",
+          "pr": 337,
+          "process_analysis_owner": "wasm4pm",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+          "semantic_commits": 60,
+          "vacuity": "ALIVE"
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "manufacturing",
+          "ocel",
+          "project2",
+          "cell1"
+        ],
+        "title": "GGEN Ecosystem OCEL current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T232702Z-cell1-post-ocel-final"
+  },
+  "request_id": "20260826T232702Z-cell1-post-ocel-final",
+  "request_path": "project-memory/requests/20260826T232702Z-cell1-post-ocel-final.json",
+  "request_sha256": "sha256:a3030bcea0771abbd6410cde1ba97cf5732ae10012c94cc07f6873e01b3a648f",
+  "request_transport_sha256": "sha256:199453c513312ddb1d703efde4e8318618a5e2e00087ae1f0db24ef05c7bf0c9",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL1 added 60 canonical ForcedTop25 exact-subject/frontier gates at ggen-marketplace@de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93, draft PR #337. Vacuity Audit and general exact-head CI succeeded. No new deterministic OCEL artifact was generated, so the canonical artifact remains the previously admitted sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 with unchanged-prior-artifact scope; this run claims no new O/Q/M. A fresh grounded ForcedTop25 OCEL execution of the new gates remains an explicit observation obligation.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAMCw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4KnbQ",
+      "metadata": {
+        "G": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "M_lower_bound_preserved": 10,
+        "O": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenObservationObligations": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_GATE_EXECUTION]",
+        "Q": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "U_lower_bound_preserved": 17,
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "cell": "CELL1",
+        "consequential_external_do": false,
+        "created_at": "2026-08-26T20:09:22Z",
+        "forced_top25_observed": 25,
+        "gate_execution": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_FIXTURE]",
+        "general_ci": "ALIVE",
+        "ggen_first": true,
+        "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+        "key": "ggen/ecosystem/ocel/current",
+        "kind": "ggen.ecosystem.ocel.current",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "new_ocel_artifact_generated": false,
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT",
+        "pr": 337,
+        "prior_refusal": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT[OCEL_DIGEST_MISSING]",
+        "process_analysis_owner": "wasm4pm",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commits": 60,
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "cell1",
+          "ggen",
+          "manufacturing",
+          "ocel",
+          "project2"
+        ],
+        "updated_at": "2026-08-26T23:23:39Z",
+        "vacuity": "ALIVE"
+      },
+      "title": "GGEN Ecosystem OCEL current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

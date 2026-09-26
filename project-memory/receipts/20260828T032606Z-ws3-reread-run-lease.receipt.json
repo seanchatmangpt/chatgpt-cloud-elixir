@@ -1,0 +1,61 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:28:29Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "plant/ws3/run_lease"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T032606Z-ws3-reread-run-lease"
+  },
+  "request_id": "20260828T032606Z-ws3-reread-run-lease",
+  "request_path": "project-memory/requests/20260828T032606Z-ws3-reread-run-lease.json",
+  "request_sha256": "sha256:f4efba53396c1699a8fdc2c25b544014db5e254934faa38557b658065ad48d88",
+  "request_transport_sha256": "sha256:ac0e1d63e7ea88ed1cedff7bf4d6d8c368d63187c4da4e425985c6c1f791bf57",
+  "result": {
+    "body": "workstation=3\ncycle_id=ws3-20260827T2000-0700\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:24:05Z\nlease_until=2026-08-28T04:24:00Z",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgLAsd8",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Xb6U",
+    "metadata": {
+      "cell": "WS3",
+      "claimed_at": "2026-08-28T03:24:05Z",
+      "created_at": "2026-08-28T03:26:04Z",
+      "cycle_id": "ws3-20260827T2000-0700",
+      "key": "plant/ws3/run_lease",
+      "kind": "tps.workstation.lease",
+      "lease_until": "2026-08-28T04:24:00Z",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "ALIVE",
+      "status": "ACTIVE",
+      "tags": [
+        "active",
+        "lease",
+        "runtime",
+        "tps",
+        "ws3"
+      ],
+      "updated_at": "2026-08-28T03:26:04Z",
+      "workstation": 3
+    },
+    "title": "WS3 runtime learning factory run lease"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

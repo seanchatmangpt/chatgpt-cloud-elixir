@@ -1,0 +1,48 @@
+{
+  "request_id": "20260826T233353Z-cell3-post-ocel",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/ecosystem/ocel/current",
+      "title": "GGEN Ecosystem OCEL current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "cell": "CELL3",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "manufacturing", "ocel", "project2", "cell3", "allocation"],
+      "body": "CELL3 allocation run cell3-legal-ready-allocation-20260826T233352Z consumed the current Project2 records and manufactured 60 new GGEN-first selection-capital commits in ggen-marketplace PR #339. No new grounded ForcedTop25 OCEL projection or digest was generated in this CELL3 run, so G and O remain UNKNOWN and the prior admitted digest is preserved only as unchanged-prior-artifact evidence. No repository scoring or READY promotion is claimed. Project/control commits remain CONTROL and do not count as consumer G/O.",
+      "metadata": {
+        "run_id": "cell3-legal-ready-allocation-20260826T233352Z",
+        "ggen_first": true,
+        "process_analysis_owner": "wasm4pm",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "allocation_events": [
+          "CONSTRUCT_SELECTION_CAPITAL:ggen-marketplace@ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+          "OBSERVE_DEFAULT_DRIFT:ggen-marketplace/main@630da1b9f8371d4ec444cca917800b53025cba7f",
+          "REFUSE_SCORING:NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION",
+          "PRESERVE_ALTERNATIVES:FORCED_TOP25_25_OF_25"
+        ],
+        "allocation_pack": "forced-top25-cell3-current-run-allocation-pack",
+        "allocation_pack_base": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "allocation_pack_head": "ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+        "allocation_pack_pr": 339,
+        "semantic_commits": 60,
+        "forced_top25_observed": 25,
+        "U_lower_bound_preserved": 17,
+        "G": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "O": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "Q_lower_bound_preserved": 12,
+        "M_lower_bound_preserved": 10,
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenObservationObligations": "UNKNOWN[G_AND_O_NOT_FRESHLY_PROJECTED]",
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "new_ocel_artifact_generated": false,
+        "selected_workstreams": [],
+        "ready_set": [],
+        "project_control_counts_as_consumer_G_or_O": false,
+        "consequential_external_do": false
+      }
+    }
+  }
+}

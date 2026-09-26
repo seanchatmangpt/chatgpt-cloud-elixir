@@ -1,0 +1,60 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T23:01:39Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/ecosystem/ocel/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T230001Z-cell1-pre-ocel"
+  },
+  "request_id": "20260826T230001Z-cell1-pre-ocel",
+  "request_path": "project-memory/requests/20260826T230001Z-cell1-pre-ocel.json",
+  "request_sha256": "sha256:715444a6a636158698b1d4b64fabcb1b82f6ba27060a303f9a3bd4647cc99720",
+  "request_transport_sha256": "sha256:4f5ff1e14281c778a3025bc6cef7e400658af1c0e83eea6cdd893a685dbdd7f2",
+  "result": {
+    "body": "GGEN Ecosystem OCEL run cell4-ggen-ocel-20260826T193631Z. Digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51. Project 2 stores current process state; Git and OCEL remain receipt evidence.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgLAMCw",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4KnbQ",
+    "metadata": {
+      "cell": "CELL4",
+      "created_at": "2026-08-26T20:09:22Z",
+      "ggen_first": true,
+      "key": "ggen/ecosystem/ocel/current",
+      "kind": "ggen.ecosystem.ocel.current",
+      "manufacturing_ladder": "U->G->O->Q->M",
+      "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+      "process_analysis_owner": "wasm4pm",
+      "run_id": "cell4-ggen-ocel-20260826T193631Z",
+      "schema": "chatgpt-project-memory/v1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": [
+        "ggen",
+        "manufacturing",
+        "ocel",
+        "project2"
+      ],
+      "updated_at": "2026-08-26T20:09:22Z"
+    },
+    "title": "GGEN Ecosystem OCEL current"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

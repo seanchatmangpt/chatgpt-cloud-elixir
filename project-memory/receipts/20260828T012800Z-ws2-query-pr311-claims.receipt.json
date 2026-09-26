@@ -1,0 +1,40 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T01:27:48Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 100,
+      "text": "seanchatmangpt/ggen-marketplace#pr:311"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T012800Z-ws2-query-pr311-claims"
+  },
+  "request_id": "20260828T012800Z-ws2-query-pr311-claims",
+  "request_path": "project-memory/requests/20260828T012800Z-ws2-query-pr311-claims.json",
+  "request_sha256": "sha256:05a6edd79262128d655af1de70d96ef857d30b688639d57b3bb417916c8df07c",
+  "request_transport_sha256": "sha256:4502b56c9e487c811c1c72611dcbb3cb6f85da4e96c9bfe856663c4de7163279",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 61,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

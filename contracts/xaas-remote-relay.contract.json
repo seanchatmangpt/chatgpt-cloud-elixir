@@ -1,0 +1,69 @@
+{
+  "contract": "xaas-remote-relay",
+  "contract_version": 1,
+  "envelope_schema": "xaas.remote-relay-envelope/1",
+  "description": "Bounded transport/admission contract between XaaS RemoteRelay and a remote gall-work worker. Transport never creates DO authority; consequential execution remains in the existing XaaS lease/actuation path.",
+  "envelope": {
+    "required": [
+      "command_id",
+      "epoch_id",
+      "task_id",
+      "sequence",
+      "intent_digest",
+      "exact_subject",
+      "verb",
+      "execution_manifest_digest",
+      "channel"
+    ],
+    "channels": ["control", "observe"],
+    "sequence": "positive integer; next fresh command is last_acknowledged_sequence + 1",
+    "expiry": "expires_at, when present, is an epoch-millisecond deadline",
+    "manifest": "execution_manifest_digest must equal the worker session manifest",
+    "actuation_authority": "verb=actuate requires channel=control and a non-empty authority_ref"
+  },
+  "gall_work_binding": {
+    "payload_schema": "gall.work-lease/1",
+    "intent_digest": "payload.graph_digest",
+    "exact_subject": "payload.repository_identity + '@' + payload.base_sha",
+    "epoch_id": "payload.epoch_id",
+    "task_id": "payload.work_order_iri",
+    "local_do_ack": "worker must independently require explicit local allow-do; authority_ref is necessary but not sufficient"
+  },
+  "ocel_identity_env": [
+    "XAAS_LEASE_CWD",
+    "XAAS_WORK_ORDER_IRI",
+    "XAAS_EPOCH_ID",
+    "XAAS_BASE_SHA"
+  ],
+  "admission_order": [
+    "envelope_shape",
+    "expiry",
+    "execution_manifest",
+    "authority_shape",
+    "gall_work_semantic_binding",
+    "durable_replay",
+    "sequence"
+  ],
+  "refusals": [
+    "INVALID_ENVELOPE",
+    "INVALID_SEQUENCE",
+    "INVALID_CHANNEL",
+    "COMMAND_EXPIRED",
+    "EXECUTION_MANIFEST_DRIFT",
+    "AUTHORITY_REF_REQUIRED",
+    "DESCRIPTOR_SCHEMA_MISMATCH",
+    "DESCRIPTOR_IDENTITY_MISSING",
+    "INTENT_DIGEST_MISMATCH",
+    "EXACT_SUBJECT_MISMATCH",
+    "EPOCH_MISMATCH",
+    "TASK_MISMATCH",
+    "SEQUENCE_GAP",
+    "EXPLICIT_DO_ACK_REQUIRED"
+  ],
+  "replay": {
+    "disconnect_before_ack": "same command_id and semantic identity are retried; no fresh identity is manufactured",
+    "after_ack": "duplicate command_id or acknowledged sequence returns KNOWN_REPLAY",
+    "consequence_bound": "a durably receipted duplicate must not spawn zcode again"
+  },
+  "evidence_ceiling": "Contract and repository-local replay/admission semantics only. This does not prove deployment, host reachability, production authority, customer authority, or external standing."
+}

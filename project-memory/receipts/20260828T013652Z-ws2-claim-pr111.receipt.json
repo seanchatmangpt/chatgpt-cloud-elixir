@@ -1,0 +1,105 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T01:38:12Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "claim_id=ws2-20260827T1827-0700-pr111\nwork_key=seanchatmangpt/ggen-marketplace#pr:111\nworkstation=2\ncycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\ndefault=main\nobserved_default=59dd438f320525001bf24444911a885b480b1c9c\nobserved_pr_head=101d3e54eff9229cb8195e567686c0e811550ecf\nsource_semantic_head=05914406db5d2ba165692be909d3a95c1784ba36\nsource_qualified_head=52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9\nsemantic_unit_count=33\nstatus=ACTIVE\nlease_until=2026-08-28T02:10:00Z\n",
+        "cell": "WS2",
+        "key": "plant/claims/ggen-marketplace/pr-111/ws2-20260827T1827-0700",
+        "kind": "tps.workstream.claim",
+        "metadata": {
+          "claim_id": "ws2-20260827T1827-0700-pr111",
+          "claimed_at": "2026-08-28T01:36:52Z",
+          "cycle_id": "ws2-20260827T1827-0700",
+          "default": "main",
+          "lease_until": "2026-08-28T02:10:00Z",
+          "observed_default": "59dd438f320525001bf24444911a885b480b1c9c",
+          "observed_pr_head": "101d3e54eff9229cb8195e567686c0e811550ecf",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "semantic_unit_count": 33,
+          "source_qualified_head": "52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9",
+          "source_semantic_head": "05914406db5d2ba165692be909d3a95c1784ba36",
+          "status": "ACTIVE",
+          "work_key": "seanchatmangpt/ggen-marketplace#pr:111",
+          "workstation": 2
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws2",
+          "claim",
+          "active",
+          "ggen-marketplace",
+          "pr-111"
+        ],
+        "title": "WS2 claim ggen-marketplace PR 111"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T013652Z-ws2-claim-pr111"
+  },
+  "request_id": "20260828T013652Z-ws2-claim-pr111",
+  "request_path": "project-memory/requests/20260828T013652Z-ws2-claim-pr111.json",
+  "request_sha256": "sha256:5fbc0f89ff7b3fa191e30478a1ee4c4c370fc3b9942d09c88d3b4d2567963601",
+  "request_transport_sha256": "sha256:8320d7035d4c16bdad5a32a9149def4e7c2a2abae8cc2fe8c0dc76e31b1096c1",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "claim_id=ws2-20260827T1827-0700-pr111\nwork_key=seanchatmangpt/ggen-marketplace#pr:111\nworkstation=2\ncycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\ndefault=main\nobserved_default=59dd438f320525001bf24444911a885b480b1c9c\nobserved_pr_head=101d3e54eff9229cb8195e567686c0e811550ecf\nsource_semantic_head=05914406db5d2ba165692be909d3a95c1784ba36\nsource_qualified_head=52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9\nsemantic_unit_count=33\nstatus=ACTIVE\nlease_until=2026-08-28T02:10:00Z",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLArEY",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4W3m8",
+      "metadata": {
+        "cell": "WS2",
+        "claim_id": "ws2-20260827T1827-0700-pr111",
+        "claimed_at": "2026-08-28T01:36:52Z",
+        "created_at": "2026-08-28T01:38:25Z",
+        "cycle_id": "ws2-20260827T1827-0700",
+        "default": "main",
+        "key": "plant/claims/ggen-marketplace/pr-111/ws2-20260827T1827-0700",
+        "kind": "tps.workstream.claim",
+        "lease_until": "2026-08-28T02:10:00Z",
+        "observed_default": "59dd438f320525001bf24444911a885b480b1c9c",
+        "observed_pr_head": "101d3e54eff9229cb8195e567686c0e811550ecf",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_unit_count": 33,
+        "source_qualified_head": "52f5c1aa8d3d667ab1f5f97630277fd3ab50cfb9",
+        "source_semantic_head": "05914406db5d2ba165692be909d3a95c1784ba36",
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "active",
+          "claim",
+          "ggen-marketplace",
+          "pr-111",
+          "tps",
+          "ws2"
+        ],
+        "updated_at": "2026-08-28T01:38:25Z",
+        "work_key": "seanchatmangpt/ggen-marketplace#pr:111",
+        "workstation": 2
+      },
+      "title": "WS2 claim ggen-marketplace PR 111"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

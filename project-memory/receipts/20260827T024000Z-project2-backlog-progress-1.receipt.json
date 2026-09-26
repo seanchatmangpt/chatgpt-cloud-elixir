@@ -1,0 +1,91 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-27T02:39:19Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "Backlog execution started from live Project #2 project.items snapshot (404 items; 402 observed Todo text matches in the receipt search, treated as a match count rather than a fabricated distinct-item count). Terminal stale issues closed after live repository revalidation: dspygen#13 completed; dspygen#6 superseded/not_planned; kanban#2 completed; kanban#4 completed; kanban#7 completed; kanban#14 completed. Active repair workstreams: dspygen PR#48 secret-hygiene exact head 1bab047866ef7052e247e7ec8e727be932939fa4 after two verification-created repairs; kanban PR#17 Docker secrets head 7d683fd20743f0c9bb38b6f8168470d57c79cd08; kanban PR#18 CPU alert threshold head fe198a8554916781c45a750edc1c387fca7763a8; kanban PR#19 unused-dependency CI head 5735e58b9f40954e8d0e025de03cc0d14a7db94a. Kanban hosted PR CI currently fails before executing steps across these independent heads, classified BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]; build/push and deploy jobs were skipped. kanban#13 repository evidence shows rollback configuration exists, but issue-state mutation was refused by the tool safety gate and remains open. No external credential rotation, package publication, deployment, or live infrastructure actuation was performed.",
+        "cell": "BACKLOG",
+        "key": "project2/backlog/current",
+        "kind": "project.backlog",
+        "metadata": {
+          "active_pr_count": 4,
+          "dspygen_pr48_head": "1bab047866ef7052e247e7ec8e727be932939fa4",
+          "kanban_pr17_head": "7d683fd20743f0c9bb38b6f8168470d57c79cd08",
+          "kanban_pr18_head": "fe198a8554916781c45a750edc1c387fca7763a8",
+          "kanban_pr19_head": "5735e58b9f40954e8d0e025de03cc0d14a7db94a",
+          "observed_todo_text_matches": 402,
+          "semantic_commit_count_this_wave": 13,
+          "source_item_count": 404,
+          "terminal_issue_count_this_wave": 6
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "project2",
+          "backlog",
+          "execution",
+          "github"
+        ],
+        "title": "Project #2 backlog execution"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260827T024000Z-project2-backlog-progress-1"
+  },
+  "request_id": "20260827T024000Z-project2-backlog-progress-1",
+  "request_path": "project-memory/requests/20260827T024000Z-project2-backlog-progress-1.json",
+  "request_sha256": "sha256:77dc31bbfde440ae2b3d35911349123466c33b446b19fc3946a8802cebd47f2c",
+  "request_transport_sha256": "sha256:e45a30390461edd8c007adc577b5f53a5de91279d829a64efe625904a228ca6a",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "Backlog execution started from live Project #2 project.items snapshot (404 items; 402 observed Todo text matches in the receipt search, treated as a match count rather than a fabricated distinct-item count). Terminal stale issues closed after live repository revalidation: dspygen#13 completed; dspygen#6 superseded/not_planned; kanban#2 completed; kanban#4 completed; kanban#7 completed; kanban#14 completed. Active repair workstreams: dspygen PR#48 secret-hygiene exact head 1bab047866ef7052e247e7ec8e727be932939fa4 after two verification-created repairs; kanban PR#17 Docker secrets head 7d683fd20743f0c9bb38b6f8168470d57c79cd08; kanban PR#18 CPU alert threshold head fe198a8554916781c45a750edc1c387fca7763a8; kanban PR#19 unused-dependency CI head 5735e58b9f40954e8d0e025de03cc0d14a7db94a. Kanban hosted PR CI currently fails before executing steps across these independent heads, classified BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]; build/push and deploy jobs were skipped. kanban#13 repository evidence shows rollback configuration exists, but issue-state mutation was refused by the tool safety gate and remains open. No external credential rotation, package publication, deployment, or live infrastructure actuation was performed.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAQsI",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4M2eE",
+      "metadata": {
+        "active_pr_count": 4,
+        "cell": "BACKLOG",
+        "created_at": "2026-08-27T02:39:32Z",
+        "dspygen_pr48_head": "1bab047866ef7052e247e7ec8e727be932939fa4",
+        "kanban_pr17_head": "7d683fd20743f0c9bb38b6f8168470d57c79cd08",
+        "kanban_pr18_head": "fe198a8554916781c45a750edc1c387fca7763a8",
+        "kanban_pr19_head": "5735e58b9f40954e8d0e025de03cc0d14a7db94a",
+        "key": "project2/backlog/current",
+        "kind": "project.backlog",
+        "observed_todo_text_matches": 402,
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_commit_count_this_wave": 13,
+        "source_item_count": 404,
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "backlog",
+          "execution",
+          "github",
+          "project2"
+        ],
+        "terminal_issue_count_this_wave": 6,
+        "updated_at": "2026-08-27T02:39:32Z"
+      },
+      "title": "Project #2 backlog execution"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

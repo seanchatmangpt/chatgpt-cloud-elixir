@@ -1,0 +1,146 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T23:36:42Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "CELL3 allocation run cell3-legal-ready-allocation-20260826T233352Z consumed the current Project2 records and manufactured 60 new GGEN-first selection-capital commits in ggen-marketplace PR #339. No new grounded ForcedTop25 OCEL projection or digest was generated in this CELL3 run, so G and O remain UNKNOWN and the prior admitted digest is preserved only as unchanged-prior-artifact evidence. No repository scoring or READY promotion is claimed. Project/control commits remain CONTROL and do not count as consumer G/O.",
+        "cell": "CELL3",
+        "key": "ggen/ecosystem/ocel/current",
+        "kind": "ggen.ecosystem.ocel.current",
+        "metadata": {
+          "G": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+          "M_lower_bound_preserved": 10,
+          "O": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+          "OpenFanoutObligations_lower_bound_preserved": 7,
+          "OpenObservationObligations": "UNKNOWN[G_AND_O_NOT_FRESHLY_PROJECTED]",
+          "Q_lower_bound_preserved": 12,
+          "U_lower_bound_preserved": 17,
+          "allocation_events": [
+            "CONSTRUCT_SELECTION_CAPITAL:ggen-marketplace@ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+            "OBSERVE_DEFAULT_DRIFT:ggen-marketplace/main@630da1b9f8371d4ec444cca917800b53025cba7f",
+            "REFUSE_SCORING:NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION",
+            "PRESERVE_ALTERNATIVES:FORCED_TOP25_25_OF_25"
+          ],
+          "allocation_pack": "forced-top25-cell3-current-run-allocation-pack",
+          "allocation_pack_base": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+          "allocation_pack_head": "ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+          "allocation_pack_pr": 339,
+          "consequential_external_do": false,
+          "forced_top25_observed": 25,
+          "ggen_first": true,
+          "manufacturing_ladder": "U->G->O->Q->M",
+          "new_ocel_artifact_generated": false,
+          "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+          "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+          "process_analysis_owner": "wasm4pm",
+          "project_control_counts_as_consumer_G_or_O": false,
+          "ready_set": [],
+          "run_id": "cell3-legal-ready-allocation-20260826T233352Z",
+          "selected_workstreams": [],
+          "semantic_commits": 60
+        },
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "ggen",
+          "manufacturing",
+          "ocel",
+          "project2",
+          "cell3",
+          "allocation"
+        ],
+        "title": "GGEN Ecosystem OCEL current"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T233353Z-cell3-post-ocel"
+  },
+  "request_id": "20260826T233353Z-cell3-post-ocel",
+  "request_path": "project-memory/requests/20260826T233353Z-cell3-post-ocel.json",
+  "request_sha256": "sha256:5bd0adb536e40db2356ec40ebaf460934468dd42b0b14edd3f2d767ffc6df847",
+  "request_transport_sha256": "sha256:bb0cadb9eddd21a2be3242ea90edee479c2d93457edd7ecc276eecfe7c88def5",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "CELL3 allocation run cell3-legal-ready-allocation-20260826T233352Z consumed the current Project2 records and manufactured 60 new GGEN-first selection-capital commits in ggen-marketplace PR #339. No new grounded ForcedTop25 OCEL projection or digest was generated in this CELL3 run, so G and O remain UNKNOWN and the prior admitted digest is preserved only as unchanged-prior-artifact evidence. No repository scoring or READY promotion is claimed. Project/control commits remain CONTROL and do not count as consumer G/O.",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAMCw",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4KnbQ",
+      "metadata": {
+        "G": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "M_lower_bound_preserved": 10,
+        "O": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION]",
+        "OpenFanoutObligations_lower_bound_preserved": 7,
+        "OpenObservationObligations": "UNKNOWN[G_AND_O_NOT_FRESHLY_PROJECTED]",
+        "Q": "UNKNOWN[NO_NEW_OCEL_PROJECTION]",
+        "Q_lower_bound_preserved": 12,
+        "U_lower_bound_preserved": 17,
+        "allocation_events": [
+          "CONSTRUCT_SELECTION_CAPITAL:ggen-marketplace@ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+          "OBSERVE_DEFAULT_DRIFT:ggen-marketplace/main@630da1b9f8371d4ec444cca917800b53025cba7f",
+          "REFUSE_SCORING:NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_PROJECTION",
+          "PRESERVE_ALTERNATIVES:FORCED_TOP25_25_OF_25"
+        ],
+        "allocation_pack": "forced-top25-cell3-current-run-allocation-pack",
+        "allocation_pack_base": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "allocation_pack_head": "ae080539319e2c7c95fe8f905e9a64e1576c7f74",
+        "allocation_pack_pr": 339,
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "cell": "CELL3",
+        "consequential_external_do": false,
+        "created_at": "2026-08-26T20:09:22Z",
+        "forced_top25_observed": 25,
+        "gate_execution": "UNKNOWN[NO_FRESH_GROUNDED_FORCED_TOP25_OCEL_FIXTURE]",
+        "general_ci": "ALIVE",
+        "ggen_first": true,
+        "head_sha": "de1db7fbd7a2755a38cbf8cf9bdee1422a0c4a93",
+        "key": "ggen/ecosystem/ocel/current",
+        "kind": "ggen.ecosystem.ocel.current",
+        "manufacturing_ladder": "U->G->O->Q->M",
+        "new_ocel_artifact_generated": false,
+        "ocel_digest": "sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51",
+        "ocel_digest_scope": "UNCHANGED_PRIOR_ADMITTED_ARTIFACT_NOT_CURRENT_RUN_OBSERVATION",
+        "pr": 338,
+        "prior_refusal": "INVALID_GGEN_ECOSYSTEM_OCEL_CONTRACT[OCEL_DIGEST_MISSING]",
+        "process_analysis_owner": "wasm4pm",
+        "project_control_counts_as_consumer_G_or_O": false,
+        "ready_set": [],
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "run_id": "cell3-legal-ready-allocation-20260826T233352Z",
+        "schema": "chatgpt-project-memory/v1",
+        "selected_workstreams": [],
+        "semantic_commits": 60,
+        "standing": "PARTIAL_ALIVE",
+        "tags": [
+          "allocation",
+          "cell3",
+          "ggen",
+          "manufacturing",
+          "ocel",
+          "project2"
+        ],
+        "updated_at": "2026-08-26T23:36:55Z",
+        "vacuity": "ALIVE"
+      },
+      "title": "GGEN Ecosystem OCEL current"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

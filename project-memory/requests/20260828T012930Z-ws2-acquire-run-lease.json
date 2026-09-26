@@ -1,0 +1,22 @@
+{
+  "request_id": "20260828T012930Z-ws2-acquire-run-lease",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "plant/ws2/run_lease",
+      "title": "TPS Workstation 2 run lease",
+      "kind": "tps.run.lease",
+      "cell": "WS2",
+      "standing": "ALIVE",
+      "tags": ["tps", "ws2", "run-lease", "active"],
+      "body": "cycle_id=ws2-20260827T1827-0700\nstatus=ACTIVE\nlease_until=2026-08-28T02:10:00Z\n",
+      "metadata": {
+        "cycle_id": "ws2-20260827T1827-0700",
+        "status": "ACTIVE",
+        "claimed_at": "2026-08-28T01:29:30Z",
+        "lease_until": "2026-08-28T02:10:00Z"
+      }
+    }
+  }
+}

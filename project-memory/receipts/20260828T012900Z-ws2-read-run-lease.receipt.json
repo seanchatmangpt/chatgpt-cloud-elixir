@@ -1,0 +1,31 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: plant/ws2/run_lease",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T01:28:26Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "plant/ws2/run_lease"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T012900Z-ws2-read-run-lease"
+  },
+  "request_id": "20260828T012900Z-ws2-read-run-lease",
+  "request_path": "project-memory/requests/20260828T012900Z-ws2-read-run-lease.json",
+  "request_sha256": "sha256:40f7f994b5d42773698a3f51143b146475dc3cead2721dbbf34417ead9fd33da",
+  "request_transport_sha256": "sha256:99a10ac31be76c209101fb5a835f6dbab24c6d9dbc1ae02117902570f8456c0a",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}

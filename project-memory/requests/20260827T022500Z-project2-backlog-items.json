@@ -1,0 +1,10 @@
+{
+  "request_id": "20260827T022500Z-project2-backlog-items",
+  "operation": "project.items",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "types": ["ISSUE", "PULL_REQUEST", "DRAFT_ISSUE"],
+    "include_archived": false,
+    "max_items": 500
+  }
+}

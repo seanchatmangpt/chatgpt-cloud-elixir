@@ -1,0 +1,109 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T01:57:47Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "claim_id=ws2-20260827T1827-0700-pr98\nwork_key=seanchatmangpt/ggen-marketplace#pr:98\nworkstation=2\ncycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\ndefault=main\nobserved_pr_head=95d0f1770053fbc11c0bd4c3a411378bdad5fa74\nmerge_commit=4c4232515b43d40cef8288c43eacfab2c31ab485\nfinal_default=4c4232515b43d40cef8288c43eacfab2c31ab485\nstatus=COMPLETE_MERGED\nstrategy=PRESERVE_EVOLVED_MAIN_AND_ASSIMILATE_ANCESTRY\n",
+        "cell": "WS2",
+        "key": "plant/claims/ggen-marketplace/pr-98/ws2-20260827T1827-0700",
+        "kind": "tps.workstream.claim",
+        "metadata": {
+          "claim_id": "ws2-20260827T1827-0700-pr98",
+          "completed_at": "2026-08-28T01:49:31Z",
+          "cycle_id": "ws2-20260827T1827-0700",
+          "default": "main",
+          "final_default": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+          "merge_commit": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+          "observed_pr_head": "95d0f1770053fbc11c0bd4c3a411378bdad5fa74",
+          "repo": "seanchatmangpt/ggen-marketplace",
+          "status": "COMPLETE_MERGED",
+          "strategy": "PRESERVE_EVOLVED_MAIN_AND_ASSIMILATE_ANCESTRY",
+          "work_key": "seanchatmangpt/ggen-marketplace#pr:98",
+          "workstation": 2
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws2",
+          "claim",
+          "complete",
+          "merged",
+          "ggen-marketplace",
+          "pr-98"
+        ],
+        "title": "WS2 complete ggen-marketplace PR 98"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T014931Z-ws2-complete-pr98"
+  },
+  "request_id": "20260828T014931Z-ws2-complete-pr98",
+  "request_path": "project-memory/requests/20260828T014931Z-ws2-complete-pr98.json",
+  "request_sha256": "sha256:ae9dea5fda5f15f81907986d901246518974f6264c66d0ea66d4b060b1059158",
+  "request_transport_sha256": "sha256:e568133ac7f5623abfead7e35db5d3695dd6fe72ee309bda06f4fc5e30936806",
+  "result": {
+    "action": "updated",
+    "record": {
+      "body": "claim_id=ws2-20260827T1827-0700-pr98\nwork_key=seanchatmangpt/ggen-marketplace#pr:98\nworkstation=2\ncycle_id=ws2-20260827T1827-0700\nrepo=seanchatmangpt/ggen-marketplace\ndefault=main\nobserved_pr_head=95d0f1770053fbc11c0bd4c3a411378bdad5fa74\nmerge_commit=4c4232515b43d40cef8288c43eacfab2c31ab485\nfinal_default=4c4232515b43d40cef8288c43eacfab2c31ab485\nstatus=COMPLETE_MERGED\nstrategy=PRESERVE_EVOLVED_MAIN_AND_ASSIMILATE_ANCESTRY\n",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLArEo",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4W3rU",
+      "metadata": {
+        "cell": "WS2",
+        "claim_id": "ws2-20260827T1827-0700-pr98",
+        "claimed_at": "2026-08-28T01:36:53Z",
+        "completed_at": "2026-08-28T01:49:31Z",
+        "created_at": "2026-08-28T01:38:38Z",
+        "cycle_id": "ws2-20260827T1827-0700",
+        "default": "main",
+        "final_default": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+        "key": "plant/claims/ggen-marketplace/pr-98/ws2-20260827T1827-0700",
+        "kind": "tps.workstream.claim",
+        "lease_until": "2026-08-28T02:10:00Z",
+        "merge_commit": "4c4232515b43d40cef8288c43eacfab2c31ab485",
+        "observed_default": "59dd438f320525001bf24444911a885b480b1c9c",
+        "observed_pr_head": "95d0f1770053fbc11c0bd4c3a411378bdad5fa74",
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "schema": "chatgpt-project-memory/v1",
+        "semantic_unit_count": 31,
+        "source_qualified_head": "31ba1e85fe7c31c97ba9aed18ee4023e141688e1",
+        "source_semantic_head": "e5e85e2f5dbcb391ba375ff771b0cb196dca3e22",
+        "standing": "ALIVE",
+        "status": "COMPLETE_MERGED",
+        "strategy": "PRESERVE_EVOLVED_MAIN_AND_ASSIMILATE_ANCESTRY",
+        "tags": [
+          "claim",
+          "complete",
+          "ggen-marketplace",
+          "merged",
+          "pr-98",
+          "tps",
+          "ws2"
+        ],
+        "updated_at": "2026-08-28T01:58:00Z",
+        "work_key": "seanchatmangpt/ggen-marketplace#pr:98",
+        "workstation": 2
+      },
+      "title": "WS2 complete ggen-marketplace PR 98"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

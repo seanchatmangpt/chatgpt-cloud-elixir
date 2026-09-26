@@ -1,0 +1,85 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-28T03:25:48Z",
+  "operation": "memory.upsert",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.upsert",
+    "payload": {
+      "record": {
+        "body": "workstation=3\ncycle_id=ws3-20260827T2000-0700\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:24:05Z\nlease_until=2026-08-28T04:24:00Z\n",
+        "cell": "WS3",
+        "key": "plant/ws3/run_lease",
+        "kind": "tps.workstation.lease",
+        "metadata": {
+          "claimed_at": "2026-08-28T03:24:05Z",
+          "cycle_id": "ws3-20260827T2000-0700",
+          "lease_until": "2026-08-28T04:24:00Z",
+          "status": "ACTIVE",
+          "workstation": 3
+        },
+        "standing": "ALIVE",
+        "tags": [
+          "tps",
+          "ws3",
+          "lease",
+          "active",
+          "runtime"
+        ],
+        "title": "WS3 runtime learning factory run lease"
+      }
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T032405Z-ws3-acquire-run-lease"
+  },
+  "request_id": "20260828T032405Z-ws3-acquire-run-lease",
+  "request_path": "project-memory/requests/20260828T032405Z-ws3-acquire-run-lease.json",
+  "request_sha256": "sha256:702f0840b7f93042b8337fd0a1837d0b662833433c59acf9f3b0dbfdaaf7756a",
+  "request_transport_sha256": "sha256:77674e646888b3c87ecc2349fb5c12114c083abf4c293848ad979036debfb2e1",
+  "result": {
+    "action": "created",
+    "record": {
+      "body": "workstation=3\ncycle_id=ws3-20260827T2000-0700\nstatus=ACTIVE\nclaimed_at=2026-08-28T03:24:05Z\nlease_until=2026-08-28T04:24:00Z",
+      "content_id": "DI_lAHOCCCFfc4BhZKezgLAsd8",
+      "is_archived": false,
+      "item_id": "PVTI_lAHOCCCFfc4BhZKezg4Xb6U",
+      "metadata": {
+        "cell": "WS3",
+        "claimed_at": "2026-08-28T03:24:05Z",
+        "created_at": "2026-08-28T03:26:04Z",
+        "cycle_id": "ws3-20260827T2000-0700",
+        "key": "plant/ws3/run_lease",
+        "kind": "tps.workstation.lease",
+        "lease_until": "2026-08-28T04:24:00Z",
+        "schema": "chatgpt-project-memory/v1",
+        "standing": "ALIVE",
+        "status": "ACTIVE",
+        "tags": [
+          "active",
+          "lease",
+          "runtime",
+          "tps",
+          "ws3"
+        ],
+        "updated_at": "2026-08-28T03:26:04Z",
+        "workstation": 3
+      },
+      "title": "WS3 runtime learning factory run lease"
+    }
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

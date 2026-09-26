@@ -1,0 +1,42 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-26T18:31:46Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "tags": [
+        "ggen"
+      ],
+      "text": "ggen ecosystem ocel fanout forced top25 qualification consumer observation"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T182808Z-cell1-relevant-query"
+  },
+  "request_id": "20260826T182808Z-cell1-relevant-query",
+  "request_path": "project-memory/requests/20260826T182808Z-cell1-relevant-query.json",
+  "request_sha256": "sha256:5c602af428a1a9d364276fa49174ae0aee5eb64e91345d0eb3bb5b65c98cf734",
+  "request_transport_sha256": "sha256:a8f07860fb0c312e68f0462c16825bb99f475ec0fd4bfbbc5ce53d992d8cde0d",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 54,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

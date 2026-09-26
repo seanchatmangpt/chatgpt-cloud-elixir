@@ -1,0 +1,43 @@
+{
+  "request_id": "20260827-cell2-r95-frontier-exhausted-reconcile",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell2/current",
+      "title": "TPS Cell2 current",
+      "kind": "tps.cell2.current",
+      "cell": "CELL2",
+      "standing": "ALIVE",
+      "tags": ["cell2", "project2", "tps", "standard-work", "frontier-exhausted"],
+      "body": "Reconciliation-only invocation against the latest admitted Cell1 R95 input. Cell1 exact input c942d88d25c92ecced7abe56eeede175d2bcb009 was already consumed by CELL2 R95 into 50 independently meaningful semantic gates, exact-head CI and Vacuity were SUCCESS, and the resulting lineage is now assimilated on ggen-marketplace/main at merge 8da3b7c6831e56adb41aab4816d15360c79b59f2 via PR #351. terminal_count=admitted_count=1 and spillover=0. No unconsumed current-cycle Cell1 WIP remains. Therefore semantic_commits_this_reconciliation=0 is admitted under the production-law exception FRONTIER_EXHAUSTED[CURRENT_CELL1_INPUT_ALREADY_CONSUMED_AND_ASSIMILATED]; creating additional commits from the same input would be duplicate/defective inventory. The 100/250/500+ expansion envelopes require a new Cell1 current-cycle pull before admission. Canonical ggen/ecosystem/ocel/current is not rewritten because no new deterministic OCEL consequence was generated. Process analysis remains wasm4pm-owned. Consequential external DO=false.",
+      "metadata": {
+        "run_id": "TPS-CELL2-R95-RECONCILE-20260827",
+        "cell1_input_head": "c942d88d25c92ecced7abe56eeede175d2bcb009",
+        "source_cell2_semantic_head": "52a623db72671e91bf3c14045e54280e34441a73",
+        "source_cell2_publication_head": "a44ef5d806f164feaef3c042e4a026d645bc24d0",
+        "source_cell2_pr": 351,
+        "source_cell2_semantic_commits": 50,
+        "source_cell2_qualification": "ALIVE[EXACT_HEAD_CI_AND_VACUITY_SUCCESS]",
+        "assimilation_merge_sha": "8da3b7c6831e56adb41aab4816d15360c79b59f2",
+        "current_ggen_marketplace_main": "8da3b7c6831e56adb41aab4816d15360c79b59f2",
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "frontier_exhausted": true,
+        "frontier_exhausted_reason": "CURRENT_CELL1_INPUT_ALREADY_CONSUMED_AND_ASSIMILATED",
+        "semantic_commits_this_reconciliation": 0,
+        "production_exception": "FRONTIER_EXHAUSTED[CURRENT_CELL1_INPUT_ALREADY_CONSUMED_AND_ASSIMILATED]",
+        "envelopes_searched": [100, 250, 500],
+        "higher_envelope_disposition": "REFUSED_TYPED[NO_NEW_CELL1_CURRENT_CYCLE_WIP]",
+        "ggen_first": true,
+        "generated_outputs_hand_edited": false,
+        "new_ocel_artifact_generated": false,
+        "canonical_ocel_rewritten": false,
+        "process_analysis_owner": "wasm4pm",
+        "consequential_external_do": false,
+        "next_ready_frontier": "WAIT_FOR_NEW_CELL1_CURRENT_CYCLE_WIP"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "request_id": "20260827T0222Z-cell2-r95-terminal",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "tps/cell2/current",
+      "title": "TPS Cell2 current",
+      "kind": "tps.cell2.current",
+      "cell": "CELL2",
+      "standing": "ALIVE",
+      "tags": ["cell2", "ggen", "manufacturing", "ocel", "project2", "tps"],
+      "body": "CELL2 R95 COMPOSE/STANDARD WORK consumed only Cell1 exact qualified subject c942d88d25c92ecced7abe56eeede175d2bcb009. ExistingPackExtension of ggen-ecosystem-ocel-pack produced 50 independently meaningful semantic SPARQL gates and one excluded cycle-manifest commit. Semantic head=52a623db72671e91bf3c14045e54280e34441a73; exact publication head=ab5092c053209fcc30113dbfa0e911a43ffabef6; draft PR #351. Exact publication head passed CI run 33032998698 and Vacuity Audit run 33032998768. Production families are 25 pull-object identity/authority/qualification/closure correspondence gates and 25 run-level Project/OCEL/U->G->O->Q->M/WIP/obligation arithmetic and closure-capacity gates. terminal_count=admitted_count=1; spillover=0. Local archive materialization was REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE] and did not alter subject standing because exact immutable GitHub qualification executed successfully. No new deterministic OCEL artifact was generated; historical OCEL digest remains prior admitted evidence only. Generated outputs were not edited; process analysis remains wasm4pm-owned; consequential external DO=false; no merge performed.",
+      "metadata": {
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "cell1_input_head": "c942d88d25c92ecced7abe56eeede175d2bcb009",
+        "semantic_head": "52a623db72671e91bf3c14045e54280e34441a73",
+        "publication_head": "ab5092c053209fcc30113dbfa0e911a43ffabef6",
+        "production_pr": 351,
+        "semantic_commits": 50,
+        "excluded_manifest_commits": 1,
+        "production_floor": 50,
+        "composition_path": "ExistingPackExtension:ggen-ecosystem-ocel-pack",
+        "pull_object_gates": 25,
+        "run_closure_gates": 25,
+        "cell1_compare_ahead_by": 50,
+        "cell1_compare_behind_by": 0,
+        "admitted_count": 1,
+        "terminal_count": 1,
+        "spillover": 0,
+        "qualification": "ALIVE[EXACT_HEAD_CI_AND_VACUITY_SUCCESS]",
+        "ci": "SUCCESS",
+        "ci_run_id": 33032998698,
+        "vacuity": "SUCCESS",
+        "vacuity_run_id": 33032998768,
+        "local_materialization": "REFUSED_TYPED[TRANSPORT_DNS_UNAVAILABLE]",
+        "generated_outputs_hand_edited": false,
+        "new_ocel_artifact_generated": false,
+        "control_commits_count_as_production": false,
+        "process_analysis_owner": "wasm4pm",
+        "consequential_external_do": false,
+        "merge_performed": false,
+        "envelopes_searched": [100, 250, 500],
+        "higher_envelope_disposition": "REFUSED_TYPED[TAKT_NOT_CLOSABLE:DO_NOT_ADMIT_NEW_WIP_AFTER_DEPENDENCY_CLOSED_50_UNIT_SUBJECT_ENTERED_EXACT_QUALIFICATION]",
+        "handoff": "Cell3 may consume PR351 exact ALIVE subject and its 50 standard-work gates; preserve canonical OCEL historical digest scope until a fresh GGEN-generated OCEL consequence exists."
+      }
+    }
+  }
+}

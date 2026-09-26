@@ -1,0 +1,5 @@
+PREFIX cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#>
+SELECT ?run WHERE {
+  ?run a cce:PaaSRun .
+  FILTER NOT EXISTS { ?run cce:otpVersion ?otp ; cce:elixirVersion ?elixir }
+}

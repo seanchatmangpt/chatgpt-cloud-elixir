@@ -1,0 +1,22 @@
+{
+  "schema": "chatgpt-cloud.xaas-runtime-receipt/1",
+  "observed_at": "2026-09-24T23:30:00Z",
+  "subject": "xaas-ultracode-runtime-transport",
+  "standing_scope": "transport",
+  "action": "wss-transport-contract",
+  "operation": "fabric.probe",
+  "transport": "wss",
+  "endpoint": null,
+  "authenticated": false,
+  "request_sha256": null,
+  "http_status": null,
+  "response": null,
+  "transport_error": null,
+  "standing": "PARTIAL_ALIVE",
+  "reason": "TUNNEL_SERVER_NOT_MERGED",
+  "detail": "Client side ALIVE locally: scripts/xaas-runtime.py --transport wss (stdlib RFC 6455, envelope contract above) passes its mock-tunnel court (python3 -m pytest tests/test_xaas_runtime.py -q => 50 passed, exit 0, 2026-09-24). The Xaas.Tunnel server side lands via the xaas lane and is not yet merged/deployed, so no live wss probe has been executed. This receipt is therefore PARTIAL_ALIVE at transport scope: the wss-mode contract is defined and client-implemented; live ALIVE requires the deployed tunnel endpoint and an observed probe. Until then the explicit fallback transport is github-actions (request/receipt relay), selected only on a typed wss BLOCKED[TRANSPORT] receipt (R25-015).",
+  "replay": "python3 -m pytest tests/test_xaas_runtime.py -q && python3 scripts/xaas-runtime.py --transport wss --require-config probe",
+  "request_id": "20260924T233000Z-wss-transport-contract",
+  "fallback_transport": "github-actions",
+  "downstream_standing": "UNKNOWN"
+}

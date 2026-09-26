@@ -1,0 +1,28 @@
+{
+  "request_id": "20260826T220800Z-cell1-r88-fanout-current",
+  "operation": "memory.upsert",
+  "project": {"owner": "seanchatmangpt", "number": 2},
+  "payload": {
+    "record": {
+      "key": "ggen/fanout/current",
+      "title": "GGEN fanout current",
+      "kind": "ggen.fanout",
+      "cell": "CELL1",
+      "standing": "PARTIAL_ALIVE",
+      "tags": ["ggen", "fanout", "ocel", "cell1", "frontier"],
+      "body": "CELL1 R88 manufactured 50 new semantic SPARQL gates in the canonical ggen-ecosystem-ocel-pack. Exact marketplace base e88f3ad0d19223cec64e58998aceb21676661ffa; exact head d303e48748b085711586930718d5eeb2cada722b; draft PR #335. The 50 gates cover repository exact-subject identity, ManufacturingRun U/G/O/Q/M and obligation completeness, ManufacturingEvent identity/order/run/object integrity, GGEN primitive and qualification identity, typed refusal/falsifier integrity, partial-order structure, digest binding, causal provenance, and Project-memory object standing. Generated outputs were not edited. Exact-head CI had not yet produced workflow/status evidence at final inspection. Canonical ggen/ecosystem/ocel/current was not updated because no admitted pack-generated OCEL/Project request was produced in this run; O/Q/M were therefore not promoted.",
+      "metadata": {
+        "repository": "seanchatmangpt/ggen-marketplace",
+        "base_sha": "e88f3ad0d19223cec64e58998aceb21676661ffa",
+        "head_sha": "d303e48748b085711586930718d5eeb2cada722b",
+        "pr_number": 335,
+        "commit_count": 50,
+        "changed_files": 50,
+        "sensor_count": 50,
+        "generated_outputs_edited": false,
+        "ocel_post": "UNKNOWN[NO_ADMITTED_PACK_GENERATED_REQUEST]",
+        "memory_loop": "BUILD_BROKEN[PRE_READ_SET_INCOMPLETE]"
+      }
+    }
+  }
+}

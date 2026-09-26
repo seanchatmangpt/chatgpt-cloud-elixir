@@ -1,0 +1,6 @@
+{
+  "request_id": "20260828T021620Z-ws1-reread-run-lease",
+  "operation": "memory.read",
+  "project": {"owner":"seanchatmangpt","number":2},
+  "payload": {"key":"plant/ws1/run_lease"}
+}

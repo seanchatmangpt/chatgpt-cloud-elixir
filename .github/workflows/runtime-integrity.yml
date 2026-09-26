@@ -1,0 +1,41 @@
+name: Runtime Integrity
+
+# Independent clean-runner consumer of the committed runtime/ binaries: every committed
+# part must match runtime/lock.json, reassemble to the admitted archive digest, install
+# offline, and smoke-execute. Capsule artifacts additionally run their own offline verifier.
+on:
+  push:
+    branches: [main, "release/**", "feat/**"]
+    paths:
+      - "runtime/**"
+      - "scripts/ecosystem-up.py"
+      - "scripts/runtime-admit.py"
+      - "tests/test_runtime_transport.py"
+      - ".github/workflows/runtime-integrity.yml"
+  pull_request:
+    paths:
+      - "runtime/**"
+      - "scripts/ecosystem-up.py"
+      - "scripts/runtime-admit.py"
+      - "tests/test_runtime_transport.py"
+      - ".github/workflows/runtime-integrity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consume:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Transport tests
+        run: python3 -m unittest tests/test_runtime_transport.py
+
+      - name: Bring every committed artifact up and run its offline verifier
+        run: |
+          all="$(python3 -c 'import json; print(",".join(json.load(open("runtime/lock.json"))["artifacts"]))')"
+          python3 scripts/ecosystem-up.py --prefix "$RUNNER_TEMP/runtime" --only "$all" --verify
+          cat "$RUNNER_TEMP/runtime/ecosystem-up-receipt.json"

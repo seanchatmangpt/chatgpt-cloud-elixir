@@ -24,25 +24,25 @@ jobs:
       matrix:
         include:
           - variant: beam-core
-            otp: "29.0"
-            elixir: "1.20.2"
-            artifact_name: chatgpt-cloud-elixir-beam-core-otp29-elixir1.20.2-linux-x86_64
+            otp: "29.1.1"
+            elixir: "1.20.4"
+            artifact_name: chatgpt-cloud-elixir-beam-core-otp29-elixir1.20.4-linux-x86_64
           - variant: ash-core
-            otp: "29.0"
-            elixir: "1.20.2"
-            artifact_name: chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.2-linux-x86_64
+            otp: "29.1.1"
+            elixir: "1.20.4"
+            artifact_name: chatgpt-cloud-elixir-ash-core-otp29-elixir1.20.4-linux-x86_64
           - variant: ash-postgres
-            otp: "29.0"
-            elixir: "1.20.2"
-            artifact_name: chatgpt-cloud-elixir-ash-postgres-otp29-elixir1.20.2-linux-x86_64
+            otp: "29.1.1"
+            elixir: "1.20.4"
+            artifact_name: chatgpt-cloud-elixir-ash-postgres-otp29-elixir1.20.4-linux-x86_64
           - variant: ash-phoenix
-            otp: "29.0"
-            elixir: "1.20.2"
-            artifact_name: chatgpt-cloud-elixir-ash-phoenix-otp29-elixir1.20.2-linux-x86_64
+            otp: "29.1.1"
+            elixir: "1.20.4"
+            artifact_name: chatgpt-cloud-elixir-ash-phoenix-otp29-elixir1.20.4-linux-x86_64
           - variant: ash-full
-            otp: "29.0"
-            elixir: "1.20.2"
-            artifact_name: chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.2-linux-x86_64
+            otp: "29.1.1"
+            elixir: "1.20.4"
+            artifact_name: chatgpt-cloud-elixir-ash-full-otp29-elixir1.20.4-linux-x86_64
           - variant: process-intelligence
             otp: "27.2.4"
             elixir: "1.18.4"
