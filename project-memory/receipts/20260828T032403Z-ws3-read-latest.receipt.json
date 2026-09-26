@@ -1,0 +1,31 @@
+{
+  "actuation_performed": false,
+  "error": {
+    "details": null,
+    "message": "Memory key not found: plant/ws3/latest",
+    "type": "ProxyError"
+  },
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-09-26T20:45:52Z",
+  "operation": "memory.read",
+  "reason": "MEMORY_NOT_FOUND",
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "plant/ws3/latest"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T032403Z-ws3-read-latest"
+  },
+  "request_id": "20260828T032403Z-ws3-read-latest",
+  "request_path": "project-memory/requests/20260828T032403Z-ws3-read-latest.json",
+  "request_sha256": "sha256:40c5feaf29126d6054c7d688cdd7ad18d849a4aae0ef8a4058e0b486e8211692",
+  "request_transport_sha256": "sha256:68bc6a170d530b64aa0cff95dbf76ec2c9018edd525f721e686a7caef529971c",
+  "result": null,
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "REFUSED",
+  "token_source": "PROJECTS_TOKEN secret"
+}

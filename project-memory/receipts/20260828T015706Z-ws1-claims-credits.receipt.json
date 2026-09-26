@@ -1,0 +1,40 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-09-26T20:45:13Z",
+  "operation": "memory.query",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "Executable Design Science",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.query",
+    "payload": {
+      "limit": 200,
+      "text": "work_key claim completion_credit workstation"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260828T015706Z-ws1-claims-credits"
+  },
+  "request_id": "20260828T015706Z-ws1-claims-credits",
+  "request_path": "project-memory/requests/20260828T015706Z-ws1-claims-credits.json",
+  "request_sha256": "sha256:479f32a0dfaa1e210be45cb9d3232a0ca46fd971fcddea0342231dbdc46e7e18",
+  "request_transport_sha256": "sha256:686a648228f032da8cc958a75128781a027a44dc9113ed33fe6f6c8d4b03fdb4",
+  "result": {
+    "matched": 0,
+    "records": [],
+    "scanned": 73,
+    "truncated": false
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

@@ -2,7 +2,7 @@
   "actuation_performed": true,
   "error": null,
   "gate_schema": "chatgpt-project-memory-gate/v2",
-  "observed_at": "2026-09-26T20:42:53Z",
+  "observed_at": "2026-09-26T20:41:38Z",
   "operation": "memory.read",
   "project": {
     "id": "PVT_kwHOCCCFfc4BhZKe",
@@ -21,12 +21,12 @@
       "number": 2,
       "owner": "seanchatmangpt"
     },
-    "request_id": "20260826T190100Z-cell5-read-ocel"
+    "request_id": "20260826T173500Z-cell3-read-ocel-serialized"
   },
-  "request_id": "20260826T190100Z-cell5-read-ocel",
-  "request_path": "project-memory/requests/20260826T190100Z-cell5-read-ocel.json",
-  "request_sha256": "sha256:1389eab98af9f51f1f70cff7b9e87d100ca8118463e4eecc4c13cef723a1147c",
-  "request_transport_sha256": "sha256:24f9eeedcae587ee5ce13d914797fcca0e61ff1f20dfa8fbf4309927e93b4297",
+  "request_id": "20260826T173500Z-cell3-read-ocel-serialized",
+  "request_path": "project-memory/requests/20260826T173500Z-cell3-read-ocel-serialized.json",
+  "request_sha256": "sha256:17c3f4755fbadaf92d7caec6ff339f7da78ab144dc44dc5cf108f7283c69bd90",
+  "request_transport_sha256": "sha256:dc4eb5cc30b027f072c3796701caa631d494daeb684fcb2f500229b429c584db",
   "result": {
     "body": "CELL4 R96 realization/qualification event. Project #2 admitted ggen-marketplace#351@ab5092c053209fcc30113dbfa0e911a43ffabef6. CELL4 produced 51 semantic commits plus 2 excluded control commits, ending at exact head 8c482326268638d3b70ccc84666d383d903214ee. Exact-head CI and Vacuity Audit are SUCCESS. Real GGEN qualified ggen-ecosystem-ocel-pack as ALIVE and generated 8 consequence files with consequence sha256:91a8115e799c0c96dc4b2c1500f11f47d303080059ce4639ae4c596a049b8a18 from source sha256:a4943a2dd471f32bafdbb53c4b371bf6f67f8fde3cedcd1313658373fa13d9c8. The historical canonical OCEL file digest sha256:0b059d5edbffabba09dd7f17196d9c8686775ee351acf5e16cc81e5a95f7df51 is preserved strictly as PRIOR_ADMITTED_OCEL_ARTIFACT, not claimed as a fresh per-file digest for this run. Fresh evidence is the real-GGEN pack consequence digest and qualification artifact from CI run 33034041492. Process analysis remains wasm4pm/wasm4pm-compat. admitted_count=1 terminal_count=1 spillover=0; no external consequential DO.",
     "content_id": "DI_lAHOCCCFfc4BhZKezgLAMCw",
