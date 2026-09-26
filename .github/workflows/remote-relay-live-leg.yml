@@ -1,0 +1,456 @@
+name: Remote Relay Live-Leg Court
+
+on:
+  pull_request:
+    paths:
+      - "contracts/xaas-remote-relay.contract.json"
+      - "scripts/xaas-relay.py"
+      - "scripts/xaas-runtime.py"
+      - "scripts/roundtrip-zcode.ts"
+      - "scripts/remote-relay-court.py"
+      - "tests/test_xaas_relay.py"
+      - ".github/workflows/remote-relay-live-leg.yml"
+  push:
+    branches:
+      - "feat/v26.9.25-relay-client"
+    paths:
+      - "contracts/xaas-remote-relay.contract.json"
+      - "scripts/xaas-relay.py"
+      - "scripts/xaas-runtime.py"
+      - "scripts/roundtrip-zcode.ts"
+      - "scripts/remote-relay-court.py"
+      - "tests/test_xaas_relay.py"
+      - ".github/workflows/remote-relay-live-leg.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-leg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MIX_ENV: test
+      DEV_DB_USERNAME: postgres
+      DEV_DB_PASSWORD: postgres
+      DEV_DB_HOSTNAME: localhost
+      DEV_DB_PORT: "5432"
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.0-pg15
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout cloud relay subject
+        uses: actions/checkout@v4
+        with:
+          path: cloud
+          persist-credentials: false
+
+      - name: Checkout XaaS relay subject
+        uses: actions/checkout@v4
+        with:
+          repository: seanchatmangpt/xaas
+          ref: 9820fe3bfe2cf0fecd2b13b598681cd1ec3b094f
+          path: xaas
+          persist-credentials: false
+
+      - name: Checkout zcode gall-work subject
+        uses: actions/checkout@v4
+        with:
+          repository: seanchatmangpt/zcode-cli
+          ref: f5e7d2d460c639a79783d199364cc572cfec4494
+          path: zcode-cli
+          persist-credentials: false
+
+      - name: Record exact subjects
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p cloud/receipts
+          {
+            echo "cloud=$(git -C cloud rev-parse HEAD)"
+            echo "xaas=$(git -C xaas rev-parse HEAD)"
+            echo "zcode=$(git -C zcode-cli rev-parse HEAD)"
+          } | tee cloud/receipts/remote-relay-subjects.txt
+
+      - name: Cross-repository contract court
+        working-directory: cloud
+        run: |
+          python3 scripts/remote-relay-court.py \
+            --local-contract contracts/xaas-remote-relay.contract.json \
+            --xaas-contract ../xaas/priv/ultracode/remote-relay.contract.json \
+            --zcode-contract ../zcode-cli/test/fixtures/gall-work.contract.json \
+            --zcode-ocel-source ../zcode-cli/src/ocel-tap.ts \
+            --receipt receipts/remote-relay-live-leg.json
+
+      - name: Cloud envelope admission and replay court
+        working-directory: cloud
+        run: python3 -m unittest tests.test_xaas_relay
+
+      - name: Setup XaaS BEAM
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: "28.5.0.2"
+          elixir-version: "1.20.2"
+
+      - name: Native XaaS relay admission and replay court
+        working-directory: xaas
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/xaas-remote-relay-court.exs <<'ELIXIR'
+          Code.require_file(Path.expand("lib/xaas/ultracode/remote_relay.ex"))
+
+          alias Xaas.Ultracode.RemoteRelay
+          alias Xaas.Ultracode.RemoteRelay.Envelope
+
+          descriptor = %{
+            "schema" => "gall.work-lease/1",
+            "work_order_iri" => "urn:gall:work:chatgpt-roundtrip",
+            "checkpoint_iri" => "urn:gall:checkpoint:chatgpt-roundtrip",
+            "graph_digest" => "sha256:" <> String.duplicate("a", 64),
+            "repository_identity" => "seanchatmangpt/chatgpt-cloud-elixir",
+            "base_sha" => String.duplicate("b", 40),
+            "epoch_id" => "11111111-1111-4111-8111-111111111111",
+            "worker_id" => "chatgpt-roundtrip",
+            "worktree" => "/tmp/chatgpt-roundtrip"
+          }
+
+          envelope = %Envelope{
+            command_id: "cmd-chatgpt-roundtrip-1",
+            epoch_id: descriptor["epoch_id"],
+            task_id: descriptor["work_order_iri"],
+            sequence: 1,
+            intent_digest: descriptor["graph_digest"],
+            exact_subject: descriptor["repository_identity"] <> "@" <> descriptor["base_sha"],
+            verb: :actuate,
+            execution_manifest_digest: "manifest-chatgpt-roundtrip",
+            authority_ref: "court-authority",
+            channel: :control,
+            issued_at: 1,
+            expires_at: 10_000
+          }
+
+          state = RemoteRelay.new_state(execution_manifest_digest: "manifest-chatgpt-roundtrip")
+          {:ok, admitted} = RemoteRelay.admit_gall_work(state, envelope, descriptor, 5)
+          {:ok, bound} = RemoteRelay.bind_actuation_idempotency(envelope, %{})
+          "cmd-chatgpt-roundtrip-1" = bound["idempotency_key"]
+          {:ok, acknowledged} = RemoteRelay.acknowledge(admitted, envelope)
+          {:replay, ^acknowledged} = RemoteRelay.admit_gall_work(acknowledged, envelope, descriptor, 5)
+          IO.puts("XAAS_REMOTE_RELAY_ALIVE")
+          ELIXIR
+          elixir /tmp/xaas-remote-relay-court.exs
+
+      - name: Resolve XaaS dependencies
+        working-directory: xaas
+        run: mix deps.get --check-locked
+
+      - name: Create and migrate XaaS test database
+        working-directory: xaas
+        run: mix ecto.create && mix ecto.migrate
+
+      - name: Create exact round-trip git subject
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/chatgpt-roundtrip-root"
+          wt="$root/subject"
+          rm -rf "$root"
+          mkdir -p "$wt"
+          git -C "$wt" init -b main
+          printf 'round-trip base\n' > "$wt/README.md"
+          git -C "$wt" add README.md
+          git -C "$wt" -c user.name="ChatGPT Roundtrip Court" -c user.email=roundtrip-court@localhost \
+            commit -m "test: seed round-trip subject"
+          git -C "$wt" rev-parse HEAD > /tmp/roundtrip-base-sha
+          printf '%s' "$wt" > /tmp/roundtrip-worktree
+          printf '%s' "$root" > /tmp/roundtrip-worktree-root
+
+      - name: Mint real org-scoped XaaS bearer
+        working-directory: xaas
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/roundtrip-seed.exs <<'ELIXIR'
+          alias Xaas.Accounts.Org
+          alias Xaas.Governance.InternalApiTokenAuth
+
+          {:ok, org} =
+            Org
+            |> Ash.Changeset.for_create(
+              :create,
+              %{name: "ChatGPT Roundtrip Court", slug: "chatgpt-roundtrip-court"},
+              authorize?: false
+            )
+            |> Ash.create()
+
+          {:ok, raw, _token} = InternalApiTokenAuth.issue("chatgpt-cloud-roundtrip", nil, org)
+          File.write!(System.fetch_env!("ROUNDTRIP_TOKEN_FILE"), raw)
+          ELIXIR
+          ROUNDTRIP_TOKEN_FILE=/tmp/roundtrip-xaas-token mix run /tmp/roundtrip-seed.exs
+          test -s /tmp/roundtrip-xaas-token
+
+      - name: Start real XaaS HTTP fabric with independent verifier
+        working-directory: xaas
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/roundtrip-server.exs <<'ELIXIR'
+          worktree_root = System.fetch_env!("ROUNDTRIP_WORKTREE_ROOT")
+
+          Application.put_env(:xaas, :ultracode_worktree_root, worktree_root)
+          Application.put_env(:xaas, :ultracode_verifier_suites, %{
+            "chatgpt-roundtrip" => %{
+              env: %{"PATH" => "/usr/bin:/bin", "LANG" => "C.UTF-8"},
+              max_output_bytes: 16_384,
+              toolchain: [["git", "--version"]],
+              steps: [
+                %{
+                  id: "artifact-at-exact-head",
+                  timeout_ms: 30_000,
+                  infra_exit_codes: [],
+                  argv: ["/usr/bin/git", "cat-file", "-e", "{head}:CHATGPT_ROUNDTRIP_RECEIPT.txt"]
+                }
+              ]
+            }
+          })
+
+          endpoint = Application.fetch_env!(:xaas, XaasWeb.Endpoint)
+          Application.put_env(:xaas, XaasWeb.Endpoint, Keyword.put(endpoint, :server, true))
+
+          {:ok, _} = Application.ensure_all_started(:xaas)
+          Process.sleep(:infinity)
+          ELIXIR
+          export ROUNDTRIP_WORKTREE_ROOT="$(cat /tmp/roundtrip-worktree-root)"
+          mix run --no-start --no-halt /tmp/roundtrip-server.exs > /tmp/xaas-roundtrip.log 2>&1 &
+          echo $! > /tmp/xaas-roundtrip.pid
+
+          token="$(cat /tmp/roundtrip-xaas-token)"
+          for _ in $(seq 1 60); do
+            if curl -fsS -H "Authorization: Bearer $token" \
+              http://127.0.0.1:4002/internal-api/health >/tmp/xaas-health.json; then
+              cat /tmp/xaas-health.json
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/xaas-roundtrip.log >&2
+          exit 1
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install zcode dependencies
+        working-directory: zcode-cli
+        run: bun install --frozen-lockfile
+
+      - name: Native zcode gall-work lifecycle court
+        working-directory: zcode-cli
+        run: bun test test/gall-work.test.ts test/runtime/gall-work-e2e.test.ts
+
+      - name: Full ChatGPT to XaaS to zcode to receipt round trip
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          export CLOUD_REPO="$GITHUB_WORKSPACE/cloud"
+          export ZCODE_REPO="$GITHUB_WORKSPACE/zcode-cli"
+          export XAAS_MCP_URL="http://127.0.0.1:4002/internal-api/execution/mcp"
+          export XAAS_MCP_TOKEN="$(cat /tmp/roundtrip-xaas-token)"
+          wt="$(cat /tmp/roundtrip-worktree)"
+          base_sha="$(cat /tmp/roundtrip-base-sha)"
+          exact_subject="seanchatmangpt/chatgpt-roundtrip-fixture@$base_sha"
+
+          cat > /tmp/roundtrip-probe.request.json <<JSON
+          {
+            "schema": "chatgpt-cloud.xaas-runtime-request/1",
+            "request_id": "chatgpt-roundtrip-probe",
+            "operation": "fabric.probe",
+            "payload": {}
+          }
+          JSON
+          python3 cloud/scripts/xaas-runtime.py request \
+            --request /tmp/roundtrip-probe.request.json \
+            --receipt cloud/receipts/full-roundtrip-probe.json \
+            --require-config
+          python3 - <<'PY'
+          import json
+          row=json.load(open("cloud/receipts/full-roundtrip-probe.json"))
+          assert row["standing"] == "ALIVE", row
+          assert not row["contract"]["missing"], row
+          PY
+
+          python3 - "$wt" "$exact_subject" <<'PY'
+          import json,sys
+          wt,subject=sys.argv[1:]
+          doc={
+            "schema":"chatgpt-cloud.xaas-runtime-request/1",
+            "request_id":"chatgpt-roundtrip-submit",
+            "operation":"run.submit",
+            "payload":{
+              "goal":"Manufacture CHATGPT_ROUNDTRIP_RECEIPT.txt and commit it.",
+              "provider":"zcode",
+              "worktree":wt,
+              "exact_subject":subject,
+              "verifier_suite":"chatgpt-roundtrip"
+            }
+          }
+          json.dump(doc,open("/tmp/roundtrip-submit.request.json","w"),indent=2)
+          PY
+          python3 cloud/scripts/xaas-runtime.py request \
+            --request /tmp/roundtrip-submit.request.json \
+            --receipt cloud/receipts/full-roundtrip-submit.json \
+            --require-config
+
+          epoch_id="$(python3 - <<'PY'
+          import json
+          row=json.load(open("cloud/receipts/full-roundtrip-submit.json"))
+          assert row["standing"] == "PARTIAL_ALIVE", row
+          assert row["reason"] == "RUN_SUBMITTED_NOT_VERIFIED", row
+          print(row["response"]["epoch_id"])
+          PY
+          )"
+
+          graph_digest="sha256:$(sha256sum /tmp/roundtrip-submit.request.json | awk '{print $1}')"
+          cat > /tmp/roundtrip-zcode <<'SH'
+          #!/usr/bin/env bash
+          set -euo pipefail
+          exec bun "$CLOUD_REPO/scripts/roundtrip-zcode.ts" "$@"
+          SH
+          chmod +x /tmp/roundtrip-zcode
+
+          python3 - "$wt" "$base_sha" "$epoch_id" "$graph_digest" "$exact_subject" <<'PY'
+          import json,sys
+          wt,base,epoch,graph,subject=sys.argv[1:]
+          descriptor={
+            "schema":"gall.work-lease/1",
+            "work_order_iri":"urn:gall:work:chatgpt-roundtrip",
+            "checkpoint_iri":"urn:gall:checkpoint:chatgpt-roundtrip",
+            "graph_digest":graph,
+            "repository_identity":"seanchatmangpt/chatgpt-roundtrip-fixture",
+            "base_sha":base,
+            "epoch_id":epoch,
+            "worker_id":"chatgpt-cloud-roundtrip",
+            "worktree":wt
+          }
+          envelope={
+            "schema":"xaas.remote-relay-envelope/1",
+            "command_id":"chatgpt-roundtrip-command-1",
+            "epoch_id":epoch,
+            "task_id":descriptor["work_order_iri"],
+            "sequence":1,
+            "intent_digest":graph,
+            "exact_subject":subject,
+            "verb":"actuate",
+            "execution_manifest_digest":"chatgpt-roundtrip-manifest-v1",
+            "authority_ref":"github-actions:remote-relay-live-leg",
+            "channel":"control",
+            "payload":descriptor
+          }
+          json.dump(envelope,open("/tmp/roundtrip-envelope.json","w"),indent=2)
+          PY
+
+          python3 cloud/scripts/xaas-relay.py \
+            --envelope /tmp/roundtrip-envelope.json \
+            --state /tmp/roundtrip-relay-state.json \
+            --manifest-digest chatgpt-roundtrip-manifest-v1 \
+            --zcode /tmp/roundtrip-zcode \
+            --allow-do > cloud/receipts/full-roundtrip-first.json
+
+          python3 cloud/scripts/xaas-relay.py \
+            --envelope /tmp/roundtrip-envelope.json \
+            --state /tmp/roundtrip-relay-state.json \
+            --manifest-digest chatgpt-roundtrip-manifest-v1 \
+            --zcode /tmp/roundtrip-zcode \
+            --allow-do > cloud/receipts/full-roundtrip-replay.json
+
+          python3 - "$epoch_id" <<'PY'
+          import json,sys
+          epoch=sys.argv[1]
+          doc={
+            "schema":"chatgpt-cloud.xaas-runtime-request/1",
+            "request_id":"chatgpt-roundtrip-receipts",
+            "operation":"epoch.receipts",
+            "payload":{"epoch_id":epoch}
+          }
+          json.dump(doc,open("/tmp/roundtrip-receipts.request.json","w"),indent=2)
+          PY
+          python3 cloud/scripts/xaas-runtime.py request \
+            --request /tmp/roundtrip-receipts.request.json \
+            --receipt cloud/receipts/full-roundtrip-receipts.json \
+            --require-config
+
+          python3 - "$wt" "$base_sha" "$exact_subject" <<'PY'
+          import json,subprocess,sys
+          wt,base,subject=sys.argv[1:]
+          first=json.load(open("cloud/receipts/full-roundtrip-first.json"))
+          replay=json.load(open("cloud/receipts/full-roundtrip-replay.json"))
+          receipts=json.load(open("cloud/receipts/full-roundtrip-receipts.json"))
+
+          assert first["standing"] == "ALIVE", first
+          assert first["executed"] is True, first
+          assert first["reason"] == "EXECUTED_RECEIPTED", first
+          assert replay["standing"] == "ALIVE", replay
+          assert replay["executed"] is False, replay
+          assert replay["reason"] == "KNOWN_REPLAY", replay
+          assert receipts["standing"] == "ALIVE", receipts
+
+          sealed=receipts["response"]["receipts"]
+          assert len(sealed) == 1, sealed
+          assert sealed[0]["outcome"] == "alive", sealed[0]
+          assert sealed[0]["evidence"]["head_verified"] is True, sealed[0]
+          assert sealed[0]["evidence"]["fabric_verifier"]["status"] == "pass", sealed[0]
+
+          head=subprocess.check_output(["git","-C",wt,"rev-parse","HEAD"],text=True).strip()
+          count=int(subprocess.check_output(["git","-C",wt,"rev-list","--count","HEAD"],text=True))
+          assert head != base, (base,head)
+          assert count == 2, count
+
+          summary={
+            "schema":"chatgpt-cloud.full-roundtrip-receipt/1",
+            "standing":"ALIVE",
+            "exact_subject":subject,
+            "base_sha":base,
+            "final_head":head,
+            "consequence_commits":count-1,
+            "first_execution":first,
+            "replay":replay,
+            "sealed_receipt":sealed[0]
+          }
+          json.dump(summary,open("cloud/receipts/full-roundtrip.json","w"),indent=2,sort_keys=True)
+          print(json.dumps({
+            "standing":"ALIVE",
+            "exact_subject":subject,
+            "final_head":head,
+            "receipt_id":sealed[0]["id"],
+            "replay":"KNOWN_REPLAY"
+          },sort_keys=True))
+          PY
+
+      - name: Upload live-leg receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: remote-relay-live-leg-receipt
+          path: |
+            cloud/receipts/remote-relay-live-leg.json
+            cloud/receipts/remote-relay-subjects.txt
+            cloud/receipts/full-roundtrip-probe.json
+            cloud/receipts/full-roundtrip-submit.json
+            cloud/receipts/full-roundtrip-first.json
+            cloud/receipts/full-roundtrip-replay.json
+            cloud/receipts/full-roundtrip-receipts.json
+            cloud/receipts/full-roundtrip.json
+          if-no-files-found: warn
