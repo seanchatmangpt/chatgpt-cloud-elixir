@@ -21,10 +21,14 @@ ChatGPT cloud
 
 The observed contract used for this implementation was:
 
-- `seanchatmangpt/xaas@7659b10e22a806da98295ed799602a6f809562d9`:
+- `seanchatmangpt/xaas@f9670f446537ddb882edf9cd7e0b6519de557e60`
+  (current merged xaas `main`):
   Bearer-gated `POST /internal-api/execution/mcp`,
   `POST /internal-api/execution/runs`, and
   `GET /internal-api/execution/epochs/:epoch_id/receipts`.
+  The `Xaas.Tunnel.*` WSS endpoint this client dials lands via the xaas lane
+  (server side not yet merged at the time of writing — tunnel standing is
+  `PARTIAL_ALIVE` until it is).
 - `seanchatmangpt/zcode-cli@32093eafc2f1cc202ace2cded38b72ec1f81e4ba`:
   native `zcode gall-work` using the same JSON-RPC MCP endpoint and
   `XAAS_MCP_URL` / `XAAS_MCP_TOKEN` resolution.
@@ -43,6 +47,31 @@ export XAAS_MCP_TOKEN='<bearer-token>'
 
 The token remains XaaS authority. The bridge never prints it and never places it
 in replay commands.
+
+## Transports
+
+`--transport` selects the wire (v26.9.25 section 7):
+
+- `wss` — primary/target: direct WebSocket dial of the XaaS tunnel
+  (`XAAS_TUNNEL_URL`, `XAAS_TUNNEL_TOKEN`), stdlib RFC 6455 client, bounded
+  trio only.
+- `http` — direct HTTP (`XAAS_MCP_URL`, `XAAS_MCP_TOKEN`), the surface used by
+  every example below.
+- `github-actions` — explicit fallback (request/receipt relay); selected only
+  after a typed wss transport failure.
+
+```bash
+export XAAS_TUNNEL_URL='wss://<xaas-host>/tunnel'
+export XAAS_TUNNEL_TOKEN='<tunnel-token>'
+python3 scripts/xaas-runtime.py --transport wss --require-config probe
+python3 scripts/xaas-runtime.py --transport wss --require-config submit-run \
+  --goal 'implement the admitted work order' \
+  --exact-subject 'seanchatmangpt/example@<sha>'
+```
+
+An unconfigured or unreachable tunnel is a typed transport edge
+(`BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` / `BLOCKED[TRANSPORT]`), never a
+subject failure.
 
 ## Verify the live fabric contract
 
@@ -127,12 +156,18 @@ Without `--allow-do`, no network request is sent and the bridge emits
 `REFUSED_AUTHORITY / EXPLICIT_DO_ACK_REQUIRED`. Supplying the flag still grants
 nothing: XaaS must independently admit the lease and registered resource/action.
 
-## GitHub relay for egress-blocked ChatGPT containers
+## GitHub relay for egress-blocked ChatGPT containers (fallback only)
 
-When the current ChatGPT execution container cannot reach XaaS over outbound
-TCP/DNS, direct HTTP is not a lawful substitute for observed connectivity.
-This repository therefore reuses its existing GitHub request/receipt transport
-pattern:
+The primary transport is the direct WSS tunnel (`--transport wss`, see
+[xaas-runtime/README.md](../../xaas-runtime/README.md)): the cloud worker
+dials `XAAS_TUNNEL_URL` over WebSocket and speaks the identical bounded-trio
+flow. Ephemeral cloud coordination must not depend on GitHub Actions (v26.9.25
+section 7); the relay below remains as an explicit **fallback transport /
+evidence path**, selected only after a typed wss transport failure
+(`BLOCKED[TRANSPORT]` with `fallback_transport: github-actions`, R25-015).
+
+When neither the tunnel nor direct egress is available, this repository
+reuses its existing GitHub request/receipt transport pattern:
 
 ```text
 ChatGPT GitHub connector
@@ -166,14 +201,17 @@ The bridge has no third-party Python dependencies:
 
 ```bash
 python3 -m py_compile scripts/xaas-runtime.py
-python3 -m unittest -v tests/test_xaas_runtime.py
+python3 -m pytest tests/test_xaas_runtime.py -q
+# or: python3 tests/test_xaas_runtime.py
 ```
 
-The 16-case test court covers contract discovery, missing-tool falsification, Bearer
+The test court covers contract discovery, missing-tool falsification, Bearer
 propagation without token leakage, ZCode-default submission, receipt reads,
 typed authentication/tool refusals, network blockage, successful
-`PARTIAL_ALIVE` submission exit semantics, the local `actuate` fence, and
-GitHub-relay request admission/refusal behavior.
+`PARTIAL_ALIVE` submission exit semantics, the local `actuate` fence,
+GitHub-relay request admission/refusal behavior, and the mock RFC 6455
+tunnel court for the wss transport (probe, submit, receipts, trio fence,
+typed transport failures).
 
 ## Evidence ceiling
 
