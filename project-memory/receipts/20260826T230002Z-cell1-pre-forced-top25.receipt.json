@@ -1,0 +1,592 @@
+{
+  "actuation_performed": true,
+  "error": null,
+  "gate_schema": "chatgpt-project-memory-gate/v2",
+  "observed_at": "2026-08-27T22:12:59Z",
+  "operation": "memory.read",
+  "project": {
+    "id": "PVT_kwHOCCCFfc4BhZKe",
+    "number": 2,
+    "owner": "seanchatmangpt",
+    "title": "@seanchatmangpt's post-agi project",
+    "url": "https://github.com/users/seanchatmangpt/projects/2"
+  },
+  "reason": null,
+  "request_digest_basis": {
+    "operation": "memory.read",
+    "payload": {
+      "key": "ggen/fanout/forced-top25/current"
+    },
+    "project": {
+      "number": 2,
+      "owner": "seanchatmangpt"
+    },
+    "request_id": "20260826T230002Z-cell1-pre-forced-top25"
+  },
+  "request_id": "20260826T230002Z-cell1-pre-forced-top25",
+  "request_path": "project-memory/requests/20260826T230002Z-cell1-pre-forced-top25.json",
+  "request_sha256": "sha256:d9b12950b60726442882c626780200ebeeba87211e6a2547b4c6ff09c7d13be2",
+  "request_transport_sha256": "sha256:ddf9c566c0f9f1c689c30bb0d690aa5b395a9cf327a81e2df12e7745dc9b8fb9",
+  "result": {
+    "body": "Fresh CELL1 exact-default-head census completed for all 25 forced repositories. Four defaults are master (autofde-lab, swarmsh-v2, yawl, a2a-rs); the remaining 21 are main. This census is identity/currentness evidence, not automatic compatibility or U/G/O/Q/M promotion.",
+    "content_id": "DI_lAHOCCCFfc4BhZKezgK_5x8",
+    "is_archived": false,
+    "item_id": "PVTI_lAHOCCCFfc4BhZKezg4DDa8",
+    "metadata": {
+      "B": 3,
+      "F_Q": "3/3",
+      "F_R": 3,
+      "F_effective": 3.0,
+      "M_lower_bound": 10,
+      "OpenFanoutObligations_lower_bound": 7,
+      "Q_current_exact_lower_bound": 5,
+      "Q_lower_bound": 12,
+      "R87_delta_M": 0,
+      "R87_delta_Q": 3,
+      "R87_delta_R": 3,
+      "R_lower_bound": 16,
+      "T_A": 0,
+      "T_M_downstream": 12,
+      "U_lower_bound": 17,
+      "andon": [
+        "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE_RUNTIME_INTEGRATION",
+        "ADMITTED_IDENTITY_BINDING_INCOMPLETE"
+      ],
+      "assimilated_lower_bound": [
+        "ex4pm",
+        "gymact",
+        "xaas",
+        "dspygen",
+        "autofde-lab",
+        "autofde"
+      ],
+      "assimilated_new": {
+        "SREGym": "4f6757c758521a359f1091d17d37ae5a9b1fb962",
+        "fdegym": "f493d2bf5e093d8430b7e39b56d8222e95192dbe",
+        "mfact": "79643f87f35cb59514ebce096ad067b713a47db3"
+      },
+      "authority": "OBSERVE|SELECT|CONSTRUCT|VERIFY|PROJECT_MEMORY",
+      "blocked": {
+        "mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+        "yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+      },
+      "blocked_new": {
+        "seanchatmangpt/mfw": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]",
+        "seanchatmangpt/yawl": "BUILD_BROKEN[HOSTED_WORKFLOW_PREEXEC]"
+      },
+      "blockers": [
+        "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+        "DOWNSTREAM_PRODUCT_RUNTIME_ADMISSIBILITY_RECEIPT_MISSING",
+        "XAAS_CI_CD_ELIXIR_FAILURE"
+      ],
+      "canonical_composition": {
+        "head": "0144a821bef5d787d12d3e85696c14e8117b1267",
+        "pack": "forced-top25-ocel-fanout-meta-pack",
+        "pr": 333,
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "canonical_factory": {
+        "head": "e00541af68f879500aac0c28d197f5a84092c746",
+        "pack": "forced-top25-admissibility-factory-pack",
+        "pr": 317,
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "canonical_pack": "forced-top25-generated-closure-pack",
+      "canonical_pack_head": "0f451f2789d9d4bd56c18437213f3d2aea9807f1",
+      "canonical_path": [
+        "forced-top25-admissibility-factory-pack:R83",
+        "ash-reactor-domain-error-contract-pack:R84"
+      ],
+      "canonical_pr": 323,
+      "canonical_producer": {
+        "head": "18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+        "pack": "forced-top25-qualification-capsule-pack",
+        "repo": "seanchatmangpt/ggen-marketplace"
+      },
+      "canonical_r80_producer": "9bba137bf2ceb43c4694ac8c580c459782e09643",
+      "canonical_r83_producer": "92e319a927db0b10e6b74a04a1ac490e1d0bb466",
+      "canonical_upstream": {
+        "head": "6092fe3631d08a8a138b3377cf969e56d0358975",
+        "pack": "ash-reactor-domain-error-contract-pack",
+        "pr": 324,
+        "repo": "seanchatmangpt/ggen-marketplace",
+        "standing": "ALIVE[SCOPED_CANONICAL_PACK]"
+      },
+      "cell": "CELL1",
+      "chatgpt_cloud_elixir": "CONTROL_DYNAMIC_HEAD;EXCLUDED_FROM_FANOUT",
+      "chatgpt_cloud_elixir_control_excluded": true,
+      "compatibility_promotion": false,
+      "compatible_by_receipt": [
+        "ex4pm"
+      ],
+      "compatible_lower_bound": 17,
+      "compatible_root_ggen": [
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "process-intelligence",
+        "wasm4pm",
+        "mfact",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "chatman-ecosystem",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl"
+      ],
+      "consequential_do": false,
+      "consequential_external_do": false,
+      "consumer_ready_set": [],
+      "count": 25,
+      "coverage_new_vs_U_lower_bound": 0.1764705882,
+      "created_at": "2026-08-26T04:34:38Z",
+      "dspygen": {
+        "assimilation_state": "ALIVE_DEFAULT_LINEAGE",
+        "blocker": null,
+        "consumer_family": "DSPy/Python",
+        "consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+        "downstream_commits": 3,
+        "exact_current_head": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+        "fanout_state": "DOWNSTREAM_REALIZED",
+        "qualification_state": "ALIVE_EXACT_HEAD",
+        "rank": 23
+      },
+      "dspygen_consumer_head": "4f70719dfef0d7fa4c9db93c280e5c80961aa9be",
+      "dspygen_main": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+      "exact_heads": {
+        "POWL": "8701c8a8b9e538ddea88e4166960c76e609358c7",
+        "SREGym": "ce95cdb072c8477dc6d7f6d024e424b18acc3d63",
+        "a2a-rs": "4d00bdc917fce87f92706b54f45b643c06494585",
+        "ash_r2rml": "067954ad9f002a7bb04848fb655473f0b3a92cd1",
+        "autofde": "08dfd0834a559a8fc4afb1bed757a18723b64f7a",
+        "autofde-lab": "a004da26bdf2b0cd2bde434b365dade9916b2fe9",
+        "cargo-cicd": "219f0db35ba7ee3f34e5dca8fd87379c900394ec",
+        "chatgpt-cloud-elixir": "bb480e122daf1f9f5ea1d14daa49762b14d8c546",
+        "chatman-ecosystem": "2ba689076fc6e72d62fdb835b37b3bfd2b554e19",
+        "clap-noun-verb": "747f1dd4506892c218da4d739c256bcfcf941e50",
+        "dspygen": "8d9c2fa7f867e317c3fc4fba06903d88b3543180",
+        "ex4pm": "06d326f59d05afdcd39637f42fe277a474095dda",
+        "fdegym": "dbd9ac3a7107737366e643c362fd3aab0e4125d3",
+        "gymact": "d8382cac7dd888a77c8cca8bcd335a04ddb49a15",
+        "mfact": "79643f87f35cb59514ebce096ad067b713a47db3",
+        "mfact-command-center": "dda255df10e9037b9fee014d4ef2eccbd846d902",
+        "mfw": "72d411c08731657e9388d334b07737de2731786e",
+        "pm4wasm": "21f0174910ecd00436765190412bcdbcd1f9a854",
+        "process-intelligence": "c1ed9f0393f4782c48e4b0f71aff9c28930d9b44",
+        "revops": "6d12aa2d1dd8b6bc159f57ac450bf48fd5d88d94",
+        "swarmsh-v2": "02e5eaae14bd03a832c0f031acc56c6d4db3845e",
+        "unrdf": "5c1635469be61d0cb01d1e44737d53fc2239a02e",
+        "wasm4pm": "da48e98cdde83d5b581d3305b7ec3c041a19d77a",
+        "xaas": "5b7fb55ffff02d7434c634ce7d80d54f68fd76e7",
+        "yawl": "0db10d6085575ec1d7e98502e99fd53a4493072b"
+      },
+      "exact_known_heads": {
+        "ex4pm": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+        "gymact": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+        "xaas": "3b16d499ca1e39aebdee5316eb3d5cae3941113b"
+      },
+      "factory_ggen_head": "ddfa602bfbab57b7ed5150f61b0acac7a41e3020",
+      "factory_marketplace_head": "f75bdb35c2e9104679325c6772194005cc6fef67",
+      "fanout_state": {
+        "ex4pm": "DOWNSTREAM_REALIZED",
+        "gymact": "DOWNSTREAM_REALIZED",
+        "xaas": "REPAIR_REQUIRED"
+      },
+      "fanout_target_updates": {
+        "cargo-cicd": {
+          "blocker": "REFUSED[REPO_MUTATION_BOUNDARY:AGENT_MUTATION_REQUIRES_CARGO_CICD]",
+          "compatibility_state": "COMPATIBLE_ADMITTED",
+          "consumer_family": "rust-ci-cd-authority-substrate",
+          "exact_current_head": "e64f8224c23771e8c4e5d1d22fb939f812b04e1b",
+          "expected_ggen_surfaces": [
+            "ggen.toml",
+            "cargo cicd authority boundary",
+            "R86 qualification capsule"
+          ],
+          "fanout_state": "NOT_REALIZED_THIS_RUN",
+          "historical_receipts": [],
+          "known_primitives": [
+            "ROOT_GGEN_CONTRACT_OBSERVED",
+            "AGENT_MUTATION_REQUIRES_CARGO_CICD"
+          ],
+          "last_attempt": "2026-08-26T14:18:00Z",
+          "qualification_state": "UNKNOWN[NOT_CONSTRUCTED]",
+          "rank": 20,
+          "repo": "cargo-cicd",
+          "value_dimensions": [
+            "receipt-authority",
+            "OCEL",
+            "CI-CD"
+          ]
+        },
+        "chatman-ecosystem": {
+          "blocker": null,
+          "compatibility_state": "COMPATIBLE_ADMITTED",
+          "consumer_family": "ecosystem-control-plane-ggen",
+          "exact_current_head": "911f1ff9713fa305a6df762ecb14a27a8e0b90db",
+          "exact_default_head": "ffe93f68a81fc46ccf60594a9615167bd36031a4",
+          "expected_ggen_surfaces": [
+            "ggen.toml",
+            "verification/r88-qualification-capsule",
+            "R86 qualification capsule"
+          ],
+          "fanout_state": "DOWNSTREAM_REALIZED",
+          "historical_receipts": [
+            "PR217",
+            "workflow:32979785212:SUCCESS"
+          ],
+          "known_primitives": [
+            "ROOT_GGEN_CONTRACT_OBSERVED",
+            "R86_CANONICAL_PACK"
+          ],
+          "last_attempt": "2026-08-26T14:21:56Z",
+          "qualification_state": "ALIVE_EXACT_HEAD[R88_R86_CONSUMER]",
+          "rank": 17,
+          "repo": "chatman-ecosystem",
+          "value_dimensions": [
+            "constitutional-control-plane",
+            "exact-subject-standing",
+            "release-graph"
+          ]
+        },
+        "unrdf": {
+          "blocker": null,
+          "compatibility_state": "COMPATIBLE_ADMITTED",
+          "consumer_family": "rdf-js-workspace-ggen",
+          "exact_current_head": "4ffdf91c60cf45ad213f3fd8de1e7a4b2a9cbaeb",
+          "exact_default_head": "dcc6ada4df196fd23cb96885f018cb5c1c89386e",
+          "expected_ggen_surfaces": [
+            "ggen.toml",
+            "verification/r88-qualification-capsule",
+            "R86 qualification capsule"
+          ],
+          "fanout_state": "DOWNSTREAM_REALIZED",
+          "historical_receipts": [
+            "PR107",
+            "workflow:32979797038:FAILURE[HOSTED_CHECKOUT_PREEXEC]",
+            "workflow:32979921297:SUCCESS"
+          ],
+          "known_primitives": [
+            "ROOT_GGEN_CONTRACT_OBSERVED",
+            "R86_CANONICAL_PACK",
+            "EXACT_SHA_ARCHIVE_MATERIALIZATION"
+          ],
+          "last_attempt": "2026-08-26T14:24:00Z",
+          "qualification_state": "ALIVE_EXACT_HEAD[R88_R86_CONSUMER]",
+          "rank": 22,
+          "repo": "unrdf",
+          "value_dimensions": [
+            "RDF-workspace",
+            "package-reconstitution",
+            "OCEL"
+          ]
+        }
+      },
+      "forced_count": 25,
+      "forced_order": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "forced_top25": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "key": "ggen/fanout/forced-top25/current",
+      "kind": "ggen.fanout.forced-top25.current",
+      "master_defaults": [
+        "autofde-lab",
+        "swarmsh-v2",
+        "yawl",
+        "a2a-rs"
+      ],
+      "muri": [
+        "GLOBAL_CODE_SEARCH_502",
+        "PRE_READ_SEQUENCE_INCOMPLETE_BEFORE_FIRST_DOWNSTREAM_COMMIT"
+      ],
+      "new_cell2_semantic_commits": 50,
+      "new_default_assimilation": {
+        "process-intelligence": "c1ed9f0393f4782c48e4b0f71aff9c28930d9b44"
+      },
+      "new_downstream_commits": {
+        "count": 4,
+        "head": "f52d8cd836d275c6ac7cc271c1c31cfa18a4842a",
+        "repo": "seanchatmangpt/xaas"
+      },
+      "new_downstream_consumer_commits": 0,
+      "new_downstream_consumers": 2,
+      "new_downstream_repos": 1,
+      "new_downstream_unique_commits": 9,
+      "new_qualified_consumers": 2,
+      "new_scoped_qualified": {
+        "clap-noun-verb": "9d8abc59b49be0ee1a4a083255f7310757a786ca",
+        "wasm4pm": "e99dbb42c6ed07e4fe025dd87d2b46aac725bc03"
+      },
+      "new_wip": [
+        "seanchatmangpt/SREGym",
+        "seanchatmangpt/fdegym",
+        "seanchatmangpt/mfact",
+        "seanchatmangpt/mfw",
+        "seanchatmangpt/yawl"
+      ],
+      "observed_count": 25,
+      "ocel_current_write": "NOT_PERFORMED[GGEN_ONLY_NEW_CONSEQUENCE_NOT_OBSERVED]",
+      "open_fanout_identity_standing": "UNKNOWN[OPEN_FANOUT_IDENTITY_CLOSURE_INCOMPLETE]",
+      "open_fanout_obligation_identities": "UNKNOWN[ADMITTED_IDENTITIES_NOT_FULLY_BOUND]",
+      "open_fanout_obligations_ledger_lower_bound": 11,
+      "open_fanout_obligations_lower_bound": 13,
+      "open_fanout_obligations_upper_from_U_lower_bound": 13,
+      "ordered_population": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "ordered_repos": [
+        "ex4pm",
+        "gymact",
+        "autofde-lab",
+        "autofde",
+        "xaas",
+        "chatgpt-cloud-elixir",
+        "process-intelligence",
+        "ash_r2rml",
+        "wasm4pm",
+        "pm4wasm",
+        "mfact",
+        "mfact-command-center",
+        "mfw",
+        "SREGym",
+        "fdegym",
+        "revops",
+        "chatman-ecosystem",
+        "POWL",
+        "swarmsh-v2",
+        "cargo-cicd",
+        "clap-noun-verb",
+        "unrdf",
+        "dspygen",
+        "yawl",
+        "a2a-rs"
+      ],
+      "owner": "seanchatmangpt",
+      "partial_order_edges": [
+        "PROJECT2_ADMITTED->R86_REUSE->R88_CONSUMER_SUBJECT->EXACT_HEAD_COURT->ASSIMILATION",
+        "UNRDF_HOSTED_CHECKOUT_PREEXEC->EXACT_SHA_ARCHIVE_MATERIALIZATION->R88_COURT",
+        "CARGO_ADMITTED->REFUSED_REPO_MUTATION_BOUNDARY->LAWFUL_CARGO_CICD_EXECUTOR_REQUIRED"
+      ],
+      "preserve_existing_fanout_targets": true,
+      "process_analysis_owner": "wasm4pm",
+      "producer": "seanchatmangpt/ggen-marketplace@a658cda7066bba344e481173b5b52a0dc18c5c75",
+      "project_id": "PVT_kwHOCCCFfc4BhZKe",
+      "project_item_count_pre": 397,
+      "qualification": {
+        "autofde": "ALIVE_EXACT_HEAD_R80+SELF_MANUFACTURING_CROWN",
+        "autofde-lab": "ALIVE_EXACT_HEAD_R80+PR_CI",
+        "xaas": "ALIVE_EXACT_HEAD_R80|BUILD_BROKEN[NATIVE_IDEMPOTENCY_ERROR_ENVELOPE]"
+      },
+      "qualification_state": {
+        "ex4pm": "ALIVE_EXACT_HEAD_FULL_REPO",
+        "gymact": "PARTIAL_ALIVE_INHERITED_BROAD_CI_DEBT",
+        "xaas": "BUILD_BROKEN_CI_CD_ELIXIR_FAILURE"
+      },
+      "qualified_new": [
+        "seanchatmangpt/SREGym",
+        "seanchatmangpt/fdegym",
+        "seanchatmangpt/mfact"
+      ],
+      "r86": {
+        "pack": "forced-top25-qualification-capsule-pack",
+        "pr": 325,
+        "producer": "seanchatmangpt/ggen-marketplace@18a88bddb5ed39c8fec8685adfdabfb9952cb564",
+        "standing": "ALIVE_SCOPED"
+      },
+      "r87_consumers": {
+        "SREGym": {
+          "head": "9cdcaa79c871ffd8e6205e3830af23198f934bc9",
+          "pr": 6,
+          "qualification_run": 32972465629,
+          "standing": "ALIVE"
+        },
+        "fdegym": {
+          "head": "04b61a3edc52f14157f12e93fa5213c7cb1a2f3c",
+          "pr": 7,
+          "qualification_run": 32972571869,
+          "standing": "ALIVE"
+        },
+        "mfact": {
+          "head": "836be06b4fd290089ada8a926d62b9b67a4cb5ad",
+          "pr": 10,
+          "qualification_run": 32972975422,
+          "standing": "ALIVE"
+        }
+      },
+      "ready": [
+        {
+          "head": "38b181d4a26aa9cb92f01ac1f898a366c47ae7c8",
+          "pr": 34,
+          "rank": 1,
+          "repo": "ex4pm"
+        },
+        {
+          "head": "bcb14a65b83fc543bb11acaa84709765ac88f42c",
+          "pr": 126,
+          "rank": 2,
+          "repo": "gymact"
+        }
+      ],
+      "refreshed_wip": [
+        "seanchatmangpt/process-intelligence",
+        "seanchatmangpt/wasm4pm",
+        "seanchatmangpt/clap-noun-verb"
+      ],
+      "repair_gated": [
+        {
+          "blocker": "CI_CD_ELIXIR_FAILURE",
+          "repo": "xaas"
+        }
+      ],
+      "repair_ready_set": [
+        "xaas"
+      ],
+      "requalifying": [
+        "autofde-lab",
+        "autofde",
+        "xaas"
+      ],
+      "requalifying_set": [
+        "xaas"
+      ],
+      "run_id": "cell1-r92-forced25-currentness-20260826T2300Z",
+      "runner_independent_capsules": {
+        "mfw": "a889bc70328d9da6f24e67e1d9a15040a570a36a",
+        "yawl": "e7a97110d4901e37b4f6cb20ffacef29d1a919d8"
+      },
+      "schema": "chatgpt-project-memory/v1",
+      "semantic_commit_classes": {
+        "assimilation_obligation_selectors": 25,
+        "observation_obligation_selectors": 25
+      },
+      "source": "explicit_user_contract",
+      "standing": "ALIVE",
+      "tags": [
+        "cell1",
+        "exact-subject",
+        "fanout",
+        "forced-top25",
+        "ggen"
+      ],
+      "target_updates": {
+        "autofde": {
+          "blocker": null,
+          "exact_current_head": "d803547355f5fa0febda58abe4d14154b5d54e71",
+          "fanout_state": "DEFAULT_LINEAGE_ASSIMILATED",
+          "qualification_state": "ALIVE_EXACT_HEAD_R80+SELF_MANUFACTURING_CROWN"
+        },
+        "autofde-lab": {
+          "blocker": null,
+          "exact_current_head": "a004da26bdf2b0cd2bde434b365dade9916b2fe9",
+          "fanout_state": "DEFAULT_LINEAGE_ASSIMILATED",
+          "qualification_state": "ALIVE_EXACT_HEAD_R80+PR_CI"
+        },
+        "xaas": {
+          "blocker": "XAAS_REACTOR_DOMAIN_ERROR_ENVELOPE_RUNTIME_INTEGRATION",
+          "exact_current_head": "f52d8cd836d275c6ac7cc271c1c31cfa18a4842a",
+          "fanout_state": "DOWNSTREAM_REALIZED_REQUALIFYING",
+          "qualification_state": "REQUALIFYING[R80|R84|NATIVE_ELIXIR]"
+        }
+      },
+      "transport_head": "a74fa57d16c4d6b5bc16310d911bdb9b48b0ea4f",
+      "unknown_count": 22,
+      "unknown_reason": "UPSTREAM_ADMISSIBILITY_RECEIPT_MISSING",
+      "unknown_with_reason": [
+        "chatgpt-cloud-elixir",
+        "ash_r2rml",
+        "pm4wasm",
+        "mfact-command-center",
+        "revops",
+        "POWL",
+        "swarmsh-v2",
+        "a2a-rs"
+      ],
+      "updated_at": "2026-08-26T23:21:43Z",
+      "xaas_consumer_head": "35b6b49f8d63580d4d94d5fd938753d32509cc86",
+      "xaas_main": "62c8f83a15db69e003960a5cf4eacb74070e835a",
+      "xaas_qualification_state": "REQUALIFYING"
+    },
+    "title": "GGEN ForcedTop25 current"
+  },
+  "schema": "chatgpt-project-memory-receipt/v1",
+  "standing": "ALIVE",
+  "token_source": "PROJECTS_TOKEN secret"
+}

@@ -12,7 +12,7 @@
     "type": "TransportAdmissionError"
   },
   "gate_schema": "chatgpt-project-memory-gate/v2",
-  "observed_at": "2026-08-27T00:10:59Z",
+  "observed_at": "2026-08-27T22:14:02Z",
   "operation": null,
   "reason": "INVALID_REQUEST_JSON",
   "request_digest_basis": {},

@@ -1,0 +1,95 @@
+name: GGEN Ecosystem OCEL Consumer
+
+on:
+  push:
+    branches:
+      - "fanout/cell1-ggen-ocel-consumer-20260826"
+  pull_request:
+    paths:
+      - "ggen.toml"
+      - "ontology/ggen-ecosystem-ocel-run.ttl"
+      - "templates/ggen-ecosystem-ocel/**"
+      - ".github/workflows/ggen-ecosystem-ocel-consumer.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manufacture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SUBJECT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      GGEN_SHA: 88358691bd36c8736e391a5e5c50ad67c665cf97
+      MARKETPLACE_SHA: 8f881772256de00cbfbc1e410324f6c4a1ec7134
+    steps:
+      - name: Checkout exact consumer subject
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SUBJECT_SHA }}
+          persist-credentials: false
+
+      - name: Admit exact consumer subject
+        run: |
+          test "$(git rev-parse HEAD)" = "${SUBJECT_SHA}"
+          test -s ggen.toml
+          test -s ontology/ggen-ecosystem-ocel-run.ttl
+          grep -q 'ggen-ecosystem-ocel-pack' ggen.toml
+          grep -q 'ggen/ecosystem/ocel/current' ontology/ggen-ecosystem-ocel-run.ttl
+
+      - name: Sparse-materialize exact marketplace pack
+        run: |
+          mkdir -p vendor
+          git clone --filter=blob:none --no-checkout https://github.com/seanchatmangpt/ggen-marketplace.git vendor/ggen-marketplace
+          git -C vendor/ggen-marketplace sparse-checkout set packs/ggen-ecosystem-ocel-pack
+          git -C vendor/ggen-marketplace checkout --detach "${MARKETPLACE_SHA}"
+          test "$(git -C vendor/ggen-marketplace rev-parse HEAD)" = "${MARKETPLACE_SHA}"
+          test -s vendor/ggen-marketplace/packs/ggen-ecosystem-ocel-pack/pack.toml
+          grep -q 'name = "ggen-ecosystem-ocel-pack"' vendor/ggen-marketplace/packs/ggen-ecosystem-ocel-pack/pack.toml
+
+      - name: Materialize exact GGEN producer
+        run: |
+          git clone --filter=blob:none https://github.com/seanchatmangpt/ggen.git "$RUNNER_TEMP/ggen"
+          git -C "$RUNNER_TEMP/ggen" checkout --detach "${GGEN_SHA}"
+          test "$(git -C "$RUNNER_TEMP/ggen" rev-parse HEAD)" = "${GGEN_SHA}"
+
+      - name: Admit canonical GGEN Rust toolchain
+        run: rustup toolchain install nightly --profile minimal
+
+      - name: Manufacture OCEL and bounded Project request through canonical GGEN
+        run: cargo +nightly run --manifest-path "$RUNNER_TEMP/ggen/Cargo.toml" -p ggen-cli-lib --bin ggen -- sync run
+
+      - name: Bind observed OCEL digest and deterministically regenerate request
+        shell: bash
+        run: |
+          test -s generated/ggen-ecosystem-ocel.json
+          test -s generated/project2-ggen-ecosystem-ocel-request.json
+          OCEL_DIGEST="sha256:$(sha256sum generated/ggen-ecosystem-ocel.json | awk '{print $1}')"
+          export OCEL_DIGEST
+          sed -i "s#UNKNOWN\[PRE_GENERATION\]#${OCEL_DIGEST}#" ontology/ggen-ecosystem-ocel-run.ttl
+          # The digest is part of extra_ontologies input. Binding it intentionally
+          # changes the pack input hash, so discard only the ephemeral first-pass
+          # lock and projections before canonical GGEN re-locks and regenerates.
+          rm -f ggen.lock
+          rm -f generated/ggen-ecosystem-ocel.json generated/project2-ggen-ecosystem-ocel-request.json
+          cargo +nightly run --manifest-path "$RUNNER_TEMP/ggen/Cargo.toml" -p ggen-cli-lib --bin ggen -- sync run
+          test "$(sha256sum generated/ggen-ecosystem-ocel.json | awk '{print "sha256:"$1}')" = "${OCEL_DIGEST}"
+          jq -e --arg digest "${OCEL_DIGEST}" '.payload.record.key == "ggen/ecosystem/ocel/current" and .payload.record.metadata.ocel_digest == $digest and .payload.record.metadata.ggen_first == true and .payload.record.metadata.process_analysis_owner == "wasm4pm" and (.payload.record.metadata.consumer_heads | length) == 25' generated/project2-ggen-ecosystem-ocel-request.json
+          jq -e '(.objects | length) >= 25 and (.events | length) >= 5' generated/ggen-ecosystem-ocel.json
+
+      - name: Preserve evidence-only authority boundary
+        run: |
+          ! grep -R --line-number -E '(deploy|release|publish|kubectl|terraform apply)' ggen.toml ontology/ggen-ecosystem-ocel-run.ttl
+          grep -q 'wasm4pm' templates/ggen-ecosystem-ocel/README.md
+          grep -q 'process_analysis_owner == "wasm4pm"' .github/workflows/ggen-ecosystem-ocel-consumer.yml
+
+      - name: Upload exact generated evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ggen-ecosystem-ocel-${{ env.SUBJECT_SHA }}
+          if-no-files-found: error
+          path: |
+            generated/ggen-ecosystem-ocel.json
+            generated/project2-ggen-ecosystem-ocel-request.json
+            .ggen-v2/receipt.json
