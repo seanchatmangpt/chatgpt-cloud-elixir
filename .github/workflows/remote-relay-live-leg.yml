@@ -12,6 +12,7 @@ on:
       - ".github/workflows/remote-relay-live-leg.yml"
   push:
     branches:
+      - "main"
       - "feat/v26.9.25-relay-client"
     paths:
       - "contracts/xaas-remote-relay.contract.json"
