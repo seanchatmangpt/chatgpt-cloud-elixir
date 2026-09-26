@@ -204,6 +204,140 @@ class ReplyAuthenticityTest(BusFixture):
         self.assertIsNone(json.loads(out.getvalue())["reply"])
 
 
+class IdentityContestTest(BusFixture):
+    """A peer on its own ref announces the addressee's id: it must neither answer for it
+    nor shadow it. With no trust anchor in the refs, the id is contested until pinned."""
+
+    def squatter(self) -> a2a.Agent:
+        m = self.clone(Path(self.tmp.name) / "zzz", "claude/zzz")
+        m = a2a.Agent(m.git, "beta", "claude/zzz", ["claude/*"])
+        m.init(["echo"])
+        return m
+
+    def test_squatter_cannot_answer_for_the_addressee(self) -> None:
+        self.alpha.init(["echo"])
+        self.beta.init(["echo"])
+        req = self.alpha.send("beta", "request", [{"kind": "text", "text": "q"}], skill="echo")
+        self.squatter().send("alpha", "inform", [{"kind": "text", "text": "FORGED"}], skill="echo",
+                             conversation=req["conversation"], in_reply_to=req["id"])
+        self.assertIsNone(self.alpha.wait_reply(req["id"], timeout=0, interval=0, responder="beta"))
+        self.assertIsNone(self.alpha.wait_reply(req["id"], timeout=0, interval=0))  # nor as a broadcast answer
+        # The honest addressee is not silenced: it pins itself and still answers.
+        self.assertEqual([r["in_reply_to"] for r in self.beta.serve_once()], [req["id"]])
+        pinned = a2a.Agent(self.alpha.git, "alpha", "claude/alpha", ["claude/*"], pins={"beta": "claude/beta"})
+        got = pinned.wait_reply(req["id"], timeout=0, interval=0, responder="beta")
+        self.assertEqual((got["responder_ref"], got["reply"]["parts"]),
+                         ("claude/beta", [{"kind": "text", "text": "q"}]))
+
+    def test_squatter_does_not_shadow_the_honest_agent(self) -> None:
+        self.alpha.init(["echo"])
+        self.beta.init(["echo"])
+        honest = self.beta.send("*", "inform", [{"kind": "text", "text": "honest"}])
+        self.squatter()
+        view = self.alpha.sync()["beta"]
+        self.assertEqual(view["standing"], "REFUSED_CONTESTED")
+        self.assertEqual(view["claimants"], ["claude/beta", "claude/zzz"])
+        self.assertEqual((view["ref"], view["messages"]), (None, []))
+        pinned = a2a.Agent(self.alpha.git, "alpha", "claude/alpha", ["claude/*"], pins={"beta": "claude/beta"})
+        view = pinned.sync()["beta"]
+        self.assertEqual((view["standing"], view["ref"]), ("ALIVE", "claude/beta"))
+        self.assertEqual([m["id"] for m in view["messages"]], [honest["id"]])
+        # the squatter's own view of itself is not authority for anyone else
+        self.assertEqual(self.beta.sync()["beta"]["ref"], "claude/beta")
+
+    def test_cli_pin_resolves_the_contest(self) -> None:
+        self.alpha.init(["echo"])
+        self.beta.init(["echo"])
+        self.squatter()
+        base = ["--repo", str(self.alpha.git.repo), "--peers", "claude/*"]
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            self.assertEqual(a2a.main(base + ["peers"]), 0)
+        self.assertEqual(json.loads(out.getvalue())["beta"]["standing"], "REFUSED_CONTESTED")
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            self.assertEqual(a2a.main(base + ["--pin", "beta=claude/beta", "peers"]), 0)
+        view = json.loads(out.getvalue())["beta"]
+        self.assertEqual((view["standing"], view["ref"]), ("ALIVE", "claude/beta"))
+        for bad in ("beta", "beta=claude/../x", "../b=claude/beta"):
+            with self.subTest(pin=bad), contextlib.redirect_stdout(io.StringIO()) as out:
+                self.assertEqual(a2a.main(base + ["--pin", bad, "peers"]), 2)
+            self.assertEqual(json.loads(out.getvalue())["standing"], "REFUSED_MALFORMED")
+
+    def test_agent_cannot_be_pinned_away_from_its_own_ref(self) -> None:
+        with self.assertRaises(a2a.A2AError) as err:
+            a2a.Agent(self.alpha.git, "alpha", "claude/alpha", ["claude/*"], pins={"alpha": "claude/zzz"})
+        self.assertEqual(err.exception.standing, "REFUSED_MALFORMED")
+
+
+class NonStandardJsonTest(BusFixture):
+    """NaN/Infinity are not JSON (RFC 8259): one sealed message, two readings."""
+
+    def test_nan_in_a_sealed_message_is_refused(self) -> None:
+        self.alpha.init(["echo"])
+        mallory = self.clone(Path(self.tmp.name) / "nan", "claude/mallory")
+        mallory.init(["echo"])
+        for constant in (float("nan"), float("inf"), float("-inf")):
+            body = {k: v for k, v in sealed("mallory", 0, None).items() if k != "id"}
+            body["parts"] = [{"kind": "data", "data": {"x": constant}}]
+            # seal the way a lenient (allow_nan) writer would, so only the reader guard stands
+            body["id"] = "sha256:" + a2a.hashlib.sha256(json.dumps(
+                body, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()).hexdigest()
+            forge(mallory, {a2a.outbox_path("mallory", 0): raw(body)})
+            with self.subTest(constant=constant):
+                self.assertEqual(self.alpha.sync()["mallory"]["standing"], "REFUSED_MALFORMED")
+
+    def test_nan_in_a_card_is_not_authoritative(self) -> None:
+        # Cards are not sealed, so only the strict reader stands between a NaN card and
+        # every peer that re-serializes it (describe skill, peers listing).
+        self.alpha.init(["echo"])
+        mallory = self.clone(Path(self.tmp.name) / "nancard", "claude/mallory")
+        mallory.init(["echo"])
+        card = json.dumps(dict(mallory.card(["echo"]), authority=float("nan"))).encode()
+        self.assertIn(b"NaN", card)
+        forge(mallory, {a2a.card_path("mallory"): card})
+        view = self.alpha.sync().get("mallory")
+        self.assertTrue(view is None or view["standing"] != "ALIVE", view)
+
+    def test_sending_nan_is_refused_before_anything_is_published(self) -> None:
+        self.alpha.init(["echo"])
+        tip = self.alpha.sync()["alpha"]["commit"]
+        with self.assertRaises(a2a.A2AError) as err:
+            self.alpha.send("*", "inform", [{"kind": "data", "data": {"x": float("nan")}}])
+        self.assertEqual(err.exception.standing, "REFUSED_MALFORMED")
+        self.assertEqual(self.alpha.sync()["alpha"]["commit"], tip)
+
+
+class OwnChainServeTest(BusFixture):
+    """serve_once on a broken own chain must refuse, not re-answer every request."""
+
+    def test_serve_refuses_on_a_tampered_own_chain(self) -> None:
+        self.alpha.init(["echo"])
+        self.beta.init(["echo"])
+        req = self.alpha.send("beta", "request", [{"kind": "text", "text": "once"}], skill="echo")
+        [reply] = self.beta.serve_once()
+        forge(self.beta, {a2a.outbox_path("beta", 0): raw(dict(reply, parts=[{"kind": "text", "text": "!"}]))})
+        tip = self.beta.sync()["beta"]["commit"]
+        with self.assertRaises(a2a.A2AError) as err:
+            self.beta.serve_once()
+        self.assertEqual(err.exception.standing, "REFUSED_TAMPERED")
+        self.assertEqual(self.beta.sync()["beta"]["commit"], tip)  # nothing re-answered
+        self.assertEqual(reply["in_reply_to"], req["id"])
+
+    def test_serve_refuses_on_a_malformed_own_card_with_an_intact_chain(self) -> None:
+        # The chain still verifies (send would succeed), so only the standing guard in
+        # serve_once stops an empty view from re-answering an already answered request.
+        self.alpha.init(["echo"])
+        self.beta.init(["echo"])
+        self.alpha.send("beta", "request", [{"kind": "text", "text": "once"}], skill="echo")
+        self.assertEqual(len(self.beta.serve_once()), 1)
+        card = dict(self.beta.card(["echo"]), skills=["echo"])  # strings, not {id, description}
+        forge(self.beta, {a2a.card_path("beta"): json.dumps(card).encode()})
+        tip = self.beta.sync()["beta"]["commit"]
+        with self.assertRaises(a2a.A2AError) as err:
+            self.beta.serve_once()
+        self.assertEqual(err.exception.standing, "REFUSED_MALFORMED")
+        self.assertEqual(self.beta.sync()["beta"]["commit"], tip)
+
+
 class ListenSetRobustnessTest(BusFixture):
     """A missing or git-invalid ref named by the index must not take down sync."""
 

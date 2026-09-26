@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import base64
+import contextlib
 import importlib.util
+import io
 import json
 import os
+import socket
 import subprocess
 import sys
 import tempfile
@@ -116,12 +119,21 @@ class A2ABusTest(BusFixture):
 
 class FakeGitHub:
     """The slice of the GitHub REST git data API that ``GitHubApi`` uses, served over
-    HTTP and backed by a real bare repository, so API and git peers share objects."""
+    HTTP and backed by a real bare repository, so API and git peers share objects.
+
+    Chicago exception, stated: this is a fake (a working implementation of the API
+    contract over real git objects), not an interaction mock, and it exists because the
+    real collaborator is infeasible in a test: api.github.com needs network egress, a
+    token with push authority, and it would leave real refs behind on a shared
+    repository. Every assertion is on resulting state (refs, commits, verified ledger).
+    Live GitHub stays UNKNOWN until a receipt from a real round trip says otherwise.
+    """
 
     def __init__(self, bare: Path, token: str = "t0k3n"):
         self.bare = bare
         self.token = token
         self.before_patch = None  # hook: lets a test lose a ref-update race
+        self.drop_next_get = 0  # fault injection: close this many GET connections unanswered
         self.calls: list[str] = []
         fake = self
 
@@ -137,11 +149,16 @@ class FakeGitHub:
                 self.end_headers()
                 self.wfile.write(raw)
 
-            def _dispatch(self, method):
+            def _serve_request(self, method):
                 url = urlparse(self.path)
                 prefix = "/repos/o/r/"
                 path = unquote(url.path)
                 fake.calls.append(f"{method} {path}")
+                if method == "GET" and fake.drop_next_get > 0:
+                    fake.drop_next_get -= 1
+                    self.close_connection = True
+                    self.connection.shutdown(socket.SHUT_RDWR)  # a transport drop, no response
+                    return None
                 length = int(self.headers.get("Content-Length") or 0)
                 body = json.loads(self.rfile.read(length)) if length else None
                 if method != "GET" and self.headers.get("Authorization") != f"Bearer {fake.token}":
@@ -155,13 +172,13 @@ class FakeGitHub:
                 return self._send(code, out)
 
             def do_GET(self):
-                self._dispatch("GET")
+                self._serve_request("GET")
 
             def do_POST(self):
-                self._dispatch("POST")
+                self._serve_request("POST")
 
             def do_PATCH(self):
-                self._dispatch("PATCH")
+                self._serve_request("PATCH")
 
         self.server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         self.url = f"http://127.0.0.1:{self.server.server_address[1]}"
@@ -285,9 +302,10 @@ class ApiTransportTest(BusFixture):
         rival = self.api_agent("gamma", "claude/gamma")
         self.github.before_patch = lambda: rival.send("*", "inform", [{"kind": "text", "text": "rival"}])
         mine = self.gamma.send("*", "inform", [{"kind": "text", "text": "mine"}])
-        self.assertEqual(sum(c.startswith("PATCH") for c in self.github.calls), 3)  # lost once, retried
         chain = self.alpha.sync()["gamma"]["messages"]
+        # The rival's append landed first and survived; ours was rebuilt on top of it.
         self.assertEqual([m["seq"] for m in chain], [0, 1])
+        self.assertEqual(chain[0]["parts"], [{"kind": "text", "text": "rival"}])
         self.assertEqual(chain[1]["id"], mine["id"])
         self.assertEqual(mine["prev"], chain[0]["id"])
 
@@ -311,6 +329,31 @@ class ApiTransportTest(BusFixture):
         self.assertEqual(len(api.peer_refs()), 106)
         api.fetch_peers(["claude/alpha"])  # exact ref, and the previous view is pruned
         self.assertEqual(list(api.peer_refs()), ["claude/alpha"])
+
+    def test_dropped_read_connection_is_retried_to_the_same_state(self) -> None:
+        self.alpha.init(["echo"])
+        api = a2a.GitHubApi("o/r", api=self.github.url)
+        self.github.drop_next_get = a2a.READ_ATTEMPTS - 1
+        api.fetch_peers(["claude/*"])
+        self.assertEqual(api.peer_refs().get("claude/alpha"), self.github.head("claude/alpha"))
+        self.github.drop_next_get = a2a.READ_ATTEMPTS  # every attempt dropped: typed, not a crash
+        with self.assertRaises(a2a.A2AError) as err:
+            a2a.GitHubApi("o/r", api=self.github.url).fetch_peers(["claude/*"])
+        self.assertEqual(err.exception.standing, "BLOCKED")
+
+    def test_api_base_must_be_https_except_loopback(self) -> None:
+        for bad in ("http://api.example.com", "http://10.0.0.1:8080", "ftp://api.github.com", "api.github.com",
+                    "https://", ""):
+            with self.subTest(api=bad), self.assertRaises(a2a.A2AError) as err:
+                a2a.GitHubApi("o/r", token="t0k3n", api=bad)
+            self.assertEqual(err.exception.standing, "REFUSED_MALFORMED")
+        for good in ("https://api.github.com", "https://ghe.example.com/api/v3", "http://127.0.0.1:1",
+                     "http://localhost:8080", "http://[::1]:9"):
+            self.assertEqual(a2a.GitHubApi("o/r", api=good).api, good.rstrip("/"))
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            code = a2a.main(["--transport", "api", "--github-repo", "o/r", "--github-api", "http://evil.example",
+                             "peers"])
+        self.assertEqual((code, json.loads(out.getvalue())["standing"]), (2, "REFUSED_MALFORMED"))
 
     def test_github_repo_is_derived_from_remote_urls(self) -> None:
         for url in ("https://github.com/o/r.git", "git@github.com:o/r.git",

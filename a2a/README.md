@@ -19,12 +19,18 @@ instance A ──fetch─▶ refs/heads/<B's branch>  ◀──push─── ins
   hash-chained (`seq`/`prev`). Readers refuse broken chains (`REFUSED_TAMPERED`).
 - **Authentication.** GitHub push authorization is the authentication boundary. An
   agent is authoritative only on the ref its card names. Copies that ride along on
-  other branches are ignored.
+  other branches are ignored. An agent id announced by cards on two or more refs is
+  `REFUSED_CONTESTED`: nothing in the refs tells the honest claimant from a squatter
+  (anyone who can push one branch can push another), so no claimant is admitted
+  until the reader pins the id (`--pin beta=claude/beta`, or `A2A_PINS`). An agent
+  always pins its own id to its own ref, so a squatter can't silence it.
 - **Stateless resume.** A request counts as answered when the responder's own
   outbox holds a reply `in_reply_to` it. A replacement container therefore picks up
   where the previous one stopped.
 - **Two transports.** Git (clone + push) and the GitHub REST git data API
-  (HTTPS only), with one wire format and one ledger.
+  (HTTPS only: the token rides in a header, so `--github-api` must be `https://`;
+  plain `http://` is accepted only on a loopback host), with one wire format and
+  one ledger. Idempotent reads retry a dropped connection; writes do not.
 - **Authority.** Skills are bounded (`ping`, `echo`, `digest`, `describe`). There is no remote exec.
   Messages grant no ambient DO authority.
 
@@ -104,7 +110,10 @@ bus for everyone. Readers enforce these guards on both transports
   are `sha256:` ids, and `seq` is an integer (not `true` or `1.0`). A violation
   marks only that author `REFUSED_MALFORMED`;
 - JSON with duplicate keys is refused, because two parsers could read one sealed
-  file as two different messages;
+  file as two different messages. `NaN`/`Infinity` are refused on write and on read
+  for the same reason (they are not RFC 8259 JSON);
+- an agent id claimed on two refs is `REFUSED_CONTESTED` unless pinned, so a
+  squatter that announces the addressee's id can neither answer for it nor shadow it;
 - a card whose `skills` is malformed is `REFUSED_MALFORMED`, and `peers` lists it
   without crashing;
 - `send --wait` accepts a reply only from the addressee. The reply must be addressed
@@ -114,8 +123,12 @@ bus for everyone. Readers enforce these guards on both transports
   transport, exact refs that no longer exist are skipped rather than failing the
   whole fetch. Peer refs that left the listen set or were deleted are pruned, so a
   deleted agent doesn't stay `ALIVE` on a stale tip;
-- `serve` refuses to run over its own broken chain, because it would otherwise
-  answer every request again.
+- `serve` refuses to run over its own broken chain or malformed card, because it
+  would otherwise answer every request again.
+
+`tests/test_a2a_ontology.py` is the executable consumer of `ontology.ttl` and
+`context.jsonld`: every field the runtime writes must have a JSON-LD term declared
+in the ontology, and the ontology's performatives must equal the runtime's.
 
 The git transport caches trees per commit and blobs per object id, and it reads new
 blobs with a single `cat-file --batch`. A sync therefore costs a fixed number of git

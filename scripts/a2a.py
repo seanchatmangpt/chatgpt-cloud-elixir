@@ -15,6 +15,10 @@ fetches to GitHub. This module turns that into an agent-to-agent bus:
   hash-chained (``prev``); a reader refuses any chain that does not verify;
 - an agent is authoritative only on the ref its card names, so copies of an
   agent's directory carried along on other branches are ignored (anti-spoof);
+- an agent id announced by cards on two or more refs is ``REFUSED_CONTESTED``: the
+  bus cannot tell the honest claimant from a squatter (anyone who can push one
+  branch can push another), so no claimant is trusted until the reader pins the id
+  to a ref (``--pin agent=ref``); an agent always pins its own id to its own ref;
 - replies are idempotent from the ledger itself: a request is answered iff the
   responder's own outbox has no message ``in_reply_to`` it, so a replacement
   container resumes without local state.
@@ -42,6 +46,7 @@ import base64
 import datetime as dt
 import fnmatch
 import hashlib
+import http.client
 import json
 import os
 import platform
@@ -68,6 +73,9 @@ PERFORMATIVES = {"request", "inform", "agree", "refuse", "failure"}
 MAX_MESSAGE_BYTES = 64 * 1024
 PUSH_ATTEMPTS = 6
 PUSH_BACKOFF = 1.0
+READ_ATTEMPTS = 3  # idempotent GETs survive a dropped connection; writes never auto-retry here
+READ_BACKOFF = 0.5
+LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
 GITHUB_API = "https://api.github.com"
 GITHUB_REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 # Project v2 discovery index, carried by the project-memory proxy
@@ -92,7 +100,13 @@ class A2AError(Exception):
 
 
 def canonical(obj: Any) -> bytes:
-    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    """RFC 8259 JSON only: NaN/Infinity are refused, since a strict reader would parse
+    (or reject) a sealed message carrying them differently from Python."""
+    try:
+        return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
+                          allow_nan=False).encode("utf-8")
+    except ValueError as exc:
+        raise A2AError("REFUSED_MALFORMED", f"not RFC 8259 JSON: {exc}") from None
 
 
 def digest(obj: Any) -> str:
@@ -147,7 +161,9 @@ def strict_json(raw: bytes) -> Any:
                 raise ValueError(f"duplicate key {key!r}")
             out[key] = value
         return out
-    return json.loads(raw, object_pairs_hook=pairs)
+    def constant(name: str) -> Any:
+        raise ValueError(f"non-standard JSON constant {name}")
+    return json.loads(raw, object_pairs_hook=pairs, parse_constant=constant)
 
 
 # --------------------------------------------------------------------------- #
@@ -306,6 +322,17 @@ class Git:
 # GitHub REST transport: the same bus for peers with HTTPS but no git
 
 
+def check_api_url(api: str) -> str:
+    """The token rides in an ``Authorization`` header, so the API base must be HTTPS.
+    Plain HTTP is admitted only on a loopback host (a local proxy or test server)."""
+    url = urllib.parse.urlsplit(api or "")
+    if url.scheme == "https" and url.hostname:
+        return api
+    if url.scheme == "http" and url.hostname in LOOPBACK_HOSTS:
+        return api
+    raise A2AError("REFUSED_MALFORMED", f"GitHub API base {api!r} is not https:// (http:// only on loopback)")
+
+
 class GitHubApi:
     """Duck-types ``Git`` over the GitHub git data API (stdlib ``urllib`` only).
 
@@ -318,7 +345,7 @@ class GitHubApi:
             raise A2AError("REFUSED_MALFORMED", f"invalid GitHub repository {repo!r}; want owner/name")
         self.repo = repo
         self.token = token
-        self.api = api.rstrip("/")
+        self.api = check_api_url(api).rstrip("/")
         self.base = base
         self._refs: dict[str, str] = {}
         self._trees: dict[str, dict[str, str]] = {}
@@ -335,21 +362,29 @@ class GitHubApi:
             data = json.dumps(body).encode()
             headers["Content-Type"] = "application/json"
         req = urllib.request.Request(url, data=data, method=method, headers=headers)
-        try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                raw = resp.read()
-        except urllib.error.HTTPError as exc:
-            detail = exc.read().decode(errors="replace")[:300]
-            if exc.code == 404 and missing_ok:
-                return None
-            if exc.code in (409, 422):
-                raise ApiConflict(f"{method} {path}: {exc.code} {detail}") from None
-            if exc.code in (401, 403):
-                raise A2AError("BLOCKED", f"{method} {path}: {exc.code} (GitHub authority: token "
-                                          f"{'present' if self.token else 'absent'}) {detail}") from None
-            raise A2AError("BLOCKED", f"{method} {path}: HTTP {exc.code} {detail}") from None
-        except urllib.error.URLError as exc:
-            raise A2AError("BLOCKED", f"{method} {path}: {exc.reason}") from None
+        attempts = READ_ATTEMPTS if method == "GET" else 1
+        for attempt in range(attempts):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as resp:
+                    raw = resp.read()
+                break
+            except urllib.error.HTTPError as exc:
+                detail = exc.read().decode(errors="replace")[:300]
+                if exc.code == 404 and missing_ok:
+                    return None
+                if exc.code in (409, 422):
+                    raise ApiConflict(f"{method} {path}: {exc.code} {detail}") from None
+                if exc.code in (401, 403):
+                    raise A2AError("BLOCKED", f"{method} {path}: {exc.code} (GitHub authority: token "
+                                              f"{'present' if self.token else 'absent'}) {detail}") from None
+                raise A2AError("BLOCKED", f"{method} {path}: HTTP {exc.code} {detail}") from None
+            except (ConnectionError, http.client.HTTPException, urllib.error.URLError) as exc:
+                # A dropped connection on an idempotent read is retried. A write is not:
+                # it surfaces BLOCKED and a re-run of publish() rebuilds on the current tip.
+                if attempt + 1 >= attempts:
+                    reason = getattr(exc, "reason", exc)
+                    raise A2AError("BLOCKED", f"{method} {path}: {reason!r} after {attempts} attempt(s)") from None
+                time.sleep(READ_BACKOFF * (attempt + 1))
         return json.loads(raw) if raw else None
 
     @staticmethod
@@ -563,28 +598,62 @@ def load_agent(git: Git, commit: str, agent: str) -> tuple[dict[str, Any] | None
     return card, messages
 
 
-def ledger(git: Git) -> dict[str, dict[str, Any]]:
-    """Map agent id -> {card, ref, messages, standing}, trusting only the card's own ref."""
-    agents: dict[str, dict[str, Any]] = {}
+def ledger(git: Git, pins: dict[str, str] | None = None) -> dict[str, dict[str, Any]]:
+    """Map agent id -> {card, ref, messages, standing}, trusting only the card's own ref.
+
+    An id whose card is announced on more than one ref is ``REFUSED_CONTESTED`` (no
+    claimant's messages are admitted) unless ``pins`` binds the id to one ref, in
+    which case only that ref can speak for it. Nothing in the refs themselves can tell
+    the first honest claimant from a later squatter, so the reader supplies the anchor.
+    """
+    pins = pins or {}
+    claims: dict[str, list[tuple[str, str, dict[str, Any]]]] = {}
     for ref, commit in sorted(git.peer_refs().items()):
         seen = {p.split("/")[2] for p in git.ls(commit, ROOT + "/") if p.count("/") >= 3}
         for agent in sorted(seen):
             if not AGENT_ID.match(agent):
                 continue
+            if agent in pins and pins[agent] != ref:
+                continue  # the reader bound this id to another ref
             card = read_json(git, commit, card_path(agent))
             if not card or card.get("outbox_ref") != ref or card.get("agent") != agent:
                 continue  # a copy carried on someone else's branch: not authoritative here
-            try:
-                problem = card_problem(card)
-                if problem:
-                    raise A2AError("REFUSED_MALFORMED", f"{agent}: {problem}")
-                _, messages = load_agent(git, commit, agent)
-                agents[agent] = {"card": card, "ref": ref, "commit": commit, "messages": messages,
-                                 "standing": "ALIVE"}
-            except A2AError as exc:
-                agents[agent] = {"card": card, "ref": ref, "commit": commit, "messages": [],
-                                 "standing": exc.standing, "detail": exc.detail}
+            claims.setdefault(agent, []).append((ref, commit, card))
+    agents: dict[str, dict[str, Any]] = {}
+    for agent, claimants in sorted(claims.items()):
+        if len(claimants) > 1:
+            refs = [ref for ref, _, _ in claimants]
+            agents[agent] = {"card": None, "ref": None, "commit": None, "messages": [],
+                             "standing": "REFUSED_CONTESTED", "claimants": refs,
+                             "detail": f"agent id {agent!r} is announced on {len(refs)} refs {refs}; "
+                                       f"pin one with --pin {agent}=<ref>"}
+            continue
+        [(ref, commit, card)] = claimants
+        try:
+            problem = card_problem(card)
+            if problem:
+                raise A2AError("REFUSED_MALFORMED", f"{agent}: {problem}")
+            _, messages = load_agent(git, commit, agent)
+            agents[agent] = {"card": card, "ref": ref, "commit": commit, "messages": messages,
+                             "standing": "ALIVE"}
+        except A2AError as exc:
+            agents[agent] = {"card": card, "ref": ref, "commit": commit, "messages": [],
+                             "standing": exc.standing, "detail": exc.detail}
     return agents
+
+
+def parse_pins(specs: list[str]) -> dict[str, str]:
+    """``agent=ref`` bindings (CLI ``--pin`` / ``A2A_PINS``), validated like any id/ref."""
+    pins: dict[str, str] = {}
+    for spec in specs:
+        agent, sep, ref = spec.partition("=")
+        if not sep:
+            raise A2AError("REFUSED_MALFORMED", f"pin {spec!r} is not agent=ref")
+        agent, ref = check_agent_id(agent.strip()), check_ref(ref.strip())
+        if pins.get(agent, ref) != ref:
+            raise A2AError("REFUSED_MALFORMED", f"agent {agent!r} pinned to two refs")
+        pins[agent] = ref
+    return pins
 
 
 # --------------------------------------------------------------------------- #
@@ -637,12 +706,18 @@ SKILLS: dict[str, tuple[str, Callable[[dict[str, Any], dict[str, Any]], list[dic
 
 
 class Agent:
-    def __init__(self, git: Git | GitHubApi, agent: str, ref: str, peers: list[str], use_index: bool = False):
+    def __init__(self, git: Git | GitHubApi, agent: str, ref: str, peers: list[str], use_index: bool = False,
+                 pins: dict[str, str] | None = None):
         self.git = git
         self.agent = check_agent_id(agent)
         self.ref = check_ref(ref)
         self.peers = peers
         self.use_index = use_index
+        pins = dict(pins or {})
+        if pins.get(self.agent, self.ref) != self.ref:
+            raise A2AError("REFUSED_MALFORMED", f"agent {self.agent} pinned to {pins[self.agent]}, not its own ref")
+        # An agent is always its own anchor: a squatter can never shadow or silence it.
+        self.pins = {**pins, self.agent: self.ref}
 
     def card(self, skills: list[str]) -> dict[str, Any]:
         return {
@@ -713,7 +788,7 @@ class Agent:
             extra = self.index_refs(own) if own else []
             if extra:
                 self.git.fetch_peers(listen_set(self.peers, self.ref, extra))
-        return ledger(self.git)
+        return ledger(self.git, self.pins)
 
     # ---- Project v2 discovery index ------------------------------------- #
     # The index lives in GitHub Project #2 and is reached only through the
@@ -850,7 +925,9 @@ class Agent:
                    responder: str | None = None) -> dict[str, Any] | None:
         """The first verified reply to ``request_id``: a non-request message addressed to
         us and, when ``responder`` is given (a unicast request), sent by that agent only,
-        so a third party cannot answer on the addressee's behalf."""
+        so a third party cannot answer on the addressee's behalf. A third party that
+        announces the addressee's id on its own ref makes the id ``REFUSED_CONTESTED``
+        (``ledger``), so no reply is accepted until the reader pins the id to a ref."""
         deadline = time.monotonic() + timeout
         while True:
             for peer, view in sorted(self.sync().items()):
@@ -915,6 +992,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--github-api", default=os.environ.get("A2A_GITHUB_API", GITHUB_API))
     ap.add_argument("--base", default=os.environ.get("A2A_BASE"),
                     help="--transport api: branch a new outbox ref starts from (default: repo default branch)")
+    ap.add_argument("--pin", action="append", default=[p for p in os.environ.get("A2A_PINS", "").split(",") if p],
+                    help="agent=ref: only that ref may speak for the agent (repeatable; resolves "
+                         "REFUSED_CONTESTED ids)")
     ap.add_argument("--use-index", action="store_true", default=os.environ.get("A2A_USE_INDEX") == "1",
                     help="also listen on refs named by the newest Project v2 discovery receipt")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -944,18 +1024,21 @@ def main(argv: list[str] | None = None) -> int:
     try:
         git, local = make_transport(args)
         peers = [g.strip() for g in args.peers.split(",") if g.strip()]
+        pins = parse_pins(args.pin)
         if args.cmd in ("peers", "log"):
             if args.agent and args.use_index:
                 ref = args.ref or (current_branch(local) if local else None)
-                agents = Agent(git, args.agent, check_ref(ref or ""), peers, use_index=True).sync()
+                agents = Agent(git, args.agent, check_ref(ref or ""), peers, use_index=True, pins=pins).sync()
             else:
                 git.fetch_peers(listen_set(peers, args.ref))
-                agents = ledger(git)
+                agents = ledger(git, pins)
             if args.cmd == "peers":
                 emit({a: {"ref": v["ref"], "commit": v["commit"], "standing": v["standing"],
                           "messages": len(v["messages"]),
                           "skills": card_skills(v["card"]),
-                          **({"detail": v["detail"]} if "detail" in v else {})} for a, v in agents.items()})
+                          **({"detail": v["detail"]} if "detail" in v else {}),
+                          **({"claimants": v["claimants"]} if "claimants" in v else {})}
+                      for a, v in agents.items()})
             else:
                 msgs = [m for v in agents.values() for m in v["messages"]
                         if not args.conversation or m.get("conversation") == args.conversation]
@@ -966,7 +1049,7 @@ def main(argv: list[str] | None = None) -> int:
         ref = args.ref or (current_branch(local) if local and args.transport == "git" else None)
         if not ref:
             raise A2AError("REFUSED_MALFORMED", "--ref (or A2A_REF) is required with --transport api")
-        agent = Agent(git, args.agent, ref, peers, use_index=args.use_index)
+        agent = Agent(git, args.agent, ref, peers, use_index=args.use_index, pins=pins)
         if args.cmd == "index":
             emit(agent.announce_index())
         elif args.cmd == "discover":

@@ -1,6 +1,7 @@
 {
   "@context": {
     "a2a": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/a2a#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "id": "@id",
     "type": "@type",
     "agent": "a2a:agent",
@@ -14,6 +15,10 @@
     "conversation": "a2a:conversation",
     "performative": {"@id": "a2a:performative", "@type": "@vocab"},
     "skill": "a2a:skill",
-    "parts": {"@id": "a2a:parts", "@container": "@list"}
+    "parts": {"@id": "a2a:parts", "@container": "@list"},
+    "schema": "a2a:schema",
+    "repository": {"@id": "a2a:repository", "@type": "@id"},
+    "authority": "a2a:authority",
+    "created_at": {"@id": "a2a:createdAt", "@type": "xsd:dateTime"}
   }
 }
