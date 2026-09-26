@@ -1,0 +1,18 @@
+{
+  "id": "P030",
+  "edge": "workdir-missing",
+  "semantic_fingerprint": "c24caca7388c1bd3",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "REFUSED_WORKDIR_MISSING"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "REFUSED_WORKDIR_MISSING"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

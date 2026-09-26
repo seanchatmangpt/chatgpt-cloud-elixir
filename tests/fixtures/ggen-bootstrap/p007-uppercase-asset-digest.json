@@ -1,0 +1,18 @@
+{
+  "id": "P007",
+  "edge": "uppercase-asset-digest",
+  "semantic_fingerprint": "0154f408dab2a772",
+  "rule": {
+    "kind": "regex",
+    "pattern": "[0-9a-f]{64}",
+    "failure_standing": "REFUSED_ASSET_DIGEST_CANONICAL"
+  },
+  "probe": {
+    "value": "CCB9FE78EF0C84D8B240B45BEB6E73F47E2C930D5DB3EFCF9A0E58DFE071D313",
+    "expected_standing": "REFUSED_ASSET_DIGEST_CANONICAL"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "P011",
+  "edge": "asset-wrong-owner",
+  "semantic_fingerprint": "278e3ef5616a699f",
+  "rule": {
+    "kind": "https_prefix",
+    "prefix": "https://github.com/seanchatmangpt/ggen/releases/download/",
+    "failure_standing": "REFUSED_ASSET_OWNER"
+  },
+  "probe": {
+    "value": "https://github.com/other/ggen/releases/download/v26.8.28/a",
+    "expected_standing": "REFUSED_ASSET_OWNER"
+  },
+  "control": {
+    "value": "https://github.com/seanchatmangpt/ggen/releases/download/v26.8.28/a",
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "P032",
+  "edge": "manifest-malformed",
+  "semantic_fingerprint": "8cde6049c98d86a9",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "REFUSED_MANIFEST_MALFORMED"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "REFUSED_MANIFEST_MALFORMED"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

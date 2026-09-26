@@ -1,0 +1,17 @@
+{
+  "id": "P020",
+  "edge": "archive-absolute-path",
+  "semantic_fingerprint": "00ce49eb4539160b",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_ARCHIVE_ABSOLUTE_PATH"
+  },
+  "probe": {
+    "value": "/bin/ggen",
+    "expected_standing": "REFUSED_ARCHIVE_ABSOLUTE_PATH"
+  },
+  "control": {
+    "value": "bin/ggen",
+    "expected_standing": "ALIVE"
+  }
+}

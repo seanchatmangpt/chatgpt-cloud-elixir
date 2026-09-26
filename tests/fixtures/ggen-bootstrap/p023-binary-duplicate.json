@@ -1,0 +1,18 @@
+{
+  "id": "P023",
+  "edge": "binary-duplicate",
+  "semantic_fingerprint": "58794c0b4bcd22fd",
+  "rule": {
+    "kind": "max_int",
+    "value": 1,
+    "failure_standing": "REFUSED_GGEN_BINARY_CARDINALITY"
+  },
+  "probe": {
+    "value": 2,
+    "expected_standing": "REFUSED_GGEN_BINARY_CARDINALITY"
+  },
+  "control": {
+    "value": 1,
+    "expected_standing": "ALIVE"
+  }
+}

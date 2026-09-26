@@ -1,0 +1,18 @@
+{
+  "id": "P045",
+  "edge": "receipt-digest-mismatch",
+  "semantic_fingerprint": "7e85c37ce6af194e",
+  "rule": {
+    "kind": "exact",
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "failure_standing": "BUILD_BROKEN_RECEIPT_DIGEST"
+  },
+  "probe": {
+    "value": "2222222222222222222222222222222222222222222222222222222222222222",
+    "expected_standing": "BUILD_BROKEN_RECEIPT_DIGEST"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}

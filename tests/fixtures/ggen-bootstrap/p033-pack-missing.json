@@ -1,0 +1,18 @@
+{
+  "id": "P033",
+  "edge": "pack-missing",
+  "semantic_fingerprint": "756e9c85779a1b7d",
+  "rule": {
+    "kind": "min_int",
+    "value": 1,
+    "failure_standing": "REFUSED_PACK_MISSING"
+  },
+  "probe": {
+    "value": 0,
+    "expected_standing": "REFUSED_PACK_MISSING"
+  },
+  "control": {
+    "value": 1,
+    "expected_standing": "ALIVE"
+  }
+}

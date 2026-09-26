@@ -1,0 +1,18 @@
+{
+  "id": "P018",
+  "edge": "archive-not-gzip",
+  "semantic_fingerprint": "d43150894ac20fd3",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "BUILD_BROKEN_ARCHIVE_FORMAT"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "BUILD_BROKEN_ARCHIVE_FORMAT"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

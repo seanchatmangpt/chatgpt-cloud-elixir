@@ -1,0 +1,17 @@
+{
+  "id": "P019",
+  "edge": "archive-path-traversal",
+  "semantic_fingerprint": "40a45e9003e1cc3a",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_ARCHIVE_TRAVERSAL"
+  },
+  "probe": {
+    "value": "../ggen",
+    "expected_standing": "REFUSED_ARCHIVE_TRAVERSAL"
+  },
+  "control": {
+    "value": "bin/ggen",
+    "expected_standing": "ALIVE"
+  }
+}

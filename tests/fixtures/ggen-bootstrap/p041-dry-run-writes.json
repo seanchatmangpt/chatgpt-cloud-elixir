@@ -1,0 +1,17 @@
+{
+  "id": "P041",
+  "edge": "dry-run-writes",
+  "semantic_fingerprint": "3fdc76f696c275a8",
+  "rule": {
+    "kind": "zero",
+    "failure_standing": "BUILD_BROKEN_DRY_RUN_WROTE"
+  },
+  "probe": {
+    "value": 1,
+    "expected_standing": "BUILD_BROKEN_DRY_RUN_WROTE"
+  },
+  "control": {
+    "value": 0,
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "P042",
+  "edge": "receipt-missing",
+  "semantic_fingerprint": "86f3971ed29a2642",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "BUILD_BROKEN_RECEIPT_MISSING"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "BUILD_BROKEN_RECEIPT_MISSING"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

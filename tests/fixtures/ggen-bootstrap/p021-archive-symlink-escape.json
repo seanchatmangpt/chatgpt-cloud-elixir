@@ -1,0 +1,18 @@
+{
+  "id": "P021",
+  "edge": "archive-symlink-escape",
+  "semantic_fingerprint": "9c061a38056edd82",
+  "rule": {
+    "kind": "exact",
+    "value": false,
+    "failure_standing": "REFUSED_ARCHIVE_SYMLINK_ESCAPE"
+  },
+  "probe": {
+    "value": true,
+    "expected_standing": "REFUSED_ARCHIVE_SYMLINK_ESCAPE"
+  },
+  "control": {
+    "value": false,
+    "expected_standing": "ALIVE"
+  }
+}

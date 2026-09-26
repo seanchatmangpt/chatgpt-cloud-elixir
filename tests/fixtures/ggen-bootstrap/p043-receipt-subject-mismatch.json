@@ -1,0 +1,18 @@
+{
+  "id": "P043",
+  "edge": "receipt-subject-mismatch",
+  "semantic_fingerprint": "4932e5e4238a042e",
+  "rule": {
+    "kind": "exact",
+    "value": "exact-head",
+    "failure_standing": "BUILD_BROKEN_RECEIPT_SUBJECT"
+  },
+  "probe": {
+    "value": "stale-head",
+    "expected_standing": "BUILD_BROKEN_RECEIPT_SUBJECT"
+  },
+  "control": {
+    "value": "exact-head",
+    "expected_standing": "ALIVE"
+  }
+}

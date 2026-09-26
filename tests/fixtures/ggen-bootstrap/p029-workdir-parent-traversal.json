@@ -1,0 +1,17 @@
+{
+  "id": "P029",
+  "edge": "workdir-parent-traversal",
+  "semantic_fingerprint": "a913ef809d6961ba",
+  "rule": {
+    "kind": "relative_path",
+    "failure_standing": "REFUSED_WORKDIR_TRAVERSAL"
+  },
+  "probe": {
+    "value": "../manufacturing",
+    "expected_standing": "REFUSED_WORKDIR_TRAVERSAL"
+  },
+  "control": {
+    "value": "manufacturing",
+    "expected_standing": "ALIVE"
+  }
+}

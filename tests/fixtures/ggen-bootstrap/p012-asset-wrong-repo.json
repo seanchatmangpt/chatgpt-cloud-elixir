@@ -1,0 +1,18 @@
+{
+  "id": "P012",
+  "edge": "asset-wrong-repo",
+  "semantic_fingerprint": "c6f689b54005b881",
+  "rule": {
+    "kind": "https_prefix",
+    "prefix": "https://github.com/seanchatmangpt/ggen/releases/download/",
+    "failure_standing": "REFUSED_ASSET_REPOSITORY"
+  },
+  "probe": {
+    "value": "https://github.com/seanchatmangpt/other/releases/download/v26.8.28/a",
+    "expected_standing": "REFUSED_ASSET_REPOSITORY"
+  },
+  "control": {
+    "value": "https://github.com/seanchatmangpt/ggen/releases/download/v26.8.28/a",
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "P035",
+  "edge": "pack-short-sha",
+  "semantic_fingerprint": "f0e72ea2cc91fbb2",
+  "rule": {
+    "kind": "regex",
+    "pattern": "[0-9a-f]{40}",
+    "failure_standing": "REFUSED_PACK_SHA_FORMAT"
+  },
+  "probe": {
+    "value": "04a7007",
+    "expected_standing": "REFUSED_PACK_SHA_FORMAT"
+  },
+  "control": {
+    "value": "04a7007e80be03171abb9fe31d1d732dbe0edfa4",
+    "expected_standing": "ALIVE"
+  }
+}

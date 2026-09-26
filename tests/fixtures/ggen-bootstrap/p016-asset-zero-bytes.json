@@ -1,0 +1,18 @@
+{
+  "id": "P016",
+  "edge": "asset-zero-bytes",
+  "semantic_fingerprint": "d44bb869f3dff4c1",
+  "rule": {
+    "kind": "min_int",
+    "value": 1,
+    "failure_standing": "BLOCKED_EMPTY_TRANSPORT"
+  },
+  "probe": {
+    "value": 0,
+    "expected_standing": "BLOCKED_EMPTY_TRANSPORT"
+  },
+  "control": {
+    "value": 11581354,
+    "expected_standing": "ALIVE"
+  }
+}

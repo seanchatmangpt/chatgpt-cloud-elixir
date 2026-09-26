@@ -1,0 +1,18 @@
+{
+  "id": "P008",
+  "edge": "nonhex-asset-digest",
+  "semantic_fingerprint": "01e1d369062dc745",
+  "rule": {
+    "kind": "regex",
+    "pattern": "[0-9a-f]{64}",
+    "failure_standing": "REFUSED_ASSET_DIGEST_FORMAT"
+  },
+  "probe": {
+    "value": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+    "expected_standing": "REFUSED_ASSET_DIGEST_FORMAT"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}
