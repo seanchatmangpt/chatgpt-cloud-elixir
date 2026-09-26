@@ -69,4 +69,46 @@ defmodule ChatGPTCloud.ProcessIntelligence.IngestorTest do
 
     assert {:error, :invalid_standing} = Ingestor.ingest(envelope)
   end
+
+  test "ingests a capsule verify envelope in the exact shape scripts/emit-ocel-capsule-event.sh produces" do
+    envelope = %{
+      "schema" => "chatgpt-cloud-ocel/1",
+      "producer" => %{
+        "agent_id" => "capsule-verify:process-intelligence",
+        "run_id" => "process-intelligence:#{String.duplicate("b", 64)}",
+        "status" => "completed",
+        "subject_repo" => nil,
+        "subject_sha" => String.duplicate("a", 40),
+        "started_at" => "2026-08-26T00:00:00Z",
+        "ended_at" => "2026-08-26T00:00:00Z",
+        "metadata" => %{}
+      },
+      "events" => [
+        %{
+          "id" => "process-intelligence:#{String.duplicate("b", 64)}",
+          "activity" => "capsule.verify",
+          "sequence" => 1,
+          "timestamp" => "2026-08-26T00:00:00Z",
+          "standing" => "ALIVE",
+          "lifecycle" => "complete",
+          "authority_domain" => "CONSTRUCT_VERIFY",
+          "payload" => %{
+            "capsule_name" => "process-intelligence",
+            "standing" => "ALIVE",
+            "acceptance_exit_code" => 0
+          }
+        }
+      ]
+    }
+
+    assert {:ok, %{accepted_events: 1, duplicate_events: 0, standing: "ALIVE"}} =
+             Ingestor.ingest(envelope)
+
+    assert %{rows: [["capsule.verify", "CONSTRUCT_VERIFY"]]} =
+             Ecto.Adapters.SQL.query!(
+               Repo,
+               "SELECT activity, authority_domain FROM ocel_events WHERE agent_key = $1",
+               ["capsule-verify:process-intelligence"]
+             )
+  end
 end
