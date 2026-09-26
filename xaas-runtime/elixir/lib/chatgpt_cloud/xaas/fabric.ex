@@ -56,13 +56,16 @@ defmodule ChatGPTCloud.Xaas.Fabric do
 
   @doc """
   Start a fabric run. `request` needs `"goal"` and `"idempotency_key"`; optional
-  `"exact_subject"`, `"worktree"`, `"verifier_suite"`. Provider is always `"zcode"`.
+  `"exact_subject"`, `"worktree"`, `"verifier_suite"`. Provider identity is
+  semantic input supplied by the caller/registry and defaults to `"zcode"`;
+  transport identity is never written into the WorkOrder.
   """
   @spec new(map(), keyword()) :: t()
   def new(request, opts \\ []) do
     request = Map.new(request, fn {k, v} -> {to_string(k), v} end)
     wait_ms = min(Keyword.get(opts, :wait_ms, @default_wait_ms), @default_wait_ms)
-    state = %__MODULE__{request: Map.put(request, "provider", "zcode"), wait_ms: wait_ms}
+    request = Map.put_new(request, "provider", "zcode")
+    state = %__MODULE__{request: request, wait_ms: wait_ms}
 
     cond do
       not non_empty?(request["goal"]) ->
