@@ -115,6 +115,29 @@ def save_state(path: Path, state: dict[str, Any]) -> None:
             pass
 
 
+# Identity fields a gall.work-result/1 may echo back. When present they must
+# equal the admitted descriptor: a result for another epoch/task/subject is
+# never receipted against this command.
+RESULT_IDENTITY_FIELDS = ("epoch_id", "work_order_iri", "base_sha")
+# A nonzero gall-work exit can never be reported as a live consequence.
+LIVE_STANDINGS = frozenset({"ALIVE", "PARTIAL_ALIVE"})
+
+
+def identity_digest(descriptor: dict[str, Any]) -> str:
+    """Semantic identity of one admitted command (the full lease descriptor)."""
+    return digest(descriptor)
+
+
+def replay_mismatch(cached: dict[str, Any], identity: str) -> bool:
+    """True when a cached result belongs to a different semantic identity.
+
+    Legacy state rows written before identity binding carry no digest and are
+    replayed as before; every row written now carries one.
+    """
+    recorded = cached.get("identity_digest") if isinstance(cached, dict) else None
+    return isinstance(recorded, str) and recorded != identity
+
+
 def parse_result(stdout: str) -> dict[str, Any]:
     candidates = [stdout.strip(), *reversed([line.strip() for line in stdout.splitlines() if line.strip()])]
     for candidate in candidates:
@@ -152,14 +175,23 @@ def run_descriptor(
             "executed": False,
         }
 
+    identity = identity_digest(descriptor)
     if command_id in state["results"]:
+        cached = state["results"][command_id]
+        if replay_mismatch(cached, identity):
+            return {
+                "standing": "REFUSED",
+                "reason": "REPLAY_IDENTITY_MISMATCH",
+                "command_id": command_id,
+                "executed": False,
+            }
         return {
             "standing": "ALIVE",
             "reason": "KNOWN_REPLAY",
             "command_id": command_id,
             "executed": False,
-            "result": state["results"][command_id]["result"],
-            "result_digest": state["results"][command_id]["result_digest"],
+            "result": cached["result"],
+            "result_digest": cached["result_digest"],
         }
 
     if not allow_do:
@@ -228,9 +260,37 @@ def run_descriptor(
             "stderr_tail": proc.stderr[-4096:],
         }
 
-    if proc.returncode != 0:
+    mismatched = [
+        field
+        for field in RESULT_IDENTITY_FIELDS
+        if field in result and result[field] != descriptor[field]
+    ]
+    if mismatched:
         return {
-            "standing": result.get("standing", "BLOCKED"),
+            "standing": "BUILD_BROKEN",
+            "reason": "GALL_RESULT_SUBJECT_MISMATCH",
+            "detail": mismatched,
+            "command_id": command_id,
+            "executed": True,
+            "exit_code": proc.returncode,
+            "result": result,
+        }
+
+    if proc.returncode != 0:
+        standing = result.get("standing", "BLOCKED")
+        # Case/whitespace variants ("alive", " Alive ") are still live claims:
+        # compare on the normalized token so they cannot slip past as standing.
+        if str(standing).strip().upper() in LIVE_STANDINGS:
+            return {
+                "standing": "BUILD_BROKEN",
+                "reason": "GALL_RESULT_EXIT_CONTRADICTION",
+                "command_id": command_id,
+                "executed": True,
+                "exit_code": proc.returncode,
+                "result": result,
+            }
+        return {
+            "standing": standing,
             "reason": result.get("code", "GALL_WORK_NONZERO"),
             "command_id": command_id,
             "executed": True,
@@ -244,7 +304,11 @@ def run_descriptor(
         item for item in state["seen_command_ids"] if item != command_id
     ]
     state["seen_command_ids"] = state["seen_command_ids"][: max(1, dedup_limit)]
-    state["results"][command_id] = {"result_digest": result_digest, "result": result}
+    state["results"][command_id] = {
+        "result_digest": result_digest,
+        "result": result,
+        "identity_digest": identity,
+    }
 
     allowed = set(state["seen_command_ids"])
     state["results"] = {key: value for key, value in state["results"].items() if key in allowed}
@@ -355,6 +419,8 @@ def run_envelope(
 
     if command_id in state["results"]:
         cached = state["results"][command_id]
+        if replay_mismatch(cached, identity_digest(envelope["payload"])):
+            return _refused("REPLAY_IDENTITY_MISMATCH", command_id)
         return {
             "standing": "ALIVE",
             "reason": "KNOWN_REPLAY",

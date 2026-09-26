@@ -1,8 +1,11 @@
+import ast
 import importlib.util
 import json
 import os
 import pathlib
 import stat
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -47,7 +50,11 @@ class RelayTests(unittest.TestCase):
             "worktree": str(self.worktree),
         }
 
-    def run(self, **kwargs):
+    def run_descriptor_case(self, **kwargs):
+        # Never name this helper `run`: that shadows unittest.TestCase.run, so the
+        # unittest runner's run(result) call raises TypeError and pytest skips
+        # setUp; no relay test body executes under either runner.
+        # TestCaseProtocolGuardTests below refuses that regression.
         env = dict(os.environ)
         env["COUNTER"] = str(self.counter)
         return relay.run_descriptor(
@@ -202,26 +209,26 @@ class RelayTests(unittest.TestCase):
         self.assertFalse(self.counter.exists())
 
     def test_requires_explicit_local_do_ack(self):
-        row = self.run()
+        row = self.run_descriptor_case()
         self.assertEqual(row["standing"], "REFUSED_AUTHORITY")
         self.assertFalse(row["executed"])
         self.assertFalse(self.counter.exists())
 
     def test_success_is_durable_and_duplicate_replays_without_process(self):
-        first = self.run(allow_do=True)
+        first = self.run_descriptor_case(allow_do=True)
         self.assertEqual(first["standing"], "ALIVE")
         self.assertTrue(first["executed"])
         self.assertEqual(self.counter.read_text(), "1")
 
-        second = self.run(allow_do=True)
+        second = self.run_descriptor_case(allow_do=True)
         self.assertEqual(second["reason"], "KNOWN_REPLAY")
         self.assertFalse(second["executed"])
         self.assertEqual(second["result_digest"], first["result_digest"])
         self.assertEqual(self.counter.read_text(), "1")
 
     def test_manifest_drift_refuses_before_process(self):
-        self.run(allow_do=True)
-        drift = self.run(allow_do=True, manifest_digest="manifest-2")
+        self.run_descriptor_case(allow_do=True)
+        drift = self.run_descriptor_case(allow_do=True, manifest_digest="manifest-2")
         self.assertEqual(drift["reason"], "EXECUTION_MANIFEST_DRIFT")
         self.assertFalse(drift["executed"])
         self.assertEqual(self.counter.read_text(), "1")
@@ -238,6 +245,134 @@ class RelayTests(unittest.TestCase):
         relay.save_state(self.state, state)
         loaded = relay.load_state(self.state, "manifest")
         self.assertEqual(loaded["seen_command_ids"], ["a", "b"])
+
+
+# TestCase protocol methods that a subclass must never redefine as helpers.
+# Redefining any of these replaces the runner's entry point (TestCase.__call__
+# -> TestCase.run -> setUp/test/tearDown), so tests appear to exist but never
+# execute their bodies.
+TESTCASE_PROTOCOL_METHODS = frozenset({"run", "__call__", "debug", "countTestCases", "id"})
+TESTCASE_BASE_NAMES = frozenset({"TestCase", "IsolatedAsyncioTestCase"})
+RELAY_TEST_FLOOR = 11
+
+
+def _base_name(node):
+    if isinstance(node, ast.Name):
+        return node.id
+    if isinstance(node, ast.Attribute):
+        return node.attr
+    return None
+
+
+def find_protocol_overrides(source, filename="<source>"):
+    """Return (class, method, line) for TestCase subclasses shadowing runner protocol.
+
+    TestCase ancestry is resolved transitively within the module, so a helper
+    base class derived from unittest.TestCase is covered as well.
+    """
+    tree = ast.parse(source, filename=filename)
+    classes = [node for node in ast.walk(tree) if isinstance(node, ast.ClassDef)]
+    testcase_names = set(TESTCASE_BASE_NAMES)
+    changed = True
+    while changed:
+        changed = False
+        for cls in classes:
+            if cls.name in testcase_names:
+                continue
+            if any(_base_name(base) in testcase_names for base in cls.bases):
+                testcase_names.add(cls.name)
+                changed = True
+    findings = []
+    for cls in classes:
+        if cls.name not in testcase_names or cls.name in TESTCASE_BASE_NAMES:
+            continue
+        for item in cls.body:
+            if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef)) and (
+                item.name in TESTCASE_PROTOCOL_METHODS
+            ):
+                findings.append((cls.name, item.name, item.lineno))
+            elif isinstance(item, ast.Assign):
+                for target in item.targets:
+                    if isinstance(target, ast.Name) and target.id in TESTCASE_PROTOCOL_METHODS:
+                        findings.append((cls.name, target.id, item.lineno))
+    return findings
+
+
+class TestCaseProtocolGuardTests(unittest.TestCase):
+    """Guards that the relay court suite actually executes (not merely loads)."""
+
+    def test_no_testcase_under_tests_shadows_runner_protocol(self):
+        findings = []
+        for path in sorted((ROOT / "tests").glob("*.py")):
+            for cls, method, line in find_protocol_overrides(path.read_text(), str(path)):
+                findings.append(f"{path.relative_to(ROOT)}:{line} {cls}.{method}")
+        self.assertEqual(findings, [], "TestCase subclasses shadow unittest protocol")
+
+    def test_relay_suite_loads_and_executes_every_declared_test(self):
+        declared = sorted(name for name in dir(RelayTests) if name.startswith("test"))
+        self.assertGreaterEqual(len(declared), RELAY_TEST_FLOOR)
+        suite = unittest.defaultTestLoader.loadTestsFromTestCase(RelayTests)
+        self.assertEqual(suite.countTestCases(), len(declared))
+        result = unittest.TestResult()
+        suite.run(result)
+        failures = [
+            f"{test.id()}: {trace.splitlines()[-1]}"
+            for test, trace in result.errors + result.failures
+        ]
+        self.assertEqual(failures, [])
+        self.assertEqual(result.testsRun, len(declared))
+        self.assertEqual(result.skipped, [])
+
+    def test_court_command_form_resolves_repo_tests_package_and_runs_relay_suite(self):
+        # Exact command form of remote-relay-live-leg.yml, executed as a real
+        # subprocess from the repository root with the default site path.
+        completed = subprocess.run(
+            [sys.executable, "-m", "unittest", "tests.test_xaas_relay.RelayTests"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=120,
+            check=False,
+        )
+        declared = len([name for name in dir(RelayTests) if name.startswith("test")])
+        self.assertEqual(completed.returncode, 0, completed.stderr[-2000:])
+        self.assertIn(f"Ran {declared} tests", completed.stderr)
+        self.assertTrue((ROOT / "tests" / "__init__.py").is_file())
+
+    def test_scanner_flags_run_helper_on_direct_testcase(self):
+        source = "import unittest\nclass T(unittest.TestCase):\n    def run(self, **kw):\n        pass\n"
+        self.assertEqual(find_protocol_overrides(source), [("T", "run", 3)])
+
+    def test_scanner_flags_call_async_and_assignment_forms(self):
+        source = (
+            "from unittest import TestCase, IsolatedAsyncioTestCase\n"
+            "class A(TestCase):\n    def __call__(self):\n        pass\n"
+            "class B(IsolatedAsyncioTestCase):\n    async def run(self):\n        pass\n"
+            "class C(TestCase):\n    debug = None\n"
+        )
+        self.assertEqual(
+            find_protocol_overrides(source),
+            [("A", "__call__", 3), ("B", "run", 6), ("C", "debug", 9)],
+        )
+
+    def test_scanner_follows_transitive_testcase_bases(self):
+        source = (
+            "import unittest\n"
+            "class Base(unittest.TestCase):\n    pass\n"
+            "class Leaf(Base):\n    def id(self):\n        return 'x'\n"
+        )
+        self.assertEqual(find_protocol_overrides(source), [("Leaf", "id", 5)])
+
+    def test_scanner_ignores_non_testcase_classes_and_module_functions(self):
+        source = (
+            "import unittest\n"
+            "def run(**kw):\n    pass\n"
+            "class Worker:\n    def run(self):\n        pass\n"
+            "class T(unittest.TestCase):\n"
+            "    def run_descriptor_case(self):\n        pass\n"
+            "    def test_x(self):\n        def run():\n            pass\n"
+        )
+        self.assertEqual(find_protocol_overrides(source), [])
 
 
 if __name__ == "__main__":
