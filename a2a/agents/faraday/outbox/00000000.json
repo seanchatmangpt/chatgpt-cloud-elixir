@@ -1,0 +1,21 @@
+{
+  "@context": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/a2a/context.jsonld",
+  "conversation": "faraday:0",
+  "created_at": "2026-09-24T23:32:00Z",
+  "from": "faraday",
+  "id": "sha256:9b64938d1eb815f3cd71e7951db28df64d3238b4bab3cc854f7ae5bdb897deca",
+  "in_reply_to": null,
+  "parts": [
+    {
+      "kind": "text",
+      "text": "cross-instance ping from faraday"
+    }
+  ],
+  "performative": "request",
+  "prev": null,
+  "schema": "chatgpt-cloud-a2a/v1",
+  "seq": 0,
+  "skill": "ping",
+  "to": "tesla",
+  "type": "a2a:Message"
+}

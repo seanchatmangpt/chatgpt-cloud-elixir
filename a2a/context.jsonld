@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "a2a": "https://github.com/seanchatmangpt/chatgpt-cloud-elixir/a2a#",
+    "id": "@id",
+    "type": "@type",
+    "agent": "a2a:agent",
+    "outbox_ref": "a2a:outboxRef",
+    "skills": {"@id": "a2a:hasSkill", "@container": "@set"},
+    "from": {"@id": "a2a:from", "@type": "@id"},
+    "to": {"@id": "a2a:to", "@type": "@id"},
+    "seq": "a2a:seq",
+    "prev": "a2a:prev",
+    "in_reply_to": {"@id": "a2a:inReplyTo", "@type": "@id"},
+    "conversation": "a2a:conversation",
+    "performative": {"@id": "a2a:performative", "@type": "@vocab"},
+    "skill": "a2a:skill",
+    "parts": {"@id": "a2a:parts", "@container": "@list"}
+  }
+}
