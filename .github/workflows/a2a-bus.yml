@@ -1,0 +1,34 @@
+name: A2A bus
+
+on:
+  push:
+    paths:
+      - ".github/workflows/a2a-bus.yml"
+      - "scripts/a2a.py"
+      - "scripts/bench_a2a.py"
+      - "scripts/project_memory_proxy.py"
+      - "tests/test_a2a*.py"
+  pull_request:
+    paths:
+      - ".github/workflows/a2a-bus.yml"
+      - "scripts/a2a.py"
+      - "scripts/bench_a2a.py"
+      - "scripts/project_memory_proxy.py"
+      - "tests/test_a2a*.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bus:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Protocol, transport, index and adversarial falsifiers
+        run: python3 -m unittest discover -s tests -p 'test_a2a*.py' -v
+
+      - name: Benchmark (git process counts are the regression bound)
+        run: python3 scripts/bench_a2a.py --messages 300 --out "$RUNNER_TEMP/a2a-bench.json"
