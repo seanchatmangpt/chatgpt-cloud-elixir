@@ -1,0 +1,40 @@
+{
+  "schema": "chatgpt-cloud.xaas-fabric-receipt/1",
+  "subject": "xaas-runtime-fabric",
+  "standing_scope": "transport",
+  "authority": "CONSTRUCT",
+  "standing": "ALIVE",
+  "reason": null,
+  "identity": {
+    "idempotency_key": "golden-001",
+    "run_id": "0b8f6c2e-3d7a-4f1e-9a55-1c2d3e4f5a6b",
+    "epoch_id": "7e1d2c3b-4a59-4687-b7a6-958473625140",
+    "exact_subject": "fabric:acme-dev:golden-001"
+  },
+  "consequence": {
+    "phase": "replayed",
+    "idempotent_replay": false,
+    "resumed": true,
+    "polls": 3,
+    "trace": [
+      {"step": "probe", "http_status": 200, "standing": "ALIVE", "reason": null},
+      {"step": "receipts", "http_status": 204, "standing": "ALIVE", "reason": "LONG_POLL_TIMEOUT"}
+    ]
+  },
+  "replay": "cd xaas-runtime/elixir && mix xaas_runtime.fabric --goal <goal> --idempotency-key golden-001",
+  "endpoint": "https://<redacted-host>/internal-api/execution/mcp",
+  "unicode": {
+    "z": "last ascii lowercase",
+    "Z": "upper sorts before lower",
+    "é": "café — naïve 日本語 🚀",
+    "_": "underscore",
+    "10": "digit key",
+    "2": "digit key sorts by code point, not number",
+    "𝔘": "astral key"
+  },
+  "escapes": "quote \" backslash \\ slash / tab \t newline \n cr \r bs \b ff \f nul \u0000 us \u001f del \u007f ls   ps  ",
+  "integers": [0, -1, 9007199254740991, -9007199254740991, 42],
+  "booleans": [true, false],
+  "empty": {"list": [], "map": {}, "string": ""},
+  "nested": [[{"b": 1, "a": [null, {"d": "x", "c": "y"}]}]]
+}

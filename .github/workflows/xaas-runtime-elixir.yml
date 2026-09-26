@@ -1,0 +1,65 @@
+name: XaaS Runtime Elixir Client
+
+on:
+  pull_request:
+    paths:
+      - "xaas-runtime/elixir/**"
+      - "scripts/xaas-runtime.py"
+      - "tests/test_xaas_runtime.py"
+      - ".github/workflows/xaas-runtime-elixir.yml"
+  push:
+    branches: [main, "feat/**"]
+    paths:
+      - "xaas-runtime/elixir/**"
+      - "scripts/xaas-runtime.py"
+      - "tests/test_xaas_runtime.py"
+      - ".github/workflows/xaas-runtime-elixir.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      MIX_ENV: test
+    defaults:
+      run:
+        working-directory: xaas-runtime/elixir
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+        with:
+          otp-version: "29.0"
+          elixir-version: "1.20.2"
+
+      - name: Install Hex and Rebar
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+
+      - name: Resolve locked dependency closure
+        run: mix deps.get --check-locked
+
+      - name: Format
+        run: mix format --check-formatted
+
+      - name: Strict compile
+        run: mix compile --warnings-as-errors
+
+      - name: Contract fixture tests (loopback Bandit, no mocks)
+        run: mix test
+
+      - name: Chicago discipline (no mocks over owned code)
+        run: |
+          if grep -rnE "unittest.mock|Mock\(|MagicMock|patch\(|monkeypatch|Mox|Mimic|:meck" test ../../tests/test_xaas_runtime.py; then
+            echo "mock usage found" >&2
+            exit 1
+          fi
+
+      - name: Python canonical_json golden parity
+        working-directory: .
+        run: python3 -m unittest -v tests/test_xaas_runtime.py

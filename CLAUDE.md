@@ -57,7 +57,10 @@ Each capsule's contract lives in its `capsule.toml`; version pins come from
 ### `manufacturing/` — ggen-driven capability closure
 
 RDF ontology (`ontology.ttl`) is the authoritative source of the external capability-source
-set (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit, swarmsh, swarmsh-v2).
+set: the manufacturing core (ggen, ggen-marketplace, ggen-create, ggen-legacy, ggen-spec-kit,
+swarmsh, swarmsh-v2) plus 51 more public seanchatmangpt ecosystem repos pinned at exact SHAs
+(ecosystem hubs, BEAM/Ash, process intelligence, gyms, verification). Re-pin with
+`python3 scripts/refresh-capability-sources.py --write --receipt <file>`. It never adds or drops sources.
 `versions.toml`'s `[bootstrap]` holds only the minimal ggen trust anchor needed to build the
 compiler; `manufacturing/queries/*.rq` + `manufacturing/templates/*.tera` project the full
 `capability-lock.json` and topology diagram via `ggen sync run`. Pipeline:
@@ -95,6 +98,27 @@ project `2`; raw GraphQL is rejected. Operations: `project.snapshot`, `memory.cr
 `BLOCKED[IRREDUCIBLE_AUTHORITY]`, never a faked success.
 
 ## Commands
+
+### Committed runtime (fastest path)
+
+```bash
+python3 scripts/ecosystem-up.py [--only a,b] [--verify] [--env-file FILE]   # offline install of runtime/lock.json
+source ~/.chatgpt-cloud/runtime/env.sh
+python3 scripts/runtime-admit.py <name> <archive> --version ... --source-repo ... --source-sha ... \
+  --builder ... --layout capsule|bin --smoke "..."                            # producer: admit a binary
+python3 scripts/refresh-capability-sources.py [--write --receipt FILE]      # drift check for all 63 sources
+python3 -m unittest tests/test_runtime_transport.py tests/test_autonomic_contract.py
+```
+
+### AGI Academy rail conformance
+
+```bash
+python3 scripts/verify-agi-conformance.py [--receipt FILE]   # 0 ALIVE / 3 PARTIAL_ALIVE / 2 REFUSED
+python3 scripts/check-advisories.py                          # OSV check of every versions.toml pin (network)
+python3 -m unittest tests/test_agi_rail_guards.py tests/test_agi_conformance.py
+```
+
+Mapping: `governance/agi-academy-conformance.toml`; failures -> guards: `governance/failure-ledger.toml`.
 
 ### Capsule build/verify (root)
 

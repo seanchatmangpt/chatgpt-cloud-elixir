@@ -16,7 +16,7 @@ Mix/Elixir-runtime capsules and service capsules, plus the `process-intelligence
 | `ash-full` | Maximal admitted Ash ecosystem: ash, spark, reactor, igniter, ash_postgres, ash_phoenix, ash_json_api, ash_authentication, ash_oban, ash_state_machine, ash_archival, ash_money, ash_cloak, ash_graphql, ash_ai | `postgresql_for_service_level_tests` (external) | `MIX_ENV=test mix compile --warnings-as-errors && MIX_ENV=test mix test` |
 | `postgres17` (kind = `service`) | Source-built portable PostgreSQL 17.11 with server helper scripts | none | `postgres --version`; `initdb`; `pg_ctl start`; real `CREATE`/`INSERT`/`SELECT`/`UPDATE`/`DELETE` SQL lifecycle; `pg_ctl stop` |
 | `process-intelligence` | beam-core (OTP 27.2.4 / Elixir 1.18.4 variant) + exact-SHA source checkouts of `ash_r2rml` and `ex4pm` + an offline in-memory process-lab harness | beam-core build path; external repos pinned by commit + tree SHA | Per subject: `ash_r2rml` → `mix compile`/`mix test test/fortune5/`; `ex4pm` → `mix verify`; bridge → `bash harness/verify.sh` |
-| `autonomic-manufacturing` | Real `ggen` binary + ggen-marketplace capital (DfCM pack, Vision 2030 package) + exact SwarmSH v1 source tree + SwarmSH v2 typed source + tarred source snapshots of ggen-create/ggen-legacy/ggen-spec-kit | Bootstrap ggen build (pinned Rust nightly) + `manufacturing/ontology.ttl`-driven capability lock; `authority_ceiling = CONSTRUCT_VERIFY` (no DO authority) | `bin/ggen --help`; `bash scripts/verify-autonomic-manufacturing.sh` |
+| `autonomic-manufacturing` | Real `ggen` binary + ggen-marketplace capital (DfCM pack, Vision 2030 package) + exact SwarmSH v1 source tree + SwarmSH v2 typed source + digest-bound `sources/<name>.tar.gz` snapshots of every other admitted `source-snapshot` member (58 sources at v26.9.23: ecosystem hubs, BEAM/Ash family, process intelligence, gyms, verification). `source-reference` members are bound by commit + tree identity only | Bootstrap ggen build (pinned Rust nightly) + `manufacturing/ontology.ttl`-driven capability lock; `authority_ceiling = CONSTRUCT_VERIFY` (no DO authority) | `bin/ggen --help`; `bash scripts/verify-autonomic-manufacturing.sh` |
 
 ## `capsule.toml` field reference
 
@@ -81,7 +81,7 @@ Used by: `postgres17`.
 | `authority_ceiling` | string | Hard authority cap, `"CONSTRUCT_VERIFY"` |
 | `source_project` | string | Source project directory this capsule manufactures from (`"manufacturing"`) |
 | `generated_contract` | string | Path to the generated capability-lock artifact this capsule consumes (`manufacturing/generated/capability-lock.json`) |
-| `required_sources` | [string] | External ecosystem sources this capsule must fetch (`ggen`, `ggen-marketplace`, `ggen-create`, `ggen-legacy`, `ggen-spec-kit`, `swarmsh`, `swarmsh-v2`) |
+| `required_sources` | [string] | Every admitted capability source label. Must equal the `skos:prefLabel` set in `manufacturing/ontology.ttl` (enforced by `scripts/verify-autonomic-contract.py`) and must always contain the manufacturing core (`ggen`, `ggen-marketplace`, `ggen-create`, `ggen-legacy`, `ggen-spec-kit`, `swarmsh`, `swarmsh-v2`) |
 | `required_host_commands` | [string] | Host commands that must be present (`bash`, `python3`, `git`, `tar`, `gzip`, `sha256sum`) |
 | `acceptance` | [string] | `["bin/ggen --help", "bash scripts/verify-autonomic-manufacturing.sh"]` |
 | `standing` | string | Self-declared default field in the file (`"UNKNOWN"`) — not the runtime-observed standing, which is computed by the verify script |

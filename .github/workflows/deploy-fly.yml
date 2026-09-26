@@ -39,6 +39,7 @@ jobs:
           echo "$HOME/.fly/bin" >> "$GITHUB_PATH"
 
       - name: Verify deployment authority
+        id: authority
         run: |
           test -n "$FLY_API_TOKEN" || {
             echo "BLOCKED: FLY_API_TOKEN secret is not configured" >&2
@@ -46,6 +47,7 @@ jobs:
           }
 
       - name: Deploy exact GitHub subject
+        id: deploy
         working-directory: control-plane
         run: |
           APP="${INPUT_APP:-}"
@@ -53,8 +55,63 @@ jobs:
           flyctl deploy --remote-only --app "$APP"
 
       - name: Verify deployed health
+        id: health
         run: |
           APP="${INPUT_APP:-}"
           if [[ -z "$APP" ]]; then APP="${CONFIGURED_APP:-chatgpt-cloud-process-intelligence}"; fi
           curl --fail --silent --show-error --retry 8 --retry-all-errors \
-            "https://${APP}.fly.dev/healthz" | python3 -m json.tool
+            "https://${APP}.fly.dev/healthz" -o "$RUNNER_TEMP/healthz.json"
+          python3 -m json.tool "$RUNNER_TEMP/healthz.json"
+
+      # Academy invariant zero_unreceipted_actuation: every deploy attempt, including a
+      # blocked or failed one, leaves a replayable receipt bound to the exact subject.
+      - name: Emit deployment receipt
+        if: always()
+        env:
+          AUTHORITY: ${{ steps.authority.outcome }}
+          DEPLOY: ${{ steps.deploy.outcome }}
+          HEALTH: ${{ steps.health.outcome }}
+          SUBJECT_SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}
+          TRIGGER: ${{ github.event_name }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          APP="${INPUT_APP:-}"
+          if [[ -z "$APP" ]]; then APP="${CONFIGURED_APP:-chatgpt-cloud-process-intelligence}"; fi
+          export APP
+          python3 - <<'PY'
+          import datetime, hashlib, json, os, pathlib
+          health = pathlib.Path(os.environ["RUNNER_TEMP"], "healthz.json")
+          outcomes = {k: os.environ.get(k.upper()) or "skipped" for k in ("authority", "deploy", "health")}
+          if outcomes["authority"] != "success":
+              standing = "BLOCKED"
+          elif outcomes["deploy"] == "success" and outcomes["health"] == "success":
+              standing = "ALIVE"
+          else:
+              standing = "BUILD_BROKEN"
+          receipt = {
+              "schema": "chatgpt-cloud.deploy-receipt.v1",
+              "actuation": "fly.deploy",
+              "subject": {"repository": os.environ["GITHUB_REPOSITORY"], "sha": os.environ["SUBJECT_SHA"], "app": os.environ["APP"]},
+              "trigger": os.environ["TRIGGER"],
+              "actor": os.environ["ACTOR"],
+              "authority_gate": "environment:production + FLY_API_TOKEN",
+              "step_outcomes": outcomes,
+              "healthz_sha256": hashlib.sha256(health.read_bytes()).hexdigest() if health.exists() else None,
+              "run": os.environ["RUN_URL"],
+              "observed_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "standing": standing,
+              "replay": "workflow_dispatch deploy-fly.yml at subject.sha",
+          }
+          pathlib.Path("deploy-receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+          print(json.dumps(receipt, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload deployment receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: deploy-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          path: deploy-receipt.json
+          if-no-files-found: error
+          retention-days: 90

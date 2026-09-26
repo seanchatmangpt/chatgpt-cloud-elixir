@@ -1,0 +1,18 @@
+# Byte-identical reuse (Academy Module 4: reuse -> compose -> extend -> invent) of the
+# Chatman Ecosystem AGI Academy contract and its verifier. Never edit these files here.
+# Re-vendor from the pinned source and update the digests together;
+# scripts/verify-agi-conformance.py refuses any digest drift.
+schema = "chatgpt-cloud.vendored-source.v1"
+source_repository = "seanchatmangpt/chatman-ecosystem"
+source_sha = "c59596f5506e7a00ca4ed6b909ebf6d6659b74c1"
+academy_release = "v26.9.8"
+
+[[file]]
+path = "agi-academy.toml"
+source_path = "catalog/agi-academy.toml"
+sha256 = "0dd339d8f91bce2b39b984b63cb20f30fc60ba58bac880d6cf1bdea3725ab94e"
+
+[[file]]
+path = "verify_agi_academy.py"
+source_path = "scripts/verify_agi_academy.py"
+sha256 = "30a5ac6b608184b6e9d81baa3c04b3e8a06630cec3680d2b9a3c869681952e27"

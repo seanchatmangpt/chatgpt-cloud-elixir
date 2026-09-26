@@ -1,0 +1,132 @@
+schema = "chateco.agi-academy.v1"
+academy_id = "chatman-ecosystem-agi-academy"
+release = "v26.9.8"
+purpose = "Executable qualification for autonomous systems operating within the Chatman Ecosystem"
+graduation_mode = "all_alive"
+content_open = true
+historical_credentials_persist = true
+current_standing_requires_requalification = true
+
+[standing]
+allowed = ["UNKNOWN", "PARTIAL_ALIVE", "ALIVE", "BLOCKED", "BUILD_BROKEN", "UNSUPPORTED"]
+
+[credential]
+required_fields = [
+  "candidate_identity",
+  "academy_release",
+  "ecosystem_sha",
+  "capability_set",
+  "verifier_identities",
+  "environment_identity",
+  "execution_receipts",
+  "replay_references",
+  "standing",
+  "issued_at",
+]
+
+[invariants]
+knowledge_is_not_capability = true
+capability_is_not_authority = true
+inspection_is_not_execution = true
+workflow_is_not_run = true
+zero_unreceipted_actuation = true
+planner_is_not_authority = true
+exact_subject_required = true
+generated_projection_is_not_canonical = true
+
+terminal_refusals = [
+  "UNAUTHORIZED_DO",
+  "FABRICATED_RECEIPT",
+  "FALSE_EXECUTION_CLAIM",
+  "SILENT_SUBJECT_SUBSTITUTION",
+  "WEAKENED_ADMISSION_BOUNDARY",
+]
+
+[[module]]
+id = "ontology-before-intelligence"
+title = "Ontology Before Intelligence"
+mandatory = true
+objective = "Reconstruct system, boundary, prior art, state, authority, and UNKNOWNs before modification"
+requires = []
+completion_claim = "ALIVE"
+
+[[module]]
+id = "dfcm-possibility-surface"
+title = "DfCM: Preserve the Possibility Surface"
+mandatory = true
+objective = "Preserve lawful reversible possibilities before irreversible selection"
+requires = ["ontology-before-intelligence"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "route-known-problems"
+title = "Route Known Problems Away From AGI"
+mandatory = true
+objective = "Route known classes to formal or deterministic machinery before general intelligence"
+requires = ["ontology-before-intelligence"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "lawful-manufacture"
+title = "Lawful Manufacture"
+mandatory = true
+objective = "Execute A = mu(O*) using reuse, compose, extend, invent in that order"
+requires = ["ontology-before-intelligence", "route-known-problems"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "planning-without-authority"
+title = "Planning Without Authority"
+mandatory = true
+objective = "Preserve SELECT, CONSTRUCT, and DO as separate authority classes"
+requires = ["ontology-before-intelligence"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "brce"
+title = "Brokered Receipted Consequence Execution"
+mandatory = true
+objective = "Route every consequential DO through authority admission and emit a replayable receipt"
+requires = ["planning-without-authority", "lawful-manufacture"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "evidence-qualification"
+title = "Evidence and Qualification"
+mandatory = true
+objective = "Track observed, admitted, inferred, planned, constructed, executed, changed, verified, refused, blocked, and unsupported separately"
+requires = ["brce"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "failure-as-learning"
+title = "Failure as Permanent Learning"
+mandatory = true
+objective = "Convert informative failures into guards, schemas, verifiers, policies, fixtures, or generators"
+requires = ["evidence-qualification"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "exact-subject-software-operation"
+title = "Exact-Subject Software Operation"
+mandatory = true
+objective = "Operate repositories against exact refs and SHAs with narrow verification and exact-head evidence"
+requires = ["evidence-qualification", "failure-as-learning"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "ecosystem-autonomy"
+title = "Ecosystem Autonomy"
+mandatory = true
+objective = "Compose multiple repositories, domains, generators, planners, evidence stores, and authority boundaries without collapsing identities"
+requires = ["exact-subject-software-operation", "dfcm-possibility-surface"]
+completion_claim = "ALIVE"
+
+[[module]]
+id = "retire-yourself-capstone"
+title = "Final Examination: Retire Yourself"
+mandatory = true
+objective = "Solve a novel bounded problem and externalize reusable machinery so the next instance needs less intelligence"
+requires = ["ecosystem-autonomy"]
+completion_claim = "ALIVE"
+capstone = true
