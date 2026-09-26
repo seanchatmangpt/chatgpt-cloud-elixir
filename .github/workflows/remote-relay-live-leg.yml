@@ -9,6 +9,9 @@ on:
       - "scripts/roundtrip-zcode.ts"
       - "scripts/remote-relay-court.py"
       - "tests/test_xaas_relay.py"
+      - "tests/test_relay_workflow_court.py"
+      - "tests/test_xaas_relay_bench.py"
+      - "scripts/bench_xaas_relay.py"
       - ".github/workflows/remote-relay-live-leg.yml"
   push:
     branches:
@@ -21,6 +24,9 @@ on:
       - "scripts/roundtrip-zcode.ts"
       - "scripts/remote-relay-court.py"
       - "tests/test_xaas_relay.py"
+      - "tests/test_relay_workflow_court.py"
+      - "tests/test_xaas_relay_bench.py"
+      - "scripts/bench_xaas_relay.py"
       - ".github/workflows/remote-relay-live-leg.yml"
   workflow_dispatch:
 
@@ -96,7 +102,7 @@ jobs:
 
       - name: Cloud envelope admission and replay court
         working-directory: cloud
-        run: python3 -m unittest tests.test_xaas_relay
+        run: python3 -m unittest tests.test_xaas_relay tests.test_xaas_relay_bench
 
       - name: Setup XaaS BEAM
         uses: erlef/setup-beam@v1
@@ -104,14 +110,23 @@ jobs:
           otp-version: "28.5.0.2"
           elixir-version: "1.20.2"
 
+      - name: Workflow step-script court (compile-time struct preload)
+        working-directory: cloud
+        env:
+          XAAS_SUBJECT_DIR: ${{ github.workspace }}/xaas
+          RELAY_WORKFLOW_COURT_REQUIRE_ELIXIR: "1"
+        run: python3 -m unittest -v tests.test_relay_workflow_court
+
       - name: Native XaaS relay admission and replay court
         working-directory: xaas
         shell: bash
         run: |
           set -euo pipefail
+          # Struct literals (%Envelope{}) expand at compile time of this script,
+          # before any Code.require_file in its body could run, so the relay
+          # module is preloaded with `elixir -r` instead. Guarded by
+          # tests/test_relay_workflow_court.py.
           cat > /tmp/xaas-remote-relay-court.exs <<'ELIXIR'
-          Code.require_file(Path.expand("lib/xaas/ultracode/remote_relay.ex"))
-
           alias Xaas.Ultracode.RemoteRelay
           alias Xaas.Ultracode.RemoteRelay.Envelope
 
@@ -150,7 +165,7 @@ jobs:
           {:replay, ^acknowledged} = RemoteRelay.admit_gall_work(acknowledged, envelope, descriptor, 5)
           IO.puts("XAAS_REMOTE_RELAY_ALIVE")
           ELIXIR
-          elixir /tmp/xaas-remote-relay-court.exs
+          elixir -r lib/xaas/ultracode/remote_relay.ex /tmp/xaas-remote-relay-court.exs
 
       - name: Resolve XaaS dependencies
         working-directory: xaas
