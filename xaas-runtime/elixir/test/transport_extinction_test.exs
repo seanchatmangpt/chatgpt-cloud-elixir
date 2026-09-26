@@ -349,6 +349,19 @@ defmodule ChatGPTCloud.Xaas.TransportExtinctionTest do
       assert transport in [Http, InProc]
     end
 
+    # A substituted disposable provider survives both transports without changing
+    # WorkOrder identity or being overwritten by the client fabric.
+    custom = %{
+      "goal" => "provider substitution",
+      "idempotency_key" => "te-105-dspy-wasm-s089",
+      "provider" => "dspy-wasm"
+    }
+
+    {_custom_state, _custom_receipt} = Runner.run(InProc, t, custom, opts(ctx, mount(srv)))
+    custom_journal = ctx.tmp_dir |> Path.join(custom["idempotency_key"] <> ".json") |> File.read!() |> JSON.decode!()
+    assert custom_journal["request"]["provider"] == "dspy-wasm"
+    refute Map.has_key?(custom_journal["request"], "transport")
+
     # The DO verb is refused by authority ceiling on BOTH paths.
     assert {:ok, 403, %{"reason" => "authority_ceiling:actuate"}} =
              InProc.request(:post, "/internal-api/fabric/actuate", %{}, target: t)
