@@ -1,0 +1,6 @@
+@prefix cce: <https://seanchatman.github.io/chatgpt-cloud-elixir/paas#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+cce:CancellationReceiptShape a sh:NodeShape ; sh:targetClass cce:RuntimeInvocation ; dcterms:description "Require cancellation outcome receipt" ; cce:projectNumber 2 ; cce:ocelPath "ggen/ecosystem/ocel/current" ; cce:acceptanceEdge "cancellation_receipt" ; cce:semanticFingerprint "sha256:0b33c58e4060c6502527a11304d10946c37569d90c7206d23e4b1e73e1951f78" ; cce:ambientExecutionAuthority false ; sh:property [ sh:path cce:cancellationReceipt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ; sh:severity sh:Violation ; sh:message "Require cancellation outcome receipt" ] .
