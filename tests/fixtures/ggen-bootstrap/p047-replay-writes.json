@@ -1,0 +1,17 @@
+{
+  "id": "P047",
+  "edge": "replay-writes",
+  "semantic_fingerprint": "e8ec77dec672e144",
+  "rule": {
+    "kind": "zero",
+    "failure_standing": "BUILD_BROKEN_REPLAY_NOT_FIXED_POINT"
+  },
+  "probe": {
+    "value": 1,
+    "expected_standing": "BUILD_BROKEN_REPLAY_NOT_FIXED_POINT"
+  },
+  "control": {
+    "value": 0,
+    "expected_standing": "ALIVE"
+  }
+}

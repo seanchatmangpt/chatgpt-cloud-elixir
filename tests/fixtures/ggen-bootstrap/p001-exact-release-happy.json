@@ -1,0 +1,18 @@
+{
+  "id": "P001",
+  "edge": "exact-release-happy",
+  "semantic_fingerprint": "f9eb234e886da204",
+  "rule": {
+    "kind": "exact",
+    "value": "v26.8.28",
+    "failure_standing": "REFUSED_RELEASE_IDENTITY"
+  },
+  "probe": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  },
+  "control": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}

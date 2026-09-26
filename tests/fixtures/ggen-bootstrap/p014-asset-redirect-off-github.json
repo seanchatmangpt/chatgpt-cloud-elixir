@@ -1,0 +1,18 @@
+{
+  "id": "P014",
+  "edge": "asset-redirect-off-github",
+  "semantic_fingerprint": "ae09bead0edb35c9",
+  "rule": {
+    "kind": "https_prefix",
+    "prefix": "https://github.com/",
+    "failure_standing": "REFUSED_REDIRECT_ORIGIN"
+  },
+  "probe": {
+    "value": "https://example.com/a",
+    "expected_standing": "REFUSED_REDIRECT_ORIGIN"
+  },
+  "control": {
+    "value": "https://github.com/a",
+    "expected_standing": "ALIVE"
+  }
+}

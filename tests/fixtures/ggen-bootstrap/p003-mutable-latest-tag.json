@@ -1,0 +1,22 @@
+{
+  "id": "P003",
+  "edge": "mutable-latest-tag",
+  "semantic_fingerprint": "e87f56573a44c7c3",
+  "rule": {
+    "kind": "not_in",
+    "values": [
+      "latest",
+      "main",
+      "master"
+    ],
+    "failure_standing": "REFUSED_MUTABLE_GGEN_IDENTITY"
+  },
+  "probe": {
+    "value": "latest",
+    "expected_standing": "REFUSED_MUTABLE_GGEN_IDENTITY"
+  },
+  "control": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}

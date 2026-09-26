@@ -1,0 +1,18 @@
+{
+  "id": "P004",
+  "edge": "malformed-release-tag",
+  "semantic_fingerprint": "2d36f061462afb2b",
+  "rule": {
+    "kind": "regex",
+    "pattern": "v[0-9][0-9A-Za-z.+-]*",
+    "failure_standing": "REFUSED_RELEASE_TAG_FORMAT"
+  },
+  "probe": {
+    "value": "26.8.28",
+    "expected_standing": "REFUSED_RELEASE_TAG_FORMAT"
+  },
+  "control": {
+    "value": "v26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}

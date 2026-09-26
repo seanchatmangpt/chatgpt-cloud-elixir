@@ -1,0 +1,18 @@
+{
+  "id": "P013",
+  "edge": "asset-wrong-name",
+  "semantic_fingerprint": "c3df2dfb92414191",
+  "rule": {
+    "kind": "exact",
+    "value": "ggen-x86_64-unknown-linux-gnu.tar.gz",
+    "failure_standing": "REFUSED_ASSET_NAME"
+  },
+  "probe": {
+    "value": "ggen.tar.gz",
+    "expected_standing": "REFUSED_ASSET_NAME"
+  },
+  "control": {
+    "value": "ggen-x86_64-unknown-linux-gnu.tar.gz",
+    "expected_standing": "ALIVE"
+  }
+}

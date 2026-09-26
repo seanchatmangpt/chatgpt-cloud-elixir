@@ -1,0 +1,18 @@
+{
+  "id": "P031",
+  "edge": "manifest-missing",
+  "semantic_fingerprint": "4894e29fe8bb5431",
+  "rule": {
+    "kind": "exact",
+    "value": true,
+    "failure_standing": "REFUSED_MANIFEST_MISSING"
+  },
+  "probe": {
+    "value": false,
+    "expected_standing": "REFUSED_MANIFEST_MISSING"
+  },
+  "control": {
+    "value": true,
+    "expected_standing": "ALIVE"
+  }
+}

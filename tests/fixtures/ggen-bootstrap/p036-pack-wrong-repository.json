@@ -1,0 +1,18 @@
+{
+  "id": "P036",
+  "edge": "pack-wrong-repository",
+  "semantic_fingerprint": "88534bd0130965f8",
+  "rule": {
+    "kind": "exact",
+    "value": "https://github.com/seanchatmangpt/ggen-marketplace.git",
+    "failure_standing": "REFUSED_PACK_REPOSITORY"
+  },
+  "probe": {
+    "value": "https://github.com/other/packs.git",
+    "expected_standing": "REFUSED_PACK_REPOSITORY"
+  },
+  "control": {
+    "value": "https://github.com/seanchatmangpt/ggen-marketplace.git",
+    "expected_standing": "ALIVE"
+  }
+}

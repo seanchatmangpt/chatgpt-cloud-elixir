@@ -1,0 +1,18 @@
+{
+  "id": "P025",
+  "edge": "binary-version-mismatch",
+  "semantic_fingerprint": "3ca0e7338d2d2b17",
+  "rule": {
+    "kind": "exact",
+    "value": "ggen 26.8.28",
+    "failure_standing": "BUILD_BROKEN_GGEN_VERSION_MISMATCH"
+  },
+  "probe": {
+    "value": "ggen 26.8.27",
+    "expected_standing": "BUILD_BROKEN_GGEN_VERSION_MISMATCH"
+  },
+  "control": {
+    "value": "ggen 26.8.28",
+    "expected_standing": "ALIVE"
+  }
+}

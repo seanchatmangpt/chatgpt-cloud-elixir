@@ -1,0 +1,18 @@
+{
+  "id": "P049",
+  "edge": "runner-preexec",
+  "semantic_fingerprint": "3e4533b194733565",
+  "rule": {
+    "kind": "min_int",
+    "value": 1,
+    "failure_standing": "BUILD_BROKEN_HOSTED_WORKFLOW_PREEXEC"
+  },
+  "probe": {
+    "value": 0,
+    "expected_standing": "BUILD_BROKEN_HOSTED_WORKFLOW_PREEXEC"
+  },
+  "control": {
+    "value": 1,
+    "expected_standing": "ALIVE"
+  }
+}

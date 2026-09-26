@@ -1,0 +1,18 @@
+{
+  "id": "P027",
+  "edge": "binary-hash-mismatch",
+  "semantic_fingerprint": "46c19091e066308b",
+  "rule": {
+    "kind": "exact",
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "failure_standing": "BUILD_BROKEN_BINARY_DIGEST_MISMATCH"
+  },
+  "probe": {
+    "value": "1111111111111111111111111111111111111111111111111111111111111111",
+    "expected_standing": "BUILD_BROKEN_BINARY_DIGEST_MISMATCH"
+  },
+  "control": {
+    "value": "ccb9fe78ef0c84d8b240b45beb6e73f47e2c930d5db3efcf9a0e58dfe071d313",
+    "expected_standing": "ALIVE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "P015",
+  "edge": "asset-partial-bytes",
+  "semantic_fingerprint": "3f989a31cdf43eef",
+  "rule": {
+    "kind": "min_int",
+    "value": 11581354,
+    "failure_standing": "BLOCKED_PARTIAL_TRANSPORT"
+  },
+  "probe": {
+    "value": 1024,
+    "expected_standing": "BLOCKED_PARTIAL_TRANSPORT"
+  },
+  "control": {
+    "value": 11581354,
+    "expected_standing": "ALIVE"
+  }
+}

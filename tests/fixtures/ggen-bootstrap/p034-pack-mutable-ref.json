@@ -1,0 +1,22 @@
+{
+  "id": "P034",
+  "edge": "pack-mutable-ref",
+  "semantic_fingerprint": "f73213cc4160c200",
+  "rule": {
+    "kind": "not_in",
+    "values": [
+      "main",
+      "latest",
+      "master"
+    ],
+    "failure_standing": "REFUSED_PACK_MUTABLE_IDENTITY"
+  },
+  "probe": {
+    "value": "main",
+    "expected_standing": "REFUSED_PACK_MUTABLE_IDENTITY"
+  },
+  "control": {
+    "value": "04a7007e80be03171abb9fe31d1d732dbe0edfa4",
+    "expected_standing": "ALIVE"
+  }
+}

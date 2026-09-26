@@ -1,0 +1,21 @@
+{
+  "id": "P050",
+  "edge": "unsupported-architecture",
+  "semantic_fingerprint": "119431bdf510634f",
+  "rule": {
+    "kind": "allowed",
+    "values": [
+      "x86_64-unknown-linux-gnu",
+      "aarch64-unknown-linux-gnu"
+    ],
+    "failure_standing": "UNSUPPORTED_ARCHITECTURE"
+  },
+  "probe": {
+    "value": "riscv64-unknown-linux-gnu",
+    "expected_standing": "UNSUPPORTED_ARCHITECTURE"
+  },
+  "control": {
+    "value": "x86_64-unknown-linux-gnu",
+    "expected_standing": "ALIVE"
+  }
+}

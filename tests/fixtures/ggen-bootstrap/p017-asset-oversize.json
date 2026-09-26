@@ -1,0 +1,18 @@
+{
+  "id": "P017",
+  "edge": "asset-oversize",
+  "semantic_fingerprint": "72dc0e5f8e38652f",
+  "rule": {
+    "kind": "max_int",
+    "value": 11581354,
+    "failure_standing": "REFUSED_ASSET_SIZE"
+  },
+  "probe": {
+    "value": 11581355,
+    "expected_standing": "REFUSED_ASSET_SIZE"
+  },
+  "control": {
+    "value": 11581354,
+    "expected_standing": "ALIVE"
+  }
+}
