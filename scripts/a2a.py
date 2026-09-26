@@ -123,9 +123,31 @@ def check_agent_id(agent: str) -> str:
 
 
 def check_ref(ref: str) -> str:
-    if not isinstance(ref, str) or not REF_NAME.match(ref) or ".." in ref or ref.endswith((".lock", "/")):
+    """Refuse anything ``git check-ref-format`` would refuse (plus ``..``): a ref named by
+    untrusted input (the index) must never reach a refspec git rejects, which would fail
+    the whole fetch and with it every peer's view."""
+    if (not isinstance(ref, str) or not REF_NAME.match(ref) or ".." in ref or "//" in ref
+            or ref.endswith((".", "/"))
+            or any(c.startswith(".") or c.endswith(".lock") for c in ref.split("/"))):
         raise A2AError("REFUSED_MALFORMED", f"invalid ref {ref!r}")
     return ref
+
+
+def is_glob(ref: str) -> bool:
+    return any(ch in ref for ch in "*?[")
+
+
+def strict_json(raw: bytes) -> Any:
+    """Parse JSON, refusing duplicate object keys: last-key-wins here and first-key-wins
+    in another reader would make one sealed message mean two things."""
+    def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
+        out: dict[str, Any] = {}
+        for key, value in items:
+            if key in out:
+                raise ValueError(f"duplicate key {key!r}")
+            out[key] = value
+        return out
+    return json.loads(raw, object_pairs_hook=pairs)
 
 
 # --------------------------------------------------------------------------- #
@@ -136,6 +158,10 @@ class Git:
     def __init__(self, repo: Path, remote: str):
         self.repo = repo
         self.remote = remote
+        # Commits and blobs are immutable: cache listings per commit and bytes per blob
+        # so a poll costs O(new objects), not O(every message on the bus).
+        self._trees: dict[str, dict[str, str]] = {}
+        self._blobs: dict[str, bytes] = {}
 
     def run(self, *args: str, stdin: bytes | None = None, env: dict[str, str] | None = None,
             check: bool = True) -> subprocess.CompletedProcess[bytes]:
@@ -161,9 +187,22 @@ class Git:
         return line.split()[0] if line else None
 
     def fetch_peers(self, globs: list[str]) -> None:
-        specs = [f"+refs/heads/{g}:{PEER_NS}{g}" for g in globs]
-        # --prune keeps deleted branches from resurrecting stale agents.
-        self.run("fetch", "--quiet", "--prune", "--no-tags", self.remote, *specs)
+        exact = [g for g in globs if not is_glob(g)]
+        live: set[str] = set()
+        if exact:
+            # An exact refspec for a missing branch fails the whole fetch; ask first.
+            for line in self.out("ls-remote", "--heads", self.remote, *[f"refs/heads/{g}" for g in exact]).splitlines():
+                live.add(line.split("\t", 1)[1][len("refs/heads/"):])
+        wanted = [g for g in globs if is_glob(g) or g in live]
+        # Replace the view, like the API transport: drop refs that left the listen set
+        # or whose branch is gone, so a deleted agent cannot stay ALIVE on a stale tip.
+        for name in self.peer_refs():
+            if name not in live and not any(is_glob(g) and fnmatch.fnmatchcase(name, g) for g in globs):
+                self.run("update-ref", "-d", f"{PEER_NS}{name}")
+        if wanted:
+            specs = [f"+refs/heads/{g}:{PEER_NS}{g}" for g in wanted]
+            # --prune keeps deleted branches from resurrecting stale agents.
+            self.run("fetch", "--quiet", "--prune", "--no-tags", self.remote, *specs)
 
     def peer_refs(self) -> dict[str, str]:
         refs: dict[str, str] = {}
@@ -172,17 +211,56 @@ class Git:
             refs[name[len(PEER_NS):]] = sha
         return refs
 
+    def _tree(self, commit: str, directory: str) -> dict[str, str]:
+        key = f"{commit}:{directory}"
+        if key not in self._trees:
+            proc = self.run("ls-tree", "-r", "-z", commit, "--", directory or ".", check=False)
+            entries: dict[str, str] = {}
+            if proc.returncode == 0:
+                for row in proc.stdout.decode().split("\0"):
+                    if row:
+                        meta, name = row.split("\t", 1)
+                        _mode, kind, sha = meta.split()
+                        if kind == "blob":
+                            entries[name] = sha
+            self._trees[key] = entries
+        return self._trees[key]
+
+    @staticmethod
+    def _dir(path: str) -> str:
+        return path[:path.rfind("/") + 1]
+
     def ls(self, commit: str, prefix: str) -> list[str]:
         """Paths under ``commit`` starting with ``prefix`` (a string prefix, as on the API)."""
-        directory = prefix[:prefix.rfind("/") + 1]
-        proc = self.run("ls-tree", "-r", "--name-only", commit, "--", directory or ".", check=False)
-        if proc.returncode != 0:
-            return []
-        return [p for p in proc.stdout.decode().splitlines() if p.startswith(prefix)]
+        return sorted(p for p in self._tree(commit, self._dir(prefix)) if p.startswith(prefix))
+
+    def prefetch(self, commit: str, paths: list[str]) -> None:
+        """Load every uncached blob among ``paths`` with one ``cat-file --batch``."""
+        want: list[str] = []
+        for path in paths:
+            sha = self._tree(commit, self._dir(path)).get(path)
+            if sha and sha not in self._blobs and sha not in want:
+                want.append(sha)
+        if not want:
+            return
+        out = self.run("cat-file", "--batch", stdin=("\n".join(want) + "\n").encode()).stdout
+        pos = 0
+        for sha in want:
+            end = out.index(b"\n", pos)
+            header = out[pos:end].split()
+            if len(header) != 3 or header[1] != b"blob":
+                raise A2AError("BLOCKED", f"cat-file --batch: unexpected header {out[pos:end]!r}")
+            size = int(header[2])
+            self._blobs[sha] = out[end + 1:end + 1 + size]
+            pos = end + 1 + size + 1
 
     def show(self, commit: str, path: str) -> bytes | None:
-        proc = self.run("cat-file", "blob", f"{commit}:{path}", check=False)
-        return proc.stdout if proc.returncode == 0 else None
+        sha = self._tree(commit, self._dir(path)).get(path)
+        if sha is None:
+            return None
+        if sha not in self._blobs:
+            self.prefetch(commit, [path])
+        return self._blobs[sha]
 
     def commit_files(self, base: str, files: dict[str, bytes], subject: str, agent: str) -> str:
         with tempfile.TemporaryDirectory() as tmp:
@@ -403,10 +481,49 @@ def read_json(git: Git, commit: str, path: str) -> dict[str, Any] | None:
     if raw is None or len(raw) > MAX_MESSAGE_BYTES:
         return None
     try:
-        value = json.loads(raw)
+        value = strict_json(raw)
     except ValueError:
         return None
     return value if isinstance(value, dict) else None
+
+
+MESSAGE_ID = re.compile(r"^sha256:[0-9a-f]{64}$")
+
+
+def message_shape_problem(msg: dict[str, Any]) -> str | None:
+    """The fields every reader dereferences must have the types ``send`` writes, so a
+    correctly sealed but malformed message refuses its author instead of crashing readers."""
+    to = msg.get("to")
+    if not isinstance(to, str) or (to != "*" and not AGENT_ID.match(to)):
+        return "to is not an agent id or '*'"
+    if msg.get("skill") is not None and not isinstance(msg.get("skill"), str):
+        return "skill is not a string"
+    if not isinstance(msg.get("conversation"), str):
+        return "conversation is not a string"
+    reply_to = msg.get("in_reply_to")
+    if reply_to is not None and (not isinstance(reply_to, str) or not MESSAGE_ID.match(reply_to)):
+        return "in_reply_to is not a message id"
+    if msg.get("prev") is not None and not MESSAGE_ID.match(str(msg.get("prev"))):
+        return "prev is not a message id"
+    parts = msg.get("parts")
+    if not isinstance(parts, list) or not all(isinstance(p, dict) for p in parts):
+        return "parts is not a list of objects"
+    return None
+
+
+def card_skills(card: Any) -> list[str]:
+    """Skill ids a card offers; ``[]`` for a card whose skills are malformed."""
+    skills = card.get("skills") if isinstance(card, dict) else None
+    if not isinstance(skills, list) or not all(isinstance(s, dict) and isinstance(s.get("id"), str) for s in skills):
+        return []
+    return [s["id"] for s in skills]
+
+
+def card_problem(card: dict[str, Any]) -> str | None:
+    skills = card.get("skills", [])
+    if not isinstance(skills, list) or not all(isinstance(s, dict) and isinstance(s.get("id"), str) for s in skills):
+        return "card skills are not a list of {id}"
+    return None
 
 
 def verify_chain(agent: str, messages: list[dict[str, Any]]) -> None:
@@ -414,10 +531,16 @@ def verify_chain(agent: str, messages: list[dict[str, Any]]) -> None:
     for expected_seq, msg in enumerate(messages):
         if msg.get("schema") != SCHEMA or msg.get("from") != agent:
             raise A2AError("REFUSED_TAMPERED", f"{agent}#{expected_seq}: wrong schema/sender")
-        if msg.get("seq") != expected_seq or msg.get("prev") != prev:
+        seq = msg.get("seq")
+        if type(seq) is not int:  # True == 1 and 1.0 == 1 in Python, not in other readers
+            raise A2AError("REFUSED_MALFORMED", f"{agent}#{expected_seq}: seq is not an integer")
+        if seq != expected_seq or msg.get("prev") != prev:
             raise A2AError("REFUSED_TAMPERED", f"{agent}#{expected_seq}: broken seq/prev chain")
         if msg.get("performative") not in PERFORMATIVES:
             raise A2AError("REFUSED_MALFORMED", f"{agent}#{expected_seq}: unknown performative")
+        problem = message_shape_problem(msg)
+        if problem:
+            raise A2AError("REFUSED_MALFORMED", f"{agent}#{expected_seq}: {problem}")
         if seal(msg)["id"] != msg.get("id"):
             raise A2AError("REFUSED_TAMPERED", f"{agent}#{expected_seq}: content digest mismatch")
         prev = msg["id"]
@@ -427,6 +550,9 @@ def load_agent(git: Git, commit: str, agent: str) -> tuple[dict[str, Any] | None
     card = read_json(git, commit, card_path(agent))
     prefix = f"{ROOT}/{agent}/outbox/"
     names = sorted(p for p in git.ls(commit, prefix) if re.fullmatch(re.escape(prefix) + r"\d{8}\.json", p))
+    prefetch = getattr(git, "prefetch", None)
+    if prefetch:
+        prefetch(commit, names)
     messages = []
     for name in names:
         msg = read_json(git, commit, name)
@@ -449,6 +575,9 @@ def ledger(git: Git) -> dict[str, dict[str, Any]]:
             if not card or card.get("outbox_ref") != ref or card.get("agent") != agent:
                 continue  # a copy carried on someone else's branch: not authoritative here
             try:
+                problem = card_problem(card)
+                if problem:
+                    raise A2AError("REFUSED_MALFORMED", f"{agent}: {problem}")
                 _, messages = load_agent(git, commit, agent)
                 agents[agent] = {"card": card, "ref": ref, "commit": commit, "messages": messages,
                                  "standing": "ALIVE"}
@@ -689,8 +818,11 @@ class Agent:
         me = agents.get(self.agent)
         if me is None:
             raise A2AError("BLOCKED", f"agent {self.agent} not announced on {self.ref}")
+        if me["standing"] != "ALIVE":
+            # An empty verified chain would re-answer every request; refuse instead.
+            raise A2AError(me["standing"], f"own chain on {self.ref}: {me.get('detail')}")
         answered = {m.get("in_reply_to") for m in me["messages"]}
-        offered = {s["id"] for s in me["card"].get("skills", [])}
+        offered = set(card_skills(me["card"]))
         replies = []
         for peer, view in sorted(agents.items()):
             if peer == self.agent or view["standing"] != "ALIVE":
@@ -714,14 +846,19 @@ class Agent:
                 replies.append(reply)
         return replies
 
-    def wait_reply(self, request_id: str, timeout: float, interval: float) -> dict[str, Any] | None:
+    def wait_reply(self, request_id: str, timeout: float, interval: float,
+                   responder: str | None = None) -> dict[str, Any] | None:
+        """The first verified reply to ``request_id``: a non-request message addressed to
+        us and, when ``responder`` is given (a unicast request), sent by that agent only,
+        so a third party cannot answer on the addressee's behalf."""
         deadline = time.monotonic() + timeout
         while True:
-            for view in self.sync().values():
-                if view["standing"] != "ALIVE":
+            for peer, view in sorted(self.sync().items()):
+                if view["standing"] != "ALIVE" or (responder not in (None, "*") and peer != responder):
                     continue
                 for msg in view["messages"]:
-                    if msg.get("in_reply_to") == request_id:
+                    if (msg.get("in_reply_to") == request_id and msg.get("performative") != "request"
+                            and msg.get("to") in (self.agent, "*")):
                         return {"reply": msg, "responder_ref": view["ref"], "responder_commit": view["commit"]}
             if time.monotonic() >= deadline:
                 return None
@@ -817,7 +954,7 @@ def main(argv: list[str] | None = None) -> int:
             if args.cmd == "peers":
                 emit({a: {"ref": v["ref"], "commit": v["commit"], "standing": v["standing"],
                           "messages": len(v["messages"]),
-                          "skills": [s["id"] for s in v["card"].get("skills", [])],
+                          "skills": card_skills(v["card"]),
                           **({"detail": v["detail"]} if "detail" in v else {})} for a, v in agents.items()})
             else:
                 msgs = [m for v in agents.values() for m in v["messages"]
@@ -847,7 +984,7 @@ def main(argv: list[str] | None = None) -> int:
             msg = agent.send(args.to, args.performative, parts, skill=args.skill)
             result: dict[str, Any] = {"sent": msg}
             if args.wait > 0:
-                got = agent.wait_reply(msg["id"], args.wait, args.interval)
+                got = agent.wait_reply(msg["id"], args.wait, args.interval, responder=msg["to"])
                 result["reply"] = got
                 result["standing"] = "ALIVE" if got else "UNKNOWN"
             emit(result)

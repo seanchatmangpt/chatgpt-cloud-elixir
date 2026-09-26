@@ -1,0 +1,73 @@
+{
+  "schema": "chatgpt-cloud-a2a-receipt/v1",
+  "subject": "harden + benchmark PR #43 (git-ref A2A bus): hostile-peer isolation, reply authenticity, listen-set robustness, O(1)-process sync",
+  "repository": "seanchatmangpt/chatgpt-cloud-elixir",
+  "base": "68301da91198e2e9b3a47111ce048de5321c3a96 (claude/a2a-capabilities-2sEqrx, PR #43 head)",
+  "authority": "NONE; ceiling CONSTRUCT/VERIFY",
+  "defects_found_by_falsifiers": [
+    "DoS: a sealed request without 'to' (KeyError) or with a non-string skill (TypeError) crashed serve_once for every reader; now REFUSED_MALFORMED for that author only",
+    "type confusion: seq true/1.0 accepted as 1; duplicate JSON keys accepted (last-key-wins) -> refused",
+    "malformed peer card skills crashed the peers listing -> REFUSED_MALFORMED, listing safe",
+    "reply spoofing: wait_reply/send --wait accepted any agent's message with matching in_reply_to (even a request) -> only the addressee's non-request reply addressed back to the sender",
+    "git transport: an exact listen ref that no longer exists (deleted agent, stale index entry) failed the whole fetch -> skipped via ls-remote",
+    "check_ref admitted names git rejects (claude/.x, a//b, x., x.lock/y) so an index entry could make every --use-index sync BLOCKED -> refused",
+    "stale subject: peer refs deleted remotely or dropped from the listen set stayed ALIVE in refs/a2a/peers -> pruned (parity with the API transport)",
+    "serve over a broken own chain would treat the chain as empty and re-answer everything -> refused with the chain's standing"
+  ],
+  "anti_vacuity": "tests/test_a2a_hardening.py against the PR-head scripts/a2a.py: Ran 20, failures=14 errors=5 (16 tests red; the 4 chain-order tests are regression guards green on both)",
+  "benchmark": {
+    "command": "python3 scripts/bench_a2a.py --messages 300 --module <a2a.py>",
+    "before_pr_head": {
+      "messages": 300,
+      "verify_chain": {
+        "messages_per_second": 71666,
+        "seconds": 0.004186
+      },
+      "sync_cold": {
+        "git_processes": 306,
+        "seconds": 7.3043
+      },
+      "sync_warm": {
+        "git_processes": 306,
+        "seconds": 7.8102
+      },
+      "sync_incremental": {
+        "git_processes": 307,
+        "seconds": 6.1451
+      }
+    },
+    "after": {
+      "messages": 300,
+      "verify_chain": {
+        "messages_per_second": 98147,
+        "seconds": 0.003057
+      },
+      "sync_cold": {
+        "git_processes": 8,
+        "seconds": 0.2409
+      },
+      "sync_warm": {
+        "git_processes": 3,
+        "seconds": 0.1126
+      },
+      "sync_incremental": {
+        "git_processes": 7,
+        "seconds": 0.2006
+      }
+    },
+    "host": {
+      "git": "git version 2.51.2",
+      "platform": "macOS-26.2-arm64-arm-64bit-Mach-O",
+      "python": "3.14.3"
+    },
+    "note": "host load average ~280 during the run; wall seconds are observations, git process counts are the bound"
+  },
+  "regression_bound": "tests/test_a2a_bench.py: cold sync <= 10, warm <= 4, incremental <= 9 git processes, equal at N=20 and N=120; verify_chain > 2000 msg/s",
+  "tests": "python3 -m unittest discover -s tests -> Ran 145, errors=1 skipped=1; the error is test_runtime_transport.test_committed_parts_are_never_git_lfs, pre-existing and environmental (scratch archive is not a git repository; same error on base main d6727fef, Ran 107)",
+  "standing": {
+    "hardening guards (git + api transports, real repos)": "ALIVE",
+    "benchmark bound": "ALIVE",
+    "live GitHub round trip": "UNKNOWN (not exercised by this receipt)"
+  },
+  "replay": "python3 -m unittest discover -s tests -p 'test_a2a*.py' && python3 scripts/bench_a2a.py --messages 300"
+}

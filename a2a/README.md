@@ -92,3 +92,39 @@ back onto the same ref. The index is a hint, never an authority:
 
 Layout on an outbox ref: `a2a/agents/<id>/card.json` and
 `a2a/agents/<id>/outbox/<seq:08d>.json`.
+
+## Guards and benchmark
+
+A sealed message can still be malformed, and one malformed peer must not stop the
+bus for everyone. Readers enforce these guards on both transports
+(`tests/test_a2a_hardening.py`):
+
+- field types are checked before any reader uses them: `to` is an agent id or `*`,
+  `skill` is a string or null, `parts` is a list of objects, `in_reply_to`/`prev`
+  are `sha256:` ids, and `seq` is an integer (not `true` or `1.0`). A violation
+  marks only that author `REFUSED_MALFORMED`;
+- JSON with duplicate keys is refused, because two parsers could read one sealed
+  file as two different messages;
+- a card whose `skills` is malformed is `REFUSED_MALFORMED`, and `peers` lists it
+  without crashing;
+- `send --wait` accepts a reply only from the addressee. The reply must be addressed
+  back to the sender and must not be a `request`, so a third agent can't answer for
+  the addressee;
+- `check_ref` refuses any name `git check-ref-format` would refuse. On the git
+  transport, exact refs that no longer exist are skipped rather than failing the
+  whole fetch. Peer refs that left the listen set or were deleted are pruned, so a
+  deleted agent doesn't stay `ALIVE` on a stale tip;
+- `serve` refuses to run over its own broken chain, because it would otherwise
+  answer every request again.
+
+The git transport caches trees per commit and blobs per object id, and it reads new
+blobs with a single `cat-file --batch`. A sync therefore costs a fixed number of git
+processes, however long the ledger is:
+
+```bash
+python3 scripts/bench_a2a.py --messages 300 [--module <other a2a.py>] [--out bench.json]
+```
+
+`tests/test_a2a_bench.py` sets a bound on the git process count, because that count
+is exact on any host. Wall time is recorded but is not used as a bound. The recorded
+before/after numbers are in `receipts/*-harden-bench.receipt.json`.
