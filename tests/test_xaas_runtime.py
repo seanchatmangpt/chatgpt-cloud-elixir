@@ -218,6 +218,8 @@ class XaasRuntimeTests(unittest.TestCase):
         try:
             with redirect_stdout(out):
                 code = bridge.main([
+                    "--transport",
+                    "http",
                     "mcp",
                     "tools/call",
                     "--tool",
@@ -380,7 +382,7 @@ class XaasRuntimeTests(unittest.TestCase):
         # Observed in Claude Code Cloud: without XAAS_* the direct probe fell
         # back to localhost:4000 and reported NETWORK, misattributing the edge.
         for command in (["probe"], ["receipts", "11111111-1111-1111-1111-111111111111"]):
-            code, row = self.run_main(["--require-config", *command], {})
+            code, row = self.run_main(["--transport", "http", "--require-config", *command], {})
             self.assertEqual(code, 69)
             self.assertEqual(row["standing"], "BLOCKED")
             self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
@@ -391,14 +393,14 @@ class XaasRuntimeTests(unittest.TestCase):
         self.assertEqual(Handler.calls, [])
 
     def test_direct_require_config_blocks_on_missing_token_only(self):
-        code, row = self.run_main(["--require-config", "probe"], {"XAAS_MCP_URL": self.url})
+        code, row = self.run_main(["--transport", "http", "--require-config", "probe"], {"XAAS_MCP_URL": self.url})
         self.assertEqual(row["reason"], "IRREDUCIBLE_TRANSPORT_CONFIG")
         self.assertEqual(row["detail"], "missing environment: XAAS_MCP_TOKEN")
         self.assertEqual(Handler.calls, [])
 
     def test_direct_require_config_passes_through_when_configured(self):
         code, row = self.run_main(
-            ["--require-config", "probe"],
+            ["--transport", "http", "--require-config", "probe"],
             {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
         )
         self.assertEqual(code, 0)
@@ -408,13 +410,13 @@ class XaasRuntimeTests(unittest.TestCase):
 
     def test_direct_probe_records_flag_target_source(self):
         # Local-dev default is preserved, but the receipt names where the target came from.
-        code, row = self.run_main(["--url", self.url, "probe"], {})
+        code, row = self.run_main(["--transport", "http", "--url", self.url, "probe"], {})
         self.assertEqual(row["target_source"], "flag")
         self.assertEqual(row["standing"], "ALIVE")
 
     def test_actuate_do_fence_survives_require_config(self):
         code, row = self.run_main(
-            ["--require-config", "mcp", "tools/call", "--tool", "actuate", "--arguments", "{}"],
+            ["--transport", "http", "--require-config", "mcp", "tools/call", "--tool", "actuate", "--arguments", "{}"],
             {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
         )
         self.assertEqual(code, 77)
@@ -506,7 +508,7 @@ class XaasRuntimeTests(unittest.TestCase):
 
     def test_direct_submit_bad_url_shape_is_typed_not_crash(self):
         code, row = self.run_main(
-            ["receipts", "11111111-1111-1111-1111-111111111111"],
+            ["--transport", "http", "receipts", "11111111-1111-1111-1111-111111111111"],
             {"XAAS_MCP_URL": "http://127.0.0.1:1/mcp", "XAAS_MCP_TOKEN": "secret-value"},
         )
         self.assertEqual(code, 69)
@@ -515,7 +517,7 @@ class XaasRuntimeTests(unittest.TestCase):
     def test_actuate_fence_is_case_and_space_insensitive(self):
         for name in ("Actuate", " ACTUATE ", "actuate"):
             code, row = self.run_main(
-                ["mcp", "tools/call", "--tool", name, "--arguments", "{}"],
+                ["--transport", "http", "mcp", "tools/call", "--tool", name, "--arguments", "{}"],
                 {"XAAS_MCP_URL": self.url, "XAAS_MCP_TOKEN": "secret-value"},
             )
             self.assertEqual(code, 77, name)

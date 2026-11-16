@@ -1,12 +1,16 @@
 # XaaS runtime transport
 
 `xaas-runtime/` carries the client surface for the XaaS Ultracode execution
-fabric. The target architecture (v26.9.25 section 7) is a **direct WSS
+fabric. The target architecture (v26.9.25 section 7) is a **direct
 transport**: ephemeral cloud coordination must not depend on GitHub Actions.
+`fabric` — direct Bearer-gated HTTP against the bounded runtime fabric
+surface — is the default for direct commands; `wss` remains an available
+direct dial.
 
 ```text
 CloudWorker
-  --WSS/443--> XaaS (Xaas.Tunnel) --> BRCE --> ZCode
+  --HTTP /internal-api/fabric (xaas-fabric/1; default)--> XaaS --> BRCE --> ZCode
+  --WSS/443 (Xaas.Tunnel)-----------------------------> XaaS --> BRCE --> ZCode
 ```
 
 GitHub Actions remains a **fallback transport / evidence path only** — it is
@@ -23,21 +27,26 @@ execution receipt to be sealed afterward.
 
 | transport | role | config | standing when unconfigured |
 |---|---|---|---|
-| `wss` | **primary / target** | `XAAS_TUNNEL_URL` (`ws://` or `wss://`), `XAAS_TUNNEL_TOKEN` | `BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` before any dial |
+| `fabric` | **default / target**: direct HTTP surface `/internal-api/fabric` (protocol `xaas-fabric/1`; `--fabric-url` overrides the URL) | `XAAS_FABRIC_URL` (default `http://localhost:4000`; localhost fallback unless `--require-config`), `XAAS_FABRIC_TOKEN` | `BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` with `--require-config` |
+| `wss` | direct WebSocket tunnel dial | `XAAS_TUNNEL_URL` (`ws://` or `wss://`), `XAAS_TUNNEL_TOKEN` | `BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` before any dial |
 | `http` | direct HTTP surface (`XAAS_MCP_URL` / `XAAS_MCP_TOKEN`) | same tokens as the direct client | `BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` with `--require-config` |
 | `github-actions` | explicit fallback: request/receipt relay | protected `xaas-runtime` GitHub Environment secrets | `BLOCKED[TRANSPORT_DELEGATED]` locally, by design |
 
-R25-015: a transport failure is typed, never a subject failure. A wss dial
-that cannot connect yields `BLOCKED` with reason `TRANSPORT` (handshake 401/403
-yield `REFUSED_AUTHENTICATION`/`REFUSED_AUTHORITY`), and the receipt records
-`fallback_transport: github-actions` — the only condition under which the
-fallback is selected.
+R25-015: a transport failure is typed, never a subject failure. A fabric
+exchange or wss dial that cannot connect yields `BLOCKED` with reason
+`TRANSPORT` (handshake 401/403 yield
+`REFUSED_AUTHENTICATION`/`REFUSED_AUTHORITY`), and the receipt records
+`fallback_transport: github-actions` — a typed direct-transport (fabric or
+wss) failure is the only condition under which the fallback is selected.
 
 ```bash
-# Primary: direct tunnel dial
+# Default: direct fabric surface
+python3 scripts/xaas-runtime.py --transport fabric --require-config probe
+
+# Direct tunnel dial (same bounded trio; only the wire changes):
 python3 scripts/xaas-runtime.py --transport wss --require-config probe
 
-# Explicit fallback only after a typed wss transport failure:
+# Explicit fallback only after a typed fabric/wss transport failure:
 python3 scripts/xaas-runtime.py --transport github-actions probe
 ```
 
@@ -55,6 +64,18 @@ lane) is:
 
 The bounded trio flow (probe -> admit -> submit -> execute -> sealedReceipt
 -> replay) is identical across transports; only the wire changes.
+
+Direct commands accept `--idempotency-key` on `submit-run`
+(`[A-Za-z0-9._:-]{1,128}`); when omitted the key is derived from
+`goal` + `exact_subject` + `provider`, so re-running the same order reuses
+the server-side idempotent replay instead of double-submitting.
+
+Fabric transport standings are typed, never subject failures:
+
+- `PARTIAL_ALIVE[RUN_SUBMIT_GATED_ORG_SCOPED_TOKEN_REQUIRED]` — `run.submit` requires an org-carrying token;
+- `PARTIAL_ALIVE[RUN_IDEMPOTENT_REPLAY]` — the idempotency key was already admitted; the original receipt replays;
+- `PARTIAL_ALIVE[RUN_SUBMITTED_NOT_VERIFIED]` — XaaS admitted the run; downstream ZCode execution is `UNKNOWN`;
+- `UNSUPPORTED[CONTRACT_MISMATCH]` — the observed protocol or capability allowlist is not `xaas-fabric/1` + the bounded trio.
 
 ## Request documents
 

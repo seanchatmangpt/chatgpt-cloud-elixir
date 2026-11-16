@@ -7,16 +7,21 @@ zcode-cli's native ``gall-work`` client.
 
 Transports (--transport):
 
-- ``http`` (default): direct Bearer-gated HTTP against XAAS_MCP_URL.
-- ``wss`` (target architecture, v26.9.25): direct WebSocket (RFC 6455, ws:// or
-  wss://) dial of the XaaS outbound tunnel at XAAS_TUNNEL_URL, token
-  XAAS_TUNNEL_TOKEN. Carries only the bounded trio fabric.probe / run.submit /
-  epoch.receipts; the probe -> admit -> submit -> execute -> sealedReceipt ->
-  replay sequence is unchanged, only the wire changes.
+- ``fabric`` (default, target architecture, v26.9.25 section 7): direct
+  Bearer-gated HTTP against the bounded runtime fabric surface
+  XAAS_FABRIC_URL + /internal-api/fabric (protocol xaas-fabric/1). Carries
+  only the bounded trio fabric.probe / run.submit / epoch.receipts; the
+  probe -> admit -> submit -> execute -> sealedReceipt -> replay sequence is
+  unchanged.
+- ``wss``: direct WebSocket (RFC 6455, ws:// or wss://) dial of the XaaS
+  outbound tunnel at XAAS_TUNNEL_URL, token XAAS_TUNNEL_TOKEN. Same bounded
+  trio; only the wire changes.
+- ``http``: direct Bearer-gated HTTP against XAAS_MCP_URL (the execution MCP
+  surface the fabric is composed over).
 - ``github-actions``: explicit fallback transport (request/receipt relay via
-  .github/workflows/xaas-runtime-proxy.yml). Selected only when wss fails with
-  a typed transport reason (R25-015: transport failure is typed, never subject
-  failure).
+  .github/workflows/xaas-runtime-proxy.yml). Selected only when a direct
+  transport (fabric or wss) fails with a typed transport reason (R25-015:
+  transport failure is typed, never subject failure).
 
 No command grants itself authority. The XaaS token and (for lease tools) the
 lease token remain the authority-bearing inputs enforced by XaaS.
@@ -46,6 +51,9 @@ DEFAULT_MCP_URL = "http://localhost:4000/internal-api/execution/mcp"
 MCP_PATH = "/internal-api/execution/mcp"
 RUNS_PATH = "/internal-api/execution/runs"
 TRIO_OPERATIONS = {"fabric.probe", "run.submit", "epoch.receipts"}
+DEFAULT_FABRIC_URL = "http://localhost:4000"
+FABRIC_BASE = "/internal-api/fabric"
+FABRIC_PROTOCOL = "xaas-fabric/1"
 MAX_WS_FRAME = 4 * 1024 * 1024
 WS_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
 EXPECTED_TOOLS = {
@@ -176,6 +184,56 @@ def tunnel_config_error(tunnel: TunnelTarget) -> str | None:
 def tunnel_origin(url: str) -> str:
     parsed = urllib.parse.urlsplit(url)
     return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, "", "", ""))
+
+
+@dataclass(frozen=True)
+class FabricTarget:
+    url: str
+    token: str | None
+
+    @property
+    def origin(self) -> str:
+        parsed = urllib.parse.urlsplit(self.url)
+        return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, "", "", ""))
+
+
+def resolve_fabric(env: dict[str, str] | None = None, url: str | None = None) -> FabricTarget:
+    if env is None:
+        env = os.environ
+    fabric_url = (url or env.get("XAAS_FABRIC_URL") or DEFAULT_FABRIC_URL).strip().rstrip("/")
+    token = (env.get("XAAS_FABRIC_TOKEN") or "").strip()
+    return FabricTarget(url=fabric_url, token=token or None)
+
+
+def missing_fabric_config(url: str | None = None, env: dict[str, str] | None = None) -> list[str]:
+    if env is None:
+        env = os.environ
+    missing = []
+    if not (url or env.get("XAAS_FABRIC_URL", "")).strip():
+        missing.append("XAAS_FABRIC_URL")
+    if not env.get("XAAS_FABRIC_TOKEN", "").strip():
+        missing.append("XAAS_FABRIC_TOKEN")
+    return missing
+
+
+def fabric_config_error(fabric: FabricTarget) -> str | None:
+    """Shape validation before any dial; same privacy law as the HTTP surface."""
+    parsed = urllib.parse.urlsplit(fabric.url)
+    if parsed.username is not None or parsed.password is not None:
+        return "config:url_userinfo_refused"
+    if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+        return "config:url_invalid"
+    return None
+
+
+def fabric_target_source(url: str | None = None, env: dict[str, str] | None = None) -> str:
+    if env is None:
+        env = os.environ
+    if url:
+        return "flag"
+    if (env.get("XAAS_FABRIC_URL") or "").strip():
+        return "env"
+    return "default"
 
 
 class TransportError(Exception):
@@ -545,6 +603,26 @@ def wss_exchange(tunnel: TunnelTarget):
     return exchange
 
 
+def fabric_exchange(fabric: FabricTarget):
+    """Exchange closure over the bounded runtime fabric surface
+    (XAAS_FABRIC_URL + /internal-api/fabric, protocol xaas-fabric/1).
+    Receipt urls keep scheme + path; endpoint_identity redacts the host.
+    A dial-level failure (refused, DNS, timeout) is normalized to a typed
+    ``transport:`` error (R25-015) so it — and only it — can select the
+    explicit github-actions fallback."""
+
+    def exchange(method: str, path: str, body: Any | None, timeout: float):
+        url = fabric.origin + path
+        bearer = f"Bearer {fabric.token}" if fabric.token else None
+        shim = Target(mcp_url=url, authorization=bearer)
+        status, payload, error = request_json(method, url, shim, body, timeout)
+        if error and error.startswith("network:"):
+            error = "transport:connect:" + error.split(":", 1)[1]
+        return url, status, payload, error
+
+    return exchange
+
+
 def mcp_call_exchange(
     exchange,
     method: str,
@@ -669,6 +747,108 @@ def read_receipts(target: Target, epoch_id: str, timeout: float, exchange=None, 
     return row
 
 
+def fabric_probe(fabric: FabricTarget, timeout: float, exchange=None, authenticated: bool | None = None) -> dict[str, Any]:
+    """fabric.probe over the bounded runtime fabric: the observed protocol and
+    capability allowlist must equal xaas-fabric/1 + the bounded trio, else the
+    probe is UNSUPPORTED (contract mismatch), never silently ALIVE."""
+    if exchange is None:
+        exchange = fabric_exchange(fabric)
+    if authenticated is None:
+        authenticated = bool(fabric.token)
+    url, status, payload, error = exchange("GET", FABRIC_BASE + "/probe", None, timeout)
+    row = receipt(
+        action="fabric:probe", url=url, request_body=None, status=status,
+        payload=payload, transport_error=error, authenticated=authenticated,
+        replay="python3 scripts/xaas-runtime.py --transport fabric probe",
+    )
+    if row["standing"] == "ALIVE":
+        if not isinstance(payload, dict):
+            row["standing"], row["reason"] = "BUILD_BROKEN", "PROTOCOL_SHAPE"
+        else:
+            observed_protocol = payload.get("protocol")
+            capabilities = payload.get("capabilities")
+            observed_capabilities = sorted(capabilities) if isinstance(capabilities, list) else None
+            contract_ok = (
+                observed_protocol == FABRIC_PROTOCOL
+                and observed_capabilities == sorted(TRIO_OPERATIONS)
+            )
+            row["contract"] = {
+                "expected_protocol": FABRIC_PROTOCOL,
+                "observed_protocol": observed_protocol,
+                "expected_capabilities": sorted(TRIO_OPERATIONS),
+                "observed_capabilities": observed_capabilities,
+                "refused": payload.get("refused"),
+                "org_scoped": payload.get("org_scoped?"),
+            }
+            if not contract_ok:
+                row["standing"], row["reason"] = "UNSUPPORTED", "CONTRACT_MISMATCH"
+            elif isinstance(payload.get("blocked"), dict) and payload["blocked"].get("run.submit"):
+                # Non-org-scoped token tier: the probe itself is admitted but
+                # run.submit is server-gated; honest partial standing, never ALIVE.
+                row["standing"], row["reason"] = "PARTIAL_ALIVE", "RUN_SUBMIT_GATED_ORG_SCOPED_TOKEN_REQUIRED"
+    return row
+
+
+def fabric_submit(fabric: FabricTarget, args: argparse.Namespace, exchange=None, authenticated: bool | None = None) -> dict[str, Any]:
+    """run.submit over the bounded runtime fabric: idempotent POST /runs
+    (201 = new run, 200 = replay of the same idempotency key). Submission is
+    PARTIAL_ALIVE with downstream standing UNKNOWN: it proves XaaS admitted
+    the run, not that ZCode executed or verified it."""
+    if exchange is None:
+        exchange = fabric_exchange(fabric)
+    if authenticated is None:
+        authenticated = bool(fabric.token)
+    body: dict[str, Any] = {"goal": args.goal, "provider": args.provider}
+    if getattr(args, "worktree", None):
+        body["worktree"] = args.worktree
+    if getattr(args, "verifier_suite", None):
+        body["verifier_suite"] = args.verifier_suite
+    idempotency_key = getattr(args, "idempotency_key", None)
+    if not idempotency_key:
+        exact_subject = getattr(args, "exact_subject", None) or ""
+        idempotency_key = digest(
+            {"goal": args.goal, "exact_subject": exact_subject, "provider": args.provider}
+        )[:32]
+    body["idempotency_key"] = idempotency_key
+    url, status, payload, error = exchange("POST", FABRIC_BASE + "/runs", body, args.timeout)
+    row = receipt(
+        action="fabric:submit-run", url=url, request_body=body, status=status,
+        payload=payload, transport_error=error, authenticated=authenticated,
+        replay="python3 scripts/xaas-runtime.py --transport fabric submit-run --goal <goal> --idempotency-key <key>",
+    )
+    if row["standing"] == "ALIVE":
+        if not isinstance(payload, dict) or not payload.get("epoch_id"):
+            row["standing"], row["reason"] = "BUILD_BROKEN", "PROTOCOL_SHAPE"
+        else:
+            row["standing"] = "PARTIAL_ALIVE"
+            row["reason"] = "RUN_IDEMPOTENT_REPLAY" if payload.get("replay") is True else "RUN_SUBMITTED_NOT_VERIFIED"
+            row["downstream_standing"] = "UNKNOWN"
+    return row
+
+
+def fabric_receipts(fabric: FabricTarget, epoch_id: str, timeout: float, exchange=None, authenticated: bool | None = None) -> dict[str, Any]:
+    """epoch.receipts over the bounded runtime fabric: bounded long-poll read.
+    204 = the poll window elapsed with nothing sealed; that is an ALIVE
+    transport observation of an empty sealed set, never a subject verdict."""
+    if exchange is None:
+        exchange = fabric_exchange(fabric)
+    if authenticated is None:
+        authenticated = bool(fabric.token)
+    quoted = urllib.parse.quote(epoch_id, safe="")
+    url, status, payload, error = exchange("GET", f"{FABRIC_BASE}/epochs/{quoted}/receipts", None, timeout)
+    row = receipt(
+        action="fabric:receipts", url=url, request_body=None, status=status,
+        payload=payload, transport_error=error, authenticated=authenticated,
+        replay=f"python3 scripts/xaas-runtime.py --transport fabric receipts {epoch_id}",
+    )
+    if row["standing"] == "ALIVE":
+        if status == 204:
+            row["reason"] = "LONG_POLL_NO_SEALED_RECEIPTS"
+        elif not isinstance(payload, dict) or "receipts" not in payload:
+            row["standing"], row["reason"] = "BUILD_BROKEN", "PROTOCOL_SHAPE"
+    return row
+
+
 
 def local_request_receipt(
     request_id: str,
@@ -712,12 +892,13 @@ def missing_config(url: str | None = None, env: dict[str, str] | None = None) ->
 
 
 def note_fallback(row: dict[str, Any]) -> dict[str, Any]:
-    """R25-015: a typed wss transport failure is the only condition that selects
-    the github-actions fallback transport. Recorded on the receipt, never guessed."""
+    """R25-015: a typed direct-transport (fabric or wss) failure is the only
+    condition that selects the github-actions fallback transport. Recorded on
+    the receipt, never guessed."""
     if row.get("standing") == "BLOCKED" and row.get("reason") == "TRANSPORT":
         row["fallback_transport"] = "github-actions"
         row["fallback_note"] = (
-            "wss transport failed with a typed transport reason; the github-actions "
+            "direct transport failed with a typed transport reason; the github-actions "
             "request/receipt relay is the explicit fallback, not the target architecture"
         )
     return row
@@ -730,6 +911,7 @@ def execute_request_document(
     require_config: bool = False,
     transport: str = "http",
     tunnel: TunnelTarget | None = None,
+    fabric: FabricTarget | None = None,
 ) -> dict[str, Any]:
     request_id = str(document.get("request_id") or "")
     operation = str(document.get("operation") or "")
@@ -765,7 +947,26 @@ def execute_request_document(
         row["replay"] = "git commit xaas-runtime/requests/<request_id>.json and let the xaas-runtime workflow execute it"
         return bound(row)
 
-    if transport == "wss":
+    if transport == "fabric":
+        if require_config:
+            missing = missing_fabric_config()
+            if missing:
+                return bound(local_request_receipt(
+                    request_id,
+                    operation,
+                    "BLOCKED",
+                    "IRREDUCIBLE_TRANSPORT_CONFIG",
+                    "missing environment: " + ",".join(missing),
+                ))
+        if fabric is None:
+            fabric = resolve_fabric()
+        shape_error = fabric_config_error(fabric)
+        if shape_error:
+            return bound(local_request_receipt(request_id, operation, "BLOCKED", "IRREDUCIBLE_TRANSPORT_CONFIG", shape_error))
+        exchange = fabric_exchange(fabric)
+        authenticated = bool(fabric.token)
+        op_surface = "fabric"
+    elif transport == "wss":
         if tunnel is None:
             tunnel = resolve_tunnel()
         missing = missing_tunnel_config(tunnel.url)
@@ -782,6 +983,7 @@ def execute_request_document(
             return bound(local_request_receipt(request_id, operation, "BLOCKED", "IRREDUCIBLE_TRANSPORT_CONFIG", shape_error))
         exchange = wss_exchange(tunnel)
         authenticated = bool(tunnel.token)
+        op_surface = "tunnel"
     else:
         if require_config:
             missing = missing_config()
@@ -797,9 +999,13 @@ def execute_request_document(
             target = resolve_target()
         exchange = None
         authenticated = None
+        op_surface = "mcp"
 
     if operation == "fabric.probe":
-        row = probe(target, timeout, exchange=exchange, authenticated=authenticated)
+        if op_surface == "fabric":
+            row = fabric_probe(fabric, timeout, exchange=exchange, authenticated=authenticated)
+        else:
+            row = probe(target, timeout, exchange=exchange, authenticated=authenticated)
     elif operation == "run.submit":
         goal = payload.get("goal")
         exact_subject = payload.get("exact_subject")
@@ -816,16 +1022,23 @@ def execute_request_document(
             worktree=payload.get("worktree"),
             exact_subject=exact_subject,
             verifier_suite=payload.get("verifier_suite"),
+            idempotency_key=payload.get("idempotency_key"),
             timeout=timeout,
         )
-        row = submit_run(target, args, exchange=exchange, authenticated=authenticated)
+        if op_surface == "fabric":
+            row = fabric_submit(fabric, args, exchange=exchange, authenticated=authenticated)
+        else:
+            row = submit_run(target, args, exchange=exchange, authenticated=authenticated)
     elif operation == "epoch.receipts":
         epoch_id = payload.get("epoch_id")
         try:
             normalized = str(uuid.UUID(str(epoch_id)))
         except (ValueError, TypeError, AttributeError):
             return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "EPOCH_ID_INVALID"))
-        row = read_receipts(target, normalized, timeout, exchange=exchange, authenticated=authenticated)
+        if op_surface == "fabric":
+            row = fabric_receipts(fabric, normalized, timeout, exchange=exchange, authenticated=authenticated)
+        else:
+            row = read_receipts(target, normalized, timeout, exchange=exchange, authenticated=authenticated)
     else:  # pragma: no cover - membership enforced above
         return bound(local_request_receipt(request_id, operation, "REFUSED_REQUEST", "OPERATION_UNSUPPORTED"))
 
@@ -870,6 +1083,8 @@ def run_request_file(args: argparse.Namespace) -> dict[str, Any]:
                         transport=getattr(args, "transport", "http"),
                         tunnel=resolve_tunnel(url=getattr(args, "tunnel_url", None))
                         if getattr(args, "transport", "http") == "wss" else None,
+                        fabric=resolve_fabric(url=getattr(args, "fabric_url", None))
+                        if getattr(args, "transport", "http") == "fabric" else None,
                     )
                 except ValueError as error:
                     row = local_request_receipt(
@@ -910,11 +1125,17 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--url", help="override XAAS_MCP_URL")
     p.add_argument("--tunnel-url", help="override XAAS_TUNNEL_URL (ws:// or wss://)")
     p.add_argument(
+        "--fabric-url",
+        help="override XAAS_FABRIC_URL (base http(s) URL of the XaaS /internal-api/fabric surface)",
+    )
+    p.add_argument(
         "--transport",
-        choices=("http", "wss", "github-actions"),
-        default="http",
-        help="http = direct HTTP (default); wss = direct WebSocket tunnel "
-        "(target architecture); github-actions = explicit request/receipt relay fallback",
+        choices=("fabric", "wss", "http", "github-actions"),
+        default=None,
+        help="fabric = direct bounded /internal-api/fabric surface (default for direct "
+        "commands; target architecture); wss = direct WebSocket tunnel; http = direct "
+        "MCP surface (default for request documents, which the github-actions relay "
+        "workflow executes); github-actions = explicit request/receipt relay fallback",
     )
     p.add_argument("--timeout", type=float, default=15.0)
     p.add_argument(
@@ -936,6 +1157,11 @@ def parser() -> argparse.ArgumentParser:
     submit.add_argument("--worktree", help="absolute path on the XaaS host; omit if server workflow materializes it")
     submit.add_argument("--exact-subject")
     submit.add_argument("--verifier-suite")
+    submit.add_argument(
+        "--idempotency-key",
+        help="fabric run idempotency key ([A-Za-z0-9._:-]{1,128}); derived from "
+        "goal+exact_subject+provider when omitted",
+    )
     receipts = sub.add_parser("receipts", help="read sealed receipts for one epoch")
     receipts.add_argument("epoch_id")
     request = sub.add_parser("request", help="execute one bounded request document over the selected transport")
@@ -973,12 +1199,23 @@ def wss_direct_target(args: argparse.Namespace, command: str) -> tuple[TunnelTar
     return tunnel, None
 
 
+def fabric_direct_target(args: argparse.Namespace) -> tuple[FabricTarget, str | None]:
+    """Returns (fabric, error_receipt_detail). A typed config edge precedes any dial.
+    Unlike wss, an unset XAAS_FABRIC_URL falls back to the localhost dev default
+    (same posture as the http surface); --require-config refuses that fallback."""
+    fabric = resolve_fabric(url=getattr(args, "fabric_url", None))
+    shape_error = fabric_config_error(fabric)
+    if shape_error:
+        return fabric, shape_error
+    return fabric, None
+
+
 def local_transport_row(command: str, detail: str, transport: str) -> dict[str, Any]:
     row = local_request_receipt("direct", command, "BLOCKED", "IRREDUCIBLE_TRANSPORT_CONFIG", detail)
     row.pop("request_id")
     row.pop("operation")
     row["transport"] = transport
-    row["target_source"] = "wss"
+    row["target_source"] = transport
     row["replay"] = f"python3 scripts/xaas-runtime.py --transport {transport} --require-config {command}"
     return row
 
@@ -986,12 +1223,22 @@ def local_transport_row(command: str, detail: str, transport: str) -> dict[str, 
 def main(argv: list[str] | None = None) -> int:
     p = parser()
     args = p.parse_args(argv)
+    if args.transport is None:
+        # Default transport: fabric (the target architecture) for direct commands.
+        # Request documents keep the http surface unless --transport is explicit:
+        # the github-actions relay workflow executes `request` without a selector,
+        # and that fallback path must stay fully working without a workflow edit
+        # (v26.9.25 section 7: Actions is the fallback transport, never the target).
+        args.transport = "http" if args.command == "request" else "fabric"
     target = resolve_target(url=args.url)
     if args.require_config_global and args.command != "request":
         # Direct (non-relay) path: an absent target is a configuration edge, not a
         # network edge. Never let the localhost default masquerade as NETWORK.
         if args.transport == "wss":
             missing = missing_tunnel_config(args.tunnel_url)
+            detail = "missing environment: " + ",".join(missing) if missing else None
+        elif args.transport == "fabric":
+            missing = missing_fabric_config(getattr(args, "fabric_url", None))
             detail = "missing environment: " + ",".join(missing) if missing else None
         else:
             missing = missing_config(args.url)
@@ -1006,31 +1253,37 @@ def main(argv: list[str] | None = None) -> int:
             )
             row.pop("request_id")
             row.pop("operation")
-            row["target_source"] = "wss" if args.transport == "wss" else target_source(args.url)
-            row["replay"] = (
-                f"python3 scripts/xaas-runtime.py --transport wss --require-config {args.command}"
-                if args.transport == "wss"
-                else f"python3 scripts/xaas-runtime.py --require-config {args.command}"
-            )
+            if args.transport == "wss":
+                row["target_source"] = "wss"
+            elif args.transport == "fabric":
+                row["target_source"] = fabric_target_source(getattr(args, "fabric_url", None))
+            else:
+                row["target_source"] = target_source(args.url)
+            if args.transport == "wss":
+                row["replay"] = f"python3 scripts/xaas-runtime.py --transport wss --require-config {args.command}"
+            elif args.transport == "fabric":
+                row["replay"] = f"python3 scripts/xaas-runtime.py --transport fabric --require-config {args.command}"
+            else:
+                row["replay"] = f"python3 scripts/xaas-runtime.py --require-config {args.command}"
             print(json.dumps(row, indent=2, sort_keys=True))
             return exit_code(row)
     if args.transport == "github-actions" and args.command != "request":
         row = delegated_transport_receipt(args.command)
         print(json.dumps(row, indent=2, sort_keys=True))
         return exit_code(row)
-    if args.transport == "wss" and args.command == "mcp":
-        # The tunnel carries only the bounded trio; generic MCP (and therefore the
-        # actuate DO verb) stays on the direct HTTP surface.
+    if args.transport in {"wss", "fabric"} and args.command == "mcp":
+        # The direct bounded transports carry only the bounded trio; generic MCP
+        # (and therefore the actuate DO verb) stays on the http surface.
         row = local_request_receipt(
             "direct",
             args.command,
             "REFUSED_REQUEST",
             "TRIO_ONLY_TRANSPORT",
-            "the wss tunnel carries only fabric.probe, run.submit, epoch.receipts; "
-            "generic MCP and actuate are not relayable",
+            f"the {args.transport} transport carries only fabric.probe, run.submit, "
+            "epoch.receipts; generic MCP and actuate are not relayable",
         )
         row["standing"] = "REFUSED_REQUEST"
-        row["transport"] = "wss"
+        row["transport"] = args.transport
         row.pop("request_id")
         row.pop("operation")
         row["replay"] = "python3 scripts/xaas-runtime.py --transport http mcp tools/list"
@@ -1038,6 +1291,7 @@ def main(argv: list[str] | None = None) -> int:
         return exit_code(row)
     exchange = None
     authenticated = None
+    fabric = None
     if args.transport == "wss":
         tunnel, detail = wss_direct_target(args, args.command)
         if detail is not None:
@@ -1046,9 +1300,20 @@ def main(argv: list[str] | None = None) -> int:
             return exit_code(row)
         exchange = wss_exchange(tunnel)
         authenticated = bool(tunnel.token)
+    elif args.transport == "fabric":
+        fabric, detail = fabric_direct_target(args)
+        if detail is not None:
+            row = local_transport_row(args.command, detail, "fabric")
+            print(json.dumps(row, indent=2, sort_keys=True))
+            return exit_code(row)
+        exchange = fabric_exchange(fabric)
+        authenticated = bool(fabric.token)
     if args.command == "probe":
-        row = probe(target, args.timeout, exchange=exchange, authenticated=authenticated)
-        if args.transport == "wss":
+        if args.transport == "fabric":
+            row = fabric_probe(fabric, args.timeout, exchange=exchange, authenticated=authenticated)
+        else:
+            row = probe(target, args.timeout, exchange=exchange, authenticated=authenticated)
+        if args.transport in {"wss", "fabric"}:
             row = note_fallback(row)
     elif args.command == "mcp":
         params = None
@@ -1078,7 +1343,13 @@ def main(argv: list[str] | None = None) -> int:
             params = {"name": args.tool, "arguments": args.arguments}
         row = mcp_call(target, args.method, params, args.timeout)
     elif args.command in {"submit-run", "receipts"}:
-        if args.transport != "wss":
+        if args.transport == "fabric":
+            if args.command == "submit-run":
+                row = fabric_submit(fabric, args, exchange=exchange, authenticated=authenticated)
+            else:
+                row = fabric_receipts(fabric, args.epoch_id, args.timeout, exchange=exchange, authenticated=authenticated)
+            row = note_fallback(row)
+        elif args.transport != "wss":
             try:
                 _ = target.base_url
             except ValueError as error:
@@ -1095,14 +1366,16 @@ def main(argv: list[str] | None = None) -> int:
                 row = submit_run(target, args, exchange=exchange, authenticated=authenticated)
             else:
                 row = read_receipts(target, args.epoch_id, args.timeout, exchange=exchange, authenticated=authenticated)
-            if args.transport == "wss":
-                row = note_fallback(row)
+            row = note_fallback(row)
     else:
         args.require_config = args.require_config or args.require_config_global
         row = run_request_file(args)
     # Receipts never contain the bearer token; target auth is represented only as a boolean.
     if args.command != "request":
-        row.setdefault("target_source", target_source(args.url))
+        if args.transport == "fabric":
+            row.setdefault("target_source", fabric_target_source(getattr(args, "fabric_url", None)))
+        else:
+            row.setdefault("target_source", target_source(args.url))
     print(json.dumps(row, indent=2, sort_keys=True))
     return exit_code(row)
 

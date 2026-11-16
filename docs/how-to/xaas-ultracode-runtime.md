@@ -52,38 +52,42 @@ in replay commands.
 
 `--transport` selects the wire (v26.9.25 section 7):
 
-- `wss` — primary/target: direct WebSocket dial of the XaaS tunnel
-  (`XAAS_TUNNEL_URL`, `XAAS_TUNNEL_TOKEN`), stdlib RFC 6455 client, bounded
-  trio only.
-- `http` — direct HTTP (`XAAS_MCP_URL`, `XAAS_MCP_TOKEN`), the surface used by
-  every example below.
+- `fabric` — default/target: direct Bearer-gated HTTP against the bounded
+  runtime fabric surface `/internal-api/fabric` (protocol `xaas-fabric/1`;
+  `--fabric-url` overrides `XAAS_FABRIC_URL`, default `http://localhost:4000`;
+  the localhost fallback stands unless `--require-config`).
+- `wss` — direct WebSocket tunnel dial of the XaaS tunnel (`XAAS_TUNNEL_URL`,
+  `XAAS_TUNNEL_TOKEN`), stdlib RFC 6455 client; same bounded trio, only the
+  wire changes.
+- `http` — direct HTTP (`XAAS_MCP_URL`, `XAAS_MCP_TOKEN`), the
+  request-document surface the relay workflow executes.
 - `github-actions` — explicit fallback (request/receipt relay); selected only
-  after a typed wss transport failure.
+  after a typed fabric-or-wss transport failure.
 
 ```bash
-export XAAS_TUNNEL_URL='wss://<xaas-host>/tunnel'
-export XAAS_TUNNEL_TOKEN='<tunnel-token>'
-python3 scripts/xaas-runtime.py --transport wss --require-config probe
-python3 scripts/xaas-runtime.py --transport wss --require-config submit-run \
+export XAAS_FABRIC_URL='https://<xaas-host>'
+export XAAS_FABRIC_TOKEN='<bearer-token>'
+python3 scripts/xaas-runtime.py --transport fabric --require-config probe
+python3 scripts/xaas-runtime.py --transport fabric --require-config submit-run \
   --goal 'implement the admitted work order' \
   --exact-subject 'seanchatmangpt/example@<sha>'
 ```
 
-An unconfigured or unreachable tunnel is a typed transport edge
+An unconfigured or unreachable fabric surface or tunnel is a typed transport edge
 (`BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` / `BLOCKED[TRANSPORT]`), never a
 subject failure.
 
 ## Verify the live fabric contract
 
 ```bash
-python3 scripts/xaas-runtime.py --require-config probe
+python3 scripts/xaas-runtime.py --transport fabric --require-config probe
 ```
 
 From a cloud agent (ChatGPT Cloud or Claude Code Cloud) always pass
 `--require-config`. Without it the client falls back to the local-dev default
 `http://localhost:4000/...`, and an unconfigured container would report
 `BLOCKED[NETWORK]` (connection refused) instead of the real edge. With it, a
-missing `XAAS_MCP_URL` / `XAAS_MCP_TOKEN` is reported as
+missing `XAAS_FABRIC_URL` / `XAAS_FABRIC_TOKEN` is reported as
 `BLOCKED[IRREDUCIBLE_TRANSPORT_CONFIG]` before any network call. Every direct
 receipt records `target_source` (`flag`, `env`, or `default`).
 
@@ -118,6 +122,17 @@ ChatGPT cloud container.
 A successful HTTP submission is reported as `PARTIAL_ALIVE` with
 `downstream_standing: UNKNOWN`. It does not claim that ZCode ran, committed,
 verified, or closed the epoch.
+
+Direct commands accept `--idempotency-key` on `submit-run`
+(`[A-Za-z0-9._:-]{1,128}`); when omitted the key is derived from
+`goal` + `exact_subject` + `provider`, so re-running the same order reuses
+the server-side idempotent replay instead of double-submitting. Fabric
+transport standings are typed, never subject failures:
+
+- `PARTIAL_ALIVE[RUN_SUBMIT_GATED_ORG_SCOPED_TOKEN_REQUIRED]` — `run.submit` requires an org-carrying token;
+- `PARTIAL_ALIVE[RUN_IDEMPOTENT_REPLAY]` — the idempotency key was already admitted; the original receipt replays;
+- `PARTIAL_ALIVE[RUN_SUBMITTED_NOT_VERIFIED]` — XaaS admitted the run; downstream ZCode execution is `UNKNOWN`;
+- `UNSUPPORTED[CONTRACT_MISMATCH]` — the observed protocol or capability allowlist is not `xaas-fabric/1` + the bounded trio.
 
 ## Observe receipts
 
@@ -158,12 +173,14 @@ nothing: XaaS must independently admit the lease and registered resource/action.
 
 ## GitHub relay for egress-blocked ChatGPT containers (fallback only)
 
-The primary transport is the direct WSS tunnel (`--transport wss`, see
+The primary transport is the direct fabric surface (`--transport fabric`, see
 [xaas-runtime/README.md](../../xaas-runtime/README.md)): the cloud worker
-dials `XAAS_TUNNEL_URL` over WebSocket and speaks the identical bounded-trio
-flow. Ephemeral cloud coordination must not depend on GitHub Actions (v26.9.25
-section 7); the relay below remains as an explicit **fallback transport /
-evidence path**, selected only after a typed wss transport failure
+calls the bounded `/internal-api/fabric` HTTP surface (protocol
+`xaas-fabric/1`) and speaks the identical bounded-trio flow; the `wss` tunnel
+dial (`XAAS_TUNNEL_URL`) remains an available direct alternative. Ephemeral
+cloud coordination must not depend on GitHub Actions (v26.9.25 section 7);
+the relay below remains as an explicit **fallback transport / evidence
+path**, selected only after a typed fabric-or-wss transport failure
 (`BLOCKED[TRANSPORT]` with `fallback_transport: github-actions`, R25-015).
 
 When neither the tunnel nor direct egress is available, this repository

@@ -43,9 +43,11 @@ source ~/.chatgpt-cloud/runtime/env.sh   # ggen, erl, elixir, mix on PATH
 
 ### Runtime interaction with XaaS Ultracode / ZCode
 
-The cloud runtime also includes a stdlib-only client for the existing XaaS execution fabric. It reuses the same Bearer-gated JSON-RPC contract as `zcode gall-work`; it does not create a parallel execution API.
+The cloud runtime also includes a stdlib-only client for the existing XaaS execution fabric. It reuses the same Bearer-gated JSON-RPC contract as `zcode gall-work`; it does not create a parallel execution API. The runtime's default transport is now `fabric` — direct Bearer-gated HTTP over `XAAS_FABRIC_URL` + `/internal-api/fabric` (protocol `xaas-fabric/1`); the `http` surface remains the default for request documents executed by the github-actions relay.
 
 ```bash
+export XAAS_FABRIC_URL='https://<xaas-host>/internal-api/fabric'
+export XAAS_FABRIC_TOKEN='<bearer-token>'
 export XAAS_MCP_URL='https://<xaas-host>/internal-api/execution/mcp'
 export XAAS_MCP_TOKEN='<bearer-token>'
 python3 scripts/xaas-runtime.py --require-config probe   # cloud agents: never fall back to localhost
